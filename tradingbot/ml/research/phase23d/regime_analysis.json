@@ -1,0 +1,25 @@
+{
+  "phase": "23D",
+  "cohort_regime": "RANGE only (pipeline_actionable after calibration/risk/quality)",
+  "passed_trades": {
+    "count": 156,
+    "mean_rsi": 50.45,
+    "mean_adx": 17.33,
+    "mean_probability": 0.3303,
+    "mean_confidence": 0.9854,
+    "mean_atr_percentile": 40.69,
+    "win_rate": 0.4808
+  },
+  "blocked_trades": {
+    "count": 68,
+    "mean_rsi": 53.71,
+    "mean_adx": 17.45,
+    "mean_probability": 0.3151,
+    "mean_confidence": 0.9869,
+    "mean_atr_percentile": 39.16,
+    "win_rate": 0.3824
+  },
+  "regime_note": "All records are RANGE by construction. Filters were designed on hybrid Phase 19A/19C cohorts but currently gate RANGE phase9_9 SELL-heavy signals post-Phase23B repair.",
+  "transition_or_trend_blocked": 0,
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

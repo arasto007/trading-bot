@@ -1,0 +1,104 @@
+{
+  "phase": "31C",
+  "results": {
+    "baseline_current": {
+      "simulations": 500,
+      "net_median": 136.1,
+      "net_p05": 136.1,
+      "net_p95": 136.1,
+      "sequence_risk": "LOW"
+    },
+    "breakeven_0_5r": {
+      "simulations": 500,
+      "net_median": 1699.69,
+      "net_p05": 1699.69,
+      "net_p95": 1699.69,
+      "sequence_risk": "LOW"
+    },
+    "breakeven_1r": {
+      "simulations": 500,
+      "net_median": 1929.08,
+      "net_p05": 1929.08,
+      "net_p95": 1929.08,
+      "sequence_risk": "LOW"
+    },
+    "partial_50_at_1r": {
+      "simulations": 500,
+      "net_median": 1368.61,
+      "net_p05": 1368.61,
+      "net_p95": 1368.61,
+      "sequence_risk": "LOW"
+    },
+    "trailing_atr_1x": {
+      "simulations": 500,
+      "net_median": 1772.51,
+      "net_p05": 1772.51,
+      "net_p95": 1772.51,
+      "sequence_risk": "LOW"
+    },
+    "atr_exhaustion_exit": {
+      "simulations": 500,
+      "net_median": 1478.97,
+      "net_p05": 1478.97,
+      "net_p95": 1478.97,
+      "sequence_risk": "LOW"
+    },
+    "structure_ema_break": {
+      "simulations": 500,
+      "net_median": 1524.18,
+      "net_p05": 1524.18,
+      "net_p95": 1524.18,
+      "sequence_risk": "LOW"
+    },
+    "adaptive_time_fast": {
+      "simulations": 500,
+      "net_median": 657.42,
+      "net_p05": 657.42,
+      "net_p95": 657.42,
+      "sequence_risk": "LOW"
+    },
+    "momentum_decay_exit": {
+      "simulations": 500,
+      "net_median": 1847.05,
+      "net_p05": 1847.05,
+      "net_p95": 1847.05,
+      "sequence_risk": "LOW"
+    },
+    "adx_deterioration_exit": {
+      "simulations": 500,
+      "net_median": 2852.91,
+      "net_p05": 2852.91,
+      "net_p95": 2852.91,
+      "sequence_risk": "LOW"
+    },
+    "trailing_arm_0_75r": {
+      "simulations": 500,
+      "net_median": 1234.9,
+      "net_p05": 1234.9,
+      "net_p95": 1234.9,
+      "sequence_risk": "LOW"
+    },
+    "volatility_short_timeout": {
+      "simulations": 500,
+      "net_median": 3157.44,
+      "net_p05": 3157.44,
+      "net_p95": 3157.44,
+      "sequence_risk": "LOW"
+    },
+    "multi_stage_partial_trail": {
+      "simulations": 500,
+      "net_median": 846.48,
+      "net_p05": 846.48,
+      "net_p95": 846.48,
+      "sequence_risk": "LOW"
+    },
+    "hybrid_b_proxy": {
+      "simulations": 500,
+      "net_median": 2325.95,
+      "net_p05": 2325.95,
+      "net_p95": 2325.95,
+      "sequence_risk": "LOW"
+    }
+  },
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

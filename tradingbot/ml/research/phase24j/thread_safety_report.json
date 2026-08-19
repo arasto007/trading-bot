@@ -1,0 +1,100 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "report_type": "thread_safety",
+  "summary": "Main asyncio kernel loop is single-threaded per process. Background threads: KillSwitch, PositionRecovery, optional PositionProtector. PipelineCache uses threading.Lock. Several shared mutable stores lack cross-thread/file locking.",
+  "components": [
+    {
+      "component": "TradingKernel run_forever",
+      "thread_model": "single asyncio event loop",
+      "shared_state": ["_cycle_count", "KernelState", "pipeline stages"],
+      "lock": "none",
+      "race_risk": "LOW",
+      "evidence": "kernel/trading_kernel.py:215-223"
+    },
+    {
+      "component": "KillSwitchService",
+      "thread_model": "daemon thread _loop every 30s",
+      "shared_state": ["kernel.state via emergency_stop()", "MT5 account reads"],
+      "lock": "none on kernel state write",
+      "race_risk": "MEDIUM",
+      "evidence": "services/kill_switch.py:51-52,106-107",
+      "notes": "Can set EMERGENCY_STOP while main loop in run_global_cycle"
+    },
+    {
+      "component": "PipelineCache",
+      "thread_model": "called from main loop; lock protects singletons",
+      "shared_state": ["_feature_cache", "_prediction_cache", "bundles"],
+      "lock": "threading.Lock _lock",
+      "race_risk": "LOW correctness; MEDIUM latency",
+      "evidence": "ml/integration/pipeline_cache.py:38,104"
+    },
+    {
+      "component": "LiveRiskTracker",
+      "thread_model": "main loop + KillSwitch indirect via risk_gate",
+      "shared_state": ["live_risk_state.json"],
+      "lock": "none",
+      "race_risk": "MEDIUM",
+      "evidence": "services/live_risk_tracker.py:69-73,89-127",
+      "failure_id": "AUD-018"
+    },
+    {
+      "component": "SignalStage bar dedup",
+      "thread_model": "main loop only",
+      "shared_state": ["_last_closed_bar dict"],
+      "lock": "none needed",
+      "race_risk": "LOW",
+      "evidence": "pipeline/signal_stage.py:17"
+    },
+    {
+      "component": "Mt5PositionManager._registry",
+      "thread_model": "main loop manage_all; recovery thread separate if enabled",
+      "shared_state": ["_registry dict"],
+      "lock": "none",
+      "race_risk": "HIGH if dual managers",
+      "evidence": "adapters/mt5_position_manager.py:94; AUD-013",
+      "failure_id": "AUD-013"
+    },
+    {
+      "component": "PositionRecoveryService",
+      "thread_model": "monitor_thread independent",
+      "shared_state": ["position_state.db", "MT5 positions"],
+      "lock": "sqlite implicit",
+      "race_risk": "HIGH vs kernel position manager",
+      "evidence": "services/position_recovery_service.py:72; background_services.py",
+      "failure_id": "AUD-013"
+    },
+    {
+      "component": "TradeJournal SQLite",
+      "thread_model": "main + position manager journal lookup",
+      "shared_state": ["executions table"],
+      "lock": "none explicit",
+      "race_risk": "MEDIUM",
+      "evidence": "services/trade_journal.py:23-29",
+      "failure_id": "AUD-019"
+    },
+    {
+      "component": "ParquetCache",
+      "thread_model": "main loop read/write",
+      "shared_state": ["parquet files on disk"],
+      "lock": "none",
+      "race_risk": "LOW single instance",
+      "evidence": "adapters/market_cache.py",
+      "failure_id": "AUD-017"
+    },
+    {
+      "component": "MLKernelRegistry counters",
+      "thread_model": "main loop",
+      "shared_state": ["ml_count", "fallback_count"],
+      "lock": "none",
+      "race_risk": "LOW",
+      "evidence": "ml/integration/ml_kernel_registry.py:40-41"
+    }
+  ],
+  "duplicate_execution_vectors": [
+    {"id": "DUP-001", "vector": "Process restart same bar", "failure_id": "AUD-011"},
+    {"id": "DUP-002", "vector": "Dual position managers partial close", "failure_id": "AUD-013"},
+    {"id": "DUP-003", "vector": "order_send retry after ambiguous broker state", "failure_id": "AUD-014"},
+    {"id": "DUP-004", "vector": "Stale risk state allows excess entries", "failure_id": "AUD-009"}
+  ]
+}

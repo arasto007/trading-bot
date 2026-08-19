@@ -1,0 +1,11 @@
+{
+  "note": "mean_degradation is not persisted in phase9_9_model_comparison.json; numeric analysis uses mean_auc_gap vs Phase 9.8 baseline only",
+  "baseline_mean_auc_gap": 0.3308,
+  "baseline_mean_degradation": 0.38002,
+  "candidates_with_lower_mean_auc_gap": 27,
+  "candidates_with_equal_or_higher_mean_auc_gap": 1,
+  "candidates_passing_ordinal_overfitting_risk_decreased": 12,
+  "candidates_failing_despite_lower_mean_auc_gap": 15,
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false
+}

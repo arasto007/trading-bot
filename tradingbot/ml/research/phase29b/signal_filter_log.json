@@ -1,0 +1,404 @@
+{
+  "rejections": [
+    {
+      "timestamp": "2026-06-02 03:05:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 70.93,
+      "false_signal_score": 35.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 70.93 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 03:10:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 73.14,
+      "false_signal_score": 35.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 73.14 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:10:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 74.61,
+      "false_signal_score": 35.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 74.61 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:15:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 69.89,
+      "false_signal_score": 45.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 69.89 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:20:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 66.43,
+      "false_signal_score": 45.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 66.43 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:25:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 63.13,
+      "false_signal_score": 45.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 63.13 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:30:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 77.02,
+      "false_signal_score": 25.0,
+      "market_context_score": 50.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 77.02 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:35:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 76.13,
+      "false_signal_score": 25.0,
+      "market_context_score": 50.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 76.13 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:45:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 63.29,
+      "false_signal_score": 55.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 63.29 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry"
+      ]
+    },
+    {
+      "timestamp": "2026-06-02 04:50:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "BUY",
+      "ml_confidence": 0.85,
+      "signal_quality_score": 67.44,
+      "false_signal_score": 55.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 67.44 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 70.58,
+      "false_signal_score": 40.0,
+      "market_context_score": 20.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 70.58 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 69.21,
+      "false_signal_score": 39.0,
+      "market_context_score": 20.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 69.21 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 54.22,
+      "false_signal_score": 67.0,
+      "market_context_score": 20.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 54.22 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 53.4,
+      "false_signal_score": 65.0,
+      "market_context_score": 20.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 53.40 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 54.52,
+      "false_signal_score": 65.0,
+      "market_context_score": 25.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 54.52 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 57.36,
+      "false_signal_score": 55.0,
+      "market_context_score": 25.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 57.36 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 66.55,
+      "false_signal_score": 43.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 66.55 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 64.07,
+      "false_signal_score": 53.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 64.07 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 62.96,
+      "false_signal_score": 63.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 62.96 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 77.09,
+      "false_signal_score": 37.0,
+      "market_context_score": 35.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 77.09 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "volatility_spike",
+        "low_liquidity"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 77.04,
+      "false_signal_score": 37.0,
+      "market_context_score": 35.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 77.04 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "volatility_spike",
+        "low_liquidity"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 66.85,
+      "false_signal_score": 53.0,
+      "market_context_score": 40.0,
+      "trend_aligned": false,
+      "reject_reason": "signal_quality_score 66.85 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "timestamp": "2026-06-29 04:00:00+00:00",
+      "symbol": "XAUUSD",
+      "direction": "SELL",
+      "ml_confidence": 0.9,
+      "signal_quality_score": 77.08,
+      "false_signal_score": 37.0,
+      "market_context_score": 25.0,
+      "trend_aligned": true,
+      "reject_reason": "signal_quality_score 77.08 < threshold 77.56",
+      "threshold": 77.56,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "late_entry"
+      ]
+    }
+  ],
+  "count": 23
+}

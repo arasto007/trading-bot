@@ -1,0 +1,13 @@
+{
+  "phase": "22M",
+  "step": 6,
+  "verdict_code": "D",
+  "verdict_label": "Architecture Incorrect",
+  "evidence_summary": "Live MT5 data updates ParquetCache (data/XAUUSD_5m.parquet, max 2026-07-03). ML inference phase99 features read dataset_v2 built from CandleStore (max 2026-06-29). Repository contains no bridge between these stores and no live-triggered dataset rebuild.",
+  "rejected_verdicts": {
+    "A_Live_Data_Broken": "ParquetCache fresh — live fetch works",
+    "B_Dataset_Builder_Broken": "Builder works when run manually (Phase 22L rebuild succeeded)",
+    "C_Automation_Missing": "True but secondary — root issue is architectural split even if cron added",
+    "E_No_Problem_Found": "False — dataset_v2 stale vs live candles"
+  }
+}

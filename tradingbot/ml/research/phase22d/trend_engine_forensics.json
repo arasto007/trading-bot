@@ -1,0 +1,211 @@
+{
+  "phase": "22D",
+  "engine": "trend_rf_v41",
+  "bars_sampled": 1830,
+  "trend_bars": 1071,
+  "stage_counts": {
+    "rule_pass": 872,
+    "ml_hold": 527,
+    "ml_pass": 345,
+    "rule_hold": 199
+  },
+  "probability_distribution": {
+    "count": 872,
+    "mean": 0.371178,
+    "std": 0.112787,
+    "p25": 0.282428,
+    "p50": 0.359563,
+    "p75": 0.450635,
+    "min": 0.116487,
+    "max": 0.711148
+  },
+  "rf_threshold": 0.4,
+  "sample_traces": [
+    {
+      "bar": 0,
+      "rule_direction": "SELL",
+      "probability": 0.357676,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3577 < 0.4"
+    },
+    {
+      "bar": 1,
+      "rule_direction": "SELL",
+      "probability": 0.52963,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 2,
+      "rule_direction": "SELL",
+      "probability": 0.522761,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 3,
+      "rule_direction": "SELL",
+      "probability": 0.554673,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 4,
+      "rule_direction": "SELL",
+      "probability": 0.493766,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 5,
+      "rule_direction": "SELL",
+      "probability": 0.431803,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 6,
+      "rule_direction": "SELL",
+      "probability": 0.456354,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 7,
+      "rule_direction": "SELL",
+      "probability": 0.430919,
+      "threshold": 0.4,
+      "allow_trade": true,
+      "signal": "SELL",
+      "reject_reason": null
+    },
+    {
+      "bar": 8,
+      "rule_direction": "SELL",
+      "probability": 0.364841,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3648 < 0.4"
+    },
+    {
+      "bar": 9,
+      "rule_direction": "SELL",
+      "probability": 0.344081,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3441 < 0.4"
+    },
+    {
+      "bar": 10,
+      "rule_direction": "SELL",
+      "probability": 0.333861,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3339 < 0.4"
+    },
+    {
+      "bar": 11,
+      "rule_direction": "SELL",
+      "probability": 0.297283,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2973 < 0.4"
+    },
+    {
+      "bar": 12,
+      "rule_direction": "SELL",
+      "probability": 0.278652,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2787 < 0.4"
+    },
+    {
+      "bar": 13,
+      "rule_direction": "SELL",
+      "probability": 0.287279,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2873 < 0.4"
+    },
+    {
+      "bar": 14,
+      "rule_direction": "SELL",
+      "probability": 0.333574,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3336 < 0.4"
+    },
+    {
+      "bar": 15,
+      "rule_direction": "SELL",
+      "probability": 0.355739,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3557 < 0.4"
+    },
+    {
+      "bar": 16,
+      "rule_direction": "SELL",
+      "probability": 0.304871,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.3049 < 0.4"
+    },
+    {
+      "bar": 17,
+      "rule_direction": "SELL",
+      "probability": 0.25003,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2500 < 0.4"
+    },
+    {
+      "bar": 18,
+      "rule_direction": "SELL",
+      "probability": 0.268505,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2685 < 0.4"
+    },
+    {
+      "bar": 19,
+      "rule_direction": "SELL",
+      "probability": 0.285804,
+      "threshold": 0.4,
+      "allow_trade": false,
+      "signal": "HOLD",
+      "reject_reason": "prob 0.2858 < 0.4"
+    }
+  ],
+  "context_sample": {
+    "regime": "TREND",
+    "trend_signal": "HOLD",
+    "trend_prob": 0.2578742195222687
+  },
+  "verdict": "ENGINE_ML_FILTER"
+}

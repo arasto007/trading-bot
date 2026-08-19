@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+<HTA:APPLICATION
+  APPLICATIONNAME="TradingBot Sovereign"
+  BORDER="thin"
+  CAPTION="yes"
+  MAXIMIZEBUTTON="yes"
+  MINIMIZEBUTTON="yes"
+  SHOWINTASKBAR="yes"
+  SINGLEINSTANCE="yes"
+  SYSMENU="yes"
+  SCROLL="no"
+  WINDOWSTATE="maximize"
+/>
+<title>TradingBot Sovereign v9.1.0</title>
+<style>
+html, body { width:100%; height:100%; margin:0; padding:0; overflow:hidden; background:#0E0E10; }
+.bar { height:54px; background:#141418; border-bottom:1px solid #2A2A30; }
+.bar-inner { width:100%; height:54px; border-collapse:collapse; }
+.brand { font-size:15px; font-weight:700; color:#D4AF37; letter-spacing:1px; padding-left:16px; }
+.sub { font-size:10px; color:#5C5854; padding-left:16px; }
+.btn { margin:0 3px; padding:6px 12px; border:1px solid #2A2A30; background:#1A1A20; color:#E8E6E3; font-size:11px; cursor:pointer; border-radius:4px; }
+.btn-go { border-color:#3DDC84; color:#3DDC84; background:#0F1A14; }
+.btn-stop { border-color:#FF6B6B; color:#FF6B6B; background:#1A1010; }
+.btn-acc { border-color:#6B5A2E; color:#D4AF37; background:#1A1610; }
+#status { color:#7CB8FF; font-size:11px; font-family:Consolas,monospace; padding-right:16px; text-align:right; }
+#liveframe { width:100%; height:calc(100% - 54px); border:0; background:#0E0E10; }
+</style>
+</head>
+<body>
+<table class="bar-inner bar" cellpadding="0" cellspacing="0">
+<tr>
+  <td style="width:220px">
+    <div class="brand">SOVEREIGN</div>
+    <div class="sub">XAUUSD M5 PA + Meta | v9.1.0</div>
+  </td>
+  <td align="center">
+    <input type="button" id="btnGoLive" class="btn btn-go" value="START">
+    <input type="button" id="btnStop" class="btn btn-stop" value="STOP">
+    <input type="button" id="btnPrepare" class="btn btn-acc" value="Repair MT5">
+    <input type="button" id="btnCheck" class="btn" value="Check">
+    <input type="button" id="btnStatus" class="btn" value="Status">
+    <input type="button" id="btnDailyReport" class="btn" value="Report">
+    <input type="button" id="btnRefresh" class="btn btn-acc" value="Refresh">
+  </td>
+  <td style="width:420px"><div id="status">Loading...</div></td>
+</tr>
+</table>
+<iframe id="liveframe" src="data/dashboard_live.html"></iframe>
+<script language="VBScript">
+Option Explicit
+Dim gBusy
+Dim gBooted
+Dim gRoot
+
+Function DecodePathPart(s)
+  DecodePathPart = Replace(Replace(Replace(s, "%20", " "), "%25", "%"), "%5C", "\")
+End Function
+
+Function ProjectRoot()
+  If Len(gRoot) > 0 Then
+    ProjectRoot = gRoot
+    Exit Function
+  End If
+  Dim fso, rootFile, cached, href, htaDir
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  href = DecodePathPart(document.location.href)
+  href = Replace(Replace(Replace(href, "file:///", ""), "file://", ""), "/", "\")
+  If Len(href) >= 3 And Left(href, 1) = "\" And Mid(href, 3, 1) = ":" Then href = Mid(href, 2)
+  If fso.FileExists(href) Then
+    htaDir = fso.GetParentFolderName(fso.GetAbsolutePathName(href))
+  Else
+    htaDir = fso.GetParentFolderName(href)
+  End If
+  rootFile = fso.BuildPath(fso.BuildPath(htaDir, "data"), "hta_root.txt")
+  If fso.FileExists(rootFile) Then
+    cached = Trim(fso.OpenTextFile(rootFile, 1).ReadAll)
+    If Len(cached) > 0 And fso.FolderExists(cached) Then
+      gRoot = fso.GetAbsolutePathName(cached)
+      ProjectRoot = gRoot
+      Exit Function
+    End If
+  End If
+  gRoot = htaDir
+  ProjectRoot = gRoot
+End Function
+
+Function ReadUtcFromCache()
+  Dim fso, p, ts, txt, lines, i, line, root
+  ReadUtcFromCache = "-"
+  root = ProjectRoot()
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  p = fso.BuildPath(fso.BuildPath(root, "data"), "hta_dashboard_snapshot.txt")
+  If Not fso.FileExists(p) Then Exit Function
+  On Error Resume Next
+  Set ts = fso.OpenTextFile(p, 1, False, 0)
+  txt = ts.ReadAll
+  ts.Close
+  lines = Split(Replace(Replace(txt, vbCrLf, vbLf), vbCr, vbLf), vbLf)
+  For i = 0 To UBound(lines)
+    line = Trim(lines(i))
+    If Len(line) >= 5 Then
+      If Left(line, 4) = "UTC|" Then
+        ReadUtcFromCache = Mid(line, 5)
+        Exit Function
+      End If
+    End If
+  Next
+  On Error GoTo 0
+End Function
+
+Sub SetStatus(msg)
+  Dim el
+  Set el = document.getElementById("status")
+  If Not el Is Nothing Then
+    el.innerText = msg
+  End If
+  document.title = "TradingBot v9.1.0 | " & msg
+End Sub
+
+Sub ReloadFrame
+  Dim fr, tick
+  Set fr = document.getElementById("liveframe")
+  If fr Is Nothing Then Exit Sub
+  tick = Replace(CStr(Timer), ".", "")
+  fr.src = "data/dashboard_live.html?t=" & tick
+End Sub
+
+Sub RunSnapshotAsync
+  Dim fso, sh, root, bat, cmd
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  root = ProjectRoot()
+  bat = fso.BuildPath(root, "start\0_hta_snapshot.bat")
+  If Not fso.FileExists(bat) Then
+    SetStatus "Missing snapshot bat under " & root
+    Exit Sub
+  End If
+  sh.CurrentDirectory = root
+  cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & bat & Chr(34)
+  sh.Run cmd, 0, False
+End Sub
+
+Sub FinishRefresh
+  Dim fso, root, htmlPath, utc, sz
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  root = ProjectRoot()
+  htmlPath = fso.BuildPath(fso.BuildPath(root, "data"), "dashboard_live.html")
+  If Not fso.FileExists(htmlPath) Then
+    SetStatus "Missing dashboard_live.html"
+    gBusy = False
+    Exit Sub
+  End If
+  ReloadFrame
+  utc = ReadUtcFromCache()
+  sz = fso.GetFile(htmlPath).Size
+  SetStatus "OK " & sz & "b | UTC " & utc & " | 30s"
+  gBusy = False
+  window.setTimeout "RefreshAll", 30000
+End Sub
+
+Sub RefreshAll
+  If gBusy Then Exit Sub
+  gBusy = True
+  SetStatus "Refreshing..."
+  ReloadFrame
+  RunSnapshotAsync
+  window.setTimeout "FinishRefresh", 6000
+End Sub
+
+Sub RunBat(relativePath)
+  Dim fso, sh, root, bat, cmd
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  root = ProjectRoot()
+  bat = fso.BuildPath(root, relativePath)
+  If Not fso.FileExists(bat) Then
+    SetStatus "Missing " & relativePath
+    Exit Sub
+  End If
+  sh.CurrentDirectory = root
+  cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & bat & Chr(34)
+  sh.Run cmd, 1, False
+  SetStatus "Launched " & relativePath
+End Sub
+
+Sub RunBatSync(relativePath, extraArgs)
+  Dim fso, sh, root, bat, cmd
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  root = ProjectRoot()
+  bat = fso.BuildPath(root, relativePath)
+  If Not fso.FileExists(bat) Then
+    SetStatus "Missing " & relativePath
+    Exit Sub
+  End If
+  sh.CurrentDirectory = root
+  cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & bat & Chr(34)
+  If Len(Trim(extraArgs)) > 0 Then cmd = cmd & " " & extraArgs
+  sh.Run cmd, 0, True
+  SetStatus "Done " & relativePath
+End Sub
+
+Sub RefreshSoon
+  window.setTimeout "RefreshAll", 8000
+End Sub
+
+Sub BootDashboard
+  If gBooted Then Exit Sub
+  gBooted = True
+  SetStatus "Ready"
+  ReloadFrame
+  window.setTimeout "RefreshAll", 1000
+End Sub
+
+Sub Window_OnLoad
+  BootDashboard
+End Sub
+
+Sub btnGoLive_OnClick
+  RunBat "start\START_BOT.bat"
+  RefreshSoon
+End Sub
+
+Sub btnStop_OnClick
+  RunBatSync "start\5_stop_bot.bat", "--nopause"
+  RefreshAll
+End Sub
+
+Sub btnPrepare_OnClick
+  RunBat "start\GO_LIVE_FULL.bat"
+  RefreshSoon
+End Sub
+
+Sub btnCheck_OnClick
+  RunBat "start\1_check_setup.bat"
+End Sub
+
+Sub btnStatus_OnClick
+  RunBat "start\6_status.bat"
+  RefreshSoon
+End Sub
+
+Sub btnDailyReport_OnClick
+  RunBat "start\16_daily_report.bat"
+End Sub
+
+Sub btnRefresh_OnClick
+  RefreshAll
+End Sub
+</script>
+</body>
+</html>

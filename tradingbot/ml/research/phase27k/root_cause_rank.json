@@ -1,0 +1,74 @@
+{
+  "phase": "27K",
+  "ranked_causes": [
+    {
+      "cause": "high_confidence_still_lost",
+      "pct": 87.25,
+      "evidence": "confidence>=0.90"
+    },
+    {
+      "cause": "immediate_adverse_bar1",
+      "pct": 54.39,
+      "evidence": "in loss after 1 bar"
+    },
+    {
+      "cause": "momentum_failure",
+      "pct": 47.03,
+      "evidence": "MFE>=0.5R then SL exit"
+    },
+    {
+      "cause": "against_market_structure",
+      "pct": 41.08,
+      "evidence": "structure against trade direction"
+    },
+    {
+      "cause": "trend_reversal",
+      "pct": 26.06,
+      "evidence": "MFE>=0.25R then reversed to loss"
+    },
+    {
+      "cause": "range_fakeout",
+      "pct": 11.33,
+      "evidence": "RANGE regime quick adverse move"
+    },
+    {
+      "cause": "noise_immediate_stop",
+      "pct": 8.78,
+      "evidence": "SL within 3 bars, MAE>=0.75R"
+    },
+    {
+      "cause": "never_went_profitable",
+      "pct": 7.93,
+      "evidence": "MFE<=0.05R before exit"
+    },
+    {
+      "cause": "high_volatility",
+      "pct": 3.12,
+      "evidence": "ATR percentile >=75"
+    },
+    {
+      "cause": "false_breakout",
+      "pct": 1.98,
+      "evidence": "RANGE breakout failure"
+    },
+    {
+      "cause": "low_volatility",
+      "pct": 1.7,
+      "evidence": "ATR percentile <=25"
+    },
+    {
+      "cause": "stop_too_tight",
+      "pct": 0.0,
+      "evidence": "SL/ATR ratio mean=2.0"
+    },
+    {
+      "cause": "poor_entry_timing",
+      "pct": 0,
+      "evidence": "against structure without exhaustion"
+    }
+  ],
+  "primary_root_cause": "high_confidence_still_lost",
+  "secondary_root_cause": "immediate_adverse_bar1",
+  "combination_summary": "high_confidence_still_lost (87.25%) + immediate_adverse_bar1 (54.39%)",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "phase": "30C",
+  "inputs": [
+    "session",
+    "atr_percentile",
+    "news_flag",
+    "weekend_flag",
+    "symbol",
+    "broker_profile"
+  ],
+  "outputs": [
+    "spread_points",
+    "bid",
+    "ask"
+  ],
+  "calibration_targets": [
+    "Match p50/p95 spread by session vs live tick export",
+    "News window spread multiplier from NFP/FOMC samples"
+  ],
+  "production_gap": "Fixed 0.30 \u2192 must become tick-level",
+  "evidence": "phase30a spread breaking point 1.5\u00d7; high_spread PF 0.75",
+  "acceptance": "Simulated spread distribution KS-test vs live ticks p>0.05",
+  "generated_utc": "2026-07-10T08:54:32.599759+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "26B",
+  "total_trades_observed": 280,
+  "journal_executions": 54,
+  "replay_signals_evaluated": 226,
+  "completed_trades": 1,
+  "cancelled_or_incomplete": 54,
+  "analysis_sample_size": 1,
+  "buy_count": 0,
+  "sell_count": 1,
+  "range_count": 1,
+  "trend_count": 0,
+  "transition_count": 0,
+  "average_duration_bars": 7.0,
+  "median_duration_bars": 7.0,
+  "average_spread": 0.3,
+  "average_confidence": 1.0,
+  "average_probability": 1.0,
+  "minimum_sample_required": 200,
+  "sample_sufficient": false,
+  "note": "Completed trades sourced exclusively from phase26a/trade_log.json \u2014 no fabricated records",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

@@ -1,0 +1,47 @@
+{
+  "phase": "24B",
+  "stages": [
+    {
+      "stage": "model_confidence",
+      "source": "EngineSignal.confidence from range/trend evaluate",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "line": 53
+    },
+    {
+      "stage": "regime_adjusted_confidence",
+      "source": "ConfidenceEngine.from_context",
+      "file": "tradingbot/ml/decision_engine/confidence_engine.py",
+      "inputs": [
+        "MarketContext",
+        "model_confidence"
+      ]
+    },
+    {
+      "stage": "policy_gate",
+      "source": "DecisionPolicy.apply",
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "line": 23,
+      "threshold": "min_confidence \u2014 overridden by Phase22C when enabled (factory.py line 67)"
+    },
+    {
+      "stage": "calibration",
+      "source": "build_production_calibrated_adapter",
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 77,
+      "output": "calibrated.final_action, calibrated.final_confidence"
+    },
+    {
+      "stage": "unified_signal_confidence",
+      "source": "KernelAdapter UnifiedSignal.confidence",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 265,
+      "value": "float(calibrated.final_confidence)"
+    },
+    {
+      "stage": "trading_signal_confidence",
+      "source": "map_unified_to_trading_signal",
+      "propagates_to": "TradingSignal.confidence \u2192 RiskStage"
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

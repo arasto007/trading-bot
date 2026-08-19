@@ -1,0 +1,11 @@
+{
+  "scope": "probability_gate_passed_only",
+  "rule": "overfitting_risk_decreased",
+  "failed_label": "overfitting_risk_failed",
+  "failed_count": 5,
+  "candidate_count": 5,
+  "all_five_gate_passed_candidates_fail_this_rule": true,
+  "evidence_source": "data/ml/reports/phase9_9_model_comparison.json",
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false
+}

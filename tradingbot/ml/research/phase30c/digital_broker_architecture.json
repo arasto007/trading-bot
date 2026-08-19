@@ -1,0 +1,230 @@
+{
+  "phase": "30C",
+  "name": "Digital Broker Twin (DBT)",
+  "objective": "Replay and paper paths consume identical broker physics as live MT5 without modifying signal/risk/exit logic",
+  "design_principle": "Replace execution adapter internals with DBT; keep IOrderExecutor interface stable",
+  "modules": [
+    {
+      "id": "dbt.core",
+      "name": "BrokerTwinEngine",
+      "responsibility": "Orchestrate order lifecycle: accept \u2192 validate \u2192 queue \u2192 fill \u2192 report",
+      "inputs": [
+        "OrderRequest",
+        "MarketSnapshot",
+        "BrokerProfile"
+      ],
+      "outputs": [
+        "FillReport",
+        "RejectReport"
+      ]
+    },
+    {
+      "id": "dbt.market",
+      "name": "MarketDataFeed",
+      "responsibility": "Bid/ask tick stream or synthetic from candles+ticks",
+      "inputs": [
+        "TickStore",
+        "CandleStore",
+        "live MT5 tick optional"
+      ],
+      "outputs": [
+        "QuoteStream"
+      ]
+    },
+    {
+      "id": "dbt.spread",
+      "name": "SpreadEngine",
+      "responsibility": "Tick spread from session/vol/news/weekend profiles",
+      "inputs": [
+        "QuoteStream",
+        "SessionCalendar",
+        "VolatilityState"
+      ],
+      "outputs": [
+        "EffectiveSpread"
+      ]
+    },
+    {
+      "id": "dbt.slippage",
+      "name": "SlippageEngine",
+      "responsibility": "Entry/exit implementation shortfall distribution",
+      "inputs": [
+        "OrderRequest",
+        "EffectiveSpread",
+        "LiquidityState",
+        "LatencyDraw"
+      ],
+      "outputs": [
+        "SlippagePoints",
+        "PriceImprovementFlag"
+      ]
+    },
+    {
+      "id": "dbt.liquidity",
+      "name": "LiquidityBook",
+      "responsibility": "Approximate depth curve; max fillable lot",
+      "inputs": [
+        "SymbolProfile",
+        "Session",
+        "VolatilityState"
+      ],
+      "outputs": [
+        "DepthCurve",
+        "FillCap"
+      ]
+    },
+    {
+      "id": "dbt.fill",
+      "name": "FillEngine",
+      "responsibility": "Partial fills, FOK/IOC/RETURN simulation, requotes",
+      "inputs": [
+        "OrderRequest",
+        "QuoteStream",
+        "FillCap"
+      ],
+      "outputs": [
+        "FillEvent"
+      ]
+    },
+    {
+      "id": "dbt.latency",
+      "name": "LatencySimulator",
+      "responsibility": "Sample delay; advance tick stream to t+\u0394; price at arrival",
+      "inputs": [
+        "LatencyProfile",
+        "VPSProfile"
+      ],
+      "outputs": [
+        "ArrivalTimestamp",
+        "ArrivalQuote"
+      ]
+    },
+    {
+      "id": "dbt.rules",
+      "name": "BrokerRules",
+      "responsibility": "stops_level freeze_level digits volume_min/step max deviation",
+      "inputs": [
+        "BrokerProfile",
+        "symbol_info snapshot"
+      ],
+      "outputs": [
+        "ValidationResult"
+      ]
+    },
+    {
+      "id": "dbt.margin",
+      "name": "MarginEngine",
+      "responsibility": "Margin calc, margin call, stop-out simulation",
+      "inputs": [
+        "OpenPositions",
+        "AccountState",
+        "BrokerProfile"
+      ],
+      "outputs": [
+        "MarginLevel",
+        "StopOutEvents"
+      ]
+    },
+    {
+      "id": "dbt.carry",
+      "name": "CarryEngine",
+      "responsibility": "Swap accrual, commission per fill",
+      "inputs": [
+        "Position",
+        "HoldDuration",
+        "BrokerProfile"
+      ],
+      "outputs": [
+        "SwapCharge",
+        "CommissionCharge"
+      ]
+    },
+    {
+      "id": "dbt.gap",
+      "name": "GapEngine",
+      "responsibility": "Weekend/news gap through SL/TP",
+      "inputs": [
+        "BarGapEvents",
+        "TickStream"
+      ],
+      "outputs": [
+        "GapAdjustedExitPrice"
+      ]
+    },
+    {
+      "id": "dbt.profile",
+      "name": "BrokerProfile",
+      "responsibility": "Frozen broker fingerprint JSON (calibrated Phase 30D)",
+      "inputs": [
+        "Calibration dataset"
+      ],
+      "outputs": [
+        "SpreadCoeffs",
+        "SlippageCoeffs",
+        "RetcodeRates"
+      ]
+    },
+    {
+      "id": "dbt.telemetry",
+      "name": "ExecutionTelemetry",
+      "responsibility": "TCA metrics, execution score, rejection log",
+      "inputs": [
+        "FillReport"
+      ],
+      "outputs": [
+        "ExecutionQualityRecord"
+      ]
+    }
+  ],
+  "interfaces": {
+    "IOrderExecutor": "Existing port \u2014 DBT implements shadow or replaces Mt5ExecutionAdapter paper branch",
+    "IBrokerTwin": "simulate_market_order(req, snapshot) \u2192 FillReport",
+    "IQuoteStream": "get_quote(ts), advance_to(ts)",
+    "IBrokerProfileLoader": "load(profile_id) \u2192 BrokerProfile"
+  },
+  "data_flow": [
+    "TradingSignal + lot \u2192 OrderRequest",
+    "MarketSnapshot \u2190 TickStore/CandleStore (+ optional live)",
+    "BrokerRules.validate(OrderRequest)",
+    "LatencySimulator \u2192 arrival time",
+    "QuoteStream.advance(arrival) \u2192 bid/ask",
+    "SpreadEngine + SlippageEngine + FillEngine \u2192 FillReport",
+    "CarryEngine on position updates",
+    "MarginEngine after each fill",
+    "FillReport \u2192 PaperTradeRecorder / journal (prices only, no logic change)",
+    "AccountingEngine unchanged \u2014 receives final prices/PnL"
+  ],
+  "dependencies": {
+    "must_not_import": [
+      "ML kernel",
+      "RiskGate internals",
+      "WPSQF",
+      "exit_policy logic changes"
+    ],
+    "may_read": [
+      "CandleStore",
+      "symbol_info",
+      "BrokerConstraints",
+      "domain.position_logic"
+    ],
+    "feeds": [
+      "PaperTradeRecorder",
+      "TradeJournal",
+      "ReplayPortfolioTracker"
+    ]
+  },
+  "validation_strategy": {
+    "unit": "Each engine deterministic with fixed seed + golden fixtures",
+    "parity": "DBT paper vs live fill log MAE on spread/slip (Phase 30D)",
+    "replay": "489 Phase29B trades \u2014 PF within \u00b15% of calibrated target",
+    "regression": "TRADINGBOT_SIGNAL_FILTER=OFF byte-identical signals; only fills differ",
+    "stress": "Phase30A scenario matrix re-run under DBT"
+  },
+  "integration_modes": {
+    "replay": "Bar loop feeds MarketSnapshot; DBT replaces instant fill in replay portfolio open",
+    "paper": "Mt5ExecutionAdapter paper branch delegates to DBT instead of PaperBroker",
+    "live_shadow": "Live sends real order; DBT simulates parallel; log divergence",
+    "live": "Future Phase 31+ \u2014 optional not in 30C scope"
+  },
+  "generated_utc": "2026-07-10T08:54:32.596621+00:00"
+}

@@ -1,0 +1,107 @@
+{
+  "phase": "22W",
+  "title": "Phase 9.9 model selection pipeline (repository trace)",
+  "entry": {
+    "orchestrator": "RobustnessOptimizer.run",
+    "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+    "script": "scripts/train_model.py --phase9-9"
+  },
+  "stages": [
+    {
+      "order": 1,
+      "name": "candidate_generation",
+      "function": "build_regularized_candidates + run_candidate_grid",
+      "files": [
+        "tradingbot/ml/research/robustness_optimizer/model_regularization.py",
+        "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py"
+      ],
+      "candidates": 7,
+      "feature_subsets": 4,
+      "regimes": [
+        "RANGE"
+      ],
+      "total_experiments": 28
+    },
+    {
+      "order": 2,
+      "name": "per_window_train_validate",
+      "function": "validate_window_candidate",
+      "file": "tradingbot/ml/research/robustness_optimizer/window_validator.py",
+      "metrics_computed": [
+        "roc_auc",
+        "precision",
+        "recall",
+        "f1",
+        "train_roc_auc",
+        "train_val_auc_gap",
+        "performance_degradation",
+        "num_trades",
+        "win_rate",
+        "profit_factor",
+        "expectancy",
+        "max_drawdown",
+        "total_return",
+        "sharpe_proxy"
+      ],
+      "trade_simulation": {
+        "file": "tradingbot/ml/research/walk_forward/model_validator.py",
+        "strategy": "ThresholdStrategy buy=0.55 sell=0.45",
+        "note": "PF/win_rate come from simulated trades on validation probabilities"
+      }
+    },
+    {
+      "order": 3,
+      "name": "robustness_scoring",
+      "function": "analyze_robustness / compute_robustness_score",
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "robustness_formula": "100 * (0.30*pf_pass + 0.30*exp_pass + 0.25*consistency + 0.15*(1-gap_penalty))",
+      "overfitting_risk": "from mean train_val_auc_gap and performance_degradation"
+    },
+    {
+      "order": 4,
+      "name": "candidate_ranking",
+      "function": "rank_candidates / composite_score",
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "composite_weights": {
+        "robustness_score": 0.4,
+        "mean_profit_factor_normalized": 0.25,
+        "expectancy_consistency": 0.2,
+        "low_overfitting_penalty": 0.15
+      },
+      "tie_breakers": [
+        "composite_score",
+        "robustness_score",
+        "overfitting_risk",
+        "profitable_windows"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "acceptance_gate",
+      "function": "evaluate_acceptance",
+      "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "checks": [
+        "robustness_improved vs phase9_8",
+        "overfitting_risk_decreased",
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "candidate_rejection",
+      "mechanism": "Lower composite_score; skipped windows; experiment errors",
+      "no_explicit_rejection_rules_for_probability": true
+    },
+    {
+      "order": 7,
+      "name": "freeze_artifacts",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "note": "Retrain on first 85% RANGE slice; no probability audit before save"
+    }
+  ],
+  "probability_metrics_in_selection": "NONE — see selection_criteria_audit.json",
+  "production_modified": false,
+  "generated_utc": "2026-07-07T18:40:53.360693+00:00"
+}

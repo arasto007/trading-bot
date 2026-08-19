@@ -1,0 +1,56 @@
+{
+  "phase": "24B",
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "operational",
+      "title": "Unified frame requires dataset_v2 merge",
+      "evidence": "PipelineCache.get_unified_frame calls DatasetStore.load_v2 + build_unified_frame",
+      "impact": "Insufficient bars or missing dataset \u2192 unified_frame_empty \u2192 ML fallback"
+    },
+    {
+      "id": "F2",
+      "severity": "operational",
+      "title": "500ms kernel adapter timeout",
+      "evidence": "kernel_adapter.py PIPELINE_TIMEOUT_MS=500 line 41, check line 226",
+      "impact": "Phase24A reported ~11% pipeline timeouts at p95 ~808ms"
+    },
+    {
+      "id": "F3",
+      "severity": "architecture",
+      "title": "Dual feature paths",
+      "evidence": "IndicatorStage enriches for legacy; ML uses PipelineCache unified frame separately",
+      "impact": "Legacy and ML paths consume different feature sets"
+    },
+    {
+      "id": "F4",
+      "severity": "safety",
+      "title": "Live artifact read-only",
+      "evidence": "phase22ad artifact_overwrite_trace \u2014 build_if_missing=False on all hot-path loaders",
+      "impact": "Runtime cannot rewrite frozen models"
+    },
+    {
+      "id": "F5",
+      "severity": "coupling",
+      "title": "Tight ML stack coupling",
+      "evidence": "factory.build_ml_kernel_stack wires registry+orchestrator+calibration+risk+quality atomically",
+      "impact": "Changes to one layer require full stack understanding"
+    },
+    {
+      "id": "F6",
+      "severity": "regime",
+      "title": "RANGE filter profile scope",
+      "evidence": "regime_filter_profiles.py lines 228-231",
+      "impact": "23G profile applies only RANGE+phase9_9; TREND/TRANSITION use Phase22C bands"
+    }
+  ],
+  "areas_requiring_investigation_before_changes": [
+    "TradingKernel pipeline stage order and SignalStage bar dedup",
+    "PipelineCache feature cache invalidation (key includes last bar timestamp)",
+    "Phase22C threshold interaction with DecisionPolicy",
+    "Live dataset_v2 freshness vs MT5 ParquetCache sync",
+    "RiskGate vs ML AdaptiveRiskEngine double-gating",
+    "Latency budget: unified frame build + quality.evaluate chain"
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

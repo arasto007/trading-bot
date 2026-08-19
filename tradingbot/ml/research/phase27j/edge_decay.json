@@ -1,0 +1,23 @@
+{
+  "phase": "27J",
+  "gross_edge_total": 1101.1854,
+  "net_edge_total": 714.7104,
+  "edge_lost_dollars": {
+    "spread": 345.00000000000165,
+    "commission": 40.25000000000014,
+    "swap": 1.2249999999999974,
+    "slippage": 1607.8090999999997,
+    "exit_timing": 3890.879300000005,
+    "missed_move": 3890.878813800005
+  },
+  "edge_lost_pct_of_gross": {
+    "spread": 31.33,
+    "commission": 3.66,
+    "swap": 0.11,
+    "slippage": 146.01,
+    "exit_timing": 353.34,
+    "missed_move": 353.34
+  },
+  "largest_decay_factor": "exit_timing",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

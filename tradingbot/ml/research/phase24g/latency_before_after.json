@@ -1,0 +1,19 @@
+{
+  "phase": "24G",
+  "iterations": 60,
+  "before_legacy": {
+    "mean_ms": 85.0637,
+    "median_ms": 82.6054,
+    "p95_ms": 89.5259,
+    "p99_ms": 130.2341
+  },
+  "after_optimized": {
+    "mean_ms": 48.9952,
+    "median_ms": 46.092,
+    "p95_ms": 56.978,
+    "p99_ms": 96.6333
+  },
+  "savings_p95_ms": 32.5479,
+  "savings_pct_p95": 36.36,
+  "generated_utc": "2026-07-08T12:48:05.458083+00:00"
+}

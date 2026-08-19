@@ -1,0 +1,135 @@
+{
+  "timeframe": "M15",
+  "windows": {
+    "1m": {
+      "timeframe": "M15",
+      "window": {
+        "label": "1m",
+        "start_tehran": "2026-06-05 03:46",
+        "end_tehran": "2026-07-05 03:46"
+      },
+      "elapsed_sec": 507.4,
+      "pipeline": "TradingKernel→RegimeRouter→Trend_v41→phase9_9→Calibration→Confidence→Quality→Phase19C→Meta→RiskGate→SimExec",
+      "audit": {
+        "bars": 3348,
+        "bars_in_window": 3348,
+        "buy_signals": 0,
+        "sell_signals": 0,
+        "hold_signals": 3348,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "signals_blocked": 3348,
+        "trades_executed": 0,
+        "hold_chain": {
+          "bars_evaluated": 3348,
+          "buy_emitted": 0,
+          "sell_emitted": 0,
+          "ml_signals": 0,
+          "ml_hold_stages": {
+            "decision_hold": 3348,
+            "calibration_hold": 0,
+            "trade_quality_hold": 0,
+            "rsi_filter_hold": 0,
+            "adx_filter_hold": 0
+          },
+          "ml_hold_total": 3348,
+          "meta_hold": 0,
+          "riskgate_hold": 0,
+          "riskgate_block_reasons": {}
+        }
+      },
+      "all_trades_count": 0,
+      "window_trades_count": 0,
+      "metrics_all": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "gross_profit": 0,
+        "gross_loss": 0,
+        "net_profit": 0,
+        "return_pct": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0,
+        "expectancy": 0.0,
+        "max_drawdown_pct": 0.0,
+        "max_drawdown_abs": 0.0,
+        "sharpe_ratio": 0.0,
+        "final_balance": 200.0,
+        "exit_reasons": {},
+        "average_r": 0.0,
+        "recovery_factor": 0.0,
+        "sortino_ratio": 0.0,
+        "mar_ratio": 0.0,
+        "buy_trades": 0,
+        "sell_trades": 0,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "bars": 3348,
+        "certification": {
+          "pf_target_met": false,
+          "positive_expectancy": false,
+          "max_dd_within_limit": true,
+          "buy_active": false,
+          "sell_active": false
+        }
+      },
+      "metrics_window": {
+        "total_trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0,
+        "profit_factor": 0.0,
+        "gross_profit": 0,
+        "gross_loss": 0,
+        "net_profit": 0,
+        "return_pct": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0,
+        "expectancy": 0.0,
+        "max_drawdown_pct": 0.0,
+        "max_drawdown_abs": 0.0,
+        "sharpe_ratio": 0.0,
+        "final_balance": 200.0,
+        "exit_reasons": {},
+        "average_r": 0.0,
+        "recovery_factor": 0.0,
+        "sortino_ratio": 0.0,
+        "mar_ratio": 0.0,
+        "buy_trades": 0,
+        "sell_trades": 0,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "bars": 1,
+        "certification": {
+          "pf_target_met": false,
+          "positive_expectancy": false,
+          "max_dd_within_limit": true,
+          "buy_active": false,
+          "sell_active": false
+        }
+      },
+      "trades_window": []
+    }
+  },
+  "primary_window": {
+    "label": "1m",
+    "start_tehran": "2026-06-05 03:46",
+    "end_tehran": "2026-07-05 03:46"
+  },
+  "summary": {
+    "bars": 3348,
+    "buy_signals": 0,
+    "sell_signals": 0,
+    "hold_signals": 3348,
+    "trend_trades": 0,
+    "range_trades": 0,
+    "signals_blocked": 3348,
+    "trades_executed": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "net_profit": 0,
+    "max_drawdown_pct": 0.0
+  }
+}

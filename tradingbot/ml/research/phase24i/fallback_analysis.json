@@ -1,0 +1,13 @@
+{
+  "phase": "24I",
+  "fallback_triggers": [
+    "missing_feature",
+    "invalid_dtype",
+    "NaN/Inf",
+    "wrong_order",
+    "range_sanity_failure",
+    "builder_parity_mismatch"
+  ],
+  "fallback_reason_counts": {},
+  "generated_utc": "2026-07-08T13:26:50.369586+00:00"
+}

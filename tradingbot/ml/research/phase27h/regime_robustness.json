@@ -1,0 +1,102 @@
+{
+  "phase": "27H",
+  "regimes": {
+    "RANGE": {
+      "baseline": {
+        "trade_count": 575,
+        "net_profit": 1101.1854,
+        "profit_factor": 1.2847,
+        "expectancy": 1.9151,
+        "win_rate_pct": 38.61,
+        "max_drawdown_pct": 12.1956,
+        "recovery_factor": 0.8223
+      },
+      "spread_plus_50pct": {
+        "trade_count": 575,
+        "net_profit": 928.6854,
+        "profit_factor": 1.2337,
+        "expectancy": 1.6151,
+        "win_rate_pct": 38.43,
+        "max_drawdown_pct": 12.8409,
+        "recovery_factor": 0.6604
+      },
+      "slippage_0.25_atr": {
+        "trade_count": 575,
+        "net_profit": -506.6237,
+        "profit_factor": 0.8962,
+        "expectancy": -0.8811,
+        "win_rate_pct": 37.57,
+        "max_drawdown_pct": 18.5172,
+        "recovery_factor": -0.2538
+      },
+      "vs_overall_baseline": {
+        "net_profit_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "expectancy_delta": 0.0,
+        "win_rate_delta_pct": 0.0,
+        "drawdown_delta_pct": 0.0
+      }
+    },
+    "TREND": {
+      "baseline": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "spread_plus_50pct": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "slippage_0.25_atr": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "vs_overall_baseline": null
+    },
+    "TRANSITION": {
+      "baseline": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "spread_plus_50pct": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "slippage_0.25_atr": {
+        "trade_count": 0,
+        "net_profit": 0.0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "win_rate_pct": 0.0,
+        "max_drawdown_pct": 0.0,
+        "recovery_factor": 0.0
+      },
+      "vs_overall_baseline": null
+    }
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

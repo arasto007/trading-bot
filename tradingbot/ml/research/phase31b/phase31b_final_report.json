@@ -1,0 +1,22 @@
+{
+  "phase": "31B",
+  "verdict": "ROOT_CAUSES_CONFIRMED",
+  "mission": "Counterfactual validation of Phase 31A top-3 root causes",
+  "production_modified": false,
+  "trades_baseline": 489,
+  "baseline_pf": 1.211,
+  "baseline_net_profit": 136.1007,
+  "replay_b_pf": 12.5435,
+  "replay_b_net_gain": 3294.4088,
+  "dominant_cause": "time_exit_undercaptured",
+  "deliverables": [
+    "counterfactual_replay_a.json",
+    "counterfactual_replay_b.json",
+    "counterfactual_replay_c.json",
+    "causal_validation.json",
+    "root_cause_confirmation.json",
+    "expected_pf_after_each_fix.json",
+    "phase31b_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T15:54:15.690639+00:00"
+}

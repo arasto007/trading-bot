@@ -1,0 +1,37 @@
+{
+  "phase": "28C",
+  "live": {
+    "phase": "28C",
+    "completed_trades": 0
+  },
+  "backtest_baseline": {
+    "source": "phase28a",
+    "aggregate": {
+      "profit_factor": 1.4323,
+      "expectancy": 4.0976,
+      "win_rate_pct": 27.37,
+      "max_drawdown_pct": 31.6973,
+      "completed_trades": 2159
+    },
+    "window_30d": {
+      "profit_factor": 1.3803,
+      "expectancy": 1.8813,
+      "win_rate_pct": 35.3,
+      "max_drawdown_pct": 7.8943,
+      "completed_trades": 575
+    },
+    "phase28b_production": {
+      "completed_trades": 575,
+      "net_profit": 1081.7446,
+      "profit_factor": 1.3803,
+      "expectancy": 1.8813
+    }
+  },
+  "backtest_vs_live": {
+    "phase": "28C",
+    "comparison_available": false,
+    "reason": "no_live_trades",
+    "threshold_pct": 20.0
+  },
+  "generated_utc": "2026-07-09T22:33:10.200142+00:00"
+}

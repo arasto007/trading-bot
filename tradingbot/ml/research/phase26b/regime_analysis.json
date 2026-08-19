@@ -1,0 +1,36 @@
+{
+  "phase": "26B",
+  "RANGE": {
+    "trades": 1,
+    "pf": "inf",
+    "expectancy": 23.575,
+    "win_rate": 1.0,
+    "average_rr": 2.5,
+    "drawdown_pct": 0.0
+  },
+  "TREND": {
+    "trades": 0,
+    "pf": 0.0,
+    "expectancy": 0.0,
+    "win_rate": 0.0,
+    "average_rr": 0.0,
+    "drawdown_pct": 0.0
+  },
+  "TRANSITION": {
+    "trades": 0,
+    "pf": 0.0,
+    "expectancy": 0.0,
+    "win_rate": 0.0,
+    "average_rr": 0.0,
+    "drawdown_pct": 0.0
+  },
+  "OTHER": {
+    "trades": 0,
+    "pf": 0.0,
+    "expectancy": 0.0,
+    "win_rate": 0.0,
+    "average_rr": 0.0,
+    "drawdown_pct": 0.0
+  },
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

@@ -1,0 +1,26 @@
+{
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00",
+  "files_changed": [
+    "services/trade_journal.py",
+    "services/paper_fill_resolver.py",
+    "services/paper_trade_recorder.py",
+    "services/paper_trade_exit.py",
+    "adapters/mt5_execution.py (paper branch only)",
+    "ml/research/phase26a/journal_reader.py",
+    "ml/research/phase26a/trade_collector.py",
+    "ml/research/phase26a/exit_simulator.py"
+  ],
+  "not_modified": [
+    "models",
+    "features",
+    "strategy",
+    "thresholds",
+    "filters",
+    "risk",
+    "decision engine",
+    "HealthGate",
+    "calibration"
+  ],
+  "simulated_trades": 100,
+  "field_completeness_pct": 100.0
+}

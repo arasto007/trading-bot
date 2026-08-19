@@ -1,0 +1,31 @@
+{
+  "now": "2026-07-12T15:03:44Z",
+  "verdict": "NOT_CLOSE",
+  "integration_gate": "BLOCK_PRODUCTION_INTEGRATION",
+  "proximity": {
+    "proximity_score": 17.0,
+    "proximity_band": "NOT_CLOSE",
+    "components": {
+      "strict_multi_year_wf": 0.0,
+      "mean_pf": 0.0,
+      "mean_auc": 0.0,
+      "raw_ml_edge": 5.0,
+      "label_alignment": 6.0,
+      "dataset_depth": 6.0
+    },
+    "interpretation": "ML research improving but live execution path still destroys edge. Profitability requires both better ML and execution-path validation.",
+    "windows_pf_above_1_3": 0
+  },
+  "strict_gate": {
+    "passed": null,
+    "verdict": "INSUFFICIENT_WINDOWS",
+    "mean_pf": null,
+    "mean_auc": null
+  },
+  "how_close_to_profitable_robot": {
+    "score_0_100": 17.0,
+    "band": "NOT_CLOSE",
+    "deploy_blocked": true,
+    "summary_fa": "\u062d\u062f\u0648\u062f 17% \u0646\u0632\u062f\u06cc\u06a9 \u2014 \u0647\u0646\u0648\u0632 \u062f\u0631 \u067e\u0698\u0648\u0647\u0634 \u0645\u06cc\u0627\u0646\u06cc\u061b \u0686\u0646\u062f \u0633\u0627\u0644 walk-forward \u0648 capture \u0633\u06cc\u06af\u0646\u0627\u0644 \u06a9\u0627\u0645\u0644 \u0644\u0627\u0632\u0645 \u0627\u0633\u062a."
+  }
+}

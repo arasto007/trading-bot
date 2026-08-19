@@ -1,0 +1,8 @@
+{
+  "cache_hit_estimate": 0,
+  "cache_miss_estimate": 5203,
+  "cache_hit_pct": 0.0,
+  "cache_miss_pct": 100.0,
+  "method": "heuristic total_ms<=20ms",
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

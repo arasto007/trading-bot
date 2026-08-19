@@ -1,0 +1,80 @@
+{
+  "phase": "30D",
+  "checklist": [
+    {
+      "id": "C1",
+      "item": "\u2265500k ticks XAUUSD with bid/ask/timestamp UTC",
+      "required": true
+    },
+    {
+      "id": "C2",
+      "item": "\u226550k ticks per session bucket",
+      "required": true
+    },
+    {
+      "id": "C3",
+      "item": "\u2265200 entry fills with requested+fill price",
+      "required": true
+    },
+    {
+      "id": "C4",
+      "item": "\u2265200 exit fills with expected SL/TP reference",
+      "required": true
+    },
+    {
+      "id": "C5",
+      "item": "\u22651000 order attempts with retcode histogram",
+      "required": true
+    },
+    {
+      "id": "C6",
+      "item": "\u226520 high-impact news windows (pre+post ticks)",
+      "required": true
+    },
+    {
+      "id": "C7",
+      "item": "\u226520 rollover windows sampled",
+      "required": true
+    },
+    {
+      "id": "C8",
+      "item": "\u22654 weekend gap measurements",
+      "required": true
+    },
+    {
+      "id": "C9",
+      "item": "30 daily symbol_info snapshots (stops/freeze/volume)",
+      "required": true
+    },
+    {
+      "id": "C10",
+      "item": "broker_manifest.json with server/account metadata",
+      "required": true
+    },
+    {
+      "id": "C11",
+      "item": "Clock sync verified (NTP offset <50ms)",
+      "required": true
+    },
+    {
+      "id": "C12",
+      "item": "Integrity checksums pass on all partitions",
+      "required": true
+    }
+  ],
+  "ready_for_calibration_when": "ALL required checklist items C1\u2013C12 satisfied",
+  "statistically_reliable_when": {
+    "spread_engine": "C1+C2+C6+C7+C8 complete",
+    "slippage_engine": "C3+C4 with n\u2265200 each leg",
+    "fill_retcode_model": "C5 complete",
+    "latency_engine": "C3 with execution_delay_ms on \u2265200 fills",
+    "broker_rules": "C9 complete",
+    "gap_engine": "C8 complete"
+  },
+  "not_required_for_mvp_calibration": [
+    "Margin stop-out events (if none occur)",
+    "Partial fills at 0.01 lot (if rate <1%)",
+    "Swap (hold horizon <24h)"
+  ],
+  "generated_utc": "2026-07-10T11:04:24.684263+00:00"
+}

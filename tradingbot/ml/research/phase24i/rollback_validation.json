@@ -1,0 +1,6 @@
+{
+  "phase": "24I",
+  "env_flag": "ENABLE_UNIFIED_FEATURE_INPUT",
+  "rollback_matches_legacy": true,
+  "generated_utc": "2026-07-08T13:26:50.370586+00:00"
+}

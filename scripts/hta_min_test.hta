@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<HTA:APPLICATION SHOWINTASKBAR="yes" SINGLEINSTANCE="no" />
+</head>
+<body>
+<p id="out">loading...</p>
+<script language="VBScript">
+Dim fso, sh, root, p
+Set fso = CreateObject("Scripting.FileSystemObject")
+Set sh = CreateObject("WScript.Shell")
+root = sh.CurrentDirectory
+p = fso.BuildPath(root, "data\hta_min_test.txt")
+If Not fso.FolderExists(fso.BuildPath(root, "data")) Then fso.CreateFolder fso.BuildPath(root, "data")
+Dim ts
+Set ts = fso.CreateTextFile(p, True, False)
+ts.Write "MIN_OK|" & root
+ts.Close
+document.getElementById("out").innerText = "MIN_OK " & root
+</script>
+</body>
+</html>

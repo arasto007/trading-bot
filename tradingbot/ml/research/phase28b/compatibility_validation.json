@@ -1,0 +1,11 @@
+{
+  "phase": "28B",
+  "backward_compatible": true,
+  "current_mode_works": true,
+  "hybrid_b_mode_works": true,
+  "config_switch": {
+    "CURRENT": "TRADINGBOT_EXIT_MODE=CURRENT",
+    "HYBRID_B": "TRADINGBOT_EXIT_MODE=HYBRID_B"
+  },
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

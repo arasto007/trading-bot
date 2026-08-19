@@ -1,0 +1,130 @@
+flowchart TB
+    %% services
+    tradingbot_services_kill_switch_KillSwit0[KillSwitchService]
+    tradingbot_services_notifier_Notifier1[Notifier]
+    tradingbot_services_position_protector_P2[PositionProtector]
+    tradingbot_services_manual_stop3[manual_stop]
+    tradingbot_services___init__4[__init__]
+    tradingbot_services_trade_journal5[trade_journal]
+    tradingbot_infra___init__6[__init__]
+    tradingbot_services_paper_trade_exit7[paper_trade_exit]
+    tradingbot_services_meta_labeler8[meta_labeler]
+    tradingbot_services_paper_trade_recorder9[PaperTradeRecorder]
+    tradingbot_services_signal_filter_mode_S10[SignalFilterMode]
+    tradingbot_services_live_risk_tracker_Li11[LiveRiskTracker]
+    tradingbot_accounting_engine_AccountingE12[AccountingEngine]
+    tradingbot_services_signal_filter_mode13[signal_filter_mode]
+    folder_tradingbot_services14{{services}}
+    tradingbot_infra_logging15[logging]
+    tradingbot_services_live_risk_tracker_Li16[LiveRiskSnapshot]
+    tradingbot_services_paper_trade_recorder17[paper_trade_recorder]
+    tradingbot_services_drift_monitor18[drift_monitor]
+    tradingbot_services_emergency_stop_state19[emergency_stop_state]
+    tradingbot_accounting_pnl20[pnl]
+    tradingbot_services_live_reporting21[live_reporting]
+    tradingbot_services_position_protector22[position_protector]
+    tradingbot_accounting___init__23[__init__]
+    tradingbot_services_exit_mode24[exit_mode]
+    tradingbot_services_signal_filter_log25[signal_filter_log]
+    tradingbot_services_live_risk_tracker26[live_risk_tracker]
+    tradingbot_services_wpsqf_scoring27[wpsqf_scoring]
+    tradingbot_services_wpsqf_features28[wpsqf_features]
+    tradingbot_services_mt5_order_guard29[mt5_order_guard]
+    folder_tradingbot_accounting30{{accounting}}
+    tradingbot_services_paper_fill_resolver31[paper_fill_resolver]
+    tradingbot_accounting_ledger_ClosedTrade32[ClosedTradeRecord]
+    tradingbot_services_startup_validator33[startup_validator]
+    tradingbot_services_meta_decision_log34[meta_decision_log]
+    tradingbot_accounting_ledger_AccountingL35[AccountingLedger]
+    tradingbot_services_winner_population_si36[winner_population_signal_quality_filter]
+    tradingbot_accounting_metrics37[metrics]
+    tradingbot_services_wpsqf_calibration38[wpsqf_calibration]
+    tradingbot_accounting_engine39[engine]
+    folder_tradingbot_infra40{{infra}}
+    tradingbot_services_winner_population_si41[WinnerPopulationSignalQualityFilter]
+    tradingbot_services_exit_policy42[exit_policy]
+    tradingbot_services_demo_account_guard43[demo_account_guard]
+    tradingbot_accounting_position_sizing44[position_sizing]
+    tradingbot_accounting_broker_constraints45[broker_constraints]
+    tradingbot_services_execution_mode46[execution_mode]
+    tradingbot_accounting_position_sizing_Po47[PositionSizingResult]
+    tradingbot_accounting_ledger48[ledger]
+    tradingbot_services_position_recovery_se49[PositionRecoveryService]
+    tradingbot_services_trade_journal_TradeJ50[TradeJournal]
+    tradingbot_services_live_ops_service51[live_ops_service]
+    tradingbot_accounting_broker_constraints52[BrokerConstraints]
+    tradingbot_services_meta_labeler_MetaLab53[MetaLabeler]
+    tradingbot_services_live_ops_service_Liv54[LiveOpsService]
+    tradingbot_services_execution_mode_is_li55[is_live_execute]
+    tradingbot_services_position_recovery_se56[position_recovery_service]
+    tradingbot_services_winner_population_si57[WpsqfResult]
+    tradingbot_services_kill_switch58[kill_switch]
+    tradingbot_services_exit_mode_ExitMode59[ExitMode]
+    tradingbot_services_notifier60[notifier]
+    tradingbot_services_startup_validator_St61[StartupDiagnosticReport]
+    tradingbot_services_startup_validator_St62[StartupValidationError]
+    tradingbot_accounting_broker_constraints45 -->|contains| tradingbot_accounting_broker_constraints52
+    tradingbot_accounting_engine39 -->|contains| tradingbot_accounting_engine_AccountingE12
+    tradingbot_accounting_ledger48 -->|contains| tradingbot_accounting_ledger_ClosedTrade32
+    tradingbot_accounting_ledger48 -->|contains| tradingbot_accounting_ledger_AccountingL35
+    tradingbot_accounting_position_sizing44 -->|contains| tradingbot_accounting_position_sizing_Po47
+    tradingbot_services_execution_mode46 -->|contains| tradingbot_services_execution_mode_is_li55
+    tradingbot_services_exit_mode24 -->|contains| tradingbot_services_exit_mode_ExitMode59
+    tradingbot_services_kill_switch58 -->|contains| tradingbot_services_kill_switch_KillSwit0
+    tradingbot_services_live_ops_service51 -->|contains| tradingbot_services_live_ops_service_Liv54
+    tradingbot_services_live_risk_tracker26 -->|contains| tradingbot_services_live_risk_tracker_Li16
+    tradingbot_services_live_risk_tracker26 -->|contains| tradingbot_services_live_risk_tracker_Li11
+    tradingbot_services_meta_labeler8 -->|contains| tradingbot_services_meta_labeler_MetaLab53
+    tradingbot_services_notifier60 -->|contains| tradingbot_services_notifier_Notifier1
+    tradingbot_services_paper_trade_recorder17 -->|contains| tradingbot_services_paper_trade_recorder9
+    tradingbot_services_position_protector22 -->|contains| tradingbot_services_position_protector_P2
+    tradingbot_services_position_recovery_se56 -->|contains| tradingbot_services_position_recovery_se49
+    tradingbot_services_signal_filter_mode13 -->|contains| tradingbot_services_signal_filter_mode_S10
+    tradingbot_services_startup_validator33 -->|contains| tradingbot_services_startup_validator_St62
+    tradingbot_services_startup_validator33 -->|contains| tradingbot_services_startup_validator_St61
+    tradingbot_services_trade_journal5 -->|contains| tradingbot_services_trade_journal_TradeJ50
+    tradingbot_services_winner_population_si36 -->|contains| tradingbot_services_winner_population_si57
+    tradingbot_services_winner_population_si36 -->|contains| tradingbot_services_winner_population_si41
+    tradingbot_accounting_engine39 -->|imports| tradingbot_accounting_broker_constraints45
+    tradingbot_accounting_engine39 -->|imports| tradingbot_accounting_ledger48
+    tradingbot_accounting_engine39 -->|imports| tradingbot_accounting_metrics37
+    tradingbot_accounting_engine39 -->|imports| tradingbot_accounting_position_sizing44
+    tradingbot_accounting_metrics37 -->|imports| tradingbot_accounting_ledger48
+    tradingbot_accounting_pnl20 -->|imports| tradingbot_services_exit_policy42
+    folder_tradingbot_accounting30 -->|uses| folder_tradingbot_services14
+    tradingbot_accounting_position_sizing44 -->|imports| tradingbot_accounting_broker_constraints45
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_broker_constraints45
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_engine39
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_ledger48
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_metrics37
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_pnl20
+    tradingbot_accounting___init__23 -->|imports| tradingbot_accounting_position_sizing44
+    tradingbot_infra_logging15 -->|imports| tradingbot_infra_logging15
+    tradingbot_services_drift_monitor18 -->|imports| tradingbot_services_live_reporting21
+    tradingbot_services_exit_policy42 -->|imports| tradingbot_services_exit_mode24
+    tradingbot_services_kill_switch58 -->|imports| tradingbot_services_notifier60
+    tradingbot_services_kill_switch58 -->|imports| tradingbot_services_mt5_order_guard29
+    tradingbot_services_live_ops_service51 -->|imports| tradingbot_services_drift_monitor18
+    tradingbot_services_live_ops_service51 -->|imports| tradingbot_services_live_reporting21
+    tradingbot_services_live_ops_service51 -->|imports| tradingbot_services_notifier60
+    tradingbot_services_meta_labeler8 -->|imports| tradingbot_services_meta_decision_log34
+    tradingbot_services_mt5_order_guard29 -->|imports| tradingbot_services_execution_mode46
+    tradingbot_services_paper_trade_exit7 -->|imports| tradingbot_services_exit_mode24
+    tradingbot_services_paper_trade_exit7 -->|imports| tradingbot_services_exit_policy42
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_accounting_engine39
+    folder_tradingbot_services14 -->|uses| folder_tradingbot_accounting30
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_services_execution_mode46
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_services_exit_mode24
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_services_paper_fill_resolver31
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_services_paper_trade_exit7
+    tradingbot_services_paper_trade_recorder17 -->|imports| tradingbot_services_trade_journal5
+    tradingbot_services_position_protector22 -->|imports| tradingbot_services_mt5_order_guard29
+    tradingbot_services_position_recovery_se56 -->|imports| tradingbot_services_mt5_order_guard29
+    tradingbot_services_startup_validator33 -->|imports| tradingbot_services_emergency_stop_state19
+    tradingbot_services_startup_validator33 -->|imports| tradingbot_services_execution_mode46
+    tradingbot_services_startup_validator33 -->|imports| tradingbot_services_demo_account_guard43
+    tradingbot_services_winner_population_si36 -->|imports| tradingbot_services_signal_filter_log25
+    tradingbot_services_winner_population_si36 -->|imports| tradingbot_services_signal_filter_mode13
+    tradingbot_services_winner_population_si36 -->|imports| tradingbot_services_wpsqf_features28
+    tradingbot_services_winner_population_si36 -->|imports| tradingbot_services_wpsqf_scoring27
+    tradingbot_services_wpsqf_scoring27 -->|imports| tradingbot_services_wpsqf_calibration38

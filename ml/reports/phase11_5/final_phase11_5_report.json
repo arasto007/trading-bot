@@ -1,0 +1,61 @@
+{
+  "phase": "11.5",
+  "generated_at_utc": "2026-07-01T09:14:38.304114+00:00",
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "paper_run_id": "phase11_v1",
+  "safety": {
+    "phase9_9_model_checksum": null,
+    "phase9_9_scaler_checksum": null,
+    "expected_model_checksum": null,
+    "expected_scaler_checksum": null,
+    "checksums_match_paper_run": true,
+    "dataset_fingerprint": null,
+    "dataset_fingerprint_unchanged": true,
+    "artifacts_readonly": true,
+    "execution_layer_touched": false
+  },
+  "pf_drop_analysis": {
+    "phase11_pf": 0.0,
+    "phase105_comparison": null,
+    "likely_causes": [
+      "longer_30d_window_includes_weaker_regimes",
+      "sell_bias_concentration",
+      "threshold_asymmetry_favors_sell"
+    ]
+  },
+  "findings": {
+    "best_threshold": {
+      "buy": 0.5,
+      "sell": 0.4,
+      "profit_factor": 0.0
+    },
+    "best_session": "asia",
+    "best_risk_percent": 0.0025,
+    "sell_bias_verdict": "calibration_issue",
+    "profitable_regimes": [],
+    "confidence_level": "LOW",
+    "phase9_9_still_best": false
+  },
+  "current_performance": {
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 1.0,
+    "total_trades": null
+  },
+  "decision": "NEEDS_MORE_RESEARCH",
+  "decision_reasons": [
+    "profit_factor_below_1 (0.0)",
+    "low_bootstrap_confidence",
+    "alternative_model_outperforms_in_research",
+    "drawdown_high (1.0)",
+    "sell_calibration_needs_review"
+  ],
+  "recommendations": [
+    "Consider buy=0.5 sell=0.4",
+    [],
+    "Risk 0.0025 has best risk-adjusted return",
+    "Phase 9.9 paper PF below 1.0 \u2014 review thresholds before Phase 12",
+    "SELL bias: calibration_issue"
+  ]
+}

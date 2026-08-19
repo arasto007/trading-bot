@@ -1,0 +1,25 @@
+%% Minimal Live Core — Phase 34A
+%% Only modules on the real-money path today (ADAPTIVE_REGIME)
+
+flowchart TD
+    A[MT5 Data<br/>Mt5MarketDataAdapter] --> B[FeatureBuilder<br/>prepare_adaptive_frame / edge_discovery_round2]
+    B --> C[AdaptiveRegime<br/>AdaptiveRegimeStrategyRegistry]
+    C --> D[RiskGate<br/>spread positions news friday]
+    D --> E[LiveRiskTracker<br/>cooldown daily limits]
+    E --> F[MT5 Execution<br/>Mt5ExecutionAdapter]
+    F --> G[TradeJournal<br/>executions + cycle_events]
+    G --> H[PositionManager<br/>trailing partial EOD emergency]
+
+    subgraph truth [Phase 34A Truth]
+        RT[runtime_truth.json]
+        RJ[rejection_events.jsonl]
+    end
+
+    C -.-> RJ
+    D -.-> RJ
+    E -.-> RJ
+    RT -.-> LiveRunner startup
+
+    style C fill:#9f9,stroke:#060
+    style RT fill:#ff9,stroke:#880
+    style RJ fill:#ff9,stroke:#880

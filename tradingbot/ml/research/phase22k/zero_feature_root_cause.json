@@ -1,0 +1,63 @@
+{
+  "phase": "22K",
+  "root_cause_selection": "D",
+  "root_cause_label": "Mixed issue",
+  "components": [
+    {
+      "id": "RC-1",
+      "category": "Production operational",
+      "severity": "high_for_live",
+      "description": "dataset_v2 frozen at 2026-06-29 while live and Dataset A candles extend to 2026-07-03+. PipelineCache always merges stale parquet; merge miss → fillna(0.0).",
+      "evidence": [
+        "data/ml/metadata/XAUUSD_M5_V2_dataset_build.json build_timestamp_utc 2026-06-29",
+        "61.2% of Dataset A bars after dataset_v2 max timestamp",
+        "last 400 consecutive bars: 0% merge hit, 100% phase99 zeros"
+      ],
+      "affects": ["live", "research_backtest", "22f", "22j"],
+      "file": "tradingbot/ml/integration/pipeline_cache.py:107-108"
+    },
+    {
+      "id": "RC-2",
+      "category": "Production architecture",
+      "severity": "medium",
+      "description": "phase9_9 inference uses dataset_v2 merge (phase99_*) not live FeatureBuilder or build_ml_features ema50_slope, even when live columns are non-zero.",
+      "evidence": [
+        "row_for_phase99_range maps phase99_* only",
+        "live ema50_slope nonzero 163/163 stride bars while phase99_ema50_slope zero 148/163",
+        "PHASE99_FEATURE_MAP in phase13_9/config.py"
+      ],
+      "affects": ["live", "research"],
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py:38-48"
+    },
+    {
+      "id": "RC-3",
+      "category": "Training data sparsity (not merge artifact)",
+      "severity": "medium",
+      "description": "structure_distance is 98.7% zero in dataset_v2 itself; model trained on sparse feature. FeatureBuilder live also yields structure_distance nonzero only ~1.8% in sample.",
+      "evidence": [
+        "dataset_v2 native structure_distance zero 5647/5724",
+        "FeatureBuilder structure_distance nonzero 3/163 stride bars",
+        "sanity report lists structure_distance mean 0.0 in feature stats block"
+      ],
+      "affects": ["training", "inference_when_merge_hits"],
+      "not_fixed_by_merge_refresh_alone": true
+    },
+    {
+      "id": "RC-4",
+      "category": "Research/backtest artifact",
+      "severity": "high_for_22j_conclusions",
+      "description": "Dataset A window deliberately includes 6+ days beyond last dataset_v2 row, amplifying zero rates versus historical in-sample periods where merge succeeds.",
+      "evidence": [
+        "Dataset A end 2026-07-05 vs dataset max 2026-06-29",
+        "22J forensics on recent RANGE bars dominated by post-build window"
+      ],
+      "affects": ["22j", "22f", "22i_backtests"],
+      "false_diagnosis_risk": " attributing 100% structure_distance zero solely to fillna without noting dataset staleness window"
+    }
+  ],
+  "rejected_single_causes": {
+    "A_production_bug_only": "Incomplete — architecture + stale data + native sparsity also required",
+    "B_research_instrumentation_only": "False — live path uses same PipelineCache; zeros are real on recent bars",
+    "C_backtest_artifact_only": "False — stale dataset_v2 affects live inference today equally"
+  }
+}

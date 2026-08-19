@@ -1,0 +1,76 @@
+{
+  "scores": {
+    "Architecture": {
+      "score": 78,
+      "deductions": [
+        "Dual repo confusion (-8)",
+        "Research 48% of modules (-6)",
+        "Multiple paper engines (-8)"
+      ]
+    },
+    "Reliability": {
+      "score": 62,
+      "deductions": [
+        "Pipeline timeouts (-15)",
+        "KillSwitch silent errors (-8)",
+        "Stale MT5 sync (-10)",
+        "Restart state loss (-5)"
+      ]
+    },
+    "Consistency": {
+      "score": 85,
+      "deductions": [
+        "Indicator vs ML feature path (-10)",
+        "Day boundary mismatch (-5)"
+      ]
+    },
+    "Connectivity": {
+      "score": 88,
+      "deductions": [
+        "USE_ML_KERNEL required explicit (-7)",
+        "Legacy replay path diverges (-5)"
+      ]
+    },
+    "Maintainability": {
+      "score": 65,
+      "deductions": [
+        "1294 modules (-20)",
+        "95 research phases (-10)",
+        "No pyproject (-5)"
+      ]
+    },
+    "Safety": {
+      "score": 82,
+      "deductions": [
+        "Paper risk tracker gap (-10)",
+        "Position manager paper gap (-8)"
+      ]
+    },
+    "Runtime_Integrity": {
+      "score": 75,
+      "deductions": [
+        "Thread safety concerns (-12)",
+        "Memory growth in shadow (-8)",
+        "Bar dedup lost on restart (-5)"
+      ]
+    },
+    "Paper_Trading_Readiness": {
+      "score": 42,
+      "deductions": [
+        "2 CRITICAL open (-40)",
+        "1/200 trades (-15)",
+        "Journal fill gap (-3)"
+      ]
+    },
+    "Live_Trading_Readiness": {
+      "score": 55,
+      "deductions": [
+        "Insufficient paper validation (-25)",
+        "3 HIGH open (-15)",
+        "Manual emergency reset (-5)"
+      ]
+    }
+  },
+  "overall_integrity": 70.2,
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

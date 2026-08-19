@@ -1,0 +1,18 @@
+{
+  "phase": "30C",
+  "approach": "Synthetic depth curve \u2014 not full L2 unless broker provides",
+  "parameters": [
+    "base_depth_lot",
+    "session_mult",
+    "vol_decay",
+    "last_look_prob"
+  ],
+  "outputs": [
+    "max_fillable_lot",
+    "partial_fill_prob",
+    "impact_points"
+  ],
+  "min_lot_note": "At 0.01 lot partial fills likely over-modelled \u2014 calibrate down",
+  "acceptance": "Partial fill rate <5% at 0.01 lot XAUUSD unless news flag",
+  "generated_utc": "2026-07-10T08:54:32.601756+00:00"
+}

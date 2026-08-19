@@ -1,0 +1,50 @@
+{
+  "dominant_rule": "overfitting_risk_decreased",
+  "implementation": {
+    "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+    "function": "evaluate_acceptance",
+    "helper": "_risk_improved",
+    "formula": {
+      "robustness_improved": "best.robustness_score > baseline.robustness_score",
+      "overfitting_risk_decreased": "order[best_risk] < order[baseline_risk] where order={LOW:0,MEDIUM:1,HIGH:2}",
+      "mean_expectancy_positive": "best.mean_expectancy > 0",
+      "profitable_windows_ge_4": "best.profitable_windows >= 4 AND best.window_count >= 4",
+      "probability_quality_passed": "best.probability_gate_passed is True (added Phase 22X)"
+    },
+    "constants": {
+      "profitable_windows_minimum": 4,
+      "window_count_minimum": 4,
+      "risk_order": {
+        "LOW": 0,
+        "MEDIUM": 1,
+        "HIGH": 2
+      }
+    },
+    "overfitting_risk_label_source": {
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "assess_overfitting_risk",
+      "thresholds": {
+        "HIGH": "mean_gap > 0.12 OR robustness_score < 45 OR mean_degradation > 0.25",
+        "MEDIUM": "mean_gap > 0.06 OR robustness_score < 70 OR mean_degradation > 0.12",
+        "LOW": "otherwise"
+      }
+    }
+  },
+  "origin": {
+    "phase_introduced": "9.9",
+    "designed_for_phase9_9": true,
+    "inherited_from_phase9_8_acceptance": false,
+    "phase9_8_verdict_logic": {
+      "file": "tradingbot/ml/research/walk_forward/report_generator.py",
+      "rule": "final_verdict PASS if active_windows >= 4 AND integrity.status == PASS",
+      "note": "Phase 9.8 has no overfitting_risk_decreased or robustness_improved checks"
+    },
+    "phase9_9_intent": {
+      "docstring": "Check Phase 9.9 acceptance vs Phase 9.8 baseline",
+      "pattern": "Sequential phase improvement gate — candidate must beat Phase 9.8 baseline on multiple axes"
+    },
+    "conclusion": "overfitting_risk_decreased was authored in Phase 9.9 evaluate_acceptance to require strict ordinal improvement over the Phase 9.8 baseline risk label. It was not copied from Phase 9.8 code (which lacks acceptance checks), but inherits the sequential baseline-beating pattern used across Phase 9.9 acceptance rules."
+  },
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false
+}

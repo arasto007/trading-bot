@@ -1,0 +1,118 @@
+{
+  "phase": "31C",
+  "results": {
+    "baseline_current": {
+      "simulations": 400,
+      "pf_median": 1.221,
+      "pf_p05": 0.953,
+      "pf_p95": 1.5303,
+      "net_median": 139.56,
+      "confidence": 95
+    },
+    "breakeven_0_5r": {
+      "simulations": 400,
+      "pf_median": 1.896,
+      "pf_p05": 1.5818,
+      "pf_p95": 2.3319,
+      "net_median": 1727.83,
+      "confidence": 95
+    },
+    "breakeven_1r": {
+      "simulations": 400,
+      "pf_median": 1.8933,
+      "pf_p05": 1.6088,
+      "pf_p95": 2.2748,
+      "net_median": 1929.75,
+      "confidence": 95
+    },
+    "partial_50_at_1r": {
+      "simulations": 400,
+      "pf_median": 1.6362,
+      "pf_p05": 1.4124,
+      "pf_p95": 1.9722,
+      "net_median": 1377.42,
+      "confidence": 95
+    },
+    "trailing_atr_1x": {
+      "simulations": 400,
+      "pf_median": 2.6227,
+      "pf_p05": 2.1873,
+      "pf_p95": 3.1574,
+      "net_median": 1770.64,
+      "confidence": 95
+    },
+    "atr_exhaustion_exit": {
+      "simulations": 400,
+      "pf_median": 1.715,
+      "pf_p05": 1.4793,
+      "pf_p95": 2.0758,
+      "net_median": 1482.5,
+      "confidence": 95
+    },
+    "structure_ema_break": {
+      "simulations": 400,
+      "pf_median": 1.7453,
+      "pf_p05": 1.4832,
+      "pf_p95": 2.1058,
+      "net_median": 1520.46,
+      "confidence": 95
+    },
+    "adaptive_time_fast": {
+      "simulations": 400,
+      "pf_median": 1.2404,
+      "pf_p05": 1.0038,
+      "pf_p95": 1.5348,
+      "net_median": 643.05,
+      "confidence": 95
+    },
+    "momentum_decay_exit": {
+      "simulations": 400,
+      "pf_median": 1.7406,
+      "pf_p05": 1.4825,
+      "pf_p95": 2.0993,
+      "net_median": 1817.75,
+      "confidence": 95
+    },
+    "adx_deterioration_exit": {
+      "simulations": 400,
+      "pf_median": 2.0722,
+      "pf_p05": 1.6888,
+      "pf_p95": 2.5165,
+      "net_median": 2871.22,
+      "confidence": 95
+    },
+    "trailing_arm_0_75r": {
+      "simulations": 400,
+      "pf_median": 1.5926,
+      "pf_p05": 1.3407,
+      "pf_p95": 1.9107,
+      "net_median": 1244.26,
+      "confidence": 95
+    },
+    "volatility_short_timeout": {
+      "simulations": 400,
+      "pf_median": 2.1234,
+      "pf_p05": 1.815,
+      "pf_p95": 2.5153,
+      "net_median": 3169.54,
+      "confidence": 95
+    },
+    "multi_stage_partial_trail": {
+      "simulations": 400,
+      "pf_median": 1.4045,
+      "pf_p05": 1.1966,
+      "pf_p95": 1.6945,
+      "net_median": 852.7,
+      "confidence": 95
+    },
+    "hybrid_b_proxy": {
+      "simulations": 400,
+      "pf_median": 2.0616,
+      "pf_p05": 1.7418,
+      "pf_p95": 2.5309,
+      "net_median": 2310.57,
+      "confidence": 95
+    }
+  },
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "phase": "22D",
+  "fixes": [
+    {
+      "id": "FIX_22D_001",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "change": "_attach_trend_v41_features \u2014 full-frame Top5 attach for v41"
+    },
+    {
+      "id": "FIX_22D_002",
+      "file": "tradingbot/ml/phase17d/v41_engine.py",
+      "change": "Remove single-row Top5 fallback; require pre-attached features"
+    },
+    {
+      "id": "FIX_22D_003",
+      "file": "tradingbot/ml/research/phase15i/recovery_adapter.py",
+      "change": "Extend confidence recovery to TREND regime"
+    }
+  ],
+  "not_changed": [
+    "thresholds",
+    "RiskGate",
+    "execution",
+    "MT5",
+    "dashboard"
+  ]
+}

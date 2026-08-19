@@ -1,0 +1,25 @@
+{
+  "tolerance": 1e-09,
+  "windows": [
+    {
+      "window": "300_bars",
+      "passes_tol": true,
+      "max_delta": 0.0
+    },
+    {
+      "window": "7_days",
+      "passes_tol": true,
+      "max_delta": 0.0
+    },
+    {
+      "window": "30_days",
+      "passes_tol": true,
+      "max_delta": 0.0
+    },
+    {
+      "window": "90_days",
+      "passes_tol": true,
+      "max_delta": 0.0
+    }
+  ]
+}

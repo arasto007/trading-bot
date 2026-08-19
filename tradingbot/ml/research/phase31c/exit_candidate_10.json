@@ -1,0 +1,62 @@
+{
+  "phase": "31C",
+  "candidate_id": "10",
+  "name": "adx_deterioration_exit",
+  "meta": {
+    "live": true,
+    "simplicity": 6,
+    "safety": 7
+  },
+  "metrics": {
+    "label": "adx_deterioration_exit",
+    "trade_count": 489,
+    "profit_factor": 2.0701,
+    "expectancy": 5.8342,
+    "sharpe_ratio": 51.216,
+    "sortino_ratio": 119.827,
+    "max_drawdown_pct": 34.2528,
+    "max_drawdown_abs": 340.18,
+    "net_profit": 2852.907,
+    "recovery_factor": 8.3865,
+    "win_rate_pct": 47.65,
+    "edge_contribution": 2852.907,
+    "gross_wins": 5518.99,
+    "gross_losses": 2666.083
+  },
+  "exit_distribution": {
+    "sl": 228,
+    "timeout": 60,
+    "adx_weak": 201
+  },
+  "avg_capture_efficiency": -0.4412,
+  "avg_holding_bars": 20.85,
+  "bootstrap": {
+    "simulations": 400,
+    "pf_median": 2.0722,
+    "pf_p05": 1.6888,
+    "pf_p95": 2.5165,
+    "net_median": 2871.22,
+    "confidence": 95
+  },
+  "montecarlo": {
+    "simulations": 500,
+    "net_median": 2852.91,
+    "net_p05": 2852.91,
+    "net_p95": 2852.91,
+    "sequence_risk": "LOW"
+  },
+  "walkforward": {
+    "train_trades": 342,
+    "test_trades": 147,
+    "train_pf": 2.1221,
+    "test_pf": 1.9495,
+    "train_net": 2089.6859,
+    "test_net": 763.2211,
+    "stable": true,
+    "walkforward_pass": true
+  },
+  "uses_future_info": false,
+  "live_implementable": true,
+  "implementation_complexity": "MEDIUM",
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

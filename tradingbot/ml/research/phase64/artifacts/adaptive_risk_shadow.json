@@ -1,0 +1,390 @@
+{
+  "verdict": "AR_REVIEW_COMPLETE",
+  "research_only": true,
+  "confidence_threshold_hc": 0.4,
+  "tq_shadow_policy": {
+    "alias_policy": "map_to_v40",
+    "quality_threshold": 0.4,
+    "source": "tradingbot\\ml\\research\\phase63\\artifacts\\tq_shadow_policy.json",
+    "phase63_policy_loaded": true
+  },
+  "signal_source": {
+    "cache_hc_count_deduped": 2756,
+    "v7_matched_count": 2543,
+    "v7_label_match": {
+      "total_signals": 2756,
+      "matched_v7_labels": 2543,
+      "unmatched": 213,
+      "match_rate_pct": 92.27
+    }
+  },
+  "adaptive_risk_characterization": {
+    "count": 169,
+    "direction_distribution": {
+      "BUY": 168,
+      "SELL": 1
+    },
+    "session_distribution": {
+      "london": 77,
+      "new_york": 26,
+      "asia": 66
+    },
+    "source_cache_distribution": {
+      "A": 47,
+      "C": 21,
+      "H": 101
+    },
+    "volatility_state_distribution": {
+      "NORMAL": 78,
+      "HIGH_VOL": 18,
+      "LOW_VOL": 73
+    },
+    "probability_bands": {
+      "0.40-0.45": 168,
+      "0.55-0.60": 1
+    },
+    "confidence_bands": {
+      "below_0.55": 169
+    },
+    "probability_stats": {
+      "mean": 0.4123,
+      "median": 0.4115,
+      "min": 0.4,
+      "max": 0.5779
+    },
+    "confidence_stats": {
+      "mean": 0.5235,
+      "median": 0.5235,
+      "min": 0.4967,
+      "max": 0.5498
+    },
+    "risk_allowed_distribution": {
+      "false": 169
+    },
+    "quality_allowed_distribution": {
+      "false": 169
+    },
+    "block_reasons": {
+      "low_confidence": 169
+    },
+    "primary_block_reason": "low_confidence",
+    "shadow_tq_alias_pass_count": 0,
+    "shadow_tq_alias_fail_count": 169,
+    "shadow_tq_alias_pass_pct": 0.0,
+    "numeric_profile": {
+      "adx": {
+        "mean": 43.6761,
+        "median": 40.6439,
+        "min": 25.237,
+        "max": 90.3291
+      },
+      "atr": {
+        "mean": 4.1766,
+        "median": 3.885,
+        "min": 1.3307,
+        "max": 11.2157
+      },
+      "rsi": {
+        "mean": 60.3503,
+        "median": 58.8598,
+        "min": 26.8285,
+        "max": 93.0212
+      },
+      "spread_pips": {
+        "mean": 3.0,
+        "median": 3.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "probability": {
+        "mean": 0.4123,
+        "median": 0.4115,
+        "min": 0.4,
+        "max": 0.5779
+      },
+      "confidence": {
+        "mean": 0.5235,
+        "median": 0.5235,
+        "min": 0.4967,
+        "max": 0.5498
+      },
+      "quality_score": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "high_rsi_blocked_pct": 24.85,
+    "high_adx_blocked_pct": 50.89,
+    "per_signal_ar_re_eval_sample": [
+      {
+        "signal_id": "raw_00012",
+        "allowed": false,
+        "risk_percent": 0.0,
+        "blocked_by": "low_confidence",
+        "reason": "Risk blocked: confidence 0.52 below 0.55 \u2014 zero risk",
+        "confidence_factor": 0.0,
+        "regime_factor": 0.0,
+        "volatility_factor": 0.0,
+        "session_factor": 0.0,
+        "drawdown_factor": 0.0,
+        "engine_factor": 0.0,
+        "trace": [
+          "confidence 0.52 below 0.55 \u2014 zero risk"
+        ],
+        "inferred_reason": "low_confidence"
+      },
+      {
+        "signal_id": "raw_00019",
+        "allowed": false,
+        "risk_percent": 0.0,
+        "blocked_by": "low_confidence",
+        "reason": "Risk blocked: confidence 0.53 below 0.55 \u2014 zero risk",
+        "confidence_factor": 0.0,
+        "regime_factor": 0.0,
+        "volatility_factor": 0.0,
+        "session_factor": 0.0,
+        "drawdown_factor": 0.0,
+        "engine_factor": 0.0,
+        "trace": [
+          "confidence 0.53 below 0.55 \u2014 zero risk"
+        ],
+        "inferred_reason": "low_confidence"
+      },
+      {
+        "signal_id": "raw_00020",
+        "allowed": false,
+        "risk_percent": 0.0,
+        "blocked_by": "low_confidence",
+        "reason": "Risk blocked: confidence 0.54 below 0.55 \u2014 zero risk",
+        "confidence_factor": 0.0,
+        "regime_factor": 0.0,
+        "volatility_factor": 0.0,
+        "session_factor": 0.0,
+        "drawdown_factor": 0.0,
+        "engine_factor": 0.0,
+        "trace": [
+          "confidence 0.54 below 0.55 \u2014 zero risk"
+        ],
+        "inferred_reason": "low_confidence"
+      },
+      {
+        "signal_id": "raw_00021",
+        "allowed": false,
+        "risk_percent": 0.0,
+        "blocked_by": "low_confidence",
+        "reason": "Risk blocked: confidence 0.51 below 0.55 \u2014 zero risk",
+        "confidence_factor": 0.0,
+        "regime_factor": 0.0,
+        "volatility_factor": 0.0,
+        "session_factor": 0.0,
+        "drawdown_factor": 0.0,
+        "engine_factor": 0.0,
+        "trace": [
+          "confidence 0.51 below 0.55 \u2014 zero risk"
+        ],
+        "inferred_reason": "low_confidence"
+      },
+      {
+        "signal_id": "raw_00023",
+        "allowed": false,
+        "risk_percent": 0.0,
+        "blocked_by": "low_confidence",
+        "reason": "Risk blocked: confidence 0.52 below 0.55 \u2014 zero risk",
+        "confidence_factor": 0.0,
+        "regime_factor": 0.0,
+        "volatility_factor": 0.0,
+        "session_factor": 0.0,
+        "drawdown_factor": 0.0,
+        "engine_factor": 0.0,
+        "trace": [
+          "confidence 0.52 below 0.55 \u2014 zero risk"
+        ],
+        "inferred_reason": "low_confidence"
+      }
+    ]
+  },
+  "execution_paths": {
+    "B_tq_alias_ar_production": {
+      "path": "B_tq_alias_ar_production",
+      "signals_total_hc": 2543,
+      "signals_captured": 2374,
+      "capture_rate_pct": 93.35,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      },
+      "blockers_remaining": {
+        "AdaptiveRisk": 169
+      },
+      "ar_only_blocked_after_tq_alias": 0
+    },
+    "C_tq_alias_ar_bypass": {
+      "path": "C_tq_alias_ar_bypass",
+      "signals_total_hc": 2543,
+      "signals_captured": 2374,
+      "capture_rate_pct": 93.35,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      },
+      "blockers_remaining": {
+        "AdaptiveRisk": 169
+      },
+      "ar_only_blocked_after_tq_alias": 0
+    }
+  },
+  "path_comparison": {
+    "phase61_reference": {
+      "path_b_pf": 0.3741,
+      "path_c_pf": 0.371,
+      "pf_delta": -0.0031,
+      "note": "phase61 used production TQ bypass, not phase63 alias"
+    },
+    "phase64_tq_alias": {
+      "path_b_pf": 0.3932,
+      "path_c_pf": 0.3932,
+      "pf_delta": 0.0,
+      "path_b_capture_pct": 93.35,
+      "path_c_capture_pct": 93.35,
+      "capture_delta_pct": 0.0
+    }
+  },
+  "ar_bypass_counterfactual": {
+    "ar_blocked_count": 169,
+    "ar_only_recovered_count": 0,
+    "pf_ar_blocked_cohort": {
+      "pf": 0.3307,
+      "trades": 169,
+      "wins": 42,
+      "losses": 127,
+      "win_rate_pct": 24.85
+    },
+    "pf_ar_only_recovered": {
+      "pf": 0.0,
+      "trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": 0.0
+    },
+    "pf_path_b": {
+      "pf": 0.3932,
+      "trades": 2374,
+      "wins": 670,
+      "losses": 1704,
+      "win_rate_pct": 28.22
+    },
+    "pf_path_c": {
+      "pf": 0.3932,
+      "trades": 2374,
+      "wins": 670,
+      "losses": 1704,
+      "win_rate_pct": 28.22
+    },
+    "incremental_pf_if_ar_bypassed": 0.0
+  },
+  "per_year_path_b": {
+    "2025": {
+      "signals_hc": 1513,
+      "captured_count": 1412,
+      "capture_rate_pct": 93.32,
+      "pf": 0.4879,
+      "trades": 1412,
+      "wins": 463,
+      "losses": 949,
+      "win_rate_pct": 32.79
+    },
+    "2026": {
+      "signals_hc": 1030,
+      "captured_count": 962,
+      "capture_rate_pct": 93.4,
+      "pf": 0.2742,
+      "trades": 962,
+      "wins": 207,
+      "losses": 755,
+      "win_rate_pct": 21.52
+    }
+  },
+  "per_year_path_c": {
+    "2025": {
+      "signals_hc": 1513,
+      "captured_count": 1412,
+      "capture_rate_pct": 93.32,
+      "pf": 0.4879,
+      "trades": 1412,
+      "wins": 463,
+      "losses": 949,
+      "win_rate_pct": 32.79
+    },
+    "2026": {
+      "signals_hc": 1030,
+      "captured_count": 962,
+      "capture_rate_pct": 93.4,
+      "pf": 0.2742,
+      "trades": 962,
+      "wins": 207,
+      "losses": 755,
+      "win_rate_pct": 21.52
+    }
+  },
+  "phase68_shadow_policy_recommendation": {
+    "recommendation": "keep_production_ar",
+    "worth_fixing": false,
+    "phase68_policy": {
+      "trade_quality": {
+        "engine_alias": "map_to_v40",
+        "quality_threshold": 0.4,
+        "scope": "shadow_only"
+      },
+      "adaptive_risk": {
+        "action": "keep_production",
+        "min_confidence_floor": 0.55,
+        "note_en": "AR blocks 169 signals primarily due to low_confidence (HC proxy 0.40 vs AR floor 0.55). Bypassing AR adds 0.0% capture but PF drops 0.0000 \u2014 keep production AR; align HC threshold with AR floor in phase68 if needed."
+      }
+    },
+    "rationale_en": "AR blocks 169 signals primarily due to low_confidence (HC proxy 0.40 vs AR floor 0.55). Bypassing AR adds 0.0% capture but PF drops 0.0000 \u2014 keep production AR; align HC threshold with AR floor in phase68 if needed.",
+    "rationale_fa": "AR \u0639\u0645\u062f\u062a\u0627\u064b \u0628\u0647\u200c\u062e\u0627\u0637\u0631 low_confidence \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u06a9\u0646\u062f. bypass \u0641\u0642\u0637 0.0\u066a capture \u0627\u0636\u0627\u0641\u0647 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 PF \u0631\u0627 0.0000 \u06a9\u0627\u0647\u0634 \u0645\u06cc\u200c\u062f\u0647\u062f. AR \u062a\u0648\u0644\u06cc\u062f \u0631\u0627 \u0646\u06af\u0647 \u062f\u0627\u0631\u06cc\u062f.",
+    "path_comparison": {
+      "path_b_capture_pct": 93.35,
+      "path_c_capture_pct": 93.35,
+      "capture_delta_pct": 0.0,
+      "path_b_pf": 0.3932,
+      "path_c_pf": 0.3932,
+      "pf_delta": 0.0
+    }
+  },
+  "phase63_policy_snapshot": {
+    "engine_alias": {
+      "from": "trend_rf_v41",
+      "to": "trend_rf_v40",
+      "scope": "shadow_only",
+      "register_v41_alias_equivalent": true
+    },
+    "quality_threshold_recommended": 0.4,
+    "alias_policy_primary": "map_to_v40",
+    "threshold_sweep": [
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "gates": {
+      "capture_rate_pct_ge_20": true,
+      "shadow_pf_ge_1_0": false,
+      "all_gates_pass": false,
+      "capture_actual_pct": 93.21,
+      "shadow_pf_actual": 0.3932,
+      "threshold_used": 0.4
+    }
+  },
+  "next_phase": "65",
+  "next_phase_alternate": "68"
+}

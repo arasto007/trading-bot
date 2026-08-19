@@ -1,0 +1,59 @@
+{
+  "phase": "22AH",
+  "nominal_baseline_mean_auc_gap": 0.3308,
+  "perturbation_results": {
+    "baseline_minus_20pct": {
+      "baseline_gap_threshold": 0.26464,
+      "accepted_count": 0,
+      "accepted": []
+    },
+    "baseline_minus_10pct": {
+      "baseline_gap_threshold": 0.29772,
+      "accepted_count": 0,
+      "accepted": []
+    },
+    "baseline_minus_5pct": {
+      "baseline_gap_threshold": 0.31426,
+      "accepted_count": 0,
+      "accepted": []
+    },
+    "baseline_exact": {
+      "baseline_gap_threshold": 0.3308,
+      "accepted_count": 1,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ]
+    },
+    "baseline_plus_5pct": {
+      "baseline_gap_threshold": 0.34734,
+      "accepted_count": 1,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ]
+    },
+    "baseline_plus_10pct": {
+      "baseline_gap_threshold": 0.36388,
+      "accepted_count": 1,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ]
+    },
+    "baseline_plus_20pct": {
+      "baseline_gap_threshold": 0.39696,
+      "accepted_count": 1,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ]
+    }
+  },
+  "outcome_stable_at_exact_baseline": true,
+  "outcome_fragile_under_perturbation": true,
+  "fragile_perturbations": [
+    "baseline_minus_20pct",
+    "baseline_minus_10pct",
+    "baseline_minus_5pct"
+  ],
+  "interpretation": "Acceptance under mean_auc_gap is monotonic in baseline threshold: lower baseline admits more candidates; ±5% may change count when gaps cluster near 0.3308",
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

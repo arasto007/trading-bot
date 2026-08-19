@@ -1,0 +1,146 @@
+{
+  "phase": "31C",
+  "results": {
+    "baseline_current": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.1109,
+      "test_pf": 1.4413,
+      "train_net": 49.8371,
+      "test_net": 86.2636,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "breakeven_0_5r": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.984,
+      "test_pf": 1.6619,
+      "train_net": 1310.2126,
+      "test_net": 389.482,
+      "stable": false,
+      "walkforward_pass": false
+    },
+    "breakeven_1r": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.984,
+      "test_pf": 1.652,
+      "train_net": 1487.4055,
+      "test_net": 441.67,
+      "stable": false,
+      "walkforward_pass": false
+    },
+    "partial_50_at_1r": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.6837,
+      "test_pf": 1.4948,
+      "train_net": 1033.4401,
+      "test_net": 335.1739,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "trailing_atr_1x": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 2.5266,
+      "test_pf": 2.7989,
+      "train_net": 1123.7441,
+      "test_net": 648.7669,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "atr_exhaustion_exit": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.589,
+      "test_pf": 2.0102,
+      "train_net": 859.1102,
+      "test_net": 619.864,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "structure_ema_break": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.7068,
+      "test_pf": 1.8264,
+      "train_net": 973.8525,
+      "test_net": 550.3234,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "adaptive_time_fast": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.1782,
+      "test_pf": 1.3885,
+      "train_net": 330.63,
+      "test_net": 326.79,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "momentum_decay_exit": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.6867,
+      "test_pf": 1.8976,
+      "train_net": 1192.3961,
+      "test_net": 654.6569,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "adx_deterioration_exit": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 2.1221,
+      "test_pf": 1.9495,
+      "train_net": 2089.6859,
+      "test_net": 763.2211,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "trailing_arm_0_75r": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.4789,
+      "test_pf": 1.8174,
+      "train_net": 693.191,
+      "test_net": 541.7049,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "volatility_short_timeout": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 2.2855,
+      "test_pf": 1.7569,
+      "train_net": 2486.7659,
+      "test_net": 670.674,
+      "stable": false,
+      "walkforward_pass": false
+    },
+    "multi_stage_partial_trail": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 1.3425,
+      "test_pf": 1.5252,
+      "train_net": 498.3918,
+      "test_net": 348.085,
+      "stable": true,
+      "walkforward_pass": true
+    },
+    "hybrid_b_proxy": {
+      "train_trades": 342,
+      "test_trades": 147,
+      "train_pf": 2.2606,
+      "test_pf": 1.6207,
+      "train_net": 1905.5453,
+      "test_net": 420.4094,
+      "stable": false,
+      "walkforward_pass": false
+    }
+  },
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

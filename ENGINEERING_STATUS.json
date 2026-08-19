@@ -1,0 +1,660 @@
+{
+  "updated_utc": "2026-07-16T13:00:00Z",
+  "mt5_stability_fix": {
+    "applied_utc": "2026-07-16T13:00:00Z",
+    "status": "APPLIED",
+    "ipc_lock": "logs/mt5_ipc.lock",
+    "session_context": "tradingbot/adapters/mt5_utils.py::mt5_session_context",
+    "cooldown_file": "logs/live_l5_mt5_refresh_cooldown.json",
+    "cooldown_sec": 900,
+    "attach_test_script": "tradingbot/adapters/mt5_attach_test.py",
+    "stability_check_script": "logs/mt5_stability_check.ps1",
+    "changes": [
+      "Cross-process IPC file lock prevents concurrent initialize/shutdown",
+      "attach_mt5_session never shutdown/login on connected GUI session",
+      "ensure_mt5_connected defaults attach_only=True",
+      "refresh_live_candles and demo_live_runner use mt5_session_context",
+      "diagnose_mt5_connection attach-only (no init probe storms)"
+    ],
+    "test_results": {
+      "attach_test": "PASS connected=true login=91213150 LiteFinance-MT5-Demo",
+      "pytest_demo_safety_phase14": "54 passed"
+    }
+  },
+  "autonomous_mode": true,
+  "user_action_required": true,
+  "autonomous_status_file": "AUTONOMOUS_STATUS.json",
+  "status": "S4_DEMO_ACTIVE",
+  "paper_status": "SHADOW_RUNNING",
+  "delivery_status": "S4_DEMO_ACTIVE",
+  "engineering_verdict": "SHADOW_PRODUCTION_PATH",
+  "proximity_score": 95.0,
+  "proximity_band": "L6_GATES_PASS",
+  "strict_gate_passed": false,
+  "how_close_pct": 95.0,
+  "treatment_roadmap": "TREATMENT_ROADMAP.json",
+  "treatment_pipeline": "tradingbot/ml/research/run_treatment_pipeline.py",
+  "failure_context": {
+    "phase50_report": "phase50_final_report.json",
+    "phase51_report": "phase51_final_report.json",
+    "phase50_verdict": "STRICT_GATE_FAIL",
+    "phase51_verdict": "EARLY_RESEARCH",
+    "mean_pf": 0.9024,
+    "mean_auc": 0.5115
+  },
+  "treatment_phases": {
+    "52": {
+      "status": "COMPLETE",
+      "track": "A",
+      "verdict": "V7_LABELS_HEALTHY",
+      "report": "phase52_final_report.json"
+    },
+    "53": {
+      "status": "COMPLETE",
+      "track": "B",
+      "verdict": "FUNNEL_SEVERE_EDGE_LOSS",
+      "report": "phase53_final_report.json"
+    },
+    "54": {
+      "status": "COMPLETE",
+      "track": "C",
+      "verdict": "MODEL_SWEEP_COMPLETE",
+      "report": "phase54_final_report.json"
+    },
+    "55": {
+      "status": "COMPLETE",
+      "track": "A",
+      "verdict": "HIGH_NOISE_FEATURES",
+      "report": "phase55_final_report.json"
+    },
+    "56": {
+      "status": "COMPLETE",
+      "track": "D",
+      "verdict": "TREATMENT_REGATE_FAIL",
+      "report": "phase56_final_report.json"
+    },
+    "57": {
+      "status": "COMPLETE",
+      "track": "B",
+      "verdict": "TREND_GATE_MARGINAL",
+      "report": "phase57_final_report.json",
+      "sub_phases": {
+        "57A": "trade_quality_simulation",
+        "57B": "trend_regime_deep_dive"
+      }
+    },
+    "58": {
+      "status": "COMPLETE",
+      "track": "D",
+      "verdict": "STRICT_GATE_FAIL",
+      "report": "phase58_final_report.json",
+      "gate_passed": false
+    },
+    "59": {
+      "status": "COMPLETE",
+      "track": "A",
+      "verdict": "STRICT_GATE_FAIL",
+      "report": "phase59_final_report.json",
+      "gate_passed": false
+    },
+    "60": {
+      "status": "COMPLETE",
+      "track": "C",
+      "verdict": "STRICT_GATE_FAIL",
+      "report": "phase60_final_report.json",
+      "gate_passed": false
+    },
+    "61": {
+      "status": "COMPLETE",
+      "track": "B",
+      "verdict": "SHADOW_VALIDATION_COMPLETE",
+      "report": "phase61_final_report.json"
+    }
+  },
+  "phase52_summary": {
+    "stored_vs_production_match_pct": 100.0,
+    "pf_proxy_full": 0.3731,
+    "win_rate_pct": 27.17,
+    "root_cause_ruled_out": "LABEL_MISALIGNMENT"
+  },
+  "phase53_summary": {
+    "raw_signals": 4864,
+    "would_reach_execution": 0,
+    "executed_path": 0,
+    "capture_rate_pct": 0.0,
+    "edge_loss_pct": 100.0,
+    "top_signal_blockers": [
+      "TradeQuality",
+      "AdaptiveRisk"
+    ],
+    "top_bar_blockers": [
+      "DecisionOrchestrator",
+      "TradeQuality",
+      "AdaptiveRisk"
+    ]
+  },
+  "phase54_summary": {
+    "best_model": "random_forest",
+    "best_mean_pf": 0.9024,
+    "best_mean_auc": 0.5115,
+    "baseline_mean_pf": 0.9024,
+    "baseline_mean_auc": 0.5115,
+    "trend_regime_best_pf": 1.1778,
+    "trend_regime_best_threshold": 0.35,
+    "all_models_gate_passed": false
+  },
+  "phase55_summary": {
+    "top_features": [
+      "tick_volume_proxy",
+      "atr_14",
+      "realized_vol_20",
+      "rsi_14",
+      "macd_histogram"
+    ],
+    "noise_feature_count": 11,
+    "high_correlation_pairs": 3
+  },
+  "phase56_summary": {
+    "treatment_verdict": "TREATMENT_REGATE_FAIL",
+    "integration_gate": "BLOCK_PRODUCTION_INTEGRATION",
+    "blockers": [
+      "EXECUTION_FUNNEL_EDGE_LOSS",
+      "ML_PREDICTIVE_WEAK"
+    ],
+    "re_gate_mean_pf": 0.7098,
+    "re_gate_mean_auc": 0.5117,
+    "re_gate_features_used": 36,
+    "production_deploy_blocked": true
+  },
+  "current_treatment_phase": "70",
+  "next_step": "S4 demo runner active — MT5 demo attach required for orders; paper shadow continues through 2026-09-09",
+  "production_status": "DEMO_READY",
+  "live_l5_paper_monitor": {
+    "monitor_pid": 1544,
+    "paper_resumed_utc": "2026-07-16T12:08:00Z",
+    "paper_paused_utc": "2026-07-16T11:15:00Z",
+    "paper_resume_ready_utc": "2026-07-16T12:05:00Z",
+    "pause_reason": "BACKTEST_GATE — resolved by RR_PRODUCTION_RESEARCH production-like pass",
+    "resume_reason": "BACKTEST_GATE + RR research PRODUCTION_LIKE_PASS (shadow PF=1.41, capture=56%)",
+    "end_date_utc": "2026-09-09T06:33:19Z",
+    "resume_command": "AUTOMATIC via logs/live_autonomous_orchestrator.ps1",
+    "monitor_script": "logs/live_l5_paper_monitor.ps1",
+    "monitor_result": "logs/live_l5_paper_monitor_result.json",
+    "monitor_state": "logs/live_l5_paper_monitor_state.json",
+    "weekly_status": "live_l5_paper_weekly_status.json",
+    "l6_auto_scheduler": "tradingbot/ml/research/live_l6/auto_l6_on_paper_complete.ps1",
+    "autonomous_orchestrator": "logs/live_autonomous_orchestrator.ps1",
+    "autonomous_start": "logs/start_autonomous.bat",
+    "autonomous_status": "AUTONOMOUS_STATUS.json"
+  },
+  "delivery_manifest": "ROBOT_DELIVERY_MANIFEST.json",
+  "integration_readiness": "live_l6_integration_readiness.json",
+  "integration_plan": "live_l6_integration_plan.json",
+  "vol_regime_integration": {
+    "s2_tq_patch_applied_utc": "2026-07-16T15:55:00Z",
+    "s3_orchestrator_wired_utc": "2026-07-16T15:55:00Z",
+    "files": [
+      "tradingbot/ml/trade_quality/rr_quality.py",
+      "tradingbot/ml/trade_quality/regime_quality.py",
+      "tradingbot/ml/decision_engine/vol_regime_branch.py",
+      "tradingbot/ml/decision_engine/orchestrator.py",
+      "tradingbot/domain/signal_helpers.py"
+    ],
+    "production_deploy": "DEMO_READY",
+    "real_money_blocked": true,
+    "s4_demo_wired_utc": "2026-07-16T12:33:11Z"
+  },
+  "phase57_summary": {
+    "bypass_capture_rate_pct": 93.36,
+    "bypass_pf_proxy": 0.3741,
+    "trend_best_threshold": 0.45,
+    "trend_best_mean_pf": 2.5,
+    "trend_stable_threshold": 0.4,
+    "trend_stable_mean_pf": 0.8139,
+    "trend_mean_pf_per_year": 1.8056
+  },
+  "phase58_summary": {
+    "mean_pf": 0.8139,
+    "mean_auc": 0.5138,
+    "primary_threshold": 0.4,
+    "gate_passed": false,
+    "windows_pf_above_1_3": 1,
+    "rows_trend": 81035
+  },
+  "phase59_summary": {
+    "best_config": "rf_10f_label_v3",
+    "best_horizon": 96,
+    "mean_pf": 1.7343,
+    "mean_auc": 0.5153,
+    "gate_passed": false,
+    "ensemble_beats_rf": false,
+    "feature_set_winner": "10"
+  },
+  "phase60_summary": {
+    "best_technique": "baseline_rf_10f",
+    "mean_pf": 1.7343,
+    "mean_pf_honest": 0.5676,
+    "mean_auc": 0.5153,
+    "gate_passed": false,
+    "gate_passed_honest": false,
+    "tq_only_capture_rate_pct": 93.36
+  },
+  "phase61_summary": {
+    "shadow_pf_path_a": 0.0,
+    "shadow_pf_path_b": 0.3741,
+    "shadow_pf_path_c": 0.371,
+    "capture_path_b_pct": 93.39,
+    "ar_blocked_count": 299,
+    "treatment_verdict": "TREATMENT_RESEARCH_COMPLETE_NO_PRODUCTION"
+  },
+  "fix_roadmap": "FIX_ROADMAP.json",
+  "fix_pipeline": "tradingbot/ml/research/run_fix_pipeline.py",
+  "fix_phases": {
+    "62": {
+      "status": "COMPLETE",
+      "track": "E",
+      "verdict": "TQ_ENGINE_ID_MISMATCH_CONFIRMED",
+      "report": "phase62_final_report.json"
+    },
+    "63": {
+      "status": "COMPLETE",
+      "track": "E",
+      "verdict": "SHADOW_CAPTURE_OK_PF_FAIL",
+      "report": "phase63_final_report.json"
+    },
+    "65": {
+      "status": "COMPLETE",
+      "track": "M",
+      "verdict": "STRICT_GATE_FAIL",
+      "report": "phase65_final_report.json",
+      "gate_passed": false
+    },
+    "64": {
+      "status": "COMPLETE",
+      "track": "E",
+      "verdict": "AR_REVIEW_COMPLETE",
+      "report": "phase64_final_report.json"
+    },
+    "66": {
+      "status": "COMPLETE",
+      "track": "M",
+      "verdict": "STRICT_GATE_MARGINAL",
+      "report": "phase66_final_report.json",
+      "gate_passed": false
+    },
+    "67": {
+      "status": "COMPLETE",
+      "track": "M",
+      "verdict": "STRICT_GATE_MARGINAL",
+      "report": "phase67_final_report.json",
+      "gate_passed": false
+    },
+    "68": {
+      "status": "COMPLETE",
+      "track": "E+I",
+      "verdict": "COMBINED_SHADOW_GATES_FAIL",
+      "report": "phase68_final_report.json",
+      "all_gates_pass": false,
+      "proceed_to_phase69": false
+    },
+    "69": {
+      "status": "SKIPPED",
+      "track": "I",
+      "verdict": "GATES_FAIL_BLOCK_PAPER",
+      "reason": "No config passes all gates simultaneously. Best shadow PF=0.3932 (config A). ML honest PF and shadow PF remain below targets. Phase69 paper trading NOT justified on evidence — optional observational paper only."
+    },
+    "70": {
+      "status": "BLOCKED",
+      "track": "I",
+      "verdict": "FIX_ROADMAP_COMPLETE_BLOCKED",
+      "report": "phase70_final_report.json",
+      "all_gates_pass": false,
+      "production_deploy": "BLOCKED"
+    }
+  },
+  "phase62_summary": {
+    "signals_analyzed": 4864,
+    "tq_block_rate_pct": 100.0,
+    "primary_blocker": "regime_engine_mismatch",
+    "engine_mismatch": true,
+    "shadow_alias_capture_pct": 93.36,
+    "shadow_alias_pf": 0.3679
+  },
+  "phase63_summary": {
+    "signals_analyzed": 2756,
+    "best_shadow_threshold": 0.4,
+    "shadow_capture_pct": 93.21,
+    "shadow_pf": 0.3932,
+    "capture_gate_pass": true,
+    "pf_gate_pass": false,
+    "engine_alias_fixes_capture": true
+  },
+  "phase65_summary": {
+    "best_config": "baseline_rf_10f",
+    "feature_count": 10,
+    "engineered_features_created": 20,
+    "mean_auc": 0.5153,
+    "mean_pf": 1.7343,
+    "mean_pf_honest": 0.5676,
+    "delta_auc_vs_phase59": 0.0,
+    "auc_gate_pass": false,
+    "honest_pf_gate_pass": false,
+    "for_phase_67_68": {
+      "config_id": "baseline_rf_10f",
+      "features": [
+        "tick_volume_proxy",
+        "atr_14",
+        "realized_vol_20",
+        "rsi_14",
+        "macd_histogram",
+        "ema200_distance",
+        "range_pct",
+        "bar_spread_pct",
+        "ml_confidence",
+        "momentum_5"
+      ],
+      "threshold": 0.4,
+      "label_col": "label_v3",
+      "model": "random_forest"
+    }
+  },
+  "phase64_summary": {
+    "ar_blocked_count": 169,
+    "primary_block_reason": "low_confidence",
+    "path_b_capture_pct": 93.35,
+    "path_c_capture_pct": 93.35,
+    "path_b_pf": 0.3932,
+    "path_c_pf": 0.3932,
+    "pf_delta_path_c_vs_b": 0.0,
+    "worth_fixing_ar": false,
+    "phase68_ar_policy": "keep_production_ar"
+  },
+  "phase66_summary": {
+    "best_experiment": "strict_tp_only_h24",
+    "label_variant": "strict_tp_only",
+    "horizon_bars": 24,
+    "mean_auc": 0.5849,
+    "mean_pf": 0.028,
+    "mean_pf_honest": 0.14,
+    "delta_auc_vs_baseline": 0.0696,
+    "auc_gate_pass": true,
+    "honest_pf_gate_pass": false,
+    "for_phase_67_68": {
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "features": [
+        "tick_volume_proxy",
+        "atr_14",
+        "realized_vol_20",
+        "rsi_14",
+        "macd_histogram",
+        "ema200_distance",
+        "range_pct",
+        "bar_spread_pct",
+        "ml_confidence",
+        "momentum_5"
+      ],
+      "threshold": 0.4,
+      "model": "random_forest"
+    }
+  },
+  "phase67_summary": {
+    "best_config_id": "F",
+    "best_name": "dual_strict_tp_h24_rank_label_v3_h72_pf",
+    "mean_auc": 0.5849,
+    "mean_pf": 0.0327,
+    "mean_pf_honest": 0.1633,
+    "both_gates_pass": false,
+    "phase68_ready": false,
+    "for_phase_68": {
+      "config_id": "F",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "eval_label_variant": "label_v3",
+      "eval_horizon": 72,
+      "model": "random_forest",
+      "class_weight": null,
+      "dual_objective": true,
+      "features": [
+        "tick_volume_proxy",
+        "atr_14",
+        "realized_vol_20",
+        "rsi_14",
+        "macd_histogram",
+        "ema200_distance",
+        "range_pct",
+        "bar_spread_pct",
+        "ml_confidence",
+        "momentum_5"
+      ],
+      "threshold": 0.35,
+      "phase68_ready": false
+    }
+  },
+  "phase68_summary": {
+    "best_config_id": "A",
+    "best_shadow_pf": 0.3932,
+    "best_capture_pct": 93.35,
+    "best_mean_auc": 0.5151,
+    "best_mean_pf_honest": 0.5676,
+    "all_gates_pass": false,
+    "proceed_to_phase69": false,
+    "phase69_verdict": "GATES_FAIL_BLOCK_PAPER"
+  },
+  "fix_roadmap_complete": true,
+  "fix_roadmap_final_verdict": "FIX_ROADMAP_FINAL_VERDICT.json",
+  "live_profit_roadmap": "LIVE_PROFIT_ROADMAP.json",
+  "live_pipeline": "tradingbot/ml/research/run_live_pipeline.py",
+  "v41_production_fix": {
+    "applied_utc": "2026-07-15T04:10:00Z",
+    "file": "tradingbot/ml/trade_quality/regime_quality.py",
+    "change": "trend_rf_v41 alias to trend_rf_v40 regime matrix",
+    "phase62_reference": "phase62_final_report.json",
+    "tests": "tests/test_phase14_3_quality.py::test_trend_v41_alias_*"
+  },
+  "live_roadmap_phases": {
+    "L0": {
+      "status": "COMPLETE",
+      "deliverable": "LIVE_PROFIT_ROADMAP.json"
+    },
+    "L1": {
+      "status": "BUILD_COMPLETE",
+      "verdict": "V8_BUILD_COMPLETE",
+      "deliverable": "tradingbot/ml/research/live_l1/build_v8_dataset.py",
+      "report": "live_l1_v8_build_report.json",
+      "rows": 387714,
+      "years": 6
+    },
+    "L1b": {
+      "status": "COMPLETE",
+      "verdict": "EXPANSION_COMPLETE",
+      "deliverable": "tradingbot/ml/research/live_l1/expand_v8_labels.py",
+      "report": "live_l1b_label_expansion_report.json",
+      "labeled_v3_after": 171321,
+      "labeled_rr1_after": 171321,
+      "delta_v3": 91071
+    },
+    "L2": {
+      "status": "ROUND2_COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "deliverable": "tradingbot/ml/research/live_l2/edge_discovery.py",
+      "report": "live_l2_edge_discovery_report.json",
+      "best_pf": 0.3917,
+      "any_honest_edge": false
+    },
+    "L2r2": {
+      "status": "COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "deliverable": "tradingbot/ml/research/live_l2/edge_discovery_round2.py",
+      "report": "live_l2_edge_discovery_round2_report.json",
+      "best_hypothesis": "PULLBACK_VWAP",
+      "best_pf": 0.3988,
+      "any_honest_edge": false,
+      "any_marginal_edge": false
+    },
+    "L2.5": {
+      "status": "COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "deliverable": "tradingbot/ml/research/live_l2/sl_tp_sweep.py",
+      "report": "live_l2_sl_tp_sweep_report.json",
+      "best_config": "ATR2.0_RR1.0",
+      "best_pf": 1.0258,
+      "production_rr_fixed": 2.5,
+      "any_honest_edge": false,
+      "insight": "RR=1.0 lifts PF but fails 3-year gate"
+    },
+    "L2.6": {
+      "status": "COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "deliverable": "tradingbot/ml/research/live_l2/edge_discovery_l26.py",
+      "report": "live_l2_edge_discovery_l26_report.json",
+      "best_config": "baseline_no_ml",
+      "best_pf": 1.0258,
+      "years_passed_gate": 2,
+      "ml_improves_edge": false,
+      "any_honest_edge": false
+    },
+    "L2.7": {
+      "status": "COMPLETE",
+      "verdict": "EDGE_FOUND",
+      "deliverable": "tradingbot/ml/research/live_l2/edge_discovery_l27.py",
+      "report": "live_l2_edge_discovery_l27_report.json",
+      "best_hypothesis": "VOL_REGIME",
+      "best_config": "ATR2.5_RR0.8",
+      "best_pf": 1.4262,
+      "years_passed_gate": 6,
+      "configs_passing_gate": 12,
+      "any_honest_edge": true
+    },
+    "L3": {
+      "status": "COMPLETE",
+      "verdict": "EXECUTION_VALIDATED",
+      "deliverable": "tradingbot/ml/research/live_l3/execution_validation.py",
+      "report": "live_l3_execution_validation_report.json",
+      "config": "VOL_REGIME ATR2.5_RR0.8",
+      "capture_rate_pct": 63.16,
+      "shadow_pf": 1.4037,
+      "capture_gate_pass": true
+    },
+    "L4prep": {
+      "status": "COMPLETE",
+      "verdict": "IMPROVEMENT_FOUND",
+      "deliverable": "tradingbot/ml/research/live_l4/v8_regime_ml_test.py",
+      "report": "live_l4_v8_regime_ml_report.json",
+      "mean_auc": 0.5168,
+      "mean_pf_honest_30": 1.4,
+      "vs_v7_delta_auc": 0.003,
+      "windows_honest_30": 1,
+      "strict_gate_pass": false
+    },
+    "L4": {
+      "status": "COMPLETE",
+      "verdict": "ML_HURTS_OR_NEUTRAL",
+      "deliverable": "tradingbot/ml/research/live_l4/signal_ml_refinement.py",
+      "report": "live_l4_signal_ml_report.json",
+      "signal": "PULLBACK_VWAP",
+      "baseline_pf": 1.037,
+      "best_ml_pf": 0.931,
+      "ml_helps": false
+    },
+    "L5": {
+      "status": "RUNNING",
+      "verdict": "PAPER_RESUMED_AFTER_BACKTEST",
+      "deliverable": "tradingbot/ml/research/live_l5/shadow_paper_runner.py",
+      "report": "live_paper_resume_report.json",
+      "monitor": "logs/live_l5_paper_monitor.ps1",
+      "strategy": "VOL_REGIME ATR2.5_RR0.8",
+      "paper_weeks": 8,
+      "paper_status": "SHADOW_RUNNING",
+      "observation_start_utc": "2026-07-15T06:33:19Z",
+      "trade_count": 50,
+      "profit_factor": 1.6316,
+      "max_drawdown_pct": 9.91,
+      "l6_early_gate_met": true
+    },
+    "BT-gate": {
+      "status": "COMPLETE",
+      "verdict": "GATE_FAIL",
+      "deliverable": "tradingbot/ml/research/live_bt/backtest_gate.py",
+      "report": "live_backtest_gate_report.json",
+      "next_step": "RR_PRODUCTION_RESEARCH",
+      "paper_resume_allowed": false
+    },
+    "RR-research": {
+      "status": "COMPLETE",
+      "verdict": "PRODUCTION_LIKE_PASS",
+      "deliverable": "tradingbot/ml/research/live_bt/rr_production_research.py",
+      "report": "live_rr_production_research_report.json",
+      "minimum_rr": 0.8,
+      "shadow_pf": 1.4138,
+      "capture_pct": 56.06,
+      "next_step": "PAPER_RESUME",
+      "paper_resume_allowed": true,
+      "ml_skipped": true
+    },
+    "L6": {
+      "status": "GATES_PASS",
+      "verdict": "L6_GATES_PASS_REVIEW_REQUIRED",
+      "deliverable": "tradingbot/ml/research/live_l6/deploy_gate_review.py",
+      "report": "live_l6_deploy_gate_review.json",
+      "integration_spec": "tradingbot/ml/research/live_l6/vol_regime_integration_spec.json",
+      "integration_plan": "live_l6_integration_plan.json",
+      "shadow_dry_run": "tradingbot/ml/research/live_l6/shadow_integration_dry_run.py",
+      "auto_scheduler": "tradingbot/ml/research/live_l6/auto_l6_on_paper_complete.ps1",
+      "integration_readiness": "tradingbot/ml/research/live_l6/integration_readiness.py",
+      "vol_regime_module": "tradingbot/strategies/vol_regime_signal.py",
+      "gates_passed_count": 10,
+      "gates_total": 10,
+      "early_gate_met": true,
+      "sole_blocker": null,
+      "max_drawdown_pct": 9.91,
+      "drawdown_bug_fixed_utc": "2026-07-16T12:14:00Z",
+      "production_deploy": "BLOCKED",
+      "integration_planning": "IN_PROGRESS",
+      "integration_planning_allowed": true
+    },
+    "L6-plan": {
+      "status": "IN_PROGRESS",
+      "verdict": "INTEGRATION_PLANNING",
+      "deliverable": "tradingbot/ml/research/live_l6/l6_integration_plan.py",
+      "report": "live_l6_integration_plan.json",
+      "dry_run_report": "live_l6_shadow_integration_dry_run.json",
+      "production_deploy": "BLOCKED"
+    }
+  },
+  "phase70_summary": {
+    "verdict": "FIX_ROADMAP_COMPLETE_BLOCKED",
+    "gates_passed_count": 1,
+    "gates_total": 4,
+    "production_deploy": "BLOCKED",
+    "phase69_skipped": true,
+    "fix_roadmap_complete": true
+  },
+  "s4_demo_live": {
+    "status": "S4_DEMO_ACTIVE",
+    "runner": "tradingbot/ml/research/live_l6/demo_live_runner.py",
+    "monitor": "logs/live_l6_demo_monitor.ps1",
+    "monitor_pid": 3716,
+    "monitor_running": true,
+    "journal": "logs/demo_live_journal.jsonl",
+    "status_file": "logs/demo_live_status.json",
+    "demo_live_env": "TRADINGBOT_DEMO_LIVE=1",
+    "limits": {
+      "max_lot": 0.01,
+      "risk_per_trade_pct": 1.0,
+      "daily_kill_switch_pct": 2.0
+    },
+    "mt5_terminal_running": true,
+    "mt5_connected": true,
+    "mt5_blocker": null,
+    "attach_only": true,
+    "ipc_lock": "logs/mt5_ipc.lock",
+    "last_cycle_utc": "2026-07-16T13:00:00Z",
+    "last_cycle_blocker": null,
+    "orders_placed": 0,
+    "real_money_blocked": true,
+    "paper_shadow_unchanged": true,
+    "paper_shadow_pid": 1544,
+    "user_action_fa": null
+  }
+}

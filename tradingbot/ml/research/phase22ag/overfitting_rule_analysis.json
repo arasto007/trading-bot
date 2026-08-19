@@ -1,0 +1,114 @@
+{
+  "phase": "22AG",
+  "ordinal_implementation": {
+    "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+    "function": "_risk_improved",
+    "formula": "RISK_ORDER[current] < RISK_ORDER[baseline]",
+    "risk_order": {
+      "LOW": 0,
+      "MEDIUM": 1,
+      "HIGH": 2
+    }
+  },
+  "label_source": {
+    "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+    "function": "assess_overfitting_risk",
+    "thresholds": {
+      "HIGH": "mean_gap>0.12 OR robustness<45",
+      "MEDIUM": "mean_gap>0.06 OR robustness<70",
+      "LOW": "otherwise"
+    }
+  },
+  "baseline": {
+    "overfitting_risk": "HIGH",
+    "mean_auc_gap": 0.3308,
+    "robustness_score": 66.57
+  },
+  "ordinal_vs_numeric": {
+    "question": "Would numeric AUC-gap comparison be safer than LOW/MEDIUM/HIGH ordering?",
+    "answer": "Yes for baseline HIGH — ordinal requires label drop impossible when both HIGH; numeric compares mean_auc_gap directly",
+    "baseline_mean_auc_gap": 0.3308,
+    "candidates_with_lower_gap": 27,
+    "candidates_failing_despite_lower_gap": 15,
+    "candidates_worse_than_baseline_gap": 1,
+    "recommended_numeric_rule": "candidate.mean_auc_gap < baseline.mean_auc_gap (strict improvement)",
+    "optional_cap": "candidate.mean_auc_gap <= 0.06 for MEDIUM bucket alignment"
+  },
+  "rejection_breakdown": {
+    "label_logic_failures": 15,
+    "really_overfit_failures": 1,
+    "ordinal_pass": 12
+  },
+  "examples": {
+    "label_logic": [
+      {
+        "experiment_id": "random_forest_shallow__stable_4__RANGE",
+        "overfitting_risk_decreased_passed": false,
+        "rejection_category": "Rejected because: Label Logic",
+        "rejection_reason": "mean_auc_gap improved (0.1562 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+        "candidate_overfitting_risk": "HIGH",
+        "baseline_overfitting_risk": "HIGH",
+        "mean_auc_gap": 0.1562,
+        "baseline_mean_auc_gap": 0.3308,
+        "mean_auc_gap_delta_vs_baseline": 0.1746,
+        "numeric_auc_gap_better_than_baseline": true,
+        "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+        "high_label_triggers_if_applicable": [
+          "mean_auc_gap>0.12"
+        ]
+      },
+      {
+        "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+        "overfitting_risk_decreased_passed": false,
+        "rejection_category": "Rejected because: Label Logic",
+        "rejection_reason": "mean_auc_gap improved (0.2933 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+        "candidate_overfitting_risk": "HIGH",
+        "baseline_overfitting_risk": "HIGH",
+        "mean_auc_gap": 0.2933,
+        "baseline_mean_auc_gap": 0.3308,
+        "mean_auc_gap_delta_vs_baseline": 0.0375,
+        "numeric_auc_gap_better_than_baseline": true,
+        "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+        "high_label_triggers_if_applicable": [
+          "mean_auc_gap>0.12"
+        ]
+      },
+      {
+        "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+        "overfitting_risk_decreased_passed": false,
+        "rejection_category": "Rejected because: Label Logic",
+        "rejection_reason": "mean_auc_gap improved (0.2613 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+        "candidate_overfitting_risk": "HIGH",
+        "baseline_overfitting_risk": "HIGH",
+        "mean_auc_gap": 0.2613,
+        "baseline_mean_auc_gap": 0.3308,
+        "mean_auc_gap_delta_vs_baseline": 0.0695,
+        "numeric_auc_gap_better_than_baseline": true,
+        "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+        "high_label_triggers_if_applicable": [
+          "mean_auc_gap>0.12"
+        ]
+      }
+    ],
+    "really_overfit": [
+      {
+        "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+        "overfitting_risk_decreased_passed": false,
+        "rejection_category": "Rejected because: really Overfit",
+        "rejection_reason": "mean_auc_gap=0.3308 is not lower than baseline=0.3308; candidate is not numerically better on train/validation AUC gap",
+        "candidate_overfitting_risk": "HIGH",
+        "baseline_overfitting_risk": "HIGH",
+        "mean_auc_gap": 0.3308,
+        "baseline_mean_auc_gap": 0.3308,
+        "mean_auc_gap_delta_vs_baseline": 0.0,
+        "numeric_auc_gap_better_than_baseline": false,
+        "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+        "high_label_triggers_if_applicable": [
+          "mean_auc_gap>0.12"
+        ]
+      }
+    ]
+  },
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

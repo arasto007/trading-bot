@@ -1,0 +1,67 @@
+{
+  "phase": "22AE",
+  "constants": [
+    {
+      "name": "DEFAULT_CONFIG",
+      "location": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 38,
+      "value": {},
+      "role": "fallback training/threshold config when config=None"
+    },
+    {
+      "name": "candidate_id",
+      "location": "tradingbot/ml/paper_trading/model_registry.py",
+      "lines": [
+        116,
+        136
+      ],
+      "value": "logistic_strong_reg",
+      "role": "ModelCandidateConfig + metadata; never from optimizer"
+    },
+    {
+      "name": "model_name",
+      "location": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 117,
+      "value": "logistic",
+      "role": "forces logistic even if DEFAULT_CONFIG['model'] says LogisticRegression"
+    },
+    {
+      "name": "feature_subset",
+      "location": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 137,
+      "value": "stable_top3",
+      "role": "metadata label only; actual features come from cfg['features'] (= DEFAULT_CONFIG top3 list)"
+    },
+    {
+      "name": "DEFAULT_CONFIG['features']",
+      "value": null,
+      "role": "matches optimizer subset name stable_top3 from feature research, but selected statically"
+    },
+    {
+      "name": "DEFAULT_CONFIG['parameters']",
+      "value": null,
+      "role": "matches logistic_strong_reg hyperparameters C=0.1 from model_regularization grid"
+    },
+    {
+      "name": "train_split_ratio",
+      "location": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 107,
+      "value": 0.85,
+      "role": "differs from walk-forward optimizer validation protocol"
+    }
+  ],
+  "logistic_strong_reg_in_optimizer_grid": {
+    "file": "tradingbot/ml/research/robustness_optimizer/model_regularization.py",
+    "line": 95,
+    "description": "Strong L2 logistic C=0.1",
+    "note": "Same candidate exists in optimizer grid but freeze does not select it via rank/select_best"
+  },
+  "stable_top3_in_feature_research": {
+    "file": "tradingbot/ml/research/robustness_optimizer/stable_feature_research.py",
+    "line": 68,
+    "mechanism": "subsets['stable_top3'] = ranked[:3]",
+    "note": "freeze metadata copies subset name as literal; features copied into DEFAULT_CONFIG manually"
+  },
+  "generated_utc": "2026-07-07T19:28:18.301547+00:00",
+  "production_modified": false
+}

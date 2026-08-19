@@ -1,0 +1,24 @@
+{
+  "windows": [
+    {
+      "window": "300_bars",
+      "feature_match_rate": 1.0,
+      "passes_100": true
+    },
+    {
+      "window": "7_days",
+      "feature_match_rate": 1.0,
+      "passes_100": true
+    },
+    {
+      "window": "30_days",
+      "feature_match_rate": 1.0,
+      "passes_100": true
+    },
+    {
+      "window": "90_days",
+      "feature_match_rate": 1.0,
+      "passes_100": true
+    }
+  ]
+}

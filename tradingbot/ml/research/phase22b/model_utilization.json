@@ -1,0 +1,39 @@
+{
+  "phase": "22B",
+  "period": "2026-06-04 00:00 to 2026-07-04 23:59",
+  "models": {
+    "trend_v41": {
+      "loaded": true,
+      "active": true,
+      "prediction_count_proxy": 138,
+      "M5_only": true
+    },
+    "trend_v40": {
+      "loaded": true,
+      "active": false,
+      "executed": false,
+      "reason_if_inactive": "TREND_MODEL_VERSION=v41 in .env"
+    },
+    "range_phase9_9": {
+      "loaded": true,
+      "active": true,
+      "regime_counts_M5": {
+        "RANGE": 9930,
+        "TREND": 138
+      }
+    },
+    "meta_m5": {
+      "file_exists": true,
+      "gate_evaluations": 0
+    },
+    "meta_m15": {
+      "file_exists": true
+    },
+    "meta_h4": {
+      "file_exists": true
+    }
+  },
+  "M5_ml_latency_avg_ms": 150.16,
+  "M5_ml_latency_max_ms": 621.9,
+  "calibration_quality_risk_chain": "executed inside KernelAdapter on every ml_call (not separately counted)"
+}

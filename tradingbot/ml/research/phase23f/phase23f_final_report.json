@@ -1,0 +1,11 @@
+{
+  "phase": "23F",
+  "title": "Pre-Production Filter Integration Validation (Shadow)",
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00",
+  "verdict": "DEPLOY_RANGE_PROFILE",
+  "approve_deploy": true,
+  "window_b_wins": 4,
+  "walkforward_b_stable": true,
+  "montecarlo_b_passed": true,
+  "summary": "Proceed to approved integration phase with regime-conditional RANGE profile"
+}

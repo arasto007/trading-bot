@@ -1,0 +1,163 @@
+{
+  "version": "1.0",
+  "created_utc": "2026-07-15T03:50:19Z",
+  "verdict": "FIX_ROADMAP_COMPLETE_BLOCKED",
+  "production_status": "BLOCKED",
+  "all_production_gates_pass": false,
+  "gates_passed_count": 1,
+  "gates_total": 4,
+  "gate_results_table": [
+    {
+      "gate": "mean_auc",
+      "operator": ">=",
+      "target": 0.55,
+      "actual": 0.5151,
+      "pass": false,
+      "config_id": "A"
+    },
+    {
+      "gate": "honest_pf",
+      "operator": ">=",
+      "target": 1.3,
+      "actual": 0.5676,
+      "pass": false,
+      "config_id": "A"
+    },
+    {
+      "gate": "shadow_pf",
+      "operator": ">=",
+      "target": 1.0,
+      "actual": 0.3932,
+      "pass": false,
+      "config_id": "A"
+    },
+    {
+      "gate": "capture_rate_hc_pct",
+      "operator": ">=",
+      "target": 20.0,
+      "actual": 93.35,
+      "pass": true,
+      "config_id": "A"
+    }
+  ],
+  "fix_roadmap_complete": true,
+  "phase69_status": "SKIPPED",
+  "phase70_status": "BLOCKED",
+  "integration_status": {
+    "phase69": {
+      "status": "SKIPPED",
+      "reason_en": "No config passes all gates simultaneously. Best shadow PF=0.3932 (config A). ML honest PF and shadow PF remain below targets. Phase69 paper trading NOT justified on evidence \u2014 optional observational paper only.",
+      "reason_fa": "\u0647\u06cc\u0686 \u06a9\u0627\u0646\u0641\u06cc\u06af\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u0631\u0627 \u0647\u0645\u0632\u0645\u0627\u0646 \u067e\u0627\u0633 \u0646\u06a9\u0631\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 shadow PF=0.3932. \u0641\u0627\u0632 \u06f6\u06f9 \u0645\u0639\u0627\u0645\u0644\u0627\u062a \u06a9\u0627\u063a\u0630\u06cc \u0628\u0627 \u0627\u06cc\u0646 \u0634\u0648\u0627\u0647\u062f \u062a\u0648\u062c\u06cc\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u062f.",
+      "would_require": "all_production_gates_pass_from_phase68",
+      "proceed_to_phase69": false
+    },
+    "phase70": {
+      "status": "BLOCKED",
+      "reason_en": "Production gate review runs only when ALL gates pass. Current best config passes 1/4 gates (capture only). Closure review issued instead of production approval.",
+      "reason_fa": "\u0628\u0627\u0632\u0628\u06cc\u0646\u06cc gate \u062a\u0648\u0644\u06cc\u062f \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u067e\u0627\u0633 \u0634\u0648\u0646\u062f \u0627\u062c\u0631\u0627 \u0645\u06cc\u200c\u0634\u0648\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 \u06a9\u0627\u0646\u0641\u06cc\u06af \u0641\u0639\u0644\u06cc \u06f1/\u06f4 gate \u0631\u0627 \u067e\u0627\u0633 \u06a9\u0631\u062f (\u0641\u0642\u0637 capture). \u0628\u0647\u200c\u062c\u0627\u06cc \u062a\u0623\u06cc\u06cc\u062f \u062a\u0648\u0644\u06cc\u062f\u060c \u06af\u0632\u0627\u0631\u0634 \u0628\u0633\u062a\u0647\u200c\u0634\u062f\u0646 \u0635\u0627\u062f\u0631 \u0634\u062f.",
+      "production_deploy": "BLOCKED"
+    }
+  },
+  "what_was_fixed_summary_en": "Execution: TQ engine ID mismatch fixed in production (regime_quality.py — trend_rf_v41 alias); previously fixed in shadow via map_to_v40; capture ~93.21%.",
+  "what_was_fixed_summary_fa": "اجرا: mismatch شناسه موتور TQ در تولید حل شد (regime_quality.py — alias trend_rf_v41); قبلاً در سایه با map_to_v40؛ capture ~93.21%.",
+  "what_remains_broken_summary_en": "ML predictive edge too weak \u2014 honest PF ~0.43-0.57, shadow PF ~0.39",
+  "what_remains_broken_summary_fa": "edge \u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc ML \u0636\u0639\u06cc\u0641 \u2014 PF \u0635\u0627\u062f\u0642 ~\u06f0.\u06f4\u06f3-\u06f0.\u06f5\u06f7\u060c shadow PF ~\u06f0.\u06f3\u06f9",
+  "synthesis_en": "FIX roadmap phases 62-68 complete. Execution capture fixed in shadow (TQ engine alias map_to_v40); ML edge remains broken (best honest PF 0.5676, shadow PF 0.3932). Production gates: 1/4 pass. Phase69 SKIPPED, Phase70 BLOCKED \u2014 no production deploy.",
+  "synthesis_fa": "\u0641\u0627\u0632\u0647\u0627\u06cc \u06f6\u06f2-\u06f6\u06f8 FIX roadmap \u06a9\u0627\u0645\u0644 \u0634\u062f. capture \u0627\u062c\u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u0647 \u062d\u0644 \u0634\u062f (alias \u0645\u0648\u062a\u0648\u0631 TQ); edge ML \u0647\u0646\u0648\u0632 \u0634\u06a9\u0633\u062a\u0647 (\u0628\u0647\u062a\u0631\u06cc\u0646 PF \u0635\u0627\u062f\u0642 0.5676\u060c shadow PF 0.3932). gate\u0647\u0627\u06cc \u062a\u0648\u0644\u06cc\u062f: 1/4 \u067e\u0627\u0633. \u0641\u0627\u0632 \u06f6\u06f9 \u0631\u062f \u0634\u062f\u060c \u0641\u0627\u0632 \u06f7\u06f0 \u0645\u0633\u062f\u0648\u062f \u2014 deploy \u062a\u0648\u0644\u06cc\u062f\u06cc \u0646\u06cc\u0633\u062a.",
+  "options_forward": [
+    {
+      "option": 1,
+      "title_fa": "\u0641\u0642\u0637 fix \u0627\u062c\u0631\u0627 (TQ engine ID)",
+      "title_en": "Execution fix only (TQ engine ID)",
+      "summary_fa": "\u0645\u0634\u06a9\u0644 capture \u062d\u0644 \u0634\u062f \u062f\u0631 \u0633\u0627\u06cc\u0647 \u2014 \u062f\u0631 \u062a\u0648\u0644\u06cc\u062f \u0627\u0639\u0645\u0627\u0644 \u06a9\u0646\u06cc\u062f. \u0627\u0646\u062a\u0638\u0627\u0631 \u0633\u0648\u062f \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f\u061b PF \u0647\u0646\u0648\u0632 ~\u06f0.\u06f3\u06f9 \u0627\u0633\u062a.",
+      "summary_en": "Capture fix proven in shadow \u2014 deploy to production. No profit expectation; PF still ~0.39.",
+      "risk": "low_execution_high_expectation"
+    },
+    {
+      "option": 2,
+      "title_fa": "\u062a\u062d\u0642\u06cc\u0642 \u062c\u062f\u06cc\u062f \u062e\u0627\u0631\u062c \u0627\u0632 FIX roadmap",
+      "title_en": "New research outside FIX roadmap",
+      "summary_fa": "\u062f\u06cc\u062a\u0627\u06cc \u062c\u062f\u06cc\u062f\u060c \u0627\u0633\u062a\u0631\u0627\u062a\u0698\u06cc \u062c\u062f\u06cc\u062f\u060c \u06cc\u0627 \u0645\u062f\u0644 \u062e\u0627\u0631\u062c\u06cc \u2014 \u0645\u0633\u06cc\u0631 \u0641\u0639\u0644\u06cc ML \u0628\u0647 gate \u0646\u0631\u0633\u06cc\u062f.",
+      "summary_en": "New data, strategy pivot, or external model \u2014 current ML path did not reach gates.",
+      "risk": "high_uncertain_timeline"
+    },
+    {
+      "option": 3,
+      "title_fa": "\u062a\u0648\u0642\u0641 \u0645\u0633\u06cc\u0631 \u062a\u0648\u0644\u06cc\u062f \u2014 \u0646\u06af\u0647\u200c\u062f\u0627\u0631\u06cc research-only",
+      "title_en": "Halt production path \u2014 remain research-only",
+      "summary_fa": "FIX roadmap \u06a9\u0627\u0645\u0644 \u0634\u062f\u061b \u062a\u0648\u0644\u06cc\u062f BLOCKED. \u0631\u0628\u0627\u062a \u0641\u0639\u0644\u06cc \u0631\u0627 \u0628\u062f\u0648\u0646 deploy ML/TQ \u062a\u063a\u06cc\u06cc\u0631 \u06cc\u0627\u0641\u062a\u0647 \u0646\u06af\u0647 \u062f\u0627\u0631\u06cc\u062f.",
+      "summary_en": "FIX roadmap complete; production BLOCKED. Keep bot without deploying changed ML/TQ.",
+      "risk": "none_preserves_status_quo"
+    }
+  ],
+  "future_recommendations": [
+    {
+      "id": "R1",
+      "category": "execution_only",
+      "title_en": "Deploy TQ engine-ID fix to production",
+      "title_fa": "\u0627\u0639\u0645\u0627\u0644 fix \u0634\u0646\u0627\u0633\u0647 \u0645\u0648\u062a\u0648\u0631 TQ \u062f\u0631 \u062a\u0648\u0644\u06cc\u062f",
+      "description_en": "Register trend_rf_v41 in regime_quality.py or align router to trend_rf_v40. Restores capture; does NOT create ML edge.",
+      "description_fa": "\u062b\u0628\u062a trend_rf_v41 \u062f\u0631 regime_quality.py \u06cc\u0627 \u0647\u0645\u200c\u0631\u0627\u0633\u062a\u0627\u06cc\u06cc router \u0628\u0627 trend_rf_v40. capture \u0631\u0627 \u0628\u0631\u0645\u06cc\u200c\u06af\u0631\u062f\u0627\u0646\u062f\u061b edge ML \u0627\u06cc\u062c\u0627\u062f \u0646\u0645\u06cc\u200c\u06a9\u0646\u062f.",
+      "effort": "low",
+      "expected_impact": "capture_restored_pf_still_weak"
+    },
+    {
+      "id": "R2",
+      "category": "new_data",
+      "title_en": "Expand dataset beyond current TREND subset",
+      "title_fa": "\u06af\u0633\u062a\u0631\u0634 \u062f\u06cc\u062a\u0627\u0633\u062a \u0641\u0631\u0627\u062a\u0631 \u0627\u0632 \u0632\u06cc\u0631\u0645\u062c\u0645\u0648\u0639\u0647 TREND \u0641\u0639\u0644\u06cc",
+      "description_en": "Add order-flow, spread, session microstructure, or cross-asset features. Current 10f features show high noise (phase55).",
+      "description_fa": "\u0627\u0641\u0632\u0648\u062f\u0646 order-flow\u060c spread\u060c microstructure \u0633\u0634\u0646\u060c \u06cc\u0627 \u0648\u06cc\u0698\u06af\u06cc\u200c\u0647\u0627\u06cc cross-asset. \u06f1\u06f0 \u0648\u06cc\u0698\u06af\u06cc \u0641\u0639\u0644\u06cc \u0646\u0648\u06cc\u0632 \u0628\u0627\u0644\u0627 \u062f\u0627\u0631\u0646\u062f (\u0641\u0627\u0632 \u06f5\u06f5).",
+      "effort": "high",
+      "expected_impact": "uncertain_auc_lift"
+    },
+    {
+      "id": "R3",
+      "category": "new_strategy",
+      "title_en": "Pivot strategy \u2014 non-TREND regimes or rule-based filter",
+      "title_fa": "\u062a\u063a\u06cc\u06cc\u0631 \u0627\u0633\u062a\u0631\u0627\u062a\u0698\u06cc \u2014 \u0631\u0698\u06cc\u0645\u200c\u0647\u0627\u06cc \u063a\u06cc\u0631 TREND \u06cc\u0627 \u0641\u06cc\u0644\u062a\u0631 rule-based",
+      "description_en": "TREND-only RF at ~0.51 AUC may lack edge. Test RANGE/BREAKOUT regimes or hybrid rule+ML gates before further ML tuning.",
+      "description_fa": "RF \u0641\u0642\u0637-TREND \u0628\u0627 AUC ~\u06f0.\u06f5\u06f1 \u0645\u0645\u06a9\u0646 \u0627\u0633\u062a edge \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u062f. \u0631\u0698\u06cc\u0645\u200c\u0647\u0627\u06cc RANGE/BREAKOUT \u06cc\u0627 gate \u062a\u0631\u06a9\u06cc\u0628\u06cc rule+ML \u0631\u0627 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f.",
+      "effort": "medium",
+      "expected_impact": "strategy_pivot_required"
+    },
+    {
+      "id": "R4",
+      "category": "external_model",
+      "title_en": "External or alternative model architecture",
+      "title_fa": "\u0645\u062f\u0644 \u062e\u0627\u0631\u062c\u06cc \u06cc\u0627 \u0645\u0639\u0645\u0627\u0631\u06cc \u062c\u0627\u06cc\u06af\u0632\u06cc\u0646",
+      "description_en": "Gradient boosting, temporal CNN/LSTM, or pre-trained market embeddings. Ensemble (phase67) did not beat baseline RF for tradeable PF.",
+      "description_fa": "Gradient boosting\u060c CNN/LSTM \u0632\u0645\u0627\u0646\u06cc\u060c \u06cc\u0627 embedding\u0647\u0627\u06cc \u0627\u0632\u067e\u06cc\u0634\u200c\u0622\u0645\u0648\u0632\u0634\u200c\u062f\u06cc\u062f\u0647. ensemble (\u0641\u0627\u0632 \u06f6\u06f7) \u0628\u0631\u0627\u06cc PF \u0642\u0627\u0628\u0644 \u0645\u0639\u0627\u0645\u0644\u0647 \u0627\u0632 RF \u067e\u0627\u06cc\u0647 \u0628\u0647\u062a\u0631 \u0646\u0634\u062f.",
+      "effort": "high",
+      "expected_impact": "research_required_no_guarantee"
+    },
+    {
+      "id": "R5",
+      "category": "observational",
+      "title_en": "Optional observational paper (no gate expectation)",
+      "title_fa": "\u06a9\u0627\u063a\u0630\u06cc \u0645\u0634\u0627\u0647\u062f\u0647\u200c\u0627\u06cc \u0627\u062e\u062a\u06cc\u0627\u0631\u06cc (\u0628\u062f\u0648\u0646 \u0627\u0646\u062a\u0638\u0627\u0631 gate)",
+      "description_en": "Forward paper with shadow TQ alias for slippage/spread learning only. NOT a path to production \u2014 gates failed.",
+      "description_fa": "\u06a9\u0627\u063a\u0630\u06cc forward \u0628\u0627 alias \u0633\u0627\u06cc\u0647 TQ \u0641\u0642\u0637 \u0628\u0631\u0627\u06cc \u06cc\u0627\u062f\u06af\u06cc\u0631\u06cc slippage/spread. \u0645\u0633\u06cc\u0631 \u062a\u0648\u0644\u06cc\u062f \u0646\u06cc\u0633\u062a \u2014 gate\u0647\u0627 \u067e\u0627\u0633 \u0646\u0634\u062f\u0646\u062f.",
+      "effort": "medium",
+      "expected_impact": "execution_calibration_only"
+    }
+  ],
+  "no_production_deploy": true,
+  "live_profit_roadmap": "LIVE_PROFIT_ROADMAP.json",
+  "live_pipeline": "tradingbot/ml/research/run_live_pipeline.py",
+  "v41_production_fix_applied": {
+    "utc": "2026-07-15T04:10:00Z",
+    "file": "tradingbot/ml/trade_quality/regime_quality.py",
+    "note_en": "Only allowed production code change — trend_rf_v41 recognized in TradeQuality regime scoring",
+    "note_fa": "تنها تغییر تولید مجاز — trend_rf_v41 در امتیازدهی regime TradeQuality شناخته شد"
+  },
+  "linked_reports": [
+    "phase62_final_report.json",
+    "phase63_final_report.json",
+    "phase64_final_report.json",
+    "phase65_final_report.json",
+    "phase66_final_report.json",
+    "phase67_final_report.json",
+    "phase68_final_report.json"
+  ]
+}

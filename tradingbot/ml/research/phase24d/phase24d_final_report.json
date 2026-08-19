@@ -1,0 +1,9 @@
+{
+  "phase": "24D",
+  "verdict": "SAFE_IN_MEMORY_CACHE",
+  "production_modified": false,
+  "summary": "PipelineCache.get_unified_frame is slow because every bar performs a full 300-row rebuild (build_ml_features + regime features + 12 sequential merges + dataset merge + attach_top5) and re-reads dataset_v2 from parquet. Feature cache hit ratio is 0% because tail.index[-1] changes every bar. Minimum safe optimization: hold dataset_v2 in memory (Strategy B, ~40ms p95 savings). Maximum impact: incremental unified frame (Strategy A, ~130ms p95 savings) after parity proof.",
+  "root_cause": "PipelineCache.get_unified_frame is slow because every live bar triggers a full 300-row rebuild: build_ml_features + regime features + per-column merges + dataset merge + attach_top5, plus parquet reload \u2014 not because of model inference or decision logic.",
+  "recommended_strategy": "Strategy B \u2014 persistent in-memory dataset_v2",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

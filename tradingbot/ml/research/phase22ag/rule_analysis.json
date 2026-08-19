@@ -1,0 +1,55 @@
+{
+  "phase": "22AG",
+  "total_candidates": 28,
+  "probability_gate_passed_count": 5,
+  "rules": [
+    {
+      "rule": "probability_quality_passed",
+      "purpose": "Block degenerate / sell-only / collapsed probability distributions before selection",
+      "origin": "Phase 22X probability_selection_gate.py",
+      "current_threshold": "probability_gate_passed == True (buy+sell coverage, std≥0.015, range, collapsed zone)",
+      "candidates_rejected": 23,
+      "candidates_passed": 5,
+      "risk_if_relaxed": "MEDIUM — relaxing allows bad inference distributions into freeze"
+    },
+    {
+      "rule": "mean_expectancy_positive",
+      "purpose": "Require positive average walk-forward expectancy",
+      "origin": "Phase 9.9 report_generator evaluate_acceptance",
+      "current_threshold": "mean_expectancy > 0",
+      "candidates_rejected": 0,
+      "candidates_passed": 28,
+      "risk_if_relaxed": "HIGH — negative expectancy models should not reach production"
+    },
+    {
+      "rule": "profitable_windows_ge_4",
+      "purpose": "Require majority of walk-forward windows profitable (PF≥1 proxy)",
+      "origin": "Phase 9.9 report_generator hardcoded 4-of-5",
+      "current_threshold": "profitable_windows >= 4 AND window_count >= 4",
+      "candidates_rejected": 15,
+      "candidates_passed": 13,
+      "risk_if_relaxed": "MEDIUM — lowering to 3/5 allows weaker consistency"
+    },
+    {
+      "rule": "robustness_improved",
+      "purpose": "Candidate must beat Phase 9.8 composite robustness score",
+      "origin": "Phase 9.8 baseline report vs walk-forward robustness_score",
+      "current_threshold": "best.robustness_score > 66.57",
+      "candidates_rejected": 18,
+      "candidates_passed": 10,
+      "risk_if_relaxed": "MEDIUM — allows models worse than validated Phase 9.8 baseline"
+    },
+    {
+      "rule": "overfitting_risk_decreased",
+      "purpose": "Require lower ordinal overfitting label vs Phase 9.8 baseline",
+      "origin": "report_generator._risk_improved + assess_overfitting_risk buckets",
+      "current_threshold": "order[candidate] < order[baseline] where baseline=HIGH",
+      "candidates_rejected": 16,
+      "candidates_passed": 12,
+      "risk_if_relaxed": "LOW ordinal relaxation if replaced by numeric AUC-gap gate (see variant B)"
+    }
+  ],
+  "dominant_blocker": "probability_quality_passed",
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

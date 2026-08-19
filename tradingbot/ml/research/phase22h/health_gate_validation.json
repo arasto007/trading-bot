@@ -1,0 +1,23 @@
+{
+  "phase": "22H",
+  "active_trend_engine_id": "trend_rf_v41",
+  "active_bundle_version": "v41",
+  "passes": true,
+  "checks": {
+    "active_trend_engine_id": true,
+    "active_bundle_version": true,
+    "trend_checksum": true,
+    "phase9_checksum": true,
+    "trend_feature_order": true,
+    "training_fingerprint": true,
+    "dataset_fingerprint": true,
+    "active_engine_registered": true,
+    "phase9_fingerprint": true,
+    "phase9_feature_order_file": true,
+    "registry_health": true
+  },
+  "errors": [],
+  "checksum_valid": true,
+  "feature_order_ok": true,
+  "active_engine_registered": true
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "23F",
+  "pipeline_a": {
+    "pipeline": "pipeline_a",
+    "passed": true,
+    "trades": 156,
+    "baseline_pf": 1.851852,
+    "mean_pf_stress": 1.7196,
+    "worst_dd_stress": -10.0,
+    "failure_rate": 0.0
+  },
+  "pipeline_b": {
+    "pipeline": "pipeline_b",
+    "passed": true,
+    "trades": 90,
+    "baseline_pf": 2.285714,
+    "mean_pf_stress": 2.1226,
+    "worst_dd_stress": -6.0,
+    "failure_rate": 0.0
+  },
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

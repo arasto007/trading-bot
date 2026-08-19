@@ -1,0 +1,72 @@
+{
+  "documented_in_env_example": [
+    "MT5_*",
+    "USE_ML_KERNEL",
+    "TREND_MODEL_VERSION",
+    "filter flags"
+  ],
+  "missing_from_env_example": [
+    "ALLOW_LEGACY_FALLBACK",
+    "TELEGRAM_*",
+    "TRADINGBOT_PAPER"
+  ],
+  "unsafe_defaults": [
+    {
+      "var": "USE_ML_KERNEL",
+      "issue": "unset \u2192 no signals (silent idle)",
+      "evidence": "ml/integration/factory.py UnconfiguredEngineRegistry"
+    },
+    {
+      "var": "ALLOW_LEGACY_FALLBACK",
+      "issue": "default false is safe (HOLD on ML fail)",
+      "evidence": "ml/integration/config.py"
+    }
+  ],
+  "conflicts": [
+    {
+      "issue": "KillSwitch day reset vs LiveRiskTracker UTC midnight",
+      "files": [
+        "services/kill_switch.py",
+        "services/live_risk_tracker.py"
+      ]
+    }
+  ],
+  "env_catalog": {
+    "USE_ML_KERNEL": {
+      "file": "ml/integration/config.py",
+      "required_for_ml": true,
+      "default_if_unset": "UNCONFIGURED"
+    },
+    "ALLOW_LEGACY_FALLBACK": {
+      "file": "ml/integration/config.py",
+      "default": "false"
+    },
+    "TREND_MODEL_VERSION": {
+      "file": "ml/phase17d/versioning.py",
+      "default": "v41"
+    },
+    "TRADINGBOT_PAPER": {
+      "file": "services/execution_mode.py",
+      "set_by": "LiveRunner --paper"
+    },
+    "TRADINGBOT_DRY_RUN": {
+      "file": "services/execution_mode.py",
+      "set_by": "LiveRunner dry-run default"
+    },
+    "PHASE22C_ENABLED": {
+      "file": "ml/research/phase22c/config.py",
+      "default": "true"
+    },
+    "ENABLE_RANGE_FILTER_PROFILE": {
+      "file": "ml/integration/regime_filter_profiles.py"
+    },
+    "ENABLE_RSI_FILTER": {
+      "file": "ml/phase19c/filters.py"
+    },
+    "ENABLE_ADX_FILTER": {
+      "file": "ml/phase19c/filters.py"
+    }
+  },
+  "canonical_paper_startup": "USE_ML_KERNEL=1 python -m tradingbot --loop --paper",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

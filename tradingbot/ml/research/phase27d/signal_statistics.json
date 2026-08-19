@@ -1,0 +1,41 @@
+{
+  "probability_distribution": {
+    "count": 5203,
+    "mean": 0.525311,
+    "median": 0.541473,
+    "min": 0.0,
+    "max": 1.0,
+    "p95": 1.0
+  },
+  "confidence_distribution": {
+    "count": 5203,
+    "mean": 0.525311,
+    "median": 0.541473,
+    "min": 0.0,
+    "max": 1.0,
+    "p95": 1.0
+  },
+  "decision_distribution": {
+    "HOLD": 4441,
+    "BUY": 47,
+    "SELL": 715
+  },
+  "regime_distribution": {
+    "RANGE": 1561,
+    "HIGH_VOLATILITY": 243,
+    "TREND": 3047,
+    "NO_TRADE": 352
+  },
+  "engine_distribution": {
+    "phase9_9": 1561,
+    "other": 595,
+    "trend_rf_v41": 3047
+  },
+  "range_vs_trend": {
+    "RANGE_bars": 1561,
+    "TREND_bars": 3047,
+    "RANGE_pct": 30.0,
+    "TREND_pct": 58.56
+  },
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

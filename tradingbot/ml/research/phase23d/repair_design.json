@@ -1,0 +1,16 @@
+{
+  "phase": "23D",
+  "classification": "FILTER_TOO_STRICT",
+  "design": {
+    "minimal_repair": "RANGE-only re-calibration study in research/ — tune bands on chronological RANGE cohort only",
+    "safe_repair": "Regime-conditional filter bypass for RANGE when empirical PF improves with OFF on RANGE-only replay",
+    "rollback": "Restore Phase19C defaults (RSI 40–60, ADX 15–50) via env",
+    "tests": [
+      "RANGE counterfactual PF ON >= OFF",
+      "false blocks < true blocks"
+    ],
+    "risk": "Medium — increased trade count may raise drawdown"
+  },
+  "implementation_status": "NOT IMPLEMENTED — design only per Phase 23D scope",
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "27B",
+  "before_rsi": {
+    "BUY": 841,
+    "SELL": 1742,
+    "WAIT": 2620
+  },
+  "after_rsi": {
+    "BUY": 49,
+    "SELL": 712,
+    "WAIT": 4442
+  },
+  "delta": {
+    "BUY": -792,
+    "SELL": -1030,
+    "WAIT": 1822
+  },
+  "actionable_before": 2583,
+  "actionable_after": 761,
+  "generated_utc": "2026-07-09T12:46:26.285391+00:00"
+}

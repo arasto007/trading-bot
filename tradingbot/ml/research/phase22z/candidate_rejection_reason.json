@@ -1,0 +1,435 @@
+{
+  "candidates": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1562 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1562,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1746,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: really Overfit",
+      "rejection_reason": "mean_auc_gap=0.3308 is not lower than baseline=0.3308; candidate is not numerically better on train/validation AUC gap",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.3308,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.0,
+      "numeric_auc_gap_better_than_baseline": false,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.2933 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.2933,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.0375,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.2613 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.2613,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.0695,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.3195 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.3195,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.0113,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "LOW",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0368,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.294,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "LOW",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0376,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2932,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "LOW",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0412,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2896,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "LOW",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0412,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2896,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0912,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2396,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0983,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2325,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0983,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2325,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0496,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2812,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0496,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2812,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0489,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2819,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.0489,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2819,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1378 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1378,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.193,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.159 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.159,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1718,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": true,
+      "rejection_category": null,
+      "rejection_reason": "overfitting_risk_decreased_passed",
+      "candidate_overfitting_risk": "MEDIUM",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1197,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2111,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": []
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1204 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1204,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2104,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1563 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1563,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1745,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1261 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1261,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.2047,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1401 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1401,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1907,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1439 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1439,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1869,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1832 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1832,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1476,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1516 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1516,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1792,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.18 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.18,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1508,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1877 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1877,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1431,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    }
+  ],
+  "summary": {
+    "pass_overfitting_risk_decreased": 12,
+    "rejected_really_overfit": 1,
+    "rejected_label_logic": 15
+  },
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false
+}

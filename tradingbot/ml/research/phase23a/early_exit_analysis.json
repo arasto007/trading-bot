@@ -1,0 +1,48 @@
+{
+  "phase": "23A",
+  "early_exits": [
+    {
+      "file": "range_engine_adapter.py",
+      "line": 60,
+      "pattern": "return HOLD",
+      "classification": "CRITICAL",
+      "reason": "missing features → no predict_proba"
+    },
+    {
+      "file": "unified_features.py",
+      "line": 48,
+      "pattern": "fillna(0.0)",
+      "classification": "CRITICAL",
+      "reason": "zero feature injection on merge miss"
+    },
+    {
+      "file": "decision_policy.py",
+      "line": 26,
+      "pattern": "return HOLD",
+      "classification": "WARNING",
+      "reason": "confidence gate; secondary after feature repair"
+    },
+    {
+      "file": "kernel_adapter.py",
+      "line": 128,
+      "pattern": "decision_hold",
+      "classification": "CRITICAL",
+      "reason": "first model_pass counter stays zero"
+    },
+    {
+      "file": "kernel_adapter.py",
+      "line": 175,
+      "pattern": "KernelFallbackError unified_frame_empty",
+      "classification": "SAFE",
+      "reason": "not triggered in phase22al run"
+    },
+    {
+      "file": "kernel_adapter.py",
+      "line": 303,
+      "pattern": "return None",
+      "classification": "WARNING",
+      "reason": "HOLD unified signal not propagated as TradingSignal"
+    }
+  ],
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

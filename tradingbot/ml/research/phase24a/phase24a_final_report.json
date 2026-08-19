@@ -1,0 +1,21 @@
+{
+  "phase": "24A",
+  "title": "Live Shadow Validation",
+  "verdict": "NEEDS_INVESTIGATION",
+  "checks": {
+    "no_runtime_failures": false,
+    "low_failure_rate": false,
+    "sufficient_bars": true,
+    "stable_latency": false,
+    "healthy_inference": false,
+    "healthy_probability": true,
+    "runtime_matches_research": true,
+    "no_memory_leak": true,
+    "overall_health_ok": false,
+    "needs_investigation": true,
+    "production_blocked": false,
+    "ready_for_paper": false
+  },
+  "summary": "Shadow run completed with anomalies — review hold/latency/research diffs",
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

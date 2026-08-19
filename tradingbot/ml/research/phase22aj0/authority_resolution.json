@@ -1,0 +1,51 @@
+{
+  "phase": "22AJ0",
+  "current_state": {
+    "report_best_candidate_experiment_id": "random_forest_shallow__stable_4__RANGE",
+    "select_best_experiment_id": "random_forest_shallow__stable_4__RANGE",
+    "orchestrator_acceptance_on_select_best_only": true,
+    "report_matches_select_best": true,
+    "report_matches_production_rule": false
+  },
+  "conflicts": [
+    {
+      "between": [
+        "select_best",
+        "evaluate_acceptance (per-candidate potential)"
+      ],
+      "evidence": "select_best=random_forest_shallow__stable_4__RANGE; only acceptance PASS=xgb_baseline_phase96__stable_except_unstable__RANGE"
+    },
+    {
+      "between": [
+        "report best_candidate",
+        "freeze_bridge prototype scan"
+      ],
+      "evidence": "Report stores select_best; freeze_bridge Phase 22AI built contract from acceptance PASS scan"
+    },
+    {
+      "between": [
+        "optimizer winner",
+        "model_registry DEFAULT_CONFIG freeze"
+      ],
+      "evidence": "Phase 22AE/22AB: freeze never reads select_best or best_candidate.candidate_id"
+    }
+  ],
+  "resolved_authority": {
+    "single_source_of_truth": "select_production_winner (rule ACCEPTANCE_PASS_HIGHEST_COMPOSITE)",
+    "module": "tradingbot/ml/research/phase22aj0/winner_authority.py",
+    "function": "select_production_winner",
+    "production_winner_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "unique_winner": true,
+    "eligible_count": 1
+  },
+  "recommended_option": "C",
+  "production_rule_id": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+  "ambiguity_resolved": true,
+  "wiring_gaps_before_production": [
+    "optimization_orchestrator still uses select_best not select_production_winner",
+    "model_registry freeze still uses DEFAULT_CONFIG",
+    "report best_candidate field still reflects select_best"
+  ],
+  "generated_utc": "2026-07-07T19:55:52.965394+00:00",
+  "production_modified": false
+}

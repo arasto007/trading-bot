@@ -1,0 +1,56 @@
+{
+  "phase": "23C",
+  "research_path": {
+    "description": "RangeEngineAdapter + SignalEngine thresholds on probability only",
+    "signal_counts_sampled": {
+      "BUY": 2,
+      "SELL": 40,
+      "HOLD": 9
+    },
+    "uses_decision_policy": false,
+    "uses_calibration_gate": false
+  },
+  "runtime_path": {
+    "description": "Full kernel stack: recovery orchestrator → Platt → risk → quality → filters",
+    "range_bar_counts": {
+      "bars": 119,
+      "range_bars": 18,
+      "predict_proba_called": 18,
+      "engine_buy": 0,
+      "engine_sell": 18,
+      "engine_hold": 0,
+      "engine_actionable": 18,
+      "orchestrator_buy": 0,
+      "orchestrator_sell": 18,
+      "orchestrator_hold": 0,
+      "calibrated_buy": 0,
+      "calibrated_sell": 18,
+      "calibrated_hold": 0,
+      "blocked_decision_policy": 0,
+      "blocked_calibration": 0,
+      "blocked_risk": 0,
+      "blocked_quality": 0,
+      "blocked_profitability_filter": 9,
+      "kernel_actionable": 9,
+      "kernel_hold": 9
+    },
+    "calibrated_direction_counts": {
+      "BUY": 0,
+      "SELL": 18,
+      "HOLD": 0
+    }
+  },
+  "first_divergence": {
+    "stage": null,
+    "engine_actionable": 18,
+    "calibrated_actionable": 18,
+    "divergence_bars_estimate": 0
+  },
+  "probability_0_434": {
+    "research": "SELL (prob <= sell_threshold)",
+    "runtime_engine": "SELL with confidence 0.133 raw",
+    "runtime_orchestrator_with_recovery": "SELL (directional conf 0.566)",
+    "runtime_note": "Downstream Platt/calibration may still HOLD"
+  },
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

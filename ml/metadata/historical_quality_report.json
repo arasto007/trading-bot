@@ -1,0 +1,93 @@
+{
+  "symbol": "XAUUSD",
+  "period_days": 1825,
+  "generated_at_utc": "2026-06-29T05:01:24.644531+00:00",
+  "status": "FAIL",
+  "passed": false,
+  "blocked": true,
+  "timeframes": {
+    "M5": {
+      "timeframe": "M5",
+      "status": "FAIL",
+      "bars": 99962,
+      "start": "2025-01-28T19:10:00+00:00",
+      "end": "2026-06-29T04:00:00+00:00",
+      "duplicates": 0,
+      "corrupted_candles": 0,
+      "missing_gaps": 25965,
+      "large_gaps": 0,
+      "utc_valid": true,
+      "issues": [
+        "below_minimum_bars:99962<300000",
+        "start_too_late"
+      ],
+      "fingerprints": {
+        "raw_parquet": "d814377417656a9d843e4f6c5d942059bdfbf984b81515a7834386179beccd3b",
+        "content": "a05b6b159ff0aa0dd63f6f06f36ca8fe69b5776aa51b775269b09e83c16daed0",
+        "metadata": "38303a5ce69a807002c68c473553615264c77ada05c00d7647daccf7b38429d8"
+      },
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m5\\XAUUSD_m5.parquet"
+    },
+    "M15": {
+      "timeframe": "M15",
+      "status": "FAIL",
+      "bars": 99987,
+      "start": "2022-04-01T10:00:00+00:00",
+      "end": "2026-06-29T03:45:00+00:00",
+      "duplicates": 0,
+      "corrupted_candles": 0,
+      "missing_gaps": 9044,
+      "large_gaps": 0,
+      "utc_valid": true,
+      "issues": [
+        "below_minimum_bars:99987<100000",
+        "start_too_late"
+      ],
+      "fingerprints": {
+        "raw_parquet": "e836d863edad5d55fb3b7310219815bbe6712da9dda99aa20c4636b6158a6c84",
+        "content": "19cfbbec14f9371e556cbc459342ebfb3e52dfe38e1eb2a3143fa2b7e4aa54e4",
+        "metadata": "e47ab95b3bb8556d0ccd7df20f67a7ee563058b5de359f7f3c7c310cad0974ad"
+      },
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m15\\XAUUSD_m15.parquet"
+    },
+    "H4": {
+      "timeframe": "H4",
+      "status": "PASS",
+      "bars": 7729,
+      "start": "2021-06-30T08:00:00+00:00",
+      "end": "2026-06-29T00:00:00+00:00",
+      "duplicates": 0,
+      "corrupted_candles": 0,
+      "missing_gaps": 2438,
+      "large_gaps": 0,
+      "utc_valid": true,
+      "issues": [],
+      "fingerprints": {
+        "raw_parquet": "65b279275e093503cc97733d1ae5af85fd20bdbb87f88cd1ac128b19b2dbdffa",
+        "content": "8a93351908ceeca0cba77f0e489d159dae39a499c04ce11df77ab6705fcb18fd",
+        "metadata": "29885cd74504a4a600844760823c7c9c4db695350a402ba5a5a6c8aba001d518"
+      },
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\h4\\XAUUSD_h4.parquet"
+    }
+  },
+  "cross_timeframe": {
+    "status": "PASS",
+    "m5_to_m15": {
+      "checked": 5262,
+      "misaligned": 0
+    },
+    "m5_to_h4": {
+      "checked": 5262,
+      "misaligned": 0
+    }
+  },
+  "fingerprints": {
+    "aggregate": "929afc1fdecd790f60afd4b53b40d11edb0f5b853e655c6b196711a116da1110"
+  },
+  "issues": [
+    "M5:below_minimum_bars:99962<300000",
+    "M5:start_too_late",
+    "M15:below_minimum_bars:99987<100000",
+    "M15:start_too_late"
+  ]
+}

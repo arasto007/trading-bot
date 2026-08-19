@@ -1,0 +1,26 @@
+{
+  "phase": "29A",
+  "by_session": {
+    "Asian": {
+      "trades": 232,
+      "avg_context_score": 48.41,
+      "win_rate_pct": 50.0
+    },
+    "London": {
+      "trades": 127,
+      "avg_context_score": 47.56,
+      "win_rate_pct": 55.12
+    },
+    "Overlap": {
+      "trades": 89,
+      "avg_context_score": 56.12,
+      "win_rate_pct": 48.31
+    },
+    "New York": {
+      "trades": 127,
+      "avg_context_score": 60.12,
+      "win_rate_pct": 55.12
+    }
+  },
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

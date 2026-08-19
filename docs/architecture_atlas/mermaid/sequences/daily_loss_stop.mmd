@@ -1,0 +1,10 @@
+sequenceDiagram
+    participant KS as KillSwitchService
+    participant R as LiveRiskTracker
+    participant K as TradingKernel
+    loop every cycle
+        K->>KS: check account
+        KS->>R: daily PnL vs limit
+        R-->>KS: limit breached
+        KS-->>K: EMERGENCY_STOP
+    end

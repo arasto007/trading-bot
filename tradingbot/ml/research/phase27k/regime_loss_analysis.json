@@ -1,0 +1,28 @@
+{
+  "phase": "27K",
+  "regimes": {
+    "RANGE": {
+      "loser_count": 353,
+      "pct_of_all_losers": 100.0,
+      "pct_of_all_trades_estimate": 61.39,
+      "average_mae_r": 1.2863,
+      "dominant_false_class": "momentum_failure"
+    },
+    "TREND": {
+      "loser_count": 0,
+      "pct_of_all_losers": 0.0,
+      "pct_of_all_trades_estimate": 0.0,
+      "average_mae_r": 0.0,
+      "dominant_false_class": null
+    },
+    "TRANSITION": {
+      "loser_count": 0,
+      "pct_of_all_losers": 0.0,
+      "pct_of_all_trades_estimate": 0.0,
+      "average_mae_r": 0.0,
+      "dominant_false_class": null
+    }
+  },
+  "loss_concentration": "RANGE",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

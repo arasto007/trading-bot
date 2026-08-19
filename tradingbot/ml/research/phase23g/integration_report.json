@@ -1,0 +1,60 @@
+{
+  "phase": "23G",
+  "mode": "controlled_production_integration",
+  "integrated_component": "tradingbot/ml/integration/regime_filter_profiles.py",
+  "wired_in": "tradingbot/ml/integration/kernel_adapter.py",
+  "rollback_env": "ENABLE_RANGE_FILTER_PROFILE",
+  "rollback_default": true,
+  "profiles": {
+    "range": {
+      "profile_id": "range_phase23e",
+      "scope": "RANGE + phase9_9 only",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 40.0
+    },
+    "trend": {
+      "profile_id": "trend_phase22c",
+      "scope": "TREND",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 35.0,
+      "rsi_max": 65.0,
+      "adx_min": 10.0,
+      "adx_max": 55.0
+    },
+    "transition": {
+      "profile_id": "transition_phase22c",
+      "scope": "TRANSITION + recovery + fallback",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 35.0,
+      "rsi_max": 65.0,
+      "adx_min": 10.0,
+      "adx_max": 55.0
+    }
+  },
+  "scope": {
+    "range_profile_applies_to": "regime=RANGE AND engine=phase9_9",
+    "never_applies_to": [
+      "TREND",
+      "TRANSITION",
+      "recovery",
+      "fallback"
+    ]
+  },
+  "unchanged": [
+    "Model artifacts",
+    "Freeze pipeline",
+    "Acceptance",
+    "HealthGate",
+    "RiskGate",
+    "Execution",
+    "DecisionOrchestrator",
+    "Probability calibration"
+  ],
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

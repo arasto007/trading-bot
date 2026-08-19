@@ -1,0 +1,59 @@
+{
+  "phase": "27I",
+  "ranked_causes": [
+    {
+      "cause": "thin_per_trade_edge",
+      "impact_score": 100,
+      "evidence": "avg slippage $2.7962 > baseline expectancy $1.9151"
+    },
+    {
+      "cause": "high_atr_amplifies_dollar_slippage",
+      "impact_score": 100.0,
+      "evidence": "ATR-slippage correlation=1.0"
+    },
+    {
+      "cause": "round_trip_double_slippage",
+      "impact_score": 95.0,
+      "evidence": "0.25 ATR applied to BOTH entry and exit = 0.5 ATR price drag per trade"
+    },
+    {
+      "cause": "sell_side_concentration",
+      "impact_score": 92.87,
+      "evidence": "SELL 534 vs BUY 41"
+    },
+    {
+      "cause": "poor_realized_rr",
+      "impact_score": 70.89,
+      "evidence": "realized RR mean=0.2277 vs planned 2.5"
+    },
+    {
+      "cause": "entry_exit_symmetric_sensitivity",
+      "impact_score": 50.0,
+      "evidence": "both_equally"
+    },
+    {
+      "cause": "short_holding_time",
+      "impact_score": 28.85,
+      "evidence": "avg duration=23.7183 bars \u2014 limited time to overcome slip"
+    },
+    {
+      "cause": "low_breakeven_slippage_tolerance",
+      "impact_score": 28.0,
+      "evidence": "PF<1 at ATR mult=0.18 (below 0.25 test level)"
+    },
+    {
+      "cause": "spread_cost",
+      "impact_score": 2.96,
+      "evidence": "spread/ATR=0.0592"
+    },
+    {
+      "cause": "small_tp_relative_to_atr",
+      "impact_score": 0,
+      "evidence": "avg TP/ATR ratio=5.0 \u2014 TP capture small vs volatility unit"
+    }
+  ],
+  "primary_root_cause": "thin_per_trade_edge",
+  "is_combination": true,
+  "combination_summary": "Thin per-trade edge + round-trip 0.5 ATR price drag + ATR-proportional dollar slippage on XAUUSD M5",
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "24F",
+  "baseline_phase24c_p95_ms": 162.1114,
+  "after_phase24e_dataset_p95_ms": 2.1,
+  "row_reuse_incremental_blocked": true,
+  "theoretical_row_reuse_p95_ms_if_parity_held": 6.17,
+  "viable_partial_p95_ms": 124.02,
+  "viable_partial_savings_p95_ms": 38.09,
+  "projected_incremental_p95_ms": 124.02,
+  "projected_savings_p95_ms": 38.09,
+  "projected_reduction_pct": 23.5,
+  "basis": {
+    "build_ml_features_p95": 20.9,
+    "regime_features_p95": 18.7,
+    "merge_loop_p95": 39.7,
+    "attach_top5_p95": 6.4,
+    "row_fraction": 0.0125,
+    "source": "phase24c/24d measured timings"
+  },
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

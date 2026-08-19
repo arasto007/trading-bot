@@ -1,0 +1,25 @@
+{
+  "phase": "23F",
+  "mode": "shadow_validation_read_only",
+  "production_modified": false,
+  "execution_enabled": false,
+  "order_send": false,
+  "artifact_checksums": {
+    "phase9_9_model": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "kernel_adapter": "1ad34bf3710cbe54d4ebc79072215a85191fefc4807f6f0a002e5e9338abe06b",
+    "phase19c_filters": "d61d63224b1c3a77b759a51a50579d33353a18a87ba6547bd00d2be40ba4f796",
+    "phase22c_config": "a489bc7da6850a69b3cb8c8bb946d1890cec6c8f4b8e5953923a4fc28832a643"
+  },
+  "pipelines_identical_except_filter_profile": true,
+  "components_unchanged": [
+    "HealthGate",
+    "KernelAdapter core",
+    "DecisionOrchestrator",
+    "Platt calibration",
+    "RiskGate",
+    "Execution engine",
+    "Frozen Phase9.9 model"
+  ],
+  "only_difference": "Research shadow applies alternate ProfitabilityFilterSettings on RANGE bars for Pipeline B",
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

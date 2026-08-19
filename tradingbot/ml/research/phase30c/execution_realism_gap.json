@@ -1,0 +1,40 @@
+{
+  "phase": "30C",
+  "overall_gap_score": 58,
+  "scale": "0=identical to broker, 100=no gap",
+  "production_vs_retail_mt5_gap": 58,
+  "phase30a_vs_retail_mt5_gap": 42,
+  "top_gaps": [
+    {
+      "gap": "Exit slippage and gap-through-stop absent in production",
+      "severity": "critical"
+    },
+    {
+      "gap": "Static spread vs tick-by-tick",
+      "severity": "critical"
+    },
+    {
+      "gap": "Latency not price-coupled",
+      "severity": "critical"
+    },
+    {
+      "gap": "No margin stop-out",
+      "severity": "high"
+    },
+    {
+      "gap": "No broker rules (stops_level/freeze)",
+      "severity": "high"
+    },
+    {
+      "gap": "No live calibration dataset",
+      "severity": "high"
+    }
+  ],
+  "pf_sensitivity_summary": {
+    "spread_exit_dominant": true,
+    "latency_non_binding_until_coupled": true,
+    "tail_events_dominate_dd": true
+  },
+  "component_gap_count": 29,
+  "generated_utc": "2026-07-10T08:54:32.598759+00:00"
+}

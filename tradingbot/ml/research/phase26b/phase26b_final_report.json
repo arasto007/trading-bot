@@ -1,0 +1,19 @@
+{
+  "phase": "26B",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00",
+  "verdict": "INSUFFICIENT_SAMPLE",
+  "audit_mode": "ANALYSIS_ONLY",
+  "production_modified": false,
+  "input_source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase26a\\trade_log.json",
+  "completed_trades_analyzed": 1,
+  "minimum_sample_required": 200,
+  "optimization_recommendations": null,
+  "summary": {
+    "profit_factor": "inf",
+    "expectancy": 23.575,
+    "win_rate": 1.0,
+    "maximum_drawdown_pct": 0.0,
+    "sample_sufficient": false
+  },
+  "honest_assessment": "Only 1 completed trade(s) available from Phase 26A. Journal recorded 54 paper executions but none were completable due to zero fill prices and candle coverage gap. All metrics are reported on the actual sample \u2014 no trades fabricated."
+}

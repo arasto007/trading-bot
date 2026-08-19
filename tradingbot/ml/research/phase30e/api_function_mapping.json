@@ -1,0 +1,202 @@
+{
+  "phase": "30E",
+  "mappings": [
+    {
+      "dataset": "TickStream",
+      "functions": [
+        {
+          "fn": "symbol_info_tick",
+          "returns": "Tick",
+          "fields": [
+            "bid",
+            "ask",
+            "time",
+            "time_msc",
+            "last",
+            "volume",
+            "flags"
+          ]
+        },
+        {
+          "fn": "copy_ticks_range",
+          "returns": "numpy.ndarray",
+          "fields": [
+            "time",
+            "bid",
+            "ask",
+            "last",
+            "volume",
+            "time_msc",
+            "flags",
+            "volume_real"
+          ]
+        },
+        {
+          "fn": "copy_ticks_from",
+          "returns": "numpy.ndarray",
+          "fields": "same as copy_ticks_range"
+        }
+      ],
+      "codebase_reference": "tradingbot/ml/data/mt5_fetch.py::fetch_ticks_range"
+    },
+    {
+      "dataset": "ExecutionFills",
+      "functions": [
+        {
+          "fn": "order_send",
+          "returns": "OrderSendResult",
+          "fields": [
+            "retcode",
+            "price",
+            "volume",
+            "bid",
+            "ask",
+            "deal",
+            "order"
+          ]
+        },
+        {
+          "fn": "history_deals_get",
+          "returns": "tuple[TradeDeal]",
+          "fields": [
+            "price",
+            "volume",
+            "commission",
+            "swap",
+            "entry",
+            "reason",
+            "time_msc"
+          ]
+        },
+        {
+          "fn": "order_check",
+          "returns": "OrderCheckResult",
+          "fields": [
+            "retcode",
+            "balance",
+            "equity",
+            "profit",
+            "margin"
+          ]
+        }
+      ],
+      "codebase_reference": "tradingbot/adapters/mt5_execution.py"
+    },
+    {
+      "dataset": "OrderAttempts",
+      "functions": [
+        {
+          "fn": "order_send",
+          "returns": "OrderSendResult",
+          "fields": [
+            "retcode",
+            "comment",
+            "retcode_external"
+          ]
+        },
+        {
+          "fn": "history_orders_get",
+          "returns": "tuple[TradeOrder]",
+          "fields": [
+            "state",
+            "type",
+            "volume",
+            "price",
+            "time_done_msc"
+          ]
+        }
+      ],
+      "codebase_reference": "tradingbot/adapters/mt5_execution.py::_order_send_with_retry"
+    },
+    {
+      "dataset": "SymbolInfoDaily",
+      "functions": [
+        {
+          "fn": "symbol_info",
+          "returns": "SymbolInfo",
+          "fields": [
+            "spread",
+            "trade_stops_level",
+            "trade_freeze_level",
+            "volume_min",
+            "filling_mode",
+            "trade_execution_mode",
+            "swap_long",
+            "swap_short"
+          ]
+        },
+        {
+          "fn": "symbols_get",
+          "returns": "tuple[SymbolInfo]",
+          "fields": "all symbols"
+        }
+      ],
+      "codebase_reference": "tradingbot/services/position_protector.py"
+    },
+    {
+      "dataset": "AccountSnapshots",
+      "functions": [
+        {
+          "fn": "account_info",
+          "returns": "AccountInfo",
+          "fields": [
+            "balance",
+            "equity",
+            "margin",
+            "margin_free",
+            "margin_level",
+            "margin_so_so"
+          ]
+        }
+      ],
+      "codebase_reference": "tradingbot/adapters/risk_gate.py"
+    },
+    {
+      "dataset": "GapEvents",
+      "functions": [
+        {
+          "fn": "copy_ticks_range",
+          "returns": "ticks",
+          "fields": "Fri/Sun boundary extraction"
+        },
+        {
+          "fn": "copy_rates_range",
+          "returns": "rates",
+          "fields": "OHLC gap cross-check"
+        }
+      ],
+      "codebase_reference": "tradingbot/ml/data/mt5_fetch.py"
+    },
+    {
+      "dataset": "NewsCalendar",
+      "functions": [],
+      "external": "ForexFactory / MQL5 calendar CSV / custom JSON \u2014 not MT5 API"
+    },
+    {
+      "dataset": "DOM optional",
+      "functions": [
+        {
+          "fn": "market_book_add",
+          "returns": "bool",
+          "fields": "subscribe"
+        },
+        {
+          "fn": "market_book_get",
+          "returns": "tuple[BookInfo]",
+          "fields": [
+            "type",
+            "price",
+            "volume"
+          ]
+        },
+        {
+          "fn": "market_book_release",
+          "returns": "bool",
+          "fields": "unsubscribe"
+        }
+      ],
+      "codebase_reference": "Not used in production codebase"
+    }
+  ],
+  "generated_utc": "2026-07-10T11:11:07.048328+00:00"
+}

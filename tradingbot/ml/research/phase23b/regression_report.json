@@ -1,0 +1,16 @@
+{
+  "phase": "23B",
+  "unchanged": {
+    "healthgate_phase9": true,
+    "freeze_artifacts": true,
+    "manifest_present": true,
+    "artifact_checksum": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "acceptance_unchanged": true,
+    "probability_gate_unchanged": true,
+    "decision_thresholds_unchanged": true
+  },
+  "runtime_loader_integrity": true,
+  "production_modified": true,
+  "modified_scope": "feature delivery wiring only",
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

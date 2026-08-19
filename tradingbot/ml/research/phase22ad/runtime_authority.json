@@ -1,0 +1,59 @@
+{
+  "phase": "22AD",
+  "question": "Which authority wins at RangeEngineAdapter.evaluate / predict_proba?",
+  "winner": {
+    "authority": "Registry",
+    "meaning": "Frozen disk bundle loaded by tradingbot/ml/paper_trading/model_registry.load_phase9_9_bundle",
+    "artifact": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "in_memory_holder": "RangeEngineAdapter.bundle",
+    "hypothetical_conflict_resolution": {
+      "optimizer_selects_A": "ignored at runtime — optimizer not executed",
+      "registry_freezes_B": "B persisted to model.pkl when freeze runs (offline/separate process)",
+      "shadow_rebuilds_C": "not in live path",
+      "runtime_loads_D": "D = contents of model.pkl loaded at startup; this is what reaches predict_proba"
+    }
+  },
+  "candidates": [
+    {
+      "name": "Optimizer",
+      "selects_at_runtime": false,
+      "reaches_predict": false,
+      "evidence": "RobustnessOptimizer not in live import chain"
+    },
+    {
+      "name": "Registry",
+      "selects_at_runtime": true,
+      "reaches_predict": true,
+      "evidence": "load_phase9_9_bundle in model_registry.py loads frozen Phase99Bundle from disk"
+    },
+    {
+      "name": "Bundle Loader",
+      "selects_at_runtime": true,
+      "reaches_predict": true,
+      "evidence": "Same function as Registry entry — load_phase9_9_bundle(build_if_missing=False)",
+      "same_as": "Registry"
+    },
+    {
+      "name": "Shadow",
+      "selects_at_runtime": false,
+      "reaches_predict": false,
+      "evidence": "tradingbot/ml/paper_trading/shadow_engine.py"
+    },
+    {
+      "name": "Kernel",
+      "selects_at_runtime": false,
+      "reaches_predict": false,
+      "evidence": "KernelAdapter orchestrates; model already loaded in RangeEngineAdapter.bundle"
+    },
+    {
+      "name": "HealthGate",
+      "selects_at_runtime": false,
+      "reaches_predict": false,
+      "evidence": "Validates only; fallback to legacy PriceAction if fail — does not swap RANGE model"
+    }
+  ],
+  "single_runtime_authority": "Registry",
+  "verdict_token": "REGISTRY_IS_RUNTIME_AUTHORITY",
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false
+}

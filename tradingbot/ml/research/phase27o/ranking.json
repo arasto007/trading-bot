@@ -1,0 +1,85 @@
+{
+  "phase": "27O",
+  "ranked": [
+    {
+      "strategy": "time_exit",
+      "validation_profit_factor": 2.2304,
+      "validation_expectancy": 33.4278,
+      "validation_net_profit": 21728.06,
+      "validation_max_drawdown_pct": 18.135,
+      "oos_consistent": true,
+      "performance_decay": -6.5011,
+      "composite_score": 216.31,
+      "oos_rank": 1
+    },
+    {
+      "strategy": "hybrid_b",
+      "validation_profit_factor": 2.493,
+      "validation_expectancy": 13.5007,
+      "validation_net_profit": 8775.4671,
+      "validation_max_drawdown_pct": 7.7593,
+      "oos_consistent": true,
+      "performance_decay": -285.0318,
+      "composite_score": 125.04,
+      "oos_rank": 2
+    },
+    {
+      "strategy": "hybrid_a",
+      "validation_profit_factor": 1.7349,
+      "validation_expectancy": 6.7482,
+      "validation_net_profit": 4386.3392,
+      "validation_max_drawdown_pct": 9.8501,
+      "oos_consistent": true,
+      "performance_decay": -19.0868,
+      "composite_score": 75.48,
+      "oos_rank": 3
+    },
+    {
+      "strategy": "hybrid_d",
+      "validation_profit_factor": 1.7186,
+      "validation_expectancy": 6.5653,
+      "validation_net_profit": 4267.4526,
+      "validation_max_drawdown_pct": 9.8792,
+      "oos_consistent": true,
+      "performance_decay": -11.6701,
+      "composite_score": 74.23,
+      "oos_rank": 4
+    },
+    {
+      "strategy": "current_tp_sl",
+      "validation_profit_factor": 1.4613,
+      "validation_expectancy": 5.5453,
+      "validation_net_profit": 3604.4742,
+      "validation_max_drawdown_pct": 10.788,
+      "oos_consistent": true,
+      "performance_decay": -6932.625,
+      "composite_score": 63.72,
+      "oos_rank": 5
+    },
+    {
+      "strategy": "partial_close_50",
+      "validation_profit_factor": 1.3976,
+      "validation_expectancy": 3.5921,
+      "validation_net_profit": 2334.8385,
+      "validation_max_drawdown_pct": 10.9647,
+      "oos_consistent": true,
+      "performance_decay": -8.2044,
+      "composite_score": 52.62,
+      "oos_rank": 6
+    },
+    {
+      "strategy": "structure_exit",
+      "validation_profit_factor": 1.1882,
+      "validation_expectancy": 1.395,
+      "validation_net_profit": 906.782,
+      "validation_max_drawdown_pct": 7.8045,
+      "oos_consistent": true,
+      "performance_decay": -4.2003,
+      "composite_score": 38.4,
+      "oos_rank": 7
+    }
+  ],
+  "oos_winner": "time_exit",
+  "hybrid_b_rank": 2,
+  "generated_utc": "2026-07-09T19:52:47.697862+00:00"
+}

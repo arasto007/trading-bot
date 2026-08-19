@@ -1,0 +1,226 @@
+{
+  "phase": "28D",
+  "days": [
+    {
+      "date": "2026-06-02",
+      "trades": 48,
+      "net_pnl": 421.3817,
+      "win_rate_pct": 56.25,
+      "drawdown_pct": 0.0,
+      "profit_factor": 4.481,
+      "best_trade": 24.67,
+      "worst_trade": -11.4714,
+      "balance_eod": 621.3817
+    },
+    {
+      "date": "2026-06-03",
+      "trades": 43,
+      "net_pnl": 298.0221,
+      "win_rate_pct": 60.47,
+      "drawdown_pct": 0.0,
+      "profit_factor": 5.6705,
+      "best_trade": 22.5707,
+      "worst_trade": -11.91,
+      "balance_eod": 919.4038
+    },
+    {
+      "date": "2026-06-04",
+      "trades": 37,
+      "net_pnl": -235.1137,
+      "win_rate_pct": 10.81,
+      "drawdown_pct": 25.5724,
+      "profit_factor": 0.1659,
+      "best_trade": 15.3986,
+      "worst_trade": -12.6129,
+      "balance_eod": 684.2901
+    },
+    {
+      "date": "2026-06-05",
+      "trades": 35,
+      "net_pnl": 189.1251,
+      "win_rate_pct": 22.86,
+      "drawdown_pct": 5.002,
+      "profit_factor": 2.339,
+      "best_trade": 77.8864,
+      "worst_trade": -8.0157,
+      "balance_eod": 873.4152
+    },
+    {
+      "date": "2026-06-08",
+      "trades": 42,
+      "net_pnl": -138.5563,
+      "win_rate_pct": 23.81,
+      "drawdown_pct": 20.0722,
+      "profit_factor": 0.5135,
+      "best_trade": 34.1464,
+      "worst_trade": -16.5114,
+      "balance_eod": 734.8589
+    },
+    {
+      "date": "2026-06-09",
+      "trades": 18,
+      "net_pnl": -91.2327,
+      "win_rate_pct": 5.56,
+      "drawdown_pct": 29.9953,
+      "profit_factor": 0.0375,
+      "best_trade": 3.5514,
+      "worst_trade": -10.6443,
+      "balance_eod": 643.6262
+    },
+    {
+      "date": "2026-06-10",
+      "trades": 16,
+      "net_pnl": -138.0584,
+      "win_rate_pct": 0.0,
+      "drawdown_pct": 45.0113,
+      "profit_factor": 0.0,
+      "best_trade": 0.0,
+      "worst_trade": -20.8214,
+      "balance_eod": 505.5678
+    },
+    {
+      "date": "2026-06-11",
+      "trades": 33,
+      "net_pnl": -174.2491,
+      "win_rate_pct": 15.15,
+      "drawdown_pct": 63.9637,
+      "profit_factor": 0.4538,
+      "best_trade": 77.52,
+      "worst_trade": -22.7171,
+      "balance_eod": 331.3187
+    },
+    {
+      "date": "2026-06-12",
+      "trades": 32,
+      "net_pnl": -85.3476,
+      "win_rate_pct": 12.5,
+      "drawdown_pct": 73.2467,
+      "profit_factor": 0.567,
+      "best_trade": 29.6357,
+      "worst_trade": -17.5214,
+      "balance_eod": 245.9711
+    },
+    {
+      "date": "2026-06-15",
+      "trades": 15,
+      "net_pnl": -129.7287,
+      "win_rate_pct": 0.0,
+      "drawdown_pct": 87.3568,
+      "profit_factor": 0.0,
+      "best_trade": 0.0,
+      "worst_trade": -12.38,
+      "balance_eod": 116.2424
+    },
+    {
+      "date": "2026-06-16",
+      "trades": 9,
+      "net_pnl": 85.845,
+      "win_rate_pct": 44.44,
+      "drawdown_pct": 78.0197,
+      "profit_factor": 10.9572,
+      "best_trade": 30.6121,
+      "worst_trade": -8.6214,
+      "balance_eod": 202.0874
+    },
+    {
+      "date": "2026-06-17",
+      "trades": 25,
+      "net_pnl": 92.0984,
+      "win_rate_pct": 52.0,
+      "drawdown_pct": 68.0025,
+      "profit_factor": 2.8603,
+      "best_trade": 13.8121,
+      "worst_trade": -8.8986,
+      "balance_eod": 294.1858
+    },
+    {
+      "date": "2026-06-18",
+      "trades": 29,
+      "net_pnl": 461.9014,
+      "win_rate_pct": 62.07,
+      "drawdown_pct": 17.7633,
+      "profit_factor": 4.6724,
+      "best_trade": 42.285,
+      "worst_trade": -17.0086,
+      "balance_eod": 756.0872
+    },
+    {
+      "date": "2026-06-19",
+      "trades": 13,
+      "net_pnl": 270.2192,
+      "win_rate_pct": 92.31,
+      "drawdown_pct": 0.0,
+      "profit_factor": 27.4809,
+      "best_trade": 31.9264,
+      "worst_trade": -10.2043,
+      "balance_eod": 1026.3064
+    },
+    {
+      "date": "2026-06-22",
+      "trades": 26,
+      "net_pnl": -9.0185,
+      "win_rate_pct": 30.77,
+      "drawdown_pct": 0.8787,
+      "profit_factor": 0.9162,
+      "best_trade": 17.4143,
+      "worst_trade": -12.09,
+      "balance_eod": 1017.2879
+    },
+    {
+      "date": "2026-06-23",
+      "trades": 23,
+      "net_pnl": 274.007,
+      "win_rate_pct": 60.87,
+      "drawdown_pct": 0.0,
+      "profit_factor": 4.7908,
+      "best_trade": 44.16,
+      "worst_trade": -13.8986,
+      "balance_eod": 1291.2949
+    },
+    {
+      "date": "2026-06-24",
+      "trades": 31,
+      "net_pnl": 106.9894,
+      "win_rate_pct": 45.16,
+      "drawdown_pct": 0.0,
+      "profit_factor": 1.5698,
+      "best_trade": 41.8471,
+      "worst_trade": -16.7386,
+      "balance_eod": 1398.2843
+    },
+    {
+      "date": "2026-06-25",
+      "trades": 51,
+      "net_pnl": -197.6226,
+      "win_rate_pct": 29.41,
+      "drawdown_pct": 14.1332,
+      "profit_factor": 0.4692,
+      "best_trade": 20.53,
+      "worst_trade": -19.4743,
+      "balance_eod": 1200.6617
+    },
+    {
+      "date": "2026-06-26",
+      "trades": 36,
+      "net_pnl": 86.1742,
+      "win_rate_pct": 41.67,
+      "drawdown_pct": 7.9704,
+      "profit_factor": 1.8078,
+      "best_trade": 25.6564,
+      "worst_trade": -11.9429,
+      "balance_eod": 1286.8359
+    },
+    {
+      "date": "2026-06-29",
+      "trades": 13,
+      "net_pnl": -5.0913,
+      "win_rate_pct": 38.46,
+      "drawdown_pct": 8.3345,
+      "profit_factor": 0.8419,
+      "best_trade": 10.4729,
+      "worst_trade": -11.0214,
+      "balance_eod": 1281.7446
+    }
+  ],
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

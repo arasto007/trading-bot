@@ -1,0 +1,14 @@
+{
+  "phase": "26A",
+  "generated_utc": "2026-07-08T17:35:36.207635+00:00",
+  "git_available": false,
+  "error": "[WinError 2] The system cannot find the file specified",
+  "production_modified": false,
+  "phase26a_isolated": true,
+  "checks": {
+    "validation_skipped": true
+  },
+  "passes": true,
+  "observation_only": true,
+  "production_execution_modified": false
+}

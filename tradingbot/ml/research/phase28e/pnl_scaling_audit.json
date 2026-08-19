@@ -1,0 +1,17 @@
+{
+  "phase": "28E",
+  "pnl_model": "fixed_broker_lot",
+  "account_relative_sizing": false,
+  "initial_balance": 200.0,
+  "trade_log_net_pnl": 1081.7446,
+  "portfolio_tracker_net_pnl": 75.7757,
+  "portfolio_vs_trade_log_delta": 1005.9689,
+  "pnl_correctly_scaled_for_200": false,
+  "explanation": "Trade-log PnL uses full-history Hybrid B exit on fixed 0.01 lot \u2014 identical dollar amounts to a $10,000 baseline. Portfolio tracker ($75.78) uses bar-by-bar partial candle visibility and diverges. Neither scales lot to $200 equity.",
+  "implied_return_on_200_pct": 540.87,
+  "same_trades_on_10k_would_show": {
+    "net_pnl": 1081.7446,
+    "return_pct": 10.82
+  },
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

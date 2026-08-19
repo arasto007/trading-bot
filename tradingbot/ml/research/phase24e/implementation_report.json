@@ -1,0 +1,15 @@
+{
+  "phase": "24E",
+  "files_changed": [
+    "tradingbot/ml/dataset/memory_cache.py",
+    "tradingbot/ml/dataset/store.py"
+  ],
+  "env_flag": "ENABLE_DATASET_MEMORY_CACHE",
+  "default_enabled": true,
+  "invalidation": [
+    "file fingerprint change",
+    "process restart",
+    "DatasetMemoryCache.reset()",
+    "store_v2 write"
+  ]
+}

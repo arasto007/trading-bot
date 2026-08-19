@@ -1,0 +1,22 @@
+{
+  "phase": "22B",
+  "M5_candles": 10068,
+  "rsi_filter_blocks": 0,
+  "adx_filter_blocks": 0,
+  "ml_hold_after_orchestrator": 10032,
+  "pct_ml_hold": 99.64,
+  "meta_rejected": 0,
+  "meta_gate_skipped": 0,
+  "riskgate_blocks": {
+    "max positions for symbol": 4,
+    "daily loss limit": 30
+  },
+  "filter_settings": {
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 40.0,
+    "rsi_max": 60.0,
+    "adx_min": 15.0,
+    "adx_max": 50.0
+  }
+}

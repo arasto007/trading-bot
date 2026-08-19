@@ -1,0 +1,21 @@
+{
+  "phase": "27B",
+  "by_engine_before_rsi": {
+    "phase9_9": {
+      "BUY": 98,
+      "SELL": 1372,
+      "WAIT": 91
+    },
+    "unknown": {
+      "BUY": 0,
+      "SELL": 0,
+      "WAIT": 595
+    },
+    "trend_rf_v41": {
+      "BUY": 743,
+      "SELL": 370,
+      "WAIT": 1934
+    }
+  },
+  "generated_utc": "2026-07-09T12:46:26.872082+00:00"
+}

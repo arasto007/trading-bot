@@ -1,0 +1,35 @@
+{
+  "pipeline": [
+    "Market Data (MT5 read-only / replay)",
+    "TradingKernel.run_market_cycle",
+    "DataStage \u2192 IndicatorsStage",
+    "SignalStage.generate_signal(registry)",
+    "RiskStage.evaluate",
+    "ExecutionStage.execute (guarded in shadow/paper)"
+  ],
+  "signal_stage_entry": "tradingbot.pipeline.signal_stage.SignalStage",
+  "registry_in_ml_path": "CompositeStrategyRegistry",
+  "registry_in_legacy_live": "LegacyStrategyRegistry",
+  "decision_mechanism": {
+    "type": "ML_PRIORITY_OVERRIDE",
+    "description": "Both ML and legacy generate signals each bar. If ML returns non-HOLD, ML wins. Otherwise legacy priceaction is used. No weighted fusion or voting.",
+    "ml_weight": "100% when ML non-HOLD",
+    "legacy_weight": "100% when ML HOLD/absent",
+    "fusion": false
+  },
+  "imported_strategies": [
+    "MLShadowStrategy (Phase 9.9)",
+    "LegacyStrategyRegistry \u2192 priceaction"
+  ],
+  "instantiated_strategies": [
+    "ml_shadow_phase9_9",
+    "priceaction"
+  ],
+  "executed_per_cycle": [
+    "MLShadowStrategy.generate_signal",
+    "LegacyStrategyRegistry.generate_signal"
+  ],
+  "ignored_when_ml_wins": [
+    "priceaction (computed but discarded)"
+  ]
+}

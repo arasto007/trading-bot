@@ -1,0 +1,128 @@
+{
+  "phase": "27L",
+  "ranked": [
+    {
+      "rank": 1,
+      "strategy": "time_exit",
+      "composite_score": 67.27,
+      "net_profit": 4835.22,
+      "profit_factor": 1.8534,
+      "expectancy": 8.4091,
+      "win_rate_pct": 58.43,
+      "max_drawdown_pct": 8.7551,
+      "loser_recovery_pct": 38.81,
+      "why": "expectancy=8.4091, loser_recovery=38.81%"
+    },
+    {
+      "rank": 2,
+      "strategy": "trailing_swing",
+      "composite_score": 32.28,
+      "net_profit": 428.8837,
+      "profit_factor": 1.4436,
+      "expectancy": 0.7459,
+      "win_rate_pct": 18.09,
+      "max_drawdown_pct": 1.5689,
+      "loser_recovery_pct": 9.35,
+      "why": "Captures reversals via trail; expectancy=0.7459"
+    },
+    {
+      "rank": 3,
+      "strategy": "structure_exit",
+      "composite_score": 31.16,
+      "net_profit": 635.4209,
+      "profit_factor": 1.3545,
+      "expectancy": 1.1051,
+      "win_rate_pct": 49.22,
+      "max_drawdown_pct": 3.1487,
+      "loser_recovery_pct": 30.59,
+      "why": "expectancy=1.1051, loser_recovery=30.59%"
+    },
+    {
+      "rank": 4,
+      "strategy": "atr_exit",
+      "composite_score": 28.79,
+      "net_profit": 561.8585,
+      "profit_factor": 1.2569,
+      "expectancy": 0.9771,
+      "win_rate_pct": 55.65,
+      "max_drawdown_pct": 3.5777,
+      "loser_recovery_pct": 34.84,
+      "why": "expectancy=0.9771, loser_recovery=34.84%"
+    },
+    {
+      "rank": 5,
+      "strategy": "dynamic_tp_1.5r",
+      "composite_score": 28.57,
+      "net_profit": 815.9383,
+      "profit_factor": 1.2422,
+      "expectancy": 1.419,
+      "win_rate_pct": 46.61,
+      "max_drawdown_pct": 6.7084,
+      "loser_recovery_pct": 13.03,
+      "why": "Lower TP captures more frequent exits; PF=1.2422"
+    },
+    {
+      "rank": 6,
+      "strategy": "partial_close_50",
+      "composite_score": 27.69,
+      "net_profit": 853.1792,
+      "profit_factor": 1.3,
+      "expectancy": 1.4838,
+      "win_rate_pct": 40.17,
+      "max_drawdown_pct": 9.1574,
+      "loser_recovery_pct": 2.55,
+      "why": "Secures 50% at 1R; balances winner size vs loser recovery"
+    },
+    {
+      "rank": 7,
+      "strategy": "current_tp_sl",
+      "composite_score": 27.59,
+      "net_profit": 1101.1854,
+      "profit_factor": 1.2847,
+      "expectancy": 1.9151,
+      "win_rate_pct": 38.61,
+      "max_drawdown_pct": 12.4228,
+      "loser_recovery_pct": null,
+      "why": "Production baseline \u2014 fixed 2.5R TP / 1R SL"
+    },
+    {
+      "rank": 8,
+      "strategy": "breakeven_1r",
+      "composite_score": 25.24,
+      "net_profit": 701.5211,
+      "profit_factor": 1.2467,
+      "expectancy": 1.22,
+      "win_rate_pct": 26.43,
+      "max_drawdown_pct": 9.2829,
+      "loser_recovery_pct": 0.0,
+      "why": "Locks entry after profit; recovers 0.0% losers; PF=1.2467"
+    },
+    {
+      "rank": 9,
+      "strategy": "breakeven_0.5r",
+      "composite_score": 15.19,
+      "net_profit": -160.6635,
+      "profit_factor": 0.9163,
+      "expectancy": -0.2794,
+      "win_rate_pct": 12.17,
+      "max_drawdown_pct": 7.4088,
+      "loser_recovery_pct": 0.0,
+      "why": "Locks entry after profit; recovers 0.0% losers; PF=0.9163"
+    },
+    {
+      "rank": 10,
+      "strategy": "trailing_atr",
+      "composite_score": 5.55,
+      "net_profit": -603.4274,
+      "profit_factor": 0.4784,
+      "expectancy": -1.0494,
+      "win_rate_pct": 33.22,
+      "max_drawdown_pct": 6.1846,
+      "loser_recovery_pct": 23.23,
+      "why": "Captures reversals via trail; expectancy=-1.0494"
+    }
+  ],
+  "best_strategy": "time_exit",
+  "baseline_rank": 7,
+  "generated_utc": "2026-07-09T18:10:48.053689+00:00"
+}

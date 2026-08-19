@@ -1,0 +1,117 @@
+{
+  "phase": "22AF",
+  "title": "Freeze Pipeline Repair Design",
+  "source_analysis": "Phase 22AE (MULTIPLE_CAUSES: HARDCODED_CONFIG + DISCONNECTED_PIPELINE)",
+  "current_flow": {
+    "optimizer_path": [
+      "scripts/train_model.py --phase9-9",
+      "RobustnessOptimizer.run()",
+      "run_candidate_grid → rank_candidates → select_best",
+      "evaluate_acceptance(best, baseline)",
+      "save_reports → data/ml/reports/phase9_9_*.json",
+      "exit (no freeze)"
+    ],
+    "freeze_path": [
+      "freeze_phase9_9_artifacts() [direct | load(build_if_missing=True) | KernelShadowRunner]",
+      "cfg = config or DEFAULT_CONFIG",
+      "ModelCandidateConfig hardcoded logistic_strong_reg",
+      "85% chronological retrain",
+      "write data/ml/research/phase9_9_best/*"
+    ],
+    "runtime_path": [
+      "load_phase9_9_bundle(build_if_missing=False)",
+      "EngineRegistry → RangeEngineAdapter → predict_proba"
+    ]
+  },
+  "broken_edges": [
+    {
+      "from": "select_best(ranked)",
+      "to": "freeze_phase9_9_artifacts",
+      "status": "MISSING",
+      "impact": "Winner never becomes production artifact"
+    },
+    {
+      "from": "evaluate_acceptance",
+      "to": "freeze gate",
+      "status": "MISSING",
+      "impact": "Acceptance verdict ignored at freeze time"
+    },
+    {
+      "from": "best_candidate dict",
+      "to": "ModelCandidateConfig in freeze",
+      "status": "MISSING",
+      "impact": "Hardcoded logistic_strong_reg always wins"
+    },
+    {
+      "from": "feature_subsets research",
+      "to": "freeze feature_order.json",
+      "status": "PARTIAL",
+      "impact": "DEFAULT_CONFIG static top3, not winner subset"
+    },
+    {
+      "from": "phase9_9_robustness_report.json",
+      "to": "freeze candidate selection",
+      "status": "PARTIAL",
+      "impact": "_load_phase99_score reads score only"
+    },
+    {
+      "from": "ShadowEngine / KernelShadowRunner",
+      "to": "freeze without acceptance",
+      "status": "UNGUARDED_SIDE_PATH",
+      "impact": "Can overwrite artifacts with DEFAULT_CONFIG"
+    }
+  ],
+  "required_new_edges": [
+    {
+      "from": "select_best(ranked)",
+      "to": "FreezeContract builder",
+      "action": "Map winner fields → typed freeze input"
+    },
+    {
+      "from": "evaluate_acceptance",
+      "to": "freeze gate",
+      "action": "Reject freeze unless final_verdict == PASS"
+    },
+    {
+      "from": "FreezeContract",
+      "to": "freeze_phase9_9_artifacts (refactored)",
+      "action": "Train winner model_name + hyperparameters + feature list"
+    },
+    {
+      "from": "freeze output",
+      "to": "metadata.json + config.json",
+      "action": "Persist full contract + acceptance snapshot + report checksum"
+    },
+    {
+      "from": "load_phase9_9_bundle",
+      "to": "metadata validation",
+      "action": "Verify contract fields before inference (HealthGate extension optional)"
+    },
+    {
+      "from": "Shadow auto-freeze paths",
+      "to": "read-only or explicit --force-research-freeze",
+      "action": "Remove unguarded DEFAULT_CONFIG rebuild in production paths"
+    }
+  ],
+  "design_principles": [
+    "Single write authority: acceptance-gated freeze only",
+    "Freeze input derived from optimizer report, not DEFAULT_CONFIG literals",
+    "Research isolation preserved until explicit approved integration phase",
+    "No automatic freeze on build_if_missing in production loaders",
+    "Chronological retrain protocol documented in contract (85% slice or full-data refit — pick one explicitly)"
+  ],
+  "phase22ae_evidence": {
+    "verdict": "MULTIPLE_CAUSES",
+    "optimizer_reaches_freeze": false,
+    "report_vs_frozen": {
+      "report_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_robustness_report.json",
+      "report_best_candidate_id": "random_forest_shallow",
+      "report_experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "report_robustness_score": 59.09,
+      "frozen_metadata_candidate_id": "logistic_strong_reg",
+      "aligned": false
+    }
+  },
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

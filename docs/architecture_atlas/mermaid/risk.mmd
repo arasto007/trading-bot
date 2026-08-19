@@ -1,0 +1,128 @@
+flowchart TB
+    %% risk
+    tradingbot_ml_risk_intelligence_engine_p0[engine_performance]
+    tradingbot_ml_deployment_risk_gates1[risk_gates]
+    tradingbot_ml_risk_intelligence_drawdown2[drawdown_controller]
+    tradingbot_ml_risk_intelligence_risk_typ3[risk_types]
+    tradingbot_ml_research_phase11_5_risk_op4[risk_optimizer]
+    tradingbot_domain_risk_logic_regime_bloc5[regime_blocks_entry]
+    tradingbot_ml_orchestrator_regime_gate6[regime_gate]
+    tradingbot_services_live_risk_tracker_Li7[LiveRiskTracker]
+    tradingbot_adapters_risk_gate_RiskGate8[RiskGate]
+    tradingbot_ml_live_gate_gate_engine_Live9[LiveGateEngine]
+    tradingbot_domain_live_gates10[live_gates]
+    tradingbot_ml_orchestrator_risk_adjustme11[RiskAdjustmentResult]
+    tradingbot_ml_dataset_sanity_gate_Sanity12[SanityReport]
+    tradingbot_domain_risk_logic_RiskLimits13[RiskLimits]
+    tradingbot_ml_backtest_risk_RiskConfig14[RiskConfig]
+    tradingbot_ml_phase20c_risk_validation_v15[validate_risk]
+    tradingbot_ml_orchestrator_schema_RiskSt16[RiskState]
+    scripts_run_phase14_2b_risk17[run_phase14_2b_risk]
+    tradingbot_ml_risk_intelligence_risk_tra18[build_risk_trace]
+    tradingbot_ml_research_robustness_optimi19[probability_selection_gate]
+    tradingbot_ml_risk_intelligence_risk_typ20[RiskRecommendation]
+    tradingbot_backtest_risk21[risk]
+    tradingbot_ml_integration_health_gate_Ke22[KernelFallbackError]
+    tradingbot_domain_models_RiskDecision23[RiskDecision]
+    tradingbot_ml_integration_health_gate_He24[HealthGateResult]
+    tradingbot_ml_research_phase64_adaptive_25[_build_v7_label_index]
+    tradingbot_domain_risk_logic_infer_regim26[infer_regime_from_ohlcv]
+    tradingbot_ml_risk_intelligence_risk_pol27[RiskPolicy]
+    tradingbot_domain_live_gates_check_max_p28[check_max_positions]
+    tradingbot_ml_live_validation_risk_compa29[risk_compare]
+    tradingbot_domain_live_gates_position_ma30[position_matches_symbol]
+    tradingbot_ml_backtest_risk_PositionSize31[PositionSize]
+    tradingbot_ml_research_live_bt_backtest_32[_run_ml_v8_trend_gate]
+    tradingbot_ml_research_phase14_7_risk_ad33[risk_adapter]
+    tradingbot_ml_risk_intelligence_validato34[AdaptiveRiskAdapter]
+    tradingbot_ml_research_live_bt_backtest_35[_run_vol_regime_backtest]
+    tradingbot_domain_order_logic_check_orde36[check_order_risk]
+    tradingbot_ml_research_phase14_7_risk_ad37[build_risk_adapter]
+    tradingbot_ml_research_phase17a_risk_ana38[build_risk_analysis]
+    tradingbot_domain_risk_logic39[risk_logic]
+    tradingbot_ml_phase20c_risk_validation40[risk_validation]
+    tradingbot_domain_risk_logic_lot_pip_val41[lot_pip_value]
+    tradingbot_ml_research_phase22h_alignmen42[build_health_gate_validation]
+    tradingbot_ml_live_gate___init__43[__init__]
+    tradingbot_ml_risk_intelligence_risk_tra44[risk_trace]
+    tradingbot_services_live_risk_tracker_Li45[LiveRiskSnapshot]
+    tradingbot_ml_research_phase22x_run_inve46[_run_gate_unit_validation]
+    tradingbot_adapters_risk_gate_AccountSta47[AccountState]
+    tradingbot_services_live_risk_tracker48[live_risk_tracker]
+    tradingbot_ml_live_gate_schema49[schema]
+    tradingbot_ml_risk_intelligence_volatili50[volatility_risk_adjuster]
+    tradingbot_ml_live_gate_gate_engine__bui51[_build_reason]
+    tradingbot_ml_research_phase14_4_risk_ac52[risk_acceptance_analyzer]
+    tradingbot_ml_research_phase14_8_risk_au53[risk_audit]
+    tradingbot_domain_live_gates_normalize_s54[normalize_symbol]
+    tradingbot_ml_research_phase15g_risk_gat55[risk_gate_simulator]
+    tradingbot_ports_risk_IRiskGate56[IRiskGate]
+    tradingbot_ml_research_phase23c_decision57[decision_gate_investigation]
+    tradingbot_pipeline_risk_stage58[risk_stage]
+    tradingbot_ml_phase20b_risk_suggestions59[risk_suggestions]
+    tradingbot_ml_research_live_bt_backtest_60[_evaluate_vol_regime_gate]
+    tradingbot_ml_risk_intelligence___init__61[__init__]
+    tradingbot_ml_dataset_sanity_gate62[sanity_gate]
+    scripts_run_phase14_2b_risk_main63[main]
+    scripts_run_phase14_2b_risk__histogram64[_histogram]
+    tradingbot_config_engine_settings_RiskCo65[RiskConfig]
+    tradingbot_ml_live_gate_schema_LiveGateR66[LiveGateReport]
+    tradingbot_ml_phase19d_verdict_build_cer67[build_certification_gates]
+    tradingbot_ml_integration_health_gate68[health_gate]
+    tradingbot_domain_risk_logic_RiskState69[RiskState]
+    tradingbot_ml_phase20a_certification_gat70[certification_gate]
+    tradingbot_ml_risk_intelligence_adaptive71[adaptive_risk_engine]
+    tradingbot_ml_risk_intelligence_risk_pol72[risk_policy]
+    tradingbot_ml_live_gate_logger73[logger]
+    tradingbot_ml_research_live_bt_backtest_74[_run_ml_vol_regime_entries]
+    tradingbot_ml_risk_intelligence_session_75[session_risk_adjuster]
+    tradingbot_backtest_risk_BacktestRiskGat76[BacktestRiskGate]
+    folder_tradingbot_ml_live_gate77{{live_gate}}
+    tradingbot_ml_live_gate_schema_LiveGateS78[LiveGateState]
+    tradingbot_ml_risk_intelligence_regime_r79[regime_risk_adjuster]
+    tradingbot_backtest_risk21 -->|contains| tradingbot_backtest_risk_BacktestRiskGat76
+    tradingbot_domain_live_gates10 -->|contains| tradingbot_domain_live_gates_normalize_s54
+    tradingbot_domain_live_gates10 -->|contains| tradingbot_domain_live_gates_position_ma30
+    tradingbot_domain_live_gates10 -->|contains| tradingbot_domain_live_gates_check_max_p28
+    tradingbot_domain_risk_logic39 -->|contains| tradingbot_domain_risk_logic_RiskLimits13
+    tradingbot_domain_risk_logic39 -->|contains| tradingbot_domain_risk_logic_RiskState69
+    tradingbot_domain_risk_logic39 -->|contains| tradingbot_domain_risk_logic_infer_regim26
+    tradingbot_domain_risk_logic39 -->|contains| tradingbot_domain_risk_logic_regime_bloc5
+    tradingbot_domain_risk_logic39 -->|contains| tradingbot_domain_risk_logic_lot_pip_val41
+    tradingbot_ml_dataset_sanity_gate62 -->|contains| tradingbot_ml_dataset_sanity_gate_Sanity12
+    tradingbot_ml_integration_health_gate68 -->|contains| tradingbot_ml_integration_health_gate_Ke22
+    tradingbot_ml_integration_health_gate68 -->|contains| tradingbot_ml_integration_health_gate_He24
+    tradingbot_ml_live_gate_schema49 -->|contains| tradingbot_ml_live_gate_schema_LiveGateS78
+    tradingbot_ml_live_gate_schema49 -->|contains| tradingbot_ml_live_gate_schema_LiveGateR66
+    tradingbot_ml_phase20c_risk_validation40 -->|contains| tradingbot_ml_phase20c_risk_validation_v15
+    tradingbot_ml_research_phase14_7_risk_ad33 -->|contains| tradingbot_ml_research_phase14_7_risk_ad37
+    tradingbot_ml_risk_intelligence_risk_pol72 -->|contains| tradingbot_ml_risk_intelligence_risk_pol27
+    tradingbot_ml_risk_intelligence_risk_tra44 -->|contains| tradingbot_ml_risk_intelligence_risk_tra18
+    tradingbot_ml_risk_intelligence_risk_typ3 -->|contains| tradingbot_ml_risk_intelligence_risk_typ20
+    tradingbot_services_live_risk_tracker48 -->|contains| tradingbot_services_live_risk_tracker_Li45
+    tradingbot_services_live_risk_tracker48 -->|contains| tradingbot_services_live_risk_tracker_Li7
+    scripts_run_phase14_2b_risk17 -->|contains| scripts_run_phase14_2b_risk_main63
+    scripts_run_phase14_2b_risk17 -->|contains| scripts_run_phase14_2b_risk__histogram64
+    tradingbot_backtest_risk21 -->|imports| tradingbot_domain_live_gates10
+    tradingbot_backtest_risk21 -->|imports| tradingbot_domain_risk_logic39
+    tradingbot_backtest_risk21 -->|imports| tradingbot_domain_risk_logic39
+    tradingbot_ml_live_gate_logger73 -->|imports| tradingbot_ml_live_gate_schema49
+    tradingbot_ml_live_gate___init__43 -->|imports| tradingbot_ml_live_gate_logger73
+    tradingbot_ml_live_gate___init__43 -->|imports| tradingbot_ml_live_gate_schema49
+    tradingbot_ml_research_phase14_7_risk_ad33 -->|imports| tradingbot_ml_risk_intelligence_adaptive71
+    tradingbot_ml_research_phase14_7_risk_ad33 -->|imports| tradingbot_ml_risk_intelligence_risk_pol72
+    tradingbot_ml_research_phase14_7_risk_ad33 -->|imports| tradingbot_ml_risk_intelligence_risk_typ3
+    tradingbot_ml_research_phase15g_risk_gat55 -->|imports| tradingbot_ml_research_phase14_7_risk_ad33
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_drawdown2
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_engine_p0
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_regime_r79
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_risk_pol72
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_risk_typ3
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_session_75
+    tradingbot_ml_risk_intelligence_adaptive71 -->|imports| tradingbot_ml_risk_intelligence_volatili50
+    tradingbot_ml_risk_intelligence_drawdown2 -->|imports| tradingbot_ml_risk_intelligence_risk_pol72
+    tradingbot_ml_risk_intelligence_engine_p0 -->|imports| tradingbot_ml_risk_intelligence_risk_typ3
+    tradingbot_ml_risk_intelligence_risk_tra44 -->|imports| tradingbot_ml_risk_intelligence_risk_typ3
+    tradingbot_ml_risk_intelligence_volatili50 -->|imports| tradingbot_ml_risk_intelligence_risk_pol72
+    tradingbot_ml_risk_intelligence___init__61 -->|imports| tradingbot_ml_risk_intelligence_adaptive71
+    tradingbot_ml_risk_intelligence___init__61 -->|imports| tradingbot_ml_risk_intelligence_risk_typ3

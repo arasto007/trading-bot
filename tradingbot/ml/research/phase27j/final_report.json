@@ -1,0 +1,25 @@
+{
+  "phase": "27J",
+  "verdict": "EDGE_ROOT_CAUSE_IDENTIFIED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "input_source": "phase27f_repaired_replay",
+  "completed_trades": 575,
+  "primary_root_cause": "missed_move_exit_timing",
+  "combination_summary": "missed_move_exit_timing + poor_capture_efficiency",
+  "blockers": [],
+  "key_findings": {
+    "avg_gross_edge": 1.9151,
+    "avg_net_edge": 1.243,
+    "avg_spread_cost": 0.6,
+    "avg_slippage_cost": 2.7962,
+    "avg_winner_r": 2.1398,
+    "avg_loser_r": -0.9748,
+    "planned_rr": 2.5,
+    "capture_efficiency": -5.2052,
+    "exited_too_early": false,
+    "largest_edge_destroyer": "exit_timing"
+  },
+  "conclusion": "missed_move_exit_timing + poor_capture_efficiency",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

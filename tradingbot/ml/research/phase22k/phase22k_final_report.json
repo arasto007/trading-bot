@@ -1,0 +1,55 @@
+{
+  "phase": "22K",
+  "title": "Repository Truth Validation Before Any Engine Change",
+  "completed_utc": "2026-07-05T12:45:00Z",
+  "constraints": {
+    "production_modified": false,
+    "22j_005_implemented": false,
+    "optimizations_run": false
+  },
+  "executive_summary": "Phase99 zero-filled features are REAL on the current live/research inference path for bars after 2026-06-29, because dataset_v2 is stale and build_unified_frame fillna(0) masks merge misses. This is NOT research-only instrumentation. However, 22J overstated a single fillna root cause: (1) Dataset A includes 61% of bars outside dataset_v2 coverage, (2) structure_distance is 98.7% zero in dataset_v2 even when merge succeeds, (3) live ema50_slope/candle_direction are computed but unused by phase9_9. PipelineCache and build_unified_frame match 100%. Do not implement 22J-005 until dataset_v2 refresh and research window segmentation are complete.",
+  "final_questions": {
+    "1_real_production_bug": {
+      "answer": "Partially yes — stale dataset_v2 + fillna(0) on merge miss causes guaranteed phase99 zeros on all bars after 2026-06-29 on BOTH live and backtest paths today.",
+      "confidence": "high"
+    },
+    "2_if_yes_where_introduced": {
+      "answer": "Primary introduction point: build_unified_frame left-merge on dataset_v2 timestamp followed by fillna(0.0) for phase99_* columns (unified_features.py:45-48), fed by PipelineCache.get_unified_frame loading DatasetStore.load_v2 without freshness check (pipeline_cache.py:107-108). Secondary: dataset_v2 not rebuilt since 2026-06-29.",
+      "confidence": "high"
+    },
+    "3_if_no_what_false_diagnosis": {
+      "answer": "22J implied a universal fillna merge defect causing zeros during RANGE scoring without separating (a) post-build candle window, (b) native structure_distance sparsity in training data, (c) unused live-computed alternatives. Research runners 22F/22J share production path — not a false profiler bug.",
+      "confidence": "high"
+    },
+    "4_is_22j_005_justified": {
+      "answer": "Not yet. Refreshing/rebuilding dataset_v2 is lower-risk and addresses merge-miss zeros for ema50_slope and candle_direction. FeatureBuilder overlay (22J-005) would still leave structure_distance ~98% sparse and changes inference semantics without validated PF lift.",
+      "confidence": "high"
+    },
+    "5_safe_to_modify_production": {
+      "answer": false,
+      "reason": "Root cause is mixed; research Dataset A confounds staleness with engine behavior; no validated backtest improvement; structure_distance sparsity is training-native."
+    }
+  },
+  "root_cause": "D — Mixed issue (stale dataset_v2 + architectural dataset-merge inference + native structure_distance sparsity + Dataset A window amplification)",
+  "verdict": "RESEARCH_TOOLING_MUST_BE_FIXED_FIRST",
+  "verdict_rationale": [
+    "Segment research metrics by dataset_v2 coverage before engine proposals",
+    "Rebuild or extend dataset_v2 and measure merge_hit recovery before code changes",
+    "Fix research validation to use per-bar engine profiler instead of broken PF/hold_chain emission comparisons",
+    "Re-evaluate engine fix only after stale-data baseline is established"
+  ],
+  "recommended_sequence": [
+    "1. Rebuild dataset_v2 through production build pipeline (phase9_production_build / ProductionDatasetV2Builder) — operational, not engine code change",
+    "2. Update phase22 research runners with dataset coverage guards and pre/post max_ts forensics",
+    "3. Re-run 22J forensics on in-coverage window only",
+    "4. Only then assess whether FeatureBuilder overlay (22J-005) adds value beyond dataset refresh"
+  ],
+  "reports": [
+    "feature_lineage.json",
+    "live_vs_research_features.json",
+    "phase99_feature_validation.json",
+    "zero_feature_root_cause.json",
+    "instrumentation_validation.json",
+    "phase22k_final_report.json"
+  ]
+}

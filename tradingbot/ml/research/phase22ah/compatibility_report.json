@@ -1,0 +1,74 @@
+{
+  "phase": "22AH",
+  "proposed_change": "Replace ordinal overfitting_risk_decreased with numeric mean_auc_gap < baseline",
+  "impact_matrix": [
+    {
+      "component": "Phase 9.8 reports",
+      "path": "data/ml/reports/phase9_8_robustness_report.json",
+      "affected": false,
+      "reason": "Baseline source unchanged; numeric rule reads train_test_gap.mean_auc_gap already present"
+    },
+    {
+      "component": "Phase 9.8 window results",
+      "path": "data/ml/reports/phase9_8_window_results.json",
+      "affected": false,
+      "reason": "Read-only baseline input; no schema change"
+    },
+    {
+      "component": "Historical Phase 9.9 artifacts",
+      "path": "data/ml/reports/phase9_9_*",
+      "affected": false,
+      "reason": "Existing JSON remains valid; re-evaluating acceptance is derived, not destructive"
+    },
+    {
+      "component": "report_generator.save_reports",
+      "path": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "affected": true,
+      "scope": "evaluate_acceptance only",
+      "reason": "Single check boolean derivation changes; output schema unchanged"
+    },
+    {
+      "component": "assess_overfitting_risk labels",
+      "path": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "affected": false,
+      "reason": "Ordinal labels remain for ranking/reporting; acceptance decouples from label"
+    },
+    {
+      "component": "Robustness reports (phase9_9_robustness_report.json)",
+      "affected": true,
+      "scope": "acceptance.checks.overfitting_risk_decreased semantics",
+      "reason": "Same key name, different logic — document in release notes"
+    },
+    {
+      "component": "HealthGate",
+      "path": "tradingbot/ml/integration/health_gate.py",
+      "affected": false,
+      "reason": "Bundle integrity only; no mean_auc_gap or acceptance import (phase22ad/22aa confirmed)"
+    },
+    {
+      "component": "Runtime / TradingKernel",
+      "affected": false,
+      "reason": "Registry loads frozen bundle; acceptance is optimizer-time gate only"
+    },
+    {
+      "component": "candidate_selector rank_candidates",
+      "affected": false,
+      "reason": "Still uses overfitting_risk label for sort tie-break; independent of acceptance check"
+    },
+    {
+      "component": "freeze_phase9_9_artifacts",
+      "affected": false,
+      "indirect": true,
+      "reason": "Freeze currently bypasses acceptance; numeric rule enables future Phase 22AF wiring"
+    }
+  ],
+  "schema_changes_required": false,
+  "historical_replay": {
+    "possible": true,
+    "method": "Re-run evaluate_acceptance with numeric gap using phase9_9_model_comparison.json + phase9_8 baseline gap",
+    "requires_retrain": false
+  },
+  "backward_compatible": true,
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

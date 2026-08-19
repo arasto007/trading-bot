@@ -1,0 +1,155 @@
+{
+  "phase": "24C",
+  "pipeline_budget_ms": 500.0,
+  "total_produce_unified_signal": {
+    "count": 1130,
+    "mean_ms": 64.3085,
+    "median_ms": 55.6082,
+    "p95_ms": 165.7562,
+    "p99_ms": 194.9287,
+    "max_ms": 197.9074,
+    "std_ms": 33.5929
+  },
+  "total_kernel_adapter": {
+    "count": 1130,
+    "mean_ms": 55.5042,
+    "median_ms": 55.9568,
+    "p95_ms": 58.1389,
+    "p99_ms": 61.3582,
+    "max_ms": 102.0224,
+    "std_ms": 3.7639
+  },
+  "over_budget_p95": false,
+  "primary_bottleneck": {
+    "stage": "pipeline_cache_unified_frame",
+    "p95_ms": 162.1114,
+    "mean_ms": 115.5723,
+    "share_of_total_p95": 0.978,
+    "share_of_total_mean": 1.7972
+  },
+  "ranked_stages_by_p95": [
+    {
+      "rank": 1,
+      "stage": "pipeline_cache_unified_frame",
+      "p95_ms": 162.1114,
+      "mean_ms": 115.5723
+    },
+    {
+      "rank": 2,
+      "stage": "unified_frame_merge",
+      "p95_ms": 136.6904,
+      "mean_ms": 90.3446
+    },
+    {
+      "rank": 3,
+      "stage": "range_engine_evaluate",
+      "p95_ms": 70.2467,
+      "mean_ms": 64.7057
+    },
+    {
+      "rank": 4,
+      "stage": "feature_builder_compute_at",
+      "p95_ms": 68.9256,
+      "mean_ms": 63.6986
+    },
+    {
+      "rank": 5,
+      "stage": "indicator_stage",
+      "p95_ms": 50.708,
+      "mean_ms": 48.6258
+    },
+    {
+      "rank": 6,
+      "stage": "dataset_store_load",
+      "p95_ms": 40.1912,
+      "mean_ms": 37.1048
+    },
+    {
+      "rank": 7,
+      "stage": "trend_engine_evaluate",
+      "p95_ms": 31.4718,
+      "mean_ms": 13.4067
+    },
+    {
+      "rank": 8,
+      "stage": "health_gate",
+      "p95_ms": 25.8469,
+      "mean_ms": 24.6119
+    },
+    {
+      "rank": 9,
+      "stage": "legacy_risk_gate",
+      "p95_ms": 7.1577,
+      "mean_ms": 7.0876
+    },
+    {
+      "rank": 10,
+      "stage": "predict_proba_only",
+      "p95_ms": 1.4423,
+      "mean_ms": 1.2039
+    }
+  ],
+  "significant_contributors": [
+    {
+      "stage": "pipeline_cache_unified_frame",
+      "p95_ms": 162.1114,
+      "mean_ms": 115.5723,
+      "share_of_total_p95": 0.978
+    },
+    {
+      "stage": "unified_frame_merge",
+      "p95_ms": 136.6904,
+      "mean_ms": 90.3446,
+      "share_of_total_p95": 0.8246
+    },
+    {
+      "stage": "range_engine_evaluate",
+      "p95_ms": 70.2467,
+      "mean_ms": 64.7057,
+      "share_of_total_p95": 0.4238
+    },
+    {
+      "stage": "feature_builder_compute_at",
+      "p95_ms": 68.9256,
+      "mean_ms": 63.6986,
+      "share_of_total_p95": 0.4158
+    },
+    {
+      "stage": "indicator_stage",
+      "p95_ms": 50.708,
+      "mean_ms": 48.6258,
+      "share_of_total_p95": 0.3059
+    },
+    {
+      "stage": "dataset_store_load",
+      "p95_ms": 40.1912,
+      "mean_ms": 37.1048,
+      "share_of_total_p95": 0.2425
+    },
+    {
+      "stage": "trend_engine_evaluate",
+      "p95_ms": 31.4718,
+      "mean_ms": 13.4067,
+      "share_of_total_p95": 0.1899
+    },
+    {
+      "stage": "health_gate",
+      "p95_ms": 25.8469,
+      "mean_ms": 24.6119,
+      "share_of_total_p95": 0.1559
+    }
+  ],
+  "verdict": "ONE_BOTTLENECK",
+  "evidence": "All timings from perf_counter \u2014 no estimates",
+  "meta": {
+    "phase": "24C",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "pipeline_budget_ms": 500.0,
+    "method": "perf_counter_per_stage",
+    "production_modified": false,
+    "bars_profiled": 1130,
+    "generated_utc": "2026-07-08T11:27:51.259241+00:00"
+  },
+  "generated_utc": "2026-07-08T11:27:51.487739+00:00"
+}

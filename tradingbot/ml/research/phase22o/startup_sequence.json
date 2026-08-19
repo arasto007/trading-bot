@@ -1,0 +1,35 @@
+{
+  "phase": "22O",
+  "generated_utc": "2026-07-05T16:17:26.058611+00:00",
+  "primary_live_entry": "start/3_live_loop_execute.bat",
+  "daemon_entry": "start/4_live_daemon.bat → scripts/start_live_daemon.ps1",
+  "sequence": [
+    {
+      "step": 1,
+      "component": "start/3_live_loop_execute.bat",
+      "action": "kill prior watchdog/bot, clear manual_stop.flag, load .env"
+    },
+    {
+      "step": 2,
+      "component": "scripts/verify_ml_live_ready.py",
+      "action": "ML artifact + health gate check; dataset staleness WARN only"
+    },
+    {
+      "step": 3,
+      "component": "scripts/run_live_watchdog.py",
+      "action": "Phase 22O pre-live dataset maintenance (once), then spawn tradingbot --loop"
+    },
+    {
+      "step": 4,
+      "component": "tradingbot --loop --execute",
+      "action": "LiveRunner / TradingKernel — no dataset build inside loop"
+    }
+  ],
+  "watchdog_restart_behavior": "Crash/kill-switch restarts do NOT re-run dataset maintenance",
+  "manual_bat_required": false,
+  "env_controls": {
+    "ML_AUTO_DATASET_REFRESH": "default true — set false to disable auto refresh",
+    "ML_DATASET_REFRESH_THRESHOLD_HOURS": "default 48.0",
+    "ML_DATASET_MAX_LAG_HOURS": "verify warning threshold (default 48)"
+  }
+}

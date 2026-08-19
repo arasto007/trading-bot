@@ -1,0 +1,59 @@
+{
+  "phase": "22E",
+  "mode": "shared_portfolio",
+  "window": {
+    "label": "1m",
+    "start_tehran": "2026-06-05 03:46",
+    "end_tehran": "2026-07-05 03:46"
+  },
+  "timeframes": [
+    "M5",
+    "M15",
+    "H4"
+  ],
+  "initial_balance": 200.0,
+  "final_balance": 128.64,
+  "elapsed_sec": 1636.9,
+  "events_processed": 7720,
+  "metrics": {
+    "total_trades": 12,
+    "wins": 2,
+    "losses": 10,
+    "win_rate_pct": 16.67,
+    "profit_factor": 0.241,
+    "gross_profit": 22.6,
+    "gross_loss": 93.97,
+    "net_profit": -71.36,
+    "return_pct": -35.68,
+    "avg_win": 11.3,
+    "avg_loss": -9.4,
+    "expectancy": -5.947,
+    "max_drawdown_pct": 40.87,
+    "max_drawdown_abs": 88.92,
+    "sharpe_ratio": -5.179,
+    "final_balance": 128.64,
+    "exit_reasons": {
+      "tp": 2,
+      "sl": 5,
+      "emergency": 5
+    },
+    "average_r": -0.5614,
+    "recovery_factor": -0.8025,
+    "sortino_ratio": -0.6164,
+    "mar_ratio": -0.873,
+    "buy_trades": 0,
+    "sell_trades": 12,
+    "trend_trades": 0,
+    "range_trades": 0,
+    "bars": 7720,
+    "certification": {
+      "pf_target_met": false,
+      "positive_expectancy": false,
+      "max_dd_within_limit": false,
+      "buy_active": false,
+      "sell_active": true
+    }
+  },
+  "trades": 12,
+  "pipeline_note": "Shared SimulatedBroker + BacktestRiskGate across M5/M15/H4 chronological events"
+}

@@ -1,0 +1,48 @@
+{
+  "now": "2026-07-15T01:17:28Z",
+  "verdict": "MODEL_SWEEP_COMPLETE",
+  "features": 47,
+  "rows": 81035,
+  "model_sweep": {
+    "models": [
+      {
+        "model": "logistic",
+        "verdict": "STRICT_GATE_FAIL",
+        "gate_passed": false,
+        "mean_pf": 0.4757,
+        "mean_auc": 0.5059,
+        "windows": 5
+      },
+      {
+        "model": "random_forest",
+        "verdict": "STRICT_GATE_FAIL",
+        "gate_passed": false,
+        "mean_pf": 0.9024,
+        "mean_auc": 0.5115,
+        "windows": 5
+      },
+      {
+        "model": "hist_gradient_boosting",
+        "verdict": "STRICT_GATE_FAIL",
+        "gate_passed": false,
+        "mean_pf": 0.463,
+        "mean_auc": 0.5104,
+        "windows": 5
+      }
+    ],
+    "best_model": "random_forest",
+    "best_mean_pf": 0.9024,
+    "best_mean_auc": 0.5115
+  },
+  "regime_calibration": {
+    "verdict": "REGIME_THRESHOLDS_COMPUTED",
+    "by_regime": {
+      "TREND": {
+        "best_threshold": 0.35,
+        "best_pf": 1.1778,
+        "test_rows": 16207
+      }
+    }
+  },
+  "research_only": true
+}

@@ -1,0 +1,82 @@
+{
+  "version": "v8",
+  "title": "Live ML Dataset Specification",
+  "title_fa": "مشخصات دیتاست v8 برای مسیر LIVE",
+  "status": "BUILD_COMPLETE",
+  "research_only": true,
+  "created_utc": "2026-07-15T04:10:00Z",
+  "dependencies": ["L0", "L1"],
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "min_history_years": 5,
+  "target_history_years": 6,
+  "year_range": [2021, 2026],
+  "candle_source": {
+    "resolver": "tradingbot.ml.research.phase39.candle_sources.resolve_fullest_candles",
+    "requirement_fa": "طولانی‌ترین تاریخچه M5 موجود — فعلاً ~1.48M بار از 2004",
+    "requirement_en": "Fullest available M5 history — currently ~1.48M bars from 2004"
+  },
+  "required_columns": [
+    "timestamp",
+    "open",
+    "high",
+    "low",
+    "close",
+    "spread_pips",
+    "session",
+    "bar_index"
+  ],
+  "spread": {
+    "required": true,
+    "source_priority": ["broker_tick", "stored_parquet", "session_median_fallback"],
+    "max_spread_pips_normal": 4.0,
+    "filter_high_spread": true,
+    "note_fa": "spread واقعی برای فیلتر نقدینگی و label صادقانه ضروری است"
+  },
+  "sessions": {
+    "required": true,
+    "labels": ["london", "new_york", "asia", "off_hours"],
+    "utc_windows": {
+      "london": [7, 12],
+      "new_york": [13, 17],
+      "asia": [0, 7]
+    },
+    "note_fa": "session برای timing quality و فرضیه SESSION لازم است"
+  },
+  "labeling": {
+    "method": "phase35.resolve_label_with_sl_tp",
+    "sl_tp": "production_sl_tp_at_bar_fast",
+    "future_window_bars": 72,
+    "label_variants": ["label_v3", "strict_tp_only"],
+    "no_lookahead": true
+  },
+  "bar_index": {
+    "resolver": "tradingbot.ml.research.phase49.bar_index.resolve_bar_index",
+    "note_fa": "bar_index روی fullest candles برای هم‌ترازی سیگنال/لیبل"
+  },
+  "feature_requirements": {
+    "min_features": 10,
+    "include_regime": true,
+    "include_spread_session": true,
+    "exclude_high_noise": true,
+    "reference_phase": "phase65 baseline_rf_10f"
+  },
+  "quality_gates": {
+    "overlap_coverage_pct_min": 95,
+    "stored_vs_production_label_match_pct_min": 98,
+    "min_rows_per_year": 30000
+  },
+  "deliverables": [
+    "tradingbot/ml/research/live_l1/build_v8_dataset.py",
+    "data/ml/datasets/v8/XAUUSD_M5.parquet",
+    "live_l1_v8_build_report.json"
+  ],
+  "gates_before_l2_ml": {
+    "data_complete": false,
+    "spread_present": false,
+    "sessions_tagged": false,
+    "label_parity_verified": false
+  },
+  "next_step_fa": "پس از تایید L1 gates، ساخت v8 dataset و سپس ML فقط روی edge اثبات‌شده L2",
+  "next_step_en": "After L1 gates pass, build v8 dataset; ML only on L2-proven edge"
+}

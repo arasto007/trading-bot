@@ -1,0 +1,9 @@
+{
+  "phase": "22H",
+  "active_trend_engine_id": "trend_rf_v41",
+  "active_bundle_version": "v41",
+  "bundle_monitor_engine": "trend_rf_v41",
+  "registry_has_active": true,
+  "checksum_valid": false,
+  "consistent": true
+}

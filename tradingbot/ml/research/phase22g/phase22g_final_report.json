@@ -1,0 +1,56 @@
+{
+  "phase": "22G",
+  "generated_at": "2026-07-05T03:26:00.637597+00:00",
+  "method": "repository_driven_verification",
+  "production_modified": false,
+  "dataset": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "elapsed_sec": 1612.1,
+  "execution_trace_regenerated": true,
+  "execution_trace_bars_ok": 163,
+  "verdict": "READY_FOR_IMPLEMENTATION",
+  "final_questions": {
+    "1_fully_understand_robot": {
+      "answer": true,
+      "evidence": "Live path verified: run_live_watchdog -> tradingbot --loop -> LiveRunner -> TradingKernel pipeline"
+    },
+    "2_prevents_profitability": "decision_hold (hold_chain)",
+    "3_wrong_assumptions": [
+      "run_system_manager.py is live entry",
+      "Runtime 5-15 min for Dataset A"
+    ],
+    "4_single_next_task": "Align health gate and Platt calibration with active trend engine (v41)"
+  },
+  "bottleneck_summary": "Information loss peaks at 'decision_hold (hold_chain)'. Only 2 trades executed from 4308 bars. Executed PF=0.0.",
+  "recommended_fix": {
+    "id": "22G-001",
+    "title": "Align health gate and Platt calibration with active trend engine (v41)",
+    "type": "engineering_bugfix",
+    "not_threshold_tuning": true,
+    "files_to_change": [
+      "tradingbot/ml/integration/health_gate.py",
+      "tradingbot/ml/integration/recovered_calibration.py"
+    ],
+    "problem": "Env selects trend_rf_v41 for inference but health validation and calibration still target trend_rf_v40 artifacts. Code verified in health_gate.run_pre_decision_health and recovered_calibration.build_production_calibrated_adapter.",
+    "proposed_change": "Use resolve_active_trend_engine_id() / resolve_bundle_version() in health_gate and calibration builder so checksum, feature_order, and Platt fit reference the same bundle that executes.",
+    "predicted_impact": {
+      "trade_frequency": "+5% to +15% actionable signals (calibration gate may promote more valid v41 signals)",
+      "profit_factor": "Unknown until Dataset A re-run; removes calibration mismatch artifact",
+      "expectancy": "Neutral to +0.05R if prior blocks were false negatives",
+      "drawdown": "No increase expected — not relaxing RiskGate",
+      "buy_sell_balance": "Should improve BUY count if v41 BUY probs were miscalibrated vs v40 Platt",
+      "implementation_risk": "LOW — no strategy logic change",
+      "validation_time_dataset_a_min": 15
+    },
+    "why_not_other_fixes": {
+      "lower_range_buy_threshold": "Threshold tuning — forbidden in 22G",
+      "disable_riskgate": "Safety violation",
+      "decision_policy_min_confidence": "Threshold tuning",
+      "more_backtesting": "22F framework exists; fix engine alignment first"
+    }
+  }
+}

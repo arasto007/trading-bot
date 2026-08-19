@@ -1,0 +1,38 @@
+{
+  "phase": "27K",
+  "by_bar": {
+    "bar_1": {
+      "average_pnl": -0.6091,
+      "median_pnl": -0.29,
+      "in_profit_pct": 45.61,
+      "in_loss_pct": 54.39
+    },
+    "bar_2": {
+      "average_pnl": -1.3084,
+      "median_pnl": -0.86,
+      "in_profit_pct": 43.06,
+      "in_loss_pct": 56.94
+    },
+    "bar_3": {
+      "average_pnl": -1.7883,
+      "median_pnl": -1.11,
+      "in_profit_pct": 39.09,
+      "in_loss_pct": 60.91
+    },
+    "bar_5": {
+      "average_pnl": -3.0474,
+      "median_pnl": -2.47,
+      "in_profit_pct": 35.69,
+      "in_loss_pct": 64.31
+    },
+    "bar_10": {
+      "average_pnl": -4.3266,
+      "median_pnl": -2.89,
+      "in_profit_pct": 37.11,
+      "in_loss_pct": 62.89
+    }
+  },
+  "losses_begin_immediately_bar1_pct": 54.39,
+  "losses_develop_slowly": false,
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

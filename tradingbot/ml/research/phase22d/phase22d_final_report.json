@@ -1,0 +1,12 @@
+{
+  "phase": "22D",
+  "generated_at": "2026-07-04T23:59:46.596247+00:00",
+  "sample_bars": 1830,
+  "root_cause_verdict": "PROVEN_ENGINE_DEFECTS",
+  "fixes_applied": 3,
+  "success_criteria": {
+    "root_cause_proven": true,
+    "trend_engine_actionable": true,
+    "range_buy_possible": false
+  }
+}

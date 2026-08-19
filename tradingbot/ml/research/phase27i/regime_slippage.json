@@ -1,0 +1,36 @@
+{
+  "phase": "27I",
+  "regimes": {
+    "RANGE": {
+      "average_slippage": 2.7962,
+      "trade_count": 575,
+      "avg_slippage_loss": 2.7962,
+      "median_slippage_loss": 2.6357,
+      "worst_slippage_loss": 5.6793,
+      "net_profit_after_slippage": -506.6237,
+      "profit_factor_after_slippage": 0.8962,
+      "expectancy_after_slippage": -0.8811
+    },
+    "TREND": {
+      "average_slippage": 0.0,
+      "trade_count": 0,
+      "avg_slippage_loss": 0.0,
+      "median_slippage_loss": 0.0,
+      "worst_slippage_loss": 0.0,
+      "net_profit_after_slippage": 0.0,
+      "profit_factor_after_slippage": 0.0,
+      "expectancy_after_slippage": 0.0
+    },
+    "TRANSITION": {
+      "average_slippage": 0.0,
+      "trade_count": 0,
+      "avg_slippage_loss": 0.0,
+      "median_slippage_loss": 0.0,
+      "worst_slippage_loss": 0.0,
+      "net_profit_after_slippage": 0.0,
+      "profit_factor_after_slippage": 0.0,
+      "expectancy_after_slippage": 0.0
+    }
+  },
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

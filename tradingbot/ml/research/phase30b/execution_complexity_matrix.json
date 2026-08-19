@@ -1,0 +1,42 @@
+{
+  "phase": "30B",
+  "components": [
+    {
+      "component": "Session spread production wire",
+      "complexity": "M",
+      "touch_points": 3,
+      "test_burden": "M"
+    },
+    {
+      "component": "Exit friction",
+      "complexity": "M",
+      "touch_points": 2,
+      "test_burden": "M"
+    },
+    {
+      "component": "Latency-price bind",
+      "complexity": "H",
+      "touch_points": 4,
+      "test_burden": "H"
+    },
+    {
+      "component": "Live calibration pipeline",
+      "complexity": "H",
+      "touch_points": 5,
+      "test_burden": "H"
+    },
+    {
+      "component": "News calendar integration",
+      "complexity": "M",
+      "touch_points": 3,
+      "test_burden": "M"
+    },
+    {
+      "component": "Swap model",
+      "complexity": "L",
+      "touch_points": 2,
+      "test_burden": "L"
+    }
+  ],
+  "generated_utc": "2026-07-10T08:44:28.835521+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "27C",
+  "bars_evaluated": 5203,
+  "unique_prediction_keys": 5203,
+  "unique_checksums": 500,
+  "unique_candle_timestamps": 5203,
+  "pipeline_bars_sampled": 500,
+  "pipeline_unique_checksums": 500,
+  "prediction_uniqueness_pct": 100.0,
+  "checksum_changes_with_candle": true,
+  "pass": true,
+  "generated_utc": "2026-07-09T13:12:45.917253+00:00"
+}

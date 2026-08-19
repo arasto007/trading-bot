@@ -1,0 +1,236 @@
+{
+  "phase": "30A",
+  "baseline_scenario": "normal",
+  "max_spread_multiplier_before_pf_lt_1": {
+    "parameter": "spread_multiplier",
+    "sweep": [
+      {
+        "value": 1.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 1.5,
+        "profit_factor": 0.8664,
+        "net_profit": -13.0746
+      },
+      {
+        "value": 2.0,
+        "profit_factor": 0.738,
+        "net_profit": -27.7734
+      },
+      {
+        "value": 2.5,
+        "profit_factor": 0.629,
+        "net_profit": -42.4717
+      },
+      {
+        "value": 3.0,
+        "profit_factor": 0.5365,
+        "net_profit": -57.1704
+      },
+      {
+        "value": 4.0,
+        "profit_factor": 0.3884,
+        "net_profit": -86.5676
+      },
+      {
+        "value": 5.0,
+        "profit_factor": 0.2825,
+        "net_profit": -115.9646
+      },
+      {
+        "value": 6.0,
+        "profit_factor": 0.2097,
+        "net_profit": -145.362
+      },
+      {
+        "value": 8.0,
+        "profit_factor": 0.1191,
+        "net_profit": -204.1564
+      },
+      {
+        "value": 10.0,
+        "profit_factor": 0.0656,
+        "net_profit": -262.9508
+      }
+    ],
+    "breaking_point": 1.5,
+    "max_safe_value": 8.0
+  },
+  "max_slippage_multiplier_before_pf_lt_1": {
+    "parameter": "slippage_multiplier",
+    "sweep": [
+      {
+        "value": 1.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 1.5,
+        "profit_factor": 1.0167,
+        "net_profit": 1.5078
+      },
+      {
+        "value": 2.0,
+        "profit_factor": 1.0119,
+        "net_profit": 1.0709
+      },
+      {
+        "value": 3.0,
+        "profit_factor": 1.0089,
+        "net_profit": 0.8043
+      },
+      {
+        "value": 4.0,
+        "profit_factor": 1.0047,
+        "net_profit": 0.4239
+      },
+      {
+        "value": 5.0,
+        "profit_factor": 1.0005,
+        "net_profit": 0.0434
+      },
+      {
+        "value": 7.0,
+        "profit_factor": 0.9921,
+        "net_profit": -0.7176
+      },
+      {
+        "value": 10.0,
+        "profit_factor": 0.9798,
+        "net_profit": -1.859
+      }
+    ],
+    "breaking_point": 7.0,
+    "max_safe_value": 7.0
+  },
+  "max_latency_multiplier_before_pf_lt_1": {
+    "parameter": "delay_multiplier",
+    "sweep": [
+      {
+        "value": 1.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 2.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 3.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 5.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 8.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 12.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 20.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      }
+    ],
+    "breaking_point": null,
+    "max_safe_value": 20.0
+  },
+  "max_execution_delay_multiplier_before_pf_lt_1": {
+    "parameter": "delay_multiplier",
+    "sweep": [
+      {
+        "value": 1.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 2.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 3.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 5.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 8.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 12.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 20.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      }
+    ],
+    "breaking_point": null,
+    "max_safe_value": 20.0
+  },
+  "max_market_impact_multiplier_before_pf_lt_1": {
+    "parameter": "impact_multiplier",
+    "sweep": [
+      {
+        "value": 1.0,
+        "profit_factor": 1.018,
+        "net_profit": 1.6242
+      },
+      {
+        "value": 2.0,
+        "profit_factor": 1.0186,
+        "net_profit": 1.6712
+      },
+      {
+        "value": 3.0,
+        "profit_factor": 1.0191,
+        "net_profit": 1.7183
+      },
+      {
+        "value": 5.0,
+        "profit_factor": 1.0201,
+        "net_profit": 1.8122
+      },
+      {
+        "value": 8.0,
+        "profit_factor": 1.0217,
+        "net_profit": 1.9532
+      },
+      {
+        "value": 12.0,
+        "profit_factor": 1.0238,
+        "net_profit": 2.141
+      },
+      {
+        "value": 20.0,
+        "profit_factor": 1.0242,
+        "net_profit": 2.1827
+      }
+    ],
+    "breaking_point": null,
+    "max_safe_value": 20.0
+  },
+  "sample_size": 120,
+  "generated_utc": "2026-07-10T08:35:03.416574+00:00"
+}

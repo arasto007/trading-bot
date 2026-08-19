@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant R as RiskGate
+    participant T as LiveRiskTracker
+    participant K as TradingKernel
+    K->>R: evaluate new signal
+    R->>T: check entry cooldown M5
+    T-->>R: cooldown active
+    R-->>K: RiskDecision blocked

@@ -1,0 +1,25 @@
+{
+  "run_a_fingerprint": "e6959edf170eb3458ea2e88e9ee8ccb7390ae91783706432b661ac8e50f8287a",
+  "run_b_fingerprint": "e6959edf170eb3458ea2e88e9ee8ccb7390ae91783706432b661ac8e50f8287a",
+  "fingerprints_identical": true,
+  "comparison": {
+    "joined_bars": 10,
+    "left_bars": 10,
+    "right_bars": 10,
+    "left_only": 0,
+    "right_only": 0,
+    "timestamp_match_rate": 1.0,
+    "decision_match_rate": 1.0,
+    "feature_match_rate": 1.0,
+    "confidence_mismatch_count": 0,
+    "max_confidence_delta": 0.0,
+    "risk_mismatch_count": 0,
+    "mismatch_count": 0,
+    "mismatches_sample": [],
+    "passes_timestamp_100": true,
+    "passes_decision_995": true,
+    "passes_feature_100": true,
+    "passes_confidence_tol": true
+  },
+  "deterministic": true
+}

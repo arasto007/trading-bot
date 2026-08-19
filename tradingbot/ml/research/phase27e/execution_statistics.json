@@ -1,0 +1,21 @@
+{
+  "phase": "27E",
+  "signals_reaching_riskgate": 762,
+  "riskgate_passed": 2,
+  "execution_attempted": 2,
+  "execution_skipped_risk_blocked": 760,
+  "execution_success": 2,
+  "execution_failed": 0,
+  "paper_simulated_fill": 2,
+  "journal_write_expected": 2,
+  "failure_reasons": {
+    "opposite direction position open (XAUUSD)": 7,
+    "max positions for symbol (2>=2) (XAUUSD)": 753
+  },
+  "notes": {
+    "execution_stage": "tradingbot/pipeline/execution_stage.py",
+    "executor": "tradingbot/adapters/mt5_execution.py (paper branch)",
+    "skipped_explanation": "RiskStage returns False \u2014 ExecutionStage never runs when risk_allowed=False"
+  },
+  "generated_utc": "2026-07-09T13:55:14.764895+00:00"
+}

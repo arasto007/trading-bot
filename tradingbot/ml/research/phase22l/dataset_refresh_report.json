@@ -1,0 +1,49 @@
+{
+  "phase": "22L",
+  "step": 2,
+  "status": "pass",
+  "production_unmodified": true,
+  "output_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22l\\artifacts\\XAUUSD_M5_dataset_v2_refreshed.parquet",
+  "old_snapshot_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22l\\artifacts\\XAUUSD_M5_dataset_v2_old.parquet",
+  "old_dataset": {
+    "rows": 5724,
+    "max_timestamp": "2026-06-29 13:45:00+00:00",
+    "phase99_stats": {
+      "ema50_slope": {
+        "zero_pct": 0.05,
+        "unique": 5649
+      },
+      "candle_direction": {
+        "zero_pct": 0.0,
+        "unique": 2
+      },
+      "structure_distance": {
+        "zero_pct": 98.65,
+        "unique": 12
+      }
+    }
+  },
+  "new_dataset": {
+    "rows": 5707,
+    "max_timestamp": "2026-06-29 13:45:00+00:00",
+    "phase99_stats": {
+      "ema50_slope": {
+        "zero_pct": 0.04,
+        "unique": 5635
+      },
+      "candle_direction": {
+        "zero_pct": 0.0,
+        "unique": 2
+      },
+      "structure_distance": {
+        "zero_pct": 98.74,
+        "unique": 12
+      }
+    }
+  },
+  "delta": {
+    "row_delta": -17,
+    "max_timestamp_extended": false
+  },
+  "note": "Full sparse rebuild completed via SparseEventDatasetBuilder (~5911 events processed)"
+}

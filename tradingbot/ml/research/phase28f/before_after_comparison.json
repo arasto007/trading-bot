@@ -1,0 +1,33 @@
+{
+  "phase": "28F",
+  "before": {
+    "net_profit": 1081.7446,
+    "final_balance": 1281.7446,
+    "max_drawdown_pct": 87.9686,
+    "completed_trades": 575,
+    "profit_factor": 1.3803,
+    "expectancy": 1.8813,
+    "sharpe_ratio": 27.4328,
+    "recovery_factor": 1.2728,
+    "portfolio_pnl": 75.7757,
+    "trade_log_pnl": 1081.7446,
+    "pnl_mismatch": 1005.9689,
+    "lot_sizing": "fixed_0.01",
+    "actual_risk_reported": false
+  },
+  "after": {
+    "net_profit": 75.7757,
+    "final_balance": 275.7757,
+    "max_drawdown_pct": 30.6312,
+    "completed_trades": 575,
+    "profit_factor": 1.0923,
+    "expectancy": 0.1318,
+    "sharpe_ratio": 10.8077,
+    "recovery_factor": 0.8482,
+    "portfolio_pnl": 75.7757,
+    "trade_log_pnl": 75.7757,
+    "pnl_mismatch": 0.0,
+    "lot_sizing": "dynamic_with_min_lot_floor",
+    "actual_risk_reported": true
+  }
+}

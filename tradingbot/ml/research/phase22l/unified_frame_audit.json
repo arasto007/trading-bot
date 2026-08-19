@@ -1,0 +1,58 @@
+{
+  "phase": "22L",
+  "step": 4,
+  "pipeline": "PipelineCache.get_unified_frame → build_unified_frame → row_for_phase99_range → RangeEngineAdapter",
+  "note": "PipelineCache adds v41 Top5 attach; phase99 audit uses build_unified_frame core (100% parity per 22K)",
+  "sample_window": {
+    "bars": 400,
+    "stride": 10,
+    "start_index": 1525
+  },
+  "features": {
+    "ema50_slope": {
+      "phase99_column": "phase99_ema50_slope",
+      "sample_bars": 40,
+      "source_from_dataset_old_merge_hit_pct": 0.0,
+      "source_from_dataset_new_merge_hit_pct": 0.0,
+      "live_trend_column_nonzero_pct": 100.0,
+      "phase99_zero_pct_after_new_dataset": 100.0,
+      "phase99_missing_pct": 0.0,
+      "trend_column_differs_from_phase99": false,
+      "range_engine_uses": "phase99 via row_for_phase99_range (NOT live ema50_slope)",
+      "protected_from_dataset_overwrite": true
+    },
+    "candle_direction": {
+      "phase99_column": "phase99_candle_direction",
+      "sample_bars": 40,
+      "source_from_dataset_old_merge_hit_pct": 0.0,
+      "source_from_dataset_new_merge_hit_pct": 0.0,
+      "live_trend_column_nonzero_pct": 0.0,
+      "phase99_zero_pct_after_new_dataset": 100.0,
+      "phase99_missing_pct": 0.0,
+      "trend_column_differs_from_phase99": false,
+      "range_engine_uses": "phase99 via row_for_phase99_range (NOT live candle_direction)",
+      "protected_from_dataset_overwrite": false
+    },
+    "structure_distance": {
+      "phase99_column": "phase99_structure_distance",
+      "sample_bars": 40,
+      "source_from_dataset_old_merge_hit_pct": 0.0,
+      "source_from_dataset_new_merge_hit_pct": 0.0,
+      "live_trend_column_nonzero_pct": 0.0,
+      "phase99_zero_pct_after_new_dataset": 100.0,
+      "phase99_missing_pct": 0.0,
+      "trend_column_differs_from_phase99": false,
+      "range_engine_uses": "phase99 via row_for_phase99_range (NOT live structure_distance)",
+      "protected_from_dataset_overwrite": false
+    }
+  },
+  "summary": {
+    "phase99_always_from_dataset_merge": true,
+    "live_columns_unused_by_range_engine": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "fillna_on_merge_miss": "build_unified_frame.py:48"
+  }
+}

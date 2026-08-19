@@ -1,0 +1,21 @@
+{
+  "BackgroundServices": {
+    "file": "adapters/background_services.py",
+    "protector_default": false,
+    "recovery_default": false
+  },
+  "KillSwitchService": {
+    "thread": true,
+    "file": "services/kill_switch.py"
+  },
+  "Watchdog": {
+    "file": "scripts/run_live_watchdog.py",
+    "external": true
+  },
+  "cli_bug": {
+    "flag": "--no-recovery",
+    "issue": "ignored \u2014 enable_recovery hardcoded False",
+    "file": "tradingbot/__main__.py:83"
+  },
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "23E",
+  "target_verdict": "CREATE_RANGE_SPECIFIC_FILTER_PROFILE",
+  "migration": "Approved integration phase: regime-conditional filter profile in KernelAdapter for RANGE only",
+  "rollback": "Restore Phase22C env defaults; ENABLE_RSI/ADX flags unchanged for TREND path",
+  "tests": [
+    "test_phase23e winner reproduces grid metrics",
+    "test_phase23b feature pipeline unchanged",
+    "test_phase23d false-block rate improved on RANGE tail",
+    "hold_chain kernel_actionable >= production baseline"
+  ],
+  "runtime_safety": [
+    "No live filter change in Phase 23E",
+    "Shadow replay 7d before production toggle",
+    "HealthGate + RiskGate regression suite"
+  ],
+  "implementation_status": "DESIGN ONLY",
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00"
+}

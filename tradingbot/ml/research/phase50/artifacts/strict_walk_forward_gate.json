@@ -1,0 +1,60 @@
+{
+  "now": "2026-07-12T14:48:00Z",
+  "dataset": "v7",
+  "rows": 4423,
+  "phase47_mean_pf": 1.5333,
+  "phase47_caveat": "v6 used slice-relative bar_index \u2014 invalidated",
+  "verdict": "INSUFFICIENT_WINDOWS",
+  "windows_found": 1,
+  "min_windows_required": 3,
+  "walk_forward_windows": [
+    {
+      "test_year": 2026,
+      "train_rows": 2592,
+      "test_rows": 1831,
+      "auc": 0.4884,
+      "best_threshold": 0.4,
+      "best_pf": 0.3846,
+      "best_trades": 18,
+      "meets_min_trades": true,
+      "threshold_sweep": [
+        {
+          "threshold": 0.3,
+          "pf": 0.3347,
+          "trades": 315,
+          "win_rate": 25.08
+        },
+        {
+          "threshold": 0.35,
+          "pf": 0.3452,
+          "trades": 113,
+          "win_rate": 25.66
+        },
+        {
+          "threshold": 0.4,
+          "pf": 0.3846,
+          "trades": 18,
+          "win_rate": 27.78
+        },
+        {
+          "threshold": 0.45,
+          "pf": 0.0,
+          "trades": 2,
+          "win_rate": 0.0
+        },
+        {
+          "threshold": 0.5,
+          "pf": 0.0,
+          "trades": 0,
+          "win_rate": 0.0
+        },
+        {
+          "threshold": 0.55,
+          "pf": 0.0,
+          "trades": 0,
+          "win_rate": 0.0
+        }
+      ]
+    }
+  ]
+}

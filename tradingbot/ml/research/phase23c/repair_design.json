@@ -1,0 +1,14 @@
+{
+  "phase": "23C",
+  "classification": "EXECUTION_GATE_BLOCKING",
+  "design": {
+    "minimal_repair": "Audit TradeQualityEngine and Phase22C RSI/ADX filters on RANGE bars.",
+    "risk": "Disabling filters may admit low-quality entries.",
+    "rollback": "Re-enable filter settings from config snapshot.",
+    "tests": [
+      "test quality.allowed rate on actionable calibrated signals"
+    ]
+  },
+  "implementation_status": "NOT IMPLEMENTED — design only per Phase 23C scope",
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

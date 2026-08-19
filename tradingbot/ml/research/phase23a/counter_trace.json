@@ -1,0 +1,116 @@
+{
+  "phase": "23A",
+  "counters": {
+    "bars_evaluated": 3732,
+    "model_pass": 0,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "decision_hold": 3730,
+    "calibration_hold": 0,
+    "trade_quality_hold": 2,
+    "riskgate_hold": 0,
+    "executed_trades": 0
+  },
+  "trace_funnel": {
+    "timeframe": "M5",
+    "bars": 3732,
+    "buy_signals": 0,
+    "sell_signals": 0,
+    "hold_signals": 3732,
+    "buy_pct": 0.0,
+    "sell_pct": 0.0,
+    "hold_pct": 100.0,
+    "funnel": [
+      {
+        "stage": "model_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 3732,
+        "lost_pct_from_prev": 100.0
+      },
+      {
+        "stage": "calibration_pass",
+        "count": 2,
+        "pct_of_bars": 0.054,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "quality_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 2,
+        "lost_pct_from_prev": 100.0
+      },
+      {
+        "stage": "rsi_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "adx_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "meta_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "riskgate_reached",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "riskgate_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "executed",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      }
+    ],
+    "regime_distribution": {
+      "TREND": 3673,
+      "RANGE": 59
+    },
+    "engine_distribution": {
+      "trend_rf_v41": 3673,
+      "phase9_9": 59
+    },
+    "stage_blocks": {},
+    "riskgate_block_reasons": {}
+  },
+  "model_pass_becomes_zero_at": {
+    "file": "tradingbot/ml/integration/kernel_adapter.py",
+    "class": "KernelAdapter",
+    "function": "_hold_chain_snapshot",
+    "line": 128,
+    "condition": "raw_action == 'HOLD'",
+    "effect": "records decision_hold; model_pass = buy_emitted + sell_emitted stays 0"
+  },
+  "upstream_root": {
+    "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+    "class": "RangeEngineAdapter",
+    "function": "evaluate",
+    "line": 60,
+    "condition": "feats is None or missing bundle.feature_order columns (ema_cross_state absent on unified row)",
+    "effect": "returns HOLD without calling predict_proba"
+  },
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "frozen_artifact_metadata": {
+    "phase": "9.9",
+    "frozen_at_utc": "2026-06-29T22:15:00.449792+00:00",
+    "candidate_id": "logistic_strong_reg",
+    "feature_subset": "stable_top3",
+    "train_rows": 851,
+    "dataset_fingerprint": "70b38325ee1c7e1e",
+    "robustness_score": 77.73
+  },
+  "frozen_artifact_config": {
+    "model": "LogisticRegression",
+    "parameters": {
+      "C": 0.1
+    },
+    "features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "regime": "RANGE",
+    "event_filter": "A_all_events",
+    "risk_pct": 0.005,
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
+    "tp_r": 2.0,
+    "sl_r": 1.0
+  },
+  "model_pkl_present": true,
+  "artifact_files_present": {
+    "metadata.json": true,
+    "config.json": true,
+    "feature_order.json": true,
+    "model.pkl": true,
+    "scaler.pkl": true
+  },
+  "frozen_candidate_id": "logistic_strong_reg",
+  "frozen_at_utc": "2026-06-29T22:15:00.449792+00:00",
+  "frozen_robustness_score_in_metadata": 77.73,
+  "current_report_generated_utc": "2026-07-07T18:50:38.940868+00:00",
+  "current_acceptance_verdict": "FAIL",
+  "current_best_candidate_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "frozen_matches_current_best": false,
+  "frozen_matches_hardcoded_default_config": true,
+  "logistic_strong_reg_stable_top3_current_metrics": {
+    "robustness_score": 77.73,
+    "overfitting_risk": "LOW",
+    "mean_profit_factor": 1.3087,
+    "probability_gate_passed": false,
+    "acceptance_verdict_if_evaluated_now": "FAIL",
+    "acceptance_checks_now": {
+      "robustness_improved": true,
+      "overfitting_risk_decreased": true,
+      "mean_expectancy_positive": true,
+      "profitable_windows_ge_4": true,
+      "probability_quality_passed": false
+    }
+  },
+  "was_frozen_winner_accepted": "UNKNOWN_AT_FREEZE_TIME — metadata stores no acceptance verdict",
+  "was_frozen_winner_accepted_now": "FAIL",
+  "evidence_at_freeze_trigger": {
+    "function": "freeze_phase9_9_artifacts",
+    "hardcoded_candidate": "logistic_strong_reg",
+    "hardcoded_features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "robustness_score_source": "_load_phase99_score reads best_candidate.robustness_score from report at freeze time (not acceptance)",
+    "acceptance_gate_in_freeze_code": false
+  },
+  "timeline_note": "metadata.frozen_at_utc=2026-06-29 predates current phase9_9_robustness_report generated_at_utc=2026-07-07T18:50:38.940868+00:00. Report was overwritten by later Phase 9.9 runs; acceptance verdict at original freeze time is not persisted.",
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

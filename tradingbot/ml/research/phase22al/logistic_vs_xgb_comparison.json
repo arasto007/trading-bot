@@ -1,0 +1,43 @@
+{
+  "phase": "22AL",
+  "dataset": "B",
+  "before": {
+    "candidate_id": "logistic_strong_reg",
+    "backup_dir": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+    "summary": {
+      "signal_density_pct": 100.0,
+      "buy_signals": 0,
+      "sell_signals": 78,
+      "hold_signals": 0,
+      "profit_factor_proxy": null,
+      "expectancy_proxy": null,
+      "probability_spread": 0.086204,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 100.0,
+      "probability_std": 0.019386
+    }
+  },
+  "after": {
+    "candidate_id": "xgb_baseline_phase96",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "summary": {
+      "signal_density_pct": 78.2051,
+      "buy_signals": 8,
+      "sell_signals": 53,
+      "hold_signals": 17,
+      "profit_factor_proxy": null,
+      "expectancy_proxy": null,
+      "probability_spread": 0.525298,
+      "buy_coverage_pct": 10.2564,
+      "sell_coverage_pct": 67.9487,
+      "probability_std": 0.117434
+    }
+  },
+  "delta": {
+    "signal_density_pct": -21.7949,
+    "buy_signals": 8,
+    "sell_signals": -25,
+    "probability_spread": 0.439094
+  },
+  "generated_utc": "2026-07-07T20:55:43.625976+00:00"
+}

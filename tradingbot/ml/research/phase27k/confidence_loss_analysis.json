@@ -1,0 +1,38 @@
+{
+  "phase": "27K",
+  "buckets": {
+    "0.50-0.60": {
+      "loser_count": 0,
+      "pct_of_losers": 0.0,
+      "average_mfe_r": 0.0,
+      "dominant_false_class": null
+    },
+    "0.60-0.70": {
+      "loser_count": 0,
+      "pct_of_losers": 0.0,
+      "average_mfe_r": 0.0,
+      "dominant_false_class": null
+    },
+    "0.70-0.80": {
+      "loser_count": 0,
+      "pct_of_losers": 0.0,
+      "average_mfe_r": 0.0,
+      "dominant_false_class": null
+    },
+    "0.80-0.90": {
+      "loser_count": 45,
+      "pct_of_losers": 12.75,
+      "average_mfe_r": 0.9572,
+      "dominant_false_class": "momentum_failure"
+    },
+    "0.90-1.00": {
+      "loser_count": 308,
+      "pct_of_losers": 87.25,
+      "average_mfe_r": 0.6713,
+      "dominant_false_class": "momentum_failure"
+    }
+  },
+  "high_confidence_losers_gte_0.90": 308,
+  "high_confidence_loser_pct": 87.25,
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

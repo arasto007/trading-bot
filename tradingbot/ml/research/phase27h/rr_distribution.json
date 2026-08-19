@@ -1,0 +1,29 @@
+{
+  "phase": "27H",
+  "planned_rr": {
+    "count": 575,
+    "mean": 2.5,
+    "median": 2.5,
+    "min": 2.5,
+    "max": 2.5,
+    "std_dev": 0.0
+  },
+  "realized_rr": {
+    "count": 575,
+    "mean": 0.2277,
+    "median": -1.0,
+    "min": -1.0,
+    "max": 2.5,
+    "std_dev": 1.586
+  },
+  "slippage_adjusted_rr_0.25_atr": {
+    "count": 575,
+    "mean": -0.0198,
+    "median": -1.1111,
+    "min": -1.1111,
+    "max": 2.0,
+    "std_dev": 1.4097
+  },
+  "target_rr": 2.0,
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

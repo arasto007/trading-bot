@@ -1,0 +1,40 @@
+{
+  "phase": "22Q",
+  "title": "Prove or Disprove Phase99 Architecture",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "method": "Repository-only static analysis + consumer grep (no code changes, no backtest)",
+  "production_modified": false,
+  "verdict": "C",
+  "verdict_label": "Hybrid — Phase99 partially useful; needs architectural refactor",
+  "one_line_answer": "Phase9_9 model stays; phase99 dataset-merge inference is architecturally wrong — hybrid refactor to live FeatureBuilder required beyond dataset maintenance.",
+  "verdict_detail": {
+    "phase": "22Q",
+    "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+    "verdict": "C",
+    "verdict_label": "Hybrid — Phase99 partially useful; needs architectural refactor",
+    "rejected": {
+      "A": "Not supported: repository shows ~8% merge coverage at best (sparse events), fillna(0) on 92%+ bars, and FeatureBuilder bypass — not solvable by dataset refresh alone.",
+      "B": "Not supported: phase9_9 frozen model and EngineRegistry RANGE routing are production mandatory; cannot delete phase99 path without replacing range engine entirely."
+    },
+    "why_C": {
+      "partially_useful": [
+        "Frozen phase9_9 model + 3 features remain valid RANGE engine artifacts",
+        "phase99_* prefix correctly isolates range-training features from trend columns",
+        "Training pipeline (FeatureBuilder → sparse dataset) is coherent"
+      ],
+      "needs_refactor": [
+        "Inference must not rely on dataset_v2 left-merge for every M5 bar",
+        "Live FeatureBuilder.compute_at (already in RangeEngineAdapter fallback) should be primary inference source with training parity validation",
+        "fillna(0) merge policy is incorrect default for live inference"
+      ],
+      "recommended_future_direction": "Approved production phase: live FeatureBuilder overlay at inference (22J-005 concept) WITHOUT retraining model until parity proven — separate from dataset maintenance (22N/O)."
+    },
+    "primary_evidence_files": [
+      "tradingbot/ml/research/phase13_9/unified_features.py",
+      "tradingbot/ml/integration/pipeline_cache.py",
+      "tradingbot/ml/phase15a/engine_registry.py",
+      "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "tradingbot/ml/dataset/sparse_event_builder.py"
+    ]
+  }
+}

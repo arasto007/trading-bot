@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><HTA:APPLICATION /></head><body><script language="VBScript">
+  Set ts = fso.CreateTextFile(cfgPath, True, False)
+  ts.Write json : ts.Close
+  sh.CurrentDirectory = root
+  sh.Run sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & fso.BuildPath(root, "start\8_backtest_custom.bat") & Chr(34), 1, False
+End Sub
+
+Function TaskBadgeHtml(status)
+  Dim s : s = UCase(Trim(status))
+  If s = "RUNNING" Or s = "ON" Or s = "LIVE" Then TaskBadgeHtml = "<span class='badge badge-run'>" & status & "" & "<" & "/span>" & ""
+  ElseIf s = "OFF" Or s = "STOPPED" Then TaskBadgeHtml = "<span class='badge badge-off'>" & status & "" & "<" & "/span>" & ""
+  Else TaskBadgeHtml = "<span class='badge badge-live'>" & status & "" & "<" & "/span>" & ""
+  End If
+End Function
+
+Function EngineBadgeHtml(st)
+  Dim s : s = UCase(Trim(st))
+Dim fso, ts
+Set fso = CreateObject("Scripting.FileSystemObject")
+Set ts = fso.CreateTextFile("data\hta_combo_ok.txt", True, False)
+ts.Write "OK"
+ts.Close
+
+</script></body></html>

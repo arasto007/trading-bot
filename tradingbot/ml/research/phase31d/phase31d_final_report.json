@@ -1,0 +1,25 @@
+{
+  "phase": "31D",
+  "verdict": "SIMULATOR_PARITY_CONFIRMED",
+  "repaired_mode": true,
+  "production_modified": false,
+  "trades_audited": 489,
+  "production_pf": 1.3226,
+  "simulator_pf": 1.3226,
+  "pf_gap_pct": 0.0,
+  "pnl_gap_pct": 0.0,
+  "dominant_root_cause": "RC01",
+  "truncated_replay_reproduces_production_pct": 100.0,
+  "deliverables": [
+    "trade_diff_report.json",
+    "exit_diff_report.json",
+    "accounting_diff.json",
+    "journal_diff.json",
+    "execution_diff.json",
+    "candle_alignment.json",
+    "root_cause_analysis.json",
+    "simulator_parity_report.json",
+    "phase31d_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

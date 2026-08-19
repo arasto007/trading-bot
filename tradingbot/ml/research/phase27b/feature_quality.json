@@ -1,0 +1,150 @@
+{
+  "phase": "27B",
+  "features": {
+    "rsi": {
+      "nan_or_missing": 0,
+      "unique_values": 5185,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        100.0
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 48.532234,
+        "median": 48.140103,
+        "p95": 77.024827,
+        "min": 1.756731,
+        "max": 99.124102
+      }
+    },
+    "adx": {
+      "nan_or_missing": 0,
+      "unique_values": 5203,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        100.0
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 35.359141,
+        "median": 32.310056,
+        "p95": 65.552441,
+        "min": 4.892145,
+        "max": 95.775534
+      }
+    },
+    "atr": {
+      "nan_or_missing": 0,
+      "unique_values": 4062,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        null
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 5.700179,
+        "median": 5.150714,
+        "p95": 10.479286,
+        "min": 1.597857,
+        "max": 27.586429
+      }
+    },
+    "atr_percentile": {
+      "nan_or_missing": 0,
+      "unique_values": 252,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        100.0
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 49.127113,
+        "median": 48.605578,
+        "p95": 96.812749,
+        "min": 0.0,
+        "max": 100.0
+      }
+    },
+    "ema20_slope": {
+      "nan_or_missing": 0,
+      "unique_values": 5195,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        null,
+        null
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": -0.06092,
+        "median": -0.079892,
+        "p95": 1.048752,
+        "min": -1.894987,
+        "max": 3.037983
+      }
+    },
+    "momentum": {
+      "nan_or_missing": 0,
+      "unique_values": 5197,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        null,
+        null
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": -0.077027,
+        "median": -0.096058,
+        "p95": 2.2954,
+        "min": -6.860089,
+        "max": 10.535037
+      }
+    },
+    "probability": {
+      "nan_or_missing": 0,
+      "unique_values": 2911,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        1.0
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 0.29318,
+        "median": 0.325434,
+        "p95": 0.558052,
+        "min": 0.0,
+        "max": 0.768071
+      }
+    },
+    "confidence": {
+      "nan_or_missing": 0,
+      "unique_values": 2382,
+      "constant_suspected": false,
+      "out_of_range_count": 0,
+      "expected_range": [
+        0.0,
+        1.0
+      ],
+      "stats": {
+        "count": 5203,
+        "mean": 0.525073,
+        "median": 0.541473,
+        "p95": 1.0,
+        "min": 0.0,
+        "max": 1.0
+      }
+    }
+  },
+  "generated_utc": "2026-07-09T12:46:26.866880+00:00"
+}

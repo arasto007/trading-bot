@@ -1,0 +1,38 @@
+{
+  "phase": "23A",
+  "root_cause": "FEATURE_MAPPING",
+  "affected_files": [
+    "tradingbot/ml/research/phase13_9/unified_features.py",
+    "tradingbot/ml/research/phase13_9/config.py",
+    "tradingbot/ml/integration/pipeline_cache.py",
+    "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+    "tradingbot/ml/decision_engine/validation.py",
+    "tradingbot/ml/integration/kernel_adapter.py"
+  ],
+  "affected_classes": [
+    "RangeEngineAdapter",
+    "UnifiedRangeWrapper",
+    "PipelineCache",
+    "KernelAdapter",
+    "FeatureBuilder"
+  ],
+  "runtime_modules": [
+    "integration/kernel_adapter.py",
+    "integration/pipeline_cache.py",
+    "pipeline/signal_stage.py"
+  ],
+  "research_modules": [
+    "phase22al/live_validation.py",
+    "phase22k/*",
+    "phase13_9/unified_features.py"
+  ],
+  "criticality": "CRITICAL — live RANGE inference does not use validated feature path",
+  "dependency_graph": [
+    "PipelineCache.get_unified_frame → build_unified_frame → phase99 merge",
+    "KernelAdapter → build_market_context → UnifiedRangeWrapper → row_for_phase99_range",
+    "RangeEngineAdapter.evaluate → predict_proba OR early HOLD",
+    "DecisionOrchestrator → KernelAdapter._hold_chain_snapshot → model_pass"
+  ],
+  "safe_repair_boundary": "RangeEngineAdapter + KernelAdapter candle pass-through OR unified feature wiring; do NOT retrain/freeze in hotfix phase",
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

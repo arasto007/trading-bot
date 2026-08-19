@@ -1,0 +1,77 @@
+{
+  "phase": "27H",
+  "baseline_buckets": {
+    "0.50-0.60": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.60-0.70": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.70-0.80": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.80-0.90": {
+      "trade_count": 65,
+      "win_rate_pct": 30.77,
+      "profit_factor": 0.807,
+      "expectancy": -1.5701
+    },
+    "0.90-1.00": {
+      "trade_count": 510,
+      "win_rate_pct": 39.61,
+      "profit_factor": 1.3603,
+      "expectancy": 2.3593
+    }
+  },
+  "spread_plus_50pct_buckets": {
+    "0.50-0.60": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.60-0.70": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.70-0.80": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0
+    },
+    "0.80-0.90": {
+      "trade_count": 65,
+      "win_rate_pct": 30.77,
+      "profit_factor": 0.7759,
+      "expectancy": -1.8701
+    },
+    "0.90-1.00": {
+      "trade_count": 510,
+      "win_rate_pct": 39.41,
+      "profit_factor": 1.306,
+      "expectancy": 2.0593
+    }
+  },
+  "baseline": {
+    "trade_count": 575,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "win_rate_pct": 38.61,
+    "max_drawdown_pct": 12.1956,
+    "recovery_factor": 0.8223
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

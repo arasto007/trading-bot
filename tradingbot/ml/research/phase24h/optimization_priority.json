@@ -1,0 +1,47 @@
+{
+  "phase": "24H",
+  "constraints": [
+    "DO NOT change trading logic",
+    "DO NOT change probabilities",
+    "DO NOT change features",
+    "DO NOT change fingerprints"
+  ],
+  "priority": [
+    {
+      "rank": 1,
+      "target": "Skip FeatureBuilder when unified row has phase99 features",
+      "estimated_p95_savings_ms": 68.9256,
+      "risk": "LOW",
+      "parity_requirement": "Use row_for_phase99_range fallback only on merge miss"
+    },
+    {
+      "rank": 2,
+      "target": "Lazy trend engine evaluation based on regime pre-check",
+      "estimated_p95_savings_ms": 31.4718,
+      "risk": "MEDIUM",
+      "parity_requirement": "Must preserve DecisionOrchestrator inputs for TREND bars"
+    },
+    {
+      "rank": 3,
+      "target": "Merge dual HealthGate calls into single post-unified check",
+      "estimated_p95_savings_ms": 25.8469,
+      "risk": "LOW",
+      "parity_requirement": "Same checks, single call after row available"
+    },
+    {
+      "rank": 4,
+      "target": "Early SignalStage dedup before DataStage/IndicatorStage",
+      "estimated_p95_savings_ms": 50.708,
+      "risk": "LOW",
+      "parity_requirement": "Only skip on unchanged closed-bar timestamp"
+    },
+    {
+      "rank": 5,
+      "target": "Pass normalized candles from KernelAdapter to RangeEngine",
+      "estimated_p95_savings_ms": 1.0,
+      "risk": "LOW",
+      "parity_requirement": "Same normalize_candles_for_builder output"
+    }
+  ],
+  "generated_utc": "2026-07-08T13:06:04.886147+00:00"
+}

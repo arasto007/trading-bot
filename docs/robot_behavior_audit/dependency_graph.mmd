@@ -1,0 +1,74 @@
+%% Module Dependency Graph — Live Path vs Research
+%% Circular / heavy imports highlighted
+
+flowchart LR
+    subgraph LIVE["Live Import Chain"]
+        LR[live_runner.py]
+        FACT[factory.py]
+        ADP[adaptive_regime_strategy_registry.py]
+        ADR[adaptive_regime.py]
+        VRS[vol_regime_signal.py]
+        L2[edge_discovery_round2.py]
+        TK[trading_kernel.py]
+        RG[risk_gate.py]
+        EX[mt5_execution.py]
+        PM[mt5_position_manager.py]
+        IND[indicators.py]
+        PL[position_logic.py]
+        RL[risk_logic.py]
+    end
+
+    subgraph ML["ML Factory — imported, not executed"]
+        FACT --> MLS[build_ml_kernel_stack]
+        MLS --> PC[pipeline_cache.py]
+        MLS --> ER[engine_registry.py]
+        PC --> RF[regime_features.py]
+        PC --> TF[trend_features.py]
+        ER --> P99[phase9_9 engine]
+        ER --> TV41[trend v41]
+    end
+
+    subgraph LEGACY["Legacy — unreachable default"]
+        LEG[legacy_strategy_registry.py]
+        PA[price_action_strategy.py]
+        SM[strategy_manager.py]
+    end
+
+    LR --> FACT
+    LR --> TK
+    LR --> RG
+    LR --> EX
+    LR --> PM
+
+    FACT --> ADP
+    FACT -.-> MLS
+    FACT -.-> LEG
+
+    ADP --> ADR
+    ADP --> VRS
+    ADR --> L2
+    VRS --> L2
+
+    TK --> IND
+    RG --> RL
+    PM --> PL
+
+    LEG --> SM --> PA
+
+    L2 --> L2E[edge_discovery.py]
+
+    %% Research-only phases — isolated
+    subgraph DEAD["Research Only — ~679 files"]
+        PH[phase14_10..phase32i]
+        L1[live_l1]
+        L4[live_l4]
+        AD[advanced_discovery]
+    end
+
+    style DEAD fill:#fdd,stroke:#900
+    style ML fill:#ffd,stroke:#990
+    style LIVE fill:#dfd,stroke:#060
+    style L2 fill:#ffa,stroke:#880
+
+    %% Circular risk note
+    FACT -.->|imports ML modules at load| PC

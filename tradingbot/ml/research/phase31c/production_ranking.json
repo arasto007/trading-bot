@@ -1,0 +1,42 @@
+{
+  "phase": "31C",
+  "method": "Conservative composite \u2014 robustness and simplicity weighted over raw PF",
+  "ranking_baseline": "hybrid_b_proxy",
+  "production_reference_pf": 1.211,
+  "ranked": [
+    {
+      "production_rank": 1,
+      "name": "trailing_atr_1x",
+      "ranking_score": 0.8458,
+      "pf": 2.6161,
+      "pf_gain": 0.5535,
+      "expectancy": 3.6248,
+      "max_drawdown_pct": 14.1648,
+      "robustness_score": 1.3,
+      "walkforward_pass": true
+    },
+    {
+      "production_rank": 2,
+      "name": "adx_deterioration_exit",
+      "ranking_score": 0.5974,
+      "pf": 2.0701,
+      "pf_gain": 0.0075,
+      "expectancy": 5.8342,
+      "max_drawdown_pct": 34.2528,
+      "robustness_score": 1.0,
+      "walkforward_pass": true
+    },
+    {
+      "production_rank": 3,
+      "name": "volatility_short_timeout",
+      "ranking_score": 0.4846,
+      "pf": 2.1194,
+      "pf_gain": 0.0568,
+      "expectancy": 6.4569,
+      "max_drawdown_pct": 29.5304,
+      "robustness_score": 0.2,
+      "walkforward_pass": false
+    }
+  ],
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

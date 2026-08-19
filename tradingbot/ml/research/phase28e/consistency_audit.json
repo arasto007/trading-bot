@@ -1,0 +1,21 @@
+{
+  "phase": "28E",
+  "checks": {
+    "trade_count_matches_executions": true,
+    "timestamps_match": true,
+    "net_pnl_matches_reported": true,
+    "initial_balance_matches": true,
+    "no_duplicate_timestamps": true,
+    "all_lots_fixed": true
+  },
+  "all_consistent": true,
+  "executions": 575,
+  "completed_trades": 575,
+  "missing_from_trade_log": [],
+  "extra_in_trade_log": [],
+  "zero_pnl_trades": 116,
+  "zero_pnl_exit_reasons": {
+    "hybrid_sl": 116
+  },
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

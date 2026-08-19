@@ -1,0 +1,270 @@
+{
+  "phase": "23D",
+  "filter_settings_phase22c": {
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "tail_300_bars": {
+    "pipeline_actionable_range_signals": 18,
+    "filter_pass": 9,
+    "filter_blocked": 9,
+    "pass_outcomes": {
+      "winners": 4,
+      "losers": 5,
+      "breakeven": 0,
+      "metrics": {
+        "trades": 9,
+        "profit_factor": 1.6,
+        "expectancy_r": 0.333333,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": -3.0,
+        "sharpe_proxy": 0.223607,
+        "mean_confidence": 0.0
+      }
+    },
+    "blocked_outcomes": {
+      "winners": 9,
+      "losers": 0,
+      "breakeven": 0,
+      "metrics": {
+        "trades": 9,
+        "profit_factor": 2.0,
+        "expectancy_r": 2.0,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": 0.0,
+        "sharpe_proxy": 0.0,
+        "mean_confidence": 0.0
+      }
+    },
+    "records_sample": [
+      {
+        "timestamp": "2026-06-29T07:20:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.27686,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 37.275811924382594,
+        "adx": 24.77102164015891,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 19.90950226244344,
+        "spread_pips": 0.0,
+        "structure_distance": 0.0,
+        "r_multiple": -1.0,
+        "expected_pl_r": -1.0,
+        "outcome_class": "loser"
+      },
+      {
+        "timestamp": "2026-06-29T07:25:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.379372,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 40.14801110083242,
+        "adx": 23.204662285802094,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 16.216216216216218,
+        "spread_pips": 0.0,
+        "structure_distance": 0.0,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      },
+      {
+        "timestamp": "2026-06-29T07:30:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.456114,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 0.9014328924085595,
+        "rsi": 20.897615708275325,
+        "adx": 22.71105571648918,
+        "filter_passed": false,
+        "filter_blocked_by": [
+          "rsi_filter"
+        ],
+        "atr_percentile": 14.349775784753364,
+        "spread_pips": 0.0,
+        "structure_distance": 0.0,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      },
+      {
+        "timestamp": "2026-06-29T07:35:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.368802,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 16.91259931895621,
+        "adx": 23.649595201624404,
+        "filter_passed": false,
+        "filter_blocked_by": [
+          "rsi_filter"
+        ],
+        "atr_percentile": 22.767857142857142,
+        "spread_pips": 0.0,
+        "structure_distance": 0.0,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      },
+      {
+        "timestamp": "2026-06-29T07:35:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.412603,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 16.91259931895621,
+        "adx": 23.649595201624404,
+        "filter_passed": false,
+        "filter_blocked_by": [
+          "rsi_filter"
+        ],
+        "atr_percentile": 22.767857142857142,
+        "spread_pips": 0.0,
+        "structure_distance": 0.0,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      }
+    ]
+  },
+  "window_365d_stride5": {
+    "pipeline_actionable_range_signals": 224,
+    "filter_pass": 156,
+    "filter_blocked": 68,
+    "pass_outcomes": {
+      "winners": 75,
+      "losers": 81,
+      "breakeven": 0,
+      "metrics": {
+        "trades": 156,
+        "profit_factor": 1.851852,
+        "expectancy_r": 0.442308,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": -10.0,
+        "sharpe_proxy": 0.29509,
+        "mean_confidence": 0.0
+      }
+    },
+    "blocked_outcomes": {
+      "winners": 26,
+      "losers": 42,
+      "breakeven": 0,
+      "metrics": {
+        "trades": 68,
+        "profit_factor": 1.238095,
+        "expectancy_r": 0.147059,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": -11.0,
+        "sharpe_proxy": 0.100871,
+        "mean_confidence": 0.0
+      }
+    },
+    "records_sample": [
+      {
+        "timestamp": "2025-07-30T07:35:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.223962,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 63.18300754194221,
+        "adx": 18.294673359682843,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 19.12350597609562,
+        "spread_pips": 0.0,
+        "structure_distance": NaN,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      },
+      {
+        "timestamp": "2025-07-30T17:10:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.549505,
+        "engine_signal": "BUY",
+        "calibrated_action": "BUY",
+        "confidence": 0.9200136809482354,
+        "rsi": 36.3649720834558,
+        "adx": 16.180126149381593,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 29.482071713147413,
+        "spread_pips": 0.0,
+        "structure_distance": NaN,
+        "r_multiple": -1.0,
+        "expected_pl_r": -1.0,
+        "outcome_class": "loser"
+      },
+      {
+        "timestamp": "2025-08-01T09:30:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.430829,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 0.9865298699447582,
+        "rsi": 48.984374999999865,
+        "adx": 13.351546711373745,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 17.928286852589643,
+        "spread_pips": 0.0,
+        "structure_distance": NaN,
+        "r_multiple": 2.0,
+        "expected_pl_r": 2.0,
+        "outcome_class": "winner"
+      },
+      {
+        "timestamp": "2025-08-06T07:40:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.317773,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 46.53772683858663,
+        "adx": 12.986787203120723,
+        "filter_passed": true,
+        "filter_blocked_by": [],
+        "atr_percentile": 61.354581673306775,
+        "spread_pips": 0.0,
+        "structure_distance": NaN,
+        "r_multiple": -1.0,
+        "expected_pl_r": -1.0,
+        "outcome_class": "loser"
+      },
+      {
+        "timestamp": "2025-08-06T17:15:00+00:00",
+        "regime": "RANGE",
+        "raw_probability": 0.212569,
+        "engine_signal": "SELL",
+        "calibrated_action": "SELL",
+        "confidence": 1.0,
+        "rsi": 60.97141344626777,
+        "adx": 9.086243128871612,
+        "filter_passed": false,
+        "filter_blocked_by": [
+          "adx_filter"
+        ],
+        "atr_percentile": 53.38645418326693,
+        "spread_pips": 0.0,
+        "structure_distance": NaN,
+        "r_multiple": -1.0,
+        "expected_pl_r": -1.0,
+        "outcome_class": "loser"
+      }
+    ]
+  },
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

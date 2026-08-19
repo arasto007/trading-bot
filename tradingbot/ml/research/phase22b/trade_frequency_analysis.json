@@ -1,0 +1,51 @@
+{
+  "phase": "22B",
+  "question": "Why only 2 trades in one month?",
+  "answer_proven": {
+    "two_stage_bottleneck": true,
+    "stage_1_ml_hold": {
+      "description": "ML stack converts almost all bars to HOLD before signal emission",
+      "M5_ml_calls": 10068,
+      "M5_ml_hold": 10032,
+      "M5_ml_hold_pct": 99.64,
+      "M5_ml_buy_sell_emitted": 36,
+      "M5_all_sell_zero_buy": true,
+      "M15_ml_hold": 6696,
+      "M15_ml_hold_pct": 100.0,
+      "M15_signals_emitted": 0,
+      "H4_ml_hold": 846,
+      "H4_ml_hold_pct": 100.0,
+      "H4_signals_emitted": 0
+    },
+    "stage_2_riskgate_on_M5": {
+      "description": "Of 36 M5 signals that reached RiskGate, 34 were rejected",
+      "signals_reached_risk": 36,
+      "risk_allowed": 2,
+      "risk_blocked_total": 34,
+      "blocked_by_reason": {
+        "daily loss limit": 30,
+        "max positions for symbol": 4
+      },
+      "blocked_pct_of_signals": 94.44,
+      "mechanism": "After first losing trades, LiveRiskTracker daily loss limit blocks subsequent entries; max_positions blocks while simulated position open"
+    },
+    "final_trades": {
+      "count": 2,
+      "both_side": "SELL",
+      "both_outcome": "loss",
+      "entry_times_utc": ["2026-06-29 04:10:00", "2026-06-29 04:15:00"],
+      "exit_reasons": ["emergency", "sl"],
+      "net_pnl_usd": -21.44
+    },
+    "NOT_the_cause": {
+      "ml_fallback": 0,
+      "data_failures": 0,
+      "meta_rejected": 0,
+      "rsi_filter_blocks_in_kernel": 0,
+      "adx_filter_blocks_in_kernel": 0,
+      "legacy_fallback": 0
+    }
+  },
+  "instrumentation_method": "Phase 22B run_capability_audit.py hooks on pipeline stages — no production code modified",
+  "period": "2026-06-04 00:00 to 2026-07-04 23:59 Tehran"
+}

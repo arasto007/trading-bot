@@ -1,0 +1,26 @@
+{
+  "phase": "27M",
+  "window_winners": {
+    "30": "time_exit",
+    "60": "time_exit",
+    "90": "time_exit",
+    "180": "time_exit",
+    "365": "current_tp_sl"
+  },
+  "winner_frequency": {
+    "time_exit": 4,
+    "current_tp_sl": 1
+  },
+  "mean_rank_by_strategy": {
+    "current_tp_sl": 2.0,
+    "time_exit": 2.0,
+    "dynamic_tp_1.5r": 4.4,
+    "structure_exit": 4.4,
+    "atr_exit": 5.2,
+    "partial_close_50": 3.0
+  },
+  "same_winner_all_windows": false,
+  "dominant_winner": "time_exit",
+  "explanation": "Rankings shift by window \u2014 period sensitivity detected",
+  "generated_utc": "2026-07-09T18:22:10.216877+00:00"
+}

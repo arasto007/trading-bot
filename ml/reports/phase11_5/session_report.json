@@ -1,0 +1,77 @@
+{
+  "sessions": [
+    {
+      "session": "asia",
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "session": "london",
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "session": "new_york",
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "session": "overlap",
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "session": "off_hours",
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    }
+  ],
+  "best_pf_session": {
+    "session": "asia",
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "best_expectancy_session": {
+    "session": "asia",
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "lowest_drawdown_session": {
+    "session": "asia",
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "recommended_windows": []
+}

@@ -1,0 +1,88 @@
+{
+  "phase": "27L",
+  "baseline_winner_count": 222,
+  "by_strategy": {
+    "breakeven_0.5r": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 0.6657,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 7.9269,
+      "capture_ratio_mean": 0.3153,
+      "winners_reduced": 152,
+      "winners_preserved_pct": 31.53
+    },
+    "breakeven_1r": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 1.4655,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 15.9694,
+      "capture_ratio_mean": 0.6847,
+      "winners_reduced": 70,
+      "winners_preserved_pct": 68.47
+    },
+    "trailing_atr": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 0.0236,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 0.2337,
+      "capture_ratio_mean": -0.9175,
+      "winners_reduced": 221,
+      "winners_preserved_pct": 1.35
+    },
+    "trailing_swing": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 0.3938,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 4.3697,
+      "capture_ratio_mean": -0.3507,
+      "winners_reduced": 183,
+      "winners_preserved_pct": 17.57
+    },
+    "partial_close_50": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 1.559,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 16.5012,
+      "capture_ratio_mean": 1.6825,
+      "winners_reduced": 194,
+      "winners_preserved_pct": 17.57
+    },
+    "time_exit": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 2.5735,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 24.5333,
+      "capture_ratio_mean": 1.1735,
+      "winners_reduced": 76,
+      "winners_preserved_pct": 69.82
+    },
+    "atr_exit": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 0.7958,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 9.346,
+      "capture_ratio_mean": 1.6948,
+      "winners_reduced": 200,
+      "winners_preserved_pct": 12.61
+    },
+    "structure_exit": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 0.8658,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 9.2264,
+      "capture_ratio_mean": 1.397,
+      "winners_reduced": 148,
+      "winners_preserved_pct": 34.68
+    },
+    "dynamic_tp_1.5r": {
+      "avg_winner_r_baseline": 2.1398,
+      "avg_winner_r_simulated": 1.4211,
+      "avg_winner_pnl_baseline": 22.3844,
+      "avg_winner_pnl_simulated": 15.2385,
+      "capture_ratio_mean": 3.4045,
+      "winners_reduced": 178,
+      "winners_preserved_pct": 21.62
+    }
+  },
+  "generated_utc": "2026-07-09T18:10:48.053689+00:00"
+}

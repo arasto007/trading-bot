@@ -1,0 +1,47 @@
+{
+  "required_env": {
+    "USE_ML_KERNEL": "Must be explicitly set to 1/true or 0/false before loop startup"
+  },
+  "required_for_ml_mode": {
+    "USE_ML_KERNEL": "1/true/yes/on",
+    "CandleStore": "Parquet candles for configured symbol/timeframe",
+    "ML artifacts": "Trend bundle checksum + phase9_9 integrity (HealthGate at startup)"
+  },
+  "required_for_live_mode": {
+    "MT5 connection": "Terminal connected",
+    "AutoTrading": "order_check must pass (live execute only)"
+  },
+  "optional_env": {
+    "ALLOW_LEGACY_FALLBACK": "default false \u2014 HOLD on ML failure when false",
+    "TREND_MODEL_VERSION": "default v41",
+    "TRADINGBOT_SKIP_MT5_STARTUP": "test/dev only \u2014 skip MT5 probe",
+    "PHASE22C_*": "profitability recovery overrides",
+    "ENABLE_RSI_FILTER": "filter flags",
+    "ENABLE_ADX_FILTER": "filter flags"
+  },
+  "deprecated_env": {
+    "ENABLE_ML_SHADOW": "shadow mode \u2014 not production loop",
+    "ML_SHADOW_MODE": "shadow mode \u2014 not production loop"
+  },
+  "ignored_cli": {
+    "--no-recovery": "Currently ignored \u2014 enable_recovery hardcoded False in __main__.py"
+  },
+  "unsafe_combinations": [
+    {
+      "flags": [
+        "--protector"
+      ],
+      "reason": "Duplicate position ownership with kernel manager"
+    },
+    {
+      "env": [
+        "TRADINGBOT_PAPER=1",
+        "TRADINGBOT_DRY_RUN=1"
+      ],
+      "reason": "Conflicting execution mode"
+    }
+  ],
+  "canonical_paper": "USE_ML_KERNEL=1 python -m tradingbot --loop --paper",
+  "canonical_live": "USE_ML_KERNEL=1 python -m tradingbot --loop --execute",
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00"
+}

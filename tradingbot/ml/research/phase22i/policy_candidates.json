@@ -1,0 +1,55 @@
+{
+  "phase": "22I",
+  "policy_threshold": 0.48,
+  "all_candidates": [
+    {
+      "id": "22I-BASELINE",
+      "title": "Production baseline (Phase 22C + RangeRecovery)",
+      "description": "Current RangeAwareConfidenceEngine + DecisionPolicy min_confidence from 22C.",
+      "engineering_type": "baseline",
+      "threshold_tuning": false
+    },
+    {
+      "id": "22I-001",
+      "title": "Universal directional recovery",
+      "description": "Extend directional probability recovery to all non-blocked regimes with actionable engine signal.",
+      "engineering_type": "confidence_engine",
+      "threshold_tuning": false
+    },
+    {
+      "id": "22I-002",
+      "title": "Regime strength floor on actionable signals",
+      "description": "Floor regime_strength at 0.65 when engine emits BUY/SELL to prevent over-compression before policy gate.",
+      "engineering_type": "confidence_engine",
+      "threshold_tuning": false
+    },
+    {
+      "id": "22I-003",
+      "title": "Engine-confidence policy gate",
+      "description": "DecisionPolicy passes if max(composite_conf, model_confidence) >= threshold — avoids double compression rejection.",
+      "engineering_type": "decision_policy",
+      "threshold_tuning": false
+    },
+    {
+      "id": "22I-004",
+      "title": "Alternate engine confirmation",
+      "description": "When primary engine HOLDs, promote alternate engine if directional probability >= 0.55.",
+      "engineering_type": "signal_confirmation",
+      "threshold_tuning": false
+    },
+    {
+      "id": "22I-005",
+      "title": "Spread-aware market quality",
+      "description": "Skip market_quality compression when spread < 4 pips (uses existing spread tiers from ConfidenceEngine).",
+      "engineering_type": "confidence_engine",
+      "threshold_tuning": false
+    }
+  ],
+  "top_five_simulated": [
+    "22I-001",
+    "22I-002",
+    "22I-003",
+    "22I-004",
+    "22I-005"
+  ]
+}

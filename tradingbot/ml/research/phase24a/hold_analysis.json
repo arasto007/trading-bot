@@ -1,0 +1,22 @@
+{
+  "phase": "24A",
+  "total_bars": 108,
+  "hold_bars": 53,
+  "hold_rate": 0.4907,
+  "category_counts": {
+    "decision_gate": 23,
+    "profitability_filter": 18,
+    "health_gate": 12
+  },
+  "category_percentages": {
+    "feature_validation": 0.0,
+    "probability_gate": 0.0,
+    "decision_gate": 21.2963,
+    "calibration_gate": 0.0,
+    "risk_gate": 0.0,
+    "profitability_filter": 16.6667,
+    "health_gate": 11.1111,
+    "other": 0.0
+  },
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

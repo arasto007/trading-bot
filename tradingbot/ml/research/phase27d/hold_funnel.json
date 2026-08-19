@@ -1,0 +1,131 @@
+{
+  "funnel": [
+    {
+      "stage": "bars",
+      "count": 5203
+    },
+    {
+      "stage": "ml_actionable",
+      "count": 2287
+    },
+    {
+      "stage": "trade_quality_pass",
+      "count": 1483
+    },
+    {
+      "stage": "profitability_pass",
+      "count": 774
+    },
+    {
+      "stage": "risk_pass",
+      "count": 762
+    },
+    {
+      "stage": "execution",
+      "count": 2
+    }
+  ],
+  "hold_reasons": [
+    {
+      "reason": "Quality HOLD",
+      "count": 2545,
+      "percentage": 57.31,
+      "stage": "quality"
+    },
+    {
+      "reason": "Calibration HOLD",
+      "count": 823,
+      "percentage": 18.53,
+      "stage": "calibration"
+    },
+    {
+      "reason": "Unknown HOLD",
+      "count": 709,
+      "percentage": 15.96,
+      "stage": "unknown"
+    },
+    {
+      "reason": "No Trade Regime HOLD",
+      "count": 352,
+      "percentage": 7.93,
+      "stage": "no trade regime"
+    },
+    {
+      "reason": "HealthGate HOLD",
+      "count": 12,
+      "percentage": 0.27,
+      "stage": "healthgate"
+    }
+  ],
+  "top_10_hold_reasons": [
+    {
+      "reason": "Decision HOLD",
+      "count": 2916,
+      "percentage": 65.66,
+      "stage": "decision",
+      "source": "hold_chain"
+    },
+    {
+      "reason": "Quality HOLD",
+      "count": 2545,
+      "percentage": 57.31,
+      "stage": "quality"
+    },
+    {
+      "reason": "Calibration HOLD",
+      "count": 823,
+      "percentage": 18.53,
+      "stage": "calibration"
+    },
+    {
+      "reason": "Unknown HOLD",
+      "count": 709,
+      "percentage": 15.96,
+      "stage": "unknown"
+    },
+    {
+      "reason": "RSI Filter HOLD",
+      "count": 425,
+      "percentage": 9.57,
+      "stage": "rsi filter",
+      "source": "hold_chain"
+    },
+    {
+      "reason": "No Trade Regime HOLD",
+      "count": 352,
+      "percentage": 7.93,
+      "stage": "no trade regime"
+    },
+    {
+      "reason": "ADX Filter HOLD",
+      "count": 284,
+      "percentage": 6.39,
+      "stage": "adx filter",
+      "source": "hold_chain"
+    },
+    {
+      "reason": "HealthGate HOLD",
+      "count": 12,
+      "percentage": 0.27,
+      "stage": "healthgate"
+    }
+  ],
+  "hold_chain": {
+    "bars_evaluated": 5191,
+    "buy_emitted": 47,
+    "sell_emitted": 715,
+    "ml_signals": 762,
+    "ml_hold_stages": {
+      "decision_hold": 2916,
+      "calibration_hold": 0,
+      "trade_quality_hold": 804,
+      "rsi_filter_hold": 425,
+      "adx_filter_hold": 284
+    },
+    "ml_hold_total": 4429,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

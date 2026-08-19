@@ -1,0 +1,20 @@
+{
+  "phase": "30D",
+  "objective": "Signed slippage distributions entry vs exit",
+  "source": "Executions dataset with requested_price and fill_price",
+  "segments": [
+    "leg entry|exit",
+    "session",
+    "direction BUY|SELL",
+    "spread_quartile at send",
+    "volatility_quartile ATR percentile"
+  ],
+  "minimum_fills_per_segment": 30,
+  "outputs": [
+    "aggregates/slippage_entry_by_session.json",
+    "aggregates/slippage_exit_by_session.json",
+    "aggregates/price_improvement_rate.json"
+  ],
+  "critical_note": "Paper journal slippage_pips=0 \u2014 MUST use demo/live fills not paper export alone",
+  "generated_utc": "2026-07-10T11:04:24.687260+00:00"
+}

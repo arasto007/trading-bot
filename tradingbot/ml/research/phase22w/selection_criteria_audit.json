@@ -1,0 +1,51 @@
+{
+  "phase": "22W",
+  "searched_terms": [
+    "max probability",
+    "buy_zone",
+    "buy coverage",
+    "sell coverage",
+    "probability distribution",
+    "calibration",
+    "brier",
+    "ece",
+    "log_loss",
+    "log loss",
+    "pr_auc",
+    "average_precision"
+  ],
+  "code_paths": [
+    "tradingbot/ml/research/robustness_optimizer/",
+    "tradingbot/ml/research/walk_forward/",
+    "tradingbot/ml/paper_trading/model_registry.py"
+  ],
+  "probability_quality_gates_absent": {
+    "max_probability": true,
+    "buy_zone_coverage": true,
+    "sell_zone_coverage": true,
+    "probability_histogram": true,
+    "calibration_score": true,
+    "brier_score": true,
+    "ece": true,
+    "log_loss_as_selection_metric": true,
+    "pr_auc": true
+  },
+  "related_metrics_present": {
+    "roc_auc": {
+      "used_for": "train_val_auc_gap overfitting penalty only",
+      "file": "candidate_selector.py overfitting_penalty",
+      "used_as_ranking_threshold": false
+    },
+    "precision_recall_f1": {
+      "used_for": "per-window ML metrics logged in validate_window_candidate",
+      "used_in_composite_score": false
+    },
+    "threshold_strategy_0.55_0.45": {
+      "used_for": "trade simulation PF/win_rate on validation",
+      "validates_model_probability_spread": false,
+      "note": "SELL-only probability mass can yield PF>1 without any BUY zone coverage"
+    }
+  },
+  "proof": "rg search over robustness_optimizer and walk_forward returns zero matches for buy_zone, brier, calibration, ece, max_prob. composite_score uses only robustness_score, mean_profit_factor, expectancy_consistency, overfitting_penalty.",
+  "generated_utc": "2026-07-07T18:40:53.360693+00:00"
+}

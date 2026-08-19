@@ -1,0 +1,72 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "matrix_type": "risk_failure",
+  "layers": [
+    {
+      "layer": "LiveRiskTracker",
+      "file": "services/live_risk_tracker.py",
+      "checks": ["max_trades_per_day per TF", "cooldown_bars", "daily loss budget", "consecutive loss pause"],
+      "failure_ids": ["AUD-002", "AUD-009", "AUD-015", "AUD-018"],
+      "status": "BROKEN",
+      "evidence": "NameError at line 185; trades_today not rebuilt from MT5 deals"
+    },
+    {
+      "layer": "RiskGate live gates",
+      "file": "adapters/risk_gate.py:209-271",
+      "checks": ["max positions", "news gate", "friday gate", "spread gate", "HTF alignment", "no opposite", "market filters"],
+      "failure_ids": ["AUD-010", "AUD-021"],
+      "status": "OPERATIONAL_WITH_GAPS",
+      "evidence": "Silent MT5 sync fail; spread not re-checked at execution"
+    },
+    {
+      "layer": "risk_logic.can_trade",
+      "file": "adapters/risk_gate.py:136-139",
+      "checks": ["daily_loss ratio", "consecutive_losses", "leverage"],
+      "failure_ids": ["AUD-009"],
+      "status": "PARTIAL",
+      "evidence": "Depends on LiveRiskTracker state accuracy"
+    },
+    {
+      "layer": "Meta labeler",
+      "file": "adapters/risk_gate.py:149-177",
+      "checks": ["meta_prob vs threshold"],
+      "failure_ids": [],
+      "status": "OPERATIONAL",
+      "evidence": "Optional gate when meta.should_gate true"
+    },
+    {
+      "layer": "ML AdaptiveRiskEngine",
+      "file": "ml/integration/kernel_adapter.py via TradeQualityAdapter.evaluate",
+      "checks": ["adaptive risk inside ML stack"],
+      "failure_ids": ["AUD-006", "AUD-008"],
+      "status": "CONDITIONAL",
+      "evidence": "Only when USE_ML_KERNEL=1 and no fallback"
+    },
+    {
+      "layer": "KillSwitch",
+      "file": "services/kill_switch.py",
+      "checks": ["drawdown vs peak", "daily loss vs day_start_equity"],
+      "failure_ids": ["AUD-001", "AUD-029", "AUD-030"],
+      "status": "UNSAFE_IN_PAPER",
+      "evidence": "Real order_send on trigger; EMERGENCY_STOP not persisted"
+    },
+    {
+      "layer": "Lot sizing",
+      "file": "adapters/risk_gate.py:320-337",
+      "checks": ["ATR-based lot", "fallback lot on exception"],
+      "failure_ids": ["AUD-020"],
+      "status": "OPERATIONAL_WITH_GAPS",
+      "evidence": "Fallback uses balance/1000 heuristic"
+    },
+    {
+      "layer": "Phase22C daily loss budget",
+      "file": "services/live_risk_tracker.py:182-193",
+      "checks": ["compute_daily_loss_budget with floor_trades"],
+      "failure_ids": ["AUD-002"],
+      "status": "BROKEN",
+      "evidence": "Unreachable due to NameError"
+    }
+  ],
+  "double_gating_note": "ML AdaptiveRiskEngine and RiskGate both gate when USE_ML_KERNEL=1 — intentional stack but fallback to legacy changes risk profile silently (AUD-006)."
+}

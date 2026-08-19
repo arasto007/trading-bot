@@ -1,0 +1,100 @@
+{
+  "phase": "23F",
+  "pipeline_a": {
+    "pipeline": "pipeline_a",
+    "n_folds": 4,
+    "stable_folds": 4,
+    "stable": true,
+    "folds": [
+      {
+        "fold": 0,
+        "test_signals": 44,
+        "executed_trades": 34,
+        "baseline_pf": 2.888889,
+        "filtered_pf": 3.666667,
+        "baseline_exp": 0.772727,
+        "filtered_exp": 0.941176,
+        "improved": true
+      },
+      {
+        "fold": 1,
+        "test_signals": 44,
+        "executed_trades": 35,
+        "baseline_pf": 0.83871,
+        "filtered_pf": 0.916667,
+        "baseline_exp": -0.113636,
+        "filtered_exp": -0.057143,
+        "improved": true
+      },
+      {
+        "fold": 2,
+        "test_signals": 44,
+        "executed_trades": 26,
+        "baseline_pf": 1.826087,
+        "filtered_pf": 3.2,
+        "baseline_exp": 0.431818,
+        "filtered_exp": 0.846154,
+        "improved": true
+      },
+      {
+        "fold": 3,
+        "test_signals": 44,
+        "executed_trades": 30,
+        "baseline_pf": 2.4,
+        "filtered_pf": 2.615385,
+        "baseline_exp": 0.636364,
+        "filtered_exp": 0.7,
+        "improved": true
+      }
+    ]
+  },
+  "pipeline_b": {
+    "pipeline": "pipeline_b",
+    "n_folds": 4,
+    "stable_folds": 3,
+    "stable": true,
+    "folds": [
+      {
+        "fold": 0,
+        "test_signals": 44,
+        "executed_trades": 20,
+        "baseline_pf": 2.888889,
+        "filtered_pf": 6.0,
+        "baseline_exp": 0.772727,
+        "filtered_exp": 1.25,
+        "improved": true
+      },
+      {
+        "fold": 1,
+        "test_signals": 44,
+        "executed_trades": 26,
+        "baseline_pf": 0.83871,
+        "filtered_pf": 1.25,
+        "baseline_exp": -0.113636,
+        "filtered_exp": 0.153846,
+        "improved": true
+      },
+      {
+        "fold": 2,
+        "test_signals": 44,
+        "executed_trades": 16,
+        "baseline_pf": 1.826087,
+        "filtered_pf": 6.0,
+        "baseline_exp": 0.431818,
+        "filtered_exp": 1.25,
+        "improved": true
+      },
+      {
+        "fold": 3,
+        "test_signals": 44,
+        "executed_trades": 12,
+        "baseline_pf": 2.4,
+        "filtered_pf": 2.0,
+        "baseline_exp": 0.636364,
+        "filtered_exp": 0.5,
+        "improved": false
+      }
+    ]
+  },
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

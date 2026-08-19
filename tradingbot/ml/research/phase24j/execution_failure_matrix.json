@@ -1,0 +1,114 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "matrix_type": "execution_failure",
+  "entries": [
+    {
+      "failure_mode": "dry_run_skip",
+      "location": "adapters/mt5_execution.py:44-66",
+      "trigger": "TRADINGBOT_DRY_RUN=1 (default --loop)",
+      "behavior": "success=True message=dry_run; journal logged; no order_send",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "paper_simulated_fill",
+      "location": "adapters/mt5_execution.py:68-86",
+      "trigger": "TRADINGBOT_PAPER=1",
+      "behavior": "simulated fill from tick; no order_send; no record_live_entry",
+      "money_at_risk": false,
+      "duplicate_risk": true
+    },
+    {
+      "failure_mode": "mt5_not_connected",
+      "location": "adapters/mt5_execution.py:88-89",
+      "trigger": "ensure_mt5_connected false before live order",
+      "behavior": "ExecutionResult success=False",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "validate_order_reject",
+      "location": "adapters/mt5_execution.py:138-141; domain/order_logic.py:14-30",
+      "trigger": "lot<=0 price<=0 symbol mismatch",
+      "behavior": "success=False before order_send",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "order_value_cap",
+      "location": "adapters/mt5_execution.py:143-146; domain/order_logic.py:44-54",
+      "trigger": "order value > MAX_ORDER_VALUE 100000",
+      "behavior": "success=False",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "order_send_none",
+      "location": "adapters/mt5_execution.py:174-177",
+      "trigger": "mt5.order_send returns None after retry",
+      "behavior": "success=False with last_error",
+      "money_at_risk": false,
+      "duplicate_risk": true,
+      "notes": "broker may have partial state — manual verify"
+    },
+    {
+      "failure_mode": "broker_retcode_reject",
+      "location": "adapters/mt5_execution.py:179+",
+      "trigger": "retcode not DONE/PLACED",
+      "behavior": "success=False logged",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "retry_reprice",
+      "location": "adapters/mt5_execution.py:232-251",
+      "trigger": "retcodes 10004,10006,10007,10010,10021,10031",
+      "behavior": "one retry with reconnect and new price",
+      "money_at_risk": true,
+      "duplicate_risk": true
+    },
+    {
+      "failure_mode": "risk_stage_blocks",
+      "location": "pipeline/risk_stage.py:37-39",
+      "trigger": "RiskDecision allowed=False",
+      "behavior": "pipeline stops before ExecutionStage",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "risk_stage_exception",
+      "location": "kernel/trading_kernel.py:190-193; live_risk_tracker.py:185",
+      "trigger": "NameError config in check_entry_allowed",
+      "behavior": "stage failure; no execution",
+      "money_at_risk": false,
+      "duplicate_risk": false,
+      "severity": "CRITICAL_BLOCKER"
+    },
+    {
+      "failure_mode": "signal_stage_dedup",
+      "location": "pipeline/signal_stage.py:30-32",
+      "trigger": "same closed bar timestamp same process",
+      "behavior": "returns False — no signal propagation",
+      "money_at_risk": false,
+      "duplicate_risk": false
+    },
+    {
+      "failure_mode": "execution_no_dedup",
+      "location": "pipeline/execution_stage.py:16-22",
+      "trigger": "signal reaches stage",
+      "behavior": "always calls execute once per cycle",
+      "money_at_risk": true,
+      "duplicate_risk": true
+    },
+    {
+      "failure_mode": "auxiliary_order_send_paper",
+      "location": "kill_switch.py:138; mt5_position_manager.py:325,377,408; position_recovery_service.py",
+      "trigger": "--paper or dry-run with open positions or kill trigger",
+      "behavior": "REAL order_send bypassing paper guard",
+      "money_at_risk": true,
+      "duplicate_risk": true,
+      "severity": "CRITICAL"
+    }
+  ]
+}

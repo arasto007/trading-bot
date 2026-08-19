@@ -1,0 +1,51 @@
+{
+  "phase": "27H",
+  "simulations_per_level": 100,
+  "levels": {
+    "5%": {
+      "miss_pct": 0.05,
+      "median_net_profit": 1049.8796,
+      "worst_net_profit": 829.9976,
+      "best_net_profit": 1281.0916,
+      "median_profit_factor": 1.2872,
+      "p10_profit_factor": 1.2434,
+      "p90_profit_factor": 1.321,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline_net_delta_median": -51.3058
+    },
+    "10%": {
+      "miss_pct": 0.1,
+      "median_net_profit": 984.438,
+      "worst_net_profit": 595.5345,
+      "best_net_profit": 1338.6361,
+      "median_profit_factor": 1.2836,
+      "p10_profit_factor": 1.2382,
+      "p90_profit_factor": 1.3447,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline_net_delta_median": -116.7474
+    },
+    "20%": {
+      "miss_pct": 0.2,
+      "median_net_profit": 846.1636,
+      "worst_net_profit": 448.9636,
+      "best_net_profit": 1221.135,
+      "median_profit_factor": 1.2723,
+      "p10_profit_factor": 1.201,
+      "p90_profit_factor": 1.3514,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline_net_delta_median": -255.0218
+    },
+    "30%": {
+      "miss_pct": 0.3,
+      "median_net_profit": 791.459,
+      "worst_net_profit": 355.8857,
+      "best_net_profit": 1254.1078,
+      "median_profit_factor": 1.2912,
+      "p10_profit_factor": 1.1928,
+      "p90_profit_factor": 1.4109,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline_net_delta_median": -309.7264
+    }
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

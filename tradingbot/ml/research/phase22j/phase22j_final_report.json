@@ -1,0 +1,35 @@
+{
+  "phase": "22J",
+  "generated_at": "2026-07-05T11:40:38.575291+00:00",
+  "production_modified": false,
+  "dataset": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "elapsed_sec": 6506.8,
+  "verdict": "ENGINE_REQUIRES_FURTHER_FORENSICS",
+  "verdict_note": "Engine forensics identified root cause (phase99 zero features) but no candidate improved PF on Dataset A backtest. Hold-chain capture returned 0 emitted signals for all runs.",
+  "final_questions": {
+    "1_true_engine_bottleneck": "phase99 features zero-filled from dataset merge (structure_distance 100%, ema50_slope 90% on RANGE bars) causing constant P(win)≈0.36; trend ML threshold blocks 35 rule-passing bars",
+    "2_problem_category": "features (primary), model/routing (secondary for trend)",
+    "3_highest_roi_modification": "22J-005 Live phase99 overlay via FeatureBuilder",
+    "4_expected_pf_improvement": "Unverified — all backtests PF=0.0; forensics predicts improved signal diversity only",
+    "5_engineering_risk": "LOW"
+  },
+  "range_primary_cause": "feature_distribution_zeros",
+  "trend_bottleneck": {
+    "primary": "ml_threshold",
+    "detail": "prob < 0.4 after rules pass",
+    "ml_fail_count": 35,
+    "rule_structure_fails": 27
+  },
+  "training_aligned": true,
+  "pf_improved_any_candidate": false,
+  "recommended": {
+    "selected_id": "22J-005",
+    "title": "Live phase99 overlay on unified frame",
+    "do_not_implement_yet": true
+  }
+}

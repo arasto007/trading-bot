@@ -1,0 +1,19 @@
+{
+  "phase": "23B",
+  "primary_source": "FeatureBuilder.compute_at",
+  "wiring": [
+    "KernelAdapter.produce_unified_signal → candles + bar_index",
+    "build_market_context → UnifiedRangeWrapper.evaluate(candles=..., bar_index=...)",
+    "RangeEngineAdapter._features_from_candles → FeatureBuilder"
+  ],
+  "runtime_sample": {
+    "feature_source": "feature_builder",
+    "feature_vector": {
+      "candle_direction": 1.0,
+      "structure_distance": 0.0,
+      "ema50_slope": -0.452614,
+      "ema_cross_state": -1.0
+    }
+  },
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

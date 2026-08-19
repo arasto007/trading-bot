@@ -1,0 +1,39 @@
+{
+  "phase": "30E",
+  "count": 5,
+  "metrics": [
+    "Microsecond precision",
+    "Tick sequence",
+    "Level II",
+    "Liquidity",
+    "Order queue"
+  ],
+  "details": [
+    {
+      "metric": "Microsecond precision",
+      "reason": "MQL5 MqlTick documents time_msc in milliseconds only \u2014 no microsecond field in Python API.",
+      "replacement": "Replace Phase 30D timestamp_us with timestamp_ms (broker) + local_send_ns (collector monotonic)."
+    },
+    {
+      "metric": "Tick sequence",
+      "reason": "No sequence number in MqlTick or copy_ticks output; only time ordering.",
+      "replacement": "Assign collector sequence index per partition; detect gaps via time_msc deltas."
+    },
+    {
+      "metric": "Level II",
+      "reason": "MT5 BookInfo is limited depth snapshot; true L2 order book not exposed for standard retail CFD/FX accounts.",
+      "replacement": "Replace with spread widening + partial fill + requote proxies."
+    },
+    {
+      "metric": "Liquidity",
+      "reason": "No aggregate liquidity metric in MT5 API; volume on last trade only, often zero on FX ticks.",
+      "replacement": "Proxy: partial fill rate + TRADE_RETCODE_REQUOTE rate + spread p99 spikes."
+    },
+    {
+      "metric": "Order queue",
+      "reason": "No MT5 API exposes internal broker matching queue depth or position in queue.",
+      "replacement": "Remove from collector; use execution_delay_ms distribution instead."
+    }
+  ],
+  "generated_utc": "2026-07-10T11:11:07.050327+00:00"
+}

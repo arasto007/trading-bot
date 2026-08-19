@@ -1,0 +1,11 @@
+{
+  "phase": "27J",
+  "average_profit_left_after_exit_r": 3.3765,
+  "after_tp_remaining_move_r": 3.1598,
+  "after_timeout_remaining_move_r": 2.1704,
+  "after_sl_post_exit_favorable_r": 3.7204,
+  "in_trade_missed_r": 0.5963,
+  "exit_timing_loss_dollars_total": 3890.8793,
+  "note": "post_exit measures favorable move in next 72 bars after exit",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

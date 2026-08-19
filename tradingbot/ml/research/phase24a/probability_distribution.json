@@ -1,0 +1,185 @@
+{
+  "phase": "24A",
+  "raw_probability": {
+    "count": 108,
+    "mean": 0.2937,
+    "median": 0.3369,
+    "std": 0.1854,
+    "min": 0.0,
+    "max": 0.6643,
+    "histogram": [
+      {
+        "bin_start": 0.0,
+        "bin_end": 0.0664,
+        "count": 24
+      },
+      {
+        "bin_start": 0.0664,
+        "bin_end": 0.1329,
+        "count": 0
+      },
+      {
+        "bin_start": 0.1329,
+        "bin_end": 0.1993,
+        "count": 5
+      },
+      {
+        "bin_start": 0.1993,
+        "bin_end": 0.2657,
+        "count": 8
+      },
+      {
+        "bin_start": 0.2657,
+        "bin_end": 0.3322,
+        "count": 16
+      },
+      {
+        "bin_start": 0.3322,
+        "bin_end": 0.3986,
+        "count": 21
+      },
+      {
+        "bin_start": 0.3986,
+        "bin_end": 0.465,
+        "count": 15
+      },
+      {
+        "bin_start": 0.465,
+        "bin_end": 0.5315,
+        "count": 11
+      },
+      {
+        "bin_start": 0.5315,
+        "bin_end": 0.5979,
+        "count": 6
+      },
+      {
+        "bin_start": 0.5979,
+        "bin_end": 0.6643,
+        "count": 2
+      }
+    ]
+  },
+  "buy_probability": {
+    "count": 108,
+    "mean": 0.2937,
+    "median": 0.3369,
+    "std": 0.1854,
+    "min": 0.0,
+    "max": 0.6643,
+    "histogram": [
+      {
+        "bin_start": 0.0,
+        "bin_end": 0.0664,
+        "count": 24
+      },
+      {
+        "bin_start": 0.0664,
+        "bin_end": 0.1329,
+        "count": 0
+      },
+      {
+        "bin_start": 0.1329,
+        "bin_end": 0.1993,
+        "count": 5
+      },
+      {
+        "bin_start": 0.1993,
+        "bin_end": 0.2657,
+        "count": 8
+      },
+      {
+        "bin_start": 0.2657,
+        "bin_end": 0.3322,
+        "count": 16
+      },
+      {
+        "bin_start": 0.3322,
+        "bin_end": 0.3986,
+        "count": 21
+      },
+      {
+        "bin_start": 0.3986,
+        "bin_end": 0.465,
+        "count": 15
+      },
+      {
+        "bin_start": 0.465,
+        "bin_end": 0.5315,
+        "count": 11
+      },
+      {
+        "bin_start": 0.5315,
+        "bin_end": 0.5979,
+        "count": 6
+      },
+      {
+        "bin_start": 0.5979,
+        "bin_end": 0.6643,
+        "count": 2
+      }
+    ]
+  },
+  "sell_probability": {
+    "count": 108,
+    "mean": 0.7063,
+    "median": 0.6631,
+    "std": 0.1854,
+    "min": 0.3357,
+    "max": 1.0,
+    "histogram": [
+      {
+        "bin_start": 0.3357,
+        "bin_end": 0.4021,
+        "count": 2
+      },
+      {
+        "bin_start": 0.4021,
+        "bin_end": 0.4685,
+        "count": 6
+      },
+      {
+        "bin_start": 0.4685,
+        "bin_end": 0.535,
+        "count": 11
+      },
+      {
+        "bin_start": 0.535,
+        "bin_end": 0.6014,
+        "count": 15
+      },
+      {
+        "bin_start": 0.6014,
+        "bin_end": 0.6678,
+        "count": 21
+      },
+      {
+        "bin_start": 0.6678,
+        "bin_end": 0.7343,
+        "count": 16
+      },
+      {
+        "bin_start": 0.7343,
+        "bin_end": 0.8007,
+        "count": 8
+      },
+      {
+        "bin_start": 0.8007,
+        "bin_end": 0.8671,
+        "count": 5
+      },
+      {
+        "bin_start": 0.8671,
+        "bin_end": 0.9336,
+        "count": 0
+      },
+      {
+        "bin_start": 0.9336,
+        "bin_end": 1.0,
+        "count": 24
+      }
+    ]
+  },
+  "predict_proba_call_rate": 0.9722,
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

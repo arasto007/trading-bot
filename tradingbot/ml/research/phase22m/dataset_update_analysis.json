@@ -1,0 +1,30 @@
+{
+  "phase": "22M",
+  "step": 3,
+  "generated_utc": "2026-07-05T15:57:17.799750+00:00",
+  "stop_timestamp": "2026-06-29T13:45:00+00:00",
+  "proven_causes": {
+    "A_candlestore_not_updated": {
+      "proven": true,
+      "evidence": "CandleStore max=2026-06-29 13:50:00+00:00, file mtime=2026-06-29T10:54:12.435475Z. No merge_store after 2026-06-29."
+    },
+    "B_dataset_builder_not_run": {
+      "proven": true,
+      "evidence": "dataset_v2 max=2026-06-29 13:45:00+00:00, build manifest=2026-06-29T16:46:56.771535+00:00. store_v2 only in production_dataset_v2.py / phase9_production_build.py."
+    },
+    "C_scheduler_broken": {
+      "proven": false,
+      "evidence": "No cron/APScheduler/scheduled task in repository for CandleStore or dataset_v2 refresh. Not broken — absent."
+    },
+    "D_live_runner_no_dataset_link": {
+      "proven": true,
+      "evidence": "LiveRunner→TradingKernel→Mt5MarketDataAdapter→ParquetCache. Zero imports of CandleStore, DatasetStore, build_ml_dataset in live_runner.py, trading_kernel.py, pipeline/*."
+    }
+  },
+  "verdict_step3": "E — multiple causes together (A + B + D + automation absent)",
+  "live_data_not_stale": {
+    "proven": true,
+    "evidence": "ParquetCache data/XAUUSD_5m.parquet max=2026-07-03 19:55:00+00:00, mtime=2026-07-04T17:44:32.661252Z — live MT5 path still fetches recent bars."
+  },
+  "why_dataset_stopped_growing": "CandleStore and dataset_v2 are batch artifacts. Last batch run 2026-06-29. Live loop never triggers batch pipeline."
+}

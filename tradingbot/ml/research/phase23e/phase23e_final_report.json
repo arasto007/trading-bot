@@ -1,0 +1,12 @@
+{
+  "phase": "23E",
+  "title": "RANGE Filter Recalibration (Scientific Study)",
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00",
+  "verdict": "CREATE_RANGE_SPECIFIC_FILTER_PROFILE",
+  "profiles_evaluated": 1370,
+  "range_cohort_size": 224,
+  "winner_profile_id": "f2b3f3a1c2d7",
+  "strict_criteria_pass": true,
+  "statistically_significant": false,
+  "summary": "Optimal RANGE grid-search winner mapped to CREATE_RANGE_SPECIFIC_FILTER_PROFILE"
+}

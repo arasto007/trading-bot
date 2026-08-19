@@ -1,0 +1,130 @@
+{
+  "phase": "27E",
+  "verdict": "BOTTLENECK_IDENTIFIED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "emitted_ml_signals": 762,
+  "completed_trades": 2,
+  "unknown_losses": 0,
+  "primary_bottleneck": "RiskGate \u2014 max positions for symbol (replay portfolio never closes positions)",
+  "riskgate_blocked": 760,
+  "riskgate_block_breakdown": {
+    "max positions for symbol": 753,
+    "opposite direction position open": 7
+  },
+  "funnel_summary": [
+    {
+      "stage": "ml_signals_emitted",
+      "count": 762,
+      "percentage_of_emitted": 100.0
+    },
+    {
+      "stage": "trade_quality_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "profitability_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "adaptive_risk_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "riskgate_pass",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 760,
+      "loss_pct_from_previous": 99.7375
+    },
+    {
+      "stage": "execution_stage",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "mt5_execution_adapter",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "journal",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "completed_trade",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    }
+  ],
+  "conclusion": "All 762 ML signals accounted for: 760 blocked at RiskGate (753 max positions, 7 opposite direction), 2 executed successfully. No TradeQuality, filter, or execution-stage losses among emitted signals. Replay inflates open position count because unified_pipeline_replay appends on fill but never removes closed positions.",
+  "ranked_causes": [
+    {
+      "rank": 1,
+      "severity": "CRITICAL",
+      "issue": "Replay portfolio open_positions never decremented on trade close",
+      "bars_affected": 753,
+      "percentage": 98.8189,
+      "repository_location": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py:263-267",
+      "function": "_run_replay_async",
+      "line": 263,
+      "runtime_evidence": "After 2 successful BUY executions, portfolio.open_positions length stays at 2 for remaining 5,201 bars. check_max_positions sees open_symbol=2 >= max_per_symbol=2.",
+      "estimated_impact": "Blocks 753 of 762 emitted signals (98.8%)"
+    },
+    {
+      "rank": 2,
+      "severity": "HIGH",
+      "issue": "RiskGate max positions per symbol limit (default 2)",
+      "bars_affected": 753,
+      "percentage": 98.8189,
+      "repository_location": "tradingbot/domain/live_gates.py:44-54",
+      "function": "check_max_positions",
+      "line": 44,
+      "runtime_evidence": "risk_reason='max positions for symbol (2>=2)' on 753 signals",
+      "estimated_impact": "Hard cap prevents third+ entry on XAUUSD in replay"
+    },
+    {
+      "rank": 3,
+      "severity": "MEDIUM",
+      "issue": "RiskGate opposite-direction hedge block",
+      "bars_affected": 7,
+      "percentage": 0.9186,
+      "repository_location": "tradingbot/domain/live_gates.py:127-141",
+      "function": "check_no_opposite_position",
+      "line": 127,
+      "runtime_evidence": "7 SELL signals blocked while BUY position open (bars 303-307)",
+      "estimated_impact": "Blocks counter-direction entries before max-position saturation"
+    },
+    {
+      "rank": 4,
+      "severity": "INFO",
+      "issue": "Execution and journal path functional for allowed signals",
+      "bars_affected": 2,
+      "percentage": 0.2625,
+      "repository_location": "tradingbot/pipeline/execution_stage.py:16-22",
+      "function": "ExecutionStage.run",
+      "line": 16,
+      "runtime_evidence": "2/2 risk-approved signals: execution_success=True, paper simulated fill",
+      "estimated_impact": "0.26% of emitted signals complete \u2014 not an execution bug"
+    }
+  ],
+  "generated_utc": "2026-07-09T13:55:14.767651+00:00"
+}

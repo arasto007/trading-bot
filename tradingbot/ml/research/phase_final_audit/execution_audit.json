@@ -1,0 +1,30 @@
+{
+  "order_send_terminal": "services/mt5_order_guard.py:56",
+  "guarded_paths": [
+    "adapters/mt5_execution.py \u2192 guarded_order_send",
+    "services/kill_switch.py:140",
+    "adapters/mt5_position_manager.py:327,379,410",
+    "services/position_recovery_service.py:625",
+    "services/position_protector.py:276,482,507"
+  ],
+  "direct_mt5_order_send_in_production": 0,
+  "phase24k_fix": "AUD-001 guarded_order_send on all paths",
+  "modes": {
+    "dry_run": "adapters/mt5_execution.py:44-66",
+    "paper": "adapters/mt5_execution.py:68-86",
+    "live": "adapters/mt5_execution.py:88-117 + autotrading check"
+  },
+  "paper_gaps": [
+    {
+      "id": "EXEC-PAPER-001",
+      "issue": "fill_price=0 in journal for recent paper runs",
+      "evidence": "phase26a trade_log collection_meta"
+    },
+    {
+      "id": "EXEC-PAPER-002",
+      "issue": "Mt5PositionManager returns early in paper without simulated management",
+      "file": "adapters/mt5_position_manager.py:306-312"
+    }
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

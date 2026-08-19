@@ -1,0 +1,334 @@
+{
+  "phase": "30E",
+  "rows": [
+    {
+      "metric": "Ticks",
+      "required": true,
+      "risk": "Low",
+      "confidence": 95,
+      "blocker": false,
+      "mitigation": "Poll symbol_info_tick at 100ms for forward collection; copy_ticks_range for backfill gaps."
+    },
+    {
+      "metric": "Bid",
+      "required": true,
+      "risk": "Low",
+      "confidence": 96,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Ask",
+      "required": true,
+      "risk": "Low",
+      "confidence": 96,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Spread",
+      "required": true,
+      "risk": "Low",
+      "confidence": 92,
+      "blocker": false,
+      "mitigation": "Prefer tick-derived spread; log symbol_info.spread daily as cross-check."
+    },
+    {
+      "metric": "Tick timestamps",
+      "required": true,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Store broker time_msc as primary; add local perf_counter for send-side events."
+    },
+    {
+      "metric": "Microsecond precision",
+      "required": false,
+      "risk": "Impossible",
+      "confidence": 95,
+      "blocker": false,
+      "mitigation": "Replace Phase 30D timestamp_us with timestamp_ms (broker) + local_send_ns (collector monotonic)."
+    },
+    {
+      "metric": "Tick sequence",
+      "required": false,
+      "risk": "Impossible",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Assign collector sequence index per partition; detect gaps via time_msc deltas."
+    },
+    {
+      "metric": "OHLC generation",
+      "required": false,
+      "risk": "Low",
+      "confidence": 94,
+      "blocker": false,
+      "mitigation": "Not required for DBT fingerprint; available for gap cross-check."
+    },
+    {
+      "metric": "Market Depth (DOM)",
+      "required": false,
+      "risk": "High",
+      "confidence": 55,
+      "blocker": false,
+      "mitigation": "Probe at collection start; if empty, exclude DOM from collector architecture."
+    },
+    {
+      "metric": "Level II",
+      "required": false,
+      "risk": "Impossible",
+      "confidence": 85,
+      "blocker": false,
+      "mitigation": "Replace with spread widening + partial fill + requote proxies."
+    },
+    {
+      "metric": "Liquidity",
+      "required": false,
+      "risk": "Impossible",
+      "confidence": 80,
+      "blocker": false,
+      "mitigation": "Proxy: partial fill rate + TRADE_RETCODE_REQUOTE rate + spread p99 spikes."
+    },
+    {
+      "metric": "Order queue",
+      "required": false,
+      "risk": "Impossible",
+      "confidence": 92,
+      "blocker": false,
+      "mitigation": "Remove from collector; use execution_delay_ms distribution instead."
+    },
+    {
+      "metric": "Partial fills",
+      "required": true,
+      "risk": "Low",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Log requested_lot and result.volume on every send."
+    },
+    {
+      "metric": "Execution price",
+      "required": true,
+      "risk": "Low",
+      "confidence": 95,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Requested price",
+      "required": true,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Custom collector MUST log request price + quoted bid/ask before order_send."
+    },
+    {
+      "metric": "Fill price",
+      "required": true,
+      "risk": "Low",
+      "confidence": 95,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Entry slippage",
+      "required": true,
+      "risk": "Low",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Tag deal entry via TradeDeal.entry DEAL_ENTRY_IN."
+    },
+    {
+      "metric": "Exit slippage",
+      "required": true,
+      "risk": "Low",
+      "confidence": 86,
+      "blocker": false,
+      "mitigation": "Log sl/tp/close intent; map deal reason DEAL_REASON_SL/TP."
+    },
+    {
+      "metric": "Execution delay",
+      "required": true,
+      "risk": "Low",
+      "confidence": 85,
+      "blocker": false,
+      "mitigation": "Store send_ns and ack_ns in collector."
+    },
+    {
+      "metric": "Network latency",
+      "required": false,
+      "risk": "High",
+      "confidence": 60,
+      "blocker": false,
+      "mitigation": "Optional ICMP to broker host; not decomposable from MT5 alone."
+    },
+    {
+      "metric": "Server latency",
+      "required": false,
+      "risk": "High",
+      "confidence": 55,
+      "blocker": false,
+      "mitigation": "Treat as estimated component only; do not use for DBT MVP."
+    },
+    {
+      "metric": "Round-trip latency",
+      "required": true,
+      "risk": "Low",
+      "confidence": 85,
+      "blocker": false,
+      "mitigation": "Same as execution_delay \u2014 primary latency metric for DBT."
+    },
+    {
+      "metric": "Trade transaction timestamps",
+      "required": true,
+      "risk": "Low",
+      "confidence": 93,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Retcodes",
+      "required": true,
+      "risk": "Low",
+      "confidence": 94,
+      "blocker": false,
+      "mitigation": "Log every attempt including retries (_order_send_with_retry)."
+    },
+    {
+      "metric": "Requotes",
+      "required": true,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Count per order attempt."
+    },
+    {
+      "metric": "Freeze level",
+      "required": true,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Daily snapshot + log on TRADE_RETCODE_FROZEN."
+    },
+    {
+      "metric": "Stops level",
+      "required": true,
+      "risk": "Low",
+      "confidence": 92,
+      "blocker": false,
+      "mitigation": "Daily snapshot."
+    },
+    {
+      "metric": "Margin",
+      "required": false,
+      "risk": "Low",
+      "confidence": 93,
+      "blocker": false,
+      "mitigation": "Poll every 60s + at fill."
+    },
+    {
+      "metric": "Margin level",
+      "required": false,
+      "risk": "Low",
+      "confidence": 93,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Swap",
+      "required": false,
+      "risk": "Low",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Low priority for M5 short holds."
+    },
+    {
+      "metric": "Commission",
+      "required": false,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Verify account type \u2014 zero commission is valid data."
+    },
+    {
+      "metric": "Account snapshots",
+      "required": false,
+      "risk": "Low",
+      "confidence": 94,
+      "blocker": false,
+      "mitigation": "Scheduled poll."
+    },
+    {
+      "metric": "Order history",
+      "required": true,
+      "risk": "Low",
+      "confidence": 92,
+      "blocker": false,
+      "mitigation": "Enable account history in terminal."
+    },
+    {
+      "metric": "Deal history",
+      "required": true,
+      "risk": "Low",
+      "confidence": 94,
+      "blocker": false,
+      "mitigation": "None"
+    },
+    {
+      "metric": "Position history",
+      "required": false,
+      "risk": "Low",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Reconstruct closed positions from deal chain."
+    },
+    {
+      "metric": "Weekend gaps",
+      "required": true,
+      "risk": "Low",
+      "confidence": 85,
+      "blocker": false,
+      "mitigation": "Automate weekly gap extractor on tick store."
+    },
+    {
+      "metric": "News events",
+      "required": true,
+      "risk": "Low",
+      "confidence": 90,
+      "blocker": false,
+      "mitigation": "Import external calendar JSON; join to tick timestamps."
+    },
+    {
+      "metric": "Symbol specifications",
+      "required": true,
+      "risk": "Low",
+      "confidence": 95,
+      "blocker": false,
+      "mitigation": "Daily snapshot to JSON."
+    },
+    {
+      "metric": "Broker execution model (ECN/STP/MM)",
+      "required": false,
+      "risk": "High",
+      "confidence": 50,
+      "blocker": false,
+      "mitigation": "Record enum + broker marketing label in manifest manually; do not infer ECN/STP."
+    },
+    {
+      "metric": "Execution mode",
+      "required": true,
+      "risk": "Low",
+      "confidence": 88,
+      "blocker": false,
+      "mitigation": "Probe order_check for valid filling."
+    }
+  ],
+  "summary": {
+    "low": 31,
+    "medium": 0,
+    "high": 4,
+    "impossible": 5,
+    "required_blockers": 0
+  },
+  "required_blockers": [],
+  "generated_utc": "2026-07-10T11:11:07.053323+00:00"
+}

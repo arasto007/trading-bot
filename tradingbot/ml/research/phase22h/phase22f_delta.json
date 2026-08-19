@@ -1,0 +1,31 @@
+{
+  "phase": "22H",
+  "baseline_source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22f\\baseline_snapshot.json",
+  "baseline": {
+    "trades": 2,
+    "buy_pct": 0.0,
+    "sell_pct": 100.0,
+    "hold_pct": 98.28,
+    "profit_factor": 0.0,
+    "expectancy": -10.719,
+    "buy_emitted": 13,
+    "sell_emitted": 47
+  },
+  "after_22h": {
+    "trades": 0,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "hold_pct": null,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "buy_trades": 0,
+    "sell_trades": 0
+  },
+  "changes": {
+    "trades": -2.0,
+    "profit_factor": 0.0,
+    "expectancy": 10.719,
+    "buy_emitted": -13,
+    "sell_emitted": -47
+  }
+}

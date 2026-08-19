@@ -1,0 +1,21 @@
+{
+  "phase": "22AK",
+  "select_best_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "select_best_matches_expected": true,
+  "production_winner_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "production_winner_matches_expected": true,
+  "expected_select_best": "random_forest_shallow__stable_4__RANGE",
+  "expected_production_winner": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "eligible_candidate_count": 1,
+  "eligible_candidates": [
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "composite_score": 0.592035,
+      "acceptance": "PASS"
+    }
+  ],
+  "single_eligible_candidate": true,
+  "select_best_acceptance": "FAIL",
+  "production_winner_acceptance": "PASS",
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00"
+}

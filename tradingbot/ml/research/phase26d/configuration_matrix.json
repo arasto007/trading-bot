@@ -1,0 +1,24 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "modes": {
+    "dry_run": {
+      "TRADINGBOT_DRY_RUN": "1",
+      "cli": "--loop"
+    },
+    "paper": {
+      "TRADINGBOT_PAPER": "1",
+      "cli": "--loop --paper"
+    },
+    "live": {
+      "cli": "--loop --execute"
+    }
+  },
+  "engine_modes": {
+    "ml": {
+      "USE_ML_KERNEL": "1"
+    },
+    "legacy": {
+      "USE_ML_KERNEL": "0"
+    }
+  }
+}

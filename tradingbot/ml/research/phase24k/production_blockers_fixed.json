@@ -1,0 +1,83 @@
+{
+  "phase": "24K",
+  "generated_utc": "2026-07-08T16:16:53.261335+00:00",
+  "blockers": [
+    {
+      "id": "AUD-002",
+      "status": "FIXED",
+      "fix": "Inject config param into LiveRiskTracker.check_entry_allowed; RiskGate passes self._config",
+      "files": [
+        "tradingbot/services/live_risk_tracker.py",
+        "tradingbot/adapters/risk_gate.py"
+      ]
+    },
+    {
+      "id": "AUD-001",
+      "status": "FIXED",
+      "fix": "services/mt5_order_guard.py guarded_order_send on all production order_send paths",
+      "files": [
+        "tradingbot/services/kill_switch.py",
+        "tradingbot/adapters/mt5_position_manager.py",
+        "tradingbot/services/position_recovery_service.py",
+        "tradingbot/services/position_protector.py",
+        "tradingbot/adapters/mt5_execution.py"
+      ]
+    },
+    {
+      "id": "AUD-003",
+      "status": "FIXED",
+      "fix": "UnconfiguredEngineRegistry when USE_ML_KERNEL absent; startup_diagnostics logs selection",
+      "files": [
+        "tradingbot/ml/integration/config.py",
+        "tradingbot/ml/integration/factory.py",
+        "tradingbot/ml/integration/startup_diagnostics.py",
+        "tradingbot/application/live_runner.py"
+      ]
+    },
+    {
+      "id": "AUD-030",
+      "status": "FIXED",
+      "fix": "data/emergency_stop.json persistence; kernel restore on init; clear_emergency_stop for reset",
+      "files": [
+        "tradingbot/services/emergency_stop_state.py",
+        "tradingbot/kernel/trading_kernel.py",
+        "tradingbot/application/live_runner.py"
+      ]
+    },
+    {
+      "id": "AUD-013",
+      "status": "FIXED",
+      "fix": "enable_recovery default False; kernel Mt5PositionManager sole owner",
+      "files": [
+        "tradingbot/application/live_runner.py",
+        "tradingbot/__main__.py"
+      ]
+    },
+    {
+      "id": "AUD-006",
+      "status": "FIXED",
+      "fix": "ALLOW_LEGACY_FALLBACK default false; safe HOLD when disabled",
+      "files": [
+        "tradingbot/ml/integration/ml_kernel_registry.py",
+        "tradingbot/ml/integration/config.py"
+      ]
+    },
+    {
+      "id": "AUD-008",
+      "status": "FIXED",
+      "fix": "Structured timeout diagnostics via timeout_diagnostics + kernel_adapter log",
+      "files": [
+        "tradingbot/ml/integration/kernel_adapter.py",
+        "tradingbot/ml/integration/timeout_diagnostics.py"
+      ]
+    },
+    {
+      "id": "AUD-035",
+      "status": "FIXED",
+      "fix": "check_autotrading_ready before live execute path in Mt5ExecutionAdapter",
+      "files": [
+        "tradingbot/adapters/mt5_execution.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TradingBot Architecture Atlas</title>
+  <link rel="stylesheet" href="styles/atlas.css">
+  <script src="assets/cytoscape.min.js"></script>
+  <script src="assets/atlas-bundle.js"></script>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div>
+        <h1>TradingBot Architecture Atlas</h1>
+        <div class="sub">Interactive dependency explorer — offline</div>
+      </div>
+      <input type="search" id="search" placeholder="Search nodes… TradingKernel, RiskGate, MT5">
+    </header>
+
+    <aside id="sidebar">
+      <h2>Views</h2>
+      <button type="button" class="nav-btn active" data-view="graph">🗺 Dependency Graph</button>
+      <button type="button" class="nav-btn" data-view="timeline">⏱ Timeline</button>
+      <button type="button" class="nav-btn" data-view="heatmap">🔥 Heatmaps</button>
+      <button type="button" class="nav-btn" data-view="map">🏙 Architecture Map</button>
+      <button type="button" class="nav-btn" data-view="seq">📋 Sequences</button>
+
+      <h2>Graphs</h2>
+      <button type="button" class="nav-btn" data-graph="architecture">Architecture</button>
+      <button type="button" class="nav-btn" data-graph="trading">Trading</button>
+      <button type="button" class="nav-btn" data-graph="execution">Execution</button>
+      <button type="button" class="nav-btn" data-graph="risk">Risk</button>
+      <button type="button" class="nav-btn" data-graph="data">Data</button>
+      <button type="button" class="nav-btn" data-graph="ml">ML</button>
+      <button type="button" class="nav-btn" data-graph="monitoring">Monitoring</button>
+      <button type="button" class="nav-btn" data-graph="services">Services</button>
+      <button type="button" class="nav-btn" data-graph="backtest">Backtest</button>
+      <button type="button" class="nav-btn" data-graph="configuration">Configuration</button>
+      <button type="button" class="nav-btn" data-graph="research">Research</button>
+
+      <h2>Filters</h2>
+      <div class="filter-row">
+        <span class="chip" data-filter="productionOnly">Production only</span>
+        <span class="chip" data-filter="hideResearch">Hide research</span>
+        <span class="chip" data-filter="executionPathOnly">Execution path</span>
+      </div>
+      <select id="type-filter" style="width:100%;padding:6px;background:#0a0e14;color:#e8eaed;border:1px solid #2a3544;border-radius:6px;font-size:11px">
+        <option value="all">All types</option>
+        <option value="folder">Folders</option>
+        <option value="module">Modules</option>
+        <option value="class">Classes</option>
+        <option value="function">Functions</option>
+      </select>
+    </aside>
+
+    <div id="canvas-wrap">
+      <div id="toolbar">
+        <button type="button" id="btn-fit">Fit view</button>
+        <button type="button" id="btn-reset">Reset graph</button>
+        <button type="button" id="btn-clear">Clear highlights</button>
+      </div>
+      <div id="cy"></div>
+    </div>
+
+    <div id="timeline-panel"></div>
+    <div id="heatmap-panel"></div>
+    <div id="map-panel"></div>
+    <div id="seq-panel"></div>
+
+    <aside id="detail">
+      <div class="empty">
+        <strong>Explore the robot city</strong><br><br>
+        Click any node to see what it does, who calls it, and why it matters.<br>
+        <small style="color:#6b7785">گره‌ها را کلیک کنید — توضیح ساده فارسی در پنل راست</small>
+      </div>
+    </aside>
+
+    <footer>
+      <span id="stat-nodes">— nodes</span>
+      <span id="stat-edges">— edges</span>
+      <span id="stat-gen">—</span>
+      <span style="margin-left:auto">docs/architecture_atlas/index.html</span>
+    </footer>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

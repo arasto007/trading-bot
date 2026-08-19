@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "conflicts": [
+    {
+      "flags": [
+        "--protector"
+      ],
+      "reason": "Duplicate position ownership with kernel manager"
+    },
+    {
+      "env": [
+        "TRADINGBOT_PAPER=1",
+        "TRADINGBOT_DRY_RUN=1"
+      ],
+      "reason": "Conflicting execution mode"
+    }
+  ],
+  "silent_removed": [
+    {
+      "before": "USE_ML_KERNEL unset \u2192 UnconfiguredEngineRegistry \u2192 silent idle",
+      "after": "validate_startup raises USE_ML_KERNEL_MISSING \u2192 sys.exit(1)"
+    },
+    {
+      "before": "Emergency stop \u2192 kernel.emergency_stop then continued loop",
+      "after": "EMERGENCY_STOP_ACTIVE \u2192 sys.exit(1) before run_forever"
+    },
+    {
+      "before": "MT5 disconnect \u2192 logger.error return (no exit code)",
+      "after": "MT5_UNAVAILABLE \u2192 sys.exit(1) for paper/live"
+    }
+  ]
+}

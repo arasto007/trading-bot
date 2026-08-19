@@ -1,0 +1,54 @@
+{
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00",
+  "layers": [
+    "ports",
+    "domain",
+    "pipeline",
+    "adapters",
+    "kernel",
+    "ml/integration",
+    "services"
+  ],
+  "forbidden_research_to_execution": "research phases must not import execution (phase isolation rule)",
+  "import_probe": {
+    "probed_modules": [
+      {
+        "module": "tradingbot.kernel.trading_kernel",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.application.live_runner",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.ml.integration.factory",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.ml.integration.kernel_adapter",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.adapters.mt5_execution",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.adapters.risk_gate",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.services.mt5_order_guard",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.services.kill_switch",
+        "status": "ok"
+      },
+      {
+        "module": "tradingbot.pipeline.execution_stage",
+        "status": "ok"
+      }
+    ],
+    "broken_imports": []
+  }
+}

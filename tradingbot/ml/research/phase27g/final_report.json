@@ -1,0 +1,67 @@
+{
+  "phase": "27G",
+  "verdict": "PERFORMANCE_VALIDATED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "input_source": "phase27f_repaired_replay",
+  "replay_days": 30,
+  "bars_evaluated": 5203,
+  "completed_trades": 575,
+  "minimum_sample": 200,
+  "sample_sufficient": true,
+  "blockers": [],
+  "evidence": [
+    "sample_size 575 >= 200",
+    "trade_statistics reconciled",
+    "exit_reasons fully classified",
+    "profit_factor=1.2847 expectancy=1.9151",
+    "win_rate=38.61% max_dd=12.1956%"
+  ],
+  "profit_factor": 1.2847,
+  "expectancy": 1.9151,
+  "net_profit": 1101.1854,
+  "win_rate_pct": 38.61,
+  "max_drawdown_pct": 12.1956,
+  "best_regime": "RANGE",
+  "worst_regime": "RANGE",
+  "signal_funnel_summary": [
+    {
+      "stage": "bars",
+      "count": 5203,
+      "pct_of_bars": 100.0,
+      "loss_from_previous": 0
+    },
+    {
+      "stage": "ml_signals",
+      "count": 762,
+      "pct_of_bars": 14.65,
+      "loss_from_previous": 4441
+    },
+    {
+      "stage": "risk_approved",
+      "count": 575,
+      "pct_of_bars": 11.05,
+      "loss_from_previous": 187
+    },
+    {
+      "stage": "executed_trades",
+      "count": 575,
+      "pct_of_bars": 11.05,
+      "loss_from_previous": 0
+    },
+    {
+      "stage": "winning_trades",
+      "count": 222,
+      "pct_of_bars": 4.27,
+      "loss_from_previous": 353
+    },
+    {
+      "stage": "losing_trades",
+      "count": 353,
+      "pct_of_bars": 6.78,
+      "loss_from_previous": -131
+    }
+  ],
+  "conclusion": "30-day post-27F replay: 575 completed trades analyzed. PF=1.2847 expectancy=1.9151 win_rate=38.61%. Verdict: PERFORMANCE_VALIDATED.",
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

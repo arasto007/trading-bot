@@ -1,0 +1,312 @@
+{
+  "baseline_phase9_8_summary": {
+    "robustness_score": 66.57,
+    "overfitting_risk": "HIGH",
+    "mean_profit_factor": 1.308,
+    "mean_expectancy": 0.1684,
+    "source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_8_walk_forward_report.json"
+  },
+  "baseline_numeric": {
+    "robustness_score": 66.57,
+    "overfitting_risk": "HIGH",
+    "mean_profit_factor": 1.308,
+    "mean_expectancy": 0.1684,
+    "mean_auc_gap": 0.3308,
+    "max_auc_gap": 0.4519,
+    "mean_degradation": 0.38002,
+    "degradation_per_window": [
+      0.4794,
+      0.419,
+      0.3898,
+      0.3931,
+      0.2188
+    ],
+    "source_robustness_report": "data/ml/reports/phase9_8_robustness_report.json",
+    "source_window_results": "data/ml/reports/phase9_8_window_results.json"
+  },
+  "per_candidate_vs_baseline": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "robustness_delta": -7.48,
+      "mean_auc_gap_delta": 0.1746,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "robustness_delta": 0.0,
+      "mean_auc_gap_delta": 0.0,
+      "numeric_auc_gap_better": false,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "robustness_delta": -0.46,
+      "mean_auc_gap_delta": 0.0375,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "robustness_delta": -0.76,
+      "mean_auc_gap_delta": 0.0695,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "robustness_delta": 0.19,
+      "mean_auc_gap_delta": 0.0113,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "robustness_delta": 11.16,
+      "mean_auc_gap_delta": 0.294,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "LOW",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "robustness_delta": 11.11,
+      "mean_auc_gap_delta": 0.2932,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "LOW",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "robustness_delta": 10.9,
+      "mean_auc_gap_delta": 0.2896,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "LOW",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "robustness_delta": 10.9,
+      "mean_auc_gap_delta": 0.2896,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "LOW",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "robustness_delta": 7.99,
+      "mean_auc_gap_delta": 0.2396,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "robustness_delta": 8.5,
+      "mean_auc_gap_delta": 0.2325,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "robustness_delta": 8.5,
+      "mean_auc_gap_delta": 0.2325,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "robustness_delta": -2.07,
+      "mean_auc_gap_delta": 0.2812,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "robustness_delta": -2.07,
+      "mean_auc_gap_delta": 0.2812,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "robustness_delta": -2.9,
+      "mean_auc_gap_delta": 0.2819,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "robustness_delta": -2.9,
+      "mean_auc_gap_delta": 0.2819,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "robustness_delta": 5.14,
+      "mean_auc_gap_delta": 0.193,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "robustness_delta": 4.92,
+      "mean_auc_gap_delta": 0.1718,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "robustness_delta": -5.89,
+      "mean_auc_gap_delta": 0.2111,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "MEDIUM",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": true,
+      "same_label_as_baseline": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "robustness_delta": -4.85,
+      "mean_auc_gap_delta": 0.2104,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "robustness_delta": -2.15,
+      "mean_auc_gap_delta": 0.1745,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "robustness_delta": -5.0,
+      "mean_auc_gap_delta": 0.2047,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "robustness_delta": -6.51,
+      "mean_auc_gap_delta": 0.1907,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "robustness_delta": -6.7,
+      "mean_auc_gap_delta": 0.1869,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "robustness_delta": -3.86,
+      "mean_auc_gap_delta": 0.1476,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "robustness_delta": -6.37,
+      "mean_auc_gap_delta": 0.1792,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "robustness_delta": -8.64,
+      "mean_auc_gap_delta": 0.1508,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "robustness_delta": -9.15,
+      "mean_auc_gap_delta": 0.1431,
+      "numeric_auc_gap_better": true,
+      "candidate_risk": "HIGH",
+      "baseline_risk": "HIGH",
+      "ordinal_overfitting_pass": false,
+      "same_label_as_baseline": true
+    }
+  ],
+  "finding": "27/28 candidates have lower mean_auc_gap than Phase 9.8, but 15 still fail overfitting_risk_decreased because the ordinal HIGH label did not improve even when numeric gap improved.",
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false
+}

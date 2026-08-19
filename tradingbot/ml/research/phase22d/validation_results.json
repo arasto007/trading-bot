@@ -1,0 +1,22 @@
+{
+  "phase": "22D",
+  "post_fix_engine_counts": {
+    "source": "orchestrator_trace.json on 1830-bar audit window",
+    "BUY": 55,
+    "SELL": 629,
+    "HOLD": 1146
+  },
+  "trend_engine_post_fix": {
+    "rule_pass": 872,
+    "ml_pass": 345,
+    "ml_hold": 527
+  },
+  "range_engine_post_fix": {
+    "buy_zone_bars": 0,
+    "sell_zone_bars": 560,
+    "max_probability": 0.419381,
+    "note": "Audit window bearish — not an engine defect; training supports ~38% positive labels"
+  },
+  "full_backtest_pending": "Run python -m tradingbot.ml.research.phase22c.run_validation after 22D fixes",
+  "verdict": "ENGINE_FIX_VALIDATED"
+}

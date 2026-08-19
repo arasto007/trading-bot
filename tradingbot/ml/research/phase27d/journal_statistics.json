@@ -1,0 +1,15 @@
+{
+  "total_trades": 2,
+  "complete_trades": 2,
+  "journal_integrity_pct": 100.0,
+  "missing_field_counts": {},
+  "duplicate_timestamps": 0,
+  "orphan_trades": 0,
+  "replay_reconstruction_success_rate_pct": 100.0,
+  "completed_trades": 2,
+  "incomplete_trades": 760,
+  "executed_signals": 2,
+  "entry_exit_reconstruction_success_rate_pct": 100.0,
+  "lifecycle_integrity_pct": 100.0,
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

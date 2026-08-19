@@ -1,0 +1,310 @@
+{
+  "phase": "28E",
+  "audit_type": "read_only_mathematical_audit",
+  "source_phase": "28D",
+  "answers": {
+    "is_87_97_drawdown_mathematically_correct": "YES",
+    "drawdown_explanation": "The 87.97% figure is arithmetically correct for a closed-trade balance curve measured from peak equity ($966.16) to trough ($116.24). It is misleading as a $200-account risk metric because dollar PnL does not scale with equity.",
+    "is_equity_calculation_correct": "YES",
+    "is_balance_calculation_correct": "YES",
+    "is_lot_sizing_realistic_for_200": "NO",
+    "is_risk_really_0_30_pct": "NO",
+    "true_maximum_drawdown_pct_from_peak": 87.9686,
+    "true_maximum_drawdown_pct_from_initial": 50.6985,
+    "true_account_growth_pct": 540.87,
+    "would_survive_real_200_mt5_account": "YES",
+    "mt5_survival_explanation": "Minimum balance reached $98.60; margin for 0.01 XAUUSD lot ~$39.71 at 1:100 leverage. Single-position margin is covered, but actual risk per trade averages 2.13% of running balance \u2014 far above the 0.30% target \u2014 so a real account faces elevated blow-up risk despite surviving this specific 30-day window."
+  },
+  "key_findings": [
+    "Drawdown math is correct; the accounting model uses balance-only updates at trade close.",
+    "Fixed 0.01 lot produces dollar PnL independent of account size ($1,081 net same as $10k run).",
+    "Portfolio tracker PnL ($75.7757) diverges from trade log ($1081.7446) due to bar-by-bar vs full-history exit resolution.",
+    "Actual average risk is 2.13% of running balance, not 0.30%.",
+    "116 hybrid_sl exits recorded $0 PnL (breakeven remainder after partial close)."
+  ],
+  "audits": {
+    "drawdown": {
+      "phase": "28E",
+      "accounting_model": "closed_trade_balance_only",
+      "floating_equity_tracked": false,
+      "initial_balance": 200.0,
+      "peak_equity": 1546.6513,
+      "lowest_equity": 98.603,
+      "trough_trade_seq": 19,
+      "closed_drawdown": {
+        "max_drawdown_pct_from_peak": 87.9686,
+        "max_drawdown_abs_from_peak": 849.915,
+        "max_drawdown_pct_from_initial": 50.6985,
+        "max_drawdown_abs_from_initial": 101.397
+      },
+      "floating_drawdown": {
+        "max_drawdown_pct": 88.6372,
+        "max_drawdown_abs": 856.375
+      },
+      "reported_phase28d": {
+        "max_drawdown_pct": 87.9686,
+        "max_drawdown_abs": 849.915
+      },
+      "reported_matches_recalculation": true,
+      "is_87_97_pct_mathematically_correct": true,
+      "divergence_explanation": null,
+      "model_caveat": "Drawdown is measured from an inflated peak equity ($966) caused by fixed 0.01-lot dollar PnL on a growing notional balance. Peak-to-trough DD overstates risk relative to initial $200 capital; DD from initial balance is lower (see closed_drawdown).",
+      "worst_drawdown_point": {
+        "trade_seq": 319,
+        "timestamp": "2026-06-15T16:30:00+00:00",
+        "balance": 116.2424,
+        "peak_equity": 966.1574,
+        "drawdown_pct_from_peak": 87.9686
+      },
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "equity": {
+      "phase": "28E",
+      "points_reported": 576,
+      "points_rebuilt": 576,
+      "mismatch_count": 0,
+      "equity_calculation_correct": true,
+      "method": "balance += realized_pnl at each trade close; no intra-trade floating",
+      "mismatches": [],
+      "final_equity_reported": 1281.7446,
+      "final_equity_rebuilt": 1281.7446,
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "balance": {
+      "phase": "28E",
+      "initial_balance": 200.0,
+      "final_balance_rebuilt": 1281.7446,
+      "net_profit_sum": 1081.7446,
+      "mismatch_count": 0,
+      "balance_calculation_correct": true,
+      "mismatches": [],
+      "trade_count": 575,
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "risk": {
+      "phase": "28E",
+      "lot_sizing_mode": "fixed_minimum",
+      "all_trades_same_lot": true,
+      "fixed_lot": 0.01,
+      "reported_risk_percent": {
+        "min": 0.1484,
+        "max": 0.4008,
+        "mean": 0.2955,
+        "median": 0.2915,
+        "note": "Adaptive-risk target (fraction of equity), not realized dollar risk"
+      },
+      "actual_risk_pct_of_initial_balance": {
+        "min": 2.6136,
+        "max": 11.3585,
+        "mean": 5.5924,
+        "median": 5.2714,
+        "p95": 8.7607
+      },
+      "actual_risk_pct_of_running_balance": {
+        "min": 0.5108,
+        "max": 12.0708,
+        "mean": 2.1252,
+        "median": 1.3788,
+        "p95": 5.4034
+      },
+      "actual_risk_exceeds_reported_target": true,
+      "true_average_risk_pct": 2.1252,
+      "per_trade_sample": [
+        {
+          "seq": 1,
+          "timestamp": "2026-06-02T03:20:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.2915,
+          "dollar_risk": 7.4243,
+          "actual_risk_pct_of_initial": 3.7122,
+          "actual_risk_pct_of_running_balance": 3.7122,
+          "sl_distance": 7.4243
+        },
+        {
+          "seq": 2,
+          "timestamp": "2026-06-02T03:15:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.2915,
+          "dollar_risk": 6.8086,
+          "actual_risk_pct_of_initial": 3.4043,
+          "actual_risk_pct_of_running_balance": 3.5355,
+          "sl_distance": 6.8086
+        },
+        {
+          "seq": 3,
+          "timestamp": "2026-06-02T03:45:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.265,
+          "dollar_risk": 9.4757,
+          "actual_risk_pct_of_initial": 4.7378,
+          "actual_risk_pct_of_running_balance": 4.9205,
+          "sl_distance": 9.4757
+        },
+        {
+          "seq": 4,
+          "timestamp": "2026-06-02T03:50:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.265,
+          "dollar_risk": 9.4143,
+          "actual_risk_pct_of_initial": 4.7072,
+          "actual_risk_pct_of_running_balance": 5.1416,
+          "sl_distance": 9.4143
+        },
+        {
+          "seq": 5,
+          "timestamp": "2026-06-02T03:55:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.265,
+          "dollar_risk": 9.3171,
+          "actual_risk_pct_of_initial": 4.6585,
+          "actual_risk_pct_of_running_balance": 5.3643,
+          "sl_distance": 9.3171
+        },
+        {
+          "seq": 574,
+          "timestamp": "2026-06-29T03:45:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.1855,
+          "dollar_risk": 11.6643,
+          "actual_risk_pct_of_initial": 5.8322,
+          "actual_risk_pct_of_running_balance": 0.9149,
+          "sl_distance": 11.6643
+        },
+        {
+          "seq": 575,
+          "timestamp": "2026-06-29T03:50:00+00:00",
+          "lot": 0.01,
+          "reported_risk_percent": 0.1855,
+          "dollar_risk": 12.0243,
+          "actual_risk_pct_of_initial": 6.0122,
+          "actual_risk_pct_of_running_balance": 0.9417,
+          "sl_distance": 12.0243
+        }
+      ],
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "margin": {
+      "phase": "28E",
+      "assumptions": {
+        "symbol": "XAUUSD",
+        "contract_size": 100.0,
+        "leverage": 100.0,
+        "formula": "margin = lot * contract_size * price / leverage"
+      },
+      "per_trade_margin": {
+        "min": 39.7051,
+        "max": 45.347,
+        "mean": 42.5781
+      },
+      "free_margin_at_entry": {
+        "min": 53.3027,
+        "max": 1506.6277,
+        "mean": 720.3643
+      },
+      "margin_level_pct": {
+        "min": 217.6652,
+        "max": 3864.3483,
+        "mean": 1818.8226
+      },
+      "peak_margin_usage": 45.347,
+      "matches_mt5_model": true,
+      "margin_call_risk_at_min_balance": {
+        "min_balance_observed": 98.603,
+        "margin_required_0_01_lot": 39.7051,
+        "survives_single_position": true
+      },
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "position_size": {
+      "phase": "28E",
+      "sizing_mode": "fixed_broker_minimum",
+      "configured_lot": 0.01,
+      "observed_lot_min": 0.01,
+      "observed_lot_max": 0.01,
+      "reported_avg_risk_percent": 0.2955,
+      "implied_lot_from_risk_target": {
+        "mean": 0.002128,
+        "median": 0.001885,
+        "below_min_lot_count": 575,
+        "below_min_lot_pct": 100.0
+      },
+      "reported_risk_matches_actual_lot": true,
+      "real_average_risk_pct": 5.5924,
+      "realistic_for_200_account": false,
+      "explanation": "Adaptive risk targets ~0.30% of equity but lot_from_stop_distance floors to 0.01. 575/575 trades required lot < 0.01 to match the risk target.",
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "pnl_scaling": {
+      "phase": "28E",
+      "pnl_model": "fixed_broker_lot",
+      "account_relative_sizing": false,
+      "initial_balance": 200.0,
+      "trade_log_net_pnl": 1081.7446,
+      "portfolio_tracker_net_pnl": 75.7757,
+      "portfolio_vs_trade_log_delta": 1005.9689,
+      "pnl_correctly_scaled_for_200": false,
+      "explanation": "Trade-log PnL uses full-history Hybrid B exit on fixed 0.01 lot \u2014 identical dollar amounts to a $10,000 baseline. Portfolio tracker ($75.78) uses bar-by-bar partial candle visibility and diverges. Neither scales lot to $200 equity.",
+      "implied_return_on_200_pct": 540.87,
+      "same_trades_on_10k_would_show": {
+        "net_pnl": 1081.7446,
+        "return_pct": 10.82
+      },
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "consistency": {
+      "phase": "28E",
+      "checks": {
+        "trade_count_matches_executions": true,
+        "timestamps_match": true,
+        "net_pnl_matches_reported": true,
+        "initial_balance_matches": true,
+        "no_duplicate_timestamps": true,
+        "all_lots_fixed": true
+      },
+      "all_consistent": true,
+      "executions": 575,
+      "completed_trades": 575,
+      "missing_from_trade_log": [],
+      "extra_in_trade_log": [],
+      "zero_pnl_trades": 116,
+      "zero_pnl_exit_reasons": {
+        "hybrid_sl": 116
+      },
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    },
+    "performance": {
+      "phase": "28E",
+      "recalculated": {
+        "net_profit": 1081.7446,
+        "final_balance": 1281.7446,
+        "max_drawdown_pct": 87.9686,
+        "max_drawdown_abs": 849.915,
+        "recovery_factor": 1.2728,
+        "sharpe_ratio": 27.4328,
+        "sortino_ratio": 38.2672,
+        "calmar_ratio": 6.1485
+      },
+      "reported_phase28d": {
+        "net_profit": 1081.7446,
+        "max_drawdown_pct": 87.9686,
+        "max_drawdown_abs": 849.915,
+        "recovery_factor": 1.2728,
+        "sharpe_ratio": 27.4328,
+        "sortino_ratio": 38.2672,
+        "calmar_ratio": 6.1485
+      },
+      "deltas": {
+        "net_profit": 0.0,
+        "max_drawdown_pct": 0.0,
+        "max_drawdown_abs": 0.0,
+        "recovery_factor": 0.0,
+        "sharpe_ratio": 0.0,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": 0.0
+      },
+      "metrics_match": true,
+      "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+    }
+  },
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

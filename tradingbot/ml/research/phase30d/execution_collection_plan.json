@@ -1,0 +1,37 @@
+{
+  "phase": "30D",
+  "objective": "Fill-level ground truth for slippage, retcodes, partial fills",
+  "modes": [
+    {
+      "mode": "live_shadow",
+      "description": "Bot runs paper; parallel log every live-eligible send without sending (or demo micro)",
+      "risk": "LOW on demo account"
+    },
+    {
+      "mode": "demo_live",
+      "description": "0.01 lot demo account real sends \u2014 recommended",
+      "risk": "LOW"
+    },
+    {
+      "mode": "paper_export",
+      "description": "Export trade_journal.executions \u2014 insufficient alone (slippage=0)",
+      "risk": "NONE",
+      "adequacy": "INSUFFICIENT for slippage calibration"
+    }
+  ],
+  "recommended": "demo_live 0.01 lot XAUUSD M5 aligned with bot signals",
+  "fields_per_send": [
+    "timestamp_send_us",
+    "requested_price",
+    "quoted_bid",
+    "quoted_ask",
+    "result.retcode",
+    "result.price",
+    "result.volume",
+    "execution_delay_ms"
+  ],
+  "target_fills": 500,
+  "duration_days": 90,
+  "journal_mapping": "Post-hoc join to trade_journal for signal context only",
+  "generated_utc": "2026-07-10T11:04:24.685261+00:00"
+}

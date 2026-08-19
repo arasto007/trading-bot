@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html><head>
+<HTA:APPLICATION SHOWINTASKBAR="yes" SINGLEINSTANCE="no" />
+<title>HTA VB wrap test</title>
+</head><body>
+<div id="action-status"></div>
+<div id="live-state"></div>
+<div id="live-utc"></div>
+<div id="hero-equity"></div>
+<div id="hero-pnl"></div>
+<div id="sys-status"></div>
+<div id="api-status"></div>
+<div id="demo-banner"></div>
+<div id="footer-api"></div>
+<div id="footer-watchdog"></div>
+<div id="footer-bot"></div>
+<div id="footer-latency"></div>
+<div id="card-proc"></div>
+<div id="kpi-pf"></div>
+<div id="kpi-expr"></div>
+<div id="kpi-accept"></div>
+<div id="kpi-pf-sub"></div>
+<div id="card-ml"></div>
+<div id="card-ml-detail"></div>
+<div id="engine-list"></div>
+<div id="task-list"></div>
+<div id="signal-stream"></div>
+<div id="live-cycles"></div>
+<div id="live-log"></div>
+<div id="live-phase4"></div>
+<div id="alert-banner"></div>
+<div id="dot-pa"></div>
+<div id="dot-vol"></div>
+<div id="dot-adp"></div>
+<div id="dot-ml"></div>
+<div id="bt-start-date"></div>
+<div id="bt-end-date"></div>
+<div id="bt-start-time"></div>
+<div id="bt-end-time"></div>
+<div id="bt-balance"></div>
+<div id="bt-symbol"></div>
+<div id="backtest-panel" style="display:none"></div>
+<script language="VBScript">
+Dim gRefreshBusy
+Dim gShownAlerts
+Dim gInitDone
+
+Sub BootTrace(stepName)
+  On Error Resume Next
+  Dim fso, root, p, ts
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  root = ProjectRoot()
+  If Len(root) = 0 Then root = "."
+  p = fso.BuildPath(fso.BuildPath(root, "data"), "hta_boot_trace.txt")
+  Set ts = fso.OpenTextFile(p, 8, True)
+  ts.WriteLine CStr(Now) & "|" & stepName
+  ts.Close
+  On Error GoTo 0
+End Sub
+
+BootTrace "script_parsed"
+
+Function LinePrefix(line, prefix)
+  LinePrefix = (InStr(line, prefix) = 1)
+End Function
+
+Sub InitDashboard
+  If gInitDone Then Exit Sub
+  gInitDone = True
+  gRefreshBusy = False
+  gShownAlerts = ","
+  BootTrace "init_start"
+  On Error Resume Next
+  Err.Clear
+  document.title = "TradingBot v8.6.1-ONE [" & ProjectRoot() & "]"
+  document.getElementById("action-status").innerText = "Booting v8.6.1-ONE..."
+  SetBacktestDefaults
+  RefreshLivePanel
+  If Err.Number <> 0 Then
+    document.getElementById("action-status").innerText = "Init error: " & Err.Description
+    document.getElementById("live-state").innerHTML = "<span class='badge badge-warn'>INIT ERR</span>"
+    gRefreshBusy = False
+  End If
+  On Error GoTo 0
+End Sub
+
+Sub Window_OnLoad
+  InitDashboard
+End Sub
+
+Function IsHexByte(h)
+  Dim i, c
+  If Len(h) <> 2 Then IsHexByte = False : Exit Function
+  For i = 1 To 2
+    c = Mid(h, i, 1)
+    If InStr("0123456789ABCDEFabcdef", c) = 0 Then IsHexByte = False : Exit Function
+  Next
+  IsHexByte = True
+End Function
+
+Function UrlDecode(s)
+  Dim i, out, hex, ch
+  out = ""
+  i = 1
+  Do While i <= Len(s)
+    ch = Mid(s, i, 1)
+    If ch = "%" And i + 2 <= Len(s) Then
+      hex = Mid(s, i + 1, 2)
+      If IsHexByte(hex) Then
+        out = out & Chr(CInt("&H" & hex))
+        i = i + 3
+      Else
+        out = out & ch : i = i + 1
+      End If
+    Else
+      If ch = "+" Then out = out & " " Else out = out & ch
+      i = i + 1
+    End If
+  Loop
+  UrlDecode = out
+End Function
+
+Function NormalizePath(p)
+  Dim s, fso, ch
+  s = Trim(CStr(p))
+  s = UrlDecode(s)
+  s = Replace(s, "/", "\")
+  If LCase(Left(s, 8)) = "file:///\" Then s = Mid(s, 9)
+  If LCase(Left(s, 5)) = "file:" Then
+    s = Mid(s, 6)
+    Do While Len(s) > 0 And (Left(s, 1) = "\" Or Left(s, 1) = "/")
+      s = Mid(s, 2)
+    Loop
+  End If
+  If Len(s) >= 3 And Left(s, 1) = "\" Then
+    ch = Mid(s, 2, 1)
+    If (ch >= "A" And ch <= "Z") Or (ch >= "a" And ch <= "z") Then
+      If Mid(s, 3, 1) = ":" Then s = Mid(s, 2)
+    End If
+  End If
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  If fso.FolderExists(s) Then
+    NormalizePath = fso.GetAbsolutePathName(s)
+  ElseIf fso.FileExists(s) Then
+    NormalizePath = fso.GetAbsolutePathName(s)
+  Else
+    NormalizePath = s
+  End If
+End Function
+
+Function ProjectRoot()
+  Dim fso, rootFile, cached, href, htaDir
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  htaDir = HtaFileDir()
+  rootFile = fso.BuildPath(fso.BuildPath(htaDir, "data"), "hta_root.txt")
+  If fso.FileExists(rootFile) Then
+    cached = Trim(ReadTextFile(rootFile))
+    If Len(cached) > 0 And fso.FolderExists(cached) Then
+      ProjectRoot = fso.GetAbsolutePathName(cached)
+      Exit Function
+    End If
+  End If
+  ProjectRoot = htaDir
+End Function
+
+Function HtaFileDir()
+  Dim fso, href, p
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  href = document.location.href
+  href = Replace(href, "file:///", "")
+  href = Replace(href, "file://", "")
+  href = UrlDecode(href)
+  href = Replace(href, "/", "\")
+  If Len(href) >= 3 And Left(href, 1) = "\" And Mid(href, 3, 1) = ":" Then
+    href = Mid(href, 2)
+  End If
+  If fso.FileExists(href) Then
+    HtaFileDir = fso.GetParentFolderName(fso.GetAbsolutePathName(href))
+    Exit Function
+  End If
+  p = NormalizePath(document.location.pathname)
+  If fso.FileExists(p) Then
+    HtaFileDir = fso.GetParentFolderName(fso.GetAbsolutePathName(p))
+  ElseIf InStr(p, "\") > 0 Then
+    HtaFileDir = fso.GetParentFolderName(p)
+  Else
+    HtaFileDir = p
+  End If
+End Function
+
+Function Pad2(n)
+  If n < 10 Then Pad2 = "0" & CStr(n) Else Pad2 = CStr(n)
+End Function
+
+Function StripPrefix(val, prefix)
+  Dim v, p
+  v = Trim(CStr(val))
+  p = CStr(prefix)
+  If LCase(Left(v, Len(p))) = LCase(p) Then StripPrefix = Mid(v, Len(p) + 1) Else StripPrefix = v
+End Function
+
+Sub SetBacktestDefaults
+  On Error Resume Next
+  Dim d
+  d = Year(Now) & "-" & Pad2(Month(Now)) & "-" & Pad2(Day(Now))
+  document.getElementById("bt-start-date").value = d
+  document.getElementById("bt-end-date").value = d
+  On Error GoTo 0
+End Sub
+
+Function ReadTextFile(path)
+  Dim fso, ts, content
+  ReadTextFile = ""
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  If Not fso.FileExists(path) Then Exit Function
+  On Error Resume Next
+  Set ts = fso.OpenTextFile(path, 1, False, 0)
+  If Not ts.AtEndOfStream Then ReadTextFile = ts.ReadAll
+  ts.Close
+  If Len(ReadTextFile) > 0 Then Exit Function
+  Err.Clear
+  Dim stm
+  Set stm = CreateObject("ADODB.Stream")
+  stm.Type = 2
+  stm.Charset = "utf-8"
+  stm.Open
+  stm.LoadFromFile path
+  content = stm.ReadText
+  stm.Close
+  If Err.Number = 0 And Len(content) > 0 Then ReadTextFile = content
+  On Error GoTo 0
+End Function
+
+Function StripBom(s)
+  Dim t
+  t = CStr(s)
+  If Len(t) >= 3 Then
+    If Left(t, 3) = Chr(239) & Chr(187) & Chr(191) Then t = Mid(t, 4)
+  End If
+  StripBom = t
+End Function
+
+Function NormalizeLines(out)
+  Dim t
+  t = Replace(out, vbCrLf, vbLf)
+  t = Replace(t, vbCr, vbLf)
+  NormalizeLines = Split(StripBom(t), vbLf)
+End Function
+
+Function ReadSnapshot(root)
+  Dim fso, cachePath, out
+  ReadSnapshot = ""
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  cachePath = fso.BuildPath(fso.BuildPath(root, "data"), "hta_dashboard_snapshot.txt")
+  If fso.FileExists(cachePath) Then ReadSnapshot = ReadTextFile(cachePath)
+  KickSnapshotRefresh root
+End Function
+
+Sub KickSnapshotRefresh(root)
+  Dim fso, tmp, sh, cmd, snapBat, cachePath
+  On Error Resume Next
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  cachePath = fso.BuildPath(fso.BuildPath(root, "data"), "hta_dashboard_snapshot.txt")
+  tmp = fso.BuildPath(fso.BuildPath(root, "data"), "hta_status_tmp.txt")
+  If fso.FileExists(tmp) Then fso.DeleteFile tmp, True
+  snapBat = fso.BuildPath(root, "start\0_hta_snapshot.bat")
+  If fso.FileExists(snapBat) Then
+    cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & snapBat & Chr(34) & " > " & Chr(34) & tmp & Chr(34) & " 2>&1"
+  Else
+    cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c python " & Chr(34) & fso.BuildPath(root, "scripts\status_snapshot.py") & Chr(34) & " > " & Chr(34) & tmp & Chr(34) & " 2>&1"
+  End If
+  sh.CurrentDirectory = root
+  sh.Run cmd, 0, False
+  On Error GoTo 0
+End Sub
+
+Sub RunSnapshotSync(root)
+  Dim fso, tmp, sh, cmd, snapBat
+  On Error Resume Next
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  tmp = fso.BuildPath(fso.BuildPath(root, "data"), "hta_status_tmp.txt")
+  If fso.FileExists(tmp) Then fso.DeleteFile tmp, True
+  snapBat = fso.BuildPath(root, "start\0_hta_snapshot.bat")
+  If fso.FileExists(snapBat) Then
+    cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & snapBat & Chr(34) & " > " & Chr(34) & tmp & Chr(34) & " 2>&1"
+  Else
+    cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c python " & Chr(34) & fso.BuildPath(root, "scripts\status_snapshot.py") & Chr(34) & " > " & Chr(34) & tmp & Chr(34) & " 2>&1"
+  End If
+  sh.CurrentDirectory = root
+  sh.Run cmd, 0, True
+  If fso.FileExists(tmp) Then fso.DeleteFile tmp, True
+  On Error GoTo 0
+End Sub
+
+Sub RunBatFile(relativePath)
+  Dim sh, fso, root, batPath, cmd
+  On Error Resume Next
+  Set sh = CreateObject("WScript.Shell")
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  root = ProjectRoot()
+  batPath = fso.BuildPath(root, relativePath)
+  If Not fso.FileExists(batPath) Then
+    document.getElementById("action-status").innerText = "Missing: " & relativePath
+    Exit Sub
+  End If
+  document.getElementById("action-status").innerText = "Running " & relativePath & "..."
+  sh.CurrentDirectory = root
+  cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & batPath & Chr(34)
+  sh.Run cmd, 1, False
+  If Err.Number <> 0 Then
+    document.getElementById("action-status").innerText = "Launch failed: " & Err.Description
+  End If
+  On Error GoTo 0
+End Sub
+
+Sub RunStopBot()
+  Dim sh, fso, root, batPath, cmd
+  On Error Resume Next
+  Set sh = CreateObject("WScript.Shell")
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  root = ProjectRoot()
+  batPath = fso.BuildPath(root, "start\5_stop_bot.bat")
+  If Not fso.FileExists(batPath) Then Exit Sub
+  sh.CurrentDirectory = root
+  cmd = sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & batPath & Chr(34) & " --nopause"
+  sh.Run cmd, 0, True
+  document.getElementById("action-status").innerText = "Bot stopped"
+  RefreshLivePanel
+  On Error GoTo 0
+End Sub
+
+Sub ToggleBacktestPanel
+  Dim p
+  Set p = document.getElementById("backtest-panel")
+  If p.style.display = "none" Then SetBacktestDefaults : p.style.display = "block" Else p.style.display = "none"
+End Sub
+
+Sub RunCustomBacktest
+  Dim root, fso, sh, cfgPath, ts, json
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  Set sh = CreateObject("WScript.Shell")
+  root = ProjectRoot()
+  cfgPath = fso.BuildPath(fso.BuildPath(root, "data"), "hta_backtest_request.json")
+  json = "{""start"":""" & Trim(document.getElementById("bt-start-date").value) & " " & Trim(document.getElementById("bt-start-time").value) & """,""end"":""" & Trim(document.getElementById("bt-end-date").value) & " " & Trim(document.getElementById("bt-end-time").value) & """,""balance"":" & Trim(document.getElementById("bt-balance").value) & ",""symbol"":""" & Trim(document.getElementById("bt-symbol").value) & """}"
+  Set ts = fso.CreateTextFile(cfgPath, True, False)
+  ts.Write json : ts.Close
+  sh.CurrentDirectory = root
+  sh.Run sh.ExpandEnvironmentStrings("%COMSPEC%") & " /c call " & Chr(34) & fso.BuildPath(root, "start\8_backtest_custom.bat") & Chr(34), 1, False
+End Sub
+
+Function TaskBadgeHtml(status)
+  Dim s : s = UCase(Trim(status))
+  If s = "RUNNING" Or s = "ON" Or s = "LIVE" Then TaskBadgeHtml = "<span class='badge badge-run'>" & status & "</span>"
+  ElseIf s = "OFF" Or s = "STOPPED" Then TaskBadgeHtml = "<span class='badge badge-off'>" & status & "</span>"
+  Else TaskBadgeHtml = "<span class='badge badge-live'>" & status & "</span>"
+  End If
+End Function
+
+Function EngineBadgeHtml(st)
+  Dim s : s = UCase(Trim(st))
+  If s = "ACTIVE" Or s = "HEALTHY" Then EngineBadgeHtml = "<span class='badge badge-run'>" & st & "</span>"
+  ElseIf s = "DEGRADED" Then EngineBadgeHtml = "<span class='badge badge-warn'>" & st & "</span>"
+  ElseIf s = "DISABLED" Then EngineBadgeHtml = "<span class='badge badge-off'>" & st & "</span>"
+  Else EngineBadgeHtml = "<span class='badge badge-live'>" & st & "</span>"
+  End If
+End Function
+
+Function AlertTitleFa(c)
+  Select Case c
+    Case "MT5_DISCONNECTED": AlertTitleFa = "MT5 Disconnected"
+    Case "TRADE_NOT_ALLOWED": AlertTitleFa = "AutoTrading OFF"
+    Case Else: AlertTitleFa = c
+  End Select
+End Function
+
+Function AlertMessageFa(c, d)
+  If Len(Trim(d)) > 0 Then AlertMessageFa = d Else AlertMessageFa = "System alert"
+End Function
+
+Function AlertIsShown(k)
+  AlertIsShown = (InStr(gShownAlerts, "," & k & ",") > 0)
+End Function
+
+Sub MarkAlertShown(k)
+  If Not AlertIsShown(k) Then gShownAlerts = gShownAlerts & k & ","
+End Sub
+
+Sub ShowAlertPopup(t)
+  MsgBox t, 48, "TradingBot"
+End Sub
+
+Sub ProcessAlerts(lines)
+  On Error Resume Next
+  Dim i, line, parts, ab, bannerHtml, popupText, activeKeys, hasCritical
+  Set ab = document.getElementById("alert-banner")
+  bannerHtml = "" : popupText = "" : activeKeys = "" : hasCritical = False
+  If Not IsArray(lines) Then Exit Sub
+  For i = 0 To UBound(lines)
+    line = Trim(lines(i))
+    If Left(line, 6) = "ALERT|" Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 3 Then
+        activeKeys = activeKeys & parts(2) & ","
+        bannerHtml = bannerHtml & "<div class='alert-item'><b>" & AlertTitleFa(parts(2)) & "</b> " & AlertMessageFa(parts(2), parts(3)) & "</div>"
+        If parts(1) = "critical" Or parts(1) = "error" Then hasCritical = True
+        If Not AlertIsShown(parts(2)) Then popupText = popupText & AlertTitleFa(parts(2)) & vbCrLf & AlertMessageFa(parts(2), parts(3)) & vbCrLf : MarkAlertShown parts(2)
+      End If
+    End If
+  Next
+  If Len(bannerHtml) > 0 Then
+    ab.className = "alert-banner show" : If Not hasCritical Then ab.className = "alert-banner show alert-warn"
+    ab.innerHTML = bannerHtml
+  Else ab.className = "alert-banner" : ab.innerHTML = ""
+  End If
+  On Error GoTo 0
+End Sub
+
+Sub SetNavDot(engineId, state)
+  On Error Resume Next
+  Dim cls : cls = "dot dot-grey"
+  If UCase(state) = "ACTIVE" Or UCase(state) = "HEALTHY" Then cls = "dot dot-green"
+  If UCase(state) = "DEGRADED" Then cls = "dot dot-gold"
+  document.getElementById("dot-" & LCase(engineId)).className = cls
+  On Error GoTo 0
+End Sub
+
+Sub RefreshLivePanel
+  Dim errStep
+  errStep = "start"
+  On Error Resume Next
+  If gRefreshBusy Then Exit Sub
+  gRefreshBusy = True
+  Err.Clear
+  errStep = "vars"
+  Dim root, out, lines, i, line, parts, fso
+  Dim stateHtml, cyclesHtml, procHtml, logHtml, noteHtml, phase4Html
+  Dim engineHtml, signalHtml, taskHtml
+  Dim paPf, paExpR, paAccept, paTrades, mt5Ok, wdText, botText
+  errStep = "root"
+  root = ProjectRoot()
+  errStep = "snapshot"
+  BootTrace "root=" & root
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  out = ReadSnapshot(root)
+  engineHtml = "" : signalHtml = "" : taskHtml = "" : cyclesHtml = ""
+  phase4Html = "" : procHtml = "" : logHtml = "" : noteHtml = ""
+  paPf = "-" : paExpR = "-" : paAccept = "-" : paTrades = "0"
+  mt5Ok = False : wdText = "-" : botText = "-"
+  stateHtml = "<span class='badge badge-off'>OFFLINE</span>"
+
+  If Len(Trim(out)) = 0 Then
+    RunSnapshotSync root
+    out = ReadTextFile(fso.BuildPath(fso.BuildPath(root, "data"), "hta_dashboard_snapshot.txt"))
+  End If
+
+  If Len(Trim(out)) = 0 Then
+    document.getElementById("live-state").innerHTML = "<span class='badge badge-warn'>Snapshot empty - check python path</span>"
+    document.getElementById("action-status").innerText = "Refresh failed - run scripts/status_snapshot.py manually"
+    gRefreshBusy = False : ScheduleRefresh : Exit Sub
+  End If
+
+  lines = NormalizeLines(out)
+
+  For i = 0 To UBound(lines)
+    line = Trim(lines(i))
+    If Len(line) = 0 Then
+    ElseIf LinePrefix(line, "STATE|") Then
+      If InStr(line, "RUNNING") > 0 Then
+        stateHtml = "<span class='badge badge-run'>LIVE RUNNING</span>"
+        document.getElementById("sys-status").innerText = "ACTIVE"
+        document.getElementById("sys-status").style.color = "#3DDC84"
+      Else
+        stateHtml = "<span class='badge badge-off'>STOPPED</span>"
+        document.getElementById("sys-status").innerText = "STOPPED"
+        document.getElementById("sys-status").style.color = "#FF6B6B"
+      End If
+    ElseIf LinePrefix(line, "KERNEL|") Then
+      procHtml = procHtml & Mid(line, 8) & " "
+    ElseIf LinePrefix(line, "NOTE|") Then
+      noteHtml = Mid(line, 6)
+      document.getElementById("demo-banner").className = "demo-banner show"
+      document.getElementById("demo-banner").innerText = noteHtml
+    ElseIf LinePrefix(line, "UTC|") Then
+      document.getElementById("live-utc").innerText = Mid(line, 5) & " UTC"
+    ElseIf LinePrefix(line, "WATCHDOG|") Then
+      wdText = Mid(line, 10)
+    ElseIf LinePrefix(line, "BOT|") Then
+      botText = Mid(line, 5)
+      procHtml = procHtml & "Bot:" & botText & " "
+    ElseIf LinePrefix(line, "ACCOUNT|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 3 Then
+        mt5Ok = True
+        document.getElementById("hero-equity").innerText = "$" & parts(2)
+        If parts(3) = "-" Or Len(Trim(parts(3))) = 0 Then
+          document.getElementById("hero-pnl").innerText = "Balance $" & parts(1) & " | PnL -"
+        Else
+          document.getElementById("hero-pnl").innerText = "Balance $" & parts(1) & " | PnL $" & parts(3)
+        End If
+      End If
+    ElseIf LinePrefix(line, "ALERT|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 2 Then
+        If UCase(parts(2)) = "MT5_DISCONNECTED" Or UCase(parts(2)) = "TRADE_NOT_ALLOWED" Then mt5Ok = False
+      End If
+    ElseIf LinePrefix(line, "ML|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 1 Then
+        document.getElementById("card-ml").innerText = parts(1)
+        If UBound(parts) >= 3 Then document.getElementById("card-ml-detail").innerText = parts(2)
+      End If
+    ElseIf LinePrefix(line, "LOG|") Then
+      parts = Split(line, "|") : If UBound(parts) >= 3 Then logHtml = parts(3)
+    ElseIf LinePrefix(line, "PROP|") Then
+      phase4Html = phase4Html & "<div class='cycle'>Prop: " & Mid(line, 6) & "</div>"
+    ElseIf LinePrefix(line, "DRIFT|") Then
+      phase4Html = phase4Html & "<div class='cycle'>Drift: " & Mid(line, 7) & "</div>"
+    ElseIf LinePrefix(line, "SLIP|") Then
+      phase4Html = phase4Html & "<div class='cycle'>Slippage: " & Mid(line, 6) & "</div>"
+    ElseIf LinePrefix(line, "SPREAD|") Then
+      phase4Html = phase4Html & "<div class='cycle'>Spread: " & Mid(line, 8) & " pips</div>"
+    ElseIf LinePrefix(line, "ENGINE|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 7 Then
+        engineHtml = engineHtml & "<table class='engine-row'><tr>"
+        engineHtml = engineHtml & "<td class='engine-name'>" & parts(1) & "</td>"
+        engineHtml = engineHtml & "<td class='engine-state'>" & EngineBadgeHtml(parts(2)) & "</td>"
+        engineHtml = engineHtml & "<td class='engine-metrics'>"
+        engineHtml = engineHtml & StripPrefix(parts(4), "accept=") & "% | "
+        engineHtml = engineHtml & StripPrefix(parts(5), "trades=") & " tr | "
+        engineHtml = engineHtml & "PF " & StripPrefix(parts(6), "PF=")
+        engineHtml = engineHtml & " | " & StripPrefix(parts(7), "ExpR=") & "R"
+        engineHtml = engineHtml & "</td></tr></table>"
+        If UCase(parts(1)) = "PA" Then
+          paAccept = StripPrefix(parts(4), "accept=") & "%"
+          paPf = StripPrefix(parts(6), "PF=")
+          paTrades = StripPrefix(parts(5), "trades=")
+          paExpR = StripPrefix(parts(7), "ExpR=") & "R"
+          SetNavDot "pa", parts(2)
+        End If
+        If UCase(parts(1)) = "VOL" Then SetNavDot "vol", parts(2)
+        If UCase(parts(1)) = "ADAPTIVE" Then SetNavDot "adp", parts(2)
+        If InStr(UCase(parts(1)), "ML") > 0 Then SetNavDot "ml", parts(2)
+      End If
+    ElseIf LinePrefix(line, "TASK|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 3 Then
+        taskHtml = taskHtml & "<table class='task-row'><tr>"
+        taskHtml = taskHtml & "<td class='task-name'>" & parts(1) & "</td>"
+        taskHtml = taskHtml & "<td class='task-badge'>" & TaskBadgeHtml(parts(2)) & " <span style='color:#5C5854;font-size:9px'>" & parts(3) & "</span></td>"
+        taskHtml = taskHtml & "</tr></table>"
+      End If
+    ElseIf LinePrefix(line, "SIGNAL|") Then
+      signalHtml = "<div class='signal-row'>" & Mid(line, 8) & "</div>" & signalHtml
+    ElseIf LinePrefix(line, "CYCLE|") Then
+      parts = Split(line, "|")
+      If UBound(parts) >= 4 Then cyclesHtml = cyclesHtml & "<div class='cycle'>" & parts(2) & " | " & parts(3) & " | " & parts(4) & "</div>"
+    End If
+  Next
+
+  ProcessAlerts lines
+  document.getElementById("live-state").innerHTML = stateHtml
+  If mt5Ok Then
+    document.getElementById("footer-api").innerText = "API: MT5 LINK"
+    document.getElementById("api-status").innerText = "LINK"
+    document.getElementById("api-status").style.color = "#3DDC84"
+  Else
+    document.getElementById("footer-api").innerText = "API: MT5 OFF"
+    document.getElementById("api-status").innerText = "OFF"
+    document.getElementById("api-status").style.color = "#FF6B6B"
+  End If
+  document.getElementById("footer-watchdog").innerText = "WD: " & wdText
+  document.getElementById("footer-bot").innerText = "BOT: " & botText
+  document.getElementById("footer-latency").innerText = "REFRESH: 30s"
+  document.getElementById("action-status").innerText = "OK " & Len(out) & " bytes | " & root
+  Dim bootLog, bootTs
+  bootLog = fso.BuildPath(fso.BuildPath(root, "data"), "hta_last_refresh.txt")
+  Set bootTs = fso.CreateTextFile(bootLog, True, False)
+  bootTs.Write CStr(Now) & "|bytes=" & Len(out) & "|root=" & root
+  bootTs.Close
+  document.getElementById("card-proc").innerText = procHtml
+  document.getElementById("kpi-pf").innerText = paPf
+  document.getElementById("kpi-expr").innerText = paExpR
+  document.getElementById("kpi-accept").innerText = paAccept
+  document.getElementById("kpi-pf-sub").innerText = paTrades & " trades | PA"
+
+  If Len(engineHtml) > 0 Then document.getElementById("engine-list").innerHTML = engineHtml
+  If Len(taskHtml) > 0 Then document.getElementById("task-list").innerHTML = taskHtml
+  If Len(signalHtml) > 0 Then document.getElementById("signal-stream").innerHTML = signalHtml Else document.getElementById("signal-stream").innerHTML = "<div class='cycle'>No signals yet</div>"
+  If Len(cyclesHtml) > 0 Then document.getElementById("live-cycles").innerHTML = cyclesHtml
+  If Len(logHtml) > 0 Then document.getElementById("live-log").innerText = logHtml
+  If Len(phase4Html) > 0 Then document.getElementById("live-phase4").innerHTML = phase4Html
+
+  gRefreshBusy = False
+  ScheduleRefresh
+  If Err.Number <> 0 Then
+    document.getElementById("action-status").innerText = "Refresh error @ " & errStep & ": " & Err.Description
+    document.getElementById("live-state").innerHTML = "<span class='badge badge-warn'>ERR " & Err.Number & "</span>"
+  End If
+  On Error GoTo 0
+End Sub
+
+Sub ScheduleRefresh
+  window.setTimeout GetRef("RefreshLivePanel"), 30000
+End Sub
+
+
+
+
+
+
+
+
+
+
+Sub btnGoLive_OnClick
+  RunBatFile "start\START_BOT.bat"
+End Sub
+
+Sub btnStop_OnClick
+  RunStopBot
+End Sub
+
+Sub btnPrepare_OnClick
+  RunBatFile "start\GO_LIVE_FULL.bat"
+End Sub
+
+Sub btnCheck_OnClick
+  RunBatFile "start\1_check_setup.bat"
+End Sub
+
+Sub btnStatus_OnClick
+  RunBatFile "start\6_status.bat"
+End Sub
+
+Sub btnBacktest_OnClick
+  ToggleBacktestPanel
+End Sub
+
+Sub btnDailyReport_OnClick
+  RunBatFile "start\16_daily_report.bat"
+End Sub
+
+Sub btnRefresh_OnClick
+  RefreshLivePanel
+End Sub
+
+Sub btnRunBacktest_OnClick
+  RunCustomBacktest
+End Sub
+
+Sub btnCloseBacktest_OnClick
+  ToggleBacktestPanel
+End Sub
+
+Call InitDashboard
+</script>
+</body></html>

@@ -1,0 +1,6 @@
+{
+  "timestamp_utc": "2026-07-13T11:01:29Z",
+  "fix": "timestamp_resolved_absolute_index",
+  "v6_bug": "bar_index was slice-relative not global on fullest candles",
+  "v7_resolution": "timestamp searchsorted on fullest candle store"
+}

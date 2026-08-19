@@ -1,0 +1,77 @@
+{
+  "phase": "30B",
+  "methodology": "Ranked by measured PF/DD delta from Phase30A evidence, breaking point sweeps, and production code audit",
+  "rankings": [
+    {
+      "rank": 1,
+      "weakness": "Fixed idealized spread on entry AND missing exit spread/slip in production",
+      "category": "spread_exit_friction",
+      "evidence_strength": 92,
+      "metrics": {
+        "pf_ideal": 1.211,
+        "pf_sim_normal": 1.0486,
+        "pf_delta": -0.1624,
+        "dd_ideal_pct": 24.264,
+        "dd_sim_pct": 38.4953,
+        "spread_breaking_multiplier": 1.5
+      },
+      "estimated_pf_share_of_loss": 0.55
+    },
+    {
+      "rank": 2,
+      "weakness": "Exit execution at exact TP/SL/bar close \u2014 no friction in production path",
+      "category": "exit_fill_idealization",
+      "evidence_strength": 94,
+      "metrics": {
+        "phase30a_applies_cost_both_legs": true,
+        "exit_policy_exact_level": true
+      },
+      "estimated_pf_share_of_loss": 0.3
+    },
+    {
+      "rank": 3,
+      "weakness": "Partial fill + liquidity model (22.9% partial, low_liq PF 0.80)",
+      "category": "liquidity_partial_fills",
+      "evidence_strength": 82,
+      "metrics": {
+        "partial_fill_pct": 22.9,
+        "low_liquidity_pf": 0.8019
+      },
+      "estimated_pf_share_of_loss": 0.1
+    },
+    {
+      "rank": 4,
+      "weakness": "News/flash crash tail risk (PF 0.58\u20130.73 under stress)",
+      "category": "tail_event_execution",
+      "evidence_strength": 85,
+      "metrics": {
+        "news_pf": 0.732,
+        "flash_crash_pf": 0.5824
+      },
+      "estimated_pf_share_of_loss": 0.03
+    },
+    {
+      "rank": 5,
+      "weakness": "Slippage understatement in paper (hidden from journal)",
+      "category": "slippage_reporting",
+      "evidence_strength": 85,
+      "metrics": {
+        "slippage_breaking_multiplier": 7.0
+      },
+      "estimated_pf_share_of_loss": 0.02
+    },
+    {
+      "rank": 6,
+      "weakness": "Latency/queue models non-binding on PnL",
+      "category": "latency_disconnected",
+      "evidence_strength": 95,
+      "metrics": {
+        "latency_sweep_pf_variance": 0.0
+      },
+      "estimated_pf_share_of_loss": 0.0,
+      "note": "Model weakness is omission not edge loss in replay"
+    }
+  ],
+  "dominant_bottleneck": "Fixed idealized spread on entry AND missing exit spread/slip in production",
+  "generated_utc": "2026-07-10T08:44:28.787451+00:00"
+}

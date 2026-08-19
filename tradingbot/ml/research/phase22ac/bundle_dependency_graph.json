@@ -1,0 +1,132 @@
+{
+  "phase": "22AC",
+  "nodes": [
+    {
+      "id": "training",
+      "label": "Training",
+      "depth_upstream": 0,
+      "depth_downstream": 5
+    },
+    {
+      "id": "acceptance",
+      "label": "Acceptance",
+      "depth_upstream": 1,
+      "depth_downstream": 4
+    },
+    {
+      "id": "freeze",
+      "label": "Freeze",
+      "depth_upstream": 0,
+      "depth_downstream": 4
+    },
+    {
+      "id": "registry",
+      "label": "Registry",
+      "depth_upstream": 2,
+      "depth_downstream": 3
+    },
+    {
+      "id": "loading",
+      "label": "Loading",
+      "depth_upstream": 3,
+      "depth_downstream": 2
+    },
+    {
+      "id": "runtime",
+      "label": "Runtime",
+      "depth_upstream": 4,
+      "depth_downstream": 1
+    },
+    {
+      "id": "live_trading",
+      "label": "Live Trading",
+      "depth_upstream": 5,
+      "depth_downstream": 0
+    },
+    {
+      "id": "shadow",
+      "label": "Shadow",
+      "depth_upstream": 3,
+      "depth_downstream": 2
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "depth_upstream": 4,
+      "depth_downstream": 1
+    },
+    {
+      "id": "testing",
+      "label": "Testing",
+      "depth_upstream": 2,
+      "depth_downstream": 1
+    }
+  ],
+  "edges": [
+    {
+      "from": "training",
+      "to": "acceptance",
+      "relation": "RobustnessOptimizer → evaluate_acceptance → JSON reports"
+    },
+    {
+      "from": "training",
+      "to": "freeze",
+      "relation": "NO CODE EDGE — optimizer never calls freeze"
+    },
+    {
+      "from": "freeze",
+      "to": "registry",
+      "relation": "freeze_phase9_9_artifacts writes phase9_9_best/"
+    },
+    {
+      "from": "registry",
+      "to": "loading",
+      "relation": "load_phase9_9_bundle reads artifacts"
+    },
+    {
+      "from": "loading",
+      "to": "runtime",
+      "relation": "EngineRegistry, RangeEngineAdapter, MLAdapter"
+    },
+    {
+      "from": "runtime",
+      "to": "live_trading",
+      "relation": "PipelineCache → kernel decision path"
+    },
+    {
+      "from": "loading",
+      "to": "shadow",
+      "relation": "ShadowEngine, KernelShadowRunner, MLAdapter"
+    },
+    {
+      "from": "shadow",
+      "to": "freeze",
+      "relation": "build_if_missing=True / _ensure_artifacts back-edge"
+    },
+    {
+      "from": "loading",
+      "to": "health",
+      "relation": "HealthGate verify_bundle_integrity"
+    },
+    {
+      "from": "health",
+      "to": "live_trading",
+      "relation": "require_health → fallback if fail"
+    },
+    {
+      "from": "freeze",
+      "to": "testing",
+      "relation": "pytest direct freeze to temp dirs"
+    },
+    {
+      "from": "registry",
+      "to": "testing",
+      "relation": "research forensics read build_if_missing=False"
+    }
+  ],
+  "max_upstream_depth": 5,
+  "max_downstream_depth": 5,
+  "critical_back_edge": "shadow → freeze (can overwrite production artifacts)",
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

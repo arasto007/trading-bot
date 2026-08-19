@@ -1,0 +1,741 @@
+{
+  "phase": "22E",
+  "title": "Full Production Validation & Profitability Certification",
+  "generated_at": "2026-07-05T06:03:22.488090+00:00",
+  "pipeline": "ClosedBar→TradingKernel→RegimeRouter→Trend_v41→phase9_9→Calibration→Confidence→Quality→Phase19C→Meta→RiskGate→SimExec",
+  "fixes_under_test": "Phase22D (v41 Top5 full-series + TREND confidence recovery)",
+  "optimization": false,
+  "validation_only": true,
+  "success_criteria": {
+    "buy_sell_active": true,
+    "m5_m15_h4_active": false,
+    "pf_gt_1_30": false,
+    "positive_expectancy": false,
+    "max_dd_ok": true,
+    "portfolio_profitable": false,
+    "no_22d_regression": true
+  },
+  "verdict": "NOT_READY_FOR_LIVE",
+  "profitability_summary": {
+    "phase": "22E",
+    "per_timeframe": {
+      "M5": {
+        "bars": 10068,
+        "buy_signals": 13,
+        "sell_signals": 9918,
+        "hold_signals": 137,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "signals_blocked": 9904,
+        "trades_executed": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0
+      },
+      "M15": {
+        "bars": 3348,
+        "buy_signals": 0,
+        "sell_signals": 0,
+        "hold_signals": 3348,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "signals_blocked": 3348,
+        "trades_executed": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0
+      },
+      "H4": {
+        "bars": 282,
+        "buy_signals": 0,
+        "sell_signals": 0,
+        "hold_signals": 282,
+        "trend_trades": 0,
+        "range_trades": 0,
+        "signals_blocked": 282,
+        "trades_executed": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0
+      }
+    },
+    "all_windows": {
+      "M5": {
+        "1m": {
+          "timeframe": "M5",
+          "window": {
+            "label": "1m",
+            "start_tehran": "2026-06-05 03:46",
+            "end_tehran": "2026-07-05 03:46"
+          },
+          "elapsed_sec": 1985.0,
+          "pipeline": "TradingKernel→RegimeRouter→Trend_v41→phase9_9→Calibration→Confidence→Quality→Phase19C→Meta→RiskGate→SimExec",
+          "audit": {
+            "bars": 10068,
+            "bars_in_window": 10068,
+            "buy_signals": 13,
+            "sell_signals": 9918,
+            "hold_signals": 137,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "signals_blocked": 9904,
+            "trades_executed": 0,
+            "hold_chain": {
+              "bars_evaluated": 10068,
+              "buy_emitted": 13,
+              "sell_emitted": 9918,
+              "ml_signals": 9931,
+              "ml_hold_stages": {
+                "decision_hold": 123,
+                "calibration_hold": 0,
+                "trade_quality_hold": 0,
+                "rsi_filter_hold": 14,
+                "adx_filter_hold": 0
+              },
+              "ml_hold_total": 137,
+              "meta_hold": 0,
+              "riskgate_hold": 9767,
+              "riskgate_block_reasons": {
+                "max positions for symbol": 58,
+                "daily loss limit": 895,
+                "min balance breached": 8814
+              }
+            }
+          },
+          "all_trades_count": 17,
+          "window_trades_count": 0,
+          "metrics_all": {
+            "total_trades": 17,
+            "wins": 4,
+            "losses": 13,
+            "win_rate_pct": 23.53,
+            "profit_factor": 0.238,
+            "gross_profit": 19.92,
+            "gross_loss": 83.84,
+            "net_profit": -63.92,
+            "return_pct": -31.96,
+            "avg_win": 4.98,
+            "avg_loss": -6.45,
+            "expectancy": -3.76,
+            "max_drawdown_pct": 40.81,
+            "max_drawdown_abs": 93.81,
+            "sharpe_ratio": -3.364,
+            "final_balance": 136.08,
+            "exit_reasons": {
+              "sl": 17
+            },
+            "average_r": -0.5404,
+            "recovery_factor": -0.6814,
+            "sortino_ratio": -0.3216,
+            "mar_ratio": -0.7831,
+            "buy_trades": 0,
+            "sell_trades": 17,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 10068,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": false,
+              "buy_active": false,
+              "sell_active": true
+            }
+          },
+          "metrics_window": {
+            "total_trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "win_rate_pct": 0.0,
+            "profit_factor": 0.0,
+            "gross_profit": 0,
+            "gross_loss": 0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "max_drawdown_abs": 0.0,
+            "sharpe_ratio": 0.0,
+            "final_balance": 200.0,
+            "exit_reasons": {},
+            "average_r": 0.0,
+            "recovery_factor": 0.0,
+            "sortino_ratio": 0.0,
+            "mar_ratio": 0.0,
+            "buy_trades": 0,
+            "sell_trades": 0,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 1,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": true,
+              "buy_active": false,
+              "sell_active": false
+            }
+          },
+          "trades_window": []
+        }
+      },
+      "M15": {
+        "1m": {
+          "timeframe": "M15",
+          "window": {
+            "label": "1m",
+            "start_tehran": "2026-06-05 03:46",
+            "end_tehran": "2026-07-05 03:46"
+          },
+          "elapsed_sec": 507.4,
+          "pipeline": "TradingKernel→RegimeRouter→Trend_v41→phase9_9→Calibration→Confidence→Quality→Phase19C→Meta→RiskGate→SimExec",
+          "audit": {
+            "bars": 3348,
+            "bars_in_window": 3348,
+            "buy_signals": 0,
+            "sell_signals": 0,
+            "hold_signals": 3348,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "signals_blocked": 3348,
+            "trades_executed": 0,
+            "hold_chain": {
+              "bars_evaluated": 3348,
+              "buy_emitted": 0,
+              "sell_emitted": 0,
+              "ml_signals": 0,
+              "ml_hold_stages": {
+                "decision_hold": 3348,
+                "calibration_hold": 0,
+                "trade_quality_hold": 0,
+                "rsi_filter_hold": 0,
+                "adx_filter_hold": 0
+              },
+              "ml_hold_total": 3348,
+              "meta_hold": 0,
+              "riskgate_hold": 0,
+              "riskgate_block_reasons": {}
+            }
+          },
+          "all_trades_count": 0,
+          "window_trades_count": 0,
+          "metrics_all": {
+            "total_trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "win_rate_pct": 0.0,
+            "profit_factor": 0.0,
+            "gross_profit": 0,
+            "gross_loss": 0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "max_drawdown_abs": 0.0,
+            "sharpe_ratio": 0.0,
+            "final_balance": 200.0,
+            "exit_reasons": {},
+            "average_r": 0.0,
+            "recovery_factor": 0.0,
+            "sortino_ratio": 0.0,
+            "mar_ratio": 0.0,
+            "buy_trades": 0,
+            "sell_trades": 0,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 3348,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": true,
+              "buy_active": false,
+              "sell_active": false
+            }
+          },
+          "metrics_window": {
+            "total_trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "win_rate_pct": 0.0,
+            "profit_factor": 0.0,
+            "gross_profit": 0,
+            "gross_loss": 0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "max_drawdown_abs": 0.0,
+            "sharpe_ratio": 0.0,
+            "final_balance": 200.0,
+            "exit_reasons": {},
+            "average_r": 0.0,
+            "recovery_factor": 0.0,
+            "sortino_ratio": 0.0,
+            "mar_ratio": 0.0,
+            "buy_trades": 0,
+            "sell_trades": 0,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 1,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": true,
+              "buy_active": false,
+              "sell_active": false
+            }
+          },
+          "trades_window": []
+        }
+      },
+      "H4": {
+        "1m": {
+          "timeframe": "H4",
+          "window": {
+            "label": "1m",
+            "start_tehran": "2026-06-05 03:46",
+            "end_tehran": "2026-07-05 03:46"
+          },
+          "elapsed_sec": 42.2,
+          "pipeline": "TradingKernel→RegimeRouter→Trend_v41→phase9_9→Calibration→Confidence→Quality→Phase19C→Meta→RiskGate→SimExec",
+          "audit": {
+            "bars": 282,
+            "bars_in_window": 282,
+            "buy_signals": 0,
+            "sell_signals": 0,
+            "hold_signals": 282,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "signals_blocked": 282,
+            "trades_executed": 0,
+            "hold_chain": {
+              "bars_evaluated": 282,
+              "buy_emitted": 0,
+              "sell_emitted": 0,
+              "ml_signals": 0,
+              "ml_hold_stages": {
+                "decision_hold": 0,
+                "calibration_hold": 0,
+                "trade_quality_hold": 0,
+                "rsi_filter_hold": 282,
+                "adx_filter_hold": 0
+              },
+              "ml_hold_total": 282,
+              "meta_hold": 0,
+              "riskgate_hold": 0,
+              "riskgate_block_reasons": {}
+            }
+          },
+          "all_trades_count": 0,
+          "window_trades_count": 0,
+          "metrics_all": {
+            "total_trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "win_rate_pct": 0.0,
+            "profit_factor": 0.0,
+            "gross_profit": 0,
+            "gross_loss": 0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "max_drawdown_abs": 0.0,
+            "sharpe_ratio": 0.0,
+            "final_balance": 200.0,
+            "exit_reasons": {},
+            "average_r": 0.0,
+            "recovery_factor": 0.0,
+            "sortino_ratio": 0.0,
+            "mar_ratio": 0.0,
+            "buy_trades": 0,
+            "sell_trades": 0,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 282,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": true,
+              "buy_active": false,
+              "sell_active": false
+            }
+          },
+          "metrics_window": {
+            "total_trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "win_rate_pct": 0.0,
+            "profit_factor": 0.0,
+            "gross_profit": 0,
+            "gross_loss": 0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "max_drawdown_abs": 0.0,
+            "sharpe_ratio": 0.0,
+            "final_balance": 200.0,
+            "exit_reasons": {},
+            "average_r": 0.0,
+            "recovery_factor": 0.0,
+            "sortino_ratio": 0.0,
+            "mar_ratio": 0.0,
+            "buy_trades": 0,
+            "sell_trades": 0,
+            "trend_trades": 0,
+            "range_trades": 0,
+            "bars": 1,
+            "certification": {
+              "pf_target_met": false,
+              "positive_expectancy": false,
+              "max_dd_within_limit": true,
+              "buy_active": false,
+              "sell_active": false
+            }
+          },
+          "trades_window": []
+        }
+      }
+    },
+    "activity": {
+      "m5_active": true,
+      "m15_active": false,
+      "h4_active": false,
+      "buy_active": true,
+      "sell_active": true
+    },
+    "certification_summary": {
+      "pf_target_met": false,
+      "positive_expectancy": false,
+      "max_dd_within_limit": true
+    }
+  },
+  "portfolio": {
+    "phase": "22E",
+    "mode": "shared_portfolio",
+    "window": {
+      "label": "1m",
+      "start_tehran": "2026-06-05 03:46",
+      "end_tehran": "2026-07-05 03:46"
+    },
+    "timeframes": [
+      "M5",
+      "M15",
+      "H4"
+    ],
+    "initial_balance": 200.0,
+    "final_balance": 128.64,
+    "elapsed_sec": 1636.9,
+    "events_processed": 7720,
+    "metrics": {
+      "total_trades": 12,
+      "wins": 2,
+      "losses": 10,
+      "win_rate_pct": 16.67,
+      "profit_factor": 0.241,
+      "gross_profit": 22.6,
+      "gross_loss": 93.97,
+      "net_profit": -71.36,
+      "return_pct": -35.68,
+      "avg_win": 11.3,
+      "avg_loss": -9.4,
+      "expectancy": -5.947,
+      "max_drawdown_pct": 40.87,
+      "max_drawdown_abs": 88.92,
+      "sharpe_ratio": -5.179,
+      "final_balance": 128.64,
+      "exit_reasons": {
+        "tp": 2,
+        "sl": 5,
+        "emergency": 5
+      },
+      "average_r": -0.5614,
+      "recovery_factor": -0.8025,
+      "sortino_ratio": -0.6164,
+      "mar_ratio": -0.873,
+      "buy_trades": 0,
+      "sell_trades": 12,
+      "trend_trades": 0,
+      "range_trades": 0,
+      "bars": 7720,
+      "certification": {
+        "pf_target_met": false,
+        "positive_expectancy": false,
+        "max_dd_within_limit": false,
+        "buy_active": false,
+        "sell_active": true
+      }
+    },
+    "trades": 12,
+    "pipeline_note": "Shared SimulatedBroker + BacktestRiskGate across M5/M15/H4 chronological events"
+  },
+  "distribution": {
+    "phase": "22E",
+    "per_timeframe": {
+      "M5": {
+        "label": "M5",
+        "total_trades": 0,
+        "buy_pct": 0.0,
+        "sell_pct": 0.0,
+        "trend_pct": 0.0,
+        "range_pct": 0.0,
+        "long_win_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "short_loss_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "monthly_trades": {},
+        "weekly_trades": {},
+        "daily_trades": {}
+      },
+      "M15": {
+        "label": "M15",
+        "total_trades": 0,
+        "buy_pct": 0.0,
+        "sell_pct": 0.0,
+        "trend_pct": 0.0,
+        "range_pct": 0.0,
+        "long_win_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "short_loss_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "monthly_trades": {},
+        "weekly_trades": {},
+        "daily_trades": {}
+      },
+      "H4": {
+        "label": "H4",
+        "total_trades": 0,
+        "buy_pct": 0.0,
+        "sell_pct": 0.0,
+        "trend_pct": 0.0,
+        "range_pct": 0.0,
+        "long_win_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "short_loss_streaks": {
+          "max": 0,
+          "current": 0
+        },
+        "monthly_trades": {},
+        "weekly_trades": {},
+        "daily_trades": {}
+      }
+    }
+  },
+  "walkforward": {
+    "phase": "22E",
+    "method": "chronological_walk_forward",
+    "shuffled": false,
+    "n_folds": 1,
+    "stable_folds": 0,
+    "stable": false,
+    "passed": false,
+    "folds": [
+      {
+        "fold": 0,
+        "train_trades": 0,
+        "test_trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "average_r": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "stable": false
+      }
+    ],
+    "total_trades": 0
+  },
+  "montecarlo": {
+    "phase": "22E",
+    "passed": false,
+    "note": "no_trades",
+    "n_sims": 1000,
+    "scenarios": {}
+  },
+  "stress": {
+    "phase": "22E",
+    "timeframe": "M5",
+    "window": {
+      "label": "1m",
+      "start_tehran": "2026-06-05 03:46",
+      "end_tehran": "2026-07-05 03:46"
+    },
+    "scenarios": {
+      "baseline": {
+        "trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "passed": true
+      },
+      "high_spread": {
+        "trades": 6,
+        "profit_factor": 0.197,
+        "expectancy": -4.508,
+        "net_profit": -27.05,
+        "max_drawdown_pct": 9.89,
+        "win_rate_pct": 33.33,
+        "passed": true
+      },
+      "low_spread": {
+        "trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "passed": true
+      },
+      "high_slippage": {
+        "trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "passed": false
+      },
+      "missed_ticks": {
+        "trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "passed": false
+      },
+      "delayed_execution": {
+        "trades": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "net_profit": 0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "passed": false
+      }
+    },
+    "volatility_regimes": {
+      "high_spread_vs_baseline": {
+        "pf_delta": 0.197,
+        "dd_delta": 9.89
+      },
+      "low_spread_vs_baseline": {
+        "pf_delta": 0.0
+      }
+    },
+    "overall_passed": true,
+    "trade_regime_segments": {
+      "phase": "19D",
+      "passed": false,
+      "note": "no_trades",
+      "segments": []
+    }
+  },
+  "delta_vs_prior_phases": {
+    "phase": "22E",
+    "comparison_targets": [
+      "19D",
+      "20B",
+      "22B",
+      "22D"
+    ],
+    "current_snapshot": {
+      "m5_trades": 0,
+      "m5_pf": null,
+      "m5_expectancy": null,
+      "m5_buy_signals": 0,
+      "m5_sell_signals": 0,
+      "m15_active": false,
+      "h4_active": false
+    },
+    "deltas": {
+      "profitability_vs_22b": {
+        "m5_trades_delta": -2,
+        "m5_pf_delta": null,
+        "22b_m5_trades": 2,
+        "22e_m5_trades": 0
+      },
+      "buy_sell_vs_22d": {
+        "22d_orchestrator_buy": 55,
+        "22d_orchestrator_sell": 629,
+        "22e_m5_buy_signals": 0,
+        "22e_m5_sell_signals": 0,
+        "buy_restored": false
+      },
+      "vs_phase19d_baseline": {
+        "19d_pf_3y": 1.785714,
+        "19d_expectancy_r": 0.415094,
+        "22e_note": "19D used research certification path; 22E uses full production BacktestEngine"
+      },
+      "vs_phase20b_live": {
+        "20b_pf": 2.0,
+        "20b_trades": 72,
+        "22e_note": "20B observed live path; 22E backtest certification"
+      }
+    },
+    "profitability_improved_vs_22b": false,
+    "buy_sell_balance_restored": false,
+    "m15_active": false,
+    "h4_active": false,
+    "no_regression_vs_22d": true,
+    "references": {
+      "phase19d": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase19d\\phase19d_final_report.json",
+      "phase20b": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase20b\\phase20b_final_report.json",
+      "phase22b": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22b\\profitability_baseline.json",
+      "phase22d": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22d\\validation_results.json"
+    }
+  },
+  "live_readiness": {
+    "phase": "22E",
+    "generated_at": "2026-07-05T06:03:22.487091+00:00",
+    "verdict": "NOT_READY_FOR_LIVE",
+    "checks": {
+      "buy_and_sell_active": true,
+      "m5_active": true,
+      "m15_active": false,
+      "h4_active": false,
+      "pf_target_met": false,
+      "positive_expectancy": false,
+      "max_dd_within_limit": true,
+      "portfolio_profitable": false,
+      "no_regression_22d": true,
+      "walkforward_stable": false,
+      "montecarlo_passed": false,
+      "stress_acceptable": true
+    },
+    "passed_critical": false,
+    "passed_all_targets": false,
+    "pf_target": 1.3,
+    "max_dd_limit_pct": 25.0,
+    "recommendation": "Not ready for live. Failed checks: m15_active, h4_active, pf_target_met, positive_expectancy, portfolio_profitable, walkforward_stable, montecarlo_passed."
+  },
+  "backtest_windows": [
+    "M5",
+    "M15",
+    "H4"
+  ],
+  "elapsed_total_sec": 20806.7
+}

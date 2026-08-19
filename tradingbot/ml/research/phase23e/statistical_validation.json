@@ -1,0 +1,37 @@
+{
+  "phase": "23E",
+  "paired_bootstrap_samples": 1000,
+  "production_pf": 1.851852,
+  "candidate_pf": 2.285714,
+  "production_expectancy": 0.442308,
+  "candidate_expectancy": 0.6,
+  "pf_delta": 0.4339,
+  "expectancy_delta": 0.1577,
+  "bootstrap_pf_diff_ci_95": [
+    -0.1034,
+    1.1974
+  ],
+  "statistically_significant_improvement": false,
+  "cohens_d_effect_size": 0.1053,
+  "candidate_profile": {
+    "profile_id": "f2b3f3a1c2d7",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 40.0,
+    "rsi_max": 65.0,
+    "adx_min": 15.0,
+    "adx_max": 40.0
+  },
+  "baseline_profile": {
+    "profile_id": "production_phase22c",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00"
+}

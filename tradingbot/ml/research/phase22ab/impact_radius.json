@@ -1,0 +1,79 @@
+{
+  "phase": "22AB",
+  "scenario": "hypothetical future freeze-authority change",
+  "items": [
+    {
+      "path": "tradingbot/ml/paper_trading/model_registry.py",
+      "classification": "CRITICAL",
+      "reason": "freeze + load implementation"
+    },
+    {
+      "path": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "classification": "HIGH",
+      "reason": "acceptance producer; would need wiring to freeze"
+    },
+    {
+      "path": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "classification": "HIGH",
+      "reason": "evaluate_acceptance source"
+    },
+    {
+      "path": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "classification": "HIGH",
+      "reason": "build_if_missing auto-freeze"
+    },
+    {
+      "path": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "classification": "HIGH",
+      "reason": "_ensure_artifacts direct freeze"
+    },
+    {
+      "path": "tradingbot/ml/shadow/ml_adapter.py",
+      "classification": "MEDIUM",
+      "reason": "conditional build_if_missing"
+    },
+    {
+      "path": "tradingbot/ml/phase15a/engine_registry.py",
+      "classification": "MEDIUM",
+      "reason": "loads frozen bundle for live registry"
+    },
+    {
+      "path": "tradingbot/ml/integration/health_gate.py",
+      "classification": "MEDIUM",
+      "reason": "loads bundle; no freeze but consumes artifact"
+    },
+    {
+      "path": "tradingbot/ml/integration/pipeline_cache.py",
+      "classification": "MEDIUM",
+      "reason": "caches phase99 bundle"
+    },
+    {
+      "path": "data/ml/research/phase9_9_best/",
+      "classification": "MEDIUM",
+      "reason": "artifact store"
+    },
+    {
+      "path": "scripts/train_model.py",
+      "classification": "MEDIUM",
+      "reason": "would need new freeze integration flag"
+    },
+    {
+      "path": "tradingbot/kernel/",
+      "classification": "SAFE",
+      "reason": "loads via registry; no freeze authority"
+    },
+    {
+      "path": "tests/test_ml_paper_phase9_10.py",
+      "classification": "SAFE",
+      "reason": "test-only freeze calls"
+    }
+  ],
+  "summary": {
+    "CRITICAL": 1,
+    "HIGH": 4,
+    "MEDIUM": 6,
+    "SAFE": 2
+  },
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

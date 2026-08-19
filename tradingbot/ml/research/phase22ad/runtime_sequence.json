@@ -1,0 +1,204 @@
+{
+  "phase": "22AD",
+  "title": "Live Runtime Sequence",
+  "entry": "start/3_live_loop_execute.bat",
+  "terminal": "Phase99Bundle.predict_proba",
+  "use_ml_kernel_required": true,
+  "steps": [
+    {
+      "order": 1,
+      "phase": "Startup",
+      "file": "start/3_live_loop_execute.bat",
+      "function": "(batch)",
+      "object": "cmd.exe",
+      "action": "cd project root; call _load_env.bat; run verify_ml_live_ready.py",
+      "line": 17
+    },
+    {
+      "order": 2,
+      "phase": "Startup",
+      "file": "scripts/verify_ml_live_ready.py",
+      "function": "main",
+      "object": "PipelineCache",
+      "action": "preflight: get_registry(base_dir) if USE_ML_KERNEL and artifacts exist",
+      "line": 123,
+      "note": "Separate process from live child; validates health before spawn"
+    },
+    {
+      "order": 3,
+      "phase": "Startup",
+      "file": "scripts/run_live_watchdog.py",
+      "function": "main",
+      "object": "subprocess",
+      "action": "spawn [python, -m, tradingbot, --loop, --execute]",
+      "line": 62
+    },
+    {
+      "order": 4,
+      "phase": "Startup",
+      "file": "tradingbot/__main__.py",
+      "function": "main",
+      "object": "argparse",
+      "action": "parse --loop --execute → run_live_loop()",
+      "line": 22
+    },
+    {
+      "order": 5,
+      "phase": "Startup",
+      "file": "tradingbot/application/live_runner.py",
+      "function": "run_live_loop → LiveRunner.__init__",
+      "object": "LiveRunner",
+      "action": "construct TradingKernel with build_strategy_registry(legacy_config, base_dir)",
+      "line": 29
+    },
+    {
+      "order": 6,
+      "phase": "Registry",
+      "file": "tradingbot/ml/integration/factory.py",
+      "function": "build_strategy_registry",
+      "object": "MLKernelRegistry",
+      "action": "if USE_ML_KERNEL: build_kernel_adapter → MLKernelRegistry(adapter=...)",
+      "line": 14
+    },
+    {
+      "order": 7,
+      "phase": "Registry",
+      "file": "tradingbot/ml/integration/factory.py",
+      "function": "build_ml_kernel_stack",
+      "object": "PipelineCache",
+      "action": "configure(base_dir); get_registry(base_dir) → EngineRegistry.build_default",
+      "line": 61
+    },
+    {
+      "order": 8,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "load_phase9_9_bundle",
+      "action": "load_phase9_9_bundle(base_dir, build_if_missing=False) — checksum pass",
+      "line": 11
+    },
+    {
+      "order": 9,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "RangeEngineAdapter",
+      "action": "RangeEngineAdapter.load(symbol) → second bundle load (inference instance)",
+      "line": 113
+    },
+    {
+      "order": 10,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "RangeEngineAdapter.load",
+      "object": "Phase99Bundle",
+      "action": "load_phase9_9_bundle(base_dir=None, build_if_missing=False)",
+      "line": 10
+    },
+    {
+      "order": 11,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "object": "Phase99Bundle",
+      "action": "joblib.load(model.pkl); load scaler/feature_order/config/metadata JSON",
+      "line": 169
+    },
+    {
+      "order": 12,
+      "phase": "EngineRegistry",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "Phase99EngineWrapper",
+      "action": "register(RANGE_ENGINE_ID, Phase99EngineWrapper(UnifiedRangeWrapper(range_inner), hash))",
+      "line": 31
+    },
+    {
+      "order": 13,
+      "phase": "Runtime loop",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "function": "run_forever → run_market_cycle",
+      "object": "TradingKernel",
+      "action": "pipeline: DataStage → IndicatorStage → SignalStage → RiskStage → ExecutionStage",
+      "line": 81
+    },
+    {
+      "order": 14,
+      "phase": "Runtime loop",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "function": "SignalStage.run",
+      "object": "MLKernelRegistry",
+      "action": "strategies.generate_signal(market, closed_df)",
+      "line": 1
+    },
+    {
+      "order": 15,
+      "phase": "Runtime loop",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "KernelAdapter.generate_signal → produce_unified_signal",
+      "object": "KernelAdapter",
+      "action": "require_health(registry); get_unified_frame; build_market_context",
+      "line": 154
+    },
+    {
+      "order": 16,
+      "phase": "Health",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "function": "require_health → run_pre_decision_health",
+      "object": "HealthGate",
+      "action": "load_phase9_9_bundle(build_if_missing=False) read-only integrity probe",
+      "line": 16,
+      "note": "Per-bar health check; does not select or rewrite model"
+    },
+    {
+      "order": 17,
+      "phase": "RangeEngineAdapter",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "function": "build_market_context",
+      "object": "UnifiedRangeWrapper",
+      "action": "range_engine.evaluate(row=row_for_phase99_range(row))",
+      "line": 118
+    },
+    {
+      "order": 18,
+      "phase": "RangeEngineAdapter",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "RangeEngineAdapter.evaluate",
+      "object": "Phase99Bundle (in-memory)",
+      "action": "bundle.predict_proba(feats) — LIVE INFERENCE",
+      "line": 72
+    },
+    {
+      "order": 19,
+      "phase": "Phase99EngineWrapper",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "Phase99EngineWrapper.predict",
+      "object": "UnifiedRangeWrapper.inner",
+      "action": "alternative protocol path: inner.evaluate via row_for_phase99_range (same bundle)",
+      "line": 23,
+      "note": "Live bar path uses build_market_context inner reference from _engine_inners(), not wrapper.predict directly"
+    },
+    {
+      "order": 20,
+      "phase": "predict_proba",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "Phase99Bundle.predict_proba",
+      "object": "sklearn model + StandardScaler",
+      "action": "transform(features) → model.predict_proba → float(proba[1])",
+      "line": 67
+    }
+  ],
+  "artifact_state": {
+    "model_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "model.pkl_exists": true,
+    "scaler.pkl_exists": true,
+    "feature_order_exists": true,
+    "config_exists": true,
+    "metadata_exists": true,
+    "metadata_candidate_id": "logistic_strong_reg",
+    "metadata_frozen_at": "2026-06-29T22:15:00.449792+00:00"
+  },
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false
+}

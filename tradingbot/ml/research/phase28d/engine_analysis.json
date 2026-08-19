@@ -1,0 +1,13 @@
+{
+  "phase": "28D",
+  "by_engine": {
+    "phase9_9": {
+      "trades": 575,
+      "win_rate_pct": 35.3,
+      "profit_factor": 1.3803,
+      "net_profit": 1081.7446,
+      "expectancy": 1.8813
+    }
+  },
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

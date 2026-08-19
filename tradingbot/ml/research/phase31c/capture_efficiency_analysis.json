@@ -1,0 +1,22 @@
+{
+  "phase": "31C",
+  "baseline_avg_capture": null,
+  "by_candidate": {
+    "baseline_current": null,
+    "breakeven_0_5r": null,
+    "breakeven_1r": null,
+    "partial_50_at_1r": null,
+    "trailing_atr_1x": null,
+    "atr_exhaustion_exit": null,
+    "structure_ema_break": null,
+    "adaptive_time_fast": 0.0658,
+    "momentum_decay_exit": -0.4431,
+    "adx_deterioration_exit": -0.4412,
+    "trailing_arm_0_75r": -0.2995,
+    "volatility_short_timeout": -0.4371,
+    "multi_stage_partial_trail": -0.328,
+    "hybrid_b_proxy": null
+  },
+  "note": "MFE used post-hoc at exit bar only \u2014 not for exit decisions",
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

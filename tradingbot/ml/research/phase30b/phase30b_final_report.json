@@ -1,0 +1,28 @@
+{
+  "phase": "30B",
+  "verdict": "MORE_INVESTIGATION_REQUIRED",
+  "audit_type": "forensic_read_only",
+  "production_modified": false,
+  "component_count": 20,
+  "dominant_bottleneck": "Fixed idealized spread on entry AND missing exit spread/slip in production",
+  "single_fix_first": "Apply session-aware bid-ask spread (and exit-leg friction) in paper/replay execution path",
+  "realism_score": 42,
+  "pf_evidence": {
+    "ideal_pf": 1.211,
+    "simulated_normal_pf": 1.0486,
+    "high_spread_stress_pf": 0.7536
+  },
+  "deliverables": [
+    "execution_component_audit.json",
+    "execution_interaction_graph.json",
+    "execution_assumption_map.json",
+    "execution_realism_score.json",
+    "execution_root_cause_ranking.json",
+    "execution_missing_features.json",
+    "execution_priority_matrix.json",
+    "execution_risk_matrix.json",
+    "execution_complexity_matrix.json",
+    "phase30b_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T08:44:28.778132+00:00"
+}

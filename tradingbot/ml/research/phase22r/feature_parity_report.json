@@ -1,0 +1,87 @@
+{
+  "phase": "22R",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "method": "Static code comparison — training SparseEventDatasetBuilder vs FeatureBuilder families (no backtest)",
+  "can_featureBuilder_produce_live": true,
+  "features": [
+    {
+      "feature": "ema50_slope",
+      "training_function": "FeatureBuilder → TrendFeatures.compute_features",
+      "training_file": "tradingbot/ml/features/trend.py",
+      "live_function": "Same FeatureBuilder.compute_at → TrendFeatures",
+      "inputs": "M5 OHLCV truncated to index (causal)",
+      "output": "float — (EMA50[i] - EMA50[i-5]) / ATR14",
+      "equivalent_to_training_code": true,
+      "differences_from_training": [
+        "Training uses full CandleStore window; live PipelineCache passes tail(300) only — EMA/ATR stable after warmup",
+        "index < 30 returns 0.0 (warmup gate)",
+        "Rounded to 6 decimals",
+        "NOT the same as build_ml_features ema50_slope (trend_strategy/trend_features.py uses vectorized diff(5) — homonym, different path)"
+      ],
+      "parity_audit": {
+        "formula": "(ema50[-1]-ema50[-6])/atr14 — matches training FeatureBuilder",
+        "normalization": "ATR14 from rolling TR mean",
+        "window": "5-bar EMA slope; EWM span=50",
+        "nan_behavior": "safe_float → 0.0",
+        "edge_cases": "len(work)<30 → all zeros",
+        "timestamp_alignment": "Bar index in candle window; must match closed bar",
+        "parity_score": 92
+      }
+    },
+    {
+      "feature": "candle_direction",
+      "training_function": "FeatureBuilder → PriceActionFeatures.compute_features",
+      "training_file": "tradingbot/ml/features/price_action.py",
+      "live_function": "Same FeatureBuilder.compute_at",
+      "inputs": "Current bar OHLC",
+      "output": "1.0 if close>=open else -1.0",
+      "equivalent_to_training_code": true,
+      "differences_from_training": [
+        "None material — single-bar feature"
+      ],
+      "parity_audit": {
+        "formula": "sign(close vs open)",
+        "normalization": "none",
+        "window": "1 bar",
+        "nan_behavior": "empty work → 0.0",
+        "edge_cases": "none",
+        "timestamp_alignment": "Last bar in truncated window",
+        "parity_score": 100
+      }
+    },
+    {
+      "feature": "structure_distance",
+      "training_function": "FeatureBuilder → SmcStructureFeatures.compute_features",
+      "training_file": "tradingbot/ml/features/smc.py",
+      "live_function": "Same FeatureBuilder.compute_at (requires pa_cfg from get_price_action_config)",
+      "inputs": "M5 OHLCV + enrich_price_action breaks/swings",
+      "output": "float bars since last BOS/CHoCH (cap 999)",
+      "equivalent_to_training_code": true,
+      "differences_from_training": [
+        "PA break history depends on truncated candle window — tail(300) vs full 5Y history may change detected breaks at same timestamp",
+        "Training passes h4/m15/spread to compute_at but SMC family does not consume them",
+        "Native sparsity ~98.7% zero in dataset_v2 even on merge hit",
+        "Live RangeEngineAdapter._features_from_candles omits h4/m15/spread (same for these 3 features)"
+      ],
+      "parity_audit": {
+        "formula": "i - last_break.index; default 999 if no breaks",
+        "normalization": "raw bar count capped at 999",
+        "window": "All bars in truncated_df(df, index)",
+        "nan_behavior": "len(work)<30 → 0.0",
+        "edge_cases": "No breaks → 999.0; inherently sparse",
+        "timestamp_alignment": "Sensitive to swing lookback in visible history",
+        "parity_score": 72
+      }
+    }
+  ],
+  "aggregate_parity_score": 88,
+  "repository_parity_tests_exist": false,
+  "existing_parity_tooling": {
+    "file": "tradingbot/ml/research/phase13_9/feature_parity_checker.py",
+    "scope": "Compares build_ml_features vs legacy router — NOT FeatureBuilder vs dataset_v2"
+  },
+  "phase15i_validation": {
+    "file": "tradingbot/ml/research/phase15i/range_feature_validation.py",
+    "scope": "Checks phase99_* column presence after merge — does NOT compare FeatureBuilder.compute_at values"
+  }
+}

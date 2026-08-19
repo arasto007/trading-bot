@@ -1,0 +1,49 @@
+{
+  "phase": "23D",
+  "phase19b_validation": {
+    "validated_against": "Phase 19A production backtest trade records (177 trades)",
+    "regime_scope": "Hybrid — includes TREND and RANGE (regime_range_only was a research candidate, not selected alone)",
+    "models": "Full kernel path trades from phase19a.backtest",
+    "rsi_mid_selected": true,
+    "adx_15_50_selected": true,
+    "verdict": "SAFE_IMPROVEMENTS_AVAILABLE"
+  },
+  "phase19c_validation": {
+    "validated_against": "Full production stack replay with filters ON (phase9_9 + trend_rf_v41)",
+    "range_engine_named": {
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 50.0
+    },
+    "windows_years": [
+      "365d",
+      "730d",
+      "1095d"
+    ],
+    "verdict": "IMPROVEMENT_ACCEPTED",
+    "recommendation": "RSI + ADX filters validated — keep enabled in production.",
+    "pf_improvement_vs_19a": 0.625,
+    "validated_phase99_range_only": false,
+    "evidence": "phase19c/backtest.py labels range_engine phase9_9 but evaluates all regimes in unified replay"
+  },
+  "phase22c_revalidation": {
+    "validated_against_phase99_range_only": false,
+    "threshold_change": "RSI 40–60 → 35–65; ADX 15–50 → 10–55 (config.py defaults)",
+    "verdict": "NEEDS_REVIEW",
+    "m5_rsi_filter_holds": 2,
+    "note": "Phase 22C changed runtime bands without repository evidence of RANGE-only re-certification"
+  },
+  "phase99_range_specific_evidence": {
+    "found": false,
+    "repository_artifacts_searched": [
+      "data/ml/reports/phase19c/",
+      "data/ml/reports/phase19b/",
+      "tradingbot/ml/research/phase22c/"
+    ],
+    "conclusion": "Filters validated on hybrid ML kernel cohort, not isolated Phase 9.9 RANGE model"
+  },
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

@@ -1,0 +1,39 @@
+{
+  "engines": [
+    {
+      "id": "phase9_9",
+      "bundle": "ml/research/phase9_9_best/",
+      "loader": "ml/paper_trading/model_registry.py",
+      "checksum": "health_gate.validate"
+    },
+    {
+      "id": "trend_rf_v41",
+      "bundle": "ml/research/trend_rf_bundle_v41/",
+      "loader": "ml/phase15a/trend_bundle.py",
+      "active_when": "TREND_MODEL_VERSION=v41"
+    },
+    {
+      "id": "trend_rf_v40",
+      "bundle": "ml/research/trend_rf_bundle/",
+      "registered": true,
+      "active_when": "TREND_MODEL_VERSION=v40"
+    }
+  ],
+  "health_gate": {
+    "file": "ml/integration/health_gate.py",
+    "checks": [
+      "registry health",
+      "trend checksum",
+      "phase9 integrity",
+      "feature order",
+      "dataset fingerprint"
+    ]
+  },
+  "frozen_policy": "build_if_missing=False on hot path",
+  "fallback_on_fail": "KernelFallbackError \u2192 safe HOLD when ALLOW_LEGACY_FALLBACK=0",
+  "inference_path": "EngineRegistry \u2192 range/trend inner.evaluate via build_market_context",
+  "timeout_ms": 500,
+  "timeout_file": "ml/integration/kernel_adapter.py:225",
+  "phase24k_blockers": "AUD-003 mitigated by startup diagnostics + explicit USE_ML_KERNEL requirement",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

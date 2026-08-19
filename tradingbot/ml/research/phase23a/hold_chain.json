@@ -1,0 +1,43 @@
+{
+  "phase": "23A",
+  "model_pass_definition": "buy_emitted + sell_emitted (phase22f/rapid_runner.py)",
+  "bars_evaluated": 3732,
+  "model_pass": 0,
+  "stages": {
+    "decision_hold": 3730,
+    "calibration_hold": 0,
+    "trade_quality_hold": 2,
+    "rsi_filter_hold": 0,
+    "adx_filter_hold": 0
+  },
+  "first_zero_location": {
+    "file": "tradingbot/ml/integration/kernel_adapter.py",
+    "class": "KernelAdapter",
+    "function": "_hold_chain_snapshot",
+    "line": 128,
+    "condition": "raw_action == 'HOLD'",
+    "effect": "records decision_hold; model_pass = buy_emitted + sell_emitted stays 0"
+  },
+  "hold_producers": [
+    {
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "_hold_chain_snapshot",
+      "condition": "raw_action == 'HOLD'",
+      "stage": "decision_hold",
+      "count": 3730
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "_hold_chain_snapshot",
+      "condition": "action not in BUY/SELL after calibration",
+      "stage": "calibration_hold"
+    },
+    {
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "evaluate",
+      "condition": "missing feature vector",
+      "stage": "implicit HOLD before hold chain"
+    }
+  ],
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

@@ -1,0 +1,241 @@
+{
+  "now": "2026-07-15T01:17:29Z",
+  "verdict": "HIGH_NOISE_FEATURES",
+  "rows": 81035,
+  "sample_rows": 8000,
+  "feature_count": 47,
+  "top_features": [
+    "tick_volume_proxy",
+    "atr_14",
+    "realized_vol_20",
+    "rsi_14",
+    "macd_histogram",
+    "ema200_distance",
+    "range_pct",
+    "bar_spread_pct",
+    "ml_confidence",
+    "momentum_5"
+  ],
+  "importance_ranked": [
+    {
+      "feature": "tick_volume_proxy",
+      "importance": 0.07309
+    },
+    {
+      "feature": "atr_14",
+      "importance": 0.068596
+    },
+    {
+      "feature": "realized_vol_20",
+      "importance": 0.060359
+    },
+    {
+      "feature": "rsi_14",
+      "importance": 0.054125
+    },
+    {
+      "feature": "macd_histogram",
+      "importance": 0.04981
+    },
+    {
+      "feature": "ema200_distance",
+      "importance": 0.048162
+    },
+    {
+      "feature": "range_pct",
+      "importance": 0.046604
+    },
+    {
+      "feature": "bar_spread_pct",
+      "importance": 0.041346
+    },
+    {
+      "feature": "ml_confidence",
+      "importance": 0.040347
+    },
+    {
+      "feature": "momentum_5",
+      "importance": 0.040231
+    },
+    {
+      "feature": "upper_wick_ratio",
+      "importance": 0.040198
+    },
+    {
+      "feature": "atr_percentile",
+      "importance": 0.039974
+    },
+    {
+      "feature": "trend_strength",
+      "importance": 0.03868
+    },
+    {
+      "feature": "roc_10",
+      "importance": 0.037059
+    },
+    {
+      "feature": "ema50_slope",
+      "importance": 0.036064
+    },
+    {
+      "feature": "ml_probability",
+      "importance": 0.035012
+    },
+    {
+      "feature": "hour_utc_norm",
+      "importance": 0.034849
+    },
+    {
+      "feature": "stoch_k",
+      "importance": 0.032485
+    },
+    {
+      "feature": "lower_wick_ratio",
+      "importance": 0.031794
+    },
+    {
+      "feature": "order_block_distance",
+      "importance": 0.031427
+    },
+    {
+      "feature": "body_ratio",
+      "importance": 0.0295
+    },
+    {
+      "feature": "is_friday",
+      "importance": 0.013921
+    },
+    {
+      "feature": "m15_market_state",
+      "importance": 0.011751
+    },
+    {
+      "feature": "m5_entry_context",
+      "importance": 0.008925
+    },
+    {
+      "feature": "h4_structure_direction",
+      "importance": 0.005218
+    },
+    {
+      "feature": "fvg_presence",
+      "importance": 0.005164
+    },
+    {
+      "feature": "h4_trend_bias",
+      "importance": 0.00477
+    },
+    {
+      "feature": "session_ny",
+      "importance": 0.004656
+    },
+    {
+      "feature": "volatility_regime",
+      "importance": 0.004333
+    },
+    {
+      "feature": "choch_state",
+      "importance": 0.004043
+    },
+    {
+      "feature": "in_london_kill",
+      "importance": 0.003798
+    },
+    {
+      "feature": "bos_state",
+      "importance": 0.003374
+    },
+    {
+      "feature": "candle_direction",
+      "importance": 0.003127
+    },
+    {
+      "feature": "liquidity_sweep",
+      "importance": 0.00263
+    },
+    {
+      "feature": "session_off",
+      "importance": 0.002581
+    },
+    {
+      "feature": "ema_cross_state",
+      "importance": 0.0023
+    },
+    {
+      "feature": "session_asia",
+      "importance": 0.00214
+    },
+    {
+      "feature": "engulfing_flag",
+      "importance": 0.001955
+    },
+    {
+      "feature": "pin_bar_flag",
+      "importance": 0.00156
+    },
+    {
+      "feature": "session_london",
+      "importance": 0.001297
+    },
+    {
+      "feature": "in_ny_kill",
+      "importance": 0.001169
+    },
+    {
+      "feature": "premium_discount_location",
+      "importance": 0.000824
+    },
+    {
+      "feature": "price_above_ema200",
+      "importance": 0.000749
+    },
+    {
+      "feature": "structure_distance",
+      "importance": 0.0
+    },
+    {
+      "feature": "spread_pips",
+      "importance": 0.0
+    },
+    {
+      "feature": "spread_zscore",
+      "importance": 0.0
+    },
+    {
+      "feature": "spread_spike",
+      "importance": 0.0
+    }
+  ],
+  "noise_features": [
+    "price_above_ema200",
+    "engulfing_flag",
+    "pin_bar_flag",
+    "premium_discount_location",
+    "structure_distance",
+    "session_asia",
+    "session_london",
+    "in_ny_kill",
+    "spread_pips",
+    "spread_zscore",
+    "spread_spike"
+  ],
+  "noise_feature_count": 11,
+  "high_correlation_pairs": [
+    {
+      "a": "atr_percentile",
+      "b": "volatility_regime",
+      "corr": 0.9245
+    },
+    {
+      "a": "range_pct",
+      "b": "bar_spread_pct",
+      "corr": 1.0
+    },
+    {
+      "a": "session_ny",
+      "b": "in_ny_kill",
+      "corr": 0.8654
+    }
+  ],
+  "median_importance": 0.008925
+}

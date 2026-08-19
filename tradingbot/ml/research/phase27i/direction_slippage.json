@@ -1,0 +1,28 @@
+{
+  "phase": "27I",
+  "BUY": {
+    "trade_count": 41,
+    "avg_slippage_loss": 2.8369,
+    "median_slippage_loss": 2.6539,
+    "worst_slippage_loss": 5.595,
+    "net_profit_after_slippage": -269.0699,
+    "profit_factor_after_slippage": 0.4059,
+    "expectancy_after_slippage": -6.5627,
+    "avg_slippage": 2.8369,
+    "median_slippage": 2.6539,
+    "worst_slippage": 5.595
+  },
+  "SELL": {
+    "trade_count": 534,
+    "avg_slippage_loss": 2.7931,
+    "median_slippage_loss": 2.6351,
+    "worst_slippage_loss": 5.6793,
+    "net_profit_after_slippage": -237.5538,
+    "profit_factor_after_slippage": 0.9463,
+    "expectancy_after_slippage": -0.4449,
+    "avg_slippage": 2.7931,
+    "median_slippage": 2.6351,
+    "worst_slippage": 5.6793
+  },
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

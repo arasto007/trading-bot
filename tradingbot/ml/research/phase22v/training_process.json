@@ -1,0 +1,29 @@
+{
+  "sample_weight_used": false,
+  "class_weight_used": false,
+  "class_weight_value": null,
+  "balancing_applied": false,
+  "down_sampling": false,
+  "up_sampling": false,
+  "thresholding_at_train": false,
+  "filtering": {
+    "filter_resolved_labels": true,
+    "market_regime_filter": "RANGE",
+    "event_filter": "A_all_events",
+    "chronological_85pct_slice": true
+  },
+  "logistic_hyperparameters": {
+    "C": 0.1,
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "max_iter": 500,
+    "class_weight": null,
+    "fit_intercept": true,
+    "l1_ratio": null,
+    "warm_start": false
+  },
+  "selection_criterion_phase9_9": "Walk-forward validation profit_factor + robustness_score; NOT buy-zone probability coverage",
+  "freeze_vs_walkforward": "Phase 9.9 selects candidate via walk-forward grid; freeze_phase9_9_artifacts retrains on first 85% chronological slice of RANGE frame",
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

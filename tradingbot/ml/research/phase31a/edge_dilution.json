@@ -1,0 +1,55 @@
+{
+  "phase": "31A",
+  "dilution_segments": [
+    {
+      "segment": "low_r_mediocre",
+      "count": 188,
+      "pnl": -22.55,
+      "pf": 0.7348
+    },
+    {
+      "segment": "high_confidence_losers",
+      "count": 188,
+      "pnl": -525.47,
+      "pf": 0.0
+    }
+  ],
+  "signal_overlap_high_conf_low_trend": 0,
+  "dilution_pnl_total": -548.02,
+  "interpretation": "Edge diluted by high-count low-expectancy segments",
+  "redundancy": {
+    "groups": [
+      {
+        "group": "trend_group",
+        "features": [
+          "wq_trend_quality",
+          "htf_alignment_proxy",
+          "counter_trend_score"
+        ],
+        "rank_spread": 4,
+        "redundant": true
+      },
+      {
+        "group": "quality_group",
+        "features": [
+          "signal_filter_score",
+          "confidence",
+          "wq_probability_quality"
+        ],
+        "rank_spread": 17,
+        "redundant": false
+      },
+      {
+        "group": "structure_group",
+        "features": [
+          "false_breakout_score",
+          "wq_market_structure_quality"
+        ],
+        "rank_spread": 6,
+        "redundant": false
+      }
+    ],
+    "leakage_risk": "LOW \u2014 research uses closed trades only"
+  },
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

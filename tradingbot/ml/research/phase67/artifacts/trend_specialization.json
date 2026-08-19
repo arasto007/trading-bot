@@ -1,0 +1,1005 @@
+{
+  "comparison": [
+    {
+      "config_id": "A",
+      "name": "baseline_rf_10f_label_v3_h72",
+      "label_variant": "label_v3",
+      "horizon_bars": 72,
+      "model": "random_forest",
+      "mean_auc": 0.5151,
+      "mean_pf": 1.6876,
+      "mean_pf_honest": 0.5676,
+      "mean_win_rate": 49.15,
+      "mean_trades_per_window": 24.8,
+      "both_gates_pass": false,
+      "auc_gate_pass": false,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": -0.0002,
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "config_id": "B",
+      "name": "strict_tp_only_h24_rf_10f",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "mean_auc": 0.5849,
+      "mean_pf": 0.028,
+      "mean_pf_honest": 0.14,
+      "mean_win_rate": 2.46,
+      "mean_trades_per_window": 11.6,
+      "both_gates_pass": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": 0.0696,
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "config_id": "C",
+      "name": "strict_tp_only_h24_rf_hgb_ensemble",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "rf_hgb_ensemble",
+      "mean_auc": 0.5727,
+      "mean_pf": 0.4069,
+      "mean_pf_honest": 0.4291,
+      "mean_win_rate": 24.89,
+      "mean_trades_per_window": 39.8,
+      "both_gates_pass": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": 0.0574,
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "config_id": "D",
+      "name": "strict_tp_only_h24_rf_balanced",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "mean_auc": 0.5809,
+      "mean_pf": 0.1977,
+      "mean_pf_honest": 0.1977,
+      "mean_win_rate": 16.49,
+      "mean_trades_per_window": 8706.6,
+      "both_gates_pass": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": 0.0656,
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "config_id": "E",
+      "name": "label_v3_h72_rf_hgb_ensemble",
+      "label_variant": "label_v3",
+      "horizon_bars": 72,
+      "model": "rf_hgb_ensemble",
+      "mean_auc": 0.5054,
+      "mean_pf": 0.4123,
+      "mean_pf_honest": 0.4123,
+      "mean_win_rate": 29.0,
+      "mean_trades_per_window": 269.2,
+      "both_gates_pass": false,
+      "auc_gate_pass": false,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": -0.0099,
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "config_id": "F",
+      "name": "dual_strict_tp_h24_rank_label_v3_h72_pf",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "mean_auc": 0.5849,
+      "mean_pf": 0.0327,
+      "mean_pf_honest": 0.1633,
+      "mean_win_rate": 2.81,
+      "mean_trades_per_window": 11.6,
+      "both_gates_pass": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "delta_auc_vs_baseline": 0.0696,
+      "verdict": "STRICT_GATE_FAIL"
+    }
+  ],
+  "best_config": {
+    "config_id": "F",
+    "name": "dual_strict_tp_h24_rank_label_v3_h72_pf",
+    "label_variant": "strict_tp_only",
+    "horizon_bars": 24,
+    "model": "random_forest",
+    "class_weight": null,
+    "dual_objective": true,
+    "mean_auc": 0.5849,
+    "mean_pf": 0.0327,
+    "mean_pf_honest": 0.1633,
+    "both_gates_pass": false,
+    "primary_threshold": 0.4,
+    "features": [
+      "tick_volume_proxy",
+      "atr_14",
+      "realized_vol_20",
+      "rsi_14",
+      "macd_histogram",
+      "ema200_distance",
+      "range_pct",
+      "bar_spread_pct",
+      "ml_confidence",
+      "momentum_5"
+    ],
+    "for_phase_68": {
+      "config_id": "F",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "eval_label_variant": "label_v3",
+      "eval_horizon": 72,
+      "model": "random_forest",
+      "class_weight": null,
+      "dual_objective": true,
+      "features": [
+        "tick_volume_proxy",
+        "atr_14",
+        "realized_vol_20",
+        "rsi_14",
+        "macd_histogram",
+        "ema200_distance",
+        "range_pct",
+        "bar_spread_pct",
+        "ml_confidence",
+        "momentum_5"
+      ],
+      "threshold": 0.35,
+      "phase68_ready": false
+    }
+  },
+  "threshold_sweep": {
+    "config_id": "F",
+    "thresholds": [
+      0.35,
+      0.37,
+      0.4,
+      0.42,
+      0.45,
+      0.5
+    ],
+    "mean_auc_fixed": 0.5849,
+    "per_window": [
+      {
+        "test_year": 2022,
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "pf": 0.2727,
+            "trades": 14,
+            "win_rate": 21.43
+          },
+          {
+            "threshold": 0.37,
+            "pf": 0.0,
+            "trades": 4,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.4,
+            "pf": 0.0,
+            "trades": 1,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.42,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.45,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.5,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ]
+      },
+      {
+        "test_year": 2023,
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "pf": 0.3974,
+            "trades": 109,
+            "win_rate": 28.44
+          },
+          {
+            "threshold": 0.37,
+            "pf": 0.2857,
+            "trades": 81,
+            "win_rate": 22.22
+          },
+          {
+            "threshold": 0.4,
+            "pf": 0.1633,
+            "trades": 57,
+            "win_rate": 14.04
+          },
+          {
+            "threshold": 0.42,
+            "pf": 0.0541,
+            "trades": 39,
+            "win_rate": 5.13
+          },
+          {
+            "threshold": 0.45,
+            "pf": 0.0,
+            "trades": 20,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.5,
+            "pf": 0.0,
+            "trades": 2,
+            "win_rate": 0.0
+          }
+        ]
+      },
+      {
+        "test_year": 2024,
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "pf": 0.25,
+            "trades": 10,
+            "win_rate": 20.0
+          },
+          {
+            "threshold": 0.37,
+            "pf": 0.0,
+            "trades": 3,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.4,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.42,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.45,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.5,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ]
+      },
+      {
+        "test_year": 2025,
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.37,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.4,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.42,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.45,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.5,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ]
+      },
+      {
+        "test_year": 2026,
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.37,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.4,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.42,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.45,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          },
+          {
+            "threshold": 0.5,
+            "pf": 0.0,
+            "trades": 0,
+            "win_rate": 0.0
+          }
+        ]
+      }
+    ],
+    "aggregate": [
+      {
+        "threshold": 0.35,
+        "mean_pf": 0.184,
+        "mean_pf_honest": 0.3974,
+        "mean_trades": 26.6,
+        "mean_win_rate": 23.29,
+        "windows_eligible_honest": 1,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      {
+        "threshold": 0.37,
+        "mean_pf": 0.0571,
+        "mean_pf_honest": 0.2857,
+        "mean_trades": 17.6,
+        "mean_win_rate": 7.41,
+        "windows_eligible_honest": 1,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      {
+        "threshold": 0.4,
+        "mean_pf": 0.0327,
+        "mean_pf_honest": 0.1633,
+        "mean_trades": 11.6,
+        "mean_win_rate": 7.02,
+        "windows_eligible_honest": 1,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      {
+        "threshold": 0.42,
+        "mean_pf": 0.0108,
+        "mean_pf_honest": 0.0541,
+        "mean_trades": 7.8,
+        "mean_win_rate": 5.13,
+        "windows_eligible_honest": 1,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      {
+        "threshold": 0.45,
+        "mean_pf": 0.0,
+        "mean_pf_honest": 0.0,
+        "mean_trades": 4.0,
+        "mean_win_rate": 0.0,
+        "windows_eligible_honest": 0,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      {
+        "threshold": 0.5,
+        "mean_pf": 0.0,
+        "mean_pf_honest": 0.0,
+        "mean_trades": 0.4,
+        "mean_win_rate": 0.0,
+        "windows_eligible_honest": 0,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      }
+    ],
+    "best_threshold": 0.35,
+    "best_mean_pf_honest": 0.3974,
+    "best_both_gates_pass": false
+  },
+  "tradeoff_assessment": {
+    "auc_pf_decoupled": true,
+    "note_en": "h24 strict_tp_only inflates AUC via ~14% positive class; honest PF@30 remains far below 1.3. Ensemble/class_weight/dual-objective unlikely to fix PF without sacrificing AUC.",
+    "note_fa": "strict_tp_only h24 \u0628\u0627 \u06a9\u0644\u0627\u0633 \u0645\u062b\u0628\u062a ~\u06f1\u06f4\u066a AUC \u0631\u0627 \u0628\u0627\u0644\u0627 \u0645\u06cc\u200c\u0628\u0631\u062f\u061b PF \u0635\u0627\u062f\u0642@30 \u0632\u06cc\u0631 \u06f1.\u06f3 \u0645\u06cc\u200c\u0645\u0627\u0646\u062f."
+  },
+  "results_summary": [
+    {
+      "config_id": "A",
+      "name": "baseline_rf_10f_label_v3_h72",
+      "role": "reference",
+      "label_variant": "label_v3",
+      "horizon_bars": 72,
+      "model": "random_forest",
+      "class_weight": null,
+      "dual_objective": false,
+      "eval_label_variant": null,
+      "eval_horizon": null,
+      "rows_labeled": 81035,
+      "positive_rate": 0.2717,
+      "mean_auc": 0.5151,
+      "mean_pf": 1.6876,
+      "mean_pf_honest": 0.5676,
+      "mean_win_rate": 49.15,
+      "mean_trades_per_window": 24.8,
+      "windows_eligible_honest": 1,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": false,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": -0.0002,
+      "delta_pf_honest_vs_baseline": 0.0,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": false,
+        "min_windows_ge_5": false,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": false
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.5002,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.5676,
+          "primary_trades": 58,
+          "primary_win_rate": 36.21,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.5383,
+          "primary_threshold": 0.4,
+          "primary_pf": 2.0,
+          "primary_trades": 6,
+          "primary_win_rate": 66.67,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5173,
+          "primary_threshold": 0.4,
+          "primary_pf": 5.0,
+          "primary_trades": 18,
+          "primary_win_rate": 83.33,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.4783,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.5625,
+          "primary_trades": 25,
+          "primary_win_rate": 36.0,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 7696,
+          "auc": 0.5413,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.3077,
+          "primary_trades": 17,
+          "primary_win_rate": 23.53,
+          "meets_min_trades": true
+        }
+      ]
+    },
+    {
+      "config_id": "B",
+      "name": "strict_tp_only_h24_rf_10f",
+      "role": "phase66_auc_winner",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "class_weight": null,
+      "dual_objective": false,
+      "eval_label_variant": null,
+      "eval_horizon": null,
+      "rows_labeled": 81035,
+      "positive_rate": 0.1447,
+      "mean_auc": 0.5849,
+      "mean_pf": 0.028,
+      "mean_pf_honest": 0.14,
+      "mean_win_rate": 2.46,
+      "mean_trades_per_window": 11.6,
+      "windows_eligible_honest": 1,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": 0.0696,
+      "delta_pf_honest_vs_baseline": -0.4276,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": true,
+        "min_windows_ge_5": false,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": false
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.5433,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 1,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.6185,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.14,
+          "primary_trades": 57,
+          "primary_win_rate": 12.28,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5851,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.5517,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 7696,
+          "auc": 0.6261,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        }
+      ]
+    },
+    {
+      "config_id": "C",
+      "name": "strict_tp_only_h24_rf_hgb_ensemble",
+      "role": "ensemble",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "rf_hgb_ensemble",
+      "class_weight": null,
+      "dual_objective": false,
+      "eval_label_variant": null,
+      "eval_horizon": null,
+      "rows_labeled": 81035,
+      "positive_rate": 0.1447,
+      "mean_auc": 0.5727,
+      "mean_pf": 0.4069,
+      "mean_pf_honest": 0.4291,
+      "mean_win_rate": 24.89,
+      "mean_trades_per_window": 39.8,
+      "windows_eligible_honest": 2,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": 0.0574,
+      "delta_pf_honest_vs_baseline": -0.1385,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": true,
+        "min_windows_ge_5": false,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": false
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.5285,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.5217,
+          "primary_trades": 35,
+          "primary_win_rate": 34.29,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.613,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.3365,
+          "primary_trades": 139,
+          "primary_win_rate": 25.18,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5721,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.1765,
+          "primary_trades": 20,
+          "primary_win_rate": 15.0,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.5404,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 3,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 7696,
+          "auc": 0.6097,
+          "primary_threshold": 0.4,
+          "primary_pf": 1.0,
+          "primary_trades": 2,
+          "primary_win_rate": 50.0,
+          "meets_min_trades": false
+        }
+      ]
+    },
+    {
+      "config_id": "D",
+      "name": "strict_tp_only_h24_rf_balanced",
+      "role": "class_weight",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "class_weight": "balanced",
+      "dual_objective": false,
+      "eval_label_variant": null,
+      "eval_horizon": null,
+      "rows_labeled": 81035,
+      "positive_rate": 0.1447,
+      "mean_auc": 0.5809,
+      "mean_pf": 0.1977,
+      "mean_pf_honest": 0.1977,
+      "mean_win_rate": 16.49,
+      "mean_trades_per_window": 8706.6,
+      "windows_eligible_honest": 5,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": 0.0656,
+      "delta_pf_honest_vs_baseline": -0.3699,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": true,
+        "min_windows_ge_5": true,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": true
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.5395,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.1802,
+          "primary_trades": 7839,
+          "primary_win_rate": 15.27,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.6219,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.1768,
+          "primary_trades": 12356,
+          "primary_win_rate": 15.02,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5864,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.2147,
+          "primary_trades": 10267,
+          "primary_win_rate": 17.68,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.5478,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.209,
+          "primary_trades": 8815,
+          "primary_win_rate": 17.29,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 7696,
+          "auc": 0.6089,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.2077,
+          "primary_trades": 4256,
+          "primary_win_rate": 17.2,
+          "meets_min_trades": true
+        }
+      ]
+    },
+    {
+      "config_id": "E",
+      "name": "label_v3_h72_rf_hgb_ensemble",
+      "role": "ensemble_baseline_label",
+      "label_variant": "label_v3",
+      "horizon_bars": 72,
+      "model": "rf_hgb_ensemble",
+      "class_weight": null,
+      "dual_objective": false,
+      "eval_label_variant": null,
+      "eval_horizon": null,
+      "rows_labeled": 81035,
+      "positive_rate": 0.2717,
+      "mean_auc": 0.5054,
+      "mean_pf": 0.4123,
+      "mean_pf_honest": 0.4123,
+      "mean_win_rate": 29.0,
+      "mean_trades_per_window": 269.2,
+      "windows_eligible_honest": 5,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": false,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": -0.0099,
+      "delta_pf_honest_vs_baseline": -0.1553,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": false,
+        "min_windows_ge_5": true,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": true
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.4999,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.3406,
+          "primary_trades": 433,
+          "primary_win_rate": 25.4,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.5288,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.5161,
+          "primary_trades": 94,
+          "primary_win_rate": 34.04,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5153,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.4863,
+          "primary_trades": 217,
+          "primary_win_rate": 32.72,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.4803,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.3394,
+          "primary_trades": 442,
+          "primary_win_rate": 25.34,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 7696,
+          "auc": 0.5026,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.3793,
+          "primary_trades": 160,
+          "primary_win_rate": 27.5,
+          "meets_min_trades": true
+        }
+      ]
+    },
+    {
+      "config_id": "F",
+      "name": "dual_strict_tp_h24_rank_label_v3_h72_pf",
+      "role": "dual_objective",
+      "label_variant": "strict_tp_only",
+      "horizon_bars": 24,
+      "model": "random_forest",
+      "class_weight": null,
+      "dual_objective": true,
+      "eval_label_variant": "label_v3",
+      "eval_horizon": 72,
+      "rows_labeled": 81035,
+      "positive_rate": 0.1447,
+      "mean_auc": 0.5849,
+      "mean_pf": 0.0327,
+      "mean_pf_honest": 0.1633,
+      "mean_win_rate": 2.81,
+      "mean_trades_per_window": 11.6,
+      "windows_eligible_honest": 1,
+      "gate_passed": false,
+      "gate_passed_honest": false,
+      "auc_gate_pass": true,
+      "honest_pf_gate_pass": false,
+      "both_gates_pass": false,
+      "delta_auc_vs_baseline": 0.0696,
+      "delta_pf_honest_vs_baseline": -0.4043,
+      "verdict": "STRICT_GATE_FAIL",
+      "gates_honest": {
+        "mean_pf_ge_1_3": false,
+        "mean_auc_ge_0_55": true,
+        "min_windows_ge_5": false,
+        "majority_windows_pf_ge_1": false,
+        "trade_count_ok": false
+      },
+      "per_year": [
+        {
+          "test_year": 2022,
+          "train_rows": 14301,
+          "test_rows": 14193,
+          "auc": 0.5433,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 1,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2023,
+          "train_rows": 28494,
+          "test_rows": 13931,
+          "auc": 0.6185,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.1633,
+          "primary_trades": 57,
+          "primary_win_rate": 14.04,
+          "meets_min_trades": true
+        },
+        {
+          "test_year": 2024,
+          "train_rows": 42425,
+          "test_rows": 15131,
+          "auc": 0.5851,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2025,
+          "train_rows": 57556,
+          "test_rows": 15783,
+          "auc": 0.5517,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        },
+        {
+          "test_year": 2026,
+          "train_rows": 73339,
+          "test_rows": 9584,
+          "auc": 0.6261,
+          "primary_threshold": 0.4,
+          "primary_pf": 0.0,
+          "primary_trades": 0,
+          "primary_win_rate": 0.0,
+          "meets_min_trades": false
+        }
+      ]
+    }
+  ]
+}

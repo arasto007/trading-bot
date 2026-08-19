@@ -1,0 +1,49 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "🥇 Live: روشن (معامله واقعی)",
+      "type": "shell",
+      "command": "python -m tradingbot --loop --execute",
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "🔍 Live: تست بدون سفارش",
+      "type": "shell",
+      "command": "python -m tradingbot --live",
+      "options": { "cwd": "${workspaceFolder}" },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "✅ Check: آمادگی Live",
+      "type": "shell",
+      "command": "python scripts/check_live_setup.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "⏹ Live: توقف Daemon",
+      "type": "shell",
+      "command": "powershell -File scripts/stop_live_daemon.ps1",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "📊 Live: وضعیت",
+      "type": "shell",
+      "command": "python scripts/status_live.py",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    },
+    {
+      "label": "🌐 باز کردن پنل دکمه‌ها (HTA)",
+      "type": "shell",
+      "command": "start live_dashboard.hta",
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "RANGE": {
+    "trade_count": 0
+  },
+  "TREND": {
+    "trade_count": 0
+  },
+  "TRANSITION": {
+    "trade_count": 0
+  },
+  "HIGH_VOLATILITY": {
+    "trade_count": 0
+  },
+  "NO_TRADE": {
+    "trade_count": 0
+  },
+  "OTHER": {
+    "trade_count": 0
+  },
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

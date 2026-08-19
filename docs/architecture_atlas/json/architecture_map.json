@@ -1,0 +1,134 @@
+{
+  "label": "Desktop",
+  "children": [
+    {
+      "label": "TradingBot new",
+      "children": [
+        {
+          "label": "start/",
+          "meta": "Launchers (START_BOT.bat)",
+          "mapKey": "folder:start",
+          "roots": [
+            "scripts.start_bot",
+            "scripts.run_live_watchdog"
+          ]
+        },
+        {
+          "label": "tradingbot/",
+          "mapKey": "folder:tradingbot",
+          "roots": [
+            "tradingbot.kernel.trading_kernel",
+            "tradingbot.application.live_runner"
+          ],
+          "children": [
+            {
+              "label": "application/",
+              "children": [
+                {
+                  "label": "LiveRunner",
+                  "id": "tradingbot.application.live_runner.LiveRunner"
+                }
+              ]
+            },
+            {
+              "label": "kernel/",
+              "children": [
+                {
+                  "label": "TradingKernel",
+                  "id": "tradingbot.kernel.trading_kernel.TradingKernel"
+                }
+              ]
+            },
+            {
+              "label": "pipeline/",
+              "children": [
+                {
+                  "label": "DataStage",
+                  "id": "tradingbot.pipeline.data_stage.DataStage"
+                },
+                {
+                  "label": "IndicatorStage",
+                  "id": "tradingbot.pipeline.indicator_stage.IndicatorStage"
+                },
+                {
+                  "label": "SignalStage",
+                  "id": "tradingbot.pipeline.signal_stage.SignalStage"
+                },
+                {
+                  "label": "SignalFilterStage",
+                  "id": "tradingbot.pipeline.signal_filter_stage.SignalFilterStage"
+                },
+                {
+                  "label": "RiskStage",
+                  "id": "tradingbot.pipeline.risk_stage.RiskStage"
+                },
+                {
+                  "label": "ExecutionStage",
+                  "id": "tradingbot.pipeline.execution_stage.ExecutionStage"
+                }
+              ]
+            },
+            {
+              "label": "adapters/",
+              "children": [
+                {
+                  "label": "Mt5MarketData",
+                  "id": "tradingbot.adapters.mt5_market_data"
+                },
+                {
+                  "label": "Mt5Execution",
+                  "id": "tradingbot.adapters.mt5_execution.Mt5ExecutionAdapter"
+                },
+                {
+                  "label": "RiskGate",
+                  "id": "tradingbot.adapters.risk_gate.RiskGate"
+                },
+                {
+                  "label": "VolRegime",
+                  "id": "tradingbot.adapters.vol_regime_strategy_registry"
+                },
+                {
+                  "label": "PositionManager",
+                  "id": "tradingbot.adapters.mt5_position_manager"
+                }
+              ]
+            },
+            {
+              "label": "services/",
+              "children": [
+                {
+                  "label": "KillSwitch",
+                  "id": "tradingbot.services.kill_switch.KillSwitchService"
+                },
+                {
+                  "label": "TradeJournal",
+                  "id": "tradingbot.services.trade_journal.TradeJournal"
+                },
+                {
+                  "label": "StartupValidator",
+                  "id": "tradingbot.services.startup_validator"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "label": "scripts/",
+          "meta": "Ops & diagnostics",
+          "mapKey": "folder:scripts",
+          "roots": [
+            "scripts.start_bot",
+            "scripts.run_live_watchdog",
+            "scripts.status_snapshot"
+          ]
+        },
+        {
+          "label": "docs/architecture_atlas/",
+          "meta": "This explorer",
+          "mapKey": "folder:atlas",
+          "roots": []
+        }
+      ]
+    }
+  ]
+}

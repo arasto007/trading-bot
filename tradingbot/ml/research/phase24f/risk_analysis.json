@@ -1,0 +1,42 @@
+{
+  "phase": "24F",
+  "operations": [
+    {
+      "op": "Reuse overlap rows unchanged",
+      "risk": "Unsafe",
+      "condition": "Overlap drift proven \u2014 ema200/atr_percentile change on slide"
+    },
+    {
+      "op": "Append last row from incremental compute",
+      "risk": "Needs parity validation",
+      "condition": "Rolling state must match vectorized"
+    },
+    {
+      "op": "attach_top5 on assembled frame",
+      "risk": "Safe",
+      "condition": "Same function as production"
+    },
+    {
+      "op": "phase99 timestamp lookup",
+      "risk": "Safe",
+      "condition": "Already static merge"
+    },
+    {
+      "op": "Skip regime_column_merge_loop for body",
+      "risk": "Safe",
+      "condition": "Body unchanged"
+    },
+    {
+      "op": "Cold start / gap detection",
+      "risk": "Safe",
+      "condition": "Fallback to full rebuild"
+    },
+    {
+      "op": "Mutating cached unified frame in-place",
+      "risk": "Unsafe",
+      "condition": "Must copy-on-read"
+    }
+  ],
+  "rollback_complexity": "MEDIUM \u2014 env flag INCREMENTAL_UNIFIED_FRAME=false restores full rebuild",
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

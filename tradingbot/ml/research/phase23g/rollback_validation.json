@@ -1,0 +1,46 @@
+{
+  "phase": "23G",
+  "env_var": "ENABLE_RANGE_FILTER_PROFILE",
+  "rollback_value": "false",
+  "restores_phase22c_for_range": true,
+  "restores_phase22c_for_trend": true,
+  "range_profile_disabled": true,
+  "checks": {
+    "rollback_verified": true
+  },
+  "diagnostics": {
+    "range": {
+      "profile_used": "trend_phase22c",
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "enable_range_filter_profile": false,
+      "filter_reason": null,
+      "blocked_by": []
+    },
+    "trend": {
+      "profile_used": "trend_phase22c",
+      "regime": "TREND",
+      "engine": "trend_rf_v41",
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "enable_range_filter_profile": false,
+      "filter_reason": null,
+      "blocked_by": []
+    }
+  },
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

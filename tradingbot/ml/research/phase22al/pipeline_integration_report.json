@@ -1,0 +1,182 @@
+{
+  "phase": "22AL",
+  "dataset": "A",
+  "pipeline": [
+    "FeatureBuilder",
+    "RangeEngine",
+    "Kernel",
+    "DecisionEngine"
+  ],
+  "generated_signals": 0,
+  "buy_signals": 0,
+  "sell_signals": 0,
+  "executed_trades": 0,
+  "blocked_trades": 0,
+  "hold_chain": {
+    "bars_evaluated": 3732,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "ml_signals": 0,
+    "ml_hold_stages": {
+      "decision_hold": 3730,
+      "calibration_hold": 0,
+      "trade_quality_hold": 2,
+      "rsi_filter_hold": 0,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 3732,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "trace_funnel": {
+    "timeframe": "M5",
+    "bars": 3732,
+    "buy_signals": 0,
+    "sell_signals": 0,
+    "hold_signals": 3732,
+    "buy_pct": 0.0,
+    "sell_pct": 0.0,
+    "hold_pct": 100.0,
+    "funnel": [
+      {
+        "stage": "model_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 3732,
+        "lost_pct_from_prev": 100.0
+      },
+      {
+        "stage": "calibration_pass",
+        "count": 2,
+        "pct_of_bars": 0.054,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "quality_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 2,
+        "lost_pct_from_prev": 100.0
+      },
+      {
+        "stage": "rsi_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "adx_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "meta_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "riskgate_reached",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "riskgate_pass",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      },
+      {
+        "stage": "executed",
+        "count": 0,
+        "pct_of_bars": 0.0,
+        "lost_from_prev": 0,
+        "lost_pct_from_prev": 0.0
+      }
+    ],
+    "regime_distribution": {
+      "TREND": 3673,
+      "RANGE": 59
+    },
+    "engine_distribution": {
+      "trend_rf_v41": 3673,
+      "phase9_9": 59
+    },
+    "stage_blocks": {},
+    "riskgate_block_reasons": {}
+  },
+  "blocked_events_count": 0,
+  "summary": {
+    "trades": 0,
+    "buy_pct": 0.0,
+    "sell_pct": 0.0,
+    "hold_pct": 99.95,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "max_drawdown_pct": 0.0,
+    "avg_trade_duration_min": 0.0,
+    "signals_reaching_riskgate": 0,
+    "signals_blocked_riskgate": 0,
+    "riskgate_block_reasons": {},
+    "model_utilization": {
+      "trend_rf_v41": 3673,
+      "phase9_9": 59
+    },
+    "regime_distribution": {
+      "TREND": 3673,
+      "RANGE": 59
+    },
+    "trend_trades": 0,
+    "range_trades": 0
+  },
+  "trades_detail": [],
+  "raw_backtest": {
+    "timeframe": "M5",
+    "elapsed_sec": 972.3,
+    "metrics": {
+      "total_trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "gross_profit": 0,
+      "gross_loss": 0,
+      "net_profit": 0,
+      "return_pct": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": 0.0,
+      "expectancy": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_drawdown_abs": 0.0,
+      "sharpe_ratio": 0.0,
+      "final_balance": 200.0,
+      "exit_reasons": {},
+      "average_r": 0.0,
+      "recovery_factor": 0.0,
+      "sortino_ratio": 0.0,
+      "mar_ratio": 0.0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "trend_trades": 0,
+      "range_trades": 0,
+      "bars": 1,
+      "certification": {
+        "pf_target_met": false,
+        "positive_expectancy": false,
+        "max_dd_within_limit": true,
+        "buy_active": false,
+        "sell_active": false
+      }
+    }
+  },
+  "generated_utc": "2026-07-07T20:38:11.951253+00:00"
+}

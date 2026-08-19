@@ -1,0 +1,82 @@
+%% TradingBot new — High-Level Architecture
+%% Keep under 80 nodes
+
+flowchart TB
+    subgraph START["Startup Layer"]
+        BAT[START_BOT.bat]
+        SB[start_bot.py]
+        DAEMON[start_live_daemon.ps1]
+        WD[run_live_watchdog.py]
+        MAIN[tradingbot __main__.py]
+        LR[LiveRunner]
+    end
+
+    subgraph KERNEL["TradingKernel Core"]
+        TK[TradingKernel]
+        DS[DataStage]
+        IS[IndicatorStage]
+        SS[SignalStage]
+        SFS[SignalFilterStage]
+        RS[RiskStage]
+        ES[ExecutionStage]
+    end
+
+    subgraph ADAPTERS["Adapters"]
+        MD[Mt5MarketDataAdapter]
+        IE[TechnicalIndicatorEngine]
+        AR[AdaptiveRegimeStrategyRegistry]
+        RG[RiskGate]
+        EX[Mt5ExecutionAdapter]
+        PM[Mt5PositionManager]
+    end
+
+    subgraph SERVICES["Services"]
+        KS[KillSwitchService]
+        LO[LiveOpsService]
+        TJ[TradeJournal]
+        NT[Notifier]
+        BS[BackgroundServices]
+    end
+
+    subgraph EXTERNAL["External"]
+        MT5[(MetaTrader 5)]
+        DB[(trade_journal.db)]
+    end
+
+    subgraph RESEARCH["Research — loaded but ML off"]
+        L2[edge_discovery_round2.py]
+        MLF[factory ML stack]
+    end
+
+    BAT --> SB --> DAEMON --> WD --> MAIN --> LR
+    LR --> TK
+    LR --> KS
+    LR --> LO
+    LR --> BS
+
+    TK --> DS --> IS --> SS --> SFS --> RS --> ES
+    DS --> MD
+    IS --> IE
+    SS --> AR
+    AR --> L2
+    SFS -.->|OFF default| SS
+    RS --> RG
+    ES --> EX
+
+    MD <--> MT5
+    EX <--> MT5
+    PM <--> MT5
+
+    EX --> TJ
+    TK --> TJ
+    TJ --> DB
+
+    TK --> PM
+    LR --> PM
+
+    LR -.->|if USE_ML_KERNEL| MLF
+    MLF -.-> RESEARCH
+
+    style RESEARCH fill:#fee,stroke:#c00
+    style L2 fill:#ffe,stroke:#aa0
+    style AR fill:#efe,stroke:#080

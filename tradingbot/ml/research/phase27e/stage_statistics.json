@@ -1,0 +1,21 @@
+{
+  "phase": "27E",
+  "terminal_stage_counts": {
+    "CompletedTrade": 2,
+    "RiskGate": 760
+  },
+  "failed_stage_counts": {
+    "RiskGate": 760
+  },
+  "by_direction": {
+    "BUY": 47,
+    "SELL": 715
+  },
+  "by_engine": {
+    "phase9_9": 762
+  },
+  "by_regime": {
+    "RANGE": 762
+  },
+  "generated_utc": "2026-07-09T13:55:14.767134+00:00"
+}

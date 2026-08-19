@@ -1,0 +1,24 @@
+{
+  "phase": "28A",
+  "by_strategy": {
+    "hybrid_b": {
+      "label": "Hybrid B",
+      "longest_losing_streak": 39,
+      "longest_winning_streak": 31,
+      "largest_winner": 394.4679,
+      "largest_loser": -131.1871,
+      "recovery_bars_after_max_dd": 1788,
+      "max_drawdown_pct": 31.6973
+    },
+    "time_exit": {
+      "label": "Time Exit",
+      "longest_losing_streak": 48,
+      "longest_winning_streak": 46,
+      "largest_winner": 756.07,
+      "largest_loser": -478.88,
+      "recovery_bars_after_max_dd": 1727,
+      "max_drawdown_pct": 240.9323
+    }
+  },
+  "generated_utc": "2026-07-09T20:01:08.174165+00:00"
+}

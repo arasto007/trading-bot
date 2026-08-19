@@ -1,0 +1,120 @@
+{
+  "phase": "30B",
+  "layers": {
+    "production_paper": [
+      {
+        "id": "P1",
+        "assumption": "Fixed spread 0.30",
+        "realistic": false,
+        "severity": "critical"
+      },
+      {
+        "id": "P2",
+        "assumption": "Fixed slippage 0.10 entry only",
+        "realistic": false,
+        "severity": "high"
+      },
+      {
+        "id": "P3",
+        "assumption": "100% fill instant",
+        "realistic": false,
+        "severity": "high"
+      },
+      {
+        "id": "P4",
+        "assumption": "Exit at exact TP/SL price",
+        "realistic": false,
+        "severity": "critical"
+      },
+      {
+        "id": "P5",
+        "assumption": "Zero commission/swap",
+        "realistic": false,
+        "severity": "medium"
+      },
+      {
+        "id": "P6",
+        "assumption": "Journal slippage=0 paper",
+        "realistic": false,
+        "severity": "medium"
+      },
+      {
+        "id": "P7",
+        "assumption": "Bar-level not tick-level",
+        "realistic": false,
+        "severity": "high"
+      }
+    ],
+    "production_live": [
+      {
+        "id": "L1",
+        "assumption": "Market order only deviation=20",
+        "realistic": true,
+        "severity": "low"
+      },
+      {
+        "id": "L2",
+        "assumption": "Single retry on requote codes",
+        "realistic": "partial",
+        "severity": "medium"
+      }
+    ],
+    "phase30a_simulator": [
+      {
+        "id": "S1",
+        "assumption": "Latency does not move price",
+        "realistic": false,
+        "severity": "critical"
+      },
+      {
+        "id": "S2",
+        "assumption": "Double-leg spread+slip on entry and exit",
+        "realistic": true,
+        "severity": "info"
+      },
+      {
+        "id": "S3",
+        "assumption": "Partial fills 22.9% at min lot",
+        "realistic": false,
+        "severity": "medium"
+      },
+      {
+        "id": "S4",
+        "assumption": "Session flags from hour not calendar",
+        "realistic": "partial",
+        "severity": "low"
+      }
+    ],
+    "missing_entirely": [
+      {
+        "id": "M1",
+        "feature": "Latency-price coupling"
+      },
+      {
+        "id": "M2",
+        "feature": "Live tick spread calibration"
+      },
+      {
+        "id": "M3",
+        "feature": "Swap/overnight cost"
+      },
+      {
+        "id": "M4",
+        "feature": "Gap-through-stop"
+      },
+      {
+        "id": "M5",
+        "feature": "Economic calendar auto news flag"
+      },
+      {
+        "id": "M6",
+        "feature": "Margin stop-out"
+      },
+      {
+        "id": "M7",
+        "feature": "Order book depth"
+      }
+    ]
+  },
+  "generated_utc": "2026-07-10T08:44:28.786451+00:00"
+}

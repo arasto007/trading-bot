@@ -1,0 +1,14 @@
+{
+  "phase": "30F",
+  "events": [
+    {
+      "symbol": "XAUUSD",
+      "gap_start_ms": 1783697226267,
+      "gap_end_ms": 1783697235967,
+      "gap_ms": 9700,
+      "type": "time_gap"
+    }
+  ],
+  "count": 1,
+  "generated_utc": "2026-07-10T15:28:06.667499+00:00"
+}

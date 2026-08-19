@@ -1,0 +1,22 @@
+{
+  "phase": "22AC",
+  "title": "Freeze Integration Radius Investigation",
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false,
+  "verdict": "MULTIPLE_AUTHORITIES_EXIST",
+  "summary": "Model Registry is the sole artifact writer but NOT the sole production model authority. Optimizer selection, DEFAULT_CONFIG freeze, disk bundle loading, and shadow auto-freeze form independent authority paths with critical hidden couplings.",
+  "single_authority": false,
+  "primary_write_authority": "freeze_phase9_9_artifacts (DEFAULT_CONFIG)",
+  "critical_couplings": 3,
+  "load_phase9_9_bundle_references": 110,
+  "artifact_write_function_count": 1,
+  "steps_completed": [
+    "STEP 1 model registry architecture",
+    "STEP 2 repository usage scan",
+    "STEP 3 authority analysis",
+    "STEP 4 artifact write paths",
+    "STEP 5 dependency graph",
+    "STEP 6 hidden couplings",
+    "STEP 7 impact classification"
+  ]
+}

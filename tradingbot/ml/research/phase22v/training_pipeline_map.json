@@ -1,0 +1,97 @@
+{
+  "phase": "22V",
+  "title": "phase9_9 training pipeline (repository trace)",
+  "stages": [
+    {
+      "step": 1,
+      "name": "Market candles",
+      "source": "CandleStore (M5/H4/M15)",
+      "files": [
+        "tradingbot/ml/data/stores.py",
+        "scripts/collect_ml_data.py"
+      ]
+    },
+    {
+      "step": 2,
+      "name": "Sparse event dataset",
+      "function": "SparseEventDatasetBuilder.build",
+      "file": "tradingbot/ml/dataset/sparse_event_builder.py",
+      "details": "FeatureBuilder.compute_at at event bars → labeled rows"
+    },
+    {
+      "step": 3,
+      "name": "Production dataset build",
+      "function": "Phase91ProductionBuilder.run",
+      "file": "tradingbot/ml/dataset/phase9_production_build.py",
+      "script": "scripts/build_ml_dataset.py --phase9-1"
+    },
+    {
+      "step": 4,
+      "name": "dataset_v2 parquet",
+      "path": "data/ml/datasets/XAUUSD_M5_dataset_v2.parquet",
+      "store": "tradingbot/ml/dataset/store.py"
+    },
+    {
+      "step": 5,
+      "name": "Phase 9.6 feature stability",
+      "report": "data/ml/reports/feature_stability_report.json"
+    },
+    {
+      "step": 6,
+      "name": "Phase 9.8 walk-forward baseline",
+      "engine": "WalkForwardEngine",
+      "file": "tradingbot/ml/research/walk_forward/",
+      "script": "scripts/train_model.py --phase9-8"
+    },
+    {
+      "step": 7,
+      "name": "Phase 9.9 candidate grid",
+      "orchestrator": "RobustnessOptimizer.run",
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "script": "scripts/train_model.py --phase9-9",
+      "selection": "rank_candidates composite: 40% robustness + 25% PF + 20% consistency + 15% low overfitting"
+    },
+    {
+      "step": 8,
+      "name": "Feature subset selection",
+      "function": "run_feature_selection_research → stable_top3",
+      "file": "tradingbot/ml/research/robustness_optimizer/stable_feature_research.py",
+      "report": "data/ml/reports/phase9_9_feature_selection.json"
+    },
+    {
+      "step": 9,
+      "name": "Walk-forward window train (per candidate)",
+      "function": "validate_window_candidate",
+      "file": "tradingbot/ml/research/robustness_optimizer/window_validator.py",
+      "filters": "apply_phase97_filters: market_regime==RANGE, event_scheme=A_all_events"
+    },
+    {
+      "step": 10,
+      "name": "Freeze artifacts",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "outputs": [
+        "data/ml/research/phase9_9_best/model.pkl",
+        "data/ml/research/phase9_9_best/scaler.pkl",
+        "data/ml/research/phase9_9_best/feature_order.json",
+        "data/ml/research/phase9_9_best/config.json",
+        "data/ml/research/phase9_9_best/metadata.json"
+      ]
+    }
+  ],
+  "freeze_training_recipe": {
+    "filter_resolved_labels": true,
+    "market_regime": "RANGE",
+    "event_filter": "A_all_events",
+    "chronological_train_cut": "first 85% of filtered frame",
+    "model": "LogisticRegression C=0.1 solver=lbfgs max_iter=500",
+    "scaler": "StandardScaler fit on train slice only",
+    "features_frozen": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ]
+  },
+  "production_modified": false,
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00"
+}

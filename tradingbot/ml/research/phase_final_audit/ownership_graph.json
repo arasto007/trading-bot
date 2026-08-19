@@ -1,0 +1,67 @@
+{
+  "TradingKernel": {
+    "owner": "kernel/trading_kernel.py",
+    "creates": "pipeline stages",
+    "lifecycle": "LiveRunner"
+  },
+  "LiveRunner": {
+    "owner": "application/live_runner.py",
+    "creates": "market_data, executor, risk_gate, kernel, services",
+    "singleton_per_process": true
+  },
+  "Mt5PositionManager": {
+    "owner": "adapters/mt5_position_manager.py",
+    "called_by": "TradingKernel._manage_positions",
+    "default": "enabled"
+  },
+  "PositionProtector": {
+    "owner": "services/position_protector.py",
+    "called_by": "BackgroundServices",
+    "default": "disabled"
+  },
+  "PositionRecoveryService": {
+    "owner": "services/position_recovery_service.py",
+    "called_by": "BackgroundServices",
+    "default": "disabled (enable_recovery=False)"
+  },
+  "PipelineCache": {
+    "owner": "ml/integration/pipeline_cache.py",
+    "pattern": "class-level singleton + lock",
+    "reset": "research replay only"
+  },
+  "LiveRiskTracker": {
+    "owner": "services/live_risk_tracker.py",
+    "shared": "RiskGate + KillSwitch",
+    "persistence": "data/live_risk_state.json"
+  },
+  "KillSwitchService": {
+    "owner": "services/kill_switch.py",
+    "thread": "daemon",
+    "can_call": "guarded_order_send"
+  },
+  "EmergencyStopState": {
+    "owner": "services/emergency_stop_state.py",
+    "file": "data/emergency_stop.json"
+  },
+  "ambiguous_ownership": [
+    {
+      "issue": "Dual position managers if --protector",
+      "files": [
+        "mt5_position_manager.py",
+        "position_protector.py"
+      ],
+      "severity": "HIGH",
+      "default_mitigation": "protector OFF"
+    },
+    {
+      "issue": "AdaptiveRisk (ML) + RiskGate (legacy) both gate entries",
+      "files": [
+        "kernel_adapter.py",
+        "risk_gate.py"
+      ],
+      "severity": "MEDIUM",
+      "intentional": true
+    }
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

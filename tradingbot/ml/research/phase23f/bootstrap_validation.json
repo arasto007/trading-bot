@@ -1,0 +1,11 @@
+{
+  "phase": "23F",
+  "samples": 1000,
+  "pf_diff_mean": 0.4576,
+  "pf_diff_ci_95": [
+    -0.1034,
+    1.1974
+  ],
+  "b_beats_a_probability": 0.938,
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

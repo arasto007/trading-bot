@@ -1,0 +1,8 @@
+{
+  "architecture_mode": "ML_ONLY",
+  "detected_mode": "ML_PRIORITY_OVERRIDE",
+  "rationale": "CompositeStrategyRegistry runs both ML and legacy each cycle. ML takes priority when non-HOLD; legacy is fallback only. On 30d paper data ML dominates final selection (see replay_analysis). Registered label: ML_ONLY for effective production behavior; implementation uses dual-run with ML override (not weighted ENSEMBLE).",
+  "ml_replaces_legacy": true,
+  "ml_works_with_legacy": true,
+  "production_path_uses_composite": true
+}

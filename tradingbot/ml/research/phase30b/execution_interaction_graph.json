@@ -1,0 +1,210 @@
+{
+  "phase": "30B",
+  "nodes": [
+    "Spread Model",
+    "Slippage Model",
+    "Session Spread",
+    "Latency Model",
+    "Broker Delay",
+    "Network Delay",
+    "Order Queue",
+    "Liquidity Model",
+    "Partial Fills",
+    "Market Impact",
+    "Requote",
+    "Price Gaps",
+    "News/Flash",
+    "ATR/Volatility",
+    "Exit Execution",
+    "Broker Constraints",
+    "Paper/Replay",
+    "Accounting",
+    "Execution Score"
+  ],
+  "edges": [
+    {
+      "from": "Session Spread",
+      "to": "Spread Model",
+      "type": "amplifies",
+      "strength": 0.8
+    },
+    {
+      "from": "ATR/Volatility",
+      "to": "Spread Model",
+      "type": "amplifies",
+      "strength": 0.7
+    },
+    {
+      "from": "Liquidity Model",
+      "to": "Spread Model",
+      "type": "amplifies",
+      "strength": 0.6
+    },
+    {
+      "from": "News/Flash",
+      "to": "Spread Model",
+      "type": "amplifies",
+      "strength": 0.95
+    },
+    {
+      "from": "News/Flash",
+      "to": "Liquidity Model",
+      "type": "amplifies",
+      "strength": 0.9
+    },
+    {
+      "from": "Liquidity Model",
+      "to": "Partial Fills",
+      "type": "amplifies",
+      "strength": 0.85
+    },
+    {
+      "from": "Partial Fills",
+      "to": "Market Impact",
+      "type": "amplifies",
+      "strength": 0.4
+    },
+    {
+      "from": "Liquidity Model",
+      "to": "Market Impact",
+      "type": "amplifies",
+      "strength": 0.5
+    },
+    {
+      "from": "Spread Model",
+      "to": "Slippage Model",
+      "type": "correlates",
+      "strength": 0.65
+    },
+    {
+      "from": "Slippage Model",
+      "to": "Exit Execution",
+      "type": "amplifies",
+      "strength": 0.9
+    },
+    {
+      "from": "Spread Model",
+      "to": "Exit Execution",
+      "type": "amplifies",
+      "strength": 0.95
+    },
+    {
+      "from": "Price Gaps",
+      "to": "Exit Execution",
+      "type": "amplifies",
+      "strength": 0.85
+    },
+    {
+      "from": "Requote",
+      "to": "Spread Model",
+      "type": "amplifies",
+      "strength": 0.7
+    },
+    {
+      "from": "Order Queue",
+      "to": "Latency Model",
+      "type": "amplifies",
+      "strength": 0.6
+    },
+    {
+      "from": "Broker Delay",
+      "to": "Latency Model",
+      "type": "amplifies",
+      "strength": 0.7
+    },
+    {
+      "from": "Network Delay",
+      "to": "Latency Model",
+      "type": "amplifies",
+      "strength": 0.6
+    },
+    {
+      "from": "Latency Model",
+      "to": "Slippage Model",
+      "type": "should_couple",
+      "strength": 0.0,
+      "note": "NOT IMPLEMENTED \u2014 cancel in replay"
+    },
+    {
+      "from": "Broker Constraints",
+      "to": "Partial Fills",
+      "type": "caps",
+      "strength": 0.3
+    },
+    {
+      "from": "Paper/Replay",
+      "to": "Exit Execution",
+      "type": "idealizes",
+      "strength": 0.95
+    },
+    {
+      "from": "Exit Execution",
+      "to": "Accounting",
+      "type": "feeds",
+      "strength": 1.0
+    },
+    {
+      "from": "Spread Model",
+      "to": "Execution Score",
+      "type": "feeds",
+      "strength": 0.5
+    },
+    {
+      "from": "News/Flash",
+      "to": "Slippage Model",
+      "type": "amplifies",
+      "strength": 0.85
+    },
+    {
+      "from": "ATR/Volatility",
+      "to": "Slippage Model",
+      "type": "amplifies",
+      "strength": 0.75
+    }
+  ],
+  "amplifying_chains": [
+    [
+      "News/Flash",
+      "Spread Model",
+      "Slippage Model",
+      "Exit Execution",
+      "Accounting"
+    ],
+    [
+      "Liquidity Model",
+      "Partial Fills",
+      "Market Impact",
+      "Slippage Model"
+    ],
+    [
+      "Session Spread",
+      "Spread Model",
+      "Exit Execution"
+    ]
+  ],
+  "cancelling_pairs": [
+    {
+      "pair": [
+        "Latency Model",
+        "Slippage Model"
+      ],
+      "reason": "Latency sampled but not applied to price \u2014 no interaction effect in PnL"
+    },
+    {
+      "pair": [
+        "Market Impact",
+        "PF at min lot"
+      ],
+      "reason": "Impact negligible at 0.01 lot \u2014 cancels perceived risk from impact sweeps"
+    },
+    {
+      "pair": [
+        "Positive slippage",
+        "Negative slippage"
+      ],
+      "reason": "Net slippage distribution partially self-cancels over many trades"
+    }
+  ],
+  "critical_path": "Signal \u2192 RiskGate \u2192 Entry(spread+slip) \u2192 Exit(exact TP/SL in prod | spread+slip in sim) \u2192 Accounting",
+  "generated_utc": "2026-07-10T08:44:28.785450+00:00"
+}

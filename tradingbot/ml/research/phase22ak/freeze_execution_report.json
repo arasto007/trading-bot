@@ -1,0 +1,28 @@
+{
+  "phase": "22AK",
+  "freeze_executed": true,
+  "freeze_manifest_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\freeze_manifest.json",
+  "contract_valid": true,
+  "contract_errors": [],
+  "contract_candidate_id": "xgb_baseline_phase96",
+  "metadata_candidate_id": "xgb_baseline_phase96",
+  "candidate_id_matches": true,
+  "contract_features": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "artifact_feature_order": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "feature_order_matches": true,
+  "model_pkl_created": true,
+  "manifest_generated": true,
+  "manifest_new_candidate": "xgb_baseline_phase96",
+  "before_had_artifacts": true,
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00"
+}

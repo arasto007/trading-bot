@@ -1,0 +1,88 @@
+{
+  "phase": "27B",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "objective": "Explain Phase 27A zero trades and RSI filter dominance",
+  "phase27a_summary": {
+    "bars_evaluated": 5203,
+    "completed_trades": 0,
+    "rsi_filter_hold": 5201,
+    "buy_emitted": 0,
+    "sell_emitted": 0
+  },
+  "fresh_trace_summary": {
+    "bars_traced": 5203,
+    "actionable_before_rsi": 2583,
+    "actionable_after_rsi": 761,
+    "buy_blocked": 34,
+    "sell_blocked": 391
+  },
+  "primary_root_cause": "PipelineCache prediction key collision in replay",
+  "verdict": "MULTIPLE_ROOT_CAUSES",
+  "conclusion": "Phase 27A reported 5201 rsi_filter_hold events, but ~5200 bars used PipelineCache prediction hits (identical checksum/confidence). Fresh per-bar trace shows the RSI/ADX profitability filter still blocks most actionable RANGE signals under regime profile rsi 40-65 / adx 15-40. Zero trades is explained by filter strictness plus replay cache key collision \u2014 not RiskGate or execution.",
+  "ranked_causes": [
+    {
+      "rank": 1,
+      "severity": "CRITICAL",
+      "issue": "PipelineCache prediction key collision in replay",
+      "repository_location": "tradingbot/ml/integration/kernel_adapter.py (row_key); PipelineCache.get_unified_frame integer index",
+      "runtime_evidence": {
+        "phase27a_unique_checksums": 3,
+        "phase27a_identical_confidence_bars": 5201,
+        "prediction_cache_key_pattern": "symbol:timeframe:unified.index[-1]",
+        "unified_frame_index_type": "int64 positional (not timestamp)",
+        "kernel_adapter_line": 195
+      },
+      "affected_bars": 5201,
+      "estimated_impact": "Phase 27A replay served one cached ML signal for ~5201 bars (decision_ms=0 on 5200/5203). Hold-chain RSI counters replayed from stale _hold_chain payload \u2014 not per-bar fresh evaluation.",
+      "recommended_fix": "Use candle timestamp in prediction cache key; do not modify in Phase 27B."
+    },
+    {
+      "rank": 2,
+      "severity": "HIGH",
+      "issue": "RSI mid-band filter rejects majority of fresh actionable signals",
+      "repository_location": "tradingbot/ml/phase19c/filters.py:99-100; regime_filter_profiles.py RangeFilterProfile rsi 40-65",
+      "runtime_evidence": {
+        "fresh_trace_rsi_blocks": 425,
+        "fresh_trace_adx_blocks_attributed_as_rsi": 284,
+        "RANGE_profile_rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "blocked_buy": 34,
+        "blocked_sell": 391,
+        "distribution_rsi_blocked_mean": 45.904948
+      },
+      "affected_bars": 425,
+      "estimated_impact": "Fresh trace: 425 bars blocked by RSI filter; 761 signals would pass if filter removed.",
+      "recommended_fix": "Re-certify RSI band on XAUUSD M5 RANGE regime; hold-chain should record ADX separately when both fail."
+    },
+    {
+      "rank": 3,
+      "severity": "MEDIUM",
+      "issue": "Hold-chain attributes dual RSI+ADX failures to RSI only",
+      "repository_location": "tradingbot/ml/integration/kernel_adapter.py _hold_chain_snapshot",
+      "runtime_evidence": {
+        "fresh_adx_only_stage": 284,
+        "fresh_rsi_stage": 425
+      },
+      "affected_bars": 284,
+      "estimated_impact": "Under-counts ADX filter impact in Phase 27A hold_analysis.",
+      "recommended_fix": "Record primary and secondary block reasons in hold chain diagnostics."
+    },
+    {
+      "rank": 4,
+      "severity": "MEDIUM",
+      "issue": "Filter band may be miscalibrated for June 2026 XAUUSD M5",
+      "repository_location": "tradingbot/ml/integration/regime_filter_profiles.py RangeFilterProfile",
+      "runtime_evidence": {
+        "widen_10pct_survival_rate": 55.034,
+        "current_survival_rate": 51.769
+      },
+      "affected_bars": 1822,
+      "estimated_impact": "Simulation-only: widening RSI band 10% increases survivors without production change.",
+      "recommended_fix": "Run isolated RANGE-only filter validation before paper trading."
+    }
+  ],
+  "generated_utc": "2026-07-09T12:46:26.888286+00:00"
+}

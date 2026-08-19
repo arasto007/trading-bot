@@ -1,0 +1,5 @@
+{
+  "note": "Feature vectors compared via unified_checksum in paper metadata vs research feature_vector keys",
+  "research_has_feature_vector": 1,
+  "paper_has_checksum": 9
+}

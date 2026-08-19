@@ -1,0 +1,12 @@
+{
+  "phase": "23B",
+  "before_phase23a": {
+    "predict_proba_reached": false,
+    "ema_cross_state_present": false,
+    "feature_source": null
+  },
+  "after_phase23b": {
+    "note": "see runtime_feature_validation.json runtime_sample"
+  },
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

@@ -1,0 +1,123 @@
+{
+  "phase": "22AC",
+  "phase9_9_production_write_function": "freeze_phase9_9_artifacts",
+  "single_writer_function": true,
+  "write_paths": [
+    {
+      "artifact": "model.pkl",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 125,
+      "mechanism": "joblib.dump(model, phase9_9_model_path)",
+      "triggers": [
+        "direct call",
+        "load_phase9_9_bundle(build_if_missing=True)",
+        "KernelShadowRunner._ensure_artifacts"
+      ]
+    },
+    {
+      "artifact": "scaler.pkl",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 126,
+      "mechanism": "joblib.dump(scaler, phase9_9_scaler_path)",
+      "triggers": [
+        "same as model.pkl"
+      ]
+    },
+    {
+      "artifact": "feature_order.json",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 127,
+      "mechanism": "Path.write_text(json feature_order)",
+      "triggers": [
+        "same as model.pkl"
+      ]
+    },
+    {
+      "artifact": "config.json",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 131,
+      "mechanism": "Path.write_text(json config)",
+      "triggers": [
+        "same as model.pkl"
+      ]
+    },
+    {
+      "artifact": "metadata.json",
+      "function": "freeze_phase9_9_artifacts",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "line": 142,
+      "mechanism": "Path.write_text(json metadata)",
+      "triggers": [
+        "same as model.pkl"
+      ]
+    }
+  ],
+  "indirect_callers": [
+    {
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "condition": "build_if_missing=True and model.pkl missing"
+    },
+    {
+      "file": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "function": "ShadowEngine.run",
+      "condition": "build_if_missing=True with training_df"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "function": "_ensure_artifacts",
+      "condition": "model.pkl missing → direct freeze"
+    },
+    {
+      "file": "tradingbot/ml/shadow/ml_adapter.py",
+      "function": "MLAdapter.load",
+      "condition": "training_df is not None"
+    },
+    {
+      "file": "tests/test_ml_paper_phase9_10.py",
+      "function": "multiple",
+      "condition": "pytest temp base_dir"
+    },
+    {
+      "file": "tests/test_ml_phase10_1_kernel_bridge.py",
+      "function": "setup",
+      "condition": "pytest temp base_dir"
+    },
+    {
+      "file": "tests/test_ml_phase10_2_live_shadow.py",
+      "function": "setup",
+      "condition": "pytest temp base_dir"
+    },
+    {
+      "file": "tests/test_ml_phase11_paper.py",
+      "function": "setup",
+      "condition": "pytest temp base_dir"
+    },
+    {
+      "file": "tests/test_ml_shadow_phase10.py",
+      "function": "setup",
+      "condition": "pytest temp base_dir"
+    },
+    {
+      "file": "tests/test_ml_phase10_4_monitoring.py",
+      "function": "setup",
+      "condition": "pytest temp base_dir"
+    }
+  ],
+  "no_other_phase9_9_writers_found": true,
+  "related_non_phase99": [
+    {
+      "note": "Trend v40/v41 bundles use separate writers (not Phase 9.9 RANGE registry)",
+      "files": [
+        "tradingbot/ml/phase15a/trend_bundle.py",
+        "tradingbot/ml/phase17d/bundle_freeze.py"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

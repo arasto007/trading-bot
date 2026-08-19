@@ -1,0 +1,208 @@
+{
+  "phase": "29A",
+  "winner_count": 299,
+  "loser_count": 275,
+  "numeric_comparisons": {
+    "rsi": {
+      "winner_mean": 49.2177,
+      "loser_mean": 50.6874,
+      "difference": -1.4697,
+      "effect_size": 0.1808,
+      "statistically_significant": false
+    },
+    "adx": {
+      "winner_mean": 20.5516,
+      "loser_mean": 20.7909,
+      "difference": -0.2392,
+      "effect_size": 0.0714,
+      "statistically_significant": false
+    },
+    "atr": {
+      "winner_mean": 5.6048,
+      "loser_mean": 5.5702,
+      "difference": 0.0346,
+      "effect_size": 0.0191,
+      "statistically_significant": false
+    },
+    "atr_percentile": {
+      "winner_mean": 51.7355,
+      "loser_mean": 50.8526,
+      "difference": 0.8829,
+      "effect_size": 0.0379,
+      "statistically_significant": false
+    },
+    "spread": {
+      "winner_mean": 0.3,
+      "loser_mean": 0.3,
+      "difference": 0.0,
+      "effect_size": 0.0,
+      "statistically_significant": false
+    },
+    "volume_percentile": {
+      "winner_mean": 52.3377,
+      "loser_mean": 48.1855,
+      "difference": 4.1522,
+      "effect_size": 0.1308,
+      "statistically_significant": false
+    },
+    "ema20_distance_pct": {
+      "winner_mean": 0.0025,
+      "loser_mean": 0.0096,
+      "difference": -0.0071,
+      "effect_size": 0.0543,
+      "statistically_significant": false
+    },
+    "ema50_distance_pct": {
+      "winner_mean": -0.0297,
+      "loser_mean": -0.0219,
+      "difference": -0.0078,
+      "effect_size": 0.0399,
+      "statistically_significant": false
+    },
+    "market_structure_hh": {
+      "winner_mean": 8.7759,
+      "loser_mean": 8.9673,
+      "difference": -0.1914,
+      "effect_size": 0.1153,
+      "statistically_significant": false
+    },
+    "market_structure_ll": {
+      "winner_mean": 9.5619,
+      "loser_mean": 9.4582,
+      "difference": 0.1037,
+      "effect_size": 0.0633,
+      "statistically_significant": false
+    },
+    "range_compression": {
+      "winner_mean": 0.9697,
+      "loser_mean": 1.0284,
+      "difference": -0.0587,
+      "effect_size": 0.0966,
+      "statistically_significant": false
+    },
+    "confidence": {
+      "winner_mean": 0.9761,
+      "loser_mean": 0.9788,
+      "difference": -0.0027,
+      "effect_size": 0.0582,
+      "statistically_significant": false
+    },
+    "sl_atr_multiple": {
+      "winner_mean": 2.0093,
+      "loser_mean": 2.0051,
+      "difference": 0.0042,
+      "effect_size": 0.0437,
+      "statistically_significant": false
+    },
+    "mfe": {
+      "winner_mean": 0.4044,
+      "loser_mean": 0.1213,
+      "difference": 0.2831,
+      "effect_size": 1.0335,
+      "statistically_significant": true
+    },
+    "mae": {
+      "winner_mean": 0.1288,
+      "loser_mean": 0.403,
+      "difference": -0.2742,
+      "effect_size": 0.9516,
+      "statistically_significant": true
+    },
+    "duration_bars": {
+      "winner_mean": 1.0,
+      "loser_mean": 1.0,
+      "difference": 0.0,
+      "effect_size": 0.0,
+      "statistically_significant": false
+    },
+    "quality_score": {
+      "winner_mean": 63.5628,
+      "loser_mean": 62.5241,
+      "difference": 1.0387,
+      "effect_size": 0.1455,
+      "statistically_significant": false
+    },
+    "false_signal_score": {
+      "winner_mean": 29.4682,
+      "loser_mean": 30.7527,
+      "difference": -1.2845,
+      "effect_size": 0.0638,
+      "statistically_significant": false
+    },
+    "context_score": {
+      "winner_mean": 52.3244,
+      "loser_mean": 51.6364,
+      "difference": 0.6881,
+      "effect_size": 0.0602,
+      "statistically_significant": false
+    },
+    "signal_filter_score": {
+      "winner_mean": 87.3134,
+      "loser_mean": 86.6208,
+      "difference": 0.6926,
+      "effect_size": 0.0753,
+      "statistically_significant": false
+    }
+  },
+  "categorical_comparisons": {
+    "session": {
+      "winners": {
+        "Asian": 116,
+        "London": 70,
+        "Overlap": 43,
+        "New York": 70
+      },
+      "losers": {
+        "Asian": 116,
+        "London": 56,
+        "Overlap": 46,
+        "New York": 57
+      }
+    },
+    "regime": {
+      "winners": {
+        "RANGE": 299
+      },
+      "losers": {
+        "RANGE": 275
+      }
+    },
+    "engine": {
+      "winners": {
+        "phase9_9": 299
+      },
+      "losers": {
+        "phase9_9": 275
+      }
+    },
+    "direction": {
+      "winners": {
+        "BUY": 19,
+        "SELL": 280
+      },
+      "losers": {
+        "SELL": 253,
+        "BUY": 22
+      }
+    },
+    "swing_position": {
+      "winners": {
+        "upper": 133,
+        "lower": 166
+      },
+      "losers": {
+        "upper": 122,
+        "lower": 153
+      }
+    }
+  },
+  "significant_differentiators": [
+    "mfe",
+    "mae"
+  ],
+  "top_insights": [
+    "mfe: winners=0.4044, losers=0.1213",
+    "mae: winners=0.1288, losers=0.403"
+  ],
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

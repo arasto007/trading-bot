@@ -1,0 +1,55 @@
+{
+  "phase": "30E",
+  "limitations": [
+    {
+      "id": "T1",
+      "limitation": "Tick history depth capped by terminal/broker",
+      "impact": "copy_ticks_range may truncate old ranges",
+      "mitigation": "Forward collection via polling; do not rely on deep backfill",
+      "risk": "Medium"
+    },
+    {
+      "id": "T2",
+      "limitation": "Millisecond timestamp precision only (time_msc)",
+      "impact": "Phase 30D microsecond schema overstated",
+      "mitigation": "Use timestamp_ms + local_send_ns",
+      "risk": "Low"
+    },
+    {
+      "id": "T3",
+      "limitation": "Single terminal session \u2014 no distributed tick feed",
+      "impact": "Collection requires VPS co-located with terminal",
+      "mitigation": "Run collector on same machine as MT5",
+      "risk": "Medium"
+    },
+    {
+      "id": "T4",
+      "limitation": "terminal_info().ping is aggregate not per-order",
+      "impact": "Cannot decompose network vs server latency per fill",
+      "mitigation": "Use round_trip_ms only for DBT",
+      "risk": "Medium"
+    },
+    {
+      "id": "T5",
+      "limitation": "Python GIL + 100ms poll floor",
+      "impact": "May miss sub-100ms tick changes",
+      "mitigation": "Acceptable for spread calibration; burst to 50ms during news",
+      "risk": "Low"
+    },
+    {
+      "id": "T6",
+      "limitation": "AutoTrading must be enabled for live fill collection",
+      "impact": "Demo order_send blocked if AT off",
+      "mitigation": "check_autotrading_ready before collection phase",
+      "risk": "Low"
+    },
+    {
+      "id": "T7",
+      "limitation": "No push tick callback in Python API",
+      "impact": "Polling only \u2014 no native streaming subscription",
+      "mitigation": "Timer poll symbol_info_tick",
+      "risk": "Low"
+    }
+  ],
+  "generated_utc": "2026-07-10T11:11:07.049326+00:00"
+}

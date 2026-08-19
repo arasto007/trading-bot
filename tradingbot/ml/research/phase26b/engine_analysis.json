@@ -1,0 +1,28 @@
+{
+  "phase": "26B",
+  "phase99": {
+    "trades": 1,
+    "pf": "inf",
+    "expectancy": 23.575,
+    "average_confidence": 1.0,
+    "win_rate": 1.0,
+    "average_duration_bars": 7.0
+  },
+  "trend_engine": {
+    "trades": 0,
+    "pf": 0.0,
+    "expectancy": 0.0,
+    "average_confidence": 0.0,
+    "win_rate": 0.0,
+    "average_duration_bars": 0.0
+  },
+  "other": {
+    "trades": 0,
+    "pf": 0.0,
+    "expectancy": 0.0,
+    "average_confidence": 0.0,
+    "win_rate": 0.0,
+    "average_duration_bars": 0.0
+  },
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

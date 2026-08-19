@@ -1,0 +1,34 @@
+{
+  "phase": "24F",
+  "status": "DESIGN_ONLY",
+  "verdict_on_row_reuse": "UNSAFE",
+  "blocking_finding": "Sliding tail(300) causes EWM/rolling features at the same timestamp to differ between consecutive full rebuilds (e.g. ema200 max diff ~2.3). Reusing prior unified-frame body rows cannot match production output.",
+  "current_algorithm": [
+    "candles.tail(300).copy()",
+    "build_unified_frame(candles, dataset)",
+    "attach_top5_features(unified)",
+    "return unified"
+  ],
+  "proposed_incremental_algorithm": [
+    "Maintain IncrementalUnifiedState { unified_df, last_bar_ts }",
+    "On new closed bar:",
+    "  1. candles_new = tail(300)",
+    "  2. body = state.unified.iloc[1:]  # drop oldest row",
+    "  3. new_row = compute_last_row_features(candles_new, dataset)  # B-class ops only",
+    "  4. assembled = concat(body, new_row)",
+    "  5. assembled = attach_top5_features(assembled)  # trend_age on last row",
+    "  6. return assembled, update state",
+    "Cold start / gap / length mismatch \u2192 full rebuild"
+  ],
+  "compute_last_row_features_design": {
+    "build_ml_features": "Run vectorized on 300 bars, extract iloc[-1] only (or maintain ewm/rolling state)",
+    "regime_features": "Same \u2014 extract last row only",
+    "phase99_merge": "Single timestamp lookup from in-memory dataset_v2",
+    "regime_label": "rule_classify_row on new row only"
+  },
+  "invariants": [
+    "Causal features: value at timestamp T depends only on candles <= T",
+    "Sliding window: overlap timestamps must match full rebuild exactly"
+  ],
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

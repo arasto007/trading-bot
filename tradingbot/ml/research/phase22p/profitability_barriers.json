@@ -1,0 +1,172 @@
+{
+  "phase": "22P",
+  "sections": [
+    {
+      "section": "Unified Frame / phase99 merge",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "helps_profitability": false,
+      "effect": "HOLD amplifier",
+      "evidence": null,
+      "reason": "fillna(0.0) on dataset merge miss → phase99 zeros → range P(win) stuck in dead zone"
+    },
+    {
+      "section": "Decision Engine / Policy",
+      "file": "tradingbot/ml/decision_engine/orchestrator.py",
+      "helps_profitability": false,
+      "effect": "HOLD",
+      "evidence": {
+        "decision_hold_bars": 4247,
+        "pct_of_bars": 98.58,
+        "ml_signals_emitted": 0
+      },
+      "reason": "96%+ bars HOLD before RiskGate; primary funnel loss"
+    },
+    {
+      "section": "Range ML phase9_9",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "helps_profitability": false,
+      "effect": "HOLD",
+      "evidence": {
+        "hold_causes": {},
+        "prob_buckets": {
+          "sell_zone": {
+            "count": 108,
+            "pct": 100.0
+          }
+        },
+        "feature_zero_counts": {
+          "structure_distance": 108,
+          "unified_phase99_structure_distance": 108,
+          "ema50_slope": 98,
+          "candle_direction": 98,
+          "unified_phase99_ema50_slope": 98,
+          "unified_phase99_candle_direction": 98
+        }
+      },
+      "reason": "P(win) in dead_zone 0.45-0.55 when phase99 features zero-filled"
+    },
+    {
+      "section": "Calibration / TradeQuality",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "helps_profitability": "neutral",
+      "effect": "minimal blocks on Dataset A",
+      "evidence": {
+        "calibration_hold": 0,
+        "trade_quality_hold": 61
+      }
+    },
+    {
+      "section": "RSI/ADX Filters (Phase19C)",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "helps_profitability": "mixed",
+      "effect": "secondary block",
+      "evidence": {
+        "rsi_filter_hold": 0,
+        "adx_filter_hold": 0,
+        "trace_stage_blocks": {
+          "calibration_hold": 270,
+          "risk": 308,
+          "quality": 325
+        }
+      }
+    },
+    {
+      "section": "RiskGate",
+      "file": "tradingbot/adapters/risk_gate.py",
+      "helps_profitability": true,
+      "effect": "blocks bad entries after rare signals",
+      "evidence": {
+        "riskgate_hold": 0,
+        "reasons": {},
+        "trades_after_gate": 0
+      },
+      "reason": "Only reached after ML emits signal; daily loss limit dominant when trades occur"
+    },
+    {
+      "section": "Execution",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "helps_profitability": "neutral",
+      "effect": "executes approved signals",
+      "evidence": {
+        "executed_trades": 0,
+        "pf": 0.0
+      }
+    }
+  ],
+  "missed_opportunities": {
+    "missed_profitable_count": 0,
+    "by_blocker": {}
+  },
+  "top_module_blocks": {
+    "Decision/Engine": 4247,
+    "TradeQuality": 78,
+    "AdaptiveRisk": 30
+  },
+  "filter_rank_head": [
+    {
+      "filter": "Decision/Engine Gate",
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "signals_removed": 4247,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "low_value_blocker"
+    },
+    {
+      "filter": "Trade Quality Gate",
+      "file": "tradingbot/ml/trade_quality/adapter.py",
+      "signals_removed": 61,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "blocks_losing_or_neutral"
+    },
+    {
+      "filter": "Calibration Gate",
+      "file": "tradingbot/ml/confidence_engine/validator.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "RSI Filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "ADX Filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    }
+  ]
+}

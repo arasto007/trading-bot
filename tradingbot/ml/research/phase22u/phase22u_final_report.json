@@ -1,0 +1,33 @@
+{
+  "phase": "22U",
+  "title": "Model Capability Verification (phase9_9)",
+  "generated_utc": "2026-07-05T20:57:00.053723+00:00",
+  "production_modified": false,
+  "method": "Direct frozen phase9_9 LogisticRegression + StandardScaler on dataset_v2 feature columns; no TradingKernel, Decision Engine, calibration, or signal thresholds",
+  "verdict": "MODEL_DEGENERATED",
+  "verdict_reason": "Full dataset_v2 raw inference: buy_zone_pct=0.0% (<1%). Model does not produce BUY-zone probabilities on training events.",
+  "training_rows_scored": 5724,
+  "training_zones": {
+    "n": 5724,
+    "buy_zone_count": 0,
+    "sell_zone_count": 5718,
+    "neutral_count": 6,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 99.8952,
+    "neutral_pct": 0.1048
+  },
+  "training_label_positive_pct": 34.696,
+  "training_p_win_mean": 0.361875,
+  "training_p_win_std": 0.036336,
+  "dataset_a_rows": 174,
+  "dataset_a_buy_zone_pct": {
+    "n": 174,
+    "buy_zone_count": 0,
+    "sell_zone_count": 174,
+    "neutral_count": 0,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 100.0,
+    "neutral_pct": 0.0
+  },
+  "summary": "Verdict=MODEL_DEGENERATED. Training buy_zone=0.0% sell_zone=99.8952% neutral=0.1048% P(win) mean=0.361875 std=0.036336. Labels positive=34.696%."
+}

@@ -1,0 +1,25 @@
+{
+  "agreement_rate": 0.0,
+  "conflict_rate": 0.0,
+  "agreement_cycles": 0,
+  "conflict_cycles": 0,
+  "ml_contribution_percentage": 0.0,
+  "legacy_contribution_percentage": 0.0,
+  "dominant_strategy": "Phase9.9_ML",
+  "signals_generated": {
+    "ml": 0,
+    "legacy": 0
+  },
+  "signals_selected_as_final": {
+    "ml": 0,
+    "legacy": 0
+  },
+  "decision_mechanism": {
+    "type": "ML_PRIORITY_OVERRIDE",
+    "ml_weight_when_active": "100%",
+    "legacy_weight_when_ml_hold": "100%",
+    "voting": false,
+    "confidence_weighting": false,
+    "description": "ML non-HOLD overrides legacy; no ensemble fusion."
+  }
+}

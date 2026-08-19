@@ -1,0 +1,35 @@
+{
+  "phase": "27H",
+  "baseline": {
+    "trade_count": 575,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "win_rate_pct": 38.61,
+    "max_drawdown_pct": 12.1956,
+    "recovery_factor": 0.8223
+  },
+  "after_costs": {
+    "trade_count": 575,
+    "net_profit": 714.7131,
+    "profit_factor": 1.1741,
+    "expectancy": 1.243,
+    "win_rate_pct": 38.43,
+    "max_drawdown_pct": 13.6451,
+    "recovery_factor": 0.4798
+  },
+  "total_costs_applied": 386.4714,
+  "vs_baseline": {
+    "net_profit_delta": -386.4723,
+    "profit_factor_delta": -0.1106,
+    "expectancy_delta": -0.6721,
+    "win_rate_delta_pct": -0.18,
+    "drawdown_delta_pct": 1.4495
+  },
+  "cost_model": {
+    "spread": "round_trip_from_trade_record",
+    "commission_per_lot_round": 7.0,
+    "swap_per_lot_per_day": 2.5
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

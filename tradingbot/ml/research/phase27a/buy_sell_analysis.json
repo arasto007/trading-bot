@@ -1,0 +1,19 @@
+{
+  "BUY": {
+    "count": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "net_profit": 0,
+    "expectancy": 0.0,
+    "average_confidence": 0.0
+  },
+  "SELL": {
+    "count": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "net_profit": 0,
+    "expectancy": 0.0,
+    "average_confidence": 0.0
+  },
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

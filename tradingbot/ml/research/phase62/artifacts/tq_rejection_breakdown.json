@@ -1,0 +1,234 @@
+{
+  "verdict": "TQ_ENGINE_ID_MISMATCH_CONFIRMED",
+  "signals_analyzed": 4864,
+  "confidence_threshold": 0.4,
+  "production_tq_summary": {
+    "allowed_count": 0,
+    "blocked_count": 4864,
+    "block_rate_pct": 100.0,
+    "cache_first_blocker_tq_count": 4541,
+    "cache_tq_block_rate_pct": 93.36
+  },
+  "root_cause": {
+    "primary_blocker": "regime_engine_mismatch",
+    "primary_blocker_pct": 93.36,
+    "engine_id_mismatch": {
+      "active_router_engine": "trend_rf_v41",
+      "regime_quality_recognizes": "trend_rf_v40",
+      "mismatch_confirmed": true,
+      "explanation_fa": "\u0645\u0648\u062a\u0648\u0631 \u0641\u0639\u0627\u0644 trend_rf_v41 \u062f\u0631 regime_quality.py \u0634\u0646\u0627\u062e\u062a\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u062f \u2014 \u0647\u0645\u0647 \u0633\u06cc\u06af\u0646\u0627\u0644\u200c\u0647\u0627 \u0628\u0627 blocked_by=regime \u0648 score=0.0 \u0631\u062f \u0645\u06cc\u200c\u0634\u0648\u0646\u062f",
+      "explanation_en": "Active engine trend_rf_v41 is not recognized in regime_quality.py \u2014 all signals blocked with blocked_by=regime and score=0.0"
+    }
+  },
+  "rejection_categories_production": {
+    "regime_engine_mismatch": 4541,
+    "signal_confidence_low": 323
+  },
+  "rejection_categories_shadow_alias": {
+    "passed": 4541,
+    "signal_confidence_low": 323
+  },
+  "rejection_by_cache": {
+    "A": {
+      "regime_engine_mismatch": 739,
+      "signal_confidence_low": 51
+    },
+    "B": {
+      "regime_engine_mismatch": 164,
+      "signal_confidence_low": 16
+    },
+    "C": {
+      "regime_engine_mismatch": 1075,
+      "signal_confidence_low": 63
+    },
+    "H": {
+      "regime_engine_mismatch": 2563,
+      "signal_confidence_low": 193
+    }
+  },
+  "engine_distribution": {
+    "trend_rf_v41": 4864
+  },
+  "component_stats_production": {
+    "signal": {
+      "mean": 0.7926,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "regime": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "zero_count": 4864
+    },
+    "rr": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "zero_count": 4864
+    },
+    "volatility": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "zero_count": 4864
+    },
+    "liquidity": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "zero_count": 4864
+    },
+    "session": {
+      "mean": 0.0,
+      "min": 0.0,
+      "max": 0.0,
+      "zero_count": 4864
+    }
+  },
+  "component_stats_shadow_alias": {
+    "signal": {
+      "mean": 0.7926,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "regime": {
+      "mean": 0.9336,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "rr": {
+      "mean": 0.9336,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "volatility": {
+      "mean": 0.8449,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "liquidity": {
+      "mean": 0.9336,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    },
+    "session": {
+      "mean": 0.8387,
+      "min": 0.0,
+      "max": 1.0,
+      "zero_count": 323
+    }
+  },
+  "score_distribution_production": {
+    "0.00": 4864
+  },
+  "score_distribution_shadow_alias": {
+    "0.85+": 4028,
+    "0.00": 323,
+    "0.75-0.84": 513
+  },
+  "shadow_alias_summary": {
+    "allowed_count": 4541,
+    "capture_rate_pct": 93.36,
+    "pf_proxy_label_v3": {
+      "pf": 0.3679,
+      "trades": 4417,
+      "wins": 1188,
+      "losses": 3229,
+      "win_rate_pct": 26.9
+    }
+  },
+  "shadow_threshold_sweep": [
+    {
+      "threshold": 0.5,
+      "engine_alias": "trend_rf_v40",
+      "allowed_count": 4541,
+      "capture_rate_pct": 93.36,
+      "mean_score": 0.8732
+    },
+    {
+      "threshold": 0.55,
+      "engine_alias": "trend_rf_v40",
+      "allowed_count": 4541,
+      "capture_rate_pct": 93.36,
+      "mean_score": 0.8732
+    },
+    {
+      "threshold": 0.6,
+      "engine_alias": "trend_rf_v40",
+      "allowed_count": 4541,
+      "capture_rate_pct": 93.36,
+      "mean_score": 0.8732
+    },
+    {
+      "threshold": 0.65,
+      "engine_alias": "trend_rf_v40",
+      "allowed_count": 4541,
+      "capture_rate_pct": 93.36,
+      "mean_score": 0.8732
+    },
+    {
+      "threshold": 0.7,
+      "engine_alias": "trend_rf_v40",
+      "allowed_count": 4541,
+      "capture_rate_pct": 93.36,
+      "mean_score": 0.8732
+    }
+  ],
+  "shadow_proposals": [
+    {
+      "id": "shadow_engine_alias",
+      "scope": "research_shadow_only",
+      "change_fa": "\u062f\u0631 \u0633\u0627\u06cc\u0647\u060c trend_rf_v41 \u0631\u0627 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 trend engine \u0634\u0646\u0627\u062e\u062a\u0647 \u0634\u0648\u062f (alias \u0628\u0647 v40 matrix)",
+      "change_en": "In shadow mode, recognize trend_rf_v41 as trend engine (alias to v40 regime matrix)",
+      "expected_capture_lift_pct": 93.36,
+      "production_change_required": true,
+      "production_file_hint": "tradingbot/ml/trade_quality/regime_quality.py",
+      "note": "NOT applied in production \u2014 research proposal only"
+    },
+    {
+      "id": "shadow_threshold_0.55",
+      "scope": "research_shadow_only",
+      "change_fa": "\u0622\u0633\u062a\u0627\u0646\u0647 quality \u062f\u0631 \u0633\u0627\u06cc\u0647 \u0627\u0632 0.65 \u0628\u0647 0.55 (\u0641\u0642\u0637 \u0627\u06af\u0631 engine alias \u0627\u0639\u0645\u0627\u0644 \u0634\u0648\u062f)",
+      "change_en": "Shadow quality threshold 0.65 \u2192 0.55 (only meaningful after engine alias)",
+      "expected_impact": "Minimal after alias \u2014 most scores ~0.85-0.91",
+      "production_change_required": true,
+      "production_file_hint": "tradingbot/ml/trade_quality/quality_policy.py",
+      "note": "NOT applied in production"
+    },
+    {
+      "id": "signal_confidence_floor",
+      "scope": "informational",
+      "change_fa": "323 \u0633\u06cc\u06af\u0646\u0627\u0644 \u0628\u0627 confidence < 0.55 \u2014 hard block \u062f\u0631 signal_quality",
+      "change_en": "323 signals with confidence < 0.55 \u2014 hard block in signal_quality",
+      "expected_capture_if_lowered_pct": 6.64,
+      "production_change_required": false,
+      "note": "Lowering confidence floor increases noise \u2014 not recommended without ML lift"
+    }
+  ],
+  "spread_analysis": {
+    "spread_class_counts": {
+      "normal_lt_4": 4864
+    }
+  },
+  "session_analysis": {
+    "session_counts": {
+      "asia": 2125,
+      "london": 2071,
+      "new_york": 668
+    }
+  },
+  "volatility_analysis": {
+    "volatility_state_counts": {
+      "NORMAL": 2527,
+      "LOW_VOL": 1610,
+      "HIGH_VOL": 727
+    }
+  }
+}

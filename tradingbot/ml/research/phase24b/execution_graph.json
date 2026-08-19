@@ -1,0 +1,101 @@
+{
+  "phase": "24B",
+  "graph_type": "execution_flow",
+  "nodes": [
+    {
+      "id": "mt5_tick",
+      "owner": "Mt5MarketDataAdapter",
+      "file": "tradingbot/adapters/mt5_market_data.py"
+    },
+    {
+      "id": "parquet_cache",
+      "owner": "Mt5MarketDataAdapter",
+      "note": "live hot path \u2014 not CandleStore"
+    },
+    {
+      "id": "raw_ohlcv",
+      "owner": "DataStage",
+      "file": "tradingbot/pipeline/data_stage.py",
+      "line": 24
+    },
+    {
+      "id": "enriched_ohlcv",
+      "owner": "IndicatorStage",
+      "file": "tradingbot/pipeline/indicator_stage.py",
+      "line": 21
+    },
+    {
+      "id": "trading_signal",
+      "owner": "SignalStage",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "line": 40
+    },
+    {
+      "id": "risk_decision",
+      "owner": "RiskStage",
+      "file": "tradingbot/pipeline/risk_stage.py",
+      "line": 36
+    },
+    {
+      "id": "execution_result",
+      "owner": "ExecutionStage",
+      "file": "tradingbot/pipeline/execution_stage.py",
+      "line": 21
+    },
+    {
+      "id": "broker_order",
+      "owner": "Mt5ExecutionAdapter",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "line": 172
+    }
+  ],
+  "edges": [
+    {
+      "from": "mt5_tick",
+      "to": "parquet_cache",
+      "fn": "update_all"
+    },
+    {
+      "from": "parquet_cache",
+      "to": "raw_ohlcv",
+      "fn": "get_ohlcv"
+    },
+    {
+      "from": "raw_ohlcv",
+      "to": "enriched_ohlcv",
+      "fn": "enrich_for_market"
+    },
+    {
+      "from": "enriched_ohlcv",
+      "to": "trading_signal",
+      "fn": "generate_signal",
+      "parallel_ml": "KernelAdapter uses same closed df"
+    },
+    {
+      "from": "trading_signal",
+      "to": "risk_decision",
+      "fn": "risk.evaluate"
+    },
+    {
+      "from": "risk_decision",
+      "to": "execution_result",
+      "fn": "executor.execute",
+      "guard": "allowed=True"
+    },
+    {
+      "from": "execution_result",
+      "to": "broker_order",
+      "fn": "order_send",
+      "guard": "not dry_run/paper"
+    }
+  ],
+  "position_management_parallel": {
+    "file": "tradingbot/kernel/trading_kernel.py",
+    "lines": "160-171",
+    "actions": [
+      "executor.manage_open_positions",
+      "position_manager.manage_all"
+    ]
+  },
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

@@ -1,0 +1,23 @@
+{
+  "phase": "27G",
+  "total_trades": 575,
+  "buy_count": 41,
+  "sell_count": 534,
+  "win_trades": 222,
+  "loss_trades": 353,
+  "win_rate_pct": 38.61,
+  "loss_rate_pct": 61.39,
+  "average_trade_duration_bars": 23.7183,
+  "median_trade_duration_bars": 15.0,
+  "average_trade_duration_sec": 7359.6522,
+  "median_trade_duration_sec": 4800.0,
+  "trades_per_day": 19.1667,
+  "trades_per_session": {
+    "Asian": 232,
+    "London": 127,
+    "Overlap": 89,
+    "New York": 127
+  },
+  "bars_evaluated": 5203,
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

@@ -1,0 +1,24 @@
+{
+  "phase": "27K",
+  "verdict": "LOSING_TRADES_ROOT_CAUSE_IDENTIFIED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "input_source": "phase27f_repaired_replay",
+  "total_trades": 575,
+  "losing_trades": 353,
+  "loser_rate_pct": 61.39,
+  "winners": 222,
+  "primary_root_cause": "high_confidence_still_lost",
+  "combination_summary": "high_confidence_still_lost (87.25%) + immediate_adverse_bar1 (54.39%)",
+  "blockers": [],
+  "key_findings": {
+    "dominant_false_signal": "momentum_failure",
+    "ever_profitable_before_sl_pct": 92.07,
+    "immediate_bar1_loss_pct": 54.39,
+    "stop_too_tight_pct": 0.0,
+    "avg_sl_atr_ratio": 2.0,
+    "loss_concentration_regime": "RANGE"
+  },
+  "conclusion": "high_confidence_still_lost (87.25%) + immediate_adverse_bar1 (54.39%)",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

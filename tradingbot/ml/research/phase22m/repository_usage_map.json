@@ -1,0 +1,65 @@
+{
+  "phase": "22M",
+  "step": 4,
+  "generated_utc": "2026-07-05T15:57:17.799750+00:00",
+  "symbols": {
+    "dataset_v2 / DatasetStore.load_v2": {
+      "role": "READ at inference",
+      "write_locations": [
+        "tradingbot/ml/dataset/production_dataset_v2.py:store_v2",
+        "tradingbot/ml/dataset/phase9_production_build.py:finalize store_v2"
+      ],
+      "read_locations_count": 76,
+      "live_path": "PipelineCache.get_unified_frame",
+      "update_in_live": false
+    },
+    "CandleStore": {
+      "role": "READ for dataset build; WRITE only via MLDataPipeline",
+      "write_locations": [
+        "tradingbot/ml/data/pipeline.py:merge_store"
+      ],
+      "read_locations_count": 75,
+      "live_path": "unused",
+      "update_in_live": false
+    },
+    "build_ml_dataset": {
+      "role": "CLI entry for Phase91 / v2 build",
+      "write_locations": [
+        "scripts/build_ml_dataset.py"
+      ],
+      "invoked_by_live": false,
+      "invoked_by_start_bats": "not in start/3_live_loop_execute.bat; not in 14_rebuild_ml_models.bat (uses collect only, not --phase9-1)"
+    },
+    "SparseEventDatasetBuilder": {
+      "role": "Build v1 labeled sparse events from CandleStore",
+      "write_locations": [
+        "sparse_event_builder.build_and_store → DatasetStore.store (v1)"
+      ],
+      "live_path": "unused"
+    },
+    "ProductionDatasetV2Builder": {
+      "role": "v1 → filtered dataset_v2",
+      "write_locations": [
+        "production_dataset_v2.py:store_v2"
+      ],
+      "live_path": "unused"
+    },
+    "FeatureBuilder": {
+      "role_at_training": "sparse_event_builder.compute_at per event",
+      "role_at_live_inference": "NOT used for phase99 (uses dataset merge)",
+      "live_path": "unused for range model features"
+    },
+    "ParquetCache": {
+      "role": "Live OHLCV cache",
+      "write_locations": [
+        "tradingbot/adapters/mt5_market_data.py:store"
+      ],
+      "read_locations": [
+        "Mt5MarketDataAdapter.get_ohlcv",
+        "BacktestMarketData cache"
+      ],
+      "update_in_live": true,
+      "feeds_dataset_v2": false
+    }
+  }
+}

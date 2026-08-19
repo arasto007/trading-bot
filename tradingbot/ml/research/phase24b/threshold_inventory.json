@@ -1,0 +1,89 @@
+{
+  "phase": "24B",
+  "thresholds": [
+    {
+      "name": "DEFAULT_MIN_CONFIDENCE",
+      "value": 0.55,
+      "file": "decision_policy.py",
+      "line": 14,
+      "overridden_by": "Phase22C decision_min_confidence 0.48"
+    },
+    {
+      "name": "TREND_ML_THRESHOLD",
+      "value": 0.4,
+      "file": "decision_policy.py",
+      "line": 11
+    },
+    {
+      "name": "PHASE22C_RANGE_BUY_THRESHOLD",
+      "value": 0.52,
+      "env": true
+    },
+    {
+      "name": "PHASE22C_RANGE_SELL_THRESHOLD",
+      "value": 0.48,
+      "env": true
+    },
+    {
+      "name": "RangeFilterProfile.rsi",
+      "value": "40-65",
+      "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+      "line": 34
+    },
+    {
+      "name": "RangeFilterProfile.adx",
+      "value": "15-40",
+      "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+      "line": 37
+    },
+    {
+      "name": "TrendFilterProfile.rsi",
+      "value": "35-65",
+      "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+      "line": 66
+    },
+    {
+      "name": "TrendFilterProfile.adx",
+      "value": "10-55",
+      "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+      "line": 68
+    },
+    {
+      "name": "ADX_TREND_MIN",
+      "value": 25.0,
+      "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+      "line": 14
+    },
+    {
+      "name": "ADX_RANGE_MAX",
+      "value": 20.0,
+      "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+      "line": 15
+    },
+    {
+      "name": "ATR_HIGH_VOL",
+      "value": 90.0,
+      "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+      "line": 16
+    },
+    {
+      "name": "SPREAD_ABNORMAL",
+      "value": 8.0,
+      "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+      "line": 20
+    },
+    {
+      "name": "DataStage.min_bars",
+      "value": 80,
+      "file": "tradingbot/pipeline/data_stage.py",
+      "line": 13
+    },
+    {
+      "name": "ExecutionStage.default_lot",
+      "value": 0.01,
+      "file": "tradingbot/pipeline/execution_stage.py",
+      "line": 12
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

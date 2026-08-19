@@ -1,0 +1,17 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "H4",
+  "data_type": "candles",
+  "broker": "LiteFinance-MT5-Demo",
+  "row_count": 7784,
+  "collection_date": "2026-07-10",
+  "last_update_utc": "2026-07-10T18:36:57.611353+00:00",
+  "first_collected_utc": "2026-06-29T04:01:51.850798+00:00",
+  "validation_status": "fail",
+  "storage_tier": "raw",
+  "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\h4\\XAUUSD_h4.parquet",
+  "date_start": "2025-07-10T18:36:53.962069+00:00",
+  "date_end": "2026-07-10T18:36:53.962069+00:00",
+  "incremental": true,
+  "fingerprint": "a1e41961354129fedfa32b4d32849d6951b7f8684342903f7c8a9bcf55e44c7a"
+}

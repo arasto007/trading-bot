@@ -1,0 +1,73 @@
+{
+  "phase": "30F",
+  "manifest_files": 13,
+  "all_checksums_valid": true,
+  "checks": [
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697225567-1.parquet",
+      "valid": true,
+      "expected": "0e693fa2cd2f5d83acbf46576f717f6c5ff2a78210008f35e033cef05bbe8439"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697225667-1.parquet",
+      "valid": true,
+      "expected": "2f699092145ad4aecefe0285f31e58505d14fded36d924d6b7e24600531b31e4"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697225767-1.parquet",
+      "valid": true,
+      "expected": "6f49489f3a0362a6cfc70cb0c9d80e2532803a221dd0578325113335e0c781f0"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697225867-1.parquet",
+      "valid": true,
+      "expected": "fd3296e642935f9c5383dfd1005ba6cb32b13baf63c2d292fb1fc46501756fab"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697235967-1.parquet",
+      "valid": true,
+      "expected": "db2f35ebc6b88047747d4b49edbdde0da1fcaecefcde62c2f6d8166ce13291f7"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697226067-1.parquet",
+      "valid": true,
+      "expected": "4550eba14d2a29983a2de85bf65eb18cb52026c503a1d1c2b749826d5fd485b9"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697226167-1.parquet",
+      "valid": true,
+      "expected": "b5bfe06dfb5d9232398aae0479f7ef0a89907dd75b3aca0a1b09979b91e03ee9"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\tick_store\\XAUUSD\\2026\\07\\10\\part-1783697226267-1.parquet",
+      "valid": true,
+      "expected": "59fa7f5cde6e3801dd89ec8d48823f59eedb34f08d285966fa3c10c92746919d"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\history\\deals.parquet",
+      "valid": true,
+      "expected": "5c449a30f90e18b4b0e070f52106dc424b762d89af28eabc4a70a688e6572636"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\history\\orders_history.parquet",
+      "valid": true,
+      "expected": "d71b2522534405afcbe267f91dfba02b52b0c7e9f37c11c89eb1687d06a87cbe"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\symbol_info\\2026-07-10.json",
+      "valid": true,
+      "expected": "bfaedb95a7315e867f017e45cff33460c0020ec94ac86fd1f0542d8e28a6730a"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\gaps\\gap_events.jsonl",
+      "valid": true,
+      "expected": "72c8acaed9faaede640d59b17c69d37b943bd8a26f96a049e73a37352b8f81f3"
+    },
+    {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase30f\\_sandbox\\executions\\shadow_executions.parquet",
+      "valid": true,
+      "expected": "dddebbf96d8879170f69651e6c6d0ac9d0697be858506d7ed71ca9d1bdb6dfae"
+    }
+  ],
+  "generated_utc": "2026-07-10T15:28:06.667499+00:00"
+}

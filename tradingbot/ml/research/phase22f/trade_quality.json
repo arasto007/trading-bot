@@ -1,0 +1,53 @@
+{
+  "phase": "22F",
+  "per_timeframe": {
+    "M5": {
+      "timeframe": "M5",
+      "trades": 2,
+      "avg_mae_r": 1.1866,
+      "avg_mfe_r": 1.0981,
+      "avg_rr_achieved": 0.707,
+      "avg_holding_bars": 7.5,
+      "records": [
+        {
+          "side": "SELL",
+          "entry_time": "2026-06-29 04:10:00",
+          "pnl": -9.09,
+          "r_multiple": -0.4036,
+          "mae_r": 0.9392,
+          "mfe_r": 0.6685,
+          "rr_achieved": 0.4036,
+          "sl_efficiency": 0.0,
+          "tp_efficiency": 0.0,
+          "holding_bars": 6,
+          "late_entry_score": 0.0,
+          "early_exit_score": 0.668,
+          "exit_reason": "emergency"
+        },
+        {
+          "side": "SELL",
+          "entry_time": "2026-06-29 04:15:00",
+          "pnl": -12.35,
+          "r_multiple": -1.0105,
+          "mae_r": 1.4341,
+          "mfe_r": 1.5277,
+          "rr_achieved": 1.0105,
+          "sl_efficiency": 1.0,
+          "tp_efficiency": 0.0,
+          "holding_bars": 9,
+          "late_entry_score": 0.0,
+          "early_exit_score": 1.0,
+          "exit_reason": "sl"
+        }
+      ]
+    },
+    "M15": {
+      "trades": 0,
+      "records": []
+    },
+    "H4": {
+      "trades": 0,
+      "records": []
+    }
+  }
+}

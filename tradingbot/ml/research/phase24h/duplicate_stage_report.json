@@ -1,0 +1,169 @@
+{
+  "phase": "24H",
+  "runtime_duplicates": [
+    {
+      "stage": "predict_proba",
+      "count": 2,
+      "expected": 1,
+      "is_duplicate": true
+    },
+    {
+      "stage": "HealthGate",
+      "count": 2,
+      "expected": 1,
+      "is_duplicate": true
+    },
+    {
+      "stage": "rule_classify_row",
+      "count": 79,
+      "expected": 1,
+      "is_duplicate": true
+    }
+  ],
+  "repository_duplicates": [
+    {
+      "stage": "HealthGate",
+      "executions_per_closed_candle": 2,
+      "why": "require_health called before unified frame and again after row extract",
+      "caller": "KernelAdapter.produce_unified_signal",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "lines": [
+        172,
+        189
+      ],
+      "purpose": "Registry integrity then per-row trend feature validation",
+      "classification": "Historical",
+      "can_eliminate": true,
+      "elimination_note": "Merge into single require_health after unified row available"
+    },
+    {
+      "stage": "FeatureBuilder.compute_at + build_unified_frame",
+      "executions_per_closed_candle": 2,
+      "why": "PipelineCache builds full unified frame; RangeEngineAdapter recomputes via FeatureBuilder on live path",
+      "caller": "PipelineCache.get_unified_frame \u2192 build_unified_frame; RangeEngineAdapter._features_from_candles",
+      "file": "tradingbot/ml/integration/pipeline_cache.py:108; tradingbot/ml/research/regime_router/range_engine_adapter.py:52-63",
+      "lines": [
+        108,
+        52
+      ],
+      "purpose": "Unified matrix for trend/range row vs phase99 live feature vector",
+      "classification": "Accidental",
+      "can_eliminate": true,
+      "elimination_note": "Use unified row phase99_* columns when merge hit; FeatureBuilder only on miss"
+    },
+    {
+      "stage": "build_ml_features (inside build_unified_frame) + IndicatorStage",
+      "executions_per_closed_candle": 2,
+      "why": "IndicatorStage enriches OHLCV; build_ml_features recomputes overlapping indicators on same window",
+      "caller": "IndicatorStage.run; build_unified_frame \u2192 build_ml_features",
+      "file": "tradingbot/pipeline/indicator_stage.py:21; tradingbot/ml/research/phase13_9/unified_features.py",
+      "lines": [
+        21,
+        88
+      ],
+      "purpose": "Legacy indicator columns vs ML kernel feature matrix",
+      "classification": "Historical",
+      "can_eliminate": true,
+      "elimination_note": "Skip IndicatorStage when USE_ML_KERNEL=true (research phase only)"
+    },
+    {
+      "stage": "TrendEngine.evaluate",
+      "executions_per_closed_candle": 2,
+      "why": "build_market_context always evaluates range AND trend engines",
+      "caller": "build_market_context",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "lines": [
+        120,
+        126
+      ],
+      "purpose": "Provide both signals to DecisionOrchestrator",
+      "classification": "Accidental",
+      "can_eliminate": true,
+      "elimination_note": "Lazy-eval trend only when regime routes to TREND (preserve orchestrator inputs)"
+    },
+    {
+      "stage": "predict_proba",
+      "executions_per_closed_candle": 2,
+      "why": "Range bundle + trend bundle both infer even when one engine selected",
+      "caller": "RangeEngineAdapter.evaluate; TrendRfV41Engine.evaluate",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py:88; tradingbot/ml/phase17d/v41_engine.py:64",
+      "lines": [
+        88,
+        64
+      ],
+      "purpose": "Engine probability for routing",
+      "classification": "Accidental",
+      "can_eliminate": true,
+      "elimination_note": "Coupled with lazy engine evaluation"
+    },
+    {
+      "stage": "normalize_candles_for_builder",
+      "executions_per_closed_candle": 2,
+      "why": "KernelAdapter normalizes candles; RangeEngineAdapter normalizes again inside FeatureBuilder path",
+      "caller": "KernelAdapter.produce_unified_signal; RangeEngineAdapter._features_from_candles",
+      "file": "tradingbot/ml/integration/kernel_adapter.py:205; range_engine_adapter.py:52",
+      "lines": [
+        205,
+        52
+      ],
+      "purpose": "Index normalization for feature builders",
+      "classification": "Accidental",
+      "can_eliminate": true,
+      "elimination_note": "Pass pre-normalized candles from KernelAdapter"
+    },
+    {
+      "stage": "rule_classify_row",
+      "executions_per_closed_candle": "1-2",
+      "why": "build_market_context classifies regime; PipelineCache may classify all rows if regime column missing",
+      "caller": "build_market_context; PipelineCache._attach_trend_v41_features",
+      "file": "tradingbot/ml/decision_engine/validation.py:113; pipeline_cache.py:129",
+      "lines": [
+        113,
+        129
+      ],
+      "purpose": "Regime label for routing / trend_age",
+      "classification": "Historical",
+      "can_eliminate": true,
+      "elimination_note": "Unified frame already attaches regime \u2014 v41 attach path rarely re-classifies"
+    },
+    {
+      "stage": "AdaptiveRisk + RiskGate",
+      "executions_per_closed_candle": "1 each (non-HOLD only for RiskGate)",
+      "why": "ML AdaptiveRisk inside TradeQuality chain; legacy RiskGate before execution",
+      "caller": "TradeQualityAdapter.evaluate; RiskStage.run",
+      "file": "tradingbot/ml/confidence_mapping/production_adapter.py:79; tradingbot/pipeline/risk_stage.py:35",
+      "lines": [
+        79,
+        35
+      ],
+      "purpose": "ML risk recommendation vs execution authority gate",
+      "classification": "Required",
+      "can_eliminate": false,
+      "elimination_note": "Separate layers by design \u2014 do not merge"
+    },
+    {
+      "stage": "DataStage + IndicatorStage on poll cycles",
+      "executions_per_closed_candle": "N polls until next bar",
+      "why": "SignalStage dedup runs AFTER data/indicator stages",
+      "caller": "TradingKernel.run_market_cycle",
+      "file": "tradingbot/pipeline/signal_stage.py:30",
+      "lines": [
+        30
+      ],
+      "purpose": "Bar dedup prevents duplicate signals but not duplicate data load",
+      "classification": "Accidental",
+      "can_eliminate": true,
+      "elimination_note": "Early-exit before DataStage when last closed ts unchanged"
+    }
+  ],
+  "component_verification": {
+    "PipelineCache.get_unified_frame": 1,
+    "build_unified_frame": 0,
+    "FeatureBuilder.compute_at": 1,
+    "RangeEngineAdapter.evaluate": 1,
+    "TrendEngine.evaluate": 1,
+    "HealthGate": 2,
+    "TradeQuality": 1
+  },
+  "generated_utc": "2026-07-08T13:06:04.885148+00:00"
+}

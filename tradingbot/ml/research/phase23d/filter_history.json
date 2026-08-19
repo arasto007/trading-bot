@@ -1,0 +1,53 @@
+{
+  "phase": "23D",
+  "rsi_filter": {
+    "introduced_by": "Phase 19C (production integration of Phase 19B research candidate rsi_mid)",
+    "research_origin": "Phase 19B discover_filters — candidate rsi_mid (RSI 40–60)",
+    "production_file": "tradingbot/ml/phase19c/filters.py",
+    "when": "Phase 19C safe profitability upgrade",
+    "why": "RSI + ADX filters validated — keep enabled in production.",
+    "original_design_goal": "Block trades in RSI extreme zones; keep mid-range RSI only",
+    "original_model": "Hybrid production stack (phase9_9 RANGE + trend_rf)",
+    "original_strategy": "Full ML kernel pipeline (Phase 19A backtest trades)",
+    "original_market_regime": "Generic — all regimes in Phase 19B/19C backtest cohort",
+    "designed_for": "Hybrid / generic trading (not RANGE-only)"
+  },
+  "adx_filter": {
+    "introduced_by": "Phase 19C (production integration of Phase 19B candidate adx_15_50)",
+    "research_origin": "Phase 19B discover_filters — candidate adx_15_50",
+    "production_file": "tradingbot/ml/phase19c/filters.py",
+    "when": "Phase 19C",
+    "why": "Require moderate trend strength band (avoid low/high ADX)",
+    "original_design_goal": "ADX band filter on executed pipeline signals",
+    "original_model": "Hybrid production stack",
+    "original_strategy": "Full ML kernel",
+    "original_market_regime": "Generic hybrid cohort",
+    "designed_for": "Hybrid / generic trading"
+  },
+  "profitability_filter_wrapper": {
+    "introduced_by": "Phase 19C — apply_profitability_filters",
+    "phase22c_override": "Phase 22C widened bands via env (RSI 35–65, ADX 10–55) in KernelAdapter",
+    "integration_point": "kernel_adapter.produce_unified_signal",
+    "phase22c_goal": "Trade frequency recovered on M5 (2 → 17 trades)",
+    "designed_for": "Generic kernel signals post-calibration (all regimes)"
+  },
+  "timeline": [
+    {
+      "phase": "19B",
+      "event": "Research filter discovery on Phase 19A trade records (177 trades, hybrid)"
+    },
+    {
+      "phase": "19C",
+      "event": "RSI+ADX filters integrated at KernelAdapter; IMPROVEMENT_ACCEPTED on 3y replay"
+    },
+    {
+      "phase": "22C",
+      "event": "Threshold relaxation + hold-chain counters; NEEDS_REVIEW on Jun 2026 audit"
+    },
+    {
+      "phase": "23C",
+      "event": "Identified RSI filter as first post-calibration block on RANGE replay"
+    }
+  ],
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

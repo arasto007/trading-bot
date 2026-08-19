@@ -1,0 +1,19 @@
+{
+  "phase": "31D",
+  "repaired_mode": true,
+  "production_path": {
+    "file": "tradingbot/ml/research/phase25b/replay_portfolio.py",
+    "function": "ReplayPortfolioTracker.advance_to_bar",
+    "behavior": "Re-evaluates exit each bar on truncated candle slice"
+  },
+  "simulator_path": {
+    "file": "tradingbot/ml/research/phase27n/hybrid_simulators.py",
+    "function": "simulate_hybrid",
+    "behavior": "Single-pass full-frame bar walk up to MAX_HOLD_BARS"
+  },
+  "order_of_execution": "Production: open \u2192 advance_to_bar(entry+1) \u2192 immediate time exit. Simulator: open \u2192 walk 72 bars.",
+  "tick_interpolation": "None \u2014 M5 OHLC bar resolution via PaperBroker.resolve_bar",
+  "truncated_replay_matches_legacy_duration": 489,
+  "repaired_oracle_match_pct": 100.0,
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

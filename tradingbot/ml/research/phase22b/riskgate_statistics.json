@@ -1,0 +1,14 @@
+{
+  "phase": "22B",
+  "M5_risk_allowed": 2,
+  "M5_risk_blocked_by_reason": {
+    "max positions for symbol": 4,
+    "daily loss limit": 30
+  },
+  "M5_risk_blocked_pct": {
+    "max positions for symbol": 11.76,
+    "daily loss limit": 88.24
+  },
+  "M15_risk_blocked": {},
+  "H4_risk_blocked": {}
+}

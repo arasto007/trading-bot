@@ -1,0 +1,75 @@
+{
+  "phase": "22AD",
+  "runtime_model_origin": "model.pkl (frozen disk artifact)",
+  "load_order": [
+    {
+      "step": 1,
+      "source": "model.pkl on disk",
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+      "mechanism": "phase9_9_model_path(base_dir=None) → data/ml/research/phase9_9_best/model.pkl",
+      "used_at_runtime": true
+    },
+    {
+      "step": 2,
+      "source": "joblib.load",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "build_if_missing": false,
+      "rebuild": false
+    },
+    {
+      "step": 3,
+      "source": "Phase99Bundle in memory",
+      "holder": "RangeEngineAdapter.bundle",
+      "cached_via": "PipelineCache._registry singleton"
+    },
+    {
+      "step": 4,
+      "source": "feature_order.json + config.json",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "note": "Loaded alongside model; thresholds from config.json not DEFAULT_CONFIG module constant"
+    },
+    {
+      "step": 5,
+      "source": "inference",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "Phase99Bundle.predict_proba",
+      "note": "StandardScaler.transform + sklearn predict_proba on in-memory objects"
+    }
+  ],
+  "excluded_sources": [
+    {
+      "source": "DEFAULT_CONFIG",
+      "reason": "Only used inside freeze_phase9_9_artifacts; live path uses build_if_missing=False"
+    },
+    {
+      "source": "Phase 9.9 Optimizer",
+      "reason": "Not invoked by live loop or watchdog child"
+    },
+    {
+      "source": "ShadowEngine / KernelShadowRunner / MLAdapter",
+      "reason": "Not imported by LiveRunner or TradingKernel pipeline"
+    },
+    {
+      "source": "PipelineCache.get_phase99_bundle",
+      "reason": "Defined but live path uses registry inner bundle via KernelAdapter._engine_inners"
+    },
+    {
+      "source": "Auto rebuild",
+      "reason": "build_if_missing=False on every production loader call"
+    }
+  ],
+  "artifact_state": {
+    "model_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "model.pkl_exists": true,
+    "scaler.pkl_exists": true,
+    "feature_order_exists": true,
+    "config_exists": true,
+    "metadata_exists": true,
+    "metadata_candidate_id": "logistic_strong_reg",
+    "metadata_frozen_at": "2026-06-29T22:15:00.449792+00:00"
+  },
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false
+}

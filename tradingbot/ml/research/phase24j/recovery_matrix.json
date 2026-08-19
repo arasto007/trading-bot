@@ -1,0 +1,32 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "matrix_type": "recovery",
+  "entries": [
+    {"failure_id": "AUD-001", "detection_signal": "unexpected MT5 deals under paper/dry-run", "auto_recovery": "none", "manual_recovery": "stop bot; EMERGENCY_STOP_ENABLED=false; --no-recovery", "recovery_time": "immediate_manual", "residual_risk": "CRITICAL"},
+    {"failure_id": "AUD-002", "detection_signal": "NameError in RiskStage logs", "auto_recovery": "none", "manual_recovery": "code fix required", "recovery_time": "blocked_until_fix", "residual_risk": "CRITICAL"},
+    {"failure_id": "AUD-003", "detection_signal": "legacy signal source", "auto_recovery": "none", "manual_recovery": "USE_ML_KERNEL=1", "recovery_time": "immediate_manual", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-004", "detection_signal": "stale OHLCV with connected=true", "auto_recovery": "ensure_mt5_connected on execute path", "manual_recovery": "restart LiveRunner/MT5", "recovery_time": "1-2_cycles", "residual_risk": "MEDIUM"},
+    {"failure_id": "AUD-005", "detection_signal": "stale tick warning", "auto_recovery": "continues trading", "manual_recovery": "stop during closed market", "recovery_time": "session_dependent", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-006", "detection_signal": "legacy_fallback metadata", "auto_recovery": "legacy strategy substitution", "manual_recovery": "fix ML health root cause", "recovery_time": "next_bar", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-007", "detection_signal": "fingerprint drift vs cache", "auto_recovery": "none", "manual_recovery": "process restart + PipelineCache.reset", "recovery_time": "restart_required", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-008", "detection_signal": "pipeline_timeout log", "auto_recovery": "legacy fallback", "manual_recovery": "latency tuning", "recovery_time": "next_bar", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-009", "detection_signal": "trades_today reset", "auto_recovery": "partial via daily_pnl sync", "manual_recovery": "audit deals; reset state file", "recovery_time": "manual", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-010", "detection_signal": "position count mismatch", "auto_recovery": "next successful sync", "manual_recovery": "verify MT5 connection", "recovery_time": "1_cycle", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-011", "detection_signal": "duplicate bar signals post-restart", "auto_recovery": "none", "manual_recovery": "single instance policy", "recovery_time": "manual", "residual_risk": "MEDIUM"},
+    {"failure_id": "AUD-012", "detection_signal": "partial TP re-fire", "auto_recovery": "none", "manual_recovery": "manual SL/TP review", "recovery_time": "manual", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-013", "detection_signal": "dual manager logs", "auto_recovery": "none", "manual_recovery": "--no-recovery flag", "recovery_time": "immediate_manual", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-014", "detection_signal": "duplicate tickets", "auto_recovery": "none", "manual_recovery": "broker reconcile", "recovery_time": "manual", "residual_risk": "MEDIUM"},
+    {"failure_id": "AUD-015", "detection_signal": "paper fills without state update", "auto_recovery": "none", "manual_recovery": "external paper accounting", "recovery_time": "n/a_paper", "residual_risk": "MEDIUM"},
+    {"failure_id": "AUD-016", "detection_signal": "fingerprint mismatch", "auto_recovery": "fallback to legacy", "manual_recovery": "replace bundles", "recovery_time": "deploy_cycle", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-017", "detection_signal": "parquet read fail", "auto_recovery": "MT5 refetch", "manual_recovery": "delete corrupt cache", "recovery_time": "1_cycle", "residual_risk": "LOW"},
+    {"failure_id": "AUD-018", "detection_signal": "corrupt risk JSON", "auto_recovery": "reset to empty state", "manual_recovery": "restore backup state", "recovery_time": "immediate", "residual_risk": "MEDIUM"},
+    {"failure_id": "AUD-019", "detection_signal": "sqlite locked", "auto_recovery": "retry next write", "manual_recovery": "WAL mode", "recovery_time": "1_cycle", "residual_risk": "LOW"},
+    {"failure_id": "AUD-020", "detection_signal": "broker retcode reject", "auto_recovery": "none", "manual_recovery": "adjust lot/stops", "recovery_time": "next_signal", "residual_risk": "LOW"},
+    {"failure_id": "AUD-023", "detection_signal": "MT5 disconnected skip", "auto_recovery": "next cycle reconnect", "manual_recovery": "restart terminal", "recovery_time": "interval_seconds", "residual_risk": "LOW"},
+    {"failure_id": "AUD-030", "detection_signal": "post-restart RUNNING", "auto_recovery": "none", "manual_recovery": "manual stop before restart", "recovery_time": "manual", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-031", "detection_signal": "unified_frame_empty", "auto_recovery": "legacy fallback", "manual_recovery": "restore dataset_v2", "recovery_time": "deploy_cycle", "residual_risk": "HIGH"},
+    {"failure_id": "AUD-032", "detection_signal": "ConnectionError", "auto_recovery": "next interval", "manual_recovery": "network fix", "recovery_time": "interval_seconds", "residual_risk": "LOW"},
+    {"failure_id": "AUD-035", "detection_signal": "retcode 10027", "auto_recovery": "none", "manual_recovery": "enable AutoTrading", "recovery_time": "immediate_manual", "residual_risk": "MEDIUM"}
+  ]
+}

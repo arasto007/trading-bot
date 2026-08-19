@@ -1,0 +1,29 @@
+{
+  "phase": "22J",
+  "engine": "trend_rf_v41",
+  "dataset": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "timeframe": "M5",
+  "stride": 10,
+  "trend_regime_bars": 89,
+  "routed_non_trend_while_scoring": 74,
+  "elapsed_sec": 31.4,
+  "actionable_signals": 27,
+  "actionable_rate_pct": 30.34,
+  "rule_failure_breakdown": {
+    "sell_structure_fail": 9,
+    "buy_structure_fail": 18
+  },
+  "ml_threshold_failures": 35,
+  "ml_threshold": 0.4,
+  "rule_fn": "evaluate_variant_a",
+  "bottleneck": {
+    "primary": "ml_threshold",
+    "detail": "prob < threshold",
+    "ml_fail_count": 35
+  }
+}

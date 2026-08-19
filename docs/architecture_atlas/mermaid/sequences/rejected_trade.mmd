@@ -1,0 +1,11 @@
+sequenceDiagram
+    participant K as TradingKernel
+    participant S as SignalStage
+    participant R as RiskStage
+    participant J as TradeJournal
+    K->>S: signal generated
+    S-->>K: signal present
+    K->>R: evaluate
+    R-->>K: blocked (spread/cooldown/etc)
+    K->>J: log cycle blocked
+    Note over K: No order sent

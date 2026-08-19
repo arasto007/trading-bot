@@ -1,0 +1,32 @@
+{
+  "phase": "22AB",
+  "diagram_ascii": "Candidate Grid (28 experiments)\n        ↓\nPer-window Validation (walk-forward)\n        ↓\nRanking (composite score + probability gate for select_best)\n        ↓\nAcceptance (evaluate_acceptance vs Phase 9.8)  ←── train_model --phase9-9 STOPS HERE\n        ↓ writes JSON only\n        ✂ BYPASS — no code path to freeze\n        ↓\nfreeze_phase9_9_artifacts (separate Phase 9.10 registry)\n        ↓ hardcoded DEFAULT_CONFIG logistic_strong_reg\n        ↓ model.pkl / scaler.pkl / metadata.json\n        ↓\nload_phase9_9_bundle → production / shadow / health (read frozen artifact)",
+  "branches": [
+    {
+      "name": "phase9_9_research_pipeline",
+      "path": "train_model.py --phase9-9 → RobustnessOptimizer → evaluate_acceptance",
+      "produces": [
+        "phase9_9_robustness_report.json",
+        "exit code"
+      ],
+      "calls_freeze": false
+    },
+    {
+      "name": "phase9_10_freeze_pipeline",
+      "path": "freeze_phase9_9_artifacts OR load(build_if_missing=True)",
+      "produces": [
+        "data/ml/research/phase9_9_best/*"
+      ],
+      "reads_acceptance": false,
+      "bypass_point": "Entire acceptance stage skipped"
+    }
+  ],
+  "acceptance_bypass_locations": [
+    "optimization_orchestrator.py does not import freeze",
+    "freeze_phase9_9_artifacts uses DEFAULT_CONFIG not select_best() output",
+    "load_phase9_9_bundle(build_if_missing=True) freezes without acceptance",
+    "KernelShadowRunner._ensure_artifacts freezes if model.pkl missing"
+  ],
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

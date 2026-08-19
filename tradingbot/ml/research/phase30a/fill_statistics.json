@@ -1,0 +1,16 @@
+{
+  "count": 489,
+  "full_fill_pct": 77.1,
+  "partial_fill_pct": 22.9,
+  "requote_pct": 2.04,
+  "fill_ratio_distribution": {
+    "0.0": 12,
+    "0.25": 27,
+    "0.5": 36,
+    "0.75": 37,
+    "1.0": 377
+  },
+  "mean_fill_ratio": 0.8783,
+  "phase": "30A",
+  "generated_utc": "2026-07-10T08:35:03.416574+00:00"
+}

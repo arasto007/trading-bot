@@ -1,0 +1,16 @@
+{
+  "phase": "22AG",
+  "title": "Acceptance Gate Calibration Forensics",
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false,
+  "verdict": "READY_FOR_PHASE_2_IMPLEMENTATION",
+  "root_cause": "MULTIPLE_CAUSES",
+  "summary": "Acceptance failure is primarily caused by ordinal overfitting_risk_decreased against a HIGH Phase 9.8 baseline — 15/16 overfitting failures are label logic, not worse numeric AUC gap. Minimal safe fix: replace ordinal check with mean_auc_gap < baseline (0.3308) while keeping probability gate, positive expectancy, robustness_improved, and profitable_windows_ge_4.",
+  "dominant_blocker_current": "probability_quality_passed",
+  "variant_D_accepted_count": 1,
+  "variant_D_accepted": [
+    "xgb_baseline_phase96__stable_except_unstable__RANGE"
+  ],
+  "minimal_change": "Replace checks['overfitting_risk_decreased'] = _risk_improved(base_risk, best_risk) with checks['mean_auc_gap_improved'] = float(best.get('mean_auc_gap', inf)) < baseline_mean_auc_gap where baseline_mean_auc_gap is loaded from phase9_8_robustness_report train_test_gap (0.3308). Keep probability_quality_passed, mean_expectancy_positive, profitable_windows_ge_4, robustness_improved unchanged.",
+  "current_report_verdict": "FAIL"
+}

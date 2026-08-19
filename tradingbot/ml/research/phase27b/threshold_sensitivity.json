@@ -1,0 +1,37 @@
+{
+  "phase": "27B",
+  "method": "Read-only simulation on traced bars. Band width adjusted by \u00b15%/\u00b110% of current RSI range (half-width applied to each bound). ADX bounds unchanged.",
+  "scenarios": {
+    "current": {
+      "pct_band_adjust": 0.0,
+      "actionable_candidates": 1470,
+      "would_survive_rsi_adx": 761,
+      "survival_rate_pct": 51.769
+    },
+    "widen_5pct": {
+      "pct_band_adjust": -5.0,
+      "actionable_candidates": 1470,
+      "would_survive_rsi_adx": 790,
+      "survival_rate_pct": 53.741
+    },
+    "widen_10pct": {
+      "pct_band_adjust": -10.0,
+      "actionable_candidates": 1470,
+      "would_survive_rsi_adx": 809,
+      "survival_rate_pct": 55.034
+    },
+    "tighten_5pct": {
+      "pct_band_adjust": 5.0,
+      "actionable_candidates": 1470,
+      "would_survive_rsi_adx": 732,
+      "survival_rate_pct": 49.796
+    },
+    "tighten_10pct": {
+      "pct_band_adjust": 10.0,
+      "actionable_candidates": 1470,
+      "would_survive_rsi_adx": 707,
+      "survival_rate_pct": 48.095
+    }
+  },
+  "generated_utc": "2026-07-09T12:46:26.729425+00:00"
+}

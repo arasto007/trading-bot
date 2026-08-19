@@ -1,0 +1,66 @@
+%% Live Trading Graph — One BUY Cycle
+%% ADAPTIVE_REGIME path, 30s loop
+
+flowchart TD
+    START([Global Cycle Start<br/>every 30s])
+
+    START --> MT5OK{MT5 connected<br/>tick age OK?}
+    MT5OK -->|No| SKIP[Skip cycle<br/>log mt5_disconnected]
+    MT5OK -->|Yes| UPD[update_all OHLCV]
+
+    UPD --> DATA[DataStage<br/>min 80 bars]
+    DATA -->|fail| IDLE1[idle: insufficient bars]
+    DATA --> IND[IndicatorStage<br/>RSI ADX ATR EMA]
+
+    IND --> SIG[SignalStage<br/>new closed bar?]
+    SIG -->|same bar| IDLE2[idle: dedupe]
+    SIG --> ADAPT[AdaptiveRegimeStrategyRegistry]
+
+    ADAPT --> SYM{XAUUSD M5?}
+    SYM -->|No| IDLE3[idle: wrong market]
+    SYM --> PREP[prepare_adaptive_frame<br/>L2 round2 features]
+
+    PREP --> SESS{Session 12-17 UTC?}
+    SESS -->|No| IDLE4[idle: session]
+    SESS --> REG[classify_regime]
+
+    REG --> CONF{CONFLUENCE_ONLY}
+    CONF --> MTF[MTF trend signal]
+    CONF --> VOL[VOL regime signal]
+    MTF --> AGREE{MTF == VOL<br/>atr 30-70%?}
+    VOL --> AGREE
+    AGREE -->|No| HV{High vol<br/>HVM+MTF?}
+    AGREE -->|Yes| SIGNAL[BUY/SELL signal<br/>conf=0.60]
+    HV -->|No| IDLE5[idle: no setup]
+    HV -->|Yes| SIGNAL
+
+    SIGNAL --> WPSQF{WPSQF ON?}
+    WPSQF -->|Default OFF| RISK
+    WPSQF -->|Yes| WPSQFCHK{score >= 77.56?}
+    WPSQFCHK -->|No| IDLE6[idle: wpsqf]
+    WPSQFCHK --> RISK
+
+    RISK[RiskStage / RiskGate]
+    RISK --> POS{max positions<br/>max 1 adaptive}
+    POS --> NEWS{news blackout?}
+    NEWS --> FRI{Friday after 17?}
+    FRI --> SPR{spread <= 15 pip?}
+    SPR --> CD{cooldown 12 bars<br/>max 3/day?}
+    CD --> LOSS{daily loss OK?}
+    LOSS -->|No| BLOCK[blocked: risk]
+    LOSS --> LOT[compute lot size]
+
+    LOT --> EXEC[ExecutionStage]
+    EXEC --> AUTO{Algo trading ON?}
+    AUTO -->|No| FAIL[execution fail]
+    AUTO --> ORDER[MT5 market BUY<br/>SL TP attached]
+    ORDER --> JOURNAL[TradeJournal<br/>executions table]
+
+    JOURNAL --> POSMGT[Mt5PositionManager<br/>trailing partial EOD]
+
+    POSMGT --> END([Cycle End])
+
+    style SIGNAL fill:#9f9,stroke:#060
+    style BLOCK fill:#f99,stroke:#600
+    style IDLE5 fill:#eee,stroke:#666
+    style ORDER fill:#9cf,stroke:#006

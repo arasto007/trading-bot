@@ -1,0 +1,245 @@
+{
+  "phase": "22F",
+  "dataset": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "generated_at": "2026-07-05T02:44:10.612620+00:00",
+  "per_timeframe": {
+    "M5": {
+      "trades": 2,
+      "buy_pct": 0.0,
+      "sell_pct": 100.0,
+      "hold_pct": 98.28,
+      "profit_factor": 0.0,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "avg_trade_duration_min": 37.5,
+      "signals_reaching_riskgate": 60,
+      "signals_blocked_riskgate": 58,
+      "riskgate_block_reasons": {
+        "max positions for symbol": 4,
+        "daily loss limit": 54
+      },
+      "model_utilization": {
+        "trend_rf_v40": 4246,
+        "phase9_9": 59,
+        "NONE": 2
+      },
+      "regime_distribution": {
+        "TREND": 4246,
+        "RANGE": 59,
+        "NO_TRADE": 2
+      },
+      "trend_trades": 0,
+      "range_trades": 2
+    },
+    "M15": {
+      "trades": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 0.0,
+      "hold_pct": 100.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "max_drawdown_pct": 0.0,
+      "avg_trade_duration_min": 0.0,
+      "signals_reaching_riskgate": 0,
+      "signals_blocked_riskgate": 0,
+      "riskgate_block_reasons": {},
+      "model_utilization": {},
+      "regime_distribution": {},
+      "trend_trades": 0,
+      "range_trades": 0
+    },
+    "H4": {
+      "trades": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 0.0,
+      "hold_pct": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "max_drawdown_pct": 0.0,
+      "avg_trade_duration_min": 0.0,
+      "signals_reaching_riskgate": 0,
+      "signals_blocked_riskgate": 0,
+      "riskgate_block_reasons": {},
+      "model_utilization": {},
+      "regime_distribution": {},
+      "trend_trades": 0,
+      "range_trades": 0
+    }
+  },
+  "metrics": {
+    "M5": {
+      "total_trades": 2,
+      "wins": 0,
+      "losses": 2,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "gross_profit": 0,
+      "gross_loss": 21.44,
+      "net_profit": -21.44,
+      "return_pct": -10.72,
+      "avg_win": 0.0,
+      "avg_loss": -10.72,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "max_drawdown_abs": 12.35,
+      "sharpe_ratio": 0.0,
+      "final_balance": 178.56,
+      "exit_reasons": {
+        "emergency": 1,
+        "sl": 1
+      },
+      "average_r": -0.707,
+      "recovery_factor": -1.736,
+      "sortino_ratio": 0.0,
+      "mar_ratio": -1.6569,
+      "buy_trades": 0,
+      "sell_trades": 2,
+      "trend_trades": 0,
+      "range_trades": 2,
+      "bars": 2,
+      "certification": {
+        "pf_target_met": false,
+        "positive_expectancy": false,
+        "max_dd_within_limit": true,
+        "buy_active": false,
+        "sell_active": true
+      }
+    },
+    "M15": {
+      "total_trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "gross_profit": 0,
+      "gross_loss": 0,
+      "net_profit": 0,
+      "return_pct": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": 0.0,
+      "expectancy": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_drawdown_abs": 0.0,
+      "sharpe_ratio": 0.0,
+      "final_balance": 200.0,
+      "exit_reasons": {},
+      "average_r": 0.0,
+      "recovery_factor": 0.0,
+      "sortino_ratio": 0.0,
+      "mar_ratio": 0.0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "trend_trades": 0,
+      "range_trades": 0,
+      "bars": 1,
+      "certification": {
+        "pf_target_met": false,
+        "positive_expectancy": false,
+        "max_dd_within_limit": true,
+        "buy_active": false,
+        "sell_active": false
+      }
+    },
+    "H4": {
+      "total_trades": 0,
+      "wins": 0,
+      "losses": 0,
+      "win_rate_pct": 0.0,
+      "profit_factor": 0.0,
+      "gross_profit": 0,
+      "gross_loss": 0,
+      "net_profit": 0,
+      "return_pct": 0.0,
+      "avg_win": 0.0,
+      "avg_loss": 0.0,
+      "expectancy": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_drawdown_abs": 0.0,
+      "sharpe_ratio": 0.0,
+      "final_balance": 200.0,
+      "exit_reasons": {},
+      "average_r": 0.0,
+      "recovery_factor": 0.0,
+      "sortino_ratio": 0.0,
+      "mar_ratio": 0.0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "trend_trades": 0,
+      "range_trades": 0,
+      "bars": 1,
+      "certification": {
+        "pf_target_met": false,
+        "positive_expectancy": false,
+        "max_dd_within_limit": true,
+        "buy_active": false,
+        "sell_active": false
+      }
+    }
+  },
+  "hold_chain": {
+    "M5": {
+      "bars_evaluated": 4307,
+      "buy_emitted": 13,
+      "sell_emitted": 47,
+      "ml_signals": 60,
+      "ml_hold_stages": {
+        "decision_hold": 4233,
+        "calibration_hold": 0,
+        "trade_quality_hold": 0,
+        "rsi_filter_hold": 14,
+        "adx_filter_hold": 0
+      },
+      "ml_hold_total": 4247,
+      "meta_hold": 0,
+      "riskgate_hold": 58,
+      "riskgate_block_reasons": {
+        "max positions for symbol": 4,
+        "daily loss limit": 54
+      }
+    },
+    "M15": {
+      "bars_evaluated": 1428,
+      "buy_emitted": 0,
+      "sell_emitted": 0,
+      "ml_signals": 0,
+      "ml_hold_stages": {
+        "decision_hold": 1428,
+        "calibration_hold": 0,
+        "trade_quality_hold": 0,
+        "rsi_filter_hold": 0,
+        "adx_filter_hold": 0
+      },
+      "ml_hold_total": 1428,
+      "meta_hold": 0,
+      "riskgate_hold": 0,
+      "riskgate_block_reasons": {}
+    },
+    "H4": {
+      "bars_evaluated": 162,
+      "buy_emitted": 0,
+      "sell_emitted": 0,
+      "ml_signals": 0,
+      "ml_hold_stages": {
+        "decision_hold": 0,
+        "calibration_hold": 0,
+        "trade_quality_hold": 0,
+        "rsi_filter_hold": 162,
+        "adx_filter_hold": 0
+      },
+      "ml_hold_total": 162,
+      "meta_hold": 0,
+      "riskgate_hold": 0,
+      "riskgate_block_reasons": {}
+    }
+  },
+  "elapsed_sec": {
+    "M5": 1242.8,
+    "M15": 311.2,
+    "H4": 35.2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "phase": "23A",
+  "title": "End-to-End ML Pipeline Trace & Root Cause Investigation",
+  "mode": "read_only",
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00",
+  "verdict": "FEATURE_MAPPING_BROKEN",
+  "primary_root_cause": "FEATURE_MAPPING",
+  "first_model_pass_zero_location": {
+    "file": "tradingbot/ml/integration/kernel_adapter.py",
+    "class": "KernelAdapter",
+    "function": "_hold_chain_snapshot",
+    "line": 128,
+    "condition": "raw_action == 'HOLD'",
+    "effect": "records decision_hold; model_pass = buy_emitted + sell_emitted stays 0"
+  },
+  "model_pass": 0,
+  "decision_hold_count": 3730,
+  "predict_proba_reached_in_runtime_sample": false,
+  "summary": "Research replay feeds real dataset_v2 features into predict_proba. Production runtime maps phase99_* merge columns (mostly zero on live bars) via row_for_phase99_range, drops ema_cross_state from the row, and often returns HOLD before predict_proba. When prob is computed on zeros, confidence falls below the 0.55 decision gate → decision_hold → model_pass=0."
+}

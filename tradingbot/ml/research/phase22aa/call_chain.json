@@ -1,0 +1,185 @@
+{
+  "phase": "22AA",
+  "anchor_rule": "overfitting_risk_decreased",
+  "anchor_implementation": {
+    "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+    "function": "evaluate_acceptance",
+    "helper": "_risk_improved",
+    "formula": "RISK_ORDER[best_risk] < RISK_ORDER[baseline_risk]"
+  },
+  "upstream_chain": [
+    {
+      "level": -4,
+      "file": "scripts/train_model.py",
+      "function": "main",
+      "trigger": "--phase9-9",
+      "outputs": [
+        "RobustnessOptimizer.run exit code"
+      ]
+    },
+    {
+      "level": -3,
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "function": "RobustnessOptimizer.run",
+      "inputs": [
+        "symbol",
+        "timeframe",
+        "dataset_v2",
+        "phase9_8 baseline JSON"
+      ],
+      "outputs": [
+        "RobustnessOptimizationResult"
+      ],
+      "calls": [
+        "run_candidate_grid",
+        "rank_candidates",
+        "select_best",
+        "evaluate_acceptance",
+        "save_reports"
+      ]
+    },
+    {
+      "level": -3,
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "function": "_load_phase98_baseline",
+      "inputs": [
+        "phase9_8_walk_forward_report.json"
+      ],
+      "outputs": [
+        "robustness_score",
+        "overfitting_risk",
+        "mean_profit_factor",
+        "mean_expectancy"
+      ],
+      "side_effects": "read-only"
+    },
+    {
+      "level": -2,
+      "file": "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py",
+      "function": "run_walk_forward_experiment",
+      "inputs": [
+        "candidate",
+        "feature_cols",
+        "regime"
+      ],
+      "outputs": [
+        "experiment dict with overfitting_risk, mean_auc_gap, robustness_score"
+      ],
+      "calls": [
+        "validate_window_candidate",
+        "aggregate_window_metrics",
+        "analyze_robustness"
+      ]
+    },
+    {
+      "level": -1,
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "assess_overfitting_risk",
+      "inputs": [
+        "windows",
+        "robustness_score"
+      ],
+      "outputs": [
+        "LOW | MEDIUM | HIGH label"
+      ],
+      "dependencies": [
+        "train_val_auc_gap",
+        "performance_degradation per window"
+      ]
+    },
+    {
+      "level": -1,
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "function": "select_best",
+      "inputs": [
+        "ranked candidates with overfitting_risk field"
+      ],
+      "outputs": [
+        "best candidate dict"
+      ],
+      "note": "Uses probability_gate_passed; does NOT call evaluate_acceptance"
+    }
+  ],
+  "anchor": {
+    "level": 0,
+    "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+    "function": "evaluate_acceptance",
+    "inputs": {
+      "best": "selected candidate dict (includes overfitting_risk from walk-forward)",
+      "baseline": "Phase 9.8 summary from _load_phase98_baseline"
+    },
+    "outputs": {
+      "checks.overfitting_risk_decreased": "bool",
+      "final_verdict": "PASS if all checks true else FAIL"
+    },
+    "side_effects": "none (pure function)"
+  },
+  "downstream_chain": [
+    {
+      "level": 1,
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "function": "RobustnessOptimizer.run",
+      "consumes": [
+        "acceptance.final_verdict",
+        "acceptance.checks"
+      ],
+      "outputs": [
+        "RobustnessOptimizationResult.final_verdict",
+        "status"
+      ]
+    },
+    {
+      "level": 1,
+      "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "function": "save_reports",
+      "consumes": [
+        "acceptance dict"
+      ],
+      "outputs": [
+        "data/ml/reports/phase9_9_robustness_report.json",
+        "data/ml/reports/phase9_9_model_comparison.json"
+      ],
+      "side_effects": "writes JSON reports"
+    },
+    {
+      "level": 2,
+      "file": "scripts/train_model.py",
+      "function": "main",
+      "consumes": [
+        "result.final_verdict"
+      ],
+      "outputs": [
+        "process exit code 0|1"
+      ]
+    },
+    {
+      "level": 2,
+      "file": "data/ml/reports/phase9_9_robustness_report.json",
+      "function": "artifact",
+      "consumes": [
+        "acceptance.checks.overfitting_risk_decreased"
+      ],
+      "outputs": [
+        "human/forensics readers (phase22y/z)"
+      ]
+    }
+  ],
+  "explicitly_not_in_chain": [
+    {
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "freeze_phase9_9_artifacts",
+      "reason": "Hardcoded retrain path; never reads evaluate_acceptance or overfitting_risk_decreased"
+    },
+    {
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "function": "run_pre_decision_health",
+      "reason": "Live pre-decision bundle integrity; unrelated to Phase 9.9 acceptance"
+    },
+    {
+      "file": "tradingbot/kernel",
+      "reason": "No import of evaluate_acceptance per phase isolation rules"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,22 @@
+{
+  "phase": "22AL",
+  "title": "Production Candidate Live Validation",
+  "generated_utc": "2026-07-07T20:55:43.625976+00:00",
+  "verdict": "MODEL_VALIDATED_FOR_LIVE",
+  "candidate_id": "xgb_baseline_phase96",
+  "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "probability_gate_passed": true,
+  "healthgate_phase9_passes": true,
+  "pipeline_signals": 0,
+  "executed_trades": 0,
+  "validation_advisory": {
+    "pipeline_generated_signals": 0,
+    "pipeline_executed_trades": 0,
+    "pipeline_integration_passed": false,
+    "pipeline_signal_gap": true,
+    "historical_full_v2_buy": 52,
+    "historical_full_v2_sell": 762,
+    "blockers": []
+  },
+  "summary": "Frozen xgb_baseline_phase96 validated via artifact check, historical replay, production-path backtest, probability health, logistic comparison, and runtime safety."
+}

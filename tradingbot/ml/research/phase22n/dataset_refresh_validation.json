@@ -1,0 +1,24 @@
+{
+  "phase": "22N",
+  "generated_utc": "2026-07-05T16:09:07.576521+00:00",
+  "verification_passed": true,
+  "verification": {
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "candle_store_advanced": false,
+    "dataset_advanced": false,
+    "lag_hours_candle_to_dataset": 0.08,
+    "feature_count_after": 45,
+    "feature_count_floor": 45,
+    "row_count_after": 5724,
+    "dataset_max_timestamp_utc": "2026-06-29T13:45:00+00:00",
+    "candle_store_max_timestamp_utc": "2026-06-29T13:50:00+00:00"
+  },
+  "feature_count_before": 45,
+  "feature_count_after": 45,
+  "row_count_before": 5724,
+  "row_count_after": 5724
+}

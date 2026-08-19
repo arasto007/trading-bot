@@ -1,0 +1,22 @@
+{
+  "phase": "22AJ",
+  "manifest_path": "data/ml/research/phase9_9_best/freeze_manifest.json",
+  "required_fields": {
+    "manifest_version": "string",
+    "frozen_at_utc": "ISO timestamp",
+    "freeze_authority": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+    "previous_candidate": "dict|null",
+    "new_candidate": {
+      "candidate_id": "string",
+      "experiment_id": "string",
+      "model_type": "string",
+      "feature_subset": "string"
+    },
+    "acceptance_snapshot": "evaluate_acceptance output",
+    "dataset_fingerprint": "string",
+    "report_path": "string|null",
+    "backup_path": "string|null",
+    "artifact_checksums": "dict filename -> sha256"
+  },
+  "generated_utc": "2026-07-07T20:05:52.547968+00:00"
+}

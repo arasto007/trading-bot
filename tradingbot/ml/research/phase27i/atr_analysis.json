@@ -1,0 +1,67 @@
+{
+  "phase": "27I",
+  "atr_at_entry": {
+    "mean": 5.5924,
+    "median": 5.2714,
+    "max": 11.3586
+  },
+  "correlation_atr_slippage_loss": 1.0,
+  "quartiles": {
+    "Q1_low": {
+      "atr_range": [
+        2.6136,
+        4.1293
+      ],
+      "avg_slippage_loss": 1.7876,
+      "net_after_slippage": 24.775,
+      "trade_count": 143
+    },
+    "Q2": {
+      "atr_range": [
+        4.1364,
+        5.2607
+      ],
+      "avg_slippage_loss": 2.349,
+      "net_after_slippage": 328.5701,
+      "trade_count": 143
+    },
+    "Q3": {
+      "atr_range": [
+        5.2693,
+        6.7936
+      ],
+      "avg_slippage_loss": 2.9879,
+      "net_after_slippage": -39.0675,
+      "trade_count": 143
+    },
+    "Q4_high": {
+      "atr_range": [
+        6.8186,
+        11.3586
+      ],
+      "avg_slippage_loss": 4.0343,
+      "net_after_slippage": -820.9013,
+      "trade_count": 146
+    }
+  },
+  "high_atr_half": {
+    "trade_count": 288,
+    "avg_slippage_loss": 3.5196,
+    "median_slippage_loss": 3.4279,
+    "worst_slippage_loss": 5.6793,
+    "net_profit_after_slippage": -883.6806,
+    "profit_factor_after_slippage": 0.7198,
+    "expectancy_after_slippage": -3.0683
+  },
+  "low_atr_half": {
+    "trade_count": 287,
+    "avg_slippage_loss": 2.0703,
+    "median_slippage_loss": 2.0682,
+    "worst_slippage_loss": 2.6346,
+    "net_profit_after_slippage": 377.0569,
+    "profit_factor_after_slippage": 1.2184,
+    "expectancy_after_slippage": 1.3138
+  },
+  "high_atr_environments_fail": true,
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

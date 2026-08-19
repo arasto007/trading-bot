@@ -1,0 +1,72 @@
+{
+  "phase": "24A",
+  "tick_arrival_to_output": {
+    "count": 105,
+    "mean_ms": 555.922,
+    "median_ms": 511.482,
+    "p95_ms": 807.583,
+    "max_ms": 1001.424,
+    "std_ms": 104.099
+  },
+  "tick_arrival_cold_start": {
+    "count": 108,
+    "mean_ms": 552.712,
+    "median_ms": 511.357,
+    "p95_ms": 807.583,
+    "max_ms": 1001.424,
+    "std_ms": 105.518
+  },
+  "feature_builder_ms": {
+    "count": 108,
+    "mean_ms": 394.473,
+    "median_ms": 436.484,
+    "p95_ms": 500.005,
+    "max_ms": 582.46,
+    "std_ms": 148.245
+  },
+  "decision_ms": {
+    "count": 108,
+    "mean_ms": 0.003,
+    "median_ms": 0.0,
+    "p95_ms": 0.0,
+    "max_ms": 0.298,
+    "std_ms": 0.029
+  },
+  "risk_ms": {
+    "count": 108,
+    "mean_ms": 0.002,
+    "median_ms": 0.0,
+    "p95_ms": 0.0,
+    "max_ms": 0.173,
+    "std_ms": 0.017
+  },
+  "filter_and_quality_ms": {
+    "count": 108,
+    "mean_ms": 0.002,
+    "median_ms": 0.0,
+    "p95_ms": 0.0,
+    "max_ms": 0.175,
+    "std_ms": 0.017
+  },
+  "kernel_cycle_ms": {
+    "count": 108,
+    "mean_ms": 460.839,
+    "median_ms": 507.016,
+    "p95_ms": 573.243,
+    "max_ms": 685.325,
+    "std_ms": 166.729
+  },
+  "inference_proxy_ms": {
+    "count": 108,
+    "mean_ms": 394.473,
+    "median_ms": 436.484,
+    "p95_ms": 500.005,
+    "max_ms": 582.46,
+    "std_ms": 148.245
+  },
+  "checks": {
+    "stable_latency": false,
+    "p95_under_target": false
+  },
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

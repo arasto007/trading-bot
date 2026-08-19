@@ -1,0 +1,213 @@
+{
+  "phase": "24C",
+  "stages": {
+    "dataframe_copy": {
+      "count": 1130,
+      "mean_ms": 0.2878,
+      "median_ms": 0.2811,
+      "p95_ms": 0.3258,
+      "p99_ms": 0.3498,
+      "max_ms": 1.6953,
+      "std_ms": 0.0505
+    },
+    "data_stage": {
+      "count": 1130,
+      "mean_ms": 0.0897,
+      "median_ms": 0.0934,
+      "p95_ms": 0.1001,
+      "p99_ms": 0.1035,
+      "max_ms": 0.2011,
+      "std_ms": 0.009
+    },
+    "indicator_stage": {
+      "count": 1130,
+      "mean_ms": 48.6258,
+      "median_ms": 48.9769,
+      "p95_ms": 50.708,
+      "p99_ms": 51.4506,
+      "max_ms": 150.0012,
+      "std_ms": 5.4332
+    },
+    "pipeline_cache_unified_frame": {
+      "count": 1130,
+      "mean_ms": 115.5723,
+      "median_ms": 108.9617,
+      "p95_ms": 162.1114,
+      "p99_ms": 185.6213,
+      "max_ms": 286.2198,
+      "std_ms": 19.4901
+    },
+    "unified_frame_merge": {
+      "count": 1130,
+      "mean_ms": 90.3446,
+      "median_ms": 85.757,
+      "p95_ms": 136.6904,
+      "p99_ms": 145.0882,
+      "max_ms": 290.2735,
+      "std_ms": 15.3539
+    },
+    "dataset_store_load": {
+      "count": 1130,
+      "mean_ms": 37.1048,
+      "median_ms": 35.1679,
+      "p95_ms": 40.1912,
+      "p99_ms": 89.9895,
+      "max_ms": 150.1649,
+      "std_ms": 11.5274
+    },
+    "feature_builder_compute_at": {
+      "count": 1130,
+      "mean_ms": 63.6986,
+      "median_ms": 62.0475,
+      "p95_ms": 68.9256,
+      "p99_ms": 114.4096,
+      "max_ms": 201.9974,
+      "std_ms": 10.0839
+    },
+    "range_engine_evaluate": {
+      "count": 1130,
+      "mean_ms": 64.7057,
+      "median_ms": 63.6377,
+      "p95_ms": 70.2467,
+      "p99_ms": 101.4096,
+      "max_ms": 199.767,
+      "std_ms": 8.1995
+    },
+    "predict_proba_only": {
+      "count": 1130,
+      "mean_ms": 1.2039,
+      "median_ms": 1.1667,
+      "p95_ms": 1.4423,
+      "p99_ms": 1.6723,
+      "max_ms": 2.3781,
+      "std_ms": 0.1246
+    },
+    "trend_engine_evaluate": {
+      "count": 1130,
+      "mean_ms": 13.4067,
+      "median_ms": 0.0371,
+      "p95_ms": 31.4718,
+      "p99_ms": 32.4112,
+      "max_ms": 80.3036,
+      "std_ms": 15.105
+    },
+    "build_market_context": {
+      "count": 1130,
+      "mean_ms": 79.722,
+      "median_ms": 66.2845,
+      "p95_ms": 110.4251,
+      "p99_ms": 128.6002,
+      "max_ms": 227.8686,
+      "std_ms": 19.7941
+    },
+    "confidence_engine": {
+      "count": 1130,
+      "mean_ms": 0.0198,
+      "median_ms": 0.0192,
+      "p95_ms": 0.0386,
+      "p99_ms": 0.0465,
+      "max_ms": 0.0622,
+      "std_ms": 0.0097
+    },
+    "decision_orchestrator": {
+      "count": 1130,
+      "mean_ms": 0.0367,
+      "median_ms": 0.0378,
+      "p95_ms": 0.0692,
+      "p99_ms": 0.0839,
+      "max_ms": 0.1098,
+      "std_ms": 0.0164
+    },
+    "calibration": {
+      "count": 1130,
+      "mean_ms": 0.0172,
+      "median_ms": 0.0152,
+      "p95_ms": 0.0261,
+      "p99_ms": 0.0368,
+      "max_ms": 0.179,
+      "std_ms": 0.0067
+    },
+    "adaptive_risk": {
+      "count": 1130,
+      "mean_ms": 0.1643,
+      "median_ms": 0.1657,
+      "p95_ms": 0.2597,
+      "p99_ms": 0.3114,
+      "max_ms": 0.4751,
+      "std_ms": 0.0571
+    },
+    "trade_quality": {
+      "count": 1130,
+      "mean_ms": 0.1367,
+      "median_ms": 0.1455,
+      "p95_ms": 0.1986,
+      "p99_ms": 0.2546,
+      "max_ms": 0.3652,
+      "std_ms": 0.0423
+    },
+    "profitability_filters": {
+      "count": 368,
+      "mean_ms": 0.07,
+      "median_ms": 0.0667,
+      "p95_ms": 0.0945,
+      "p99_ms": 0.1167,
+      "max_ms": 0.1459,
+      "std_ms": 0.0124
+    },
+    "health_gate": {
+      "count": 1130,
+      "mean_ms": 24.6119,
+      "median_ms": 24.6056,
+      "p95_ms": 25.8469,
+      "p99_ms": 31.2601,
+      "max_ms": 44.61,
+      "std_ms": 1.7835
+    },
+    "legacy_risk_gate": {
+      "count": 1130,
+      "mean_ms": 7.0876,
+      "median_ms": 6.7867,
+      "p95_ms": 7.1577,
+      "p99_ms": 8.1309,
+      "max_ms": 89.9459,
+      "std_ms": 5.4557
+    },
+    "execution_stage_prep": {
+      "count": 1130,
+      "mean_ms": 0.1379,
+      "median_ms": 0.0594,
+      "p95_ms": 0.0657,
+      "p99_ms": 3.1979,
+      "max_ms": 3.7883,
+      "std_ms": 0.4928
+    },
+    "produce_unified_signal_total": {
+      "count": 1130,
+      "mean_ms": 64.3085,
+      "median_ms": 55.6082,
+      "p95_ms": 165.7562,
+      "p99_ms": 194.9287,
+      "max_ms": 197.9074,
+      "std_ms": 33.5929
+    },
+    "kernel_adapter_total": {
+      "count": 1130,
+      "mean_ms": 55.5042,
+      "median_ms": 55.9568,
+      "p95_ms": 58.1389,
+      "p99_ms": 61.3582,
+      "max_ms": 102.0224,
+      "std_ms": 3.7639
+    }
+  },
+  "meta": {
+    "phase": "24C",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "pipeline_budget_ms": 500.0,
+    "method": "perf_counter_per_stage",
+    "production_modified": false,
+    "bars_profiled": 1130,
+    "generated_utc": "2026-07-08T11:27:51.259241+00:00"
+  }
+}

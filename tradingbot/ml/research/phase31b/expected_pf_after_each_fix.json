@@ -1,0 +1,13 @@
+{
+  "phase": "31B",
+  "baseline_pf": 1.211,
+  "after_replay_a": 0.0,
+  "after_replay_b": 12.5435,
+  "after_replay_c": 1.2097,
+  "recommended_sequence": [
+    "B first (capture)",
+    "C second (risk sizing)",
+    "A not recommended"
+  ],
+  "generated_utc": "2026-07-10T15:54:15.690639+00:00"
+}

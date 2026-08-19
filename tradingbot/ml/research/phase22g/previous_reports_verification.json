@@ -1,0 +1,91 @@
+{
+  "phase": "22G",
+  "method": "code_verification_plus_fresh_dataset_a_baseline",
+  "findings": [
+    {
+      "phase": "22A",
+      "claim": "Live entry is run_live_watchdog -> tradingbot --loop",
+      "status": "CONFIRMED",
+      "evidence": "start/3_live_loop_execute.bat + scripts/run_live_watchdog.py line 62"
+    },
+    {
+      "phase": "22A",
+      "claim": "TradingKernel pipeline with ML when USE_ML_KERNEL=true",
+      "status": "CONFIRMED",
+      "evidence": "live_runner.py build_strategy_registry; factory.py line 139"
+    },
+    {
+      "phase": "22A",
+      "claim": "run_system_manager.py is live entry",
+      "status": "REFUTED",
+      "evidence": "File absent; LiveRunner replaces it per live_runner.py docstring"
+    },
+    {
+      "phase": "22B",
+      "claim": "M5 had ~2 trades in 1-month audit",
+      "status": "PARTIALLY CONFIRMED",
+      "evidence": "Current Dataset A M5 trades=2 — similar low count"
+    },
+    {
+      "phase": "22B",
+      "claim": "M15/H4 inactive",
+      "status": "CONFIRMED",
+      "evidence": "M15 trades=0, H4=0"
+    },
+    {
+      "phase": "22C",
+      "claim": "Phase 22C thresholds wired in factory when PHASE22C_ENABLED",
+      "status": "CONFIRMED",
+      "evidence": "factory.py load_phase22c_config + apply_phase22c_range_thresholds"
+    },
+    {
+      "phase": "22C",
+      "claim": "All SELL no BUY on audit window",
+      "status": "PARTIALLY CONFIRMED",
+      "evidence": "buy_emitted=13, sell_emitted=47 — signals exist but executed buy_trades=0"
+    },
+    {
+      "phase": "22D",
+      "claim": "v41 Top5 must attach on full series not single row",
+      "status": "CONFIRMED",
+      "evidence": "pipeline_cache.py _attach_trend_v41_features; v41_engine.py rejects missing Top5"
+    },
+    {
+      "phase": "22D",
+      "claim": "TREND confidence recovery extended in recovery_adapter.py",
+      "status": "CONFIRMED",
+      "evidence": "phase15i/recovery_adapter.py lines 28-32 TREND path"
+    },
+    {
+      "phase": "22D",
+      "claim": "Orchestrator BUY restored post-fix",
+      "status": "PARTIALLY CONFIRMED",
+      "evidence": "buy_emitted>0 in hold_chain but executed BUY trades may still be 0 on Dataset A"
+    },
+    {
+      "phase": "22F",
+      "claim": "Biggest bottleneck is decision_engine (hold chain)",
+      "status": "CONFIRMED",
+      "evidence": "bottleneck first_destroyer=decision_hold (hold_chain); decision_hold=4234"
+    },
+    {
+      "phase": "22F",
+      "claim": "System over-filtered",
+      "status": "CONFIRMED",
+      "evidence": "trades=2 from bars=4308"
+    },
+    {
+      "phase": "22F",
+      "claim": "Runtime 5-15 min for Dataset A",
+      "status": "REFUTED",
+      "evidence": "Observed ~26 min for full 22F run — M5 backtest dominates"
+    }
+  ],
+  "refuted_claims": [
+    "run_system_manager.py is live entry",
+    "Runtime 5-15 min for Dataset A"
+  ],
+  "confirmed_count": 8,
+  "partial_count": 3,
+  "refuted_count": 2
+}

@@ -1,0 +1,26 @@
+{
+  "phase": "28C",
+  "trade_count": 0,
+  "trades": [],
+  "collection_meta": {
+    "phase": "28C",
+    "journal_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\trade_journal.db",
+    "journal_exists": true,
+    "completed_trades": 0,
+    "open_trades": 2161,
+    "executions": 2216,
+    "period_days": 0.0,
+    "min_trades_required": 200,
+    "min_days_required": 14,
+    "preferred_days": 30,
+    "env_status": {
+      "TRADINGBOT_PAPER": "",
+      "TRADINGBOT_EXIT_MODE": "",
+      "USE_ML_KERNEL": "",
+      "ALLOW_LEGACY_FALLBACK": ""
+    },
+    "env_hybrid_b_paper": false,
+    "exit_mode_resolved": "CURRENT"
+  },
+  "generated_utc": "2026-07-09T22:33:10.200142+00:00"
+}

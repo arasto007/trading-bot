@@ -1,0 +1,10 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "data_type": "events",
+  "event_count": 393,
+  "collection_date": "2026-06-29",
+  "last_update_utc": "2026-06-29T12:06:32.613490+00:00",
+  "validation_status": "pass",
+  "storage_tier": "raw"
+}

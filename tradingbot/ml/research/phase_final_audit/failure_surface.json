@@ -1,0 +1,50 @@
+{
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00",
+  "failures": [
+    {
+      "module": "mt5_market_data",
+      "failure": "MT5 disconnect",
+      "caught_by": "run_global_cycle health check",
+      "silent": false
+    },
+    {
+      "module": "kernel_adapter",
+      "failure": "pipeline_timeout",
+      "caught_by": "KernelFallbackError",
+      "silent": false,
+      "effect": "HOLD"
+    },
+    {
+      "module": "risk_gate",
+      "failure": "spread tick unavailable",
+      "caught_by": "returns 999 pips block",
+      "silent": false
+    },
+    {
+      "module": "kill_switch",
+      "failure": "check exception",
+      "caught_by": "logger.debug only",
+      "silent": true,
+      "severity": "MEDIUM"
+    },
+    {
+      "module": "live_risk_tracker",
+      "failure": "MT5 sync fail",
+      "caught_by": "continues with stale state",
+      "silent": true
+    },
+    {
+      "module": "factory",
+      "failure": "USE_ML_KERNEL unset",
+      "caught_by": "None signal",
+      "silent": true,
+      "severity": "HIGH"
+    },
+    {
+      "module": "phase26a collector",
+      "failure": "zero fill + candle gap",
+      "caught_by": "replay fallback",
+      "silent": false
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "phase": "22G",
+  "verified_from": "source_code",
+  "env": {
+    "TREND_MODEL_VERSION": "v41",
+    "USE_ML_KERNEL": "true",
+    "PHASE22C_ENABLED": "true",
+    "is_ml_kernel_enabled": true
+  },
+  "trend_routing": {
+    "read_function": "tradingbot/ml/phase17d/config.py:read_trend_model_version",
+    "resolve_function": "tradingbot/ml/phase17d/versioning.py:resolve_active_trend_engine_id",
+    "requested_version": "v41",
+    "resolved_engine_id": "trend_rf_v41",
+    "inference_classes": {
+      "trend_rf_v40": "RecoveredTrendEngine (via TrendRfEngineWrapper)",
+      "trend_rf_v41": "TrendRfV41Engine"
+    },
+    "execution_selection": "KernelAdapter._engine_inners() uses registry.get(resolve_active_trend_engine_id())",
+    "decision_label": "strategy_selector.select_engine('TREND') returns hardcoded 'trend_rf_v40' — metadata only",
+    "weights_v40": {
+      "root": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\trend_rf_bundle",
+      "artifacts": {
+        "model.pkl": true,
+        "scaler.pkl": true,
+        "feature_order.json": true,
+        "checksum.sha256": false
+      }
+    },
+    "weights_v41": {
+      "root": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\trend_rf_bundle_v41",
+      "artifacts": {
+        "model.pkl": true,
+        "scaler.pkl": true,
+        "feature_order.json": true,
+        "checksum.sha256": true
+      }
+    }
+  },
+  "range_routing": {
+    "engine_id": "phase9_9",
+    "inference_class": "RangeEngineAdapter -> Phase99EngineWrapper",
+    "weights": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "weights_exist": true,
+    "regime_gate": "select_engine('RANGE') -> phase9_9"
+  },
+  "registry_load": {
+    "function": "EngineRegistry.build_default",
+    "loads_both_trend_versions": true,
+    "v41_skip_if_missing": "FileNotFoundError caught silently in build_default",
+    "no_v41_to_v40_auto_fallback": true,
+    "missing_v41_with_env_v41": "KernelFallbackError -> legacy PriceAction"
+  },
+  "overrides_found_in_code": [
+    {
+      "location": "tradingbot/ml/phase20a/config.py:apply_certified_env",
+      "effect": "Can overwrite TREND_MODEL_VERSION and USE_ML_KERNEL"
+    },
+    {
+      "location": "tradingbot/ml/research/phase22e|22f/config.py:configure_*_env",
+      "effect": "Research runners force USE_ML_KERNEL=true and TREND_MODEL_VERSION=v41"
+    },
+    {
+      "location": "tradingbot/config/dotenv_loader.py",
+      "effect": "Will NOT override env vars already set in process"
+    },
+    {
+      "location": "tradingbot/ml/integration/recovered_calibration.py",
+      "effect": "Platt fit uses trend_rf_v40 hardcoded, not active env engine"
+    },
+    {
+      "location": "tradingbot/ml/integration/health_gate.py:run_pre_decision_health",
+      "effect": "validate_trend_checksum uses v40 paths only"
+    }
+  ],
+  "caller_chain_live": [
+    "LiveRunner.__init__ -> build_strategy_registry",
+    "build_strategy_registry -> MLKernelRegistry",
+    "SignalStage -> MLKernelRegistry.generate_signal",
+    "KernelAdapter.produce_unified_signal",
+    "resolve_active_trend_engine_id -> registry.get -> trend_inner.evaluate"
+  ]
+}

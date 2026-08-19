@@ -1,0 +1,27 @@
+{
+  "phase": "24G",
+  "removed_or_avoided": [
+    {
+      "op": "base.copy() before regime loop",
+      "action": "removed in optimized path \u2014 batch merge returns new frame"
+    },
+    {
+      "op": "duplicate normalize_candles",
+      "action": "single normalize_candles_index per call"
+    },
+    {
+      "op": "duplicate true_range inside trend+regime",
+      "action": "single true_range_series passed via _true_range"
+    },
+    {
+      "op": "per-column timestamp merge slices",
+      "action": "replaced with one merge"
+    }
+  ],
+  "retained_required": [
+    "final sort_values + reset_index",
+    "phase99 feat.copy() before timestamp convert",
+    "regime merge_frame.copy() for rename safety"
+  ],
+  "generated_utc": "2026-07-08T12:48:05.458083+00:00"
+}

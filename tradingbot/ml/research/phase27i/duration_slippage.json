@@ -1,0 +1,38 @@
+{
+  "phase": "27I",
+  "buckets": {
+    "1-5": {
+      "trade_count": 100,
+      "avg_slippage_loss": 2.633,
+      "avg_baseline_pnl": -7.5972,
+      "avg_pnl_after_slippage": -10.2302,
+      "net_after_slippage": -1023.025,
+      "absorbs_slippage": false
+    },
+    "6-10": {
+      "trade_count": 116,
+      "avg_slippage_loss": 2.8338,
+      "avg_baseline_pnl": -0.8722,
+      "avg_pnl_after_slippage": -3.706,
+      "net_after_slippage": -429.8962,
+      "absorbs_slippage": false
+    },
+    "11-20": {
+      "trade_count": 125,
+      "avg_slippage_loss": 2.7032,
+      "avg_baseline_pnl": 0.2566,
+      "avg_pnl_after_slippage": -2.4466,
+      "net_after_slippage": -305.8225,
+      "absorbs_slippage": false
+    },
+    "20+": {
+      "trade_count": 234,
+      "avg_slippage_loss": 2.8969,
+      "avg_baseline_pnl": 8.2479,
+      "avg_pnl_after_slippage": 5.3509,
+      "net_after_slippage": 1252.12,
+      "absorbs_slippage": true
+    }
+  },
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

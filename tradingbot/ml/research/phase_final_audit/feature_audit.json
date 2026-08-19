@@ -1,0 +1,11 @@
+{
+  "unified_frame_builder": "ml/research/phase13_9/unified_features.py",
+  "cache": "ml/integration/pipeline_cache.py:get_unified_frame",
+  "dataset": "ml/dataset/store.py load_v2",
+  "fingerprint": "EXPECTED_DATASET_FINGERPRINT in ml/phase15a/config.py",
+  "indicator_stage_note": "IndicatorStage enriches ctx.enriched_ohlcv but ML path rebuilds via PipelineCache \u2014 parallel feature paths",
+  "evidence": "phase25b/pipeline_depth_comparison.json DIV-004",
+  "top5_features": "ml/research/phase17b/top5_features.py attach for v41",
+  "checksum": "UnifiedSignal.compute_checksum per bar",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

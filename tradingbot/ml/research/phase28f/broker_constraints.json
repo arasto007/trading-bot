@@ -1,0 +1,11 @@
+{
+  "symbol": "XAUUSD",
+  "min_lot": 0.01,
+  "lot_step": 0.01,
+  "max_lot": 10.0,
+  "contract_size": 100.0,
+  "tick_size": 0.1,
+  "tick_value": 10.0,
+  "leverage": 100.0,
+  "generated_utc": "2026-07-09T23:58:22.201686+00:00"
+}

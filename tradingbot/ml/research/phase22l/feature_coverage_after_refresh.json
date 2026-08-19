@@ -1,0 +1,106 @@
+{
+  "phase": "22L",
+  "step": 3,
+  "dataset_a": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "before_refresh": {
+    "bars_sampled": 325,
+    "merge_hit_count": 27,
+    "merge_hit_pct": 8.31,
+    "phase99_zero_on_sample": {
+      "phase99_ema50_slope": {
+        "count": 298,
+        "pct": 91.69
+      },
+      "phase99_candle_direction": {
+        "count": 298,
+        "pct": 91.69
+      },
+      "phase99_structure_distance": {
+        "count": 325,
+        "pct": 100.0
+      }
+    },
+    "unified_frame_feature_stats": {
+      "phase99_ema50_slope": {
+        "zero_pct": 90.03,
+        "missing_pct": 0.0,
+        "unique": 126,
+        "variance": 0.00894446,
+        "mean": -0.013012,
+        "std": 0.094575
+      },
+      "phase99_candle_direction": {
+        "zero_pct": 90.03,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "variance": 0.09973264,
+        "mean": -0.006268,
+        "std": 0.315805
+      },
+      "phase99_structure_distance": {
+        "zero_pct": 100.0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "variance": 0.0,
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "dataset_max_ts": "2026-06-29 13:45:00+00:00",
+    "candle_max_ts": "2026-07-03 19:55:00+00:00"
+  },
+  "after_refresh": {
+    "bars_sampled": 325,
+    "merge_hit_count": 27,
+    "merge_hit_pct": 8.31,
+    "phase99_zero_on_sample": {
+      "phase99_ema50_slope": {
+        "count": 298,
+        "pct": 91.69
+      },
+      "phase99_candle_direction": {
+        "count": 298,
+        "pct": 91.69
+      },
+      "phase99_structure_distance": {
+        "count": 325,
+        "pct": 100.0
+      }
+    },
+    "unified_frame_feature_stats": {
+      "phase99_ema50_slope": {
+        "zero_pct": 90.09,
+        "missing_pct": 0.0,
+        "unique": 125,
+        "variance": 0.00901856,
+        "mean": -0.0132,
+        "std": 0.094966
+      },
+      "phase99_candle_direction": {
+        "zero_pct": 90.09,
+        "missing_pct": 0.0,
+        "unique": 3,
+        "variance": 0.09916934,
+        "mean": -0.005698,
+        "std": 0.314912
+      },
+      "phase99_structure_distance": {
+        "zero_pct": 100.0,
+        "missing_pct": 0.0,
+        "unique": 1,
+        "variance": 0.0,
+        "mean": 0.0,
+        "std": 0.0
+      }
+    },
+    "dataset_max_ts": "2026-06-29 13:45:00+00:00",
+    "candle_max_ts": "2026-07-03 19:55:00+00:00"
+  },
+  "merge_hit_delta_pct": 0.0,
+  "phase99_structure_distance_zero_delta": 0.0
+}

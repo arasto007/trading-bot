@@ -1,0 +1,1063 @@
+{
+  "phase": "22X",
+  "generated_utc": "2026-07-07T18:50:15.817748+00:00",
+  "probability_gate_passed_count": 5,
+  "probability_gate_rejected_count": 23,
+  "best_candidate": {
+    "experiment_id": "random_forest_shallow__stable_4__RANGE",
+    "candidate_id": "random_forest_shallow",
+    "model_name": "random_forest",
+    "feature_subset": "stable_4",
+    "regime": "RANGE",
+    "robustness_score": 59.09,
+    "overfitting_risk": "HIGH",
+    "mean_profit_factor": 1.2967,
+    "mean_expectancy": 0.1566,
+    "mean_auc_gap": 0.1562,
+    "profitable_windows": 3,
+    "window_count": 5,
+    "composite_score": 0.616598,
+    "expectancy_consistency": 0.8422,
+    "overfitting_penalty": 0.6686,
+    "buy_coverage_pct": 0.3341,
+    "sell_coverage_pct": 92.4276,
+    "min_probability": 0.181628,
+    "max_probability": 0.551388,
+    "probability_std": 0.069321,
+    "probability_histogram": {
+      "bin_width": 0.05,
+      "total": 898,
+      "bins": [
+        {
+          "range": "0.00-0.05",
+          "lo": 0.0,
+          "hi": 0.05,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.05-0.10",
+          "lo": 0.05,
+          "hi": 0.1,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.10-0.15",
+          "lo": 0.1,
+          "hi": 0.15,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.15-0.20",
+          "lo": 0.15,
+          "hi": 0.2,
+          "count": 12,
+          "pct": 1.3363
+        },
+        {
+          "range": "0.20-0.25",
+          "lo": 0.2,
+          "hi": 0.25,
+          "count": 73,
+          "pct": 8.1292
+        },
+        {
+          "range": "0.25-0.30",
+          "lo": 0.25,
+          "hi": 0.3,
+          "count": 101,
+          "pct": 11.2472
+        },
+        {
+          "range": "0.30-0.35",
+          "lo": 0.3,
+          "hi": 0.35,
+          "count": 223,
+          "pct": 24.833
+        },
+        {
+          "range": "0.35-0.40",
+          "lo": 0.35,
+          "hi": 0.4,
+          "count": 279,
+          "pct": 31.069
+        },
+        {
+          "range": "0.40-0.45",
+          "lo": 0.4,
+          "hi": 0.45,
+          "count": 142,
+          "pct": 15.8129
+        },
+        {
+          "range": "0.45-0.50",
+          "lo": 0.45,
+          "hi": 0.5,
+          "count": 54,
+          "pct": 6.0134
+        },
+        {
+          "range": "0.50-0.55",
+          "lo": 0.5,
+          "hi": 0.55,
+          "count": 11,
+          "pct": 1.2249
+        },
+        {
+          "range": "0.55-0.60",
+          "lo": 0.55,
+          "hi": 0.6,
+          "count": 3,
+          "pct": 0.3341
+        },
+        {
+          "range": "0.60-0.65",
+          "lo": 0.6,
+          "hi": 0.65,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.65-0.70",
+          "lo": 0.65,
+          "hi": 0.7,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.70-0.75",
+          "lo": 0.7,
+          "hi": 0.75,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.75-0.80",
+          "lo": 0.75,
+          "hi": 0.8,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.80-0.85",
+          "lo": 0.8,
+          "hi": 0.85,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.85-0.90",
+          "lo": 0.85,
+          "hi": 0.9,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.90-0.95",
+          "lo": 0.9,
+          "hi": 0.95,
+          "count": 0,
+          "pct": 0.0
+        },
+        {
+          "range": "0.95-1.00",
+          "lo": 0.95,
+          "hi": 1.0,
+          "count": 0,
+          "pct": 0.0
+        }
+      ]
+    },
+    "probability_gate_passed": true,
+    "acceptance_reason": "probability_quality_passed",
+    "rejection_reason": null
+  },
+  "rejected_examples": [
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "model_name": "logistic",
+      "feature_subset": "stable_top3",
+      "regime": "RANGE",
+      "robustness_score": 77.73,
+      "overfitting_risk": "LOW",
+      "mean_profit_factor": 1.3087,
+      "mean_expectancy": 0.1571,
+      "mean_auc_gap": 0.0368,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.768628,
+      "expectancy_consistency": 0.8409,
+      "overfitting_penalty": 0.1604,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 99.5546,
+      "min_probability": 6e-06,
+      "max_probability": 0.46233,
+      "probability_std": 0.043254,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 1,
+            "pct": 0.1114
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 1,
+            "pct": 0.1114
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 1,
+            "pct": 0.1114
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 122,
+            "pct": 13.5857
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 248,
+            "pct": 27.6169
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 439,
+            "pct": 48.8864
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 78,
+            "pct": 8.686
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": false,
+      "acceptance_reason": null,
+      "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "candidate_id": "logistic_c1",
+      "model_name": "logistic",
+      "feature_subset": "stable_top3",
+      "regime": "RANGE",
+      "robustness_score": 77.68,
+      "overfitting_risk": "LOW",
+      "mean_profit_factor": 1.3076,
+      "mean_expectancy": 0.1564,
+      "mean_auc_gap": 0.0376,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.76795,
+      "expectancy_consistency": 0.841,
+      "overfitting_penalty": 0.1628,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 99.3318,
+      "min_probability": 0.0,
+      "max_probability": 0.471664,
+      "probability_std": 0.050493,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 2,
+            "pct": 0.2227
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 1,
+            "pct": 0.1114
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 1,
+            "pct": 0.1114
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 2,
+            "pct": 0.2227
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 8,
+            "pct": 0.8909
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 129,
+            "pct": 14.3653
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 234,
+            "pct": 26.0579
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 378,
+            "pct": 42.0935
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 137,
+            "pct": 15.2561
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 6,
+            "pct": 0.6682
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": false,
+      "acceptance_reason": null,
+      "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "candidate_id": "logistic_c1",
+      "model_name": "logistic",
+      "feature_subset": "stable_top2",
+      "regime": "RANGE",
+      "robustness_score": 77.47,
+      "overfitting_risk": "LOW",
+      "mean_profit_factor": 1.3087,
+      "mean_expectancy": 0.1571,
+      "mean_auc_gap": 0.0412,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.765607,
+      "expectancy_consistency": 0.8409,
+      "overfitting_penalty": 0.1736,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 99.5546,
+      "min_probability": 0.221056,
+      "max_probability": 0.469345,
+      "probability_std": 0.044146,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 129,
+            "pct": 14.3653
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 254,
+            "pct": 28.2851
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 392,
+            "pct": 43.6526
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 115,
+            "pct": 12.8062
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": false,
+      "acceptance_reason": null,
+      "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "model_name": "logistic",
+      "feature_subset": "stable_top2",
+      "regime": "RANGE",
+      "robustness_score": 77.47,
+      "overfitting_risk": "LOW",
+      "mean_profit_factor": 1.3087,
+      "mean_expectancy": 0.1571,
+      "mean_auc_gap": 0.0412,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.765607,
+      "expectancy_consistency": 0.8409,
+      "overfitting_penalty": 0.1736,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 99.5546,
+      "min_probability": 0.230872,
+      "max_probability": 0.460154,
+      "probability_std": 0.039337,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 2,
+            "pct": 0.2227
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 125,
+            "pct": 13.9198
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 259,
+            "pct": 28.8419
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 442,
+            "pct": 49.2205
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 66,
+            "pct": 7.3497
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": false,
+      "acceptance_reason": null,
+      "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "candidate_id": "lgbm_conservative",
+      "model_name": "lightgbm",
+      "feature_subset": "stable_4",
+      "regime": "RANGE",
+      "robustness_score": 74.56,
+      "overfitting_risk": "MEDIUM",
+      "mean_profit_factor": 1.3241,
+      "mean_expectancy": 0.1653,
+      "mean_auc_gap": 0.0912,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.725693,
+      "expectancy_consistency": 0.8399,
+      "overfitting_penalty": 0.3736,
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 98.3296,
+      "min_probability": 0.217653,
+      "max_probability": 0.502476,
+      "probability_std": 0.057886,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 64,
+            "pct": 7.1269
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 92,
+            "pct": 10.245
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 271,
+            "pct": 30.1782
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 265,
+            "pct": 29.51
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 191,
+            "pct": 21.2695
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 11,
+            "pct": 1.2249
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 4,
+            "pct": 0.4454
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": false,
+      "acceptance_reason": null,
+      "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+    }
+  ],
+  "degenerated_frozen_candidate": {
+    "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+    "probability_gate_passed": false,
+    "rejection_reason": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed",
+    "buy_coverage_pct": 0.0
+  },
+  "acceptance": {
+    "checks": {
+      "robustness_improved": false,
+      "overfitting_risk_decreased": false,
+      "mean_expectancy_positive": true,
+      "profitable_windows_ge_4": false,
+      "probability_quality_passed": true
+    },
+    "final_verdict": "FAIL",
+    "baseline_robustness_score": 66.57,
+    "best_robustness_score": 59.09,
+    "robustness_delta": -7.48,
+    "baseline_overfitting_risk": "HIGH",
+    "best_overfitting_risk": "HIGH",
+    "probability_gate": {
+      "passed": true,
+      "acceptance_reason": "probability_quality_passed",
+      "rejection_reason": null,
+      "buy_coverage_pct": 0.3341,
+      "sell_coverage_pct": 92.4276,
+      "probability_std": 0.069321
+    }
+  }
+}

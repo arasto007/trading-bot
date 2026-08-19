@@ -1,0 +1,27 @@
+{
+  "phase": "23G",
+  "artifact_checksums": {
+    "phase9_9_model": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "phase9_9_feature_order": "a95f60246226abdf0bde20c5e7ce380097f0b02d06aeed9406a9714ead8e5100",
+    "phase9_9_freeze_manifest": "579506b8cadee373f09e998605ae0433b725cf386cbf6951af71685c9f8f53e9",
+    "health_gate": "9b692c2f01c4b83a6a40a25e2c53b0935c8a2953bae4af11be9622b2272dc3ef",
+    "decision_orchestrator": "e7aa09596793b35d72f1c5a41ea5a75b54a26cda34830a48ef6be82a572a7baf",
+    "decision_policy": "8b2f0c82541494fce4b4fd0fe136f1b2031057261a8dd6af7671893d28647e7a",
+    "phase19c_filters": "d61d63224b1c3a77b759a51a50579d33353a18a87ba6547bd00d2be40ba4f796"
+  },
+  "freeze_manifest_present": true,
+  "acceptance_reference_unchanged": true,
+  "health_gate_checksum": "9b692c2f01c4b83a6a40a25e2c53b0935c8a2953bae4af11be9622b2272dc3ef",
+  "model_checksum": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+  "modified_for_integration": [
+    "tradingbot/ml/integration/kernel_adapter.py",
+    "tradingbot/ml/integration/regime_filter_profiles.py"
+  ],
+  "checks": {
+    "artifacts_present": true,
+    "health_gate_unchanged_module": true,
+    "decision_engine_unchanged": true,
+    "filters_core_unchanged": true
+  },
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

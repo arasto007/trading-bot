@@ -1,0 +1,8 @@
+{
+  "phase": "30F",
+  "cycle_elapsed_ms": 162.82,
+  "ticks_per_cycle": 3,
+  "poll_interval_ms": 0,
+  "storage_engine": "parquet_zstd",
+  "generated_utc": "2026-07-10T15:28:06.667499+00:00"
+}

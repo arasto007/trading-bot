@@ -1,0 +1,78 @@
+{
+  "phase": "22AK",
+  "old_frozen_candidate": "logistic_strong_reg",
+  "new_frozen_candidate": "xgb_baseline_phase96",
+  "old_experiment_id": null,
+  "new_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "old_metadata": {
+    "phase": "9.9",
+    "frozen_at_utc": "2026-06-29T22:15:00.449792+00:00",
+    "candidate_id": "logistic_strong_reg",
+    "feature_subset": "stable_top3",
+    "train_rows": 851,
+    "dataset_fingerprint": "70b38325ee1c7e1e",
+    "robustness_score": 77.73
+  },
+  "new_metadata": {
+    "phase": "9.9",
+    "frozen_at_utc": "2026-07-07T20:10:28.472964+00:00",
+    "candidate_id": "xgb_baseline_phase96",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "feature_subset": "stable_except_unstable",
+    "model_type": "xgboost",
+    "train_rows": 851,
+    "dataset_fingerprint": "70b38325ee1c7e1e",
+    "robustness_score": 66.76,
+    "validation_metrics": {
+      "robustness_score": 66.76,
+      "overfitting_risk": "HIGH",
+      "mean_profit_factor": 1.227,
+      "mean_expectancy": 0.1273,
+      "mean_auc_gap": 0.3195,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.592035
+    },
+    "probability_metrics": {
+      "buy_coverage_pct": 11.1359,
+      "sell_coverage_pct": 72.9399,
+      "probability_std": 0.157166,
+      "min_probability": 0.062302,
+      "max_probability": 0.904958,
+      "probability_gate_passed": true
+    },
+    "acceptance_status": {
+      "final_verdict": "PASS",
+      "checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "baseline_mean_auc_gap": 0.3308,
+      "best_mean_auc_gap": 0.3195,
+      "overfitting_check_mode": "numeric_mean_auc_gap"
+    },
+    "freeze_authority": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+    "contract_version": "1.0"
+  },
+  "old_artifact_checksums": {
+    "model.pkl": "659ad21470fcc2732534b246ae43777cf6911e96b641935d97e00f1ed3a13405",
+    "scaler.pkl": "45a7d900ced8bd801f74e23fef219eb2f4c043381dbd0949e9d55f4ee9f2b069",
+    "feature_order.json": "e53b4e6ae0e7bb81d787bca195639476a812b8090967f1672c241a961422ac3f",
+    "config.json": "988f5b271153704286ac2fec60ccec6ffe9a357ae41c1dec4b622bc8189c263b",
+    "metadata.json": "c80fc19751da85bc395cdc2bb3d64a60d43e45234ddb8aa494e5d1ef9cee1963"
+  },
+  "new_artifact_checksums": {
+    "model.pkl": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "scaler.pkl": "50118d02fa3869bccd7a7785abc22ffb31b8a44fc027cf43e9969e154c6c17f9",
+    "feature_order.json": "a95f60246226abdf0bde20c5e7ce380097f0b02d06aeed9406a9714ead8e5100",
+    "config.json": "e7fea4a0c85a935b635ab533e0d03242f72dc4b5bee011f2f2ec2d8e4faa15c1",
+    "metadata.json": "08ce6b83d62e2a30b014dddc1264c8b3cd371067ee7ac6cc6cff768fd3b6f25d",
+    "freeze_manifest.json": "579506b8cadee373f09e998605ae0433b725cf386cbf6951af71685c9f8f53e9"
+  },
+  "checksums_changed": true,
+  "backup_location": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00"
+}

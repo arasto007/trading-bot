@@ -1,0 +1,43 @@
+{
+  "phase": "24D",
+  "strategies": [
+    {
+      "id": "A",
+      "feature_parity": "REQUIRES_VALIDATION",
+      "artifact_parity": true,
+      "fingerprint_stability": true,
+      "model_compatibility": true,
+      "rollback_complexity": "MEDIUM",
+      "risks": [
+        "Incremental indicator state must match full rebuild exactly",
+        "attach_top5 trend_age requires regime sequence consistency",
+        "Off-by-one on forming bar exclusion"
+      ]
+    },
+    {
+      "id": "B",
+      "feature_parity": true,
+      "artifact_parity": true,
+      "fingerprint_stability": true,
+      "model_compatibility": true,
+      "rollback_complexity": "LOW",
+      "risks": [
+        "Stale dataset_v2 if offline rebuild occurs mid-session \u2014 needs invalidation hook",
+        "Memory footprint of full dataset in RAM"
+      ]
+    },
+    {
+      "id": "C",
+      "feature_parity": "REQUIRES_VALIDATION",
+      "artifact_parity": true,
+      "fingerprint_stability": true,
+      "model_compatibility": true,
+      "rollback_complexity": "MEDIUM",
+      "risks": [
+        "SMC/trend families use rolling windows \u2014 incorrect cache breaks parity",
+        "Only ~2-5ms savings on session/micro \u2014 does not fix unified frame bottleneck"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

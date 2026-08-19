@@ -1,0 +1,12 @@
+{
+  "phase": "27B",
+  "BUY_attempts": 841,
+  "SELL_attempts": 1742,
+  "BUY_blocked": 34,
+  "SELL_blocked": 391,
+  "BUY_passed": 49,
+  "SELL_passed": 712,
+  "blocks_both_directions": true,
+  "primary_blocked_direction": "SELL",
+  "generated_utc": "2026-07-09T12:46:26.282393+00:00"
+}

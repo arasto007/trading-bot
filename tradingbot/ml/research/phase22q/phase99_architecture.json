@@ -1,0 +1,60 @@
+{
+  "phase": "22Q",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "origin": {
+    "introduced_in": "Phase 13.9 — unified router pipeline",
+    "config_file": "tradingbot/ml/research/phase13_9/config.py",
+    "problem_solved": "Unify trend ML, regime, and frozen Phase 9.9 range model on one feature matrix without column collision. Trend path uses build_ml_features (ema50_slope etc.); range model was trained on FeatureBuilder features at sparse event timestamps in dataset_v2. PHASE99_FEATURE_MAP stores range-training features under phase99_* prefix so TREND_PROTECTED_COLUMNS are never overwritten.",
+    "training_path": {
+      "builder": "SparseEventDatasetBuilder",
+      "file": "tradingbot/ml/dataset/sparse_event_builder.py",
+      "feature_source": "FeatureBuilder.compute_at() at sampling events only (~5724 rows)",
+      "artifact": "dataset_v2 parquet → phase9_9 model.pkl (3 features)",
+      "model_features": [
+        "ema50_slope",
+        "candle_direction",
+        "structure_distance"
+      ],
+      "model_registry": "tradingbot/ml/paper_trading/model_registry.py"
+    },
+    "inference_path": {
+      "entry": "PipelineCache.get_unified_frame",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "merge": "build_unified_frame(candles, DatasetStore.load_v2())",
+      "merge_file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "range_consumption": "row_for_phase99_range(row) → RangeEngineAdapter.evaluate",
+      "production_wrapper": "Phase99EngineWrapper.predict in engine_registry.py"
+    }
+  },
+  "pipeline_roles": {
+    "training": "FeatureBuilder at sparse events → dataset_v2 → frozen phase9_9",
+    "inference": "Live candles + dataset_v2 left-merge → phase99_* → row_for_phase99_range",
+    "range_engine": "Mandatory consumer of mapped ema50_slope/candle_direction/structure_distance",
+    "decision": "DecisionOrchestrator uses range_signal from phase9_9 when regime=RANGE"
+  },
+  "indicator_stage_role": {
+    "file": "tradingbot/adapters/indicator_engine.py",
+    "produces_phase99": false,
+    "note": "RSI/ADX/ATR for pipeline gates — not phase99 model inputs"
+  },
+  "still_needed_today": {
+    "phase9_9_model": {
+      "required": true,
+      "reason": "EngineRegistry registers phase9_9 for RANGE regime; strategy_selector routes RANGE→phase9_9",
+      "files": [
+        "tradingbot/ml/phase15a/engine_registry.py",
+        "tradingbot/ml/decision_engine/strategy_selector.py"
+      ]
+    },
+    "phase99_prefix_inference": {
+      "required": false,
+      "reason": "Repository already contains FeatureBuilder with identical feature names used at training. RangeEngineAdapter._features_from_candles() calls FeatureBuilder.compute_at but production path never reaches it because row_for_phase99_range supplies zero-filled phase99_* first.",
+      "live_columns_exist_but_unused": {
+        "ema50_slope": "build_ml_features (trend_ml) — different code path than FeatureBuilder training",
+        "candle_direction": "NOT in build_ml_features; only in FeatureBuilder/price_action",
+        "structure_distance": "NOT in build_ml_features; only in FeatureBuilder/smc"
+      }
+    },
+    "redundancy_summary": "FeatureBuilder CAN produce all 3 model inputs live. IndicatorStage cannot. phase99_* merge duplicates FeatureBuilder semantics but only on sparse event timestamps; fillna(0) on miss makes merge path dominant and harmful."
+  }
+}

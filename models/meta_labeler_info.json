@@ -1,0 +1,183 @@
+{
+  "specs": [
+    [
+      "M5",
+      180
+    ],
+    [
+      "M15",
+      180
+    ],
+    [
+      "H4",
+      270
+    ]
+  ],
+  "oos_frac": 0.25,
+  "label_min_r": 0.35,
+  "last_trained_utc": "2026-08-07T15:23:05.458133+00:00",
+  "last_mode": "phase46a_m5_recovery",
+  "per_tf": {
+    "M5": {
+      "tf": "M5",
+      "skipped": false,
+      "samples": 266,
+      "train_samples": 227,
+      "oos_samples": 76,
+      "wins": 102,
+      "losses": 164,
+      "win_rate_pct": 38.35,
+      "balance_method": "oversample_wins",
+      "walk_forward": {
+        "folds": 5,
+        "avg_pf": 1.51,
+        "avg_precision": 0.5923,
+        "folds_passed": 3,
+        "fold_details": [
+          {
+            "fold": 1,
+            "train_n": 53,
+            "test_n": 50,
+            "best_threshold": 0.52,
+            "oos_trades_taken": 18,
+            "oos_pf": 0.64,
+            "oos_precision": 0.4444,
+            "oos_recall": 1.0,
+            "passed_gate": false,
+            "oos_precision_raw": 0.4444,
+            "oos_recall_raw": 0.381,
+            "oos_samples": 50
+          },
+          {
+            "fold": 2,
+            "train_n": 103,
+            "test_n": 50,
+            "best_threshold": 0.54,
+            "oos_trades_taken": 15,
+            "oos_pf": 0.533,
+            "oos_precision": 0.4,
+            "oos_recall": 1.0,
+            "passed_gate": false,
+            "oos_precision_raw": 0.375,
+            "oos_recall_raw": 0.3,
+            "oos_samples": 50
+          },
+          {
+            "fold": 3,
+            "train_n": 153,
+            "test_n": 50,
+            "best_threshold": 0.3,
+            "oos_trades_taken": 25,
+            "oos_pf": 3.2,
+            "oos_precision": 0.8,
+            "oos_recall": 1.0,
+            "passed_gate": true,
+            "oos_precision_raw": 0.7143,
+            "oos_recall_raw": 0.3704,
+            "oos_samples": 50
+          },
+          {
+            "fold": 4,
+            "train_n": 203,
+            "test_n": 50,
+            "best_threshold": 0.5,
+            "oos_trades_taken": 18,
+            "oos_pf": 1.257,
+            "oos_precision": 0.6111,
+            "oos_recall": 1.0,
+            "passed_gate": true,
+            "oos_precision_raw": 0.6111,
+            "oos_recall_raw": 0.4783,
+            "oos_samples": 50
+          },
+          {
+            "fold": 5,
+            "train_n": 253,
+            "test_n": 50,
+            "best_threshold": 0.68,
+            "oos_trades_taken": 17,
+            "oos_pf": 1.92,
+            "oos_precision": 0.7059,
+            "oos_recall": 1.0,
+            "passed_gate": true,
+            "oos_precision_raw": 0.6957,
+            "oos_recall_raw": 0.5926,
+            "oos_samples": 50
+          }
+        ]
+      },
+      "oos": {
+        "best_threshold": 0.38,
+        "oos_trades_taken": 41,
+        "oos_pf": 1.631,
+        "oos_precision": 0.6585,
+        "oos_recall": 1.0,
+        "passed_gate": true,
+        "oos_precision_raw": 0.5385,
+        "oos_recall_raw": 0.3333,
+        "oos_samples": 76
+      },
+      "active": true,
+      "phase46a_certified": true,
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_m5.pkl"
+    },
+    "M15": {
+      "tf": "M15",
+      "skipped": false,
+      "samples": 148,
+      "train_samples": 111,
+      "oos_samples": 37,
+      "wins": 55,
+      "losses": 93,
+      "win_rate_pct": 37.16,
+      "label_min_r": 0.35,
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_m15.pkl",
+      "oos": {
+        "best_threshold": 0.3,
+        "oos_trades_taken": 26,
+        "oos_net_profit": 53.8,
+        "oos_pf": 1.386,
+        "oos_win_rate_pct": 46.15,
+        "oos_precision": 0.4615,
+        "passed_gate": true,
+        "oos_accuracy": 0.5135,
+        "oos_samples": 37,
+        "oos_label_win_rate_pct": 43.24,
+        "oos_precision_raw": 0.4545
+      },
+      "active": true
+    },
+    "H4": {
+      "tf": "H4",
+      "skipped": false,
+      "samples": 33,
+      "train_samples": 25,
+      "oos_samples": 8,
+      "wins": 6,
+      "losses": 27,
+      "win_rate_pct": 18.18,
+      "label_min_r": 0.35,
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_h4.pkl",
+      "oos": {
+        "best_threshold": 0.45,
+        "oos_trades_taken": 0,
+        "oos_net_profit": 0.0,
+        "oos_pf": 0.0,
+        "oos_win_rate_pct": 0.0,
+        "oos_precision": 0.0,
+        "passed_gate": false,
+        "oos_accuracy": 0.5,
+        "oos_samples": 8,
+        "oos_label_win_rate_pct": 50.0,
+        "oos_precision_raw": 0.0
+      },
+      "active": false
+    }
+  },
+  "label_rule": "tp=1 sl=0",
+  "phase46a": {
+    "min_samples": 200,
+    "oos_pf_gate": 1.1,
+    "oos_precision_gate": 0.55
+  }
+}

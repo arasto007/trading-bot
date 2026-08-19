@@ -1,0 +1,26 @@
+{
+  "phase": "22V",
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "verdict": "MULTIPLE_CAUSES",
+  "root_causes": [
+    "BAD_FEATURES",
+    "BAD_DATA",
+    "BAD_TRAINING",
+    "BAD_MODEL_CHOICE"
+  ],
+  "narrative": "Verdict=MULTIPLE_CAUSES. structure_distance 98.4724% zero in freeze train slice. Phase 9.9 selected candidate by walk-forward PF/robustness; freeze never validated buy-zone probability coverage. Labels balanced (positive=36.1927%) — not a label problem. Frozen model on train slice: buy_zone=0.0%, max_p=0.434012.",
+  "logistic_suitability": {
+    "linear_on_sparse_zero_heavy_features": true,
+    "structure_distance_zero_pct": 98.4724,
+    "max_feature_mutual_information": 0.0,
+    "training_buy_zone_pct": 0.0,
+    "repository_evidence": [
+      "LogisticRegression selected for Phase 9.9 robustness score (walk-forward PF), not probability spread",
+      "structure_distance zero-filled 98.4724% in freeze train slice",
+      "Strong L2 (C=0.1) + negative intercept compresses P(win) below buy threshold",
+      "Phase 9.9 validation uses ThresholdStrategy simulation; freeze artifact never checked for buy-zone coverage"
+    ],
+    "appropriate_for_dataset": false,
+    "reason": "Sparse/zero-heavy nonlinear structure features with weak MI; linear L2 model outputs degenerated probability mass"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "checks": {
+    "production_pipeline_25b": true,
+    "startup_safe_26d": true,
+    "journal_repair_26c": true,
+    "minimum_200_trades": false,
+    "journal_integrity_100": false,
+    "timeout_rate_under_10pct": true,
+    "positive_expectancy": false
+  },
+  "blockers": [
+    "minimum_200_trades",
+    "journal_integrity_100",
+    "positive_expectancy"
+  ],
+  "trade_count": 0,
+  "paper_readiness_score": 0,
+  "ready": false,
+  "note": "Verdict uses infrastructure + statistical + health criteria \u2014 not profit alone.",
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

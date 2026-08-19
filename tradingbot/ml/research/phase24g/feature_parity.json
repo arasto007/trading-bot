@@ -1,0 +1,23 @@
+{
+  "phase": "24G",
+  "bar_count_results": {
+    "100": {
+      "bars_tested": 100,
+      "frame_mismatches": 0,
+      "all_frames_equal": true
+    },
+    "500": {
+      "bars_tested": 500,
+      "frame_mismatches": 0,
+      "all_frames_equal": true
+    },
+    "1000": {
+      "bars_tested": 1000,
+      "frame_mismatches": 0,
+      "all_frames_equal": true
+    }
+  },
+  "all_pass": true,
+  "dataset_fingerprint": "70b38325ee1c7e1e",
+  "generated_utc": "2026-07-08T12:48:05.459083+00:00"
+}

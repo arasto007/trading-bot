@@ -1,0 +1,91 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "matrix_type": "restart",
+  "scenarios": [
+    {
+      "scenario_id": "RST-001",
+      "event": "Clean Ctrl+C shutdown",
+      "evidence": "application/live_runner.py:134-137; kernel/trading_kernel.py:227-228",
+      "state_persisted": ["live_risk_state.json", "parquet OHLCV cache", "trade journal SQLite", "position_state.db if recovery used"],
+      "state_lost": ["SignalStage._last_closed_bar", "PipelineCache in-memory", "Mt5PositionManager._registry", "KernelState EMERGENCY_STOP"],
+      "open_positions_broker": "unchanged",
+      "trailing_continuity": "LOST until _register_if_new recomputes",
+      "risk_continuity": "PARTIAL — daily_pnl resync from deals; trades_today NOT rebuilt",
+      "duplicate_signal_risk": "MEDIUM on first cycle same bar",
+      "recommended_action": "Verify open positions; consider flat start for paper session"
+    },
+    {
+      "scenario_id": "RST-002",
+      "event": "Crash / kill -9",
+      "evidence": "live_risk_tracker.py _save on sync/record; no kernel crash handler",
+      "state_persisted": "last successful _save only — may be mid-write corrupt (AUD-018)",
+      "state_lost": "same as RST-001",
+      "open_positions_broker": "unchanged",
+      "trailing_continuity": "LOST",
+      "risk_continuity": "UNRELIABLE",
+      "duplicate_signal_risk": "HIGH",
+      "recommended_action": "Validate live_risk_state.json; --no-recovery to avoid dual recovery"
+    },
+    {
+      "scenario_id": "RST-003",
+      "event": "Kill switch triggered then process exit code 2",
+      "evidence": "live_runner.py:114-116; kill_switch.py:106-108",
+      "state_persisted": "positions may be partially closed via real order_send",
+      "state_lost": "EMERGENCY_STOP not persisted — restart clears halt",
+      "open_positions_broker": "may remain if _close_all_positions partial fail",
+      "trailing_continuity": "N/A",
+      "risk_continuity": "BROKEN — bot may trade again on restart (AUD-030)",
+      "duplicate_signal_risk": "LOW if manually prevented restart",
+      "recommended_action": "DO NOT auto-restart; manual flat and investigation"
+    },
+    {
+      "scenario_id": "RST-004",
+      "event": "MT5 terminal restart while bot running",
+      "evidence": "mt5_market_data.py:68-69; mt5_utils.py:303 mt5.shutdown on reconnect",
+      "state_persisted": "bot in-memory caches",
+      "state_lost": "IPC session",
+      "open_positions_broker": "unchanged",
+      "trailing_continuity": "registry intact until bot restart",
+      "risk_continuity": "sync resumes when MT5 up",
+      "duplicate_signal_risk": "LOW",
+      "recommended_action": "Wait for ensure_connected; watch skipped cycles"
+    },
+    {
+      "scenario_id": "RST-005",
+      "event": "Daily UTC reset mid-session",
+      "evidence": "live_risk_tracker.py:79-87",
+      "state_persisted": "day_utc rollover zeros trades_today, daily_pnl, consecutive_losses",
+      "state_lost": "intraday counters",
+      "open_positions_broker": "unchanged",
+      "trailing_continuity": "preserved in same process",
+      "risk_continuity": "RESET — max trades/day counter refreshed",
+      "duplicate_signal_risk": "LOW",
+      "recommended_action": "Align with broker trading day if needed"
+    },
+    {
+      "scenario_id": "RST-006",
+      "event": "Paper mode restart",
+      "evidence": "mt5_execution.py:68-86 no record_live_entry",
+      "state_persisted": "journal simulated fills only",
+      "state_lost": "paper session risk counters never accurate",
+      "open_positions_broker": "no broker entries from paper path",
+      "trailing_continuity": "N/A for paper entries; REAL if manual positions exist",
+      "risk_continuity": "NOT REPRESENTATIVE",
+      "duplicate_signal_risk": "MEDIUM",
+      "recommended_action": "Use dry-run for signal-only; fix auxiliary order_send before paper"
+    },
+    {
+      "scenario_id": "RST-007",
+      "event": "Process restart with PositionRecoveryService enabled",
+      "evidence": "application/live_runner.py:48 default enable_recovery=True; background_services.py:59-72",
+      "state_persisted": "position_state.db",
+      "state_lost": "kernel registry overlap risk",
+      "open_positions_broker": "unchanged",
+      "trailing_continuity": "CONFLICTING dual paths (AUD-013)",
+      "risk_continuity": "recovery may emergency-close independently",
+      "duplicate_signal_risk": "MEDIUM",
+      "recommended_action": "--no-recovery for paper pilot"
+    }
+  ]
+}

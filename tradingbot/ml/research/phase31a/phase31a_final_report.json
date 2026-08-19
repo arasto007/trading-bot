@@ -1,0 +1,29 @@
+{
+  "phase": "31A",
+  "verdict": "MAJOR_EDGE_AVAILABLE",
+  "mission": "Complete trading edge forensic audit \u2014 no optimization, no production changes",
+  "production_modified": false,
+  "trades_analyzed": 489,
+  "winners": 260,
+  "losers": 229,
+  "baseline_pf": 1.211,
+  "baseline_expectancy": 0.2783,
+  "clusters_discovered": 8,
+  "root_causes_ranked": 15,
+  "top_root_cause": "min_lot_oversize_risk",
+  "top_feature": "risk_score",
+  "deliverables": [
+    "trade_clusters.json",
+    "winner_clusters.json",
+    "loser_clusters.json",
+    "feature_importance.json",
+    "interaction_matrix.json",
+    "edge_concentration.json",
+    "edge_dilution.json",
+    "root_cause_ranking.json",
+    "expected_edge_gain.json",
+    "implementation_priority.json",
+    "phase31a_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

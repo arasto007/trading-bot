@@ -1,0 +1,69 @@
+{
+  "phase": "22AF",
+  "guard_location": "freeze_bridge.validate_before_freeze(contract, report, feature_subsets)",
+  "reject_conditions": [
+    {
+      "guard": "no_acceptance",
+      "condition": "acceptance_status.final_verdict != 'PASS'",
+      "error_code": "FREEZE_REJECT_NO_ACCEPTANCE",
+      "evidence": "Phase 22AB: freeze currently bypasses acceptance entirely"
+    },
+    {
+      "guard": "failed_probability_gate",
+      "condition": "probability_metrics.probability_gate_passed is not True",
+      "error_code": "FREEZE_REJECT_PROBABILITY_GATE",
+      "evidence": "Phase 22X gate; select_best already filters but guard must re-check at freeze"
+    },
+    {
+      "guard": "missing_metadata",
+      "condition": "Any required FreezeContract field null or empty",
+      "error_code": "FREEZE_REJECT_INCOMPLETE_CONTRACT",
+      "fields_checked": [
+        "candidate_id",
+        "model_type",
+        "feature_subset",
+        "features",
+        "hyperparameters",
+        "thresholds",
+        "regime",
+        "event_filter",
+        "validation_metrics",
+        "probability_metrics",
+        "acceptance_status"
+      ]
+    },
+    {
+      "guard": "unknown_candidate",
+      "condition": "candidate_id not in allowed grid OR model_type unsupported",
+      "error_code": "FREEZE_REJECT_UNKNOWN_CANDIDATE",
+      "allowed_source": "build_regularized_candidates() registry"
+    },
+    {
+      "guard": "missing_validation_report",
+      "condition": "phase9_9_robustness_report.json missing or checksum mismatch vs contract",
+      "error_code": "FREEZE_REJECT_MISSING_REPORT"
+    }
+  ],
+  "additional_recommended_guards": [
+    {
+      "guard": "dataset_fingerprint_unchanged",
+      "condition": "training df fingerprint matches report integrity fingerprint"
+    },
+    {
+      "guard": "feature_subset_resolution",
+      "condition": "feature_subset key resolves to non-empty feature list"
+    },
+    {
+      "guard": "no_production_base_dir_auto_freeze",
+      "condition": "block build_if_missing=True freeze when base_dir is production path"
+    },
+    {
+      "guard": "atomic_write",
+      "condition": "write to temp dir then rename to prevent partial model.pkl without metadata"
+    }
+  ],
+  "fail_closed": true,
+  "on_reject": "Log structured error; do not write artifacts; CLI exit non-zero if freeze requested",
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

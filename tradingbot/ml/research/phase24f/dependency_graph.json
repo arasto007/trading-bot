@@ -1,0 +1,62 @@
+{
+  "phase": "24F",
+  "source": "build_unified_frame + PipelineCache._attach_trend_v41_features",
+  "operations": [
+    {
+      "id": "build_ml_features",
+      "file": "tradingbot/ml/research/trend_ml/feature_builder.py",
+      "calls": "compute_trend_features",
+      "class": "C",
+      "class_label": "Depends on entire dataframe (vectorized rolling/ewm over all rows)",
+      "max_lookback_bars": 252,
+      "warmup_trim": 220
+    },
+    {
+      "id": "compute_regime_features_from_candles",
+      "file": "tradingbot/ml/research/regime_detector/regime_features.py",
+      "class": "C",
+      "max_lookback_bars": 252
+    },
+    {
+      "id": "regime_column_merge_loop",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py:27-36",
+      "class": "C",
+      "note": "12 sequential merges over full base length"
+    },
+    {
+      "id": "dataset_merge",
+      "file": "unified_features.py:38-45",
+      "class": "A",
+      "class_label": "Per-row lookup by timestamp \u2014 new bar only needs one row join"
+    },
+    {
+      "id": "attach_regime_labels",
+      "file": "trend_backtest.py:16",
+      "class": "A",
+      "note": "rule_classify per row \u2014 new bar depends only on its feature row"
+    },
+    {
+      "id": "sort_reset_index",
+      "class": "C"
+    },
+    {
+      "id": "attach_top5_features",
+      "file": "phase17b/top5_features.py:73",
+      "class": "B",
+      "class_label": "Rolling history \u2014 last row only affected; prior rows stable if window slides causally",
+      "sub_ops": {
+        "adx_acceleration": "B (2-bar)",
+        "swing_efficiency": "B (10-bar)",
+        "fractal_dimension_proxy": "B (30-bar window on last row)",
+        "trend_age": "B (regime sequence \u2014 last row + prior regimes in frame)",
+        "ema_curvature": "B (3-bar ema20)"
+      }
+    }
+  ],
+  "classification_legend": {
+    "A": "Depends only on newest closed bar (or timestamp lookup)",
+    "B": "Depends on rolling history \u2014 incremental update possible for last row only",
+    "C": "Full-window vectorized pass today \u2014 overlap rows stable under causal slide"
+  },
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

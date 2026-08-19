@@ -1,0 +1,278 @@
+{
+  "phase": "24A",
+  "title": "Live Shadow Validation",
+  "records_sampled": 108,
+  "sample_records": [
+    {
+      "timestamp": "2026-06-29T09:45:00+00:00",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "regime": "TREND",
+      "session": "london",
+      "hour": 9,
+      "feature_vector": {},
+      "predict_proba_called": true,
+      "buy_probability": 0.0,
+      "sell_probability": 1.0,
+      "raw_probability": 0.0,
+      "confidence": 0.0,
+      "decision_policy_result": "HOLD",
+      "calibration_result": "HOLD",
+      "calibration_confidence": 0.0,
+      "risk_result": {
+        "allowed": true,
+        "risk_percent": 0.0
+      },
+      "quality_result": {
+        "allowed": true,
+        "score": 0.0
+      },
+      "profitability_filter": null,
+      "filter_diagnostics": {
+        "profile_used": "range_phase23e",
+        "regime": "RANGE",
+        "engine": "phase9_9",
+        "rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "adx_limits": [
+          15.0,
+          40.0
+        ],
+        "enable_range_filter_profile": true,
+        "filter_reason": null,
+        "blocked_by": []
+      },
+      "final_signal": "HOLD",
+      "hold_reason": "health_gate",
+      "health_error": "pipeline_timeout:764.7ms",
+      "latency_ms": {
+        "tick_arrival_to_output_ms": 764.885
+      }
+    },
+    {
+      "timestamp": "2026-06-29T10:35:00+00:00",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "regime": "TREND",
+      "session": "london",
+      "hour": 10,
+      "feature_vector": {},
+      "predict_proba_called": true,
+      "buy_probability": 0.3701152840095173,
+      "sell_probability": 0.6298847159904827,
+      "raw_probability": 0.3701152840095173,
+      "confidence": 0.0,
+      "decision_policy_result": "HOLD",
+      "calibration_result": "HOLD",
+      "calibration_confidence": 0.0,
+      "risk_result": {
+        "allowed": true,
+        "risk_percent": 0.0
+      },
+      "quality_result": {
+        "allowed": true,
+        "score": 0.0
+      },
+      "profitability_filter": null,
+      "filter_diagnostics": {
+        "profile_used": "range_phase23e",
+        "regime": "RANGE",
+        "engine": "phase9_9",
+        "rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "adx_limits": [
+          15.0,
+          40.0
+        ],
+        "enable_range_filter_profile": true,
+        "filter_reason": null,
+        "blocked_by": []
+      },
+      "final_signal": "HOLD",
+      "hold_reason": "health_gate",
+      "health_error": "pipeline_timeout:814.1ms",
+      "latency_ms": {
+        "tick_arrival_to_output_ms": 814.251
+      }
+    },
+    {
+      "timestamp": "2026-06-29T11:25:00+00:00",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "regime": "RANGE",
+      "session": "london",
+      "hour": 11,
+      "feature_vector": {},
+      "predict_proba_called": false,
+      "buy_probability": 0.293484,
+      "sell_probability": 0.7065159999999999,
+      "raw_probability": 0.293484,
+      "confidence": 0.0,
+      "decision_policy_result": "SELL",
+      "calibration_result": "HOLD",
+      "calibration_confidence": 0.0,
+      "risk_result": {
+        "allowed": true,
+        "risk_percent": 0.0
+      },
+      "quality_result": {
+        "allowed": true,
+        "score": 0.0
+      },
+      "profitability_filter": null,
+      "filter_diagnostics": {
+        "profile_used": "range_phase23e",
+        "regime": "RANGE",
+        "engine": "phase9_9",
+        "rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "adx_limits": [
+          15.0,
+          40.0
+        ],
+        "enable_range_filter_profile": true,
+        "filter_reason": null,
+        "blocked_by": []
+      },
+      "final_signal": "HOLD",
+      "hold_reason": "health_gate",
+      "health_error": "pipeline_timeout:772.0ms",
+      "latency_ms": {
+        "tick_arrival_to_output_ms": 772.159
+      }
+    },
+    {
+      "timestamp": "2026-06-29T12:15:00+00:00",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "regime": "TREND",
+      "session": "new_york",
+      "hour": 12,
+      "feature_vector": {},
+      "predict_proba_called": true,
+      "buy_probability": 0.23932498011276254,
+      "sell_probability": 0.7606750198872374,
+      "raw_probability": 0.23932498011276254,
+      "confidence": 0.0,
+      "decision_policy_result": "HOLD",
+      "calibration_result": "HOLD",
+      "calibration_confidence": 0.0,
+      "risk_result": {
+        "allowed": true,
+        "risk_percent": 0.0
+      },
+      "quality_result": {
+        "allowed": true,
+        "score": 0.0
+      },
+      "profitability_filter": null,
+      "filter_diagnostics": {
+        "profile_used": "range_phase23e",
+        "regime": "RANGE",
+        "engine": "phase9_9",
+        "rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "adx_limits": [
+          15.0,
+          40.0
+        ],
+        "enable_range_filter_profile": true,
+        "filter_reason": null,
+        "blocked_by": []
+      },
+      "final_signal": "HOLD",
+      "hold_reason": "health_gate",
+      "health_error": "pipeline_timeout:805.8ms",
+      "latency_ms": {
+        "tick_arrival_to_output_ms": 806.006
+      }
+    },
+    {
+      "timestamp": "2026-06-29T13:05:00+00:00",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "regime": "TREND",
+      "session": "new_york",
+      "hour": 13,
+      "feature_vector": {},
+      "predict_proba_called": true,
+      "buy_probability": 0.26558356384904813,
+      "sell_probability": 0.7344164361509519,
+      "raw_probability": 0.26558356384904813,
+      "confidence": 0.0,
+      "decision_policy_result": "HOLD",
+      "calibration_result": "HOLD",
+      "calibration_confidence": 0.0,
+      "risk_result": {
+        "allowed": true,
+        "risk_percent": 0.0
+      },
+      "quality_result": {
+        "allowed": true,
+        "score": 0.0
+      },
+      "profitability_filter": null,
+      "filter_diagnostics": {
+        "profile_used": "range_phase23e",
+        "regime": "RANGE",
+        "engine": "phase9_9",
+        "rsi_limits": [
+          40.0,
+          65.0
+        ],
+        "adx_limits": [
+          15.0,
+          40.0
+        ],
+        "enable_range_filter_profile": true,
+        "filter_reason": null,
+        "blocked_by": []
+      },
+      "final_signal": "HOLD",
+      "hold_reason": "health_gate",
+      "health_error": "pipeline_timeout:1001.3ms",
+      "latency_ms": {
+        "tick_arrival_to_output_ms": 1001.424
+      }
+    }
+  ],
+  "hold_summary": {
+    "phase": "24A",
+    "total_bars": 108,
+    "hold_bars": 53,
+    "hold_rate": 0.4907,
+    "category_counts": {
+      "decision_gate": 23,
+      "profitability_filter": 18,
+      "health_gate": 12
+    },
+    "category_percentages": {
+      "feature_validation": 0.0,
+      "probability_gate": 0.0,
+      "decision_gate": 21.2963,
+      "calibration_gate": 0.0,
+      "risk_gate": 0.0,
+      "profitability_filter": 16.6667,
+      "health_gate": 11.1111,
+      "other": 0.0
+    }
+  },
+  "latency_summary": {
+    "count": 105,
+    "mean_ms": 555.922,
+    "median_ms": 511.482,
+    "p95_ms": 807.583,
+    "max_ms": 1001.424,
+    "std_ms": 104.099
+  },
+  "health_overall": 25.94,
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

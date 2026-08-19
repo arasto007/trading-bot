@@ -1,0 +1,30 @@
+{
+  "phase": "22AJ",
+  "authority_chain": [
+    "rank_candidates",
+    "select_production_winner",
+    "evaluate_acceptance",
+    "build_freeze_contract",
+    "freeze_phase9_9_artifacts(contract=...)"
+  ],
+  "orchestrator_checks": {
+    "uses_select_production_winner": true,
+    "uses_build_freeze_contract": true,
+    "calls_freeze_with_contract": true,
+    "no_select_best_for_freeze": true
+  },
+  "registry_checks": {
+    "has_validate_freeze_contract": true,
+    "has_freeze_from_contract": true,
+    "no_default_config_literal": true,
+    "no_logistic_hardcode_in_from_contract": true,
+    "writes_freeze_manifest": true,
+    "backup_before_replace": true,
+    "load_default_build_if_missing_false": true
+  },
+  "bridge_checks": {
+    "requires_acceptance_pass": true,
+    "requires_probability_gate": true
+  },
+  "generated_utc": "2026-07-07T20:05:52.547968+00:00"
+}

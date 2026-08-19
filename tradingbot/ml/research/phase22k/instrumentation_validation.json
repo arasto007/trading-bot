@@ -1,0 +1,45 @@
+{
+  "phase": "22K",
+  "hold_chain_backtest": {
+    "status": "unreliable_for_signal_emission_counts",
+    "observed_in_22h_22j": "buy_emitted=0, sell_emitted=0 while decision_hold populated",
+    "mechanism": "HoldChain buy_emitted/sell_emitted increment only when KernelAdapter final action is BUY/SELL after all gates",
+    "code_ref": "tradingbot/ml/integration/kernel_adapter.py:141-152",
+    "enabled_by_default": true,
+    "env": "PHASE22C_ENABLED set true in phase22f/22j configure_research_env",
+    "conclusion": "Zero emitted counts reflect all-HOLD outcomes OR gate blocks, not a separate feature-path bug. Trace hooks (phase22f/trace.py) capture direction counts independently and are preferred for funnel validation."
+  },
+  "22j_range_forensics": {
+    "status": "valid_for_per_bar_engine_features",
+    "uses": "PipelineCache.get_unified_frame directly — same as production",
+    "instrumentation_bug": false,
+    "confound": "Dataset A temporal overlap with stale dataset_v2 not annotated in 22J reports"
+  },
+  "22f_vs_22j_feature_path": {
+    "identical_pipeline_cache": true,
+    "parity_pct": 100.0,
+    "instrumentation_divergence": false
+  },
+  "research_runner_issues_identified": [
+    {
+      "issue": "Dataset A window extends beyond dataset_v2 max without coverage guard",
+      "impact": "Inflates phase99 zero rates in forensics and backtests",
+      "fix_recommendation": "Add dataset_v2 coverage check to research runners; split metrics pre/post max timestamp"
+    },
+    {
+      "issue": "22J root_cause attributed to fillna merge without quantifying merge_miss vs native sparsity",
+      "impact": "22J-005 proposed FeatureBuilder overlay as primary fix",
+      "fix_recommendation": "Segment forensics by merge_hit and dataset_v2 age before engine change proposals"
+    },
+    {
+      "issue": "Backtest PF comparisons in 22J used hold_chain emission counters as success metric",
+      "impact": "All candidates showed PF 0.0; cannot validate engine patches",
+      "fix_recommendation": "Use per-bar engine profiler metrics (22J range_forensics pattern) for engine candidate validation"
+    }
+  ],
+  "production_feature_instrumentation": {
+    "live_path_logged": "log_kernel_decision, log_decision_latency, write_engine_health",
+    "phase99_values_logged_at_inference": false,
+    "gap": "No production log of phase99_* vs merge_hit; stale dataset silent until health checks"
+  }
+}

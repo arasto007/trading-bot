@@ -1,0 +1,48 @@
+{
+  "phase": "22AI",
+  "candidate_count": 28,
+  "baseline_mean_auc_gap": 0.3308,
+  "before": {
+    "accepted_count": 0,
+    "accepted_candidates": []
+  },
+  "after": {
+    "accepted_count": 1,
+    "accepted_candidates": [
+      "xgb_baseline_phase96__stable_except_unstable__RANGE"
+    ]
+  },
+  "candidate_changes": [
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "before_verdict": "FAIL",
+      "after_verdict": "PASS",
+      "before_failed_rules": [
+        "overfitting_risk_decreased"
+      ],
+      "after_failed_rules": [],
+      "mean_auc_gap": 0.3195,
+      "baseline_mean_auc_gap": 0.3308
+    }
+  ],
+  "new_pass_candidates": [
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "before_verdict": "FAIL",
+      "after_verdict": "PASS",
+      "before_failed_rules": [
+        "overfitting_risk_decreased"
+      ],
+      "after_failed_rules": [],
+      "mean_auc_gap": 0.3195,
+      "baseline_mean_auc_gap": 0.3308
+    }
+  ],
+  "new_fail_candidates": [],
+  "expected_new_pass": [
+    "xgb_baseline_phase96__stable_except_unstable__RANGE"
+  ],
+  "expected_new_pass_met": true,
+  "generated_utc": "2026-07-07T19:50:31.356723+00:00",
+  "production_modified": false
+}

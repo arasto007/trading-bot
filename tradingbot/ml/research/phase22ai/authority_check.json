@@ -1,0 +1,29 @@
+{
+  "optimizer_winner_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "winner_acceptance_verdict": "FAIL",
+  "winner_acceptance_checks": {
+    "robustness_improved": false,
+    "overfitting_risk_decreased": true,
+    "mean_expectancy_positive": true,
+    "profitable_windows_ge_4": false,
+    "probability_quality_passed": true
+  },
+  "winner_freeze_contract_built": false,
+  "winner_contract_errors": [
+    "acceptance_not_pass"
+  ],
+  "accepted_candidate_count": 1,
+  "accepted_candidates": [
+    "xgb_baseline_phase96__stable_except_unstable__RANGE"
+  ],
+  "prototype_accepted_contract_built": true,
+  "prototype_contract_errors": [],
+  "prototype_contract_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "violations": [],
+  "uses_default_config": false,
+  "hardcodes_logistic_strong_reg": false,
+  "bypasses_acceptance": false,
+  "authority_chain_valid": true,
+  "generated_utc": "2026-07-07T19:50:31.356723+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,36 @@
+{
+  "phase": "24I",
+  "feature_builder_compute_at": {
+    "mean_ms": 64.6574,
+    "median_ms": 64.6598,
+    "p95_ms": 69.4999,
+    "p99_ms": 73.7865
+  },
+  "unified_extract_validate_only": {
+    "mean_ms": 1.461,
+    "median_ms": 1.3858,
+    "p95_ms": 1.7737,
+    "p99_ms": 1.8732
+  },
+  "extract_only_p95_savings_ms": 67.7262,
+  "range_engine_eval_legacy": {
+    "mean_ms": 65.8763,
+    "median_ms": 65.4345,
+    "p95_ms": 70.7546,
+    "p99_ms": 72.1681
+  },
+  "range_engine_eval_unified_path": {
+    "mean_ms": 2.5289,
+    "median_ms": 2.3791,
+    "p95_ms": 3.2463,
+    "p99_ms": 3.5252
+  },
+  "kernel_adapter_produce_unified": {
+    "mean_ms": 256.1019,
+    "median_ms": 256.4024,
+    "p95_ms": 259.1046,
+    "p99_ms": 259.1046
+  },
+  "note": "Production default ENABLE_UNIFIED_BUILDER_VERIFY=true preserves parity; extract-only savings apply when verify=false on valid unified bars",
+  "generated_utc": "2026-07-08T13:26:50.370586+00:00"
+}

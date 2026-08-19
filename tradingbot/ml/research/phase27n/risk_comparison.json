@@ -1,0 +1,88 @@
+{
+  "phase": "27N",
+  "window_days": 30,
+  "by_strategy": {
+    "current_tp_sl": {
+      "longest_winning_streak": 24,
+      "longest_losing_streak": 39,
+      "largest_winner": 55.95,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 5.2857,
+      "average_consecutive_losses": 8.4048,
+      "recovery_bars_after_max_dd": 234
+    },
+    "time_exit": {
+      "longest_winning_streak": 24,
+      "longest_losing_streak": 25,
+      "largest_winner": 146.77,
+      "largest_loser": -141.91,
+      "average_consecutive_wins": 5.5082,
+      "average_consecutive_losses": 3.9833,
+      "recovery_bars_after_max_dd": 182
+    },
+    "partial_close_50": {
+      "longest_winning_streak": 24,
+      "longest_losing_streak": 30,
+      "largest_winner": 39.165,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 5.3721,
+      "average_consecutive_losses": 4.0476,
+      "recovery_bars_after_max_dd": 231
+    },
+    "structure_exit": {
+      "longest_winning_streak": 11,
+      "longest_losing_streak": 14,
+      "largest_winner": 40.3429,
+      "largest_loser": -20.26,
+      "average_consecutive_wins": 2.6952,
+      "average_consecutive_losses": 2.781,
+      "recovery_bars_after_max_dd": 234
+    },
+    "hybrid_a": {
+      "longest_winning_streak": 16,
+      "longest_losing_streak": 23,
+      "largest_winner": 68.6864,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 5.339,
+      "average_consecutive_losses": 4.4068,
+      "recovery_bars_after_max_dd": 160
+    },
+    "hybrid_b": {
+      "longest_winning_streak": 25,
+      "longest_losing_streak": 30,
+      "largest_winner": 77.8864,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 5.3421,
+      "average_consecutive_losses": 4.2667,
+      "recovery_bars_after_max_dd": 145
+    },
+    "hybrid_c": {
+      "longest_winning_streak": 11,
+      "longest_losing_streak": 11,
+      "largest_winner": 123.87,
+      "largest_loser": -20.26,
+      "average_consecutive_wins": 2.5566,
+      "average_consecutive_losses": 2.6075,
+      "recovery_bars_after_max_dd": 170
+    },
+    "hybrid_d": {
+      "longest_winning_streak": 16,
+      "longest_losing_streak": 23,
+      "largest_winner": 68.6864,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 5.0317,
+      "average_consecutive_losses": 4.0952,
+      "recovery_bars_after_max_dd": 160
+    },
+    "hybrid_e": {
+      "longest_winning_streak": 22,
+      "longest_losing_streak": 30,
+      "largest_winner": 41.6271,
+      "largest_loser": -22.7171,
+      "average_consecutive_wins": 4.3016,
+      "average_consecutive_losses": 3.806,
+      "recovery_bars_after_max_dd": 160
+    }
+  },
+  "generated_utc": "2026-07-09T19:42:28.645355+00:00"
+}

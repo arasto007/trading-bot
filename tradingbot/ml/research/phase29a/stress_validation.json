@@ -1,0 +1,138 @@
+{
+  "phase": "29A",
+  "filtered_baseline": {
+    "initial_balance": 200.0,
+    "final_balance": 336.1007,
+    "net_profit": 136.1007,
+    "gross_profit": 781.1407,
+    "gross_loss": -645.04,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "recovery_factor": 1.8284,
+    "sharpe_ratio": 19.3263,
+    "sortino_ratio": 17.9567,
+    "calmar_ratio": 2.8046,
+    "max_drawdown_pct": 24.264,
+    "max_drawdown_abs": 74.4372,
+    "completed_trades": 489,
+    "win_rate_pct": 53.17,
+    "average_actual_risk_pct": 0.0
+  },
+  "unfiltered_baseline": {
+    "initial_balance": 200.0,
+    "final_balance": 275.7757,
+    "net_profit": 75.7757,
+    "gross_profit": 896.5957,
+    "gross_loss": -820.82,
+    "profit_factor": 1.0923,
+    "expectancy": 0.1318,
+    "recovery_factor": 0.8482,
+    "sharpe_ratio": 10.8077,
+    "sortino_ratio": 10.1158,
+    "calmar_ratio": 1.2369,
+    "max_drawdown_pct": 30.6312,
+    "max_drawdown_abs": 89.3329,
+    "completed_trades": 575,
+    "win_rate_pct": 52.0,
+    "average_actual_risk_pct": 0.0
+  },
+  "threshold": 77.56,
+  "scenarios": {
+    "spread_plus_50pct": {
+      "initial_balance": 200.0,
+      "final_balance": 262.7507,
+      "net_profit": 62.7507,
+      "gross_profit": 742.4607,
+      "gross_loss": -679.71,
+      "profit_factor": 1.0923,
+      "expectancy": 0.1283,
+      "recovery_factor": 0.668,
+      "sharpe_ratio": 10.3582,
+      "sortino_ratio": 9.7116,
+      "calmar_ratio": 0.9094,
+      "max_drawdown_pct": 34.5002,
+      "max_drawdown_abs": 93.9372,
+      "completed_trades": 489,
+      "win_rate_pct": 51.74,
+      "average_actual_risk_pct": 0.0
+    },
+    "slippage_0_10_atr": {
+      "initial_balance": 200.0,
+      "final_balance": 287.2007,
+      "net_profit": 87.2007,
+      "gross_profit": 755.2307,
+      "gross_loss": -668.03,
+      "profit_factor": 1.1305,
+      "expectancy": 0.1783,
+      "recovery_factor": 0.9973,
+      "sharpe_ratio": 13.296,
+      "sortino_ratio": 12.4025,
+      "calmar_ratio": 1.4151,
+      "max_drawdown_pct": 30.8116,
+      "max_drawdown_abs": 87.4372,
+      "completed_trades": 489,
+      "win_rate_pct": 52.56,
+      "average_actual_risk_pct": 0.0
+    },
+    "missed_trades_20pct": {
+      "initial_balance": 200.0,
+      "final_balance": 335.1228,
+      "net_profit": 135.1228,
+      "gross_profit": 672.2428,
+      "gross_loss": -537.12,
+      "profit_factor": 1.2516,
+      "expectancy": 0.3353,
+      "recovery_factor": 2.0408,
+      "sharpe_ratio": 21.9209,
+      "sortino_ratio": 20.0018,
+      "calmar_ratio": 2.9844,
+      "max_drawdown_pct": 22.6381,
+      "max_drawdown_abs": 66.21,
+      "completed_trades": 403,
+      "win_rate_pct": 54.34,
+      "average_actual_risk_pct": 0.0
+    },
+    "combined_stress": {
+      "initial_balance": 200.0,
+      "final_balance": 153.715,
+      "net_profit": -46.285,
+      "gross_profit": 576.355,
+      "gross_loss": -622.64,
+      "profit_factor": 0.9257,
+      "expectancy": -0.1151,
+      "recovery_factor": -0.3908,
+      "sharpe_ratio": -2.082,
+      "sortino_ratio": -2.0001,
+      "calmar_ratio": -0.4236,
+      "max_drawdown_pct": 54.6294,
+      "max_drawdown_abs": 118.4408,
+      "completed_trades": 402,
+      "win_rate_pct": 48.01,
+      "average_actual_risk_pct": 0.0
+    }
+  },
+  "improvements": {
+    "spread_plus_50pct": {
+      "profit_factor": 1.0923,
+      "beats_unfiltered": false,
+      "beats_baseline_filtered": false
+    },
+    "slippage_0_10_atr": {
+      "profit_factor": 1.1305,
+      "beats_unfiltered": true,
+      "beats_baseline_filtered": false
+    },
+    "missed_trades_20pct": {
+      "profit_factor": 1.2516,
+      "beats_unfiltered": true,
+      "beats_baseline_filtered": true
+    },
+    "combined_stress": {
+      "profit_factor": 0.9257,
+      "beats_unfiltered": false,
+      "beats_baseline_filtered": false
+    }
+  },
+  "filter_survives_stress": false,
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

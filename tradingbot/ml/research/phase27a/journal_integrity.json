@@ -1,0 +1,10 @@
+{
+  "total_trades": 0,
+  "complete_trades": 0,
+  "journal_integrity_pct": 0.0,
+  "missing_field_counts": {},
+  "duplicate_timestamps": 0,
+  "orphan_trades": 0,
+  "replay_reconstruction_success_rate_pct": 0.0,
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

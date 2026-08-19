@@ -1,0 +1,10 @@
+{
+  "phase": "31D",
+  "repaired_mode": true,
+  "entry_timestamp_consistency": true,
+  "bar_index_mismatch_count": 0,
+  "candle_alignment_aligned_count": 489,
+  "spread_production_mean": 0.3,
+  "position_state_note": "ReplayOpenPosition does not persist partial_close state between bars",
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

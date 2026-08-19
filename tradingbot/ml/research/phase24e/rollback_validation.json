@@ -1,0 +1,7 @@
+{
+  "phase": "24E",
+  "rollback_env": "ENABLE_DATASET_MEMORY_CACHE",
+  "rollback_value": "false",
+  "loads_from_memory_when_disabled": 0,
+  "parity_on_rollback": true
+}

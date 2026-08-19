@@ -1,0 +1,74 @@
+{
+  "phase": "22AC",
+  "classifications": [
+    {
+      "path": "tradingbot/ml/integration/health_gate.py",
+      "classification": "HIGH",
+      "why": "Live kernel pipeline load/validate path"
+    },
+    {
+      "path": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "classification": "CRITICAL",
+      "why": "Can auto-freeze/overwrite artifacts without acceptance"
+    },
+    {
+      "path": "tradingbot/ml/integration/pipeline_cache.py",
+      "classification": "HIGH",
+      "why": "Live kernel pipeline load/validate path"
+    },
+    {
+      "path": "tradingbot/ml/paper/config.py",
+      "classification": "HIGH",
+      "why": "EXPECTED_FEATURES tied to DEFAULT_CONFIG not dynamic artifact"
+    },
+    {
+      "path": "tradingbot/ml/paper_trading/model_registry.py",
+      "classification": "CRITICAL",
+      "why": "Single freeze/load implementation; DEFAULT_CONFIG anchor"
+    },
+    {
+      "path": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "classification": "CRITICAL",
+      "why": "Can auto-freeze/overwrite artifacts without acceptance"
+    },
+    {
+      "path": "tradingbot/ml/phase15a/engine_registry.py",
+      "classification": "HIGH",
+      "why": "Live kernel pipeline load/validate path"
+    },
+    {
+      "path": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "classification": "HIGH",
+      "why": "Production RANGE inference; hardcoded base_dir=None load path"
+    },
+    {
+      "path": "tradingbot/ml/shadow/ml_adapter.py",
+      "classification": "MEDIUM",
+      "why": "Runtime consumer of frozen bundle"
+    },
+    {
+      "path": "tradingbot/ml/research/** (forensics)",
+      "classification": "SAFE",
+      "why": "77 read-only research references"
+    },
+    {
+      "path": "tests/**",
+      "classification": "MEDIUM",
+      "why": "3 references; temp-dir freeze in pytest"
+    },
+    {
+      "path": "scripts/train_model.py --phase9-9",
+      "classification": "MEDIUM",
+      "why": "Selection reports only; no freeze coupling"
+    },
+    {
+      "path": "data/ml/research/phase9_9_best/",
+      "classification": "CRITICAL",
+      "why": "Production artifact store; partial state possible"
+    }
+  ],
+  "load_phase9_9_bundle_reference_count": 110,
+  "freeze_change_blast_radius": "CRITICAL — affects RANGE engine, health gate, shadow, paper validation",
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

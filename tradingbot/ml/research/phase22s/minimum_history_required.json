@@ -1,0 +1,29 @@
+{
+  "phase": "22S",
+  "minimum_candles_for_training_equivalence": {
+    "structure_distance": "full m5_window from production_date_range start to event bar",
+    "ema50_slope": "≥30 bars in window; full m5_window matches training when bar aligned",
+    "candle_direction": "1 bar sufficient"
+  },
+  "live_inference_implication": "structure_distance: tail(300) within m5_window matched 100% on nonzero samples (75/75); ema50_slope: ≥30 bars warmup; 5/5705 mismatches all in first 2 days of window (candle drift or EMA cold-start)",
+  "details": {
+    "structure_distance": {
+      "recommended_window": 300,
+      "full_history_match_pct": 100.0,
+      "window_1000_match_pct": 100.0,
+      "window_500_match_pct": 100.0,
+      "window_300_match_pct": 100.0,
+      "note": "Bars counted from start of truncated sub-window to event bar (inclusive)"
+    },
+    "ema50_slope": {
+      "minimum_warmup_bars": 30,
+      "source": "tradingbot/ml/features/trend.py len(work)<30 gate",
+      "full_store_parity_pct": 99.9124
+    },
+    "candle_direction": {
+      "minimum_bars": 1,
+      "full_store_parity_pct": 100.0
+    }
+  },
+  "generated_utc": "2026-07-05T17:27:21.614609+00:00"
+}

@@ -1,0 +1,269 @@
+{
+  "phase": "22AK",
+  "optimizer_status": "PASS",
+  "optimizer_verdict": "PASS",
+  "blocked": false,
+  "block_reason": "",
+  "candidate_count_reported": 28,
+  "candidate_count_ranked": 28,
+  "ranking_top5": [
+    {
+      "rank": 1,
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "composite_score": 0.616598
+    },
+    {
+      "rank": 2,
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "composite_score": 0.60158
+    },
+    {
+      "rank": 3,
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "composite_score": 0.599385
+    },
+    {
+      "rank": 4,
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "composite_score": 0.594067
+    },
+    {
+      "rank": 5,
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "composite_score": 0.592035
+    }
+  ],
+  "candidates": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "candidate_id": "random_forest_shallow",
+      "composite_score": 0.616598,
+      "probability_gate_passed": true,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "candidate_id": "xgb_baseline_phase96",
+      "composite_score": 0.60158,
+      "probability_gate_passed": true,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "candidate_id": "xgb_baseline_phase96",
+      "composite_score": 0.599385,
+      "probability_gate_passed": true,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "candidate_id": "xgb_baseline_phase96",
+      "composite_score": 0.594067,
+      "probability_gate_passed": true,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "candidate_id": "xgb_baseline_phase96",
+      "composite_score": 0.592035,
+      "probability_gate_passed": true,
+      "acceptance_verdict": "PASS",
+      "production_eligible": true
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "composite_score": 0.768628,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "candidate_id": "logistic_c1",
+      "composite_score": 0.76795,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "candidate_id": "logistic_c1",
+      "composite_score": 0.765607,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "composite_score": 0.765607,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "candidate_id": "lgbm_conservative",
+      "composite_score": 0.725693,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "candidate_id": "lgbm_conservative",
+      "composite_score": 0.715215,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "candidate_id": "lgbm_conservative",
+      "composite_score": 0.715215,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "composite_score": 0.70851,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "candidate_id": "logistic_strong_reg",
+      "composite_score": 0.70851,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "candidate_id": "logistic_c1",
+      "composite_score": 0.699765,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "candidate_id": "logistic_c1",
+      "composite_score": 0.699765,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "candidate_id": "random_forest_shallow",
+      "composite_score": 0.684515,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "candidate_id": "random_forest_shallow",
+      "composite_score": 0.676513,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "candidate_id": "xgb_regularized_d3",
+      "composite_score": 0.648175,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "candidate_id": "xgb_regularized_d3",
+      "composite_score": 0.647743,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "candidate_id": "xgb_shallow_d2",
+      "composite_score": 0.645435,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "candidate_id": "lgbm_conservative",
+      "composite_score": 0.642743,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "candidate_id": "random_forest_shallow",
+      "composite_score": 0.627495,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "candidate_id": "xgb_regularized_d3",
+      "composite_score": 0.619845,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "candidate_id": "xgb_shallow_d2",
+      "composite_score": 0.618145,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "candidate_id": "xgb_regularized_d3",
+      "composite_score": 0.616515,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "candidate_id": "xgb_shallow_d2",
+      "composite_score": 0.59651,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "candidate_id": "xgb_shallow_d2",
+      "composite_score": 0.589955,
+      "probability_gate_passed": false,
+      "acceptance_verdict": "FAIL",
+      "production_eligible": false
+    }
+  ],
+  "production_winner_rule": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+  "report_paths": {
+    "robustness_report": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_robustness_report.json",
+    "model_comparison": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_model_comparison.json",
+    "feature_selection": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_feature_selection.json"
+  },
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00"
+}

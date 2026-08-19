@@ -1,0 +1,24 @@
+{
+  "phase": "22E",
+  "generated_at": "2026-07-05T06:03:22.487091+00:00",
+  "verdict": "NOT_READY_FOR_LIVE",
+  "checks": {
+    "buy_and_sell_active": true,
+    "m5_active": true,
+    "m15_active": false,
+    "h4_active": false,
+    "pf_target_met": false,
+    "positive_expectancy": false,
+    "max_dd_within_limit": true,
+    "portfolio_profitable": false,
+    "no_regression_22d": true,
+    "walkforward_stable": false,
+    "montecarlo_passed": false,
+    "stress_acceptable": true
+  },
+  "passed_critical": false,
+  "passed_all_targets": false,
+  "pf_target": 1.3,
+  "max_dd_limit_pct": 25.0,
+  "recommendation": "Not ready for live. Failed checks: m15_active, h4_active, pf_target_met, positive_expectancy, portfolio_profitable, walkforward_stable, montecarlo_passed."
+}

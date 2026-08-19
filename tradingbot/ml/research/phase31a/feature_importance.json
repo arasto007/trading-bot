@@ -1,0 +1,192 @@
+{
+  "phase": "31A",
+  "method": "permutation_importance",
+  "target": "is_winner",
+  "features": [
+    {
+      "feature": "risk_score",
+      "importance_mean": 0.1581,
+      "importance_std": 0.01538,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 1
+    },
+    {
+      "feature": "entry_hour",
+      "importance_mean": 0.1406,
+      "importance_std": 0.01914,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 2
+    },
+    {
+      "feature": "confidence",
+      "importance_mean": 0.10853,
+      "importance_std": 0.00959,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 3
+    },
+    {
+      "feature": "direction",
+      "importance_mean": 0.07413,
+      "importance_std": 0.01159,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 4
+    },
+    {
+      "feature": "session",
+      "importance_mean": 0.06453,
+      "importance_std": 0.00978,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 5
+    },
+    {
+      "feature": "exit_reason",
+      "importance_mean": 0.0251,
+      "importance_std": 0.00764,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 6
+    },
+    {
+      "feature": "spread",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 7
+    },
+    {
+      "feature": "duration_bars",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 8
+    },
+    {
+      "feature": "counter_trend_score",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 9
+    },
+    {
+      "feature": "false_breakout_score",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 10
+    },
+    {
+      "feature": "htf_alignment_proxy",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 11
+    },
+    {
+      "feature": "wq_entry_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 12
+    },
+    {
+      "feature": "wq_trend_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 13
+    },
+    {
+      "feature": "wq_volatility_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 14
+    },
+    {
+      "feature": "wq_momentum_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 15
+    },
+    {
+      "feature": "wq_market_structure_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 16
+    },
+    {
+      "feature": "wq_liquidity_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 17
+    },
+    {
+      "feature": "wq_session_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 18
+    },
+    {
+      "feature": "wq_probability_quality",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 19
+    },
+    {
+      "feature": "signal_filter_score",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 20
+    },
+    {
+      "feature": "min_lot_stress",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 21
+    },
+    {
+      "feature": "regime",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 22
+    },
+    {
+      "feature": "engine",
+      "importance_mean": 0.0,
+      "importance_std": 0.0,
+      "method": "permutation_importance",
+      "target": "is_winner",
+      "rank": 23
+    }
+  ],
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

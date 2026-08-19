@@ -1,0 +1,43 @@
+{
+  "phase": "24B",
+  "models": [
+    {
+      "id": "phase9_9",
+      "purpose": "RANGE regime ML direction probability",
+      "inference_file": "tradingbot/ml/paper_trading/model_registry.py",
+      "inference_fn": "Phase99Bundle.predict_proba",
+      "call_site": {
+        "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+        "line": 88
+      },
+      "input": "feature vector from row_for_phase99_range + StandardScaler",
+      "output": "float proba[1] \u2014 positive class probability",
+      "threshold_source": "config.json in phase9_9_best artifact (not hardcoded in adapter)",
+      "used_by": [
+        "UnifiedRangeWrapper.evaluate \u2192 MarketContext.range_signal"
+      ]
+    },
+    {
+      "id": "trend_rf_v40/v41",
+      "purpose": "TREND regime ML direction probability",
+      "inference_file": "tradingbot/ml/phase15a/trend_bundle.py",
+      "call_site": "TrendEngineWrapper / RecoveredTrendEngine.evaluate",
+      "threshold": {
+        "module": "decision_policy.py",
+        "TREND_ML_THRESHOLD": 0.4,
+        "line": 11
+      },
+      "version_env": "TREND_MODEL_VERSION \u2192 resolve_bundle_version()",
+      "used_by": [
+        "MarketContext.trend_signal"
+      ]
+    }
+  ],
+  "flow": [
+    "engine.evaluate \u2192 EngineSignal(probability, confidence, signal)",
+    "DecisionOrchestrator.decide \u2192 metadata.probability preserved",
+    "ConfidenceEngine.from_context adjusts final_confidence",
+    "DecisionPolicy.apply gates action using final_confidence not raw probability"
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

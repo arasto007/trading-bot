@@ -1,0 +1,15 @@
+{
+  "phase": "24G",
+  "before": {
+    "pattern": "for col in REGIME_FEATURE_COLUMNS: base[[timestamp]].merge(...) per column",
+    "merge_count": 12,
+    "source": "unified_features.py legacy loop"
+  },
+  "after": {
+    "pattern": "_attach_regime_columns_batch \u2014 single merge with renamed columns",
+    "merge_count": 1,
+    "phase99_merge": "single merge unchanged"
+  },
+  "formula_changes": false,
+  "generated_utc": "2026-07-08T12:48:05.458083+00:00"
+}

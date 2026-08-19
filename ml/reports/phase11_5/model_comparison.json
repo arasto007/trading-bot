@@ -1,0 +1,44 @@
+{
+  "models": [
+    {
+      "name": "phase9_9_logistic",
+      "type": "LogisticRegression",
+      "production": true,
+      "frozen": true,
+      "comparable": true,
+      "walk_forward_expectancy": null,
+      "profit_factor": null,
+      "win_rate": null,
+      "max_drawdown": null,
+      "source": "phase11_paper_30d",
+      "dataset_fingerprint": null,
+      "robustness_score": null
+    },
+    {
+      "name": "phase9_6_xgboost",
+      "type": "XGBoost",
+      "production": false,
+      "frozen": true,
+      "comparable": false,
+      "note": "Historical regime-optimization backtest \u2014 not re-run on Phase 11 paper window",
+      "walk_forward_expectancy": null,
+      "profit_factor": null,
+      "win_rate": null,
+      "max_drawdown": null,
+      "source": "phase9_6_optimization_report",
+      "dataset_fingerprint": null,
+      "metadata": {}
+    },
+    {
+      "name": "baseline_legacy",
+      "type": "priceaction_only",
+      "production": false,
+      "comparable": false,
+      "note": "Kernel legacy strategy without ML lift \u2014 not directly comparable"
+    }
+  ],
+  "phase9_9_still_best": false,
+  "winner_among_comparable": "phase9_9_logistic",
+  "recommendation": "Phase 9.9 paper PF below 1.0 \u2014 review thresholds before Phase 12",
+  "artifacts_readonly": true
+}

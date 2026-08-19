@@ -1,0 +1,56 @@
+{
+  "phase": "23D",
+  "filters": [
+    {
+      "name": "rsi_filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "class": "ProfitabilityFilterSettings / apply_profitability_filters",
+      "function": "apply_profitability_filters",
+      "line": 100,
+      "caller": "tradingbot/ml/integration/kernel_adapter.py → produce_unified_signal",
+      "consumer": "KernelAdapter hold chain (HoldStage.RSI_FILTER)",
+      "configuration_source": "load_filter_settings() env vars + Phase22C override in KernelAdapter",
+      "defaults_phase19c": {
+        "rsi_min": 40.0,
+        "rsi_max": 60.0
+      },
+      "phase22c_runtime_override": {
+        "rsi_min": 35.0,
+        "rsi_max": 65.0
+      },
+      "environment_variables": [
+        "ENABLE_RSI_FILTER",
+        "RSI_MIN",
+        "RSI_MAX"
+      ],
+      "hardcoded_fallback": "40 / 60 in ProfitabilityFilterSettings dataclass"
+    },
+    {
+      "name": "adx_filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "class": "ProfitabilityFilterSettings / apply_profitability_filters",
+      "function": "apply_profitability_filters",
+      "line": 102,
+      "caller": "kernel_adapter.produce_unified_signal",
+      "consumer": "KernelAdapter hold chain (HoldStage.ADX_FILTER)",
+      "configuration_source": "load_filter_settings() + Phase22C KernelAdapter override",
+      "defaults_phase19c": {
+        "adx_min": 15.0,
+        "adx_max": 50.0
+      },
+      "phase22c_runtime_override": {
+        "adx_min": 10.0,
+        "adx_max": 55.0
+      },
+      "environment_variables": [
+        "ENABLE_ADX_FILTER",
+        "ADX_MIN",
+        "ADX_MAX"
+      ],
+      "hardcoded_fallback": "15 / 50 in ProfitabilityFilterSettings dataclass"
+    }
+  ],
+  "phase22c_config_file": "tradingbot/ml/research/phase22c/config.py",
+  "phase22c_enabled_default": true,
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

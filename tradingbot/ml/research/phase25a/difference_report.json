@@ -1,0 +1,181 @@
+{
+  "runtime_ml_mismatches": [
+    {
+      "index": 3,
+      "research_timestamp": "2026-06-29T02:40:00+00:00",
+      "paper_timestamp": "2026-06-29T02:35:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 4,
+      "research_timestamp": "2026-06-29T03:05:00+00:00",
+      "paper_timestamp": "2026-06-29T03:00:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 6,
+      "research_timestamp": "2026-06-29T03:55:00+00:00",
+      "paper_timestamp": "2026-06-29T03:50:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 7,
+      "research_timestamp": "2026-06-29T04:20:00+00:00",
+      "paper_timestamp": "2026-06-29T04:15:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 10,
+      "research_timestamp": "2026-06-29T05:35:00+00:00",
+      "paper_timestamp": "2026-06-29T05:30:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 11,
+      "research_timestamp": "2026-06-29T06:00:00+00:00",
+      "paper_timestamp": "2026-06-29T05:55:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 12,
+      "research_timestamp": "2026-06-29T06:25:00+00:00",
+      "paper_timestamp": "2026-06-29T06:20:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 13,
+      "research_timestamp": "2026-06-29T06:50:00+00:00",
+      "paper_timestamp": "2026-06-29T06:45:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    },
+    {
+      "index": 24,
+      "research_timestamp": "2026-06-29T11:25:00+00:00",
+      "paper_timestamp": "2026-06-29T11:20:00+00:00",
+      "research_value": "HOLD",
+      "paper_value": "SELL",
+      "research_module": "phase24a.collect_production_decisions",
+      "paper_module": "paper_kernel_simulation"
+    }
+  ],
+  "structural_divergences": [
+    {
+      "id": "DIV-001",
+      "area": "pipeline_depth",
+      "research": "phase24a collect_production_decisions stops before RiskGate/ExecutionStage",
+      "paper": "LiveRunner --paper runs RiskStage + ExecutionStage",
+      "module": "ml/research/phase24a/live_shadow_validator.py vs application/live_runner.py",
+      "line": "97 vs 124",
+      "impact": "Research final_signal may pass while paper RiskGate blocks"
+    },
+    {
+      "id": "DIV-002",
+      "area": "ohlcv_window",
+      "research": "LOOKBACK_BARS=300 chunk (phase24a:218)",
+      "paper": "DataStage fetch_bars=300 via ReplayMarketDataAdapter",
+      "module": "pipeline/data_stage.py:20",
+      "line": "20",
+      "impact": "Aligned when both use 300-bar window"
+    },
+    {
+      "id": "DIV-003",
+      "area": "ohlcv_window_replay_15b",
+      "research": "run_kernel_replay warmup=120 slice",
+      "paper": "300-bar fetch",
+      "module": "ml/integration/replay_validator.py:100",
+      "line": "100",
+      "impact": "Phase15B replay differs from paper \u2014 not canonical research path"
+    },
+    {
+      "id": "DIV-004",
+      "area": "indicator_enrichment",
+      "research": "Raw/normalized candles to KernelAdapter",
+      "paper": "IndicatorStage enrich_for_market before SignalStage",
+      "module": "pipeline/indicator_stage.py:20-25",
+      "line": "20",
+      "impact": "SL/TP via compute_sl_tp may differ; unified frame uses normalized candles inside adapter"
+    },
+    {
+      "id": "DIV-005",
+      "area": "bar_dedup",
+      "research": "No SignalStage dedup",
+      "paper": "SignalStage._last_closed_bar in-memory dedup",
+      "module": "pipeline/signal_stage.py:29-32",
+      "line": "29",
+      "impact": "Duplicate evaluation on same bar if cycle re-enters"
+    },
+    {
+      "id": "DIV-006",
+      "area": "risk_gates",
+      "research": "AdaptiveRisk inside quality.evaluate only",
+      "paper": "Legacy RiskGate live gates + meta-labeler + LiveRiskTracker",
+      "module": "adapters/risk_gate.py:109-207",
+      "line": "109",
+      "impact": "Paper may HOLD/block trades research approves at ML layer"
+    },
+    {
+      "id": "DIV-007",
+      "area": "record_live_entry",
+      "research": "N/A",
+      "paper": "Skipped in paper mode \u2014 cooldown counters not updated",
+      "module": "adapters/mt5_execution.py:68-86",
+      "line": "68",
+      "impact": "Risk continuity differs across paper sessions"
+    },
+    {
+      "id": "DIV-008",
+      "area": "market_data_live",
+      "research": "CandleStore frozen history",
+      "paper": "Mt5MarketDataAdapter + ParquetCache live ticks",
+      "module": "adapters/mt5_market_data.py:142",
+      "line": "142",
+      "impact": "Live paper bar timestamps/prices may differ from replay store"
+    },
+    {
+      "id": "DIV-009",
+      "area": "alternate_paper_engines",
+      "research": "KernelAdapter production stack",
+      "paper": "KernelPaperEngine uses CompositeStrategyRegistry/MLShadowStrategy",
+      "module": "ml/paper/paper_engine.py:78",
+      "line": "78",
+      "impact": "NOT comparable to production --paper without USE_ML_KERNEL=1"
+    },
+    {
+      "id": "DIV-010",
+      "area": "forming_bar_alignment",
+      "research": "collect_production_decisions timestamps norm_candles.index[bar_index]",
+      "paper": "SignalStage exclude_forming_bar drops last row \u2014 decision on prior closed bar",
+      "module": "domain/ohlcv.py:61-69 vs pipeline/signal_stage.py:24",
+      "line": "69",
+      "impact": "Paper decisions align to T-1 closed bar vs research bar_index (5min lag on M5)"
+    }
+  ],
+  "replay_15b_vs_24a": {
+    "joined": 30,
+    "decision_mismatches": 0
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "phase": "22F",
+  "method": "hold_chain_counterfactual_from_baseline",
+  "production_modified": false,
+  "components": [
+    {
+      "component": "decision_engine",
+      "blocks_total": 5661,
+      "blocks_by_tf": {
+        "M5": 4233,
+        "M15": 1428,
+        "H4": 0
+      },
+      "pct_of_bars_total": 95.998,
+      "trades_removed_estimate": 5661,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "rsi_filter",
+      "blocks_total": 176,
+      "blocks_by_tf": {
+        "M5": 14,
+        "M15": 0,
+        "H4": 162
+      },
+      "pct_of_bars_total": 2.985,
+      "trades_removed_estimate": 176,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "riskgate",
+      "blocks_total": 58,
+      "blocks_by_tf": {
+        "M5": 58,
+        "M15": 0,
+        "H4": 0
+      },
+      "pct_of_bars_total": 0.984,
+      "reasons": {
+        "max positions for symbol": 4,
+        "daily loss limit": 54
+      },
+      "trades_removed_estimate": 58,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "calibration",
+      "blocks_total": 0,
+      "blocks_by_tf": {
+        "M5": 0,
+        "M15": 0,
+        "H4": 0
+      },
+      "pct_of_bars_total": 0.0,
+      "trades_removed_estimate": 0,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "trade_quality",
+      "blocks_total": 0,
+      "blocks_by_tf": {
+        "M5": 0,
+        "M15": 0,
+        "H4": 0
+      },
+      "pct_of_bars_total": 0.0,
+      "trades_removed_estimate": 0,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "adx_filter",
+      "blocks_total": 0,
+      "blocks_by_tf": {
+        "M5": 0,
+        "M15": 0,
+        "H4": 0
+      },
+      "pct_of_bars_total": 0.0,
+      "trades_removed_estimate": 0,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    },
+    {
+      "component": "meta",
+      "blocks_total": 0,
+      "blocks_by_tf": {
+        "M5": 0,
+        "M15": 0,
+        "H4": 0
+      },
+      "pct_of_bars_total": 0.0,
+      "trades_removed_estimate": 0,
+      "pf_baseline_avg": 0.0,
+      "expectancy_baseline_avg": -3.573,
+      "pf_delta_if_unblocked_estimate": 0.0,
+      "dd_impact_estimate": "requires_execution_sim"
+    }
+  ],
+  "note": "Block counts are per-bar/per-signal evaluations, not unique trades"
+}

@@ -1,0 +1,40 @@
+{
+  "phase": "23F",
+  "verdict": "DEPLOY_RANGE_PROFILE",
+  "checks": {
+    "window_b_wins_pf_count": 4,
+    "window_total": 5,
+    "walkforward_b_stable": true,
+    "montecarlo_b_passed": true,
+    "montecarlo_b_pf_gte_a": true,
+    "trend_not_degraded": true,
+    "tail_300_b_wins_pf": true,
+    "approve_deploy": true,
+    "reject_profile": false,
+    "need_more_data": false
+  },
+  "pipeline_a_profile": {
+    "profile_id": "production_phase22c",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "pipeline_b_profile": {
+    "profile_id": "f2b3f3a1c2d7",
+    "mode": "range_specific",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 40.0,
+    "rsi_max": 65.0,
+    "adx_min": 15.0,
+    "adx_max": 40.0,
+    "scope": "RANGE regime only; TREND/transition use Pipeline A filters"
+  },
+  "implementation_status": "NOT DEPLOYED — shadow validation only",
+  "recommendation": "Proceed to approved integration phase with regime-conditional RANGE profile",
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

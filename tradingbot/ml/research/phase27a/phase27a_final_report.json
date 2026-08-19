@@ -1,0 +1,24 @@
+{
+  "phase": "27A",
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00",
+  "verdict": "NOT_READY_FOR_PAPER_TRADING",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "replay_days": 30,
+  "completed_trades": 0,
+  "bars_evaluated": 5203,
+  "prior_phases": {
+    "phase25b": "PARITY_RESTORED",
+    "phase26c": "JOURNAL_READY",
+    "phase26d": "STARTUP_SAFE",
+    "phase26b": "INSUFFICIENT_SAMPLE"
+  },
+  "paper_readiness_score": 0,
+  "overall_score": 43.1,
+  "profit_factor": 0.0,
+  "expectancy": 0.0,
+  "win_rate": 0.0,
+  "max_drawdown_pct": 0.0,
+  "timeout_rate_pct": 0.0,
+  "summary": "30-day production unified pipeline replay on XAUUSD M5: 0 completed trades from 5203 bars. PF=0.0 expectancy=0.0 timeout_rate=0.0%. Verdict: NOT_READY_FOR_PAPER_TRADING."
+}

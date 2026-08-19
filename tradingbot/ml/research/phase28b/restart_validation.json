@@ -1,0 +1,20 @@
+{
+  "phase": "28B",
+  "scenarios": {
+    "restart_after_partial": {
+      "pass": true,
+      "partial_before_restart": true,
+      "partial_after_restart": true
+    },
+    "journal_recovery": {
+      "pass": true,
+      "trade_id": 1
+    },
+    "duplicate_partial_close": {
+      "pass": true,
+      "deterministic": true
+    }
+  },
+  "all_pass": true,
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

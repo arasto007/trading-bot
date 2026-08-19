@@ -1,0 +1,69 @@
+{
+  "phase": "22B",
+  "static_config": {
+    "M1": {
+      "configured_in_live": false,
+      "data_loaded_in_backtest": false,
+      "evidence": "NOT in LIVE_TRADING_CONFIG.TIMEFRAMES"
+    },
+    "M5": {
+      "configured_in_live": true,
+      "data_loaded_in_backtest": true,
+      "evidence": "live.py TIMEFRAMES"
+    },
+    "M15": {
+      "configured_in_live": true,
+      "data_loaded_in_backtest": true,
+      "evidence": "live.py TIMEFRAMES includes 15m"
+    },
+    "M30": {
+      "configured_in_live": false,
+      "data_loaded_in_backtest": false,
+      "evidence": "NOT in LIVE_TRADING_CONFIG.TIMEFRAMES"
+    },
+    "H1": {
+      "configured_in_live": false,
+      "data_loaded_in_backtest": false,
+      "evidence": "NOT in LIVE_TRADING_CONFIG.TIMEFRAMES"
+    },
+    "H4": {
+      "configured_in_live": true,
+      "data_loaded_in_backtest": true,
+      "evidence": "live.py TIMEFRAMES"
+    },
+    "D1": {
+      "configured_in_live": false,
+      "data_loaded_in_backtest": false,
+      "evidence": "NOT in LIVE_TRADING_CONFIG.TIMEFRAMES"
+    }
+  },
+  "backtest_results": {
+    "M5": {
+      "data_bars_processed": 10068,
+      "ml_predictions": 10068,
+      "signals_emitted": 36,
+      "trades_closed": 2,
+      "risk_blocks": {
+        "max positions for symbol": 4,
+        "daily loss limit": 30
+      },
+      "discarded_at": "N/A \u2014 signals emitted"
+    },
+    "M15": {
+      "data_bars_processed": 6696,
+      "ml_predictions": 6696,
+      "signals_emitted": 0,
+      "trades_closed": 0,
+      "risk_blocks": {},
+      "discarded_at": "ML orchestrator returned HOLD on 6696/6696 bars (confidence/policy/filters/quality)"
+    },
+    "H4": {
+      "data_bars_processed": 846,
+      "ml_predictions": 846,
+      "signals_emitted": 0,
+      "trades_closed": 0,
+      "risk_blocks": {},
+      "discarded_at": "ML orchestrator returned HOLD on 846/846 bars (confidence/policy/filters/quality)"
+    }
+  }
+}

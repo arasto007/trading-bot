@@ -1,0 +1,539 @@
+{
+  "phase": "31C",
+  "production_baseline": {
+    "label": "baseline_current",
+    "trade_count": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "sharpe_ratio": 19.3263,
+    "sortino_ratio": 17.9567,
+    "max_drawdown_pct": 24.264,
+    "max_drawdown_abs": 74.4372,
+    "net_profit": 136.1007,
+    "recovery_factor": 1.8284,
+    "win_rate_pct": 53.17,
+    "edge_contribution": 136.1007,
+    "gross_wins": 781.1407,
+    "gross_losses": 645.04
+  },
+  "simulation_baseline": {
+    "name": "hybrid_b_proxy",
+    "metrics": {
+      "label": "hybrid_b_proxy",
+      "trade_count": 489,
+      "profit_factor": 2.0626,
+      "expectancy": 4.7566,
+      "sharpe_ratio": 68.3444,
+      "sortino_ratio": 127.8167,
+      "max_drawdown_pct": 25.6106,
+      "max_drawdown_abs": 334.7432,
+      "net_profit": 2325.9547,
+      "recovery_factor": 6.9485,
+      "win_rate_pct": 40.49,
+      "edge_contribution": 2325.9547,
+      "gross_wins": 4514.9532,
+      "gross_losses": 2188.9985
+    }
+  },
+  "candidates": [
+    {
+      "candidate_id": "01",
+      "name": "baseline_current",
+      "metrics": {
+        "label": "baseline_current",
+        "trade_count": 489,
+        "profit_factor": 1.211,
+        "expectancy": 0.2783,
+        "sharpe_ratio": 19.3263,
+        "sortino_ratio": 17.9567,
+        "max_drawdown_pct": 24.264,
+        "max_drawdown_abs": 74.4372,
+        "net_profit": 136.1007,
+        "recovery_factor": 1.8284,
+        "win_rate_pct": 53.17,
+        "edge_contribution": 136.1007,
+        "gross_wins": 781.1407,
+        "gross_losses": 645.04
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.1109,
+        "test_pf": 1.4413,
+        "train_net": 49.8371,
+        "test_net": 86.2636,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "02",
+      "name": "breakeven_0_5r",
+      "metrics": {
+        "label": "breakeven_0_5r",
+        "trade_count": 489,
+        "profit_factor": 1.8853,
+        "expectancy": 3.4759,
+        "sharpe_ratio": 61.3018,
+        "sortino_ratio": 86.804,
+        "max_drawdown_pct": 50.0959,
+        "max_drawdown_abs": 469.6274,
+        "net_profit": 1699.6946,
+        "recovery_factor": 3.6192,
+        "win_rate_pct": 30.06,
+        "edge_contribution": 1699.6946,
+        "gross_wins": 3619.6746,
+        "gross_losses": 1919.98
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [
+          "walkforward_unstable"
+        ],
+        "passed": false
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.984,
+        "test_pf": 1.6619,
+        "train_net": 1310.2126,
+        "test_net": 389.482,
+        "stable": false,
+        "walkforward_pass": false
+      }
+    },
+    {
+      "candidate_id": "03",
+      "name": "breakeven_1r",
+      "metrics": {
+        "label": "breakeven_1r",
+        "trade_count": 489,
+        "profit_factor": 1.8813,
+        "expectancy": 3.9449,
+        "sharpe_ratio": 62.4593,
+        "sortino_ratio": 92.8614,
+        "max_drawdown_pct": 53.2137,
+        "max_drawdown_abs": 564.3618,
+        "net_profit": 1929.0755,
+        "recovery_factor": 3.4182,
+        "win_rate_pct": 34.56,
+        "edge_contribution": 1929.0755,
+        "gross_wins": 4118.074,
+        "gross_losses": 2188.9985
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [
+          "walkforward_unstable"
+        ],
+        "passed": false
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.984,
+        "test_pf": 1.652,
+        "train_net": 1487.4055,
+        "test_net": 441.67,
+        "stable": false,
+        "walkforward_pass": false
+      }
+    },
+    {
+      "candidate_id": "04",
+      "name": "partial_50_at_1r",
+      "metrics": {
+        "label": "partial_50_at_1r",
+        "trade_count": 489,
+        "profit_factor": 1.6252,
+        "expectancy": 2.7988,
+        "sharpe_ratio": 57.6157,
+        "sortino_ratio": 70.3107,
+        "max_drawdown_pct": 60.4544,
+        "max_drawdown_abs": 621.2266,
+        "net_profit": 1368.614,
+        "recovery_factor": 2.2031,
+        "win_rate_pct": 43.76,
+        "edge_contribution": 1368.614,
+        "gross_wins": 3557.6125,
+        "gross_losses": 2188.9985
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.6837,
+        "test_pf": 1.4948,
+        "train_net": 1033.4401,
+        "test_net": 335.1739,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "05",
+      "name": "trailing_atr_1x",
+      "metrics": {
+        "label": "trailing_atr_1x",
+        "trade_count": 489,
+        "profit_factor": 2.6161,
+        "expectancy": 3.6248,
+        "sharpe_ratio": 96.2359,
+        "sortino_ratio": 201.7683,
+        "max_drawdown_pct": 14.1648,
+        "max_drawdown_abs": 143.057,
+        "net_profit": 1772.511,
+        "recovery_factor": 12.3902,
+        "win_rate_pct": 55.42,
+        "edge_contribution": 1772.511,
+        "gross_wins": 2869.2775,
+        "gross_losses": 1096.7665
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 2.5266,
+        "test_pf": 2.7989,
+        "train_net": 1123.7441,
+        "test_net": 648.7669,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "06",
+      "name": "atr_exhaustion_exit",
+      "metrics": {
+        "label": "atr_exhaustion_exit",
+        "trade_count": 489,
+        "profit_factor": 1.7137,
+        "expectancy": 3.0245,
+        "sharpe_ratio": 58.8769,
+        "sortino_ratio": 80.0779,
+        "max_drawdown_pct": 39.3394,
+        "max_drawdown_abs": 319.5148,
+        "net_profit": 1478.9742,
+        "recovery_factor": 4.6288,
+        "win_rate_pct": 55.42,
+        "edge_contribution": 1478.9742,
+        "gross_wins": 3551.0942,
+        "gross_losses": 2072.12
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.589,
+        "test_pf": 2.0102,
+        "train_net": 859.1102,
+        "test_net": 619.864,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "07",
+      "name": "structure_ema_break",
+      "metrics": {
+        "label": "structure_ema_break",
+        "trade_count": 489,
+        "profit_factor": 1.7458,
+        "expectancy": 3.1169,
+        "sharpe_ratio": 64.8906,
+        "sortino_ratio": 100.7791,
+        "max_drawdown_pct": 39.618,
+        "max_drawdown_abs": 357.3891,
+        "net_profit": 1524.1759,
+        "recovery_factor": 4.2648,
+        "win_rate_pct": 52.76,
+        "edge_contribution": 1524.1759,
+        "gross_wins": 3567.8902,
+        "gross_losses": 2043.7143
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.7068,
+        "test_pf": 1.8264,
+        "train_net": 973.8525,
+        "test_net": 550.3234,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "08",
+      "name": "adaptive_time_fast",
+      "metrics": {
+        "label": "adaptive_time_fast",
+        "trade_count": 489,
+        "profit_factor": 1.2438,
+        "expectancy": 1.3444,
+        "sharpe_ratio": 22.9689,
+        "sortino_ratio": 21.0308,
+        "max_drawdown_pct": 93.4322,
+        "max_drawdown_abs": 665.34,
+        "net_profit": 657.42,
+        "recovery_factor": 0.9881,
+        "win_rate_pct": 57.26,
+        "edge_contribution": 657.42,
+        "gross_wins": 3353.64,
+        "gross_losses": 2696.22
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.1782,
+        "test_pf": 1.3885,
+        "train_net": 330.63,
+        "test_net": 326.79,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "09",
+      "name": "momentum_decay_exit",
+      "metrics": {
+        "label": "momentum_decay_exit",
+        "trade_count": 489,
+        "profit_factor": 1.7491,
+        "expectancy": 3.7772,
+        "sharpe_ratio": 59.3686,
+        "sortino_ratio": 109.955,
+        "max_drawdown_pct": 51.6299,
+        "max_drawdown_abs": 549.2108,
+        "net_profit": 1847.053,
+        "recovery_factor": 3.3631,
+        "win_rate_pct": 48.67,
+        "edge_contribution": 1847.053,
+        "gross_wins": 4312.87,
+        "gross_losses": 2465.817
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.6867,
+        "test_pf": 1.8976,
+        "train_net": 1192.3961,
+        "test_net": 654.6569,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "10",
+      "name": "adx_deterioration_exit",
+      "metrics": {
+        "label": "adx_deterioration_exit",
+        "trade_count": 489,
+        "profit_factor": 2.0701,
+        "expectancy": 5.8342,
+        "sharpe_ratio": 51.216,
+        "sortino_ratio": 119.827,
+        "max_drawdown_pct": 34.2528,
+        "max_drawdown_abs": 340.18,
+        "net_profit": 2852.907,
+        "recovery_factor": 8.3865,
+        "win_rate_pct": 47.65,
+        "edge_contribution": 2852.907,
+        "gross_wins": 5518.99,
+        "gross_losses": 2666.083
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 2.1221,
+        "test_pf": 1.9495,
+        "train_net": 2089.6859,
+        "test_net": 763.2211,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "11",
+      "name": "trailing_arm_0_75r",
+      "metrics": {
+        "label": "trailing_arm_0_75r",
+        "trade_count": 489,
+        "profit_factor": 1.5852,
+        "expectancy": 2.5253,
+        "sharpe_ratio": 54.0067,
+        "sortino_ratio": 61.715,
+        "max_drawdown_pct": 35.5712,
+        "max_drawdown_abs": 269.827,
+        "net_profit": 1234.8959,
+        "recovery_factor": 4.5766,
+        "win_rate_pct": 61.55,
+        "edge_contribution": 1234.8959,
+        "gross_wins": 3345.0487,
+        "gross_losses": 2110.1528
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.4789,
+        "test_pf": 1.8174,
+        "train_net": 693.191,
+        "test_net": 541.7049,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "12",
+      "name": "volatility_short_timeout",
+      "metrics": {
+        "label": "volatility_short_timeout",
+        "trade_count": 489,
+        "profit_factor": 2.1194,
+        "expectancy": 6.4569,
+        "sharpe_ratio": 75.5356,
+        "sortino_ratio": 228.0403,
+        "max_drawdown_pct": 29.5304,
+        "max_drawdown_abs": 524.4425,
+        "net_profit": 3157.4399,
+        "recovery_factor": 6.0206,
+        "win_rate_pct": 43.97,
+        "edge_contribution": 3157.4399,
+        "gross_wins": 5978.03,
+        "gross_losses": 2820.5901
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [
+          "walkforward_unstable"
+        ],
+        "passed": false
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 2.2855,
+        "test_pf": 1.7569,
+        "train_net": 2486.7659,
+        "test_net": 670.674,
+        "stable": false,
+        "walkforward_pass": false
+      }
+    },
+    {
+      "candidate_id": "13",
+      "name": "multi_stage_partial_trail",
+      "metrics": {
+        "label": "multi_stage_partial_trail",
+        "trade_count": 489,
+        "profit_factor": 1.3996,
+        "expectancy": 1.731,
+        "sharpe_ratio": 43.643,
+        "sortino_ratio": 42.203,
+        "max_drawdown_pct": 55.4715,
+        "max_drawdown_abs": 370.9486,
+        "net_profit": 846.4768,
+        "recovery_factor": 2.2819,
+        "win_rate_pct": 60.33,
+        "edge_contribution": 846.4768,
+        "gross_wins": 2964.5342,
+        "gross_losses": 2118.0574
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [],
+        "passed": true
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 1.3425,
+        "test_pf": 1.5252,
+        "train_net": 498.3918,
+        "test_net": 348.085,
+        "stable": true,
+        "walkforward_pass": true
+      }
+    },
+    {
+      "candidate_id": "14",
+      "name": "hybrid_b_proxy",
+      "metrics": {
+        "label": "hybrid_b_proxy",
+        "trade_count": 489,
+        "profit_factor": 2.0626,
+        "expectancy": 4.7566,
+        "sharpe_ratio": 68.3444,
+        "sortino_ratio": 127.8167,
+        "max_drawdown_pct": 25.6106,
+        "max_drawdown_abs": 334.7432,
+        "net_profit": 2325.9547,
+        "recovery_factor": 6.9485,
+        "win_rate_pct": 40.49,
+        "edge_contribution": 2325.9547,
+        "gross_wins": 4514.9532,
+        "gross_losses": 2188.9985
+      },
+      "rejection": {
+        "rejected": false,
+        "reject_reasons": [
+          "walkforward_unstable"
+        ],
+        "passed": false
+      },
+      "walkforward": {
+        "train_trades": 342,
+        "test_trades": 147,
+        "train_pf": 2.2606,
+        "test_pf": 1.6207,
+        "train_net": 1905.5453,
+        "test_net": 420.4094,
+        "stable": false,
+        "walkforward_pass": false
+      }
+    }
+  ],
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

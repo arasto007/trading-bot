@@ -1,0 +1,23 @@
+{
+  "phase": "22E",
+  "method": "chronological_walk_forward",
+  "shuffled": false,
+  "n_folds": 1,
+  "stable_folds": 0,
+  "stable": false,
+  "passed": false,
+  "folds": [
+    {
+      "fold": 0,
+      "train_trades": 0,
+      "test_trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "average_r": 0.0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "stable": false
+    }
+  ],
+  "total_trades": 0
+}

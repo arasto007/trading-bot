@@ -1,0 +1,21 @@
+{
+  "phase": "30D",
+  "objective": "Empirical spread distributions for SpreadEngine calibration",
+  "derived_from": "Tick dataset aggregations",
+  "aggregates_required": [
+    "by_session: p10 p50 p95 p99 spread_points",
+    "by_weekday: p50 spread_points",
+    "by_hour_utc: mean spread heatmap 24h",
+    "news_pre_post: multiplier vs baseline",
+    "rollover: multiplier vs baseline",
+    "weekend_open: absolute spread and gap"
+  ],
+  "baseline_definition": "Overlap session median spread excluding news flags",
+  "minimum_ticks": 500000,
+  "output_files": [
+    "aggregates/spread_by_session.json",
+    "aggregates/spread_news_multiplier.json",
+    "aggregates/spread_rollover.json"
+  ],
+  "generated_utc": "2026-07-10T11:04:24.686261+00:00"
+}

@@ -1,0 +1,52 @@
+{
+  "phase": "22T",
+  "title": "Controlled Live FeatureBuilder Refactor (Research Branch)",
+  "generated_utc": "2026-07-05T20:08:15.030319+00:00",
+  "production_modified": false,
+  "feature_flag": "RESEARCH_USE_LIVE_PHASE99_FEATURES",
+  "dataset_a": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "verdict": "NO_EFFECT",
+  "effect_threshold_pct": 5.0,
+  "baseline_backtest": {
+    "BUY": 0,
+    "SELL": 0,
+    "signal_density_pct": 0.0,
+    "decision_hold": 4247,
+    "trade_count": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0
+  },
+  "live_backtest": {
+    "BUY": 0,
+    "SELL": 0,
+    "signal_density_pct": 0.0,
+    "decision_hold": 4247,
+    "trade_count": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0
+  },
+  "baseline_range_signals": {
+    "BUY": 0,
+    "SELL": 108,
+    "HOLD": 0,
+    "buy_pct": 0.0,
+    "sell_pct": 100.0,
+    "hold_pct": 0.0
+  },
+  "live_range_signals": {
+    "BUY": 0,
+    "SELL": 108,
+    "HOLD": 0,
+    "buy_pct": 0.0,
+    "sell_pct": 100.0,
+    "hold_pct": 0.0
+  },
+  "baseline_p_win_mean": 0.364512,
+  "live_p_win_mean": 0.358348,
+  "summary": "Verdict=NO_EFFECT. baseline: trades=0 PF=0.0 BUY=0 SELL=0 decision_hold=4247 range_BUY=0 range_SELL=108 P(win)_mean=0.364512. live: trades=0 PF=0.0 BUY=0 SELL=0 decision_hold=4247 range_BUY=0 range_SELL=108 P(win)_mean=0.358348."
+}

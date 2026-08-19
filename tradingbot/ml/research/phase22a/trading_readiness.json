@@ -1,0 +1,75 @@
+{
+  "phase": "22A",
+  "assessment_date": "2026-07-04",
+  "verdict": "NEEDS_REVIEW",
+  "ready_for_profitability_development": false,
+  "confidence": 0.72,
+  "ready_components": [
+    {
+      "area": "Architecture",
+      "status": "READY",
+      "evidence": "Clean kernel + pipeline + ML integration documented and tested"
+    },
+    {
+      "area": "Live wiring",
+      "status": "READY",
+      "evidence": "Dashboard → watchdog → LiveRunner → order_send path verified"
+    },
+    {
+      "area": "ML stack load",
+      "status": "READY",
+      "evidence": "verify_ml_live_ready VERDICT=READY, LIVE_REGISTRY=MLKernelRegistry"
+    },
+    {
+      "area": "Risk + Meta",
+      "status": "READY",
+      "evidence": "RiskGate + meta_labeler integrated in risk_stage path"
+    },
+    {
+      "area": "Phase isolation",
+      "status": "READY",
+      "evidence": "409 research files under ml/research/, execution forbidden in tests"
+    }
+  ],
+  "missing_or_blocking": [
+    {
+      "item": "Profitable live track record",
+      "severity": "HIGH",
+      "evidence": "1-month backtest M5: -21.44 USD on 200 capital, 0% win rate (2 trades)"
+    },
+    {
+      "item": "Phase 20C broker validation with real trades",
+      "severity": "HIGH",
+      "evidence": "Conversation summary: waiting for real trades"
+    },
+    {
+      "item": "ML backtest performance validation",
+      "severity": "MEDIUM",
+      "evidence": "ML active (10068 calls) but only 2 M5 trades in 1 month — filter/threshold may over-restrict or misfire"
+    },
+    {
+      "item": "MT5 concurrent thread safety audit",
+      "severity": "MEDIUM",
+      "evidence": "KillSwitch + recovery + main loop share MT5 without mutex"
+    },
+    {
+      "item": "Stale tick handling in closed market",
+      "severity": "LOW",
+      "evidence": "HEALTH_FAIL stale tick ~21h skips cycles when market closed"
+    },
+    {
+      "item": "Backtest runtime",
+      "severity": "MEDIUM",
+      "evidence": "1 month × 3 TF ≈ 41 min; ML per-bar sync blocks asyncio"
+    }
+  ],
+  "recommended_before_profitability_phase": [
+    "Phase 22B: Live shadow PnL vs legacy baseline (same period)",
+    "Walk-forward on ML stack with trade count > 30 per TF",
+    "Phase 20C completion with real demo trades",
+    "Profile ML latency live vs 500ms timeout",
+    "Document expected trade frequency per TF under current filters"
+  ],
+  "why_not_fully_ready": "System is operationally complete and ML-connected, but profitability evidence is negative in recent backtest and live certification phases remain open.",
+  "why_partially_ready": "Full reverse engineering complete; no architectural unknowns block targeted optimization work."
+}

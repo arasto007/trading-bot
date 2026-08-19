@@ -1,0 +1,40 @@
+{
+  "components": {
+    "AdaptiveRisk": {
+      "file": "ml/risk_intelligence/validator.py",
+      "layer": "ML kernel"
+    },
+    "RiskGate": {
+      "file": "adapters/risk_gate.py",
+      "layer": "RiskStage"
+    },
+    "KillSwitch": {
+      "file": "services/kill_switch.py",
+      "uses": "guarded_order_send"
+    },
+    "EmergencyStop": {
+      "file": "services/emergency_stop_state.py",
+      "persisted": true
+    },
+    "LiveRiskTracker": {
+      "file": "services/live_risk_tracker.py",
+      "phase24k": "AUD-002 FIXED"
+    }
+  },
+  "paper_gaps": [
+    {
+      "id": "RISK-PAPER-001",
+      "issue": "record_live_entry not called in paper branch",
+      "file": "adapters/mt5_execution.py:68-86 vs 197-200"
+    },
+    {
+      "id": "RISK-PAPER-002",
+      "issue": "paper sessions do not advance cooldown counters like live"
+    }
+  ],
+  "phase24k_fixes": [
+    "AUD-002 config injection",
+    "AUD-030 emergency persistence"
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

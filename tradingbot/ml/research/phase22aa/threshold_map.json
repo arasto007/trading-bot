@@ -1,0 +1,183 @@
+{
+  "phase": "22AA",
+  "thresholds": [
+    {
+      "name": "assess_overfitting_risk_HIGH",
+      "defined_in": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "assess_overfitting_risk",
+      "constants": {
+        "mean_auc_gap_gt": 0.12,
+        "robustness_score_lt": 45,
+        "mean_degradation_gt": 0.25
+      },
+      "used_by": [
+        "analyze_robustness",
+        "walk_forward_optimizer.run_walk_forward_experiment",
+        "WalkForwardEngine (Phase 9.8)"
+      ],
+      "depends_on": [
+        "per-window train_val_auc_gap",
+        "performance_degradation",
+        "robustness_score"
+      ],
+      "impact_if_changed": [
+        {
+          "subsystem": "Phase 9.8",
+          "affected_if_threshold_changes": true,
+          "note": "Changes overfitting_risk label in phase9_8_walk_forward_report.json baseline"
+        },
+        {
+          "subsystem": "Phase 9.9 walk-forward",
+          "affected_if_threshold_changes": true,
+          "note": "Changes candidate overfitting_risk labels fed into evaluate_acceptance"
+        },
+        {
+          "subsystem": "Phase 9.9 selection ranking",
+          "affected_if_threshold_changes": true,
+          "note": "candidate_selector tie-breaker uses overfitting_risk ordinal"
+        },
+        {
+          "subsystem": "Phase 9.9 acceptance",
+          "affected_if_threshold_changes": true,
+          "note": "Indirect: label change affects overfitting_risk_decreased boolean"
+        },
+        {
+          "subsystem": "Freeze",
+          "affected_if_threshold_changes": false,
+          "note": "freeze_phase9_9_artifacts does not read labels"
+        },
+        {
+          "subsystem": "Health Gate",
+          "affected_if_threshold_changes": false,
+          "note": "No overfitting_risk in health_gate.py"
+        }
+      ]
+    },
+    {
+      "name": "assess_overfitting_risk_MEDIUM",
+      "defined_in": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "assess_overfitting_risk",
+      "constants": {
+        "mean_auc_gap_gt": 0.06,
+        "robustness_score_lt": 70,
+        "mean_degradation_gt": 0.12
+      },
+      "used_by": [
+        "analyze_robustness",
+        "walk_forward_optimizer.run_walk_forward_experiment",
+        "WalkForwardEngine (Phase 9.8)"
+      ],
+      "depends_on": [
+        "per-window train_val_auc_gap",
+        "performance_degradation",
+        "robustness_score"
+      ],
+      "impact_if_changed": [
+        {
+          "subsystem": "Phase 9.8",
+          "affected_if_threshold_changes": true,
+          "note": "Changes overfitting_risk label in phase9_8_walk_forward_report.json baseline"
+        },
+        {
+          "subsystem": "Phase 9.9 walk-forward",
+          "affected_if_threshold_changes": true,
+          "note": "Changes candidate overfitting_risk labels fed into evaluate_acceptance"
+        },
+        {
+          "subsystem": "Phase 9.9 selection ranking",
+          "affected_if_threshold_changes": true,
+          "note": "candidate_selector tie-breaker uses overfitting_risk ordinal"
+        },
+        {
+          "subsystem": "Phase 9.9 acceptance",
+          "affected_if_threshold_changes": true,
+          "note": "Indirect: label change affects overfitting_risk_decreased boolean"
+        },
+        {
+          "subsystem": "Freeze",
+          "affected_if_threshold_changes": false,
+          "note": "freeze_phase9_9_artifacts does not read labels"
+        },
+        {
+          "subsystem": "Health Gate",
+          "affected_if_threshold_changes": false,
+          "note": "No overfitting_risk in health_gate.py"
+        }
+      ]
+    },
+    {
+      "name": "overfitting_risk_decreased_ordinal",
+      "defined_in": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "function": "_risk_improved",
+      "constants": {
+        "RISK_ORDER": {
+          "LOW": 0,
+          "MEDIUM": 1,
+          "HIGH": 2
+        }
+      },
+      "used_by": [
+        "evaluate_acceptance only"
+      ],
+      "depends_on": [
+        "baseline.overfitting_risk from Phase 9.8",
+        "best.overfitting_risk from walk-forward"
+      ],
+      "impact_if_changed": [
+        {
+          "subsystem": "Phase 9.8",
+          "affected_if_threshold_changes": false,
+          "note": "Phase 9.8 does not call evaluate_acceptance"
+        },
+        {
+          "subsystem": "Phase 9.9 walk-forward",
+          "affected_if_threshold_changes": false,
+          "note": "Walk-forward produces labels; rule consumes them"
+        },
+        {
+          "subsystem": "Phase 9.9 selection",
+          "affected_if_threshold_changes": false,
+          "note": "select_best does not use this check"
+        },
+        {
+          "subsystem": "Phase 9.9 acceptance",
+          "affected_if_threshold_changes": true,
+          "note": "Direct: changes PASS/FAIL verdict"
+        },
+        {
+          "subsystem": "Freeze",
+          "affected_if_threshold_changes": false,
+          "note": "Decoupled hardcoded freeze path"
+        },
+        {
+          "subsystem": "Health Gate",
+          "affected_if_threshold_changes": false,
+          "note": "Unrelated"
+        }
+      ]
+    },
+    {
+      "name": "robustness_score_gap_penalty",
+      "defined_in": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "compute_robustness_score",
+      "constants": {
+        "gap_penalty_multiplier": 4.0,
+        "weights": "0.30/0.30/0.25/0.15"
+      },
+      "impact_if_changed": [
+        {
+          "subsystem": "Phase 9.8",
+          "affected_if_threshold_changes": true,
+          "note": "Baseline robustness_score in report"
+        },
+        {
+          "subsystem": "Phase 9.9 acceptance",
+          "affected_if_threshold_changes": true,
+          "note": "Indirect via robustness_improved check, not overfitting_risk_decreased directly"
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false
+}

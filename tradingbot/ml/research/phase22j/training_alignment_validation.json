@@ -1,0 +1,55 @@
+{
+  "phase": "22J",
+  "aligned": true,
+  "checks": {
+    "health_gate_passes": true,
+    "active_engine": "trend_rf_v41",
+    "active_bundle_version": "v41",
+    "phase9_checksum": true,
+    "trend_checksum": true,
+    "phase9_feature_order_match": true,
+    "phase9_fingerprint": true,
+    "trend_fingerprint": true,
+    "phase99_map_covers_training_features": true,
+    "v41_top5_in_bundle_order": true,
+    "pipeline_attaches_top5_on_unified_frame": true
+  },
+  "phase9_9": {
+    "feature_order": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "model": "LogisticRegression",
+    "training_features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "phase99_feature_map": {
+      "ema50_slope": "phase99_ema50_slope",
+      "candle_direction": "phase99_candle_direction",
+      "structure_distance": "phase99_structure_distance"
+    }
+  },
+  "trend_v41": {
+    "feature_count": 16,
+    "base_features": 11,
+    "top5_features": [
+      "adx_acceleration",
+      "swing_efficiency",
+      "fractal_dimension_proxy",
+      "trend_age",
+      "ema_curvature"
+    ],
+    "threshold": 0.4,
+    "rule_fn": "evaluate_variant_a"
+  },
+  "inference_path": {
+    "unified_frame": "build_unified_frame(candles, dataset_v2)",
+    "range_features": "phase99_* via dataset merge + row_for_phase99_range",
+    "trend_v41": "PipelineCache._attach_trend_v41_features -> attach_top5_features",
+    "normalization": "StandardScaler in bundle.transform / predict_proba"
+  },
+  "health_errors": []
+}

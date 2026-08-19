@@ -1,0 +1,13 @@
+{
+  "phase": "28D",
+  "longest_winning_streak": 25,
+  "longest_losing_streak": 30,
+  "average_risk_percent": 0.2955,
+  "max_lot": 0.01,
+  "max_concurrent_open": 0,
+  "max_margin_usage_est": 20.0,
+  "average_margin_usage_est": 20.0,
+  "risk_utilization_pct": 10.0,
+  "realized_pnl": 75.7757,
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

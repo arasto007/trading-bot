@@ -1,0 +1,33 @@
+{
+  "flow": [
+    "build_market_context (regime + engine evaluate)",
+    "DecisionOrchestrator / RangeRecoveryOrchestrator",
+    "CalibratedDecisionAdapter (Platt or heuristic fallback)",
+    "AdaptiveRiskAdapter",
+    "TradeQualityAdapter",
+    "apply_profitability_filters (RSI/ADX)",
+    "map_unified_to_trading_signal",
+    "RiskGate.evaluate (legacy gates)",
+    "Mt5ExecutionAdapter.execute"
+  ],
+  "double_gating": [
+    "AdaptiveRisk inside ML",
+    "RiskGate in RiskStage"
+  ],
+  "skipped_stages": [
+    {
+      "when": "SignalStage bar dedup",
+      "file": "pipeline/signal_stage.py:29-32"
+    },
+    {
+      "when": "HOLD signal",
+      "file": "pipeline/signal_stage.py:38-39"
+    },
+    {
+      "when": "Prediction cache hit",
+      "file": "ml/integration/pipeline_cache.py"
+    }
+  ],
+  "parity": "phase25b PARITY_RESTORED on unified replay vs paper pipeline depth",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

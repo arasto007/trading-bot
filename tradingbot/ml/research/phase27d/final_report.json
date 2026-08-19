@@ -1,0 +1,66 @@
+{
+  "phase": "27D",
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00",
+  "verdict": "NOT_READY_FOR_PAPER",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "blockers": [
+    "insufficient completed trades: 2 < 200"
+  ],
+  "replay_config": {
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "replay_days": 30,
+    "warmup_bars": 300,
+    "stride": 1,
+    "window_bars": 5503,
+    "window_start": "2026-06-01T01:05:00+00:00",
+    "window_end": "2026-06-29T04:00:00+00:00",
+    "pipeline": "phase25b.run_unified_pipeline_replay",
+    "audit_mode": "READ_ONLY",
+    "production_modified": false,
+    "post_phase27c_cache_fix": true
+  },
+  "replay_meta": {
+    "mode": "unified_pipeline_replay",
+    "pipeline_stages": [
+      "data",
+      "indicators",
+      "signals",
+      "risk",
+      "execution"
+    ],
+    "forming_bar_adapter": true,
+    "lookback_bars": 300,
+    "bars_evaluated": 5203,
+    "warmup_bars": 300,
+    "stride": 1,
+    "elapsed_sec": 1762.62,
+    "phase27c_cache_fix": true,
+    "phase27a_cache_invalidated": true
+  },
+  "completed_trades": 2,
+  "bars_evaluated": 5203,
+  "hold_chain": {
+    "bars_evaluated": 5191,
+    "buy_emitted": 47,
+    "sell_emitted": 715,
+    "ml_signals": 762,
+    "ml_hold_stages": {
+      "decision_hold": 2916,
+      "calibration_hold": 0,
+      "trade_quality_hold": 804,
+      "rsi_filter_hold": 425,
+      "adx_filter_hold": 284
+    },
+    "ml_hold_total": 4429,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "cache_uniqueness_pct": 99.77,
+  "ml_signals_emitted": 762,
+  "profit_factor": 0.0,
+  "expectancy": -8.7122,
+  "summary": "Post-27C 30-day replay: 2 completed trades from 5203 bars. ML signals=762 cache_uniqueness=99.77% PF=0.0 verdict=NOT_READY_FOR_PAPER."
+}

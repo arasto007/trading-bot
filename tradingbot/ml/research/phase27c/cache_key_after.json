@@ -1,0 +1,19 @@
+{
+  "phase": "27C",
+  "format": "{symbol}|{timeframe}|{closed_candle_ts}|{feature_fp}|{model_fp}",
+  "file": "tradingbot/ml/integration/pipeline_cache.py",
+  "function": "PipelineCache.build_prediction_cache_key",
+  "components": {
+    "symbol": "market symbol",
+    "timeframe": "market timeframe",
+    "closed_candle_ts": "resolve_closed_candle_timestamp(candles) \u2014 ISO UTC",
+    "feature_fp": "unified_row_fingerprint(unified_row) \u2014 16-char hash",
+    "model_fp": "_model_fingerprint \u2014 trend engine id/version + phase9_9 model hash"
+  },
+  "never_uses": [
+    "dataframe positional index",
+    "unified.index[-1] integer"
+  ],
+  "example_key": "XAUUSD|M5|2026-06-01T12:00:00+00:00|aecdc7bc83e12d88|trend_rf_v41@v41::",
+  "generated_utc": "2026-07-09T13:04:40.497832+00:00"
+}

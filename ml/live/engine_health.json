@@ -1,0 +1,33 @@
+{
+  "phase9_9": {
+    "engine": "phase9_9",
+    "status": "OK"
+  },
+  "trend_rf_v40": {
+    "engine": "trend_rf_v40",
+    "status": "OK",
+    "checksum": {
+      "valid": true,
+      "model_sha256": "ae9d123d5f48eeb5d0b1b4a391e12a28e12ebd46d09b661927ab1730fbb74608",
+      "stored_model_sha256": "ae9d123d5f48eeb5d0b1b4a391e12a28e12ebd46d09b661927ab1730fbb74608",
+      "bundle_sha256": "a38968041f28c20b34331bc8a037244b052ba7e19e1e783373907991fc7d0552",
+      "stored_bundle_sha256": "a38968041f28c20b34331bc8a037244b052ba7e19e1e783373907991fc7d0552",
+      "version": "trend_rf_v40.1",
+      "bundle_version": "v40"
+    }
+  },
+  "trend_rf_v41": {
+    "engine": "trend_rf_v41",
+    "status": "OK",
+    "checksum": {
+      "valid": true,
+      "model_sha256": "13b960cf5f85085f7f5cd3984b8f5f3b7e452af2b6515bf2f7d618e1838dc6a5",
+      "stored_model_sha256": null,
+      "bundle_sha256": "a433fa410604b17ad195ec80469c86bca47b3df718f4072b2c5d1dc2b153eb6b",
+      "stored_bundle_sha256": "a433fa410604b17ad195ec80469c86bca47b3df718f4072b2c5d1dc2b153eb6b",
+      "version": null,
+      "bundle_version": "v41"
+    }
+  },
+  "updated_at_utc": "2026-07-11T20:35:43.489402+00:00"
+}

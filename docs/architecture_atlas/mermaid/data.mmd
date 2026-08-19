@@ -1,0 +1,155 @@
+flowchart TB
+    %% data
+    tradingbot_ml_dataset_schema0[schema]
+    tradingbot_ml_dataset_deep_audit_Dataset1[DatasetDeepAuditor]
+    tradingbot_ml_dataset_preflight_Prefligh2[PreflightReport]
+    tradingbot_ml_models_dataset_loader3[dataset_loader]
+    tradingbot_adapters_mt5_market_data4[mt5_market_data]
+    scripts_build_ml_dataset5[build_ml_dataset]
+    tradingbot_ml_dataset_store6[store]
+    tradingbot_ml_dataset_validation_Dataset7[DatasetValidationIssue]
+    tradingbot_ml_dataset_label_research8[label_research]
+    tradingbot_ml_dataset_preflight9[preflight]
+    tradingbot_ml_dataset_hardening10[hardening]
+    tradingbot_ml_research_phase46_ml_signal11[build_historical_dataset]
+    tradingbot_ml_dataset_label_research_Lab12[LabelResearchReport]
+    tradingbot_ml_research_phase46_ml_signal13[ml_signal_dataset]
+    tradingbot_ml_dataset_labels_LabelResult14[LabelResult]
+    tradingbot_ml_dataset_memory_cache__Cach15[_CacheEntry]
+    tradingbot_ml_dataset_session_analysis16[session_analysis]
+    tradingbot_ml_dataset_label_quality_Labe17[LabelQualityReport]
+    tradingbot_ml_dataset_sanity_gate_Sanity18[SanityReport]
+    tradingbot_ml_dataset_research_audit_Res19[ResearchAuditResult]
+    tradingbot_ml_dataset_phase9_production_20[Phase91BuildResult]
+    tradingbot_ml_dataset_production_dataset21[ProductionDatasetV2Builder]
+    tradingbot_ports_market_data22[market_data]
+    tradingbot_ports_market_data_IMarketData23[IMarketDataProvider]
+    tradingbot_ml_dataset_fingerprint_Datase24[DatasetFingerprint]
+    tradingbot_ml_research_phase22l_rebuild_25[rebuild_dataset_v2_research]
+    tradingbot_ml_research_phase46_ml_signal26[build_ml_signal_dataset]
+    tradingbot_ml_research_phase49_ml_captur27[build_ml_signal_dataset_v7]
+    tradingbot_ml_dataset_phase9_production_28[Phase91ProductionBuilder]
+    tradingbot_ml_dataset_memory_cache29[memory_cache]
+    scripts_visualize_dataset_main30[main]
+    tradingbot_ml_dataset_schema_Label31[Label]
+    tradingbot_ml_research_phase36_build_dat32[build_dataset_v3]
+    tradingbot_ml_dataset_label_quality_Labe33[LabelQualityValidator]
+    tradingbot_ml_research_phase42_feature_p34[build_dataset_v4]
+    tradingbot_ml_dataset_leakage_report_Lea35[LeakageAuditResult]
+    tradingbot_ml_dataset_statistics_Dataset36[DatasetStatistics]
+    tradingbot_ml_models_dataset_loader_Data37[DatasetSplits]
+    tradingbot_ml_dataset_splitter38[splitter]
+    tradingbot_ml_dataset_hardening_run_data39[run_dataset_hardening]
+    tradingbot_ml_research_live_l1_build_v8_40[_load_spec]
+    folder_tradingbot_ml_dataset41{{dataset}}
+    tradingbot_ml_dataset_phase9_production_42[phase9_production_build]
+    tradingbot_ml_research_phase36_build_dat43[feature_columns]
+    scripts_analyze_dataset44[analyze_dataset]
+    tradingbot_ml_dataset_preflight_Timefram45[TimeframePreflightStatus]
+    tradingbot_ml_dataset_label_analysis_Lab46[LabelDistributionReport]
+    tradingbot_ml_dataset_release_manager_Da47[DatasetReleaseManager]
+    tradingbot_ml_dataset_labels48[labels]
+    tradingbot_ml_dataset_regime_analysis49[regime_analysis]
+    tradingbot_ml_dataset_train_readiness_re50[TrainReadinessReport]
+    tradingbot_ml_dataset_release_manager51[release_manager]
+    tradingbot_ml_dataset_schema_DatasetBuil52[DatasetBuildConfig]
+    tradingbot_ml_dataset_production_dataset53[ProductionV2BuildResult]
+    tradingbot_ml_dataset_regime_analysis_Re54[RegimeAnalysisReport]
+    tradingbot_ml_dataset_preflight_run_pref55[run_preflight]
+    tradingbot_ml_dataset_train_readiness_re56[TrainReadinessAnalyzer]
+    tradingbot_ml_dataset_validation_Dataset57[DatasetValidationResult]
+    tradingbot_ml_research_phase45_structure58[structure_dataset]
+    tradingbot_ml_dataset_leakage_report_Dat59[DatasetLeakageAuditor]
+    tradingbot_ml_dataset_sparse_event_build60[build_bar_spread_proxy_series]
+    tradingbot_ml_dataset_label_analysis61[label_analysis]
+    tradingbot_ml_research_phase36_build_dat62[bar_index_for_timestamp]
+    tradingbot_ml_dataset_sanity_gate63[sanity_gate]
+    tradingbot_ml_dataset_validation_validat64[validate_dataset]
+    tradingbot_ml_dataset_store_DatasetStore65[DatasetStore]
+    tradingbot_ml_dataset_fingerprint66[fingerprint]
+    tradingbot_ml_dataset_feature_analysis_F67[FeatureAnalysisReport]
+    tradingbot_ml_dataset_schema_LabeledSamp68[LabeledSample]
+    scripts_build_ml_dataset_main69[main]
+    tradingbot_ml_dataset_sparse_event_build70[sparse_event_builder]
+    tradingbot_ml_research_live_l1_build_v8_71[_session_flags]
+    tradingbot_ml_dataset_release_manager_Da72[DatasetReleaseResult]
+    tradingbot_ml_dataset_label_research_run73[run_label_research]
+    tradingbot_ml_dataset_validation74[validation]
+    tradingbot_ml_dataset_report_build_datas75[build_dataset_quality_report]
+    tradingbot_ml_dataset_sparse_event_build76[SparseBuildResult]
+    tradingbot_ml_research_phase39_expand_da77[build_aligned_rows_expanded]
+    tradingbot_ml_dataset_production_builder78[ProductionDatasetBuilder]
+    tradingbot_ml_dataset_session_analysis_S79[SessionAnalysisReport]
+    tradingbot_ml_dataset_fingerprint66 -->|contains| tradingbot_ml_dataset_fingerprint_Datase24
+    tradingbot_ml_dataset_hardening10 -->|contains| tradingbot_ml_dataset_hardening_run_data39
+    tradingbot_ml_dataset_labels48 -->|contains| tradingbot_ml_dataset_labels_LabelResult14
+    tradingbot_ml_dataset_label_analysis61 -->|contains| tradingbot_ml_dataset_label_analysis_Lab46
+    tradingbot_ml_dataset_label_research8 -->|contains| tradingbot_ml_dataset_label_research_Lab12
+    tradingbot_ml_dataset_label_research8 -->|contains| tradingbot_ml_dataset_label_research_run73
+    tradingbot_ml_dataset_memory_cache29 -->|contains| tradingbot_ml_dataset_memory_cache__Cach15
+    tradingbot_ml_dataset_phase9_production_42 -->|contains| tradingbot_ml_dataset_phase9_production_20
+    tradingbot_ml_dataset_phase9_production_42 -->|contains| tradingbot_ml_dataset_phase9_production_28
+    tradingbot_ml_dataset_preflight9 -->|contains| tradingbot_ml_dataset_preflight_Timefram45
+    tradingbot_ml_dataset_preflight9 -->|contains| tradingbot_ml_dataset_preflight_Prefligh2
+    tradingbot_ml_dataset_preflight9 -->|contains| tradingbot_ml_dataset_preflight_run_pref55
+    tradingbot_ml_dataset_regime_analysis49 -->|contains| tradingbot_ml_dataset_regime_analysis_Re54
+    tradingbot_ml_dataset_release_manager51 -->|contains| tradingbot_ml_dataset_release_manager_Da72
+    tradingbot_ml_dataset_release_manager51 -->|contains| tradingbot_ml_dataset_release_manager_Da47
+    tradingbot_ml_dataset_sanity_gate63 -->|contains| tradingbot_ml_dataset_sanity_gate_Sanity18
+    tradingbot_ml_dataset_schema0 -->|contains| tradingbot_ml_dataset_schema_Label31
+    tradingbot_ml_dataset_schema0 -->|contains| tradingbot_ml_dataset_schema_DatasetBuil52
+    tradingbot_ml_dataset_schema0 -->|contains| tradingbot_ml_dataset_schema_LabeledSamp68
+    tradingbot_ml_dataset_session_analysis16 -->|contains| tradingbot_ml_dataset_session_analysis_S79
+    tradingbot_ml_dataset_sparse_event_build70 -->|contains| tradingbot_ml_dataset_sparse_event_build76
+    tradingbot_ml_dataset_sparse_event_build70 -->|contains| tradingbot_ml_dataset_sparse_event_build60
+    tradingbot_ml_dataset_store6 -->|contains| tradingbot_ml_dataset_store_DatasetStore65
+    tradingbot_ml_dataset_validation74 -->|contains| tradingbot_ml_dataset_validation_Dataset7
+    tradingbot_ml_dataset_validation74 -->|contains| tradingbot_ml_dataset_validation_Dataset57
+    tradingbot_ml_dataset_validation74 -->|contains| tradingbot_ml_dataset_validation_validat64
+    tradingbot_ml_models_dataset_loader3 -->|contains| tradingbot_ml_models_dataset_loader_Data37
+    tradingbot_ml_research_phase36_build_dat32 -->|contains| tradingbot_ml_research_phase36_build_dat62
+    tradingbot_ml_research_phase36_build_dat32 -->|contains| tradingbot_ml_research_phase36_build_dat43
+    tradingbot_ml_research_phase46_ml_signal13 -->|contains| tradingbot_ml_research_phase46_ml_signal11
+    tradingbot_ml_research_phase46_ml_signal13 -->|contains| tradingbot_ml_research_phase46_ml_signal26
+    tradingbot_ports_market_data22 -->|contains| tradingbot_ports_market_data_IMarketData23
+    scripts_build_ml_dataset5 -->|contains| scripts_build_ml_dataset_main69
+    tradingbot_adapters_mt5_market_data4 -->|imports| tradingbot_ports_market_data22
+    tradingbot_ml_dataset_fingerprint66 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_hardening10 -->|imports| tradingbot_ml_dataset_fingerprint66
+    tradingbot_ml_dataset_hardening10 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_labels48 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_label_analysis61 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_label_research8 -->|imports| tradingbot_ml_dataset_labels48
+    tradingbot_ml_dataset_label_research8 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_fingerprint66
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_preflight9
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_sanity_gate63
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_sparse_event_build70
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_splitter38
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_store6
+    tradingbot_ml_dataset_phase9_production_42 -->|imports| tradingbot_ml_dataset_validation74
+    tradingbot_ml_dataset_regime_analysis49 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_release_manager51 -->|imports| tradingbot_ml_dataset_fingerprint66
+    tradingbot_ml_dataset_release_manager51 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_sanity_gate63 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_sanity_gate63 -->|imports| tradingbot_ml_dataset_splitter38
+    tradingbot_ml_dataset_session_analysis16 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_sparse_event_build70 -->|imports| tradingbot_ml_dataset_hardening10
+    tradingbot_ml_dataset_sparse_event_build70 -->|imports| tradingbot_ml_dataset_labels48
+    tradingbot_ml_dataset_sparse_event_build70 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_sparse_event_build70 -->|imports| tradingbot_ml_dataset_splitter38
+    tradingbot_ml_dataset_sparse_event_build70 -->|imports| tradingbot_ml_dataset_store6
+    tradingbot_ml_dataset_store6 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_dataset_store6 -->|imports| tradingbot_ml_dataset_memory_cache29
+    tradingbot_ml_dataset_store6 -->|imports| tradingbot_ml_dataset_memory_cache29
+    tradingbot_ml_dataset_validation74 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_models_dataset_loader3 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_models_dataset_loader3 -->|imports| tradingbot_ml_dataset_store6
+    tradingbot_ml_research_phase36_build_dat32 -->|imports| tradingbot_ml_dataset_schema0
+    tradingbot_ml_research_phase46_ml_signal13 -->|imports| tradingbot_ml_dataset_schema0
+    scripts_analyze_dataset44 -->|imports| tradingbot_ml_dataset_store6
+    scripts_analyze_dataset44 -->|imports| tradingbot_ml_dataset_validation74
+    scripts_build_ml_dataset5 -->|imports| tradingbot_ml_dataset_phase9_production_42
+    scripts_build_ml_dataset5 -->|imports| tradingbot_ml_dataset_schema0
+    scripts_build_ml_dataset5 -->|imports| tradingbot_ml_dataset_store6

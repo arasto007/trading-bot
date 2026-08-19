@@ -1,0 +1,91 @@
+{
+  "now": "2026-07-15T01:16:22Z",
+  "verdict": "FUNNEL_SEVERE_EDGE_LOSS",
+  "caches_audited": 4,
+  "per_cache": [
+    {
+      "cache_label": "A",
+      "bars_scanned": 3700,
+      "raw_signal_count": 790,
+      "would_reach_execution": 0,
+      "executed_path": 0,
+      "capture_rate_pct": 0.0,
+      "execution_rate_pct": 0.0,
+      "edge_loss_to_filters_pct": 100.0,
+      "signal_blockers": {
+        "TradeQuality": 739,
+        "AdaptiveRisk": 51
+      },
+      "bar_blockers": {
+        "DecisionOrchestrator": 2910,
+        "TradeQuality": 739,
+        "AdaptiveRisk": 51
+      }
+    },
+    {
+      "cache_label": "B",
+      "bars_scanned": 1000,
+      "raw_signal_count": 180,
+      "would_reach_execution": 0,
+      "executed_path": 0,
+      "capture_rate_pct": 0.0,
+      "execution_rate_pct": 0.0,
+      "edge_loss_to_filters_pct": 100.0,
+      "signal_blockers": {
+        "TradeQuality": 164,
+        "AdaptiveRisk": 16
+      },
+      "bar_blockers": {
+        "DecisionOrchestrator": 820,
+        "TradeQuality": 164,
+        "AdaptiveRisk": 16
+      }
+    },
+    {
+      "cache_label": "C",
+      "bars_scanned": 5321,
+      "raw_signal_count": 1138,
+      "would_reach_execution": 0,
+      "executed_path": 0,
+      "capture_rate_pct": 0.0,
+      "execution_rate_pct": 0.0,
+      "edge_loss_to_filters_pct": 100.0,
+      "signal_blockers": {
+        "TradeQuality": 1075,
+        "AdaptiveRisk": 63
+      },
+      "bar_blockers": {
+        "DecisionOrchestrator": 4183,
+        "TradeQuality": 1075,
+        "AdaptiveRisk": 63
+      }
+    },
+    {
+      "cache_label": "H",
+      "bars_scanned": 11685,
+      "raw_signal_count": 2756,
+      "would_reach_execution": 0,
+      "executed_path": 0,
+      "capture_rate_pct": 0.0,
+      "execution_rate_pct": 0.0,
+      "edge_loss_to_filters_pct": 100.0,
+      "signal_blockers": {
+        "TradeQuality": 2563,
+        "AdaptiveRisk": 193
+      },
+      "bar_blockers": {
+        "DecisionOrchestrator": 8929,
+        "TradeQuality": 2563,
+        "AdaptiveRisk": 193
+      }
+    }
+  ],
+  "aggregate": {
+    "raw_signals": 4864,
+    "would_reach_execution": 0,
+    "executed_path": 0,
+    "capture_rate_pct": 0.0,
+    "execution_rate_pct": 0.0,
+    "edge_loss_pct": 100.0
+  }
+}

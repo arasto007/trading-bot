@@ -1,0 +1,27 @@
+{
+  "phase": "23E",
+  "verdict": "CREATE_RANGE_SPECIFIC_FILTER_PROFILE",
+  "recommended_profile": {
+    "profile_id": "f2b3f3a1c2d7",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 40.0,
+    "rsi_max": 65.0,
+    "adx_min": 15.0,
+    "adx_max": 40.0
+  },
+  "production_baseline": {
+    "profile_id": "production_phase22c",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "implementation_status": "NOT IMPLEMENTED — research recommendation only",
+  "rationale": "Optimal RANGE grid-search winner mapped to CREATE_RANGE_SPECIFIC_FILTER_PROFILE",
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00"
+}

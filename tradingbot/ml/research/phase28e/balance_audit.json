@@ -1,0 +1,11 @@
+{
+  "phase": "28E",
+  "initial_balance": 200.0,
+  "final_balance_rebuilt": 1281.7446,
+  "net_profit_sum": 1081.7446,
+  "mismatch_count": 0,
+  "balance_calculation_correct": true,
+  "mismatches": [],
+  "trade_count": 575,
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

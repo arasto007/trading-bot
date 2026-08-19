@@ -1,0 +1,53 @@
+{
+  "phase": "23D",
+  "method": "Existing simulate_outcome on RANGE pipeline_actionable signals; no production code changes",
+  "tail_300_bars": {
+    "label": "tail_300",
+    "filter_on": {
+      "trades": 9,
+      "profit_factor": 1.6,
+      "expectancy_r": 0.333333,
+      "win_rate": 0.0,
+      "maximum_drawdown_r": -3.0,
+      "sharpe_proxy": 0.223607,
+      "mean_confidence": 0.9805
+    },
+    "filter_off": {
+      "trades": 18,
+      "profit_factor": 5.2,
+      "expectancy_r": 1.166667,
+      "win_rate": 0.0,
+      "maximum_drawdown_r": -3.0,
+      "sharpe_proxy": 0.868243,
+      "mean_confidence": 0.9765
+    },
+    "delta_pf": -3.6,
+    "delta_expectancy": -0.8333,
+    "delta_trades": -9
+  },
+  "window_365d": {
+    "label": "365d",
+    "filter_on": {
+      "trades": 156,
+      "profit_factor": 1.851852,
+      "expectancy_r": 0.442308,
+      "win_rate": 0.0,
+      "maximum_drawdown_r": -10.0,
+      "sharpe_proxy": 0.29509,
+      "mean_confidence": 0.9854
+    },
+    "filter_off": {
+      "trades": 224,
+      "profit_factor": 1.642276,
+      "expectancy_r": 0.352679,
+      "win_rate": 0.0,
+      "maximum_drawdown_r": -12.0,
+      "sharpe_proxy": 0.236261,
+      "mean_confidence": 0.9859
+    },
+    "delta_pf": 0.2096,
+    "delta_expectancy": 0.0896,
+    "delta_trades": -68
+  },
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

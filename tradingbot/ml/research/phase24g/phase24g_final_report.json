@@ -1,0 +1,8 @@
+{
+  "phase": "24G",
+  "verdict": "SAFE_DEPLOYED",
+  "production_modified": true,
+  "summary": "Optimized build_unified_frame: SAFE_DEPLOYED. Feature parity: True. Prediction parity: True. p95 savings: 32.55 ms.",
+  "env_flag": "ENABLE_OPTIMIZED_UNIFIED_FRAME",
+  "generated_utc": "2026-07-08T12:48:05.459083+00:00"
+}

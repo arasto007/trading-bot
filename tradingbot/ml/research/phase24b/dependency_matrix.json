@@ -1,0 +1,81 @@
+{
+  "phase": "24B",
+  "dependencies": {
+    "LiveRunner": [
+      "TradingKernel",
+      "Mt5MarketDataAdapter",
+      "Mt5ExecutionAdapter",
+      "create_risk_gate",
+      "build_strategy_registry"
+    ],
+    "TradingKernel": [
+      "DataStage",
+      "IndicatorStage",
+      "SignalStage",
+      "RiskStage",
+      "ExecutionStage"
+    ],
+    "build_strategy_registry": [
+      "LegacyStrategyRegistry",
+      "MLKernelRegistry",
+      "KernelAdapter",
+      "is_ml_kernel_enabled"
+    ],
+    "KernelAdapter": [
+      "PipelineCache",
+      "HealthGate",
+      "DecisionOrchestrator chain",
+      "regime_filter_profiles",
+      "phase19c.filters"
+    ],
+    "PipelineCache": [
+      "EngineRegistry",
+      "DatasetStore",
+      "build_unified_frame",
+      "load_phase9_9_bundle"
+    ],
+    "EngineRegistry": [
+      "RangeEngineAdapter",
+      "Trend bundle loaders"
+    ],
+    "SignalStage": [
+      "IStrategyRegistry only \u2014 no direct ML imports"
+    ],
+    "ExecutionStage": [
+      "IOrderExecutor only"
+    ]
+  },
+  "independent_modules": [
+    "BackgroundServices (parallel to kernel loop)",
+    "KillSwitchService (parallel monitor)",
+    "Notifier / TradeJournal (observability)",
+    "Research phases under ml/research/ (no execution imports)"
+  ],
+  "tightly_coupled_groups": [
+    [
+      "KernelAdapter",
+      "PipelineCache",
+      "EngineRegistry"
+    ],
+    [
+      "KernelAdapter",
+      "HealthGate",
+      "frozen artifacts"
+    ],
+    [
+      "factory.build_ml_kernel_stack",
+      "Phase22C config",
+      "DecisionPolicy thresholds"
+    ],
+    [
+      "SignalStage",
+      "MLKernelRegistry",
+      "KernelAdapter"
+    ],
+    [
+      "RiskStage",
+      "legacy RiskGate"
+    ]
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

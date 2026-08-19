@@ -1,0 +1,56 @@
+{
+  "phase": "22F",
+  "baseline_m5_pf": 0.0,
+  "overfiltering_verdict": "over_filtered",
+  "candidates": [
+    {
+      "component": "decision_engine",
+      "evidence_blocks": 5661,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "medium",
+      "implementation_complexity_1_5": 3,
+      "confidence": "medium",
+      "risk_if_changed": "medium",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor decision_engine — 5661 blocks recorded"
+    },
+    {
+      "component": "rsi_filter",
+      "evidence_blocks": 176,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "medium",
+      "implementation_complexity_1_5": 1,
+      "confidence": "medium",
+      "risk_if_changed": "low",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor rsi_filter — 176 blocks recorded"
+    },
+    {
+      "component": "riskgate",
+      "evidence_blocks": 58,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "high",
+      "implementation_complexity_1_5": 3,
+      "confidence": "medium",
+      "risk_if_changed": "medium",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor riskgate — 58 blocks recorded"
+    }
+  ],
+  "top_recommendation": {
+    "component": "decision_engine",
+    "evidence_blocks": 5661,
+    "evidence_missed_r_sum": 0.0,
+    "expected_pf_improvement": 0.0,
+    "expected_dd_impact": "medium",
+    "implementation_complexity_1_5": 3,
+    "confidence": "medium",
+    "risk_if_changed": "medium",
+    "estimated_fast_validation_min": 10,
+    "recommendation": "Monitor decision_engine — 5661 blocks recorded"
+  },
+  "note": "Evidence from hold-chain blocks + missed-opportunity forward R only"
+}

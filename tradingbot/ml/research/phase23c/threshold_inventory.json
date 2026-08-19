@@ -1,0 +1,117 @@
+{
+  "phase": "23C",
+  "thresholds": [
+    {
+      "value": 0.55,
+      "name": "buy_threshold / DEFAULT_MIN_CONFIDENCE",
+      "purpose": "BUY signal + decision policy gate (default)",
+      "owner": "SignalEngine / DecisionPolicy",
+      "used_by": [
+        "RangeEngineAdapter",
+        "DecisionOrchestrator"
+      ]
+    },
+    {
+      "value": 0.45,
+      "name": "sell_threshold",
+      "purpose": "SELL signal from raw probability",
+      "owner": "SignalEngine",
+      "used_by": [
+        "RangeEngineAdapter"
+      ]
+    },
+    {
+      "value": 0.55,
+      "name": "decision_min_confidence",
+      "purpose": "Block BUY/SELL when final_confidence below threshold",
+      "owner": "DecisionPolicy",
+      "used_by": [
+        "DecisionOrchestrator"
+      ]
+    },
+    {
+      "value": 0.55,
+      "name": "MIN_CALIBRATED_CONFIDENCE",
+      "purpose": "Heuristic calibration gate (fallback adapter)",
+      "owner": "CalibrationPolicy",
+      "used_by": [
+        "CalibratedDecisionAdapter"
+      ]
+    },
+    {
+      "value": 0.3,
+      "name": "platt_confidence_threshold",
+      "purpose": "Research Platt gate (production recovered path)",
+      "owner": "ResearchCalibrationPolicy",
+      "used_by": [
+        "ResearchCalibratedAdapter via recovered_calibration"
+      ]
+    },
+    {
+      "value": 0.1,
+      "name": "MIN_RAW_CONFIDENCE",
+      "purpose": "Reject calibration when raw too low",
+      "owner": "CalibrationPolicy",
+      "used_by": [
+        "ConfidenceCalibrator"
+      ]
+    },
+    {
+      "value": 0.4,
+      "name": "TREND_ML_THRESHOLD",
+      "purpose": "Trend engine probability gate",
+      "owner": "RecoveredTrendEngine",
+      "used_by": [
+        "TREND regime only"
+      ]
+    },
+    {
+      "value": 0.65,
+      "name": "QUALITY_THRESHOLD",
+      "purpose": "Trade quality composite score minimum",
+      "owner": "QualityPolicy",
+      "used_by": [
+        "TradeQualityEngine",
+        "KernelAdapter"
+      ]
+    },
+    {
+      "value": 0.48,
+      "name": "PHASE22C_DECISION_MIN_CONFIDENCE",
+      "purpose": "Lower decision policy gate",
+      "owner": "Phase22CConfig",
+      "used_by": [
+        "factory.build_ml_kernel_stack"
+      ]
+    },
+    {
+      "value": 0.42,
+      "name": "PHASE22C_CALIBRATION_MIN_CONFIDENCE",
+      "purpose": "Lower Platt calibration gate",
+      "owner": "Phase22CConfig",
+      "used_by": [
+        "recovered_calibration.build_production_calibrated_adapter"
+      ]
+    },
+    {
+      "value": 0.52,
+      "name": "PHASE22C_RANGE_BUY_THRESHOLD",
+      "purpose": "Range SignalEngine buy threshold override",
+      "owner": "Phase22CConfig",
+      "used_by": [
+        "apply_phase22c_range_thresholds"
+      ]
+    },
+    {
+      "value": 0.48,
+      "name": "PHASE22C_RANGE_SELL_THRESHOLD",
+      "purpose": "Range SignalEngine sell threshold override",
+      "owner": "Phase22CConfig",
+      "used_by": [
+        "apply_phase22c_range_thresholds"
+      ]
+    }
+  ],
+  "phase22c_enabled": true,
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

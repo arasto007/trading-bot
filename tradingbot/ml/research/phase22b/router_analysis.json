@@ -1,0 +1,17 @@
+{
+  "phase": "22B",
+  "routing_logic": "DecisionOrchestrator.select_engine(regime) \u2192 TREND=trend_rf_v41, RANGE=phase9_9",
+  "M5_engine_route_counts": {
+    "phase9_9": 9930,
+    "trend_rf_v40": 138
+  },
+  "M5_regime_counts": {
+    "RANGE": 9930,
+    "TREND": 138
+  },
+  "ml_vs_legacy_signals_M5": {
+    "ml_kernel": 36,
+    "legacy_fallback": 0
+  },
+  "why_legacy": "Only on KernelFallbackError; count=0"
+}

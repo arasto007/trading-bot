@@ -1,0 +1,34 @@
+{
+  "phase": "28D",
+  "by_session": {
+    "Asian": {
+      "trades": 232,
+      "win_rate_pct": 34.91,
+      "profit_factor": 1.2131,
+      "net_profit": 246.7932,
+      "expectancy": 1.0638
+    },
+    "London": {
+      "trades": 127,
+      "win_rate_pct": 18.11,
+      "profit_factor": 0.7806,
+      "net_profit": -160.1292,
+      "expectancy": -1.2609
+    },
+    "New York": {
+      "trades": 127,
+      "win_rate_pct": 55.12,
+      "profit_factor": 1.8761,
+      "net_profit": 532.9343,
+      "expectancy": 4.1963
+    },
+    "Overlap": {
+      "trades": 89,
+      "win_rate_pct": 32.58,
+      "profit_factor": 2.3279,
+      "net_profit": 462.1463,
+      "expectancy": 5.1927
+    }
+  },
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

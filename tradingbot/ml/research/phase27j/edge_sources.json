@@ -1,0 +1,71 @@
+{
+  "phase": "27J",
+  "total_net_edge": 714.7104,
+  "contributions": {
+    "entry_direction_sell": {
+      "count": 534,
+      "net_edge": 895.0063,
+      "expectancy": 1.676
+    },
+    "entry_direction_buy": {
+      "count": 41,
+      "net_edge": -180.2959,
+      "expectancy": -4.3975
+    },
+    "exit_tp_quality": {
+      "count": 173,
+      "net_edge": 4314.161,
+      "expectancy": 24.9373
+    },
+    "exit_sl_quality": {
+      "count": 337,
+      "net_edge": -3978.7851,
+      "expectancy": -11.8065
+    },
+    "exit_timeout_quality": {
+      "count": 65,
+      "net_edge": 379.3345,
+      "expectancy": 5.8359
+    },
+    "regime_range": {
+      "count": 575,
+      "net_edge": 714.7104,
+      "expectancy": 1.243
+    },
+    "confidence_high_gte_0.90": {
+      "count": 510,
+      "net_edge": 860.48,
+      "expectancy": 1.6872
+    },
+    "confidence_low_lt_0.90": {
+      "count": 65,
+      "net_edge": -145.7696,
+      "expectancy": -2.2426
+    },
+    "risk_sizing_avg_lot": 0.01
+  },
+  "largest_contributors_ranked": [
+    {
+      "source": "TP_exits",
+      "net_edge": 4314.161
+    },
+    {
+      "source": "SELL_direction",
+      "net_edge": 895.0063
+    },
+    {
+      "source": "high_confidence",
+      "net_edge": 860.48
+    },
+    {
+      "source": "RANGE_regime",
+      "net_edge": 714.7104
+    },
+    {
+      "source": "TIMEOUT_exits",
+      "net_edge": 379.3345
+    }
+  ],
+  "primary_edge_source": "TP_exits",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

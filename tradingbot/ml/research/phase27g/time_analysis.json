@@ -1,0 +1,238 @@
+{
+  "phase": "27G",
+  "sessions": {
+    "Asian": {
+      "trade_count": 232,
+      "win_rate_pct": 40.95,
+      "expectancy": 2.6836,
+      "profit_factor": 1.4195,
+      "net_profit": 622.6047
+    },
+    "London": {
+      "trade_count": 127,
+      "win_rate_pct": 19.69,
+      "expectancy": -4.2393,
+      "profit_factor": 0.5115,
+      "net_profit": -538.3869
+    },
+    "New York": {
+      "trade_count": 127,
+      "win_rate_pct": 54.33,
+      "expectancy": 6.7263,
+      "profit_factor": 2.1157,
+      "net_profit": 854.236
+    },
+    "Overlap": {
+      "trade_count": 89,
+      "win_rate_pct": 37.08,
+      "expectancy": 1.8284,
+      "profit_factor": 1.3153,
+      "net_profit": 162.7316
+    }
+  },
+  "day_of_week": {
+    "Friday": {
+      "trade_count": 100,
+      "win_rate_pct": 32.0,
+      "expectancy": 1.3249,
+      "profit_factor": 1.1905,
+      "net_profit": 132.4926
+    },
+    "Monday": {
+      "trade_count": 106,
+      "win_rate_pct": 28.3,
+      "expectancy": -3.5272,
+      "profit_factor": 0.5544,
+      "net_profit": -373.8795
+    },
+    "Thursday": {
+      "trade_count": 147,
+      "win_rate_pct": 29.25,
+      "expectancy": -1.7479,
+      "profit_factor": 0.8048,
+      "net_profit": -256.9347
+    },
+    "Tuesday": {
+      "trade_count": 109,
+      "win_rate_pct": 53.21,
+      "expectancy": 6.2422,
+      "profit_factor": 2.5269,
+      "net_profit": 680.4027
+    },
+    "Wednesday": {
+      "trade_count": 113,
+      "win_rate_pct": 52.21,
+      "expectancy": 8.1337,
+      "profit_factor": 2.6077,
+      "net_profit": 919.1043
+    }
+  },
+  "hour_of_day_utc": {
+    "1": {
+      "trade_count": 25,
+      "win_rate_pct": 20.0,
+      "expectancy": -4.5069,
+      "profit_factor": 0.4601,
+      "net_profit": -112.6735
+    },
+    "2": {
+      "trade_count": 25,
+      "win_rate_pct": 36.0,
+      "expectancy": 0.8925,
+      "profit_factor": 1.1205,
+      "net_profit": 22.3136
+    },
+    "3": {
+      "trade_count": 36,
+      "win_rate_pct": 55.56,
+      "expectancy": 9.8915,
+      "profit_factor": 3.3754,
+      "net_profit": 356.0938
+    },
+    "4": {
+      "trade_count": 31,
+      "win_rate_pct": 67.74,
+      "expectancy": 10.996,
+      "profit_factor": 4.0304,
+      "net_profit": 340.8748
+    },
+    "5": {
+      "trade_count": 24,
+      "win_rate_pct": 41.67,
+      "expectancy": 1.1409,
+      "profit_factor": 1.129,
+      "net_profit": 27.3823
+    },
+    "6": {
+      "trade_count": 34,
+      "win_rate_pct": 32.35,
+      "expectancy": -1.4416,
+      "profit_factor": 0.8207,
+      "net_profit": -49.0128
+    },
+    "7": {
+      "trade_count": 32,
+      "win_rate_pct": 25.0,
+      "expectancy": -1.934,
+      "profit_factor": 0.6781,
+      "net_profit": -61.8879
+    },
+    "8": {
+      "trade_count": 15,
+      "win_rate_pct": 40.0,
+      "expectancy": 3.0767,
+      "profit_factor": 1.491,
+      "net_profit": 46.151
+    },
+    "9": {
+      "trade_count": 30,
+      "win_rate_pct": 6.67,
+      "expectancy": -9.3755,
+      "profit_factor": 0.1547,
+      "net_profit": -281.2658
+    },
+    "10": {
+      "trade_count": 27,
+      "win_rate_pct": 18.52,
+      "expectancy": -5.6705,
+      "profit_factor": 0.4221,
+      "net_profit": -153.1027
+    },
+    "11": {
+      "trade_count": 28,
+      "win_rate_pct": 10.71,
+      "expectancy": -6.769,
+      "profit_factor": 0.2598,
+      "net_profit": -189.5322
+    },
+    "12": {
+      "trade_count": 27,
+      "win_rate_pct": 33.33,
+      "expectancy": 1.4579,
+      "profit_factor": 1.2548,
+      "net_profit": 39.3628
+    },
+    "13": {
+      "trade_count": 27,
+      "win_rate_pct": 37.04,
+      "expectancy": 2.2277,
+      "profit_factor": 1.3885,
+      "net_profit": 60.1478
+    },
+    "14": {
+      "trade_count": 35,
+      "win_rate_pct": 37.14,
+      "expectancy": 1.8324,
+      "profit_factor": 1.3597,
+      "net_profit": 64.1344
+    },
+    "15": {
+      "trade_count": 27,
+      "win_rate_pct": 37.04,
+      "expectancy": 1.4241,
+      "profit_factor": 1.21,
+      "net_profit": 38.4494
+    },
+    "16": {
+      "trade_count": 38,
+      "win_rate_pct": 26.32,
+      "expectancy": -3.5924,
+      "profit_factor": 0.6521,
+      "net_profit": -136.5128
+    },
+    "17": {
+      "trade_count": 20,
+      "win_rate_pct": 65.0,
+      "expectancy": 8.5665,
+      "profit_factor": 2.7339,
+      "net_profit": 171.33
+    },
+    "18": {
+      "trade_count": 45,
+      "win_rate_pct": 71.11,
+      "expectancy": 11.3281,
+      "profit_factor": 4.3921,
+      "net_profit": 509.7666
+    },
+    "19": {
+      "trade_count": 12,
+      "win_rate_pct": 58.33,
+      "expectancy": 11.7837,
+      "profit_factor": 2.9592,
+      "net_profit": 141.4043
+    },
+    "20": {
+      "trade_count": 12,
+      "win_rate_pct": 58.33,
+      "expectancy": 14.0207,
+      "profit_factor": 4.2365,
+      "net_profit": 168.2479
+    },
+    "21": {
+      "trade_count": 13,
+      "win_rate_pct": 61.54,
+      "expectancy": 9.1981,
+      "profit_factor": 3.0001,
+      "net_profit": 119.575
+    },
+    "22": {
+      "trade_count": 8,
+      "win_rate_pct": 25.0,
+      "expectancy": -2.1874,
+      "profit_factor": 0.7165,
+      "net_profit": -17.4992
+    },
+    "23": {
+      "trade_count": 4,
+      "win_rate_pct": 25.0,
+      "expectancy": -0.6404,
+      "profit_factor": 0.9099,
+      "net_profit": -2.5614
+    }
+  },
+  "best_session": "New York",
+  "worst_session": "London",
+  "best_hour_utc": "20",
+  "worst_hour_utc": "9",
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

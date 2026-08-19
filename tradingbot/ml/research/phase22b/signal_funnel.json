@@ -1,0 +1,41 @@
+{
+  "phase": "22B",
+  "timeframe": "M5",
+  "stages": [
+    {
+      "name": "closed_bars_ml_invoked",
+      "count": 10068,
+      "pct": 100.0
+    },
+    {
+      "name": "ml_hold",
+      "count": 10032,
+      "pct": 99.64
+    },
+    {
+      "name": "ml_buy_sell",
+      "count": 36,
+      "pct": 0.36
+    },
+    {
+      "name": "signals_emitted_to_risk",
+      "count": 36,
+      "pct": 0.36
+    },
+    {
+      "name": "risk_allowed",
+      "count": 2,
+      "pct": 0.02
+    },
+    {
+      "name": "execution_attempts",
+      "count": 2,
+      "pct": 0.02
+    },
+    {
+      "name": "closed_trades",
+      "count": 2,
+      "pct": 0.0199
+    }
+  ]
+}

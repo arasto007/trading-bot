@@ -1,0 +1,42 @@
+{
+  "phase": "24B",
+  "title": "TradingBot Production Architecture Overview",
+  "verdict": "ARCHITECTURE_DOCUMENTED_FROM_SOURCE",
+  "live_entry": "python -m tradingbot --loop [--execute|--paper]",
+  "architecture_layers": [
+    "Market Data (MT5 \u2192 ParquetCache)",
+    "Kernel Pipeline (Data \u2192 Indicators \u2192 Signal \u2192 Risk \u2192 Execution)",
+    "ML Stack (optional USE_ML_KERNEL): HealthGate \u2192 PipelineCache \u2192 Engines \u2192 Orchestrator \u2192 Calibration \u2192 Risk \u2192 Quality \u2192 Filters",
+    "Execution (Mt5ExecutionAdapter \u2192 order_send)"
+  ],
+  "dual_strategy_paths": {
+    "ml": "MLKernelRegistry \u2192 KernelAdapter",
+    "legacy": "LegacyStrategyRegistry \u2192 PriceAction strategies",
+    "selection": "USE_ML_KERNEL env at factory.build_strategy_registry line 139"
+  },
+  "regime_detection_production": {
+    "function": "rule_classify_row",
+    "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+    "labels": [
+      "RANGE",
+      "TREND",
+      "HIGH_VOLATILITY",
+      "NO_TRADE"
+    ],
+    "note": "TRANSITION is filter-profile label only, not classifier output"
+  },
+  "model_inventory_summary": [
+    "phase9_9 RANGE",
+    "trend_rf_v40/v41 TREND"
+  ],
+  "safety_systems": [
+    "HealthGate",
+    "KernelFallbackError\u2192legacy",
+    "RiskGate",
+    "KillSwitch",
+    "order_logic guards",
+    "pipeline timeout 500ms"
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00",
+  "live_pipeline_ref": "live_pipeline_trace.json"
+}

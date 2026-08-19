@@ -1,0 +1,64 @@
+{
+  "phase": "22P",
+  "title": "End-to-End Live Execution Forensics",
+  "generated_utc": "2026-07-05T16:42:18.243076+00:00",
+  "dataset_a": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "elapsed_sec": 911.0,
+  "method": "Production-path BacktestEngine M5 + execution trace stride=5 + range forensics",
+  "production_modified": false,
+  "executed_trades": 0,
+  "profit_factor": 0.0,
+  "expectancy": 0.0,
+  "verdict": "FORENSICS_COMPLETE",
+  "primary_profitability_barrier": {
+    "barrier": "phase99 feature zero-fill from stale/sparse dataset_v2 merge → Range engine dead-zone HOLD",
+    "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+    "function": "build_unified_frame (lines 38-48: merge dataset + fillna(0.0))",
+    "secondary_files": [
+      "tradingbot/ml/integration/pipeline_cache.py (DatasetStore.load_v2 at inference)",
+      "tradingbot/ml/decision_engine/orchestrator.py (DecisionPolicy min_confidence gate on weak signals)"
+    ],
+    "evidence": {
+      "decision_hold_bars": 4247,
+      "decision_hold_pct_of_bars": 98.58,
+      "bars_evaluated": 4308,
+      "ml_signals_emitted": 0,
+      "executed_trades": 0,
+      "range_structure_distance_zero_count": 108,
+      "range_hold_causes": {},
+      "range_prob_buckets": {
+        "sell_zone": {
+          "count": 108,
+          "pct": 100.0
+        }
+      },
+      "mechanism": "PipelineCache loads event-sparse dataset_v2; merge miss on ~90%+ M5 bars → phase99_* = 0 → phase9_9 P(win)≈0.36 → DecisionOrchestrator HOLD via policy gate"
+    },
+    "quantified_impact": "4247/4308 bars (98.58%) blocked at decision_hold before RiskGate"
+  },
+  "final_answer": {
+    "biggest_barrier": "phase99 feature zero-fill from stale/sparse dataset_v2 merge → Range engine dead-zone HOLD",
+    "repository_file": "tradingbot/ml/research/phase13_9/unified_features.py",
+    "evidence": {
+      "decision_hold_bars": 4247,
+      "decision_hold_pct_of_bars": 98.58,
+      "bars_evaluated": 4308,
+      "ml_signals_emitted": 0,
+      "executed_trades": 0,
+      "range_structure_distance_zero_count": 108,
+      "range_hold_causes": {},
+      "range_prob_buckets": {
+        "sell_zone": {
+          "count": 108,
+          "pct": 100.0
+        }
+      },
+      "mechanism": "PipelineCache loads event-sparse dataset_v2; merge miss on ~90%+ M5 bars → phase99_* = 0 → phase9_9 P(win)≈0.36 → DecisionOrchestrator HOLD via policy gate"
+    }
+  }
+}

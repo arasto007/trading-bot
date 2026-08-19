@@ -1,0 +1,78 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "fields": [
+    "startup_timestamp",
+    "execution_mode",
+    "engine_selection",
+    "ml_kernel_enabled",
+    "legacy_fallback_allowed",
+    "emergency_stop_active",
+    "mt5_connected",
+    "autotrading_ready",
+    "health_gate_passes",
+    "model_versions",
+    "artifact_fingerprints",
+    "dataset_fingerprint_ok",
+    "risk_mode",
+    "recovery_mode",
+    "position_manager",
+    "protector_enabled",
+    "health_status",
+    "configuration_summary",
+    "repository_version",
+    "checks",
+    "warnings"
+  ],
+  "sample": {
+    "startup_timestamp": "2026-07-09T11:04:27.854581+00:00",
+    "execution_mode": "paper",
+    "engine_selection": "ML_KERNEL",
+    "ml_kernel_enabled": true,
+    "legacy_fallback_allowed": false,
+    "emergency_stop_active": false,
+    "mt5_connected": true,
+    "autotrading_ready": null,
+    "health_gate_passes": true,
+    "model_versions": {
+      "trend_bundle": "v41",
+      "trend_engine": "trend_rf_v41",
+      "trend_model_env": "v41"
+    },
+    "artifact_fingerprints": {
+      "dataset_fingerprint": true
+    },
+    "dataset_fingerprint_ok": true,
+    "risk_mode": "RiskGate+AdaptiveRisk",
+    "recovery_mode": false,
+    "position_manager": "Mt5PositionManager",
+    "protector_enabled": false,
+    "health_status": "ML_HEALTH_OK",
+    "configuration_summary": {
+      "use_ml_kernel": true,
+      "use_ml_kernel_env_set": true,
+      "allow_legacy_fallback": false,
+      "enable_ml_shadow": false,
+      "ml_shadow_mode": false,
+      "execution_mode": "paper",
+      "TRADINGBOT_PAPER": false,
+      "TRADINGBOT_DRY_RUN": false,
+      "TRADINGBOT_LIVE": true
+    },
+    "repository_version": "unknown",
+    "checks": {
+      "execution_mode_resolved": true,
+      "use_ml_kernel_set": true,
+      "emergency_stop_clear": true,
+      "single_position_owner": true,
+      "data_dir": true,
+      "data_writable": true,
+      "logs_dir": true,
+      "logs_writable": true,
+      "sqlite_available": true,
+      "parquet_candles": true,
+      "health_gate": true,
+      "mt5_connected": true
+    },
+    "warnings": []
+  }
+}

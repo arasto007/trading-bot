@@ -1,0 +1,612 @@
+{
+  "baseline_numeric": {
+    "robustness_score": 66.57,
+    "overfitting_risk": "HIGH",
+    "mean_profit_factor": 1.308,
+    "mean_expectancy": 0.1684,
+    "mean_auc_gap": 0.3308,
+    "max_auc_gap": 0.4519,
+    "mean_degradation": 0.38002,
+    "degradation_per_window": [
+      0.4794,
+      0.419,
+      0.3898,
+      0.3931,
+      0.2188
+    ],
+    "source_robustness_report": "data/ml/reports/phase9_8_robustness_report.json",
+    "source_window_results": "data/ml/reports/phase9_8_window_results.json"
+  },
+  "candidates": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "model": "random_forest",
+      "feature_subset": "stable_4",
+      "composite_score": 0.616598,
+      "mean_profit_factor": 1.2967,
+      "robustness_score": 59.09,
+      "mean_expectancy": 0.1566,
+      "probability_gate_passed": true,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": true
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1562,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_4",
+      "composite_score": 0.60158,
+      "mean_profit_factor": 1.308,
+      "robustness_score": 66.57,
+      "mean_expectancy": 0.1684,
+      "probability_gate_passed": true,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.3308,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.599385,
+      "mean_profit_factor": 1.3074,
+      "robustness_score": 66.11,
+      "mean_expectancy": 0.1659,
+      "probability_gate_passed": true,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.2933,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.594067,
+      "mean_profit_factor": 1.2959,
+      "robustness_score": 65.81,
+      "mean_expectancy": 0.1578,
+      "probability_gate_passed": true,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.2613,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.592035,
+      "mean_profit_factor": 1.227,
+      "robustness_score": 66.76,
+      "mean_expectancy": 0.1273,
+      "probability_gate_passed": true,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.3195,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.768628,
+      "mean_profit_factor": 1.3087,
+      "robustness_score": 77.73,
+      "mean_expectancy": 0.1571,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "LOW",
+      "mean_auc_gap": 0.0368,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.76795,
+      "mean_profit_factor": 1.3076,
+      "robustness_score": 77.68,
+      "mean_expectancy": 0.1564,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "LOW",
+      "mean_auc_gap": 0.0376,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.765607,
+      "mean_profit_factor": 1.3087,
+      "robustness_score": 77.47,
+      "mean_expectancy": 0.1571,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "LOW",
+      "mean_auc_gap": 0.0412,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.765607,
+      "mean_profit_factor": 1.3087,
+      "robustness_score": 77.47,
+      "mean_expectancy": 0.1571,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "LOW",
+      "mean_auc_gap": 0.0412,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "model": "lightgbm",
+      "feature_subset": "stable_4",
+      "composite_score": 0.725693,
+      "mean_profit_factor": 1.3241,
+      "robustness_score": 74.56,
+      "mean_expectancy": 0.1653,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0912,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "model": "lightgbm",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.715215,
+      "mean_profit_factor": 1.2932,
+      "robustness_score": 75.07,
+      "mean_expectancy": 0.1573,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0983,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "model": "lightgbm",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.715215,
+      "mean_profit_factor": 1.2932,
+      "robustness_score": 75.07,
+      "mean_expectancy": 0.1573,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0983,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_4",
+      "composite_score": 0.70851,
+      "mean_profit_factor": 1.3172,
+      "robustness_score": 64.5,
+      "mean_expectancy": 0.1584,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0496,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.70851,
+      "mean_profit_factor": 1.3172,
+      "robustness_score": 64.5,
+      "mean_expectancy": 0.1584,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0496,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_4",
+      "composite_score": 0.699765,
+      "mean_profit_factor": 1.3052,
+      "robustness_score": 63.67,
+      "mean_expectancy": 0.1441,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0489,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "model": "logistic",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.699765,
+      "mean_profit_factor": 1.3052,
+      "robustness_score": 63.67,
+      "mean_expectancy": 0.1441,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.0489,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "model": "random_forest",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.684515,
+      "mean_profit_factor": 1.3114,
+      "robustness_score": 71.71,
+      "mean_expectancy": 0.1587,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1378,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "model": "random_forest",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.676513,
+      "mean_profit_factor": 1.3173,
+      "robustness_score": 71.49,
+      "mean_expectancy": 0.1692,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.159,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.648175,
+      "mean_profit_factor": 1.316,
+      "robustness_score": 60.68,
+      "mean_expectancy": 0.1601,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "MEDIUM",
+      "mean_auc_gap": 0.1197,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.647743,
+      "mean_profit_factor": 1.2621,
+      "robustness_score": 61.72,
+      "mean_expectancy": 0.1413,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1204,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.645435,
+      "mean_profit_factor": 1.306,
+      "robustness_score": 64.42,
+      "mean_expectancy": 0.1545,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1563,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "model": "lightgbm",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.642743,
+      "mean_profit_factor": 1.2455,
+      "robustness_score": 61.57,
+      "mean_expectancy": 0.1338,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1261,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "model": "random_forest",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.627495,
+      "mean_profit_factor": 1.2952,
+      "robustness_score": 60.06,
+      "mean_expectancy": 0.1558,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1401,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_4",
+      "composite_score": 0.619845,
+      "mean_profit_factor": 1.2544,
+      "robustness_score": 59.87,
+      "mean_expectancy": 0.1345,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1439,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.618145,
+      "mean_profit_factor": 1.3026,
+      "robustness_score": 62.71,
+      "mean_expectancy": 0.152,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1832,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.616515,
+      "mean_profit_factor": 1.2302,
+      "robustness_score": 60.2,
+      "mean_expectancy": 0.1265,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1516,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.59651,
+      "mean_profit_factor": 1.2548,
+      "robustness_score": 57.93,
+      "mean_expectancy": 0.1364,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.18,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_4",
+      "composite_score": 0.589955,
+      "mean_profit_factor": 1.2464,
+      "robustness_score": 57.42,
+      "mean_expectancy": 0.1316,
+      "probability_gate_passed": false,
+      "acceptance_result": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": false
+      },
+      "overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1877,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false
+}

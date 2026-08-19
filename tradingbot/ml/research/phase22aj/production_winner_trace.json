@@ -1,0 +1,12 @@
+{
+  "phase": "22AJ",
+  "production_winner_rule": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+  "rank_one_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "select_best_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "production_winner_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "production_winner_acceptance": "PASS",
+  "report_best_candidate_experiment_id": "random_forest_shallow__stable_4__RANGE",
+  "orchestrator_source": "optimization_orchestrator.select_production_winner",
+  "freeze_manifest_exists": false,
+  "generated_utc": "2026-07-07T20:05:52.547968+00:00"
+}

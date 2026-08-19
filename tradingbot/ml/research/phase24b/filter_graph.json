@@ -1,0 +1,59 @@
+{
+  "phase": "24B",
+  "filters": [
+    {
+      "id": "rsi_profitability",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "line": 99,
+      "why": "Phase 19C \u2014 mid-band RSI filter for trade quality",
+      "production": true,
+      "regime_ownership": "All regimes when enabled; RANGE uses RangeFilterProfile bands when 23G active"
+    },
+    {
+      "id": "adx_profitability",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "line": 101,
+      "why": "Phase 19C \u2014 ADX band filter",
+      "production": true
+    },
+    {
+      "id": "regime_filter_profile_selector",
+      "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+      "line": 187,
+      "why": "Phase 23G \u2014 regime-conditional RSI/ADX bands",
+      "rollback_env": "ENABLE_RANGE_FILTER_PROFILE default true",
+      "range_only": "regime RANGE + engine phase9_9 \u2192 RangeFilterProfile 40-65 RSI, 15-40 ADX"
+    },
+    {
+      "id": "decision_policy_confidence",
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "line": 26,
+      "why": "Minimum confidence gate before filters"
+    },
+    {
+      "id": "trade_quality",
+      "file": "tradingbot/ml/trade_quality/quality_engine.py",
+      "why": "Phase 14.3 \u2014 composite quality score threshold",
+      "threshold_env": "PHASE22C_QUALITY_THRESHOLD default 0.52"
+    },
+    {
+      "id": "riskgate_legacy",
+      "file": "tradingbot/adapters/risk_gate.py",
+      "why": "Production RiskManager \u2014 separate from ML AdaptiveRiskEngine",
+      "stage": "RiskStage after signal emitted"
+    },
+    {
+      "id": "order_logic_guards",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "lines": "138-146",
+      "why": "Pre-broker validation"
+    }
+  ],
+  "application_order_in_kernel_adapter": [
+    "DecisionOrchestrator + calibration + risk + quality (single evaluate chain)",
+    "select_profitability_filter_settings(regime, engine)",
+    "apply_profitability_filters if action BUY/SELL and risk+quality allowed",
+    "final action HOLD coercion lines 243-248"
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

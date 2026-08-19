@@ -1,0 +1,14 @@
+{
+  "phase": "22AB",
+  "title": "Freeze Path Authority Forensics",
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false,
+  "verdict": "MULTIPLE_FREEZE_PATHS",
+  "freeze_bypasses_acceptance": true,
+  "multiple_freeze_paths": true,
+  "acceptance_must_pass": false,
+  "root_cause_summary": "freeze_phase9_9_artifacts() is a separate Phase 9.10 registry function that never reads evaluate_acceptance() or overfitting_risk_decreased. It trains a hardcoded logistic_strong_reg model from DEFAULT_CONFIG and can be invoked directly or via load_phase9_9_bundle(build_if_missing=True) without any connection to the Phase 9.9 RobustnessOptimizer pipeline.",
+  "frozen_candidate": "logistic_strong_reg",
+  "current_acceptance_verdict": "FAIL",
+  "design_vs_defect": "Phase separation (9.9 research vs 9.10 freeze) appears intentional, but the absence of any acceptance gate on freeze/load paths is an integration defect — not documented as safe behavior."
+}

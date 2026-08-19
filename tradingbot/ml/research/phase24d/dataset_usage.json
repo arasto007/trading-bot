@@ -1,0 +1,31 @@
+{
+  "dataset_v2_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\datasets\\XAUUSD_M5_dataset_v2.parquet",
+  "path_exists": true,
+  "load_v2_implementation": "pd.read_parquet(path) on every call \u2014 no instance cache in DatasetStore",
+  "source_file": "tradingbot/ml/dataset/store.py",
+  "source_lines": "74-79",
+  "pipeline_cache_pattern": "DatasetStore(base_dir).load_v2(...) \u2014 new store object every get_unified_frame call",
+  "pipeline_cache_lines": "107",
+  "loads_simulated": 50,
+  "load_v2_timing": {
+    "count": 50,
+    "mean_ms": 23.9893,
+    "median_ms": 21.7298,
+    "p95_ms": 26.0335,
+    "p99_ms": 72.0911,
+    "max_ms": 74.4851
+  },
+  "new_instance_per_call_timing": {
+    "count": 20,
+    "mean_ms": 23.5557,
+    "median_ms": 21.1891,
+    "p95_ms": 22.6164,
+    "p99_ms": 22.6164,
+    "max_ms": 71.7605
+  },
+  "reopens_parquet_every_call": true,
+  "incremental_merge_theoretically_possible": true,
+  "note": "dataset_v2 is static between offline rebuilds; only the candle tail changes each bar",
+  "phase": "24D",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

@@ -1,0 +1,152 @@
+{
+  "phase": "22AA",
+  "anchor": "overfitting_risk_decreased",
+  "nodes": [
+    {
+      "id": "train_model_cli",
+      "path": "scripts/train_model.py",
+      "layer": "cli"
+    },
+    {
+      "id": "robustness_optimizer",
+      "path": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "layer": "orchestrator"
+    },
+    {
+      "id": "walk_forward_optimizer",
+      "path": "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py",
+      "layer": "experiment"
+    },
+    {
+      "id": "window_validator",
+      "path": "tradingbot/ml/research/robustness_optimizer/window_validator.py",
+      "layer": "validation"
+    },
+    {
+      "id": "model_validator",
+      "path": "tradingbot/ml/research/walk_forward/model_validator.py",
+      "layer": "shared_validation"
+    },
+    {
+      "id": "walk_forward_metrics",
+      "path": "tradingbot/ml/research/walk_forward/walk_forward_metrics.py",
+      "layer": "metrics"
+    },
+    {
+      "id": "robustness_analyzer",
+      "path": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "layer": "robustness"
+    },
+    {
+      "id": "candidate_selector",
+      "path": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "layer": "ranking"
+    },
+    {
+      "id": "report_generator",
+      "path": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "layer": "acceptance"
+    },
+    {
+      "id": "phase98_report",
+      "path": "data/ml/reports/phase9_8_walk_forward_report.json",
+      "layer": "artifact"
+    },
+    {
+      "id": "phase99_report",
+      "path": "data/ml/reports/phase9_9_robustness_report.json",
+      "layer": "artifact"
+    },
+    {
+      "id": "freeze_registry",
+      "path": "tradingbot/ml/paper_trading/model_registry.py",
+      "layer": "freeze"
+    },
+    {
+      "id": "health_gate",
+      "path": "tradingbot/ml/integration/health_gate.py",
+      "layer": "live"
+    },
+    {
+      "id": "walk_forward_engine",
+      "path": "tradingbot/ml/research/walk_forward/walk_forward_engine.py",
+      "layer": "phase98"
+    }
+  ],
+  "edges": [
+    {
+      "from": "train_model_cli",
+      "to": "robustness_optimizer",
+      "relation": "invokes --phase9-9"
+    },
+    {
+      "from": "robustness_optimizer",
+      "to": "walk_forward_optimizer",
+      "relation": "run_candidate_grid"
+    },
+    {
+      "from": "walk_forward_optimizer",
+      "to": "window_validator",
+      "relation": "per-window validation"
+    },
+    {
+      "from": "window_validator",
+      "to": "model_validator",
+      "relation": "_ml_metrics, _simulate_trades"
+    },
+    {
+      "from": "walk_forward_optimizer",
+      "to": "walk_forward_metrics",
+      "relation": "aggregate_window_metrics"
+    },
+    {
+      "from": "walk_forward_optimizer",
+      "to": "robustness_analyzer",
+      "relation": "analyze_robustness → overfitting_risk label"
+    },
+    {
+      "from": "robustness_optimizer",
+      "to": "candidate_selector",
+      "relation": "rank_candidates, select_best"
+    },
+    {
+      "from": "robustness_optimizer",
+      "to": "report_generator",
+      "relation": "evaluate_acceptance, save_reports"
+    },
+    {
+      "from": "phase98_report",
+      "to": "report_generator",
+      "relation": "baseline overfitting_risk input"
+    },
+    {
+      "from": "robustness_analyzer",
+      "to": "report_generator",
+      "relation": "candidate overfitting_risk label"
+    },
+    {
+      "from": "report_generator",
+      "to": "phase99_report",
+      "relation": "writes acceptance.checks"
+    },
+    {
+      "from": "robustness_optimizer",
+      "to": "train_model_cli",
+      "relation": "final_verdict exit code"
+    },
+    {
+      "from": "walk_forward_engine",
+      "to": "phase98_report",
+      "relation": "Phase 9.8 produces baseline (no acceptance rule)"
+    },
+    {
+      "from": "freeze_registry",
+      "to": "health_gate",
+      "relation": "load_phase9_9_bundle only (orthogonal to acceptance)"
+    }
+  ],
+  "upstream_depth": 4,
+  "downstream_depth": 2,
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,74 @@
+{
+  "phase": "27J",
+  "average_initial_risk_dollars": 11.1848,
+  "final_r_distribution": [
+    {
+      "bin_start": -1.0,
+      "bin_end": -0.708333,
+      "count": 340
+    },
+    {
+      "bin_start": -0.708333,
+      "bin_end": -0.416667,
+      "count": 4
+    },
+    {
+      "bin_start": -0.416667,
+      "bin_end": -0.125,
+      "count": 7
+    },
+    {
+      "bin_start": -0.125,
+      "bin_end": 0.166667,
+      "count": 7
+    },
+    {
+      "bin_start": 0.166667,
+      "bin_end": 0.458333,
+      "count": 12
+    },
+    {
+      "bin_start": 0.458333,
+      "bin_end": 0.75,
+      "count": 4
+    },
+    {
+      "bin_start": 0.75,
+      "bin_end": 1.041667,
+      "count": 8
+    },
+    {
+      "bin_start": 1.041667,
+      "bin_end": 1.333333,
+      "count": 9
+    },
+    {
+      "bin_start": 1.333333,
+      "bin_end": 1.625,
+      "count": 9
+    },
+    {
+      "bin_start": 1.625,
+      "bin_end": 1.916667,
+      "count": 1
+    },
+    {
+      "bin_start": 1.916667,
+      "bin_end": 2.208333,
+      "count": 0
+    },
+    {
+      "bin_start": 2.208333,
+      "bin_end": 2.5,
+      "count": 174
+    }
+  ],
+  "average_final_r": 0.2277,
+  "median_final_r": -1.0,
+  "average_winner_r": 2.1398,
+  "average_loser_r": -0.9748,
+  "planned_rr_mean": 2.5,
+  "planned_vs_realized_gap": 2.2723,
+  "realized_below_planned": true,
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

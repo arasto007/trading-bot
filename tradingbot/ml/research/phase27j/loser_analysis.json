@@ -1,0 +1,13 @@
+{
+  "phase": "27J",
+  "loser_count": 353,
+  "average_mae_r": 1.2863,
+  "average_sl_distance_price": 11.3278,
+  "average_sl_buffer_remaining_r": 0.0088,
+  "sl_exit_count": 337,
+  "sl_exit_pct": 95.47,
+  "losses_larger_than_1r": 0,
+  "average_loser_final_r": -0.9748,
+  "losses_larger_than_necessary": true,
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

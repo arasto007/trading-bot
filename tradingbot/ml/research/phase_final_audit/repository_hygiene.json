@@ -1,0 +1,24 @@
+{
+  "dual_repo_risk": {
+    "workspace": "TradingBot",
+    "production": "TradingBot new",
+    "severity": "HIGH"
+  },
+  "research_bloat": {
+    "research_py_ratio": 0.482,
+    "phase_dirs": 95
+  },
+  "duplicate_paper_engines": [
+    "LiveRunner --paper (canonical)",
+    "ml/paper/paper_engine.py KernelPaperEngine",
+    "ml/paper_trading/shadow_engine.py",
+    "ml/integration/kernel_shadow_runner.py"
+  ],
+  "dead_code_estimate": "~75% files off live hot path (phase22b)",
+  "naming_collisions": [
+    "ShadowEngine x3 variants"
+  ],
+  "no_pyproject": true,
+  "legacy_engine_bridge": "engine/strategy_manager.py via LegacyStrategyRegistry",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

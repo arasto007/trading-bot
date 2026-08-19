@@ -1,0 +1,23 @@
+{
+  "phase": "24E",
+  "iterations": 20,
+  "cache_disabled": {
+    "mean_ms": 24.8055,
+    "median_ms": 21.9013,
+    "p95_ms": 23.6406,
+    "p99_ms": 23.6406
+  },
+  "cache_enabled_warm": {
+    "mean_ms": 1.811,
+    "median_ms": 1.7213,
+    "p95_ms": 2.1855,
+    "p99_ms": 2.1855
+  },
+  "improvement_mean_ms": 22.9945,
+  "improvement_p95_ms": 21.4551,
+  "cache_stats_after": {
+    "entries": 1,
+    "loads_from_disk": 1,
+    "loads_from_memory": 20
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "phase": "22AF",
+  "title": "Authority Chain Redesign",
+  "previous_authorities": [
+    "DEFAULT_CONFIG (freeze write)",
+    "RobustnessOptimizer (report only)",
+    "Shadow auto-freeze (side path)",
+    "On-disk artifact (runtime read)"
+  ],
+  "target_authority_chain": [
+    {
+      "stage": 1,
+      "name": "Optimizer winner",
+      "component": "RobustnessOptimizer → select_best(rank_candidates(...))",
+      "authority": "Selects candidate_id, model_name, feature_subset, hyperparameters, metrics",
+      "output": "best_candidate row in phase9_9_robustness_report.json",
+      "constraints": "Must have probability_gate_passed=True (already enforced by select_best)"
+    },
+    {
+      "stage": 2,
+      "name": "Acceptance gate",
+      "component": "evaluate_acceptance(best, baseline)",
+      "authority": "Binary PASS/FAIL on robustness, overfitting, expectancy, probability quality",
+      "output": "acceptance.final_verdict + checks dict embedded in report",
+      "constraints": "Freeze blocked on FAIL; no bypass flag in production"
+    },
+    {
+      "stage": 3,
+      "name": "Freeze artifact",
+      "component": "freeze_phase9_9_artifacts_from_contract (refactored freeze)",
+      "authority": "Sole writer of phase9_9_best/* when gate passes",
+      "output": "model.pkl, scaler.pkl, feature_order.json, config.json, metadata.json, freeze_manifest.json",
+      "constraints": "Must reject unknown candidate_id / missing fields"
+    },
+    {
+      "stage": 4,
+      "name": "Model Registry",
+      "component": "load_phase9_9_bundle(build_if_missing=False)",
+      "authority": "Read-only loader + integrity verification",
+      "output": "Phase99Bundle in memory",
+      "constraints": "Production default build_if_missing=False; no silent retrain"
+    },
+    {
+      "stage": 5,
+      "name": "Runtime",
+      "component": "EngineRegistry → RangeEngineAdapter → predict_proba",
+      "authority": "Consumes frozen bundle only",
+      "output": "RANGE ML signals in live kernel",
+      "constraints": "HealthGate validates artifact presence + optional contract checksum"
+    }
+  ],
+  "authority_diagram_ascii": "Optimizer winner (select_best)\n        ↓\nAcceptance gate (evaluate_acceptance == PASS)\n        ↓\nFreeze artifact (contract-driven retrain + persist)\n        ↓\nModel Registry (read-only load)\n        ↓\nRuntime (EngineRegistry / HealthGate / KernelAdapter)",
+  "eliminated_authorities": [
+    "DEFAULT_CONFIG as implicit freeze winner",
+    "Shadow/KernelShadowRunner silent auto-freeze",
+    "Hardcoded logistic_strong_reg in freeze body"
+  ],
+  "runtime_authority_unchanged": "Registry loader remains runtime authority (Phase 22AD); only freeze write source changes",
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

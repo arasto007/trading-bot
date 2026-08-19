@@ -1,0 +1,22 @@
+{
+  "ema50_slope": {
+    "pearson_with_label": -0.047698,
+    "spearman_with_label": -0.053994,
+    "mutual_information": 0.0,
+    "logistic_abs_coef_importance": 0.270252
+  },
+  "candle_direction": {
+    "pearson_with_label": 0.017651,
+    "spearman_with_label": 0.017651,
+    "mutual_information": 0.0,
+    "logistic_abs_coef_importance": 0.107625
+  },
+  "structure_distance": {
+    "pearson_with_label": -0.049362,
+    "spearman_with_label": -0.05407,
+    "mutual_information": 0.0,
+    "logistic_abs_coef_importance": 0.622124
+  },
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

@@ -1,0 +1,9 @@
+{
+  "phase": "26B",
+  "completed_trades": 1,
+  "minimum_required": 200,
+  "verdict": "INSUFFICIENT_SAMPLE",
+  "optimization_recommendations_allowed": false,
+  "message": "Completed trades (1) below minimum (200). Statistics reported only \u2014 no optimization recommendations.",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

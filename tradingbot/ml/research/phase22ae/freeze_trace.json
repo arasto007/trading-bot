@@ -1,0 +1,120 @@
+{
+  "phase": "22AE",
+  "anchor_function": "freeze_phase9_9_artifacts",
+  "anchor_file": "tradingbot/ml/paper_trading/model_registry.py",
+  "signature": {
+    "parameters": [
+      {
+        "name": "df",
+        "type": "pd.DataFrame",
+        "required": true
+      },
+      {
+        "name": "base_dir",
+        "type": "str | Path | None",
+        "default": null
+      },
+      {
+        "name": "seed",
+        "type": "int",
+        "default": "DEFAULT_SEED (42)"
+      },
+      {
+        "name": "config",
+        "type": "dict | None",
+        "default": null
+      }
+    ]
+  },
+  "call_graph": [
+    {
+      "step": 1,
+      "function": "freeze_phase9_9_artifacts",
+      "action": "cfg = dict(config or DEFAULT_CONFIG)",
+      "line": 100,
+      "object": "cfg dict"
+    },
+    {
+      "step": 2,
+      "function": "_training_frame",
+      "callees": [
+        "filter_resolved_labels",
+        "assign_market_regime",
+        "apply_event_filter"
+      ],
+      "action": "filter RANGE rows using cfg['regime'] and cfg['event_filter']",
+      "line": 102
+    },
+    {
+      "step": 3,
+      "function": "freeze_phase9_9_artifacts",
+      "action": "chronological 85% train split",
+      "line": "106-108"
+    },
+    {
+      "step": 4,
+      "function": "StandardScaler.fit",
+      "action": "fit on cfg['features'] columns only",
+      "line": "110-113"
+    },
+    {
+      "step": 5,
+      "function": "ModelCandidateConfig",
+      "action": "HARDCODED candidate_id='logistic_strong_reg', model_name='logistic'",
+      "line": "115-118",
+      "note": "Does NOT read cfg['model'] or optimizer best_candidate"
+    },
+    {
+      "step": 6,
+      "function": "create_regularized_model",
+      "file": "tradingbot/ml/research/robustness_optimizer/model_regularization.py",
+      "action": "build LogisticRegression(C=cfg parameters default 0.1)",
+      "line": 120
+    },
+    {
+      "step": 7,
+      "function": "model.fit",
+      "action": "train on scaled 85% slice — NOT walk-forward winner retrain path",
+      "line": 121
+    },
+    {
+      "step": 8,
+      "function": "joblib.dump + write_text",
+      "artifacts": [
+        "model.pkl",
+        "scaler.pkl",
+        "feature_order.json",
+        "config.json",
+        "metadata.json"
+      ],
+      "line": "125-142"
+    },
+    {
+      "step": 9,
+      "function": "_load_phase99_score",
+      "action": "reads ONLY robustness_score from phase9_9_robustness_report.json",
+      "line": "140",
+      "note": "Does not read best_candidate.candidate_id or experiment_id"
+    }
+  ],
+  "hardcoded_metadata_fields": {
+    "candidate_id": "logistic_strong_reg",
+    "feature_subset": "stable_top3",
+    "phase": "9.9"
+  },
+  "constants_used": {
+    "DEFAULT_CONFIG": {},
+    "PHASE99_ALIAS": "phase9_9_best",
+    "DEFAULT_SEED": 42,
+    "train_split_ratio": 0.85
+  },
+  "objects_created": [
+    "Phase99Bundle",
+    "StandardScaler",
+    "TrainingModel (logistic via create_regularized_model)",
+    "metadata dict",
+    "config.json payload (= cfg)"
+  ],
+  "generated_utc": "2026-07-07T19:28:18.301547+00:00",
+  "production_modified": false
+}

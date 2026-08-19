@@ -1,0 +1,9 @@
+{
+  "phase": "31E",
+  "repaired_timeout_count": 178,
+  "oracle_timeout_count": 178,
+  "timeout_count_match": true,
+  "avg_duration_repaired": 36.24,
+  "avg_duration_legacy": 1.0,
+  "generated_utc": "2026-07-10T16:51:20.713158+00:00"
+}

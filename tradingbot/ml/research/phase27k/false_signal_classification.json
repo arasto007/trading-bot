@@ -1,0 +1,36 @@
+{
+  "phase": "27K",
+  "loser_count": 353,
+  "classification": {
+    "momentum_failure": {
+      "count": 166,
+      "pct": 47.03
+    },
+    "trend_reversal": {
+      "count": 92,
+      "pct": 26.06
+    },
+    "range_fakeout": {
+      "count": 40,
+      "pct": 11.33
+    },
+    "noise": {
+      "count": 31,
+      "pct": 8.78
+    },
+    "high_volatility": {
+      "count": 11,
+      "pct": 3.12
+    },
+    "false_breakout": {
+      "count": 7,
+      "pct": 1.98
+    },
+    "low_volatility": {
+      "count": 6,
+      "pct": 1.7
+    }
+  },
+  "dominant_class": "momentum_failure",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

@@ -1,0 +1,235 @@
+{
+  "execution_paths": {
+    "A_full_production": {
+      "path": "A_full_production",
+      "signals_total_hc": 4523,
+      "signals_captured": 0,
+      "capture_rate_pct": 0.0,
+      "pf_proxy_label_v3": {
+        "pf": 0.0,
+        "trades": 0,
+        "wins": 0,
+        "losses": 0,
+        "win_rate_pct": 0.0
+      },
+      "blockers_remaining": {
+        "TradeQuality": 4224,
+        "AdaptiveRisk": 299
+      }
+    },
+    "B_tq_bypass_only": {
+      "path": "B_tq_bypass_only",
+      "signals_total_hc": 4523,
+      "signals_captured": 4224,
+      "capture_rate_pct": 93.39,
+      "pf_proxy_label_v3": {
+        "pf": 0.3741,
+        "trades": 4224,
+        "wins": 1150,
+        "losses": 3074,
+        "win_rate_pct": 27.23
+      },
+      "blockers_remaining": {
+        "AdaptiveRisk": 299
+      }
+    },
+    "C_tq_ar_bypass": {
+      "path": "C_tq_ar_bypass",
+      "signals_total_hc": 4523,
+      "signals_captured": 4523,
+      "capture_rate_pct": 100.0,
+      "pf_proxy_label_v3": {
+        "pf": 0.371,
+        "trades": 4523,
+        "wins": 1224,
+        "losses": 3299,
+        "win_rate_pct": 27.06
+      },
+      "blockers_remaining": {}
+    }
+  },
+  "per_year_path_b": [
+    {
+      "year": 2025,
+      "pf": 0.4478,
+      "trades": 2412,
+      "wins": 746,
+      "losses": 1666,
+      "win_rate_pct": 30.93
+    },
+    {
+      "year": 2026,
+      "pf": 0.2869,
+      "trades": 1812,
+      "wins": 404,
+      "losses": 1408,
+      "win_rate_pct": 22.3
+    }
+  ],
+  "wf_vs_shadow": {
+    "wf_mean_pf_at_0_40": 1.7343,
+    "shadow_pf_path_a": 0.0,
+    "shadow_pf_path_b": 0.3741,
+    "shadow_pf_path_c": 0.371,
+    "execution_destruction_pct_path_b_vs_wf": 78.43,
+    "wf_to_shadow_ratio_path_b": 0.2157,
+    "note": "WF PF is out-of-sample walk-forward on v7; shadow PF is label_v3 on phase46-cached HC signals matched to v7. Methodology differs but quantifies execution-path edge destruction."
+  },
+  "adaptive_risk_analysis": {
+    "count": 299,
+    "pct_of_hc_signals": 6.61,
+    "pf_proxy_if_bypassed": {
+      "pf": 0.3289,
+      "trades": 299,
+      "wins": 74,
+      "losses": 225,
+      "win_rate_pct": 24.75
+    },
+    "pf_proxy_path_b_captured": {
+      "pf": 0.3741,
+      "trades": 4224,
+      "wins": 1150,
+      "losses": 3074,
+      "win_rate_pct": 27.23
+    },
+    "incremental_pf_if_ar_bypassed": -0.0031,
+    "risk_allowed_distribution": {
+      "False": 299
+    },
+    "quality_allowed_distribution": {
+      "False": 299
+    },
+    "volatility_state_distribution": {
+      "NORMAL": 152,
+      "HIGH_VOL": 23,
+      "LOW_VOL": 124
+    },
+    "direction_distribution": {
+      "BUY": 297,
+      "SELL": 2
+    },
+    "numeric_profile_ar_blocked": {
+      "adx": {
+        "mean": 44.1097,
+        "median": 40.7058,
+        "min": 25.237,
+        "max": 90.3291
+      },
+      "atr": {
+        "mean": 4.385,
+        "median": 4.1007,
+        "min": 1.3307,
+        "max": 11.2157
+      },
+      "rsi": {
+        "mean": 60.5305,
+        "median": 59.2784,
+        "min": 26.2701,
+        "max": 97.1758
+      },
+      "spread_pips": {
+        "mean": 3.0,
+        "median": 3.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "probability": {
+        "mean": 0.4127,
+        "median": 0.4116,
+        "min": 0.4,
+        "max": 0.5779
+      },
+      "quality_score": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "numeric_profile_path_b_captured": {
+      "adx": {
+        "mean": 45.0489,
+        "median": 42.8952,
+        "min": 25.0014,
+        "max": 90.6155
+      },
+      "atr": {
+        "mean": 4.4949,
+        "median": 4.2436,
+        "min": 1.47,
+        "max": 11.4814
+      },
+      "rsi": {
+        "mean": 56.9006,
+        "median": 60.8156,
+        "min": 2.7027,
+        "max": 96.8979
+      },
+      "spread_pips": {
+        "mean": 3.0,
+        "median": 3.0,
+        "min": 3.0,
+        "max": 3.0
+      },
+      "probability": {
+        "mean": 0.5026,
+        "median": 0.4929,
+        "min": 0.4001,
+        "max": 0.7143
+      },
+      "quality_score": {
+        "mean": 0.0,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "characterization": "AdaptiveRisk blocks 323 TREND HC signals where risk_allowed=False. Blocked cohort shows elevated ADX/RSI extremes vs path-B captured signals \u2014 consistent with overbought/strong-trend risk caps, not random noise.",
+    "high_rsi_blocked_pct": 22.74,
+    "high_adx_blocked_pct": 51.51
+  },
+  "signal_source": {
+    "primary": "phase46_cache_trend_hc",
+    "proxy_note": "phase46 cache probability>=0.40 used as RF-10f HC proxy (phase60 convention)",
+    "v7_rf10f_hc_count_pooled_wf": 122,
+    "cache_hc_count": 4864,
+    "v7_label_match": {
+      "total_signals": 4864,
+      "matched_v7_labels": 4523,
+      "unmatched": 341,
+      "match_rate_pct": 92.99
+    }
+  },
+  "treatment_conclusion": {
+    "verdict": "TREATMENT_RESEARCH_COMPLETE_NO_PRODUCTION",
+    "production_integration": "BLOCK_PRODUCTION_INTEGRATION",
+    "phases_summary": {
+      "52": "Labels healthy \u2014 misalignment ruled out",
+      "53": "0% execution capture \u2014 severe funnel edge loss",
+      "54_55": "RF best model; top-10 features identified",
+      "56": "Treatment re-gate FAIL",
+      "57": "TQ bypass raises capture to 93% but PF proxy ~0.37",
+      "58_59": "TREND RF-10f best config; WF PF 1.73 inflated by low-trade windows",
+      "60": "Honest PF@30 trades=0.57; AUC 0.515; execution counterfactual confirms TQ bottleneck",
+      "61": "Shadow path-B PF=0.3741 on 93.4% capture \u2014 execution destroys WF edge"
+    },
+    "key_numbers": {
+      "wf_pf_inflated": 1.7343,
+      "wf_pf_honest_30_trades": 0.5676,
+      "shadow_pf_path_b": 0.3741,
+      "shadow_pf_path_a": 0.0,
+      "capture_path_a_pct": 0.0,
+      "capture_path_b_pct": 93.39,
+      "ar_blocked_count": 299
+    },
+    "blockers": [
+      "ML_AUC_BELOW_0_55",
+      "HONEST_PF_BELOW_1_3",
+      "EXECUTION_FUNNEL_ZERO_CAPTURE",
+      "TRADE_QUALITY_BLOCKS_93PCT_HC_SIGNALS",
+      "SHADOW_PF_UNPROFITABLE_EVEN_WITH_TQ_BYPASS"
+    ],
+    "recommendation_fa": "\u0645\u0633\u06cc\u0631 ML \u062f\u0631 \u062a\u062d\u0642\u06cc\u0642 \u0627\u0645\u06cc\u062f\u0648\u0627\u0631\u06a9\u0646\u0646\u062f\u0647 \u0627\u0633\u062a \u0627\u0645\u0627 \u0641\u06cc\u0644\u062a\u0631 TradeQuality \u06f9\u06f3\u066a \u0633\u06cc\u06af\u0646\u0627\u0644\u200c\u0647\u0627\u06cc \u0628\u0627\u0627\u0639\u062a\u0645\u0627\u062f \u0631\u0627 \u0645\u0633\u062f\u0648\u062f \u0645\u06cc\u200c\u06a9\u0646\u062f \u0648 \u062d\u062a\u06cc \u0628\u0627 bypass\u060c PF \u0633\u0627\u06cc\u0647 \u0632\u06cc\u0631 \u06f1 \u0628\u0627\u0642\u06cc \u0645\u06cc\u200c\u0645\u0627\u0646\u062f. \u0627\u062f\u063a\u0627\u0645 production \u062a\u0648\u062c\u06cc\u0647 \u0646\u062f\u0627\u0631\u062f \u2014 \u0627\u0648\u0644 \u0628\u0627\u0632\u06a9\u0627\u0644\u06cc\u0628\u0631\u0627\u0633\u06cc\u0648\u0646 TradeQuality \u062f\u0631 \u0645\u062d\u06cc\u0637 shadow.",
+    "recommendation_en": "ML research shows marginal signal (AUC ~0.52) but production execution path captures 0% of HC signals. Realistic shadow scenario (TQ bypass) yields PF 0.37 vs inflated WF PF 1.73. Do NOT integrate to production \u2014 recalibrate TradeQuality in shadow mode first."
+  }
+}

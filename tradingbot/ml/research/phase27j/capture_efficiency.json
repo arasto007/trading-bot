@@ -1,0 +1,114 @@
+{
+  "phase": "27J",
+  "trade_count": 575,
+  "average_mfe_r": 1.4224,
+  "average_captured_r": 0.2277,
+  "average_capture_efficiency": -5.2052,
+  "median_capture_efficiency": -0.7225,
+  "average_missed_opportunity_r": 0.5963,
+  "capture_efficiency_distribution": [
+    {
+      "bin_start": -611.9951,
+      "bin_end": -550.69569,
+      "count": 1
+    },
+    {
+      "bin_start": -550.69569,
+      "bin_end": -489.39628,
+      "count": 0
+    },
+    {
+      "bin_start": -489.39628,
+      "bin_end": -428.09687,
+      "count": 0
+    },
+    {
+      "bin_start": -428.09687,
+      "bin_end": -366.79746,
+      "count": 0
+    },
+    {
+      "bin_start": -366.79746,
+      "bin_end": -305.49805,
+      "count": 1
+    },
+    {
+      "bin_start": -305.49805,
+      "bin_end": -244.19864,
+      "count": 0
+    },
+    {
+      "bin_start": -244.19864,
+      "bin_end": -182.89923,
+      "count": 0
+    },
+    {
+      "bin_start": -182.89923,
+      "bin_end": -121.59982,
+      "count": 2
+    },
+    {
+      "bin_start": -121.59982,
+      "bin_end": -60.30041,
+      "count": 6
+    },
+    {
+      "bin_start": -60.30041,
+      "bin_end": 0.999,
+      "count": 560
+    }
+  ],
+  "missed_opportunity_distribution": [
+    {
+      "bin_start": 0.0,
+      "bin_end": 0.24875,
+      "count": 198
+    },
+    {
+      "bin_start": 0.24875,
+      "bin_end": 0.4975,
+      "count": 130
+    },
+    {
+      "bin_start": 0.4975,
+      "bin_end": 0.74625,
+      "count": 73
+    },
+    {
+      "bin_start": 0.74625,
+      "bin_end": 0.995,
+      "count": 58
+    },
+    {
+      "bin_start": 0.995,
+      "bin_end": 1.24375,
+      "count": 38
+    },
+    {
+      "bin_start": 1.24375,
+      "bin_end": 1.4925,
+      "count": 25
+    },
+    {
+      "bin_start": 1.4925,
+      "bin_end": 1.74125,
+      "count": 26
+    },
+    {
+      "bin_start": 1.74125,
+      "bin_end": 1.99,
+      "count": 10
+    },
+    {
+      "bin_start": 1.99,
+      "bin_end": 2.23875,
+      "count": 8
+    },
+    {
+      "bin_start": 2.23875,
+      "bin_end": 2.4875,
+      "count": 9
+    }
+  ],
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

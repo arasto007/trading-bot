@@ -1,0 +1,350 @@
+{
+  "version": "1.0",
+  "created_utc": "2026-07-15T00:35:00Z",
+  "mission_fa": "\u062f\u0631\u0645\u0627\u0646 \u0634\u06a9\u0633\u062a gate \u0641\u0627\u0632 50/51 \u2014 \u067e\u0698\u0648\u0647\u0634 ML \u062a\u0627 \u0639\u0628\u0648\u0631 strict walk-forward",
+  "mission_en": "Treat Phase 50/51 strict gate failure \u2014 research-only path to profitability evidence",
+  "research_rules": [
+    "NO production deploy until strict gate passes",
+    "NO threshold/filter changes in production",
+    "NO TradingKernel/RiskGate changes until phase56 re-gate passes",
+    "All phases 52-58 are read-only research"
+  ],
+  "failure_context": {
+    "phase50_report": "phase50_final_report.json",
+    "phase51_report": "phase51_final_report.json",
+    "phase50_verdict": "STRICT_GATE_FAIL",
+    "phase51_verdict": "EARLY_RESEARCH",
+    "integration_gate": "BLOCK_PRODUCTION_INTEGRATION",
+    "v7_dataset": "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+    "v7_rows": 81035,
+    "mean_pf": 0.9024,
+    "mean_auc": 0.5115,
+    "gate_targets": {
+      "mean_pf": 1.3,
+      "mean_auc": 0.55
+    },
+    "proximity_score": 27.0
+  },
+  "tracks": {
+    "A": {
+      "name_en": "ML & Labels",
+      "name_fa": "\u0628\u0631\u0686\u0633\u0628 \u0648 \u062f\u06cc\u062a\u0627\u0633\u062a ML"
+    },
+    "B": {
+      "name_en": "Execution Funnel",
+      "name_fa": "\u0642\u06cc\u0641 \u0627\u062c\u0631\u0627"
+    },
+    "C": {
+      "name_en": "Model & Calibration",
+      "name_fa": "\u0645\u062f\u0644 \u0648 \u06a9\u0627\u0644\u06cc\u0628\u0631\u0627\u0633\u06cc\u0648\u0646"
+    },
+    "D": {
+      "name_en": "Re-gate",
+      "name_fa": "\u0628\u0627\u0632\u06af\u0634\u062a \u0628\u0647 gate \u0633\u062e\u062a"
+    }
+  },
+  "phases": [
+    {
+      "phase": "52",
+      "name_en": "Label & Dataset Diagnosis (v7)",
+      "name_fa": "\u062a\u0634\u062e\u06cc\u0635 \u0628\u0631\u0686\u0633\u0628 \u0648 \u062f\u06cc\u062a\u0627\u0633\u062a v7",
+      "track": "A",
+      "objective": "Audit stored label_v3 vs production SL/TP re-resolution on full v7 (81k); quantify label drift root cause.",
+      "inputs": [
+        "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+        "phase35/label_alignment.py",
+        "phase39/candle_sources.py",
+        "phase49/bar_index.py"
+      ],
+      "outputs": [
+        "phase52_final_report.json",
+        "tradingbot/ml/research/phase52/artifacts/label_audit_v7.json",
+        "tradingbot/ml/research/phase52/artifacts/full_dataset_stats.json"
+      ],
+      "success_criteria": {
+        "stored_vs_resolved_match_pct_ge": 95,
+        "stored_vs_production_match_pct_documented": true,
+        "full_dataset_stats_complete": true
+      },
+      "dependencies": [
+        "phase49",
+        "phase50",
+        "phase51"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase52/label_audit_v7.py"
+    },
+    {
+      "phase": "53",
+      "name_en": "Execution Funnel Audit",
+      "name_fa": "\u0645\u0645\u06cc\u0632\u06cc \u0642\u06cc\u0641 \u0627\u062c\u0631\u0627",
+      "track": "B",
+      "objective": "Quantify edge loss: raw ML signals \u2192 calibration \u2192 filters \u2192 executed path using phase46 quarterly caches.",
+      "inputs": [
+        "tradingbot/ml/research/phase46/.cache/ml_signals_fullest_*.json",
+        "phase34a/run_audit.py patterns"
+      ],
+      "outputs": [
+        "phase53_final_report.json",
+        "tradingbot/ml/research/phase53/artifacts/funnel_edge_loss.json"
+      ],
+      "success_criteria": {
+        "stages_quantified": [
+          "raw_ml",
+          "calibrated",
+          "filtered",
+          "executed"
+        ],
+        "edge_loss_pct_documented": true
+      },
+      "dependencies": [
+        "phase52"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase53/execution_funnel_audit.py"
+    },
+    {
+      "phase": "54",
+      "name_en": "Model Sweep (Research Only)",
+      "name_fa": "\u0627\u0633\u06a9\u0646 \u0645\u062f\u0644 (\u0641\u0642\u0637 \u067e\u0698\u0648\u0647\u0634)",
+      "track": "C",
+      "objective": "Compare LogisticRegression (balanced), RF, HistGradientBoosting on strict WF; per-regime threshold calibration research.",
+      "inputs": [
+        "dataset_v7_ml_signals.parquet",
+        "phase50/strict_walk_forward.py"
+      ],
+      "outputs": [
+        "phase54_final_report.json",
+        "tradingbot/ml/research/phase54/artifacts/model_sweep.json"
+      ],
+      "success_criteria": {
+        "models_compared_ge": 3,
+        "best_candidate_identified": true,
+        "no_production_threshold_changes": true
+      },
+      "dependencies": [
+        "phase52"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase54/model_sweep.py"
+    },
+    {
+      "phase": "55",
+      "name_en": "Feature Importance & Noise Audit",
+      "name_fa": "\u0627\u0647\u0645\u06cc\u062a \u0648\u06cc\u0698\u06af\u06cc \u0648 \u0645\u0645\u06cc\u0632\u06cc \u0646\u0648\u06cc\u0632",
+      "track": "A",
+      "objective": "Identify noisy/low-value features on v7; measure permutation importance and correlation clusters.",
+      "inputs": [
+        "dataset_v7_ml_signals.parquet",
+        "phase54 best model config"
+      ],
+      "outputs": [
+        "phase55_final_report.json",
+        "tradingbot/ml/research/phase55/artifacts/feature_audit.json"
+      ],
+      "success_criteria": {
+        "top_features_ranked": true,
+        "noise_features_flagged_ge": 5
+      },
+      "dependencies": [
+        "phase54"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase55/feature_noise_audit.py"
+    },
+    {
+      "phase": "56",
+      "name_en": "Treatment Synthesis & Re-gate",
+      "name_fa": "\u062a\u0631\u06a9\u06cc\u0628 \u062f\u0631\u0645\u0627\u0646 \u0648 \u0628\u0627\u0632\u06af\u0634\u062a gate",
+      "track": "D",
+      "objective": "Synthesize phases 52-55 findings; run strict WF on best candidate; issue treatment verdict.",
+      "inputs": [
+        "phase52_final_report.json",
+        "phase53_final_report.json",
+        "phase54_final_report.json",
+        "phase55_final_report.json"
+      ],
+      "outputs": [
+        "phase56_final_report.json",
+        "tradingbot/ml/research/phase56/artifacts/treatment_synthesis.json"
+      ],
+      "success_criteria": {
+        "strict_gate_rerun": true,
+        "treatment_verdict_issued": true,
+        "production_blocked_unless_pass": true
+      },
+      "dependencies": [
+        "phase52",
+        "phase53",
+        "phase54",
+        "phase55"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase56/treatment_synthesis.py"
+    },
+    {
+      "phase": "57",
+      "name_en": "TradeQuality Simulation & TREND Deep Dive",
+      "name_fa": "\u0634\u0628\u06cc\u0647\u200c\u0633\u0627\u0632\u06cc TradeQuality \u0648 \u0628\u0631\u0631\u0633\u06cc \u0639\u0645\u06cc\u0642 TREND",
+      "track": "B",
+      "objective": "Counterfactual TradeQuality bypass on phase46 caches; TREND-only walk-forward threshold sweep on v7.",
+      "inputs": [
+        "phase52 findings",
+        "phase36/build_dataset_v3.py"
+      ],
+      "outputs": [
+        "phase57_final_report.json",
+        "tradingbot/ml/research/phase57/artifacts/trade_quality_simulation.json",
+        "tradingbot/ml/research/phase57/artifacts/trend_regime_deep_dive.json"
+      ],
+      "success_criteria": {
+        "label_match_pct_ge": 85
+      },
+      "dependencies": [
+        "phase56"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase57/trade_quality_simulation.py",
+      "verdict": "TREND_GATE_MARGINAL"
+    },
+    {
+      "phase": "58",
+      "name_en": "TREND-only RF Re-gate",
+      "name_fa": "\u0628\u0627\u0632\u06af\u0634\u062a gate \u0645\u062f\u0644 TREND-only",
+      "track": "D",
+      "objective": "Train TREND-only RF on top-5 phase55 features; strict walk-forward re-gate at threshold 0.40.",
+      "inputs": [
+        "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+        "phase55 top-5 features",
+        "phase50/strict_walk_forward.py patterns"
+      ],
+      "outputs": [
+        "phase58_final_report.json",
+        "tradingbot/ml/research/phase58/artifacts/trend_only_wf.json"
+      ],
+      "success_criteria": {
+        "strict_gate_pass": true
+      },
+      "dependencies": [
+        "phase56",
+        "phase57"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase58/trend_only_model.py",
+      "verdict": "STRICT_GATE_FAIL",
+      "gate_passed": false
+    },
+    {
+      "phase": "59",
+      "name_en": "Horizon Sweep + Feature Expansion + Ensemble",
+      "name_fa": "\u062c\u0627\u0631\u0648\u0628 \u0627\u0641\u0642 \u0628\u0631\u0686\u0633\u0628 + \u06af\u0633\u062a\u0631\u0634 \u0648\u06cc\u0698\u06af\u06cc + ensemble",
+      "track": "A",
+      "objective": "Sweep label horizons on TREND v7 sample; compare RF 5 vs 10 features; RF+HGB ensemble; strict re-gate at threshold 0.40.",
+      "inputs": [
+        "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+        "phase35/label_alignment.py resolve_label_with_sl_tp",
+        "phase55 top-10 features",
+        "phase58 trend_only_strict_walk_forward patterns"
+      ],
+      "outputs": [
+        "phase59_final_report.json",
+        "tradingbot/ml/research/phase59/artifacts/horizon_feature_expansion.json"
+      ],
+      "success_criteria": {
+        "strict_gate_pass": true
+      },
+      "dependencies": [
+        "phase58"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase59/horizon_feature_expansion.py",
+      "verdict": "STRICT_GATE_FAIL",
+      "gate_passed": false
+    },
+    {
+      "phase": "60",
+      "name_en": "AUC Lift + Trade-Count Floor + Execution Counterfactual",
+      "name_fa": "\u0627\u0631\u062a\u0642\u0627\u06cc AUC + \u06a9\u0641 \u062a\u0639\u062f\u0627\u062f \u0645\u0639\u0627\u0645\u0644\u0647 + \u0636\u062f \u0648\u0627\u0642\u0639\u06cc\u062a \u0627\u062c\u0631\u0627",
+      "track": "C",
+      "objective": "AUC lift on TREND RF-10f (class weight, calibration, stricter label); honest PF with min_trades=30; execution counterfactual on phase46 caches.",
+      "inputs": [
+        "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+        "phase59 rf_10f baseline",
+        "phase46 quarterly caches",
+        "phase53 funnel baseline"
+      ],
+      "outputs": [
+        "phase60_final_report.json",
+        "tradingbot/ml/research/phase60/artifacts/auc_lift_and_validation.json"
+      ],
+      "success_criteria": {
+        "strict_gate_pass": true,
+        "mean_auc_ge_0_55": true
+      },
+      "dependencies": [
+        "phase59"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase60/auc_lift_and_validation.py",
+      "verdict": "STRICT_GATE_FAIL",
+      "gate_passed": false
+    },
+    {
+      "phase": "61",
+      "name_en": "Execution-Path Shadow Validation",
+      "name_fa": "\u0627\u0639\u062a\u0628\u0627\u0631\u0633\u0646\u062c\u06cc \u0633\u0627\u06cc\u0647 \u0645\u0633\u06cc\u0631 \u0627\u062c\u0631\u0627",
+      "track": "B",
+      "objective": "Shadow-validate TREND RF-10f HC signals through execution paths A/B/C; PF proxy via v7 label_v3; per-year path-B breakdown; AdaptiveRisk characterization.",
+      "inputs": [
+        "tradingbot/ml/research/phase49/artifacts/dataset_v7_ml_signals.parquet",
+        "phase46 quarterly caches",
+        "phase60 WF PF reference"
+      ],
+      "outputs": [
+        "phase61_final_report.json",
+        "tradingbot/ml/research/phase61/artifacts/execution_shadow_validation.json"
+      ],
+      "success_criteria": {
+        "shadow_pf_per_path_documented": true,
+        "wf_vs_shadow_comparison": true,
+        "adaptive_risk_characterized": true
+      },
+      "dependencies": [
+        "phase60"
+      ],
+      "status": "COMPLETE",
+      "runner": "tradingbot/ml/research/phase61/execution_shadow_validation.py",
+      "verdict": "SHADOW_VALIDATION_COMPLETE"
+    }
+  ],
+  "pipeline": {
+    "runner": "tradingbot/ml/research/run_treatment_pipeline.py",
+    "execution_order": [
+      "52",
+      "53",
+      "54",
+      "55",
+      "56",
+      "57",
+      "58",
+      "59",
+      "60",
+      "61"
+    ],
+    "current_phase": "61"
+  },
+  "fix_roadmap": "FIX_ROADMAP.json",
+  "fix_pipeline": "tradingbot/ml/research/run_fix_pipeline.py",
+  "fix_phases": {
+    "start": "62",
+    "end": "70",
+    "tracks": {
+      "E": "Execution \u2014 TradeQuality, AdaptiveRisk, capture rate",
+      "M": "ML \u2014 AUC lift, TREND specialization, labels",
+      "I": "Integration \u2014 shadow \u2192 paper \u2192 gated production"
+    },
+    "note_fa": "\u0641\u0627\u0632\u0647\u0627\u06cc 62-70 \u062f\u0631 FIX_ROADMAP.json \u2014 \u0641\u0642\u0637 \u067e\u0698\u0648\u0647\u0634 \u062a\u0627 \u0639\u0628\u0648\u0631 gate\u0647\u0627",
+    "note_en": "Phases 62-70 in FIX_ROADMAP.json \u2014 research only until gates pass"
+  },
+  "updated_utc": "2026-07-15T02:16:29Z"
+}

@@ -1,0 +1,65 @@
+{
+  "phase": "30B",
+  "single_fix_recommendation": {
+    "problem": "Apply session-aware bid-ask spread (and exit-leg friction) in paper/replay execution path",
+    "rationale": "Highest evidence rank; spread breaking point 1.5\u00d7; explains majority of PF erosion 1.211\u21921.049; production uses fixed 0.30 with zero exit friction",
+    "expected_pf_improvement": "Retention vs ideal: from 86.6% (1.049/1.211) toward 92\u201395% if exit friction calibrated; absolute PF +0.04 to +0.08 vs current sim",
+    "expected_dd_reduction_pct": "4\u20138 pp vs simulated normal 38.5% (toward 30\u201334%)",
+    "expected_expectancy_improvement": "+$0.03 to +$0.06 per trade vs simulated normal $0.054",
+    "implementation_complexity": "medium",
+    "production_risk": "medium \u2014 changes paper PnL not signal/risk/ML; requires parity validation",
+    "confidence": 88
+  },
+  "priority_matrix": [
+    {
+      "fix": "Session-aware spread entry+exit",
+      "pf_impact": 5,
+      "dd_impact": 4,
+      "complexity": 3,
+      "risk": 3,
+      "priority": 1
+    },
+    {
+      "fix": "Exit slippage model",
+      "pf_impact": 4,
+      "dd_impact": 3,
+      "complexity": 3,
+      "risk": 3,
+      "priority": 2
+    },
+    {
+      "fix": "Live tick spread calibration",
+      "pf_impact": 4,
+      "dd_impact": 2,
+      "complexity": 4,
+      "risk": 2,
+      "priority": 3
+    },
+    {
+      "fix": "Latency-price coupling",
+      "pf_impact": 2,
+      "dd_impact": 2,
+      "complexity": 4,
+      "risk": 3,
+      "priority": 4
+    },
+    {
+      "fix": "Partial fill at min lot disable",
+      "pf_impact": 2,
+      "dd_impact": 1,
+      "complexity": 2,
+      "risk": 2,
+      "priority": 5
+    },
+    {
+      "fix": "Swap/commission",
+      "pf_impact": 1,
+      "dd_impact": 1,
+      "complexity": 2,
+      "risk": 1,
+      "priority": 6
+    }
+  ],
+  "scale_note": "pf_impact/dd_impact 1-5 higher=better fix outcome",
+  "generated_utc": "2026-07-10T08:44:28.834529+00:00"
+}

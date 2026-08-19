@@ -1,0 +1,47 @@
+{
+  "phase": "31D",
+  "verdict": "SIMULATOR_PARITY_CONFIRMED",
+  "acceptance_criteria": {
+    "pf_difference_pct_max": 0.5,
+    "pnl_difference_pct_max": 0.5,
+    "trade_count_identical": true,
+    "exit_fingerprints_identical": true
+  },
+  "observed": {
+    "pf_gap_pct": 0.0,
+    "pnl_gap_pct": 0.0,
+    "trade_count": 489,
+    "exit_fingerprint_matches": 489,
+    "exit_fingerprint_total": 489,
+    "repaired_mode": true
+  },
+  "aggregate_metrics": {
+    "trade_count": 489,
+    "repaired_mode": true,
+    "production_pf": 1.3226,
+    "oracle_replay_pf": 1.3226,
+    "simulator_pf": 1.3226,
+    "full_hybrid_b_pf": 1.3226,
+    "truncated_replay_pf": 1.211,
+    "hybrid_b_proxy_pf": 2.0626,
+    "production_net_pnl": 796.0066,
+    "simulator_net_pnl": 796.0066,
+    "oracle_replay_net_pnl": 796.0066,
+    "full_hybrid_b_net_pnl": 796.0066,
+    "hybrid_b_proxy_net_pnl": 2325.9547,
+    "pf_gap_pct": 0.0,
+    "pnl_gap_pct": 0.0,
+    "pf_gap_pct_vs_proxy": 55.9504,
+    "exit_fingerprint_match_count": 489,
+    "exit_fingerprint_match_count_oracle": 489,
+    "exit_fingerprint_match_count_proxy": 13,
+    "exit_fingerprint_match_count_truncated": 489,
+    "duration_match_oracle_count": 489,
+    "parity_pf_within_tolerance": true,
+    "parity_pnl_within_tolerance": true,
+    "trade_count_identical": true,
+    "exit_fingerprints_identical": true
+  },
+  "dominant_explanation": "Repaired replay uses persistent ReplayPositionState (Phase 31E). Parity compares stateful replay vs resolve_hybrid_b oracle on same replay candles.",
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

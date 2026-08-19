@@ -1,0 +1,13 @@
+{
+  "phase": "FINAL_PRE_PAPER",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00",
+  "verdict": "SYSTEM_NOT_READY_FOR_PAPER",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "overall_integrity_score": 70.2,
+  "paper_trading_readiness_score": 42,
+  "open_critical_count": 2,
+  "open_high_count": 3,
+  "minimum_sample_met": false,
+  "canonical_paper_command": "USE_ML_KERNEL=1 python -m tradingbot --loop --paper"
+}

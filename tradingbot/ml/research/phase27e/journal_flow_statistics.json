@@ -1,0 +1,15 @@
+{
+  "phase": "27E",
+  "executed_paper_orders": 2,
+  "completed_trades_reconstructed": 2,
+  "missing_journal_entries": 0,
+  "incomplete_lifecycle_signals": 760,
+  "lifecycle_integrity_executed_pct": 100.0,
+  "paper_trades_table_note": "Replay uses Mt5ExecutionAdapter paper branch; journal via trade_builder reconstruction",
+  "transitions": {
+    "signal_to_execution": 2,
+    "execution_to_completed_trade": 2,
+    "signal_to_risk_blocked": 760
+  },
+  "generated_utc": "2026-07-09T13:55:14.764895+00:00"
+}

@@ -1,0 +1,134 @@
+{
+  "phase": "22AH",
+  "metric": "mean_auc_gap",
+  "producers": [
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/window_validator.py",
+      "function": "validate_window_candidate",
+      "output_field": "train_val_auc_gap",
+      "formula": "round(train_roc_auc - val_roc_auc, 4)",
+      "note": "Per-window raw gap before aggregation"
+    },
+    {
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "analyze_robustness",
+      "output_field": "train_test_gap.mean_auc_gap",
+      "formula": "round(mean(abs(train_val_auc_gap) per window), 4)",
+      "note": "Canonical Phase 9.8/9.9 aggregate"
+    },
+    {
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "compute_robustness_score / assess_overfitting_risk",
+      "output_field": "internal mean_gap (not persisted separately)",
+      "formula": "mean(abs(gaps)) without final round in score path"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py",
+      "function": "run_walk_forward_experiment",
+      "output_field": "mean_auc_gap",
+      "formula": "robustness.train_test_gap.mean_auc_gap"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "function": "rank_candidates",
+      "output_field": "mean_auc_gap",
+      "formula": "copied from experiment dict into ranked row"
+    }
+  ],
+  "storage": [
+    {
+      "artifact": "data/ml/reports/phase9_8_robustness_report.json",
+      "fields": [
+        "train_test_gap.mean_auc_gap",
+        "train_test_gap.max_auc_gap"
+      ],
+      "per_window_persisted": false
+    },
+    {
+      "artifact": "data/ml/reports/phase9_8_window_results.json",
+      "fields": [
+        "windows[].train_val_auc_gap"
+      ],
+      "per_window_persisted": true,
+      "scope": "Phase 9.8 baseline only"
+    },
+    {
+      "artifact": "data/ml/reports/phase9_9_model_comparison.json",
+      "fields": [
+        "ranked_candidates[].mean_auc_gap"
+      ],
+      "per_window_persisted": false,
+      "note": "28 candidates store aggregate mean only; windows[] dropped at save_reports"
+    },
+    {
+      "artifact": "data/ml/reports/phase9_9_robustness_report.json",
+      "fields": [
+        "acceptance.checks.overfitting_risk_decreased"
+      ],
+      "mean_auc_gap_persisted": false,
+      "note": "Acceptance stores boolean ordinal outcome, not numeric gap comparison"
+    }
+  ],
+  "consumers": [
+    {
+      "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+      "function": "assess_overfitting_risk",
+      "usage": "mean(abs gaps) vs 0.12 / 0.06 thresholds → LOW/MEDIUM/HIGH label"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "function": "overfitting_penalty",
+      "usage": "gap * 3.0 in composite ranking (not acceptance)"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "function": "evaluate_acceptance",
+      "usage": "INDIRECT today via overfitting_risk ordinal; proposed direct numeric compare"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22z/overfitting_rule_validation.py",
+      "function": "classify_overfitting_rejection",
+      "usage": "forensics numeric vs ordinal (research)"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22ag/acceptance_forensics.py",
+      "function": "evaluate_variant",
+      "usage": "simulated numeric replacement (research)"
+    }
+  ],
+  "aggregation": {
+    "pipeline": [
+      "validate_window_candidate → train_val_auc_gap (signed, rounded 4dp)",
+      "analyze_robustness → abs(gap) per window → arithmetic mean → round 4dp",
+      "walk_forward_optimizer → experiment.mean_auc_gap",
+      "rank_candidates → ranked_candidates[].mean_auc_gap"
+    ],
+    "abs_applied_before_mean": true,
+    "matches_baseline_report": true
+  },
+  "rounding": [
+    {
+      "stage": "per_window train_val_auc_gap",
+      "precision": 4,
+      "function": "round(..., 4)"
+    },
+    {
+      "stage": "aggregated mean_auc_gap",
+      "precision": 4,
+      "function": "round(..., 4) in analyze_robustness"
+    },
+    {
+      "stage": "ranking JSON",
+      "precision": "inherits 4dp aggregate"
+    }
+  ],
+  "missing_values": {
+    "default_when_absent": 0.0,
+    "pattern": "float(x.get('mean_auc_gap', 0.0) or 0.0)",
+    "risk": "Missing gap reads as 0.0 ( falsely appears improved vs baseline 0.3308 )",
+    "phase9_9_artifacts": "All 28 candidates have mean_auc_gap populated in current comparison JSON",
+    "empty_windows_list": "analyze_robustness returns mean_auc_gap=0.0 when gaps list empty"
+  },
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

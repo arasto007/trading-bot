@@ -1,0 +1,59 @@
+{
+  "phase": "30C",
+  "model_type": "Hybrid stochastic MT5 retail market-maker twin",
+  "state_variables": [
+    "bid",
+    "ask",
+    "spread",
+    "mid",
+    "atr",
+    "session",
+    "vol_regime",
+    "liquidity_score",
+    "queue_depth",
+    "margin_level",
+    "news_flag",
+    "weekend_flag"
+  ],
+  "order_lifecycle_states": [
+    "PENDING_VALIDATE",
+    "REJECTED_RULES",
+    "QUEUED",
+    "SENT",
+    "REQUOTED",
+    "PARTIAL_FILL",
+    "FILLED",
+    "OFF_QUOTES",
+    "REJECTED_MARGIN",
+    "CANCELLED"
+  ],
+  "fill_price_formula": "fill = mid \u00b1 spread/2 \u00b1 slippage + impact + gap; slippage ~ f(vol, spread, lot, latency, side)",
+  "spread_formula": "spread = base_spread(session, symbol) \u00d7 vol_mult(atr_pct) \u00d7 news_mult \u00d7 weekend_mult",
+  "latency_price_formula": "P(t+\u0394) = P(t) + drift(vol) \u00d7 \u221a\u0394 + jump(news); \u0394 ~ sum(latency_components)",
+  "marginal_distributions": {
+    "spread_xauusd_points": {
+      "asian_p50": 0.45,
+      "overlap_p50": 0.28,
+      "news_p95": 1.2,
+      "note": "Industry typical retail ranges \u2014 requires broker calibration"
+    },
+    "slippage_points": {
+      "normal_p50": 0.05,
+      "news_p95": 0.4
+    },
+    "latency_ms": {
+      "vps_p50": 65,
+      "home_p95": 250
+    }
+  },
+  "retcode_model": {
+    "DONE": 0.92,
+    "REQUOTE": 0.04,
+    "OFF_QUOTES": 0.02,
+    "REJECT": 0.015,
+    "NO_MONEY": 0.005,
+    "note": "Placeholder \u2014 must calibrate from live logs"
+  },
+  "calibration_required": true,
+  "generated_utc": "2026-07-10T08:54:32.598759+00:00"
+}

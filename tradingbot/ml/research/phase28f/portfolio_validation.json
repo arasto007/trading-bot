@@ -1,0 +1,16 @@
+{
+  "phase": "28F",
+  "trade_log_net_pnl": 75.7757,
+  "portfolio_net_pnl": 75.7757,
+  "engine_net_pnl": 75.7757,
+  "trade_count": 575,
+  "checks": {
+    "trade_log_vs_portfolio_pnl": true,
+    "trade_log_vs_engine_pnl": true,
+    "portfolio_vs_engine_pnl": true,
+    "trade_count_match": true,
+    "balance_match": true
+  },
+  "all_pass": true,
+  "tolerance": 0.01
+}

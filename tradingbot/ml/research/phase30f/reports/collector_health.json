@@ -1,0 +1,95 @@
+{
+  "phase": "30F",
+  "collectors_total": 7,
+  "healthy": 7,
+  "degraded": 0,
+  "failed": 0,
+  "heartbeats": [
+    {
+      "collector_name": "ExecutionLogger",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.151702+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {}
+    },
+    {
+      "collector_name": "GapExtractor",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.453578+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "gap_count": 1
+      }
+    },
+    {
+      "collector_name": "HistorySync",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.217484+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "deals": 1,
+        "orders": 1
+      }
+    },
+    {
+      "collector_name": "NewsJoiner",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.348611+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "status": "framework_only"
+      }
+    },
+    {
+      "collector_name": "SymbolSnapshot",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.251440+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "snapshot_date": "2026-07-10"
+      }
+    },
+    {
+      "collector_name": "TickBackfill",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.400543+00:00",
+      "ticks_collected": 0,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "gaps_repaired": 0
+      }
+    },
+    {
+      "collector_name": "TickPoller",
+      "status": "ok",
+      "last_beat_utc": "2026-07-10T15:28:06.133926+00:00",
+      "ticks_collected": 8,
+      "errors": 0,
+      "restarts": 0,
+      "metadata": {
+        "last_gap_ms": 10100
+      }
+    }
+  ],
+  "restart_counts": {
+    "TickPoller": 0,
+    "TickBackfill": 0,
+    "ExecutionLogger": 0,
+    "HistorySync": 0,
+    "SymbolSnapshot": 0,
+    "GapExtractor": 0,
+    "NewsJoiner": 0
+  },
+  "generated_utc": "2026-07-10T15:28:06.667499+00:00"
+}

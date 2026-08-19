@@ -1,0 +1,164 @@
+{
+  "phase": "25A",
+  "generated_utc": "2026-07-08T16:44:25.719893+00:00",
+  "verdict": "PAPER_DIFFERS_FROM_RESEARCH",
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "tail_only": 400,
+  "stride": 5,
+  "research_meta": {
+    "mode": "candle_store_shadow",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "runtime_failures": 29,
+    "health_gate_blocks": 0,
+    "pipeline_timeouts": 29,
+    "data_source": "candle_store",
+    "bars_evaluated": 30,
+    "warmup_bars": 250,
+    "lookback_bars": 300,
+    "hold_chain": {
+      "bars_evaluated": 1,
+      "buy_emitted": 0,
+      "sell_emitted": 0,
+      "ml_signals": 0,
+      "ml_hold_stages": {
+        "decision_hold": 0,
+        "calibration_hold": 0,
+        "trade_quality_hold": 0,
+        "rsi_filter_hold": 0,
+        "adx_filter_hold": 1
+      },
+      "ml_hold_total": 1,
+      "meta_hold": 0,
+      "riskgate_hold": 0,
+      "riskgate_block_reasons": {}
+    },
+    "latency_tick_ms": {
+      "count": 30,
+      "mean_ms": 603.319,
+      "median_ms": 575.655,
+      "p95_ms": 693.884,
+      "max_ms": 861.657,
+      "std_ms": 82.868
+    },
+    "latency_tick_warm_ms": {
+      "count": 27,
+      "mean_ms": 618.053,
+      "median_ms": 582.309,
+      "p95_ms": 693.884,
+      "max_ms": 861.657,
+      "std_ms": 65.348
+    },
+    "memory": {
+      "start_mb": 378.777,
+      "baseline_mb": 378.777,
+      "end_mb": 970.93,
+      "delta_mb": 592.153,
+      "per_bar_delta_mb": 21.9316,
+      "tracemalloc_peak_mb": 993.945,
+      "leak_suspected": true
+    }
+  },
+  "paper_meta": {
+    "mode": "paper_kernel_simulation",
+    "paper_env": true,
+    "lookback_bars": 300,
+    "bars_evaluated": 30
+  },
+  "parity_summary": {
+    "joined_bars": 30,
+    "timestamp_join_bars": 0,
+    "positional_compare_bars": 30,
+    "research_only": 30,
+    "paper_only": 30,
+    "mismatches": [
+      {
+        "index": 3,
+        "research_timestamp": "2026-06-29T02:40:00+00:00",
+        "paper_timestamp": "2026-06-29T02:35:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 4,
+        "research_timestamp": "2026-06-29T03:05:00+00:00",
+        "paper_timestamp": "2026-06-29T03:00:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 6,
+        "research_timestamp": "2026-06-29T03:55:00+00:00",
+        "paper_timestamp": "2026-06-29T03:50:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 7,
+        "research_timestamp": "2026-06-29T04:20:00+00:00",
+        "paper_timestamp": "2026-06-29T04:15:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 10,
+        "research_timestamp": "2026-06-29T05:35:00+00:00",
+        "paper_timestamp": "2026-06-29T05:30:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 11,
+        "research_timestamp": "2026-06-29T06:00:00+00:00",
+        "paper_timestamp": "2026-06-29T05:55:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 12,
+        "research_timestamp": "2026-06-29T06:25:00+00:00",
+        "paper_timestamp": "2026-06-29T06:20:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 13,
+        "research_timestamp": "2026-06-29T06:50:00+00:00",
+        "paper_timestamp": "2026-06-29T06:45:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      },
+      {
+        "index": 24,
+        "research_timestamp": "2026-06-29T11:25:00+00:00",
+        "paper_timestamp": "2026-06-29T11:20:00+00:00",
+        "research_value": "HOLD",
+        "paper_value": "SELL",
+        "research_module": "phase24a.collect_production_decisions",
+        "paper_module": "paper_kernel_simulation"
+      }
+    ],
+    "mismatch_count": 9,
+    "decision_match_rate": 0.7
+  },
+  "research_bars": 30,
+  "paper_bars": 30,
+  "replay_15b_mismatch_on_joined": 0
+}

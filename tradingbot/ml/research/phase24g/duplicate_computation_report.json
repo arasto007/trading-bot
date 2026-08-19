@@ -1,0 +1,76 @@
+{
+  "phase": "24G",
+  "profiled_function": "build_unified_frame",
+  "duplicate_paths": [
+    {
+      "path_a": "build_ml_features \u2192 compute_trend_features",
+      "path_b": "compute_regime_features_from_candles",
+      "shared_work_eliminated": [
+        "normalize_candles_index (copy + sort)",
+        "true_range_series (used by trend ATR/ADX and regime ATR/ADX)"
+      ],
+      "still_computed_separately": [
+        "EMA stacks (trend-only)",
+        "RSI/MACD/breakout (trend-only)",
+        "volatility/range_pct/ema200_distance (regime-only)"
+      ]
+    }
+  ],
+  "duplicated_indicators_exact_list": [
+    {
+      "indicator": "candle_normalize",
+      "trend": "_normalize",
+      "regime": "_normalize_candles",
+      "action": "shared once"
+    },
+    {
+      "indicator": "true_range",
+      "trend": "_atr_series/_adx_series internal",
+      "regime": "_atr_series/_adx_series internal",
+      "action": "computed once, passed to both"
+    },
+    {
+      "indicator": "atr",
+      "trend": "_atr_series",
+      "regime": "_atr_series",
+      "action": "same tr input, separate rolling (min_periods preserved)"
+    },
+    {
+      "indicator": "adx",
+      "trend": "_adx_series",
+      "regime": "_adx_series",
+      "action": "same tr input, separate rolling"
+    },
+    {
+      "indicator": "atr_percentile",
+      "trend": "_atr_percentile_series",
+      "regime": "_atr_percentile_series",
+      "action": "still separate (depends on atr output)"
+    },
+    {
+      "indicator": "ema20_slope",
+      "trend": "_ema_slope(ema20, atr)",
+      "regime": "_ema_slope(close, 20, atr)",
+      "action": "still separate (regime rounding differs)"
+    },
+    {
+      "indicator": "ema50_slope",
+      "trend": "_ema_slope(ema50, atr)",
+      "regime": "_ema_slope(close, 50, atr)",
+      "action": "still separate"
+    },
+    {
+      "indicator": "higher_high_count",
+      "trend": "rolling max count",
+      "regime": "_swing_counts",
+      "action": "still separate"
+    },
+    {
+      "indicator": "lower_low_count",
+      "trend": "rolling min count",
+      "regime": "_swing_counts",
+      "action": "still separate"
+    }
+  ],
+  "generated_utc": "2026-07-08T12:48:05.458083+00:00"
+}

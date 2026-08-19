@@ -1,0 +1,32 @@
+{
+  "riskgate_rejected_signals": 760,
+  "blocked_executions": 0,
+  "rejection_reasons": {
+    "opposite direction position open (XAUUSD)": 7,
+    "max positions for symbol (2>=2) (XAUUSD)": 753
+  },
+  "lot_size_distribution": [
+    {
+      "bin_start": 0.01,
+      "bin_end": 0.01,
+      "count": 2
+    }
+  ],
+  "average_risk_percent": 0.2385,
+  "maximum_risk_percent": 0.2915,
+  "sl_distance_avg": 8.7121,
+  "tp_distance_avg": 21.7804,
+  "rr_distribution": [
+    {
+      "bin_start": 2.5,
+      "bin_end": 2.5,
+      "count": 2
+    }
+  ],
+  "mae_avg": 1.7149,
+  "mfe_avg": 1.3884,
+  "mae_mfe_ratio": 1.2352,
+  "killswitch_activity": 0,
+  "emergency_stop_activity": 0,
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

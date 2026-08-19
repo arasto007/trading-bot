@@ -1,0 +1,22 @@
+{
+  "phase": "22H",
+  "active_trend_engine_id": "trend_rf_v41",
+  "calibration_status": {
+    "production_uses_platt": true,
+    "active_trend_engine_id": "trend_rf_v41",
+    "calibration_method": "platt",
+    "confidence_threshold": 0.3,
+    "phase14_6_policy": {
+      "calibration_method": "platt",
+      "confidence_threshold": 0.3,
+      "engine_specific": true
+    },
+    "platt_fit_window": "phase14_7 MAX_RESEARCH_BARS on active EngineRegistry trend engine",
+    "missing_in_prior_production": "Platt calibration from Phase 14.6 was not wired in factory.py",
+    "prior_path": "CalibratedDecisionAdapter + ConfidenceCalibrator (heuristic 14.2A)",
+    "recovered_path": "ResearchCalibratedAdapter + Phase 14.6 Platt"
+  },
+  "adapter_type": "CalibratedDecisionAdapter",
+  "uses_active_engine": true,
+  "no_exception": true
+}

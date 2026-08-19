@@ -1,0 +1,91 @@
+{
+  "phase": "23A",
+  "dimensions": [
+    {
+      "dimension": "feature_source",
+      "research": "dataset_v2 columns via _training_frame (_replay_on_frame)",
+      "runtime": "PipelineCache merge → phase99_* → row_for_phase99_range",
+      "match": false
+    },
+    {
+      "dimension": "feature_order",
+      "research": "feature_order.json direct column read",
+      "runtime": "requires columns on unified row; ema_cross_state missing",
+      "match": false
+    },
+    {
+      "dimension": "FeatureBuilder.compute_at",
+      "research": "not used",
+      "runtime": "fallback exists but KernelAdapter never passes candles",
+      "match": false
+    },
+    {
+      "dimension": "thresholds",
+      "research": "SignalEngine 0.55/0.45 on raw prob",
+      "runtime": "same + DecisionPolicy 0.55 on confidence",
+      "match": false
+    },
+    {
+      "dimension": "model/scaler",
+      "research": "same phase9_9_best artifacts",
+      "runtime": "same artifacts via load_phase9_9_bundle",
+      "match": true
+    },
+    {
+      "dimension": "predict_proba reachability",
+      "research": "always called on training frame rows",
+      "runtime": "skipped when _features_from_row returns None",
+      "match": false
+    }
+  ],
+  "runtime_sample": {
+    "last_timestamp": "2026-06-29 13:50:00+00:00",
+    "regime": "TREND",
+    "feature_order": [
+      "candle_direction",
+      "structure_distance",
+      "ema50_slope",
+      "ema_cross_state"
+    ],
+    "mapped_column_presence": {
+      "candle_direction": true,
+      "structure_distance": true,
+      "ema50_slope": true,
+      "ema_cross_state": false
+    },
+    "mapped_values": {
+      "candle_direction": 0.0,
+      "structure_distance": 0.0,
+      "ema50_slope": 0.0,
+      "ema_cross_state": null
+    },
+    "feature_builder_values": {
+      "candle_direction": 0.0,
+      "structure_distance": 0.0,
+      "ema50_slope": 0.0,
+      "ema_cross_state": 0.0
+    },
+    "feature_builder_error": "'int' object has no attribute 'to_pydatetime'",
+    "phase99_column_zero_rate": {
+      "phase99_ema50_slope": 0.8403,
+      "phase99_candle_direction": 0.8403,
+      "phase99_structure_distance": 100.0
+    },
+    "live_ema50_slope_nonzero_rate": 100.0,
+    "_features_from_row": null,
+    "predict_proba_called": false,
+    "range_eval": {
+      "signal": "HOLD",
+      "probability": 0.5,
+      "confidence": 0.0,
+      "sl": null,
+      "tp": null,
+      "model_version": "phase9_9_best",
+      "regime": "RANGE",
+      "engine": "phase9_9"
+    },
+    "prob_from_feature_builder": null
+  },
+  "phase22k_reference": "tradingbot/ml/research/phase22k/zero_feature_root_cause.json",
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

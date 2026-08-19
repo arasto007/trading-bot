@@ -1,0 +1,14 @@
+{
+  "phase": "22AA",
+  "title": "Impact Radius Forensics — overfitting_risk_decreased",
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false,
+  "verdict": "ACCEPTANCE_RULE_ISOLATED_TO_PHASE9_9_RESEARCH_PIPELINE",
+  "anchor_rule": "overfitting_risk_decreased",
+  "critical_dependencies": 2,
+  "safe_dependencies": 5,
+  "freeze_in_acceptance_chain": false,
+  "health_gate_in_acceptance_chain": false,
+  "boundary": "overfitting_risk_decreased lives entirely inside Phase 9.9 research acceptance (report_generator → optimization_orchestrator → JSON reports → train_model exit code). It does not gate freeze_phase9_9_artifacts, live HealthGate, or TradingKernel.",
+  "duplicate_risk_order_locations": 2
+}

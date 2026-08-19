@@ -1,0 +1,43 @@
+{
+  "phase": "24B",
+  "typical_research_path": [
+    {
+      "step": 1,
+      "module": "CandleStore / collect_ml_data scripts",
+      "purpose": "raw candle persistence"
+    },
+    {
+      "step": 2,
+      "module": "DatasetStore / build_ml_dataset",
+      "purpose": "dataset_v2 with phase99 features"
+    },
+    {
+      "step": 3,
+      "module": "build_unified_frame",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "purpose": "research feature matrix"
+    },
+    {
+      "step": 4,
+      "module": "run_decision_batch / shadow validators",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "line": 180
+    },
+    {
+      "step": 5,
+      "module": "phase24a live_shadow_validator",
+      "purpose": "replay with KernelAdapter, no orders"
+    }
+  ],
+  "isolation_rules": [
+    "Research under ml/research/ must not import execution modules",
+    "Production integration via factory.py + kernel_adapter.py only"
+  ],
+  "not_in_live_hot_path": [
+    "ShadowEngine",
+    "KernelShadowRunner",
+    "train_model.py",
+    "robustness_optimizer"
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

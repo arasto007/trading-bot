@@ -1,0 +1,44 @@
+{
+  "phase": "23A",
+  "model_file": "tradingbot/ml/paper_trading/model_registry.py",
+  "function": "Phase99Bundle.predict_proba",
+  "runtime_path": {
+    "reached": false,
+    "block_location": {
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "class": "RangeEngineAdapter",
+      "function": "evaluate",
+      "line": 60,
+      "condition": "feats is None or missing bundle.feature_order columns (ema_cross_state absent on unified row)",
+      "effect": "returns HOLD without calling predict_proba"
+    },
+    "range_eval_when_blocked": {
+      "signal": "HOLD",
+      "probability": 0.5,
+      "confidence": 0.0,
+      "sl": null,
+      "tp": null,
+      "model_version": "phase9_9_best",
+      "regime": "RANGE",
+      "engine": "phase9_9"
+    }
+  },
+  "research_path": {
+    "file": "tradingbot/ml/research/phase22al/live_validation.py",
+    "function": "_replay_on_frame",
+    "behavior": "reads dataset_v2 training frame feature columns directly; always reaches predict_proba",
+    "full_v2_signals": {
+      "BUY": 52,
+      "SELL": 762,
+      "source": "phase22al/historical_replay_report.json"
+    }
+  },
+  "thresholding_after_prob": {
+    "signal_engine_buy": 0.55,
+    "signal_engine_sell": 0.45,
+    "decision_policy_min_confidence": 0.55,
+    "confidence_formula": "abs(prob - 0.5) * 2.0 in RangeEngineAdapter.evaluate"
+  },
+  "prob_from_feature_builder_when_reachable": null,
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

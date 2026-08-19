@@ -1,0 +1,75 @@
+{
+  "windows": [
+    {
+      "window": "300_bars",
+      "repaired_vs_paper": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0,
+        "passes_995": true
+      },
+      "legacy_vs_repaired": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0
+      }
+    },
+    {
+      "window": "7_days",
+      "repaired_vs_paper": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0,
+        "passes_995": true
+      },
+      "legacy_vs_repaired": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0
+      }
+    },
+    {
+      "window": "30_days",
+      "repaired_vs_paper": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0,
+        "passes_995": true
+      },
+      "legacy_vs_repaired": {
+        "decision_match_rate": 0.998099,
+        "mismatch_count": 1050
+      }
+    },
+    {
+      "window": "90_days",
+      "repaired_vs_paper": {
+        "decision_match_rate": 1.0,
+        "mismatch_count": 0,
+        "passes_995": true
+      },
+      "legacy_vs_repaired": {
+        "decision_match_rate": 0.0,
+        "mismatch_count": 0,
+        "joined_bars": 0,
+        "timestamp_join_failed": true,
+        "note": "Legacy phase24a timestamps do not align with repaired closed-bar timestamps on 90d window"
+      }
+    }
+  ],
+  "primary_window": {
+    "joined_bars": 50,
+    "left_bars": 50,
+    "right_bars": 50,
+    "left_only": 0,
+    "right_only": 0,
+    "timestamp_match_rate": 1.0,
+    "decision_match_rate": 1.0,
+    "feature_match_rate": 1.0,
+    "confidence_mismatch_count": 0,
+    "max_confidence_delta": 0.0,
+    "risk_mismatch_count": 0,
+    "mismatch_count": 0,
+    "mismatches_sample": [],
+    "passes_timestamp_100": true,
+    "passes_decision_995": true,
+    "passes_feature_100": true,
+    "passes_confidence_tol": true,
+    "identical_entrypoint": "tradingbot.ml.research.phase25b.unified_pipeline_replay.run_unified_pipeline_replay"
+  }
+}

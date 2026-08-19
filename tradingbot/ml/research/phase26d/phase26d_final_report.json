@@ -1,0 +1,20 @@
+{
+  "phase": "26D",
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "verdict": "STARTUP_SAFE",
+  "scenarios_tested": 8,
+  "start_successfully": 3,
+  "fail_with_explicit_reason": 5,
+  "silent_continues": 0,
+  "fail_fast_codes": [
+    "USE_ML_KERNEL_MISSING",
+    "EMERGENCY_STOP_ACTIVE",
+    "DUPLICATE_POSITION_OWNERSHIP",
+    "EXEC_MODE_CONFLICT",
+    "ML_ARTIFACTS_INVALID",
+    "PARQUET_UNAVAILABLE",
+    "MT5_UNAVAILABLE",
+    "AUTOTRADING_DISABLED",
+    "FILESYSTEM_UNAVAILABLE"
+  ]
+}

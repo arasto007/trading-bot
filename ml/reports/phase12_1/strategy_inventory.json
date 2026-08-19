@@ -1,0 +1,102 @@
+{
+  "registered_in_config": [
+    "priceaction",
+    "advancedml",
+    "arbitrage",
+    "breakout",
+    "dynamicsizing",
+    "gridtrading",
+    "hedgingprofessional",
+    "meanreversion",
+    "ml",
+    "momentum",
+    "patternrecognition",
+    "pullback",
+    "rangebound",
+    "scalping",
+    "trendfollowing",
+    "trendmomentumcombo",
+    "volatilitybreakout"
+  ],
+  "enabled_strategies": [
+    "priceaction"
+  ],
+  "disabled_strategies": [
+    "advancedml",
+    "arbitrage",
+    "breakout",
+    "dynamicsizing",
+    "gridtrading",
+    "hedgingprofessional",
+    "meanreversion",
+    "ml",
+    "momentum",
+    "patternrecognition",
+    "pullback",
+    "rangebound",
+    "scalping",
+    "trendfollowing",
+    "trendmomentumcombo",
+    "volatilitybreakout"
+  ],
+  "engine_strategy_files": [
+    {
+      "file": "engine\\strategies\\price_action_strategy.py",
+      "strategy_key": "priceaction",
+      "enabled_in_config": true,
+      "class_candidates": [
+        "PriceActionStrategy"
+      ]
+    }
+  ],
+  "loaded_at_runtime": [
+    "priceaction"
+  ],
+  "ml_strategy": {
+    "name": "ml_shadow_phase9_9",
+    "display": "Phase 9.9 ML (MLShadowStrategy)",
+    "model_artifact": "data/ml/research/phase9_9_best/",
+    "enabled_via_env": "ENABLE_ML_SHADOW=true",
+    "registry_class": "tradingbot.ml.integration.ml_strategy.MLShadowStrategy"
+  },
+  "priceaction_sub_patterns": [
+    "liquidity_sweep",
+    "bos_ob",
+    "fvg_fill",
+    "order_block",
+    "choch",
+    "fvg"
+  ],
+  "production_wiring": {
+    "ml_shadow_paper_live": "CompositeStrategyRegistry (kernel_builder.build_kernel_shadow)",
+    "legacy_live_runner": "LegacyStrategyRegistry (application.live_runner)",
+    "legacy_bootstrap": "LegacyStrategyRegistry (application.bootstrap.build_kernel_live)"
+  },
+  "kernel_wiring": {
+    "kernel_builder_shadow": {
+      "exists": true,
+      "uses_composite_registry": true,
+      "uses_legacy_registry": false,
+      "uses_ml_shadow": true
+    },
+    "live_runner": {
+      "exists": true,
+      "uses_composite_registry": false,
+      "uses_legacy_registry": true,
+      "uses_ml_shadow": false
+    },
+    "bootstrap_live": {
+      "exists": true,
+      "uses_composite_registry": false,
+      "uses_legacy_registry": true,
+      "uses_ml_shadow": false
+    },
+    "signal_stage": {
+      "exists": true,
+      "uses_composite_registry": false,
+      "uses_legacy_registry": false,
+      "uses_ml_shadow": false
+    }
+  },
+  "note": "Only 'priceaction' is enabled in ACTIVE_STRATEGIES. OrderBlock/CHOCH/FVG are sub-setups inside PriceActionStrategy, not independent registry strategies."
+}

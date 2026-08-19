@@ -1,0 +1,9 @@
+{
+  "phase": "23B",
+  "predict_proba_called": true,
+  "probability": 0.433644,
+  "confidence": 0.132712,
+  "signal": "SELL",
+  "feature_validation_failed": false,
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

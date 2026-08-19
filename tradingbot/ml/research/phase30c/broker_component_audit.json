@@ -1,0 +1,492 @@
+{
+  "phase": "30C",
+  "audit_type": "digital_broker_twin_forensic",
+  "component_count": 29,
+  "components": [
+    {
+      "component": "Bid/Ask Stream",
+      "current_implementation": "Paper: single price + fixed half-spread; Live: mt5.symbol_info_tick bid/ask at send time only",
+      "real_broker_behavior": "Continuous bid/ask tick stream; ask>=bid; spread varies tick-to-tick; last tick may be stale",
+      "difference": "No tick history stored; paper often uses candle close not live bid/ask",
+      "risk": "HIGH \u2014 fill price may not match any real tick at decision time",
+      "expected_impact": {
+        "profit_factor": "HIGH \u2014 contributes to ideal\u2192sim PF gap",
+        "drawdown": "MEDIUM",
+        "expectancy": "HIGH"
+      },
+      "confidence": 88,
+      "evidence_sources": [
+        "paper_fill_resolver.py",
+        "mt5_execution.py _current_price"
+      ]
+    },
+    {
+      "component": "Tick-by-Tick Spread",
+      "current_implementation": "Fixed spread_points=0.30 (PaperBroker); Phase30A session multipliers research-only",
+      "real_broker_behavior": "Spread dynamic per tick; XAUUSD retail 20\u2013150+ points intraday",
+      "difference": "Production spread static; no tick-level spread series",
+      "risk": "CRITICAL",
+      "expected_impact": {
+        "profit_factor": "HIGH \u2014 PF 1.211\u21921.0486 when modelled; breaking 1.5\u00d7 multiplier",
+        "drawdown": "HIGH \u2014 DD 24%\u219238% normal sim",
+        "expectancy": "HIGH"
+      },
+      "confidence": 92,
+      "evidence_sources": [
+        "phase30a/performance_comparison.json",
+        "paper_broker.py"
+      ]
+    },
+    {
+      "component": "Spread Expansion (Volatility)",
+      "current_implementation": "Phase30A: atr_percentile scales spread; production: none",
+      "real_broker_behavior": "Spread widens proportionally with volatility and order flow imbalance",
+      "difference": "Volatility-spread coupling absent in production",
+      "risk": "HIGH during news/fast markets",
+      "expected_impact": {
+        "profit_factor": "MEDIUM-HIGH in tails",
+        "drawdown": "HIGH in flash crash stress PF=0.58",
+        "expectancy": "MEDIUM"
+      },
+      "confidence": 85,
+      "evidence_sources": [
+        "execution_costs.py vol_mult",
+        "phase30a/stress_tests.json"
+      ]
+    },
+    {
+      "component": "Session Spread",
+      "current_implementation": "Phase30A Asian 1.35\u00d7 London 1.0\u00d7 Overlap 0.85\u00d7; production: flat",
+      "real_broker_behavior": "Asian gold spread often 2\u20133\u00d7 overlap; Sunday open extreme",
+      "difference": "Session not modelled in production path",
+      "risk": "MEDIUM \u2014 M5 strategy crosses sessions",
+      "expected_impact": {
+        "profit_factor": "MEDIUM",
+        "drawdown": "MEDIUM",
+        "expectancy": "MEDIUM"
+      },
+      "confidence": 80,
+      "evidence_sources": [
+        "execution_costs.py SESSION_SPREAD_MULT"
+      ]
+    },
+    {
+      "component": "News Spread",
+      "current_implementation": "Phase30A flag is_news_window \u00d71.8 spread; no calendar in production",
+      "real_broker_behavior": "NFP/FOMC: spread 5\u201320\u00d7; fills delayed/requoted",
+      "difference": "No economic calendar integration",
+      "risk": "CRITICAL on event days",
+      "expected_impact": {
+        "profit_factor": "CRITICAL \u2014 news stress PF=0.73",
+        "drawdown": "CRITICAL",
+        "expectancy": "CRITICAL"
+      },
+      "confidence": 86,
+      "evidence_sources": [
+        "phase30a/stress_tests.json news"
+      ]
+    },
+    {
+      "component": "Weekend Spread / Gap",
+      "current_implementation": "Phase30A weekend scenario; production bar exit at exact levels",
+      "real_broker_behavior": "Friday close / Sunday open gap; widened spread; SL gap-through",
+      "difference": "No weekend open modelling in production",
+      "risk": "HIGH for held positions",
+      "expected_impact": {
+        "profit_factor": "HIGH \u2014 weekend stress PF=0.68",
+        "drawdown": "CRITICAL",
+        "expectancy": "HIGH"
+      },
+      "confidence": 82,
+      "evidence_sources": [
+        "phase30a/stress_tests.json weekend"
+      ]
+    },
+    {
+      "component": "Liquidity / Order Book",
+      "current_implementation": "Phase30A scalar liquidity_score; production unlimited at min lot",
+      "real_broker_behavior": "Depth at bid/ask; thin book off-hours; last-look on MM",
+      "difference": "No L2 approximation; no broker last-look",
+      "risk": "MEDIUM at 0.01 lot; HIGH at size",
+      "expected_impact": {
+        "profit_factor": "MEDIUM \u2014 partial fill 22.9% in sim may overstate min lot",
+        "drawdown": "MEDIUM",
+        "expectancy": "MEDIUM"
+      },
+      "confidence": 75,
+      "evidence_sources": [
+        "liquidity_model.py",
+        "phase30a fill_stats"
+      ]
+    },
+    {
+      "component": "Fill Probability",
+      "current_implementation": "Paper: fill if price resolved; Live: market order with deviation 20",
+      "real_broker_behavior": "FOK/IOC/RETURN modes; partial reject; off-quotes; margin reject",
+      "difference": "Paper never rejects except unresolved price",
+      "risk": "MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW-MEDIUM",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 78,
+      "evidence_sources": [
+        "mt5_execution.py",
+        "fill_model.py"
+      ]
+    },
+    {
+      "component": "Partial Fills",
+      "current_implementation": "Phase30A discrete ratios; production 100% fill",
+      "real_broker_behavior": "Common on limits; rare on small market XAUUSD ECN",
+      "difference": "Simulator may over-penalize 0.01 lot",
+      "risk": "LOW at current sizing",
+      "expected_impact": {
+        "profit_factor": "LOW-MEDIUM",
+        "drawdown": "LOW",
+        "expectancy": "LOW-MEDIUM"
+      },
+      "confidence": 72,
+      "evidence_sources": [
+        "fill_model.py"
+      ]
+    },
+    {
+      "component": "Market Impact",
+      "current_implementation": "Phase30A linear impact from lot/ATR; negligible at 0.01 lot",
+      "real_broker_behavior": "Square-root impact; walks book on size",
+      "difference": "Minimal at min lot; model inactive in production",
+      "risk": "LOW now; HIGH if sizing increases",
+      "expected_impact": {
+        "profit_factor": "NEGLIGIBLE at 0.01",
+        "drawdown": "LOW",
+        "expectancy": "NEGLIGIBLE"
+      },
+      "confidence": 88,
+      "evidence_sources": [
+        "market_impact.py",
+        "phase30a breaking points impact sweep"
+      ]
+    },
+    {
+      "component": "Entry Slippage",
+      "current_implementation": "Paper: +0.10 points fixed; Live: measured post-fill; journal paper=0",
+      "real_broker_behavior": "Fat-tailed; worse in volatility; can be positive (price improvement)",
+      "difference": "Hidden in paper journal; not session-varying",
+      "risk": "HIGH",
+      "expected_impact": {
+        "profit_factor": "MEDIUM \u2014 slippage break 7\u00d7 vs spread 1.5\u00d7",
+        "drawdown": "MEDIUM",
+        "expectancy": "MEDIUM"
+      },
+      "confidence": 85,
+      "evidence_sources": [
+        "paper_broker.py",
+        "paper_trade_recorder.py"
+      ]
+    },
+    {
+      "component": "Exit Slippage",
+      "current_implementation": "Production: exact TP/SL/bar close; Phase30A sim applies slip on exit replay",
+      "real_broker_behavior": "SL/TP hit with slip; stop hunting; gap through level",
+      "difference": "CRITICAL optimism in production exit path",
+      "risk": "CRITICAL",
+      "expected_impact": {
+        "profit_factor": "CRITICAL \u2014 ~30% of PF loss share (phase30b rank 2)",
+        "drawdown": "HIGH",
+        "expectancy": "CRITICAL"
+      },
+      "confidence": 94,
+      "evidence_sources": [
+        "exit_policy.py",
+        "phase30b root cause rank 2"
+      ]
+    },
+    {
+      "component": "Gap Through Stop",
+      "current_implementation": "Bar SL at exact stop_loss price (pessimistic ordering vs TP same bar)",
+      "real_broker_behavior": "Price gaps through SL especially weekend/news; slip beyond SL",
+      "difference": "No gap-through modelling in production",
+      "risk": "CRITICAL tail",
+      "expected_impact": {
+        "profit_factor": "HIGH in tail events",
+        "drawdown": "CRITICAL",
+        "expectancy": "HIGH"
+      },
+      "confidence": 83,
+      "evidence_sources": [
+        "paper_broker resolve_bar",
+        "fill_model price_gap"
+      ]
+    },
+    {
+      "component": "Gap Through TP",
+      "current_implementation": "Exact TP fill at take_profit level on bar touch",
+      "real_broker_behavior": "Positive gap may overshoot TP; limit fill better than stop",
+      "difference": "Optimistic TP fills; no overshoot capture variance",
+      "risk": "LOW-MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW optimistic bias",
+        "drawdown": "LOW",
+        "expectancy": "LOW optimistic"
+      },
+      "confidence": 70,
+      "evidence_sources": [
+        "exit_policy.py"
+      ]
+    },
+    {
+      "component": "Latency (All Components)",
+      "current_implementation": "Phase30A Gaussian sum ~80ms mean; NOT applied to price; production instant",
+      "real_broker_behavior": "50\u2013500ms retail; co-located lower; price moves during delay",
+      "difference": "Latency decorative in Phase30A replay PnL",
+      "risk": "MEDIUM M5 bar boundary races",
+      "expected_impact": {
+        "profit_factor": "NONE in current sim sweeps",
+        "drawdown": "NONE",
+        "expectancy": "NONE until coupled"
+      },
+      "confidence": 95,
+      "evidence_sources": [
+        "execution_latency.py",
+        "phase30a breaking points delay sweep"
+      ]
+    },
+    {
+      "component": "Latency \u2192 Price Coupling",
+      "current_implementation": "NOT IMPLEMENTED anywhere",
+      "real_broker_behavior": "Fill price = f(tick_stream, t + latency); drift proportional to vol\u00d7\u221atime",
+      "difference": "CRITICAL missing causal link",
+      "risk": "HIGH \u2014 understates fast market cost",
+      "expected_impact": {
+        "profit_factor": "UNKNOWN \u2014 estimated MEDIUM when implemented",
+        "drawdown": "MEDIUM",
+        "expectancy": "MEDIUM"
+      },
+      "confidence": 80,
+      "evidence_sources": [
+        "phase30b missing_features"
+      ]
+    },
+    {
+      "component": "Queue / Broker Processing Delay",
+      "current_implementation": "Phase30A exponential queue delay; MT5 retry sleep 0.5s once",
+      "real_broker_behavior": "Broker internal matching queue; multi-second during news",
+      "difference": "Minimal production modelling",
+      "risk": "MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW in replay",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 68,
+      "evidence_sources": [
+        "order_queue.py",
+        "mt5_execution _order_send_with_retry"
+      ]
+    },
+    {
+      "component": "Network Delay",
+      "current_implementation": "Phase30A component 10\u201330ms; unmodelled production",
+      "real_broker_behavior": "Geo-dependent RTT; jitter spikes",
+      "difference": "Only in research sim score not PnL",
+      "risk": "LOW-MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW until coupled",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 75,
+      "evidence_sources": [
+        "execution_latency.py"
+      ]
+    },
+    {
+      "component": "Price Improvement",
+      "current_implementation": "Phase30A positive slippage prob ~10\u201315%; production paper none",
+      "real_broker_behavior": "Occasional better fill on market orders; MM dependent",
+      "difference": "Paper always adverse half-spread + slip",
+      "risk": "LOW \u2014 slight pessimism in paper entry",
+      "expected_impact": {
+        "profit_factor": "LOW optimistic bias in paper",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 65,
+      "evidence_sources": [
+        "execution_costs slippage_probability"
+      ]
+    },
+    {
+      "component": "Requotes",
+      "current_implementation": "Phase30A 2% prob widen spread; MT5 retry codes 10004 etc once",
+      "real_broker_behavior": "Requote loops; trader accepts worse or cancels",
+      "difference": "Single retry insufficient for full requote chain",
+      "risk": "MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW-MEDIUM",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 72,
+      "evidence_sources": [
+        "fill_model should_requote",
+        "mt5_execution _RETRY_CODES"
+      ]
+    },
+    {
+      "component": "Minimum Distance / Freeze Level",
+      "current_implementation": "NOT IMPLEMENTED \u2014 SL/TP sent without stops_level/freeze_level validation",
+      "real_broker_behavior": "symbol_info.stops_level freeze_level block modify/place near price",
+      "difference": "Orders may be rejected live but pass paper",
+      "risk": "MEDIUM live reject",
+      "expected_impact": {
+        "profit_factor": "LOW \u2014 fewer trades if enforced",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 60,
+      "evidence_sources": [
+        "mt5_execution request dict \u2014 no stops_level check in codebase grep"
+      ]
+    },
+    {
+      "component": "Tick Size / Price Precision",
+      "current_implementation": "BrokerConstraints tick_size 0.01 gold; fills rounded 5\u20136 dp in exit_policy",
+      "real_broker_behavior": "symbol_info.digits point tick_size strict rounding",
+      "difference": "Partial \u2014 constraints exist but not enforced on every fill path",
+      "risk": "LOW",
+      "expected_impact": {
+        "profit_factor": "NEGLIGIBLE",
+        "drawdown": "NEGLIGIBLE",
+        "expectancy": "NEGLIGIBLE"
+      },
+      "confidence": 82,
+      "evidence_sources": [
+        "broker_constraints.py"
+      ]
+    },
+    {
+      "component": "Minimum Lot / Lot Step",
+      "current_implementation": "min_lot=0.01 step=0.01 clamp in BrokerConstraints + position_sizing",
+      "real_broker_behavior": "Broker-specific; volume_min volume_step volume_max",
+      "difference": "Static defaults not loaded from symbol_info at runtime in paper",
+      "risk": "LOW for XAUUSD standard",
+      "expected_impact": {
+        "profit_factor": "LOW",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 85,
+      "evidence_sources": [
+        "broker_constraints.py",
+        "accounting/position_sizing.py"
+      ]
+    },
+    {
+      "component": "Margin Calculation",
+      "current_implementation": "margin = lot\u00d7contract\u00d7price/leverage; leverage fixed 100",
+      "real_broker_behavior": "MT5 order_calc_margin; hedging vs netting; symbol margin_initial",
+      "difference": "Simplified; no hedged margin discount",
+      "risk": "MEDIUM if multiple positions",
+      "expected_impact": {
+        "profit_factor": "LOW",
+        "drawdown": "MEDIUM if margin call unmodelled",
+        "expectancy": "LOW"
+      },
+      "confidence": 78,
+      "evidence_sources": [
+        "broker_constraints.margin_required"
+      ]
+    },
+    {
+      "component": "Margin Call / Stop Out",
+      "current_implementation": "NOT IMPLEMENTED",
+      "real_broker_behavior": "Stop out at margin_level 20\u201350%; forced close worst positions",
+      "difference": "Complete absence \u2014 replay never liquidated",
+      "risk": "HIGH live tail not in backtest",
+      "expected_impact": {
+        "profit_factor": "LOW until extreme leverage",
+        "drawdown": "UNDERSTATES tail",
+        "expectancy": "N/A"
+      },
+      "confidence": 85,
+      "evidence_sources": [
+        "phase30b missing margin stop-out"
+      ]
+    },
+    {
+      "component": "Swap",
+      "current_implementation": "swap=0.0 in paper_trade_recorder",
+      "real_broker_behavior": "Triple swap Wed; long/short rates; affects hold >24h",
+      "difference": "Zero overnight carry in all paper/replay",
+      "risk": "MEDIUM multi-day holds (max 72 bars M5 \u2248 6h \u2014 limited)",
+      "expected_impact": {
+        "profit_factor": "LOW for current hold horizon",
+        "drawdown": "LOW",
+        "expectancy": "LOW per trade"
+      },
+      "confidence": 80,
+      "evidence_sources": [
+        "paper_trade_recorder.py",
+        "exit_policy DEFAULT_MAX_HOLD_BARS=72"
+      ]
+    },
+    {
+      "component": "Commission",
+      "current_implementation": "commission=0.0 PaperBroker and journal",
+      "real_broker_behavior": "Per-lot or per-million; ECN raw spread + commission",
+      "difference": "Absent",
+      "risk": "LOW if spread includes markup",
+      "expected_impact": {
+        "profit_factor": "LOW-MEDIUM cumulative",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 82,
+      "evidence_sources": [
+        "paper_broker.py"
+      ]
+    },
+    {
+      "component": "Execution Rejection / Off Quotes",
+      "current_implementation": "Paper: unresolved price only; Live: retcode failures logged",
+      "real_broker_behavior": "TRADE_RETCODE_OFF_QUOTES REJECT NO_MONEY MARKET_CLOSED",
+      "difference": "No rejection taxonomy in paper/replay",
+      "risk": "MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW \u2014 missed trades",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 70,
+      "evidence_sources": [
+        "mt5_execution.py retcode handling"
+      ]
+    },
+    {
+      "component": "Trade Context Busy",
+      "current_implementation": "guarded_order_send wrapper; single retry",
+      "real_broker_behavior": "TRADE_CONTEXT_BUSY common under load; exponential backoff",
+      "difference": "Minimal retry policy",
+      "risk": "LOW-MEDIUM",
+      "expected_impact": {
+        "profit_factor": "LOW",
+        "drawdown": "LOW",
+        "expectancy": "LOW"
+      },
+      "confidence": 65,
+      "evidence_sources": [
+        "mt5_order_guard.py"
+      ]
+    }
+  ],
+  "reference_metrics": {
+    "phase29b_ideal_pf": 1.211,
+    "phase30a_sim_normal_pf": 1.0486,
+    "high_spread_stress_pf": 0.7536,
+    "flash_crash_pf": 0.5824
+  },
+  "generated_utc": "2026-07-10T08:54:32.594624+00:00"
+}

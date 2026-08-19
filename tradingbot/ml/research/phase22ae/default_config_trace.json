@@ -1,0 +1,53 @@
+{
+  "phase": "22AE",
+  "defined_in": "tradingbot/ml/paper_trading/model_registry.py",
+  "definition_line": 38,
+  "builder": "None — module-level literal assigned at import",
+  "editors": [
+    {
+      "who": "source code author",
+      "mechanism": "direct edit of DEFAULT_CONFIG dict in model_registry.py",
+      "runtime_mutation": false
+    },
+    {
+      "who": "freeze_phase9_9_artifacts caller",
+      "mechanism": "optional config= parameter replaces DEFAULT_CONFIG for that call only",
+      "runtime_mutation": "call-local copy via dict(config or DEFAULT_CONFIG)"
+    }
+  ],
+  "literal_value": {},
+  "classification": {
+    "hardcoded": true,
+    "generated": false,
+    "cached": false,
+    "loaded_from_json": false,
+    "loaded_from_metadata": false,
+    "loaded_from_cli": false,
+    "loaded_from_environment": false
+  },
+  "alignment_with_optimizer_grid": {
+    "matches_logistic_strong_reg_candidate": true,
+    "matches_stable_top3_features": false,
+    "note": "DEFAULT_CONFIG mirrors one grid cell (logistic C=0.1 + top3 stable features) chosen manually in Phase 9.10 registry, not wired to select_best()"
+  },
+  "imports": [
+    {
+      "file": "tradingbot/ml/paper/config.py",
+      "line": 18,
+      "usage": "from tradingbot.ml.paper_trading.model_registry import DEFAULT_CONFIG",
+      "effect": "EXPECTED_FEATURES = list(DEFAULT_CONFIG['features']) at import time"
+    },
+    {
+      "file": "tests/test_ml_paper_phase9_10.py",
+      "line": 39,
+      "usage": "import DEFAULT_CONFIG for paper trading tests"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22v/model_audit.py",
+      "line": 328,
+      "usage": "fallback: config = dict(bundle.config or DEFAULT_CONFIG)"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:28:18.301547+00:00",
+  "production_modified": false
+}

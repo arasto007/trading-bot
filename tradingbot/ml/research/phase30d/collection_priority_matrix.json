@@ -1,0 +1,50 @@
+{
+  "phase": "30D",
+  "priority": [
+    {
+      "rank": 1,
+      "dataset": "TickStream",
+      "duration_days": 30,
+      "blocker_for": "SpreadEngine calibration"
+    },
+    {
+      "rank": 2,
+      "dataset": "ExecutionFills demo live",
+      "duration_days": 90,
+      "blocker_for": "SlippageEngine"
+    },
+    {
+      "rank": 3,
+      "dataset": "OrderAttempts",
+      "duration_days": 90,
+      "blocker_for": "Retcode model"
+    },
+    {
+      "rank": 4,
+      "dataset": "SymbolInfoDaily",
+      "duration_days": 30,
+      "blocker_for": "BrokerRules"
+    },
+    {
+      "rank": 5,
+      "dataset": "NewsCalendar",
+      "duration_days": "60+",
+      "blocker_for": "News spread multiplier"
+    },
+    {
+      "rank": 6,
+      "dataset": "GapEvents",
+      "duration_days": 28,
+      "blocker_for": "GapEngine"
+    },
+    {
+      "rank": 7,
+      "dataset": "AccountSnapshots",
+      "duration_days": 30,
+      "blocker_for": "MarginEngine optional"
+    }
+  ],
+  "parallel_collection": true,
+  "estimated_wall_clock": "90 days to satisfy all minimums with bot running demo",
+  "generated_utc": "2026-07-10T11:04:24.687260+00:00"
+}

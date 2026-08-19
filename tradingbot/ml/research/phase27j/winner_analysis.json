@@ -1,0 +1,15 @@
+{
+  "phase": "27J",
+  "winner_count": 222,
+  "average_gross_move_price": 27.1639,
+  "average_captured_move_price": 22.3844,
+  "capture_ratio_mean": 0.8101,
+  "capture_ratio_median": 0.8886,
+  "average_planned_tp_distance": 27.3932,
+  "average_actual_exit_move_price": 22.3844,
+  "average_unused_remaining_move_r": 0.419,
+  "average_winner_final_r": 2.1398,
+  "exited_too_early": false,
+  "note": "capture_ratio = final_r / mfe_r; values << 1 indicate early exit vs available move",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

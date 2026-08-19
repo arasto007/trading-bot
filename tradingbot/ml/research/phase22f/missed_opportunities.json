@@ -1,0 +1,8 @@
+{
+  "phase": "22F",
+  "timeframe": "M5",
+  "missed_profitable_count": 0,
+  "top_missed": [],
+  "by_blocker": {},
+  "note": "Forward R from research simulator — hindsight evaluation only"
+}

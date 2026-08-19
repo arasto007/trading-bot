@@ -1,0 +1,18 @@
+{
+  "phase": "27C",
+  "bars_per_pass": 5203,
+  "first_pass_pipeline_sample": {
+    "bars": 500,
+    "cache_hits": 0,
+    "cache_misses": 500,
+    "hit_rate_pct": 0.0
+  },
+  "repeat_pass_identical_200_bars": {
+    "warm_pass_misses": 200,
+    "repeat_pass_hits": 199,
+    "repeat_pass_hit_rate_pct": 99.5,
+    "note": "Same 200 bars replayed twice without cache reset \u2014 expects ~100% hits on repeat"
+  },
+  "prediction_cache_max_entries": 256,
+  "generated_utc": "2026-07-09T13:12:45.918252+00:00"
+}

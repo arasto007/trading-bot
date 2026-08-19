@@ -1,0 +1,54 @@
+{
+  "phase": "22S",
+  "title": "FeatureBuilder Numerical Parity Certification",
+  "generated_utc": "2026-07-05T17:27:21.614609+00:00",
+  "method": "Reload dataset_v2 event rows; re-run FeatureBuilder.compute_at on CandleStore with identical SparseEventDatasetBuilder kwargs (h4, m15, spread_proxy); compare ema50_slope, candle_direction, structure_distance",
+  "production_modified": false,
+  "verdict": "PARTIAL_PARITY",
+  "rows_compared": 5705,
+  "feature_statistics": {
+    "ema50_slope": {
+      "feature": "ema50_slope",
+      "n_compared": 5705,
+      "exact_match_pct": 99.9124,
+      "mean_abs_error": 8.78e-06,
+      "max_abs_error": 0.047654,
+      "rmse": 0.00063165,
+      "mismatch_count": 5
+    },
+    "candle_direction": {
+      "feature": "candle_direction",
+      "n_compared": 5705,
+      "exact_match_pct": 100.0,
+      "mean_abs_error": 0.0,
+      "max_abs_error": 0.0,
+      "rmse": 0.0,
+      "mismatch_count": 0
+    },
+    "structure_distance": {
+      "feature": "structure_distance",
+      "n_compared": 5705,
+      "exact_match_pct": 100.0,
+      "mean_abs_error": 0.0,
+      "max_abs_error": 0.0,
+      "rmse": 0.0,
+      "mismatch_count": 0
+    }
+  },
+  "diagnosis": {
+    "ema50_slope": {
+      "status": "partial",
+      "reason": "exact_match_pct=99.9124; 5 mismatches all in first ~2 days of m5_window (bar_index<400): 4 are float rounding ≤0.0023, 1 is 0.048 (likely CandleStore drift since dataset build or EMA cold-start at window edge)"
+    },
+    "candle_direction": {
+      "status": "proven",
+      "reason": "Full m5_window recompute matches dataset_v2"
+    },
+    "structure_distance": {
+      "status": "proven",
+      "reason": "Full m5_window recompute matches dataset_v2"
+    }
+  },
+  "stable_window_structure_distance": 300,
+  "summary": "Verdict=PARTIAL_PARITY. ema50_slope: exact_match=99.9124% RMSE=0.00063165. candle_direction: exact_match=100.0% RMSE=0.0. structure_distance: exact_match=100.0% RMSE=0.0. structure_distance window match %: 300=100.0, 500=100.0, 1000=100.0, full=100.0"
+}

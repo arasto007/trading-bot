@@ -1,0 +1,123 @@
+flowchart TB
+    %% execution
+    tradingbot_ports_execution_IOrderExecuto0[IOrderExecutor]
+    tradingbot_ml_research_phase61_execution1[_build_v7_label_index]
+    tradingbot_ml_research_phase53_execution2[main]
+    tradingbot_adapters_mt5_execution_Mt5Exe3[Mt5ExecutionAdapter]
+    tradingbot_ml_paper_paper_execution_Pape4[PaperExecutionEngine]
+    tradingbot_ml_research_phase30f_collecto5[ExecutionLogger]
+    tradingbot_execution_liquidity_model6[liquidity_model]
+    tradingbot_ml_phase20c_execution_audit7[execution_audit]
+    tradingbot_execution_market_impact8[market_impact]
+    tradingbot_ml_phase20a_execution_guard_b9[build_phase20a_executor]
+    tradingbot_ml_phase20b_execution10[execution]
+    tradingbot_adapters_mt5_execution11[mt5_execution]
+    tradingbot_pipeline_execution_stage_Exec12[ExecutionStage]
+    tradingbot_pipeline_execution_stage13[execution_stage]
+    tradingbot_ml_research_phase22g_executio14[execution_tracer]
+    tradingbot_execution_order_queue15[order_queue]
+    folder_tradingbot_execution16{{execution}}
+    tradingbot_ml_research_phase53_execution17[run_phase53]
+    tradingbot_execution_execution_simulator18[execution_simulator]
+    tradingbot_execution_execution_simulator19[ExecutionSimulator]
+    tradingbot_ml_paper_paper_execution_Virt20[VirtualOrder]
+    tradingbot_ml_research_phase22g_executio21[execution_graph]
+    tradingbot_ml_research_phase22p_executio22[build_execution_trace]
+    tradingbot_ml_paper_paper_execution23[paper_execution]
+    tradingbot_ml_integration_shadow_executi24[ShadowExecutionGuard]
+    scripts_smoke_test_execution_main25[main]
+    tradingbot_execution_order_queue_QueuedO26[QueuedOrder]
+    tradingbot_execution_execution_models_Ex27[ExecutionProfile]
+    tradingbot_ml_research_phase61_execution28[execution_shadow_validation]
+    tradingbot_execution_fill_model29[fill_model]
+    tradingbot_ml_research_phase22ak_freeze_30[freeze_execution]
+    tradingbot_execution_execution_costs31[execution_costs]
+    tradingbot_ml_research_phase53_execution32[execution_funnel_audit]
+    tradingbot_execution_execution_latency33[execution_latency]
+    tradingbot_ml_live_pilot_execution_guard34[PilotExecutionGuard]
+    tradingbot_execution_execution_models_Or35[OrderSide]
+    tradingbot_execution_execution_models_Ex36[ExecutionContext]
+    tradingbot_ml_live_pilot_execution_guard37[create_mt5_executor]
+    tradingbot_ml_research_phase30f_validati38[validate_execution_row]
+    tradingbot_execution_execution_models_Fi39[FillOutcome]
+    tradingbot_ml_phase20a_execution_guard_P40[Phase20aExecutionGuard]
+    tradingbot_ml_research_phase22g_executio41[build_execution_graph_md]
+    tradingbot_execution_order_queue_OrderQu42[OrderQueue]
+    tradingbot_ml_research_phase28c_metrics_43[build_execution_quality]
+    scripts_smoke_test_execution44[smoke_test_execution]
+    tradingbot_execution_execution_models45[execution_models]
+    tradingbot_ml_research_phase27h_metrics_46[build_execution_delay_stress]
+    tradingbot_services_execution_mode47[execution_mode]
+    tradingbot_execution___init__48[__init__]
+    tradingbot_ports_execution49[execution]
+    tradingbot_ml_research_phase22p_executio50[execution_trace]
+    tradingbot_execution_execution_models_Ex51[ExecutionScenario]
+    tradingbot_ml_live_pilot_execution_guard52[execution_guard]
+    tradingbot_ml_research_live_l3_execution53[_evaluate_production_funnel]
+    tradingbot_execution_execution_models_Ex54[ExecutionResult]
+    tradingbot_ml_phase20a_execution_guard55[execution_guard]
+    tradingbot_ml_research_phase30a_pipeline56[build_execution_pipeline_map]
+    tradingbot_execution_execution_models_La57[LatencyProfile]
+    tradingbot_services_execution_mode_is_li58[is_live_execute]
+    tradingbot_ml_research_phase30f_collecto59[execution_logger]
+    tradingbot_ml_research_live_l3_execution60[execution_validation]
+    tradingbot_ml_integration_shadow_executi61[shadow_execution_guard]
+    tradingbot_ml_research_phase53_execution62[run_funnel_audit]
+    tradingbot_ml_integration_shadow_executi63[VirtualOrder]
+    tradingbot_adapters_mt5_execution11 -->|contains| tradingbot_adapters_mt5_execution_Mt5Exe3
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Or35
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Ex51
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_La57
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Ex27
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Ex36
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Fi39
+    tradingbot_execution_execution_models45 -->|contains| tradingbot_execution_execution_models_Ex54
+    tradingbot_execution_execution_simulator18 -->|contains| tradingbot_execution_execution_simulator19
+    tradingbot_execution_order_queue15 -->|contains| tradingbot_execution_order_queue_QueuedO26
+    tradingbot_execution_order_queue15 -->|contains| tradingbot_execution_order_queue_OrderQu42
+    tradingbot_ml_integration_shadow_executi61 -->|contains| tradingbot_ml_integration_shadow_executi63
+    tradingbot_ml_integration_shadow_executi61 -->|contains| tradingbot_ml_integration_shadow_executi24
+    tradingbot_ml_live_pilot_execution_guard52 -->|contains| tradingbot_ml_live_pilot_execution_guard34
+    tradingbot_ml_live_pilot_execution_guard52 -->|contains| tradingbot_ml_live_pilot_execution_guard37
+    tradingbot_ml_paper_paper_execution23 -->|contains| tradingbot_ml_paper_paper_execution_Virt20
+    tradingbot_ml_paper_paper_execution23 -->|contains| tradingbot_ml_paper_paper_execution_Pape4
+    tradingbot_ml_phase20a_execution_guard55 -->|contains| tradingbot_ml_phase20a_execution_guard_P40
+    tradingbot_ml_phase20a_execution_guard55 -->|contains| tradingbot_ml_phase20a_execution_guard_b9
+    tradingbot_ml_research_live_l3_execution60 -->|contains| tradingbot_ml_research_live_l3_execution53
+    tradingbot_ml_research_phase22g_executio21 -->|contains| tradingbot_ml_research_phase22g_executio41
+    tradingbot_ml_research_phase22p_executio50 -->|contains| tradingbot_ml_research_phase22p_executio22
+    tradingbot_ml_research_phase30f_collecto59 -->|contains| tradingbot_ml_research_phase30f_collecto5
+    tradingbot_ml_research_phase53_execution32 -->|contains| tradingbot_ml_research_phase53_execution62
+    tradingbot_ml_research_phase53_execution32 -->|contains| tradingbot_ml_research_phase53_execution17
+    tradingbot_ml_research_phase53_execution32 -->|contains| tradingbot_ml_research_phase53_execution2
+    tradingbot_ml_research_phase61_execution28 -->|contains| tradingbot_ml_research_phase61_execution1
+    tradingbot_pipeline_execution_stage13 -->|contains| tradingbot_pipeline_execution_stage_Exec12
+    tradingbot_ports_execution49 -->|contains| tradingbot_ports_execution_IOrderExecuto0
+    tradingbot_services_execution_mode47 -->|contains| tradingbot_services_execution_mode_is_li58
+    scripts_smoke_test_execution44 -->|contains| scripts_smoke_test_execution_main25
+    tradingbot_adapters_mt5_execution11 -->|imports| tradingbot_ports_execution49
+    tradingbot_adapters_mt5_execution11 -->|imports| tradingbot_services_execution_mode47
+    tradingbot_execution_execution_costs31 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_execution_latency33 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_execution_costs31
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_execution_latency33
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_fill_model29
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_liquidity_model6
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_market_impact8
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_order_queue15
+    tradingbot_execution_execution_simulator18 -->|imports| tradingbot_execution_execution_costs31
+    tradingbot_execution_fill_model29 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_fill_model29 -->|imports| tradingbot_execution_liquidity_model6
+    tradingbot_execution_liquidity_model6 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_market_impact8 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution_order_queue15 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution___init__48 -->|imports| tradingbot_execution_execution_models45
+    tradingbot_execution___init__48 -->|imports| tradingbot_execution_execution_simulator18
+    tradingbot_ml_integration_shadow_executi61 -->|imports| tradingbot_ports_execution49
+    tradingbot_ml_live_pilot_execution_guard52 -->|imports| tradingbot_ports_execution49
+    tradingbot_ml_live_pilot_execution_guard52 -->|imports| tradingbot_adapters_mt5_execution11
+    tradingbot_ml_phase20a_execution_guard55 -->|imports| tradingbot_ml_live_pilot_execution_guard52
+    tradingbot_ml_phase20a_execution_guard55 -->|imports| tradingbot_ports_execution49
+    tradingbot_pipeline_execution_stage13 -->|imports| tradingbot_ports_execution49
+    tradingbot_pipeline_execution_stage13 -->|calls| tradingbot_adapters_mt5_execution11

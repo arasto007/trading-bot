@@ -1,0 +1,20 @@
+{
+  "phase": "27N",
+  "verdict": "HYBRID_EXIT_OUTPERFORMS_ALL",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "simulation_only": true,
+  "windows_tested": [
+    30,
+    60,
+    90,
+    180,
+    365
+  ],
+  "global_winner": "hybrid_b",
+  "best_hybrid": "hybrid_b",
+  "best_baseline": "time_exit",
+  "blockers": [],
+  "conclusion": "Global winner: hybrid_b. Best hybrid: hybrid_b. Verdict: HYBRID_EXIT_OUTPERFORMS_ALL.",
+  "generated_utc": "2026-07-09T19:42:28.645355+00:00"
+}

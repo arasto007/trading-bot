@@ -1,0 +1,163 @@
+{
+  "phase": "24D",
+  "method": "instrumented_build_unified_frame_mirror",
+  "bars_traced": 80,
+  "operation_timings": {
+    "attach_regime_labels": {
+      "count": 80,
+      "mean_ms": 3.1077,
+      "median_ms": 3.1626,
+      "p95_ms": 3.6345,
+      "p99_ms": 4.8645,
+      "max_ms": 5.3741
+    },
+    "attach_top5_features": {
+      "count": 80,
+      "mean_ms": 5.7207,
+      "median_ms": 5.6709,
+      "p95_ms": 6.3933,
+      "p99_ms": 7.108,
+      "max_ms": 8.6498
+    },
+    "base_copy": {
+      "count": 80,
+      "mean_ms": 0.1788,
+      "median_ms": 0.1657,
+      "p95_ms": 0.2395,
+      "p99_ms": 0.3116,
+      "max_ms": 0.3839
+    },
+    "base_timestamp_convert": {
+      "count": 80,
+      "mean_ms": 0.3682,
+      "median_ms": 0.3575,
+      "p95_ms": 0.4935,
+      "p99_ms": 0.5274,
+      "max_ms": 0.6365
+    },
+    "build_ml_features": {
+      "count": 80,
+      "mean_ms": 19.8556,
+      "median_ms": 19.164,
+      "p95_ms": 20.9387,
+      "p99_ms": 24.6765,
+      "max_ms": 55.7896
+    },
+    "build_unified_frame_reference_total": {
+      "count": 80,
+      "mean_ms": 81.8408,
+      "median_ms": 80.7153,
+      "p95_ms": 85.5229,
+      "p99_ms": 93.9532,
+      "max_ms": 154.5436
+    },
+    "candles_tail_copy": {
+      "count": 80,
+      "mean_ms": 0.0965,
+      "median_ms": 0.092,
+      "p95_ms": 0.1351,
+      "p99_ms": 0.1485,
+      "max_ms": 0.1639
+    },
+    "compute_regime_features_from_candles": {
+      "count": 80,
+      "mean_ms": 15.6274,
+      "median_ms": 15.1915,
+      "p95_ms": 18.7021,
+      "p99_ms": 19.9083,
+      "max_ms": 21.1358
+    },
+    "dataset_merge_on_timestamp": {
+      "count": 80,
+      "mean_ms": 2.2399,
+      "median_ms": 2.135,
+      "p95_ms": 3.0047,
+      "p99_ms": 3.1685,
+      "max_ms": 3.4199
+    },
+    "dataset_slice_copy_rename": {
+      "count": 80,
+      "mean_ms": 10.6145,
+      "median_ms": 6.5631,
+      "p95_ms": 58.3683,
+      "p99_ms": 59.6944,
+      "max_ms": 59.8739
+    },
+    "regime_column_merge_loop_total": {
+      "count": 80,
+      "mean_ms": 33.3895,
+      "median_ms": 32.6407,
+      "p95_ms": 39.6643,
+      "p99_ms": 43.3148,
+      "max_ms": 49.0705
+    },
+    "regime_column_merge_per_column_avg": {
+      "count": 80,
+      "mean_ms": 2.7825,
+      "median_ms": 2.7201,
+      "p95_ms": 3.3054,
+      "p99_ms": 3.6096,
+      "max_ms": 4.0892
+    },
+    "regime_timestamp_convert": {
+      "count": 80,
+      "mean_ms": 0.4003,
+      "median_ms": 0.3836,
+      "p95_ms": 0.5607,
+      "p99_ms": 0.6153,
+      "max_ms": 0.6969
+    },
+    "sort_reset_index": {
+      "count": 80,
+      "mean_ms": 0.4867,
+      "median_ms": 0.4594,
+      "p95_ms": 0.6538,
+      "p99_ms": 0.7332,
+      "max_ms": 0.7567
+    }
+  },
+  "why_bottleneck": {
+    "primary_operations": [
+      {
+        "op": "build_ml_features",
+        "p95_ms": 20.9387,
+        "share_of_pipeline_cache_p95": 0.1292,
+        "reason": "Full 300-bar rolling indicator pass via compute_trend_features"
+      },
+      {
+        "op": "compute_regime_features_from_candles",
+        "p95_ms": 18.7021,
+        "share_of_pipeline_cache_p95": 0.1154,
+        "reason": "Second full-window pass duplicating overlapping indicators (adx, ema slopes, etc.)"
+      },
+      {
+        "op": "regime_column_merge_loop_total",
+        "p95_ms": 39.6643,
+        "reason": "12 sequential pandas merges instead of one join"
+      },
+      {
+        "op": "dataset_merge_on_timestamp",
+        "p95_ms": 3.0047,
+        "reason": "Full left merge of static dataset_v2 onto rolling base every bar"
+      },
+      {
+        "op": "attach_top5_features",
+        "p95_ms": 6.3933,
+        "reason": "v41 trend top-5 rolling features over full unified frame"
+      },
+      {
+        "op": "dataset_store_load (phase24c)",
+        "p95_ms": 40.1912,
+        "reason": "Parquet read on every get_unified_frame \u2014 outside build_unified_frame but inside PipelineCache"
+      }
+    ],
+    "negligible_operations": [
+      "sort_reset_index",
+      "base_copy",
+      "candles_tail_copy"
+    ],
+    "phase24c_pipeline_cache_p95_ms": 162.1114,
+    "conclusion": "PipelineCache.get_unified_frame is slow because every live bar triggers a full 300-row rebuild: build_ml_features + regime features + per-column merges + dataset merge + attach_top5, plus parquet reload \u2014 not because of model inference or decision logic."
+  },
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

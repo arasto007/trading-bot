@@ -1,0 +1,79 @@
+{
+  "phase": "27H",
+  "baseline": {
+    "trade_count": 575,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "win_rate_pct": 38.61,
+    "max_drawdown_pct": 12.1956,
+    "recovery_factor": 0.8223
+  },
+  "scenarios": {
+    "0_ATR_baseline": {
+      "trade_count": 575,
+      "net_profit": 1101.1854,
+      "profit_factor": 1.2847,
+      "expectancy": 1.9151,
+      "win_rate_pct": 38.61,
+      "max_drawdown_pct": 12.1956,
+      "recovery_factor": 0.8223,
+      "vs_baseline": {
+        "net_profit_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "expectancy_delta": 0.0,
+        "win_rate_delta_pct": 0.0,
+        "drawdown_delta_pct": 0.0
+      }
+    },
+    "0.25_ATR": {
+      "trade_count": 575,
+      "net_profit": -506.6237,
+      "profit_factor": 0.8962,
+      "expectancy": -0.8811,
+      "win_rate_pct": 37.57,
+      "max_drawdown_pct": 18.5172,
+      "recovery_factor": -0.2538,
+      "vs_baseline": {
+        "net_profit_delta": -1607.8091,
+        "profit_factor_delta": -0.3885,
+        "expectancy_delta": -2.7962,
+        "win_rate_delta_pct": -1.04,
+        "drawdown_delta_pct": 6.3216
+      }
+    },
+    "0.50_ATR": {
+      "trade_count": 575,
+      "net_profit": -2114.433,
+      "profit_factor": 0.6428,
+      "expectancy": -3.6773,
+      "win_rate_pct": 35.3,
+      "max_drawdown_pct": 26.0324,
+      "recovery_factor": -0.7665,
+      "vs_baseline": {
+        "net_profit_delta": -3215.6184,
+        "profit_factor_delta": -0.6419,
+        "expectancy_delta": -5.5924,
+        "win_rate_delta_pct": -3.31,
+        "drawdown_delta_pct": 13.8368
+      }
+    },
+    "1.00_ATR": {
+      "trade_count": 575,
+      "net_profit": -5330.0523,
+      "profit_factor": 0.3411,
+      "expectancy": -9.2697,
+      "win_rate_pct": 33.74,
+      "max_drawdown_pct": 54.3525,
+      "recovery_factor": -0.9586,
+      "vs_baseline": {
+        "net_profit_delta": -6431.2377,
+        "profit_factor_delta": -0.9436,
+        "expectancy_delta": -11.1848,
+        "win_rate_delta_pct": -4.87,
+        "drawdown_delta_pct": 42.1569
+      }
+    }
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

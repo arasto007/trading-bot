@@ -1,0 +1,70 @@
+{
+  "phase": "27H",
+  "verdict": "NOT_ROBUST_FOR_PAPER",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "input_source": "phase27f_repaired_replay",
+  "baseline_source": "phase27g",
+  "completed_trades": 575,
+  "baseline_metrics": {
+    "trade_count": 575,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "win_rate_pct": 38.61,
+    "max_drawdown_pct": 12.1956,
+    "recovery_factor": 0.8223
+  },
+  "phase27g_baseline": {
+    "phase": "27G",
+    "gross_profit": 4969.345,
+    "gross_loss": 3868.1596,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "average_win": 22.3844,
+    "average_loss": 10.958,
+    "largest_win": 55.95,
+    "largest_loss": -22.7171,
+    "average_rr": 2.5,
+    "realized_rr_avg": 0.2277,
+    "maximum_drawdown_pct": 12.1956,
+    "maximum_drawdown_abs": 1339.1157,
+    "recovery_factor": 0.8223,
+    "sharpe_ratio": 29.2927,
+    "sortino_ratio": 44.42479100314125,
+    "calmar_ratio": 0.9029,
+    "initial_balance": 10000.0,
+    "final_equity": 11101.1854,
+    "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+  },
+  "robustness_scores": {
+    "phase": "27H",
+    "execution_robustness": 66.67,
+    "market_robustness": 100.0,
+    "risk_robustness": 95.72,
+    "monte_carlo_stability": 100.0,
+    "overall_robustness": 89.14
+  },
+  "blockers": [
+    "0.25 ATR slippage PF 0.8962 < 1.0"
+  ],
+  "evidence": [
+    "baseline PF=1.2847 net=1101.1854",
+    "+50% spread PF=1.2337 net=928.6854",
+    "0.25 ATR slippage PF=0.8962",
+    "missed 10% MC median net=984.438",
+    "sequence MC ruin prob=0.0% p95 DD=12.1956%",
+    "after costs net=714.7131 overall_score=89.14"
+  ],
+  "critical_stress_summary": {
+    "spread_plus_50pct_pf": 1.2337,
+    "slippage_0.25_atr_pf": 0.8962,
+    "missed_10pct_median_net": 984.438,
+    "sequence_ruin_prob_pct": 0.0,
+    "after_costs_net": 714.7131,
+    "failure_10pct_mean_pf": 1.2903
+  },
+  "conclusion": "Strategy degrades materially under realistic execution stress.",
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

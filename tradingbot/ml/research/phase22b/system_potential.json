@@ -1,0 +1,11 @@
+{
+  "phase": "22B",
+  "note": "Theoretical only \u2014 no optimization",
+  "if_all_enabled": {
+    "timeframes": "7 TFs \u00d7 3 current = ~2.3\u00d7 signal opportunities (uncorrelated assumption)",
+    "strategies": "17 disabled strategies could add diversity but untested in kernel",
+    "ml_v40_ab": "Dual trend engine shadow comparison not in live",
+    "meta_all_tf": "M5/M15/H4 meta gating when is_ready_for \u2014 partial"
+  },
+  "realistic_ceiling": "3-5\u00d7 trade frequency if HOLD thresholds relaxed (NOT recommended here)"
+}

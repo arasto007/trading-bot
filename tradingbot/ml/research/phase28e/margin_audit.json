@@ -1,0 +1,32 @@
+{
+  "phase": "28E",
+  "assumptions": {
+    "symbol": "XAUUSD",
+    "contract_size": 100.0,
+    "leverage": 100.0,
+    "formula": "margin = lot * contract_size * price / leverage"
+  },
+  "per_trade_margin": {
+    "min": 39.7051,
+    "max": 45.347,
+    "mean": 42.5781
+  },
+  "free_margin_at_entry": {
+    "min": 53.3027,
+    "max": 1506.6277,
+    "mean": 720.3643
+  },
+  "margin_level_pct": {
+    "min": 217.6652,
+    "max": 3864.3483,
+    "mean": 1818.8226
+  },
+  "peak_margin_usage": 45.347,
+  "matches_mt5_model": true,
+  "margin_call_risk_at_min_balance": {
+    "min_balance_observed": 98.603,
+    "margin_required_0_01_lot": 39.7051,
+    "survives_single_position": true
+  },
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

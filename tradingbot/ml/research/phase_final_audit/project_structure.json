@@ -1,0 +1,60 @@
+{
+  "project_root": "C:\\Users\\AMIR\\Desktop\\TradingBot new",
+  "tradingbot_root": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot",
+  "top_level_packages": [
+    "adapters",
+    "application",
+    "backtest",
+    "config",
+    "domain",
+    "infra",
+    "kernel",
+    "ml",
+    "pipeline",
+    "ports",
+    "services"
+  ],
+  "package_count": 11,
+  "python_module_count": 1296,
+  "research_module_count": 626,
+  "production_module_estimate": 670,
+  "init_py_count": 153,
+  "ports_modules": [
+    "ports/__init__.py",
+    "ports/events.py",
+    "ports/execution.py",
+    "ports/indicators.py",
+    "ports/market_data.py",
+    "ports/position_manager.py",
+    "ports/risk.py",
+    "ports/storage.py",
+    "ports/strategies.py"
+  ],
+  "pipeline_stages": [
+    "pipeline/__init__.py",
+    "pipeline/base.py",
+    "pipeline/data_stage.py",
+    "pipeline/execution_stage.py",
+    "pipeline/indicator_stage.py",
+    "pipeline/risk_stage.py",
+    "pipeline/signal_stage.py"
+  ],
+  "entry_points": [
+    {
+      "path": "tradingbot/__main__.py",
+      "modes": [
+        "--loop",
+        "--live",
+        "--strategies",
+        "--backtest",
+        "--execute",
+        "--paper"
+      ]
+    },
+    {
+      "path": "scripts/run_live_watchdog.py",
+      "note": "watchdog wrapper"
+    }
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

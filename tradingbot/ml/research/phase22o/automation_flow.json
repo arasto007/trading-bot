@@ -1,0 +1,68 @@
+{
+  "phase": "22O",
+  "generated_utc": "2026-07-05T16:17:26.058611+00:00",
+  "automation_flow": [
+    "Operator starts start/3_live_loop_execute.bat OR daemon (4 → watchdog)",
+    "verify_ml_live_ready.py (readiness + stale WARN)",
+    "run_live_watchdog._run_pre_live_dataset_maintenance()",
+    "measure_dataset_lag(dataset_v2 vs ParquetCache)",
+    "if lag <= 48.0h → skip",
+    "if lag > 48.0h → scheduled_ml_refresh.py (collect incremental + build phase9-1)",
+    "if refresh OK → spawn fresh tradingbot child (PipelineCache empty in new process)",
+    "if refresh FAIL → log WARNING, spawn live anyway",
+    "watchdog loop: restart child on crash WITHOUT re-maintenance"
+  ],
+  "live_runner_isolation": {
+    "forbidden_tokens_in_live_runner": {
+      "CandleStore": false,
+      "DatasetStore": false,
+      "build_ml_dataset": false,
+      "scheduled_ml_refresh": false,
+      "live_dataset_orchestrator": false
+    },
+    "isolated": true
+  },
+  "watchdog_integration": {
+    "pre_live_maintenance_hook": true,
+    "maintenance_before_first_child_only": true,
+    "skip_flag": true,
+    "no_refresh_inside_loop": true
+  },
+  "dry_run_decision": {
+    "phase": "22O",
+    "started_utc": "2026-07-05T16:17:28.928791+00:00",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "threshold_hours": 48.0,
+    "auto_refresh_enabled": true,
+    "ml_kernel_enabled": true,
+    "action": "would_refresh",
+    "refresh_attempted": false,
+    "refresh_success": null,
+    "warning": null,
+    "before": {
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "dataset_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\datasets\\XAUUSD_M5_dataset_v2.parquet",
+      "dataset_max_utc": "2026-06-29T13:45:00+00:00",
+      "live_cache_path": "data\\XAUUSD_5m.parquet",
+      "live_max_utc": "2026-07-03T19:55:00+00:00",
+      "lag_hours": 102.17,
+      "dataset_exists": true,
+      "live_cache_exists": true
+    },
+    "needs_refresh": true,
+    "finished_utc": "2026-07-05T16:17:28.953135+00:00"
+  },
+  "current_lag": {
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "dataset_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\datasets\\XAUUSD_M5_dataset_v2.parquet",
+    "dataset_max_utc": "2026-06-29T13:45:00+00:00",
+    "live_cache_path": "data\\XAUUSD_5m.parquet",
+    "live_max_utc": "2026-07-03T19:55:00+00:00",
+    "lag_hours": 102.17,
+    "dataset_exists": true,
+    "live_cache_exists": true
+  }
+}

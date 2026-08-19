@@ -1,0 +1,64 @@
+{
+  "phase": "22AD",
+  "live_process_can_overwrite_phase9_9_artifacts_after_startup": false,
+  "live_write_paths_found": [],
+  "checks": [
+    {
+      "component": "ShadowEngine",
+      "in_live_hot_path": false,
+      "can_overwrite_after_startup": false,
+      "evidence": "Not called from LiveRunner/TradingKernel; uses build_if_missing=True only in shadow runs"
+    },
+    {
+      "component": "KernelShadowRunner",
+      "in_live_hot_path": false,
+      "can_overwrite_after_startup": false,
+      "evidence": "Separate integration runner; freeze_phase9_9_artifacts in _ensure_artifacts only"
+    },
+    {
+      "component": "MLAdapter",
+      "in_live_hot_path": false,
+      "can_overwrite_after_startup": false,
+      "evidence": "Phase 10 shadow adapter; not wired into MLKernelRegistry live path"
+    },
+    {
+      "component": "HealthGate",
+      "in_live_hot_path": true,
+      "can_overwrite_after_startup": false,
+      "evidence": "run_pre_decision_health uses load_phase9_9_bundle(build_if_missing=False); read-only"
+    },
+    {
+      "component": "Bundle Loader (load_phase9_9_bundle)",
+      "in_live_hot_path": true,
+      "can_overwrite_after_startup": false,
+      "evidence": "All live callers pass build_if_missing=False; freeze only when True + training_df"
+    },
+    {
+      "component": "PipelineCache",
+      "in_live_hot_path": true,
+      "can_overwrite_after_startup": false,
+      "evidence": "get_registry/get_unified_frame never call freeze; caches in-memory only"
+    },
+    {
+      "component": "KernelAdapter",
+      "in_live_hot_path": true,
+      "can_overwrite_after_startup": false,
+      "evidence": "produce_unified_signal reads registry + health; no artifact writes"
+    },
+    {
+      "component": "verify_ml_live_ready (preflight)",
+      "in_live_hot_path": false,
+      "can_overwrite_after_startup": false,
+      "evidence": "Runs before child spawn; health check only"
+    },
+    {
+      "component": "live_dataset_orchestrator (watchdog pre-maintenance)",
+      "in_live_hot_path": false,
+      "can_overwrite_after_startup": false,
+      "evidence": "Refreshes dataset_v2 parquet only; does not call freeze_phase9_9_artifacts"
+    }
+  ],
+  "conclusion": "Live trading child process is read-only for phase9_9_best artifacts after startup",
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false
+}

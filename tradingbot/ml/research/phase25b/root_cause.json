@@ -1,0 +1,42 @@
+{
+  "phase25a_findings_addressed": [
+    "DIV-001 pipeline depth \u2014 repaired via full kernel replay",
+    "DIV-004 indicator enrichment \u2014 repaired via IndicatorStage in kernel",
+    "DIV-006 legacy RiskGate \u2014 repaired via RiskStage in kernel",
+    "DIV-007 execution \u2014 repaired via ExecutionStage paper branch",
+    "DIV-010 forming bar alignment \u2014 repaired via ParityReplayMarketDataAdapter"
+  ],
+  "legacy_timeout_root_causes": [
+    {
+      "id": "TO-001",
+      "cause": "Legacy path measures wall-clock including tracemalloc + I/O logging",
+      "evidence": "legacy_meta memory leak_suspected=False",
+      "module": "phase24a/live_shadow_validator.py:186-187"
+    },
+    {
+      "id": "TO-002",
+      "cause": "Legacy path bypasses IndicatorStage and uses pre-built unified frame with positional row fallback",
+      "evidence": "Different feature row selection vs PipelineCache per closed bar",
+      "module": "phase24a/live_shadow_validator.py:206-216"
+    },
+    {
+      "id": "TO-003",
+      "cause": "Legacy direct KernelAdapter.produce_unified_signal includes write_engine_health + log_kernel_decision each bar",
+      "evidence": "Extra I/O not present in all unified replay ticks",
+      "module": "kernel_adapter.py:294-295"
+    },
+    {
+      "id": "TO-004",
+      "cause": "500ms PIPELINE_TIMEOUT_MS enforced inside produce_unified_signal after quality.evaluate",
+      "evidence": "legacy_timeouts=9 unified_timeout_errors=0",
+      "module": "kernel_adapter.py:225-243"
+    },
+    {
+      "id": "TO-005",
+      "cause": "Unified replay uses closed-bar candles after exclude_forming_bar via full kernel path \u2014 fewer empty-frame failures",
+      "evidence": "legacy_failures=9 unified_bars=10",
+      "module": "phase25b/unified_pipeline_replay.py"
+    }
+  ],
+  "legacy_vs_repaired_decision_match": 1.0
+}

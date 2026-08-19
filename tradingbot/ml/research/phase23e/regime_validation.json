@@ -1,0 +1,29 @@
+{
+  "phase": "23E",
+  "regimes": {
+    "RANGE": {
+      "pipeline_actionable_signals": 224,
+      "production_filter": {
+        "trade_count": 156,
+        "profit_factor": 1.851852,
+        "expectancy_r": 0.442308,
+        "maximum_drawdown_r": -10.0
+      },
+      "candidate_filter": {
+        "trade_count": 90,
+        "profit_factor": 2.285714,
+        "expectancy_r": 0.6,
+        "maximum_drawdown_r": -6.0
+      },
+      "pf_delta_candidate_minus_production": 0.4339,
+      "degradation_outside_range": false
+    },
+    "TREND": {
+      "count": 0
+    },
+    "TRANSITION": {
+      "count": 0
+    }
+  },
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00"
+}

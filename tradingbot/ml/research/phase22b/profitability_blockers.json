@@ -1,0 +1,101 @@
+{
+  "phase": "22B",
+  "ranked_blockers": [
+    {
+      "rank": 1,
+      "blocker": "ML HOLD dominance",
+      "impact": "CRITICAL",
+      "difficulty": "MEDIUM",
+      "evidence": "99.64% bars \u2192 HOLD"
+    },
+    {
+      "rank": 2,
+      "blocker": "DecisionPolicy min_confidence 0.55",
+      "impact": "HIGH",
+      "difficulty": "LOW",
+      "evidence": "decision_policy.py DEFAULT_MIN_CONFIDENCE"
+    },
+    {
+      "rank": 3,
+      "blocker": "Phase19C RSI/ADX filters enabled",
+      "impact": "HIGH",
+      "difficulty": "LOW",
+      "evidence": ".env ENABLE_RSI/ADX_FILTER=true"
+    },
+    {
+      "rank": 4,
+      "blocker": "TradeQuality + AdaptiveRisk HOLD",
+      "impact": "HIGH",
+      "difficulty": "MEDIUM",
+      "evidence": "kernel_adapter.py lines 169-170"
+    },
+    {
+      "rank": 5,
+      "blocker": "HTF alignment M15/H4",
+      "impact": "MEDIUM",
+      "difficulty": "LOW",
+      "evidence": "REQUIRE_HTF_ALIGNMENT_M15/H4=true in presets"
+    },
+    {
+      "rank": 6,
+      "blocker": "Session filters in PA presets",
+      "impact": "MEDIUM",
+      "difficulty": "LOW",
+      "evidence": "check_market_filters in risk_gate"
+    },
+    {
+      "rank": 7,
+      "blocker": "Negative expectancy in baseline",
+      "impact": "CRITICAL",
+      "difficulty": "HIGH",
+      "evidence": {
+        "phase": "22B",
+        "period": "2026-06-04 00:00 to 2026-07-04 23:59",
+        "balance": 200.0,
+        "per_timeframe": {
+          "M5": {
+            "trade_count": 2,
+            "profit_factor": 0.0,
+            "expectancy": -10.719,
+            "max_drawdown_pct": 10.72,
+            "win_rate_pct": 0.0,
+            "net_profit": -21.44,
+            "return_pct": -10.72,
+            "avg_win": 0.0,
+            "avg_loss": -10.72
+          },
+          "M15": {
+            "trade_count": 0,
+            "profit_factor": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "win_rate_pct": 0.0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0
+          },
+          "H4": {
+            "trade_count": 0,
+            "profit_factor": 0.0,
+            "expectancy": 0.0,
+            "max_drawdown_pct": 0.0,
+            "win_rate_pct": 0.0,
+            "net_profit": 0,
+            "return_pct": 0.0,
+            "avg_win": 0.0,
+            "avg_loss": 0.0
+          }
+        },
+        "combined_note": "Backtest runs each TF independently with separate 200 USD (matches backtest_custom_range.py design, NOT shared portfolio live simulation)"
+      }
+    },
+    {
+      "rank": 8,
+      "blocker": "Separate TF backtests not shared portfolio",
+      "impact": "MEDIUM",
+      "difficulty": "MEDIUM",
+      "evidence": "backtest_custom_range runs TF independently"
+    }
+  ]
+}

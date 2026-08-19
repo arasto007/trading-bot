@@ -1,0 +1,33 @@
+<!DOCTYPE html><html><head><HTA:APPLICATION /></head><body><script language="VBScript">
+
+Dim gRefreshBusy
+Dim gShownAlerts
+Dim gInitDone
+
+Sub BootTrace(stepName)
+  On Error Resume Next
+  Dim fso, root, p, ts
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  root = ProjectRoot()
+  If Len(root) = 0 Then root = "."
+  p = fso.BuildPath(fso.BuildPath(root, "data"), "hta_boot_trace.txt")
+  Set ts = fso.OpenTextFile(p, 8, True)
+  ts.WriteLine CStr(Now) & "|" & stepName
+  ts.Close
+  On Error GoTo 0
+End Sub
+
+BootTrace "script_parsed"
+
+Function Lt()
+  Lt = Chr(60)
+End Function
+
+On Error Resume Next
+Dim fsoT, tsT
+Set fsoT = CreateObject("Scripting.FileSystemObject")
+Set tsT = fsoT.CreateTextFile("C:\Users\AMIR\Desktop\TradingBot new\data\hta_bisect_ok.txt", True, False)
+tsT.Write "OK"
+tsT.Close
+
+</script></body></html>

@@ -1,0 +1,60 @@
+%% Research Cloud — NOT on minimal live path (ADAPTIVE_REGIME + ML off)
+%% ~679 research modules + ML stack + legacy PA
+
+flowchart TB
+    subgraph ML["ML Kernel — USE_ML_KERNEL=true only"]
+        FACT[factory.build_ml_kernel_stack]
+        PC[PipelineCache]
+        ER[EngineRegistry]
+        P99[phase9_9 Range Engine]
+        TV41[trend_rf v41]
+        TV40[trend_rf v40]
+        ORCH[DecisionOrchestrator]
+        CAL[CalibratedAdapter]
+        TQ[TradeQualityEngine]
+        META[MetaLabeler active path]
+        P19[phase19c RSI/ADX filters]
+        P22[phase22c thresholds]
+    end
+
+    subgraph LEGACY["Legacy Price Action — fallback only"]
+        LEG[LegacyStrategyRegistry]
+        PA[price_action_strategy]
+        SMC[domain/price_action SMC]
+        WPSQF[WinnerPopulationSignalQualityFilter]
+    end
+
+    subgraph RESEARCH["Research Phases — offline"]
+        L1[live_l1]
+        L2H[L2 unused hypotheses]
+        L4[live_l4]
+        P14[phase14_10..14]
+        P15[phase15g..15k]
+        P22X[phase22aa..22al]
+        P23[phase23a..32i]
+        AD[advanced_discovery]
+    end
+
+    subgraph USED_FROM_RESEARCH["Research used by live adaptive"]
+        L2R[edge_discovery_round2.py]
+    end
+
+    FACT --> PC --> ER
+    ER --> P99
+    ER --> TV41
+    ER --> TV40
+    FACT --> ORCH --> CAL --> TQ
+    ORCH --> P19
+    ORCH --> P22
+    CAL --> META
+
+    LEG --> PA --> SMC
+    WPSQF -.->|default OFF| LEG
+
+    L2R -->|frame prep only| CORE[Minimal Live Core]
+
+    style CORE fill:#9f9,stroke:#060
+    style ML fill:#fdd,stroke:#900
+    style RESEARCH fill:#eee,stroke:#666
+    style LEGACY fill:#ffd,stroke:#990
+    style L2R fill:#ffa,stroke:#880

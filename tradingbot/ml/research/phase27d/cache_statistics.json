@@ -1,0 +1,16 @@
+{
+  "cache_hit_estimate": 0,
+  "cache_miss_estimate": 5203,
+  "cache_hit_ratio_pct": 0.0,
+  "prediction_uniqueness_pct": 99.77,
+  "unique_prediction_checksums": 5191,
+  "unique_confidence_values": 2373,
+  "bars_evaluated": 5203,
+  "phase27c_fix_expected": "unique keys per bar; checksum diversity >> 3",
+  "phase27a_corrupted_baseline": {
+    "unique_checksums": 3,
+    "identical_confidence_bars": 5201
+  },
+  "method": "decision_ms==0 indicates prediction cache hit; checksum diversity measures per-bar predictions",
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

@@ -1,0 +1,54 @@
+{
+  "phase": "22E",
+  "comparison_targets": [
+    "19D",
+    "20B",
+    "22B",
+    "22D"
+  ],
+  "current_snapshot": {
+    "m5_trades": 0,
+    "m5_pf": null,
+    "m5_expectancy": null,
+    "m5_buy_signals": 0,
+    "m5_sell_signals": 0,
+    "m15_active": false,
+    "h4_active": false
+  },
+  "deltas": {
+    "profitability_vs_22b": {
+      "m5_trades_delta": -2,
+      "m5_pf_delta": null,
+      "22b_m5_trades": 2,
+      "22e_m5_trades": 0
+    },
+    "buy_sell_vs_22d": {
+      "22d_orchestrator_buy": 55,
+      "22d_orchestrator_sell": 629,
+      "22e_m5_buy_signals": 0,
+      "22e_m5_sell_signals": 0,
+      "buy_restored": false
+    },
+    "vs_phase19d_baseline": {
+      "19d_pf_3y": 1.785714,
+      "19d_expectancy_r": 0.415094,
+      "22e_note": "19D used research certification path; 22E uses full production BacktestEngine"
+    },
+    "vs_phase20b_live": {
+      "20b_pf": 2.0,
+      "20b_trades": 72,
+      "22e_note": "20B observed live path; 22E backtest certification"
+    }
+  },
+  "profitability_improved_vs_22b": false,
+  "buy_sell_balance_restored": false,
+  "m15_active": false,
+  "h4_active": false,
+  "no_regression_vs_22d": true,
+  "references": {
+    "phase19d": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase19d\\phase19d_final_report.json",
+    "phase20b": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase20b\\phase20b_final_report.json",
+    "phase22b": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22b\\profitability_baseline.json",
+    "phase22d": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase22d\\validation_results.json"
+  }
+}

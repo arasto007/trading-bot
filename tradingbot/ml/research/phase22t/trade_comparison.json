@@ -1,0 +1,128 @@
+{
+  "phase": "22T",
+  "generated_utc": "2026-07-05T20:08:15.030319+00:00",
+  "comparison": {
+    "BUY": {
+      "baseline": 0,
+      "live": 0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "SELL": {
+      "baseline": 0,
+      "live": 0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "signal_density_pct": {
+      "baseline": 0.0,
+      "live": 0.0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "decision_hold": {
+      "baseline": 4247,
+      "live": 4247,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "trade_count": {
+      "baseline": 0,
+      "live": 0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "profit_factor": {
+      "baseline": 0.0,
+      "live": 0.0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    },
+    "expectancy": {
+      "baseline": 0.0,
+      "live": 0.0,
+      "delta": 0.0,
+      "pct_change": 0.0
+    }
+  },
+  "baseline": {
+    "BUY": 0,
+    "SELL": 0,
+    "HOLD_decision": 4247,
+    "signal_density_pct": 0.0,
+    "decision_hold": 4247,
+    "engine_hold": null,
+    "trade_count": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "buy_pct_trades": 0.0,
+    "sell_pct_trades": 0.0,
+    "hold_pct": 98.58,
+    "elapsed_sec": 894.6,
+    "mode": "current_repository",
+    "use_live_phase99": false,
+    "dataset": {
+      "label": "A",
+      "trading_days": 7,
+      "start_tehran": "2026-06-25 00:00",
+      "end_tehran": "2026-07-05 23:59"
+    },
+    "raw_hold_chain": {
+      "bars_evaluated": 4308,
+      "buy_emitted": 0,
+      "sell_emitted": 0,
+      "ml_signals": 0,
+      "ml_hold_stages": {
+        "decision_hold": 4247,
+        "calibration_hold": 0,
+        "trade_quality_hold": 61,
+        "rsi_filter_hold": 0,
+        "adx_filter_hold": 0
+      },
+      "ml_hold_total": 4308,
+      "meta_hold": 0,
+      "riskgate_hold": 0,
+      "riskgate_block_reasons": {}
+    }
+  },
+  "live": {
+    "BUY": 0,
+    "SELL": 0,
+    "HOLD_decision": 4247,
+    "signal_density_pct": 0.0,
+    "decision_hold": 4247,
+    "engine_hold": null,
+    "trade_count": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "buy_pct_trades": 0.0,
+    "sell_pct_trades": 0.0,
+    "hold_pct": 98.58,
+    "elapsed_sec": 875.7,
+    "mode": "featurebuilder_live",
+    "use_live_phase99": true,
+    "dataset": {
+      "label": "A",
+      "trading_days": 7,
+      "start_tehran": "2026-06-25 00:00",
+      "end_tehran": "2026-07-05 23:59"
+    },
+    "raw_hold_chain": {
+      "bars_evaluated": 4308,
+      "buy_emitted": 0,
+      "sell_emitted": 0,
+      "ml_signals": 0,
+      "ml_hold_stages": {
+        "decision_hold": 4247,
+        "calibration_hold": 0,
+        "trade_quality_hold": 61,
+        "rsi_filter_hold": 0,
+        "adx_filter_hold": 0
+      },
+      "ml_hold_total": 4308,
+      "meta_hold": 0,
+      "riskgate_hold": 0,
+      "riskgate_block_reasons": {}
+    }
+  }
+}

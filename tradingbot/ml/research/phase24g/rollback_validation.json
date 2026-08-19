@@ -1,0 +1,8 @@
+{
+  "phase": "24G",
+  "env_flag": "ENABLE_OPTIMIZED_UNIFIED_FRAME",
+  "default": true,
+  "rollback_value": "false",
+  "rollback_matches_legacy": true,
+  "generated_utc": "2026-07-08T12:48:05.459083+00:00"
+}

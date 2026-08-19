@@ -1,0 +1,70 @@
+{
+  "now": "2026-07-15T01:14:45Z",
+  "phase50_context": {
+    "verdict": "STRICT_GATE_FAIL",
+    "mean_pf": 0.9024,
+    "mean_auc": 0.5115
+  },
+  "phase51_context": {
+    "verdict": "EARLY_RESEARCH",
+    "proximity_score": 27.0,
+    "integration_gate": "BLOCK_PRODUCTION_INTEGRATION"
+  },
+  "dataset": "v7",
+  "dataset_rows": 81035,
+  "verdict": "V7_LABELS_HEALTHY",
+  "sample_size_requested": 1500,
+  "sample_size_resolved": 1500,
+  "overlap_rows": 81035,
+  "coverage_pct": 100.0,
+  "approach": "full_stats_from_parquet; re_resolution_on_stratified_sample_only",
+  "stored_vs_stored_sl_tp": {
+    "match": 1500,
+    "mismatch": 0,
+    "no_resolution": 0,
+    "checked": 1500,
+    "match_pct": 100.0,
+    "mismatch_pct": 0.0
+  },
+  "stored_vs_production": {
+    "match": 1500,
+    "mismatch": 0,
+    "no_resolution": 0,
+    "checked": 1500,
+    "match_pct": 100.0,
+    "mismatch_pct": 0.0
+  },
+  "sl_tp_parity": {
+    "avg_sl_distance_delta_pct": 0.0,
+    "avg_tp_distance_delta_pct": 0.0,
+    "avg_rr_stored": 2.5,
+    "avg_rr_production": 2.5,
+    "samples": 1500
+  },
+  "label_shift": {
+    "stored_pf_proxy": 0.3724,
+    "production_pf_proxy": 0.3724,
+    "labels_would_change": 0,
+    "labels_would_change_pct": 0.0
+  },
+  "root_causes": [],
+  "quality_report": {
+    "status": "warn",
+    "class_imbalance_warnings": [],
+    "possible_event_bias": true,
+    "dominant_event_type": "ml_raw_signal",
+    "event_win_share": 1.0,
+    "possible_session_bias": false,
+    "dominant_session": "asia",
+    "direction_bias": {
+      "buy_winrate": 0.2739,
+      "sell_winrate": 0.2638,
+      "buy_count": 63557,
+      "sell_count": 17478
+    },
+    "issues": [
+      "100% of winners from event type 'ml_raw_signal'"
+    ]
+  },
+  "mismatch_examples": []
+}

@@ -1,0 +1,105 @@
+{
+  "version": "1.0",
+  "created_utc": "2026-07-11T21:00:00Z",
+  "mission": "Stable profitable MT5 trading bot — evidence-driven engineering only",
+  "closed_topics_no_reaudit": [
+    "Replay Parity (Phase31)",
+    "Runtime Performance (Phase32G)",
+    "Feature Parity (Phase32I)",
+    "Architecture Health (Phase33A)",
+    "Pipeline Timing"
+  ],
+  "open_problems": [
+    {
+      "id": "P1",
+      "name": "Raw ML predictive quality",
+      "question": "Does ML have intrinsic edge before filters?",
+      "phase": "34A",
+      "gate": "Must complete before any threshold change"
+    },
+    {
+      "id": "P2",
+      "name": "Filter marginal value",
+      "question": "Which filters preserve vs destroy edge?",
+      "phase": "34C",
+      "depends_on": ["33D", "34A"]
+    },
+    {
+      "id": "P3",
+      "name": "Dataset label integrity",
+      "question": "Are training labels aligned with production outcomes?",
+      "phase": "34B",
+      "depends_on": []
+    },
+    {
+      "id": "P4",
+      "name": "Decision layer simplification",
+      "question": "Which overlapping filters can merge?",
+      "phase": "34D",
+      "depends_on": ["34A", "34B", "34C", "33D"]
+    }
+  ],
+  "execution_order": [
+    {
+      "step": 1,
+      "phase": "34A",
+      "title": "Raw ML Truth Audit",
+      "deliverables": ["phase34a_final_report.json", "raw_ml_statistics.json"],
+      "test": "tests/test_phase34a.py",
+      "production_changes": false
+    },
+    {
+      "step": 2,
+      "phase": "34B",
+      "title": "Dataset Label Truth Audit",
+      "deliverables": ["phase34b_final_report.json", "label_quality_audit.json"],
+      "test": "tests/test_phase34b.py",
+      "production_changes": false
+    },
+    {
+      "step": 3,
+      "phase": "34C",
+      "title": "Filter Marginal Value Synthesis",
+      "deliverables": ["phase34c_final_report.json", "filter_marginal_value.json"],
+      "test": "tests/test_phase34c.py",
+      "production_changes": false
+    },
+    {
+      "step": 4,
+      "phase": "34D",
+      "title": "Engineering Decision Report",
+      "deliverables": ["phase34d_final_report.json", "engineering_next_actions.json"],
+      "test": "tests/test_phase34d.py",
+      "production_changes": false
+    },
+    {
+      "step": 5,
+      "phase": "35",
+      "title": "Label Alignment & Retrain Readiness",
+      "deliverables": ["phase35_final_report.json", "label_alignment_report.json"],
+      "test": "tests/test_phase35.py",
+      "production_changes": false,
+      "status": "COMPLETE"
+    },
+    {
+      "step": 6,
+      "phase": "36",
+      "title": "Controlled Engineering (future)",
+      "note": "Only after 34A-34D verdicts. Small validated changes with before/after PF/DD/Expectancy.",
+      "production_changes": true
+    }
+  ],
+  "engineering_rules": [
+    "No production change without numeric before/after evidence",
+    "No threshold change until 34A completes",
+    "No filter removal until 34C measures marginal value",
+    "No dataset rebuild until 34B validates labels",
+    "PF up, Expectancy up, DD controlled — or change rejected"
+  ],
+  "success_criteria": {
+    "34A": "Verdict ML_IS_* with >=100 raw signals replayed",
+    "34B": "Label integrity PASS or FAIL with measured bias stats",
+    "34C": "Per-filter edge preserved/destroyed in R units",
+    "34D": "Single engineering priority ranked by evidence"
+  }
+}

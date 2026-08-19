@@ -1,0 +1,24 @@
+{
+  "phase": "22X",
+  "title": "Production Fix for Model Selection Criteria",
+  "generated_utc": "2026-07-07T18:50:15.817748+00:00",
+  "production_modified": true,
+  "modified_scope": "Phase 9.9 training/selection pipeline only",
+  "verdict": "SELECTION_PIPELINE_FIXED",
+  "answers": {
+    "selection_pipeline_updated": true,
+    "degenerated_sell_only_can_be_selected_via_pipeline": false,
+    "degenerated_sell_only_can_be_frozen_via_hardcoded_freeze_path": true,
+    "production_components_outside_phase99_modified": false,
+    "all_tests_passed": true
+  },
+  "gate_validation": {
+    "sell_only_passed": false,
+    "buy_only_passed": false,
+    "collapsed_neutral_passed": false,
+    "normal_spread_passed": true
+  },
+  "pipeline_exit_code": 1,
+  "pipeline_verdict": "FAIL",
+  "degenerated_frozen_rejection": "buy_coverage_zero; max_probability_below_buy_threshold; probability_distribution_collapsed"
+}

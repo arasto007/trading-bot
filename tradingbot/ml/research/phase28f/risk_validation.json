@@ -1,0 +1,9 @@
+{
+  "phase": "28F",
+  "configured_risk_reported_per_trade": true,
+  "actual_risk_reported_per_trade": true,
+  "risk_deviation_reported_per_trade": true,
+  "avg_configured_risk_pct": 0.2955,
+  "avg_actual_risk_pct": 4.5631,
+  "generated_utc": "2026-07-09T23:58:22.201686+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "phase": "25A",
+  "generated_utc": "2026-07-08T16:44:25.719893+00:00",
+  "verdict": "PAPER_DIFFERS_FROM_RESEARCH",
+  "audit_mode": "READ_ONLY",
+  "canonical_research_path": "phase24a.collect_production_decisions",
+  "canonical_paper_path": "LiveRunner --paper USE_ML_KERNEL=1 (simulated on frozen candles)",
+  "runtime_decision_match_rate": 0.7,
+  "structural_divergence_count": 10,
+  "recommendation": "Align research replay to include RiskGate+paper execution on ReplayMarketDataAdapter before claiming end-to-end parity"
+}

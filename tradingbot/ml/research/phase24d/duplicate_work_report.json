@@ -1,0 +1,34 @@
+{
+  "build_unified_frame_recomputes_full_window": true,
+  "window_size_bars": 300,
+  "evidence": "build_ml_features(candles) processes entire tail on every call \u2014 unified_features.py:21",
+  "regime_features_recomputed_separately": true,
+  "regime_evidence": "compute_regime_features_from_candles(candles) \u2014 line 24, separate from build_ml_features",
+  "overlapping_columns_recomputed_twice": [
+    "adx",
+    "atr_percentile",
+    "ema20_slope",
+    "ema50_slope",
+    "higher_high_count",
+    "lower_low_count"
+  ],
+  "overlap_count": 6,
+  "per_bar_regime_merge_loops": 12,
+  "merge_evidence": "for col in REGIME_FEATURE_COLUMNS: base.merge(...) \u2014 lines 27-36, one merge per column",
+  "featurebuilder_vs_build_ml_features": {
+    "relationship": "Different code paths \u2014 build_ml_features uses trend_strategy; FeatureBuilder uses ml/features/* families",
+    "both_run_in_production": true,
+    "featurebuilder_path": "RangeEngineAdapter._features_from_candles \u2192 compute_at",
+    "build_ml_path": "PipelineCache.get_unified_frame \u2192 build_unified_frame \u2192 build_ml_features",
+    "phase24c_featurebuilder_p95_ms": 68.9256,
+    "note": "Range engine uses FeatureBuilder; unified frame uses build_ml_features \u2014 not byte-identical paths"
+  },
+  "dataset_merge_full_scan": true,
+  "dataset_merge_evidence": "base.merge(feat, on=timestamp, how=left) merges full dataset slice \u2014 line 45",
+  "attach_top5_full_frame_scan": true,
+  "attach_top5_evidence": "PipelineCache._attach_trend_v41_features \u2192 attach_top5_features(unified) \u2014 full 300-row pass",
+  "pipeline_cache_tail_copy_every_call": true,
+  "tail_copy_evidence": "candles.tail(300).copy() \u2014 pipeline_cache.py:102",
+  "phase": "24D",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

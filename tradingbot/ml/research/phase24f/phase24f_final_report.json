@@ -1,0 +1,8 @@
+{
+  "phase": "24F",
+  "verdict": "UNSAFE_TO_IMPLEMENT",
+  "production_modified": false,
+  "summary": "Incremental unified frame parity proof: UNSAFE_TO_IMPLEMENT. Tested bar counts: ['100', '500', '1000']. Incremental==full each cycle: False. Overlap stable across consecutive full rebuilds: False.",
+  "root_cause": "tail(300) window slide shifts EWM/rolling warm-start; identical timestamps get different feature values each cycle",
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

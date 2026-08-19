@@ -1,0 +1,20 @@
+{
+  "phase": "22V",
+  "title": "Phase9_9 Training Pipeline Forensics",
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "production_modified": false,
+  "verdict": "MULTIPLE_CAUSES",
+  "root_causes": [
+    "BAD_FEATURES",
+    "BAD_DATA",
+    "BAD_TRAINING",
+    "BAD_MODEL_CHOICE"
+  ],
+  "summary": "Verdict=MULTIPLE_CAUSES. structure_distance 98.4724% zero in freeze train slice. Phase 9.9 selected candidate by walk-forward PF/robustness; freeze never validated buy-zone probability coverage. Labels balanced (positive=36.1927%) — not a label problem. Frozen model on train slice: buy_zone=0.0%, max_p=0.434012.",
+  "freeze_train_rows": 851,
+  "training_buy_zone_pct": 0.0,
+  "training_max_p_win": 0.434012,
+  "structure_distance_zero_pct": 98.4724,
+  "label_positive_pct": 36.1927,
+  "converged": true
+}

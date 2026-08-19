@@ -1,0 +1,962 @@
+{
+  "phase": "24H",
+  "candle_id": "XAUUSD:M5:2026-04-10T19:35:00+00:00",
+  "execution_order": [
+    {
+      "seq": 1,
+      "stage": "DataStage",
+      "caller": "/ml/research/phase24h/run_investigation.py:trace_one_closed_candle",
+      "file": "/ml/research/phase24h/run_investigation.py",
+      "line": 315,
+      "duration_ms": 0.2021,
+      "purpose": "load OHLCV"
+    },
+    {
+      "seq": 2,
+      "stage": "IndicatorStage",
+      "caller": "/ml/research/phase24h/run_investigation.py:trace_one_closed_candle",
+      "file": "/ml/research/phase24h/run_investigation.py",
+      "line": 316,
+      "duration_ms": 28.1111,
+      "purpose": "legacy indicators"
+    },
+    {
+      "seq": 3,
+      "stage": "HealthGate",
+      "caller": "/ml/integration/health_gate.py:require_health",
+      "file": "/ml/integration/health_gate.py",
+      "line": 143,
+      "duration_ms": 25.7192,
+      "purpose": "health checks"
+    },
+    {
+      "seq": 4,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0352,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 5,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0494,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 6,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0458,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 7,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.1892,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 8,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0443,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 9,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0496,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 10,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0444,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 11,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0292,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 12,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0429,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 13,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0441,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 14,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0819,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 15,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0481,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 16,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0479,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 17,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0457,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 18,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0424,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 19,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.081,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 20,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0307,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 21,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0463,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 22,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0496,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 23,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.048,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 24,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0455,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 25,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0814,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 26,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0491,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 27,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0529,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 28,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.047,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 29,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0466,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 30,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0509,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 31,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0589,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 32,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0467,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 33,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0536,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 34,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0456,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 35,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0464,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 36,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.046,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 37,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0462,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 38,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0273,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 39,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0419,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 40,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0446,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 41,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0459,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 42,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0317,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 43,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0452,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 44,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0497,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 45,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0485,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 46,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0503,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 47,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0301,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 48,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0466,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 49,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0476,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 50,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0503,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 51,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0503,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 52,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0487,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 53,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0413,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 54,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0441,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 55,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0447,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 56,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0253,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 57,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0415,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 58,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0521,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 59,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0472,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 60,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0452,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 61,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.1287,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 62,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0591,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 63,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0451,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 64,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0426,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 65,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0476,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 66,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0493,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 67,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0713,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 68,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0512,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 69,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0766,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 70,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0415,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 71,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.047,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 72,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0495,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 73,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0486,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 74,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0542,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 75,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0848,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 76,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0453,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 77,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0465,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 78,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0494,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 79,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0492,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 80,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0892,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 81,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0435,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 82,
+      "stage": "rule_classify_row",
+      "caller": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py:apply_series_generator",
+      "file": "C:/Users/AMIR/AppData/Local/Programs/Python/Python311/Lib/site-packages/pandas/core/apply.py",
+      "line": 1081,
+      "duration_ms": 0.0527,
+      "purpose": "regime label per row"
+    },
+    {
+      "seq": 83,
+      "stage": "PipelineCache.get_unified_frame",
+      "caller": "/ml/integration/kernel_adapter.py:produce_unified_signal",
+      "file": "/ml/integration/kernel_adapter.py",
+      "line": 178,
+      "duration_ms": 1151.6656,
+      "purpose": "unified feature matrix"
+    },
+    {
+      "seq": 84,
+      "stage": "HealthGate",
+      "caller": "/ml/integration/health_gate.py:require_health",
+      "file": "/ml/integration/health_gate.py",
+      "line": 143,
+      "duration_ms": 25.7088,
+      "purpose": "health checks"
+    },
+    {
+      "seq": 85,
+      "stage": "FeatureBuilder.compute_at",
+      "caller": "/ml/research/regime_router/range_engine_adapter.py:_features_from_candles",
+      "file": "/ml/research/regime_router/range_engine_adapter.py",
+      "line": 53,
+      "duration_ms": 91.5568,
+      "purpose": "range live feature vector"
+    },
+    {
+      "seq": 86,
+      "stage": "predict_proba",
+      "caller": "/ml/research/regime_router/range_engine_adapter.py:evaluate",
+      "file": "/ml/research/regime_router/range_engine_adapter.py",
+      "line": 88,
+      "duration_ms": 1.4076,
+      "purpose": "phase9_9"
+    },
+    {
+      "seq": 87,
+      "stage": "RangeEngineAdapter.evaluate",
+      "caller": "/ml/research/phase13_9/router_pipeline_rebuilder.py:evaluate",
+      "file": "/ml/research/phase13_9/router_pipeline_rebuilder.py",
+      "line": 28,
+      "duration_ms": 117.0544,
+      "purpose": "range engine inference"
+    },
+    {
+      "seq": 88,
+      "stage": "predict_proba",
+      "caller": "/ml/phase17d/v41_engine.py:evaluate",
+      "file": "/ml/phase17d/v41_engine.py",
+      "line": 64,
+      "duration_ms": 28.9237,
+      "purpose": "trend_v41"
+    },
+    {
+      "seq": 89,
+      "stage": "TrendEngine.evaluate",
+      "caller": "/ml/decision_engine/validation.py:build_market_context",
+      "file": "/ml/decision_engine/validation.py",
+      "line": 126,
+      "duration_ms": 43.2854,
+      "purpose": "trend inference"
+    },
+    {
+      "seq": 90,
+      "stage": "DecisionOrchestrator",
+      "caller": "/ml/research/phase15i/recovery_adapter.py:decide",
+      "file": "/ml/research/phase15i/recovery_adapter.py",
+      "line": 67,
+      "duration_ms": 0.0564,
+      "purpose": "engine routing decision"
+    },
+    {
+      "seq": 91,
+      "stage": "Calibration",
+      "caller": "/ml/confidence_mapping/production_adapter.py:evaluate",
+      "file": "/ml/confidence_mapping/production_adapter.py",
+      "line": 62,
+      "duration_ms": 11.2881,
+      "purpose": "orchestrator+calibration"
+    },
+    {
+      "seq": 92,
+      "stage": "AdaptiveRisk",
+      "caller": "/ml/confidence_mapping/production_adapter.py:evaluate",
+      "file": "/ml/confidence_mapping/production_adapter.py",
+      "line": 79,
+      "duration_ms": 0.0106,
+      "purpose": "ML position sizing"
+    },
+    {
+      "seq": 93,
+      "stage": "TradeQuality",
+      "caller": "/ml/trade_quality/adapter.py:evaluate",
+      "file": "/ml/trade_quality/adapter.py",
+      "line": 71,
+      "duration_ms": 0.0112,
+      "purpose": "trade quality gate"
+    }
+  ],
+  "execution_counts": {
+    "DataStage": 1,
+    "IndicatorStage": 1,
+    "PipelineCache.get_unified_frame": 1,
+    "build_unified_frame": 0,
+    "build_ml_features": 0,
+    "FeatureBuilder.compute_at": 1,
+    "RangeEngineAdapter.evaluate": 1,
+    "TrendEngine.evaluate": 1,
+    "predict_proba": 2,
+    "build_market_context": 0,
+    "DecisionOrchestrator": 1,
+    "Calibration": 1,
+    "TradeQuality": 1,
+    "AdaptiveRisk": 1,
+    "ProfitabilityFilters": 0,
+    "HealthGate": 2,
+    "RiskGate": 0,
+    "ExecutionStage": 0,
+    "normalize_candles_for_builder": 0,
+    "rule_classify_row": 79
+  },
+  "stage_timing_stats": {
+    "DataStage": {
+      "mean_ms": 0.2021,
+      "median_ms": 0.2021,
+      "p95_ms": 0.2021
+    },
+    "IndicatorStage": {
+      "mean_ms": 28.1111,
+      "median_ms": 28.1111,
+      "p95_ms": 28.1111
+    },
+    "HealthGate": {
+      "mean_ms": 25.714,
+      "median_ms": 25.714,
+      "p95_ms": 25.7088
+    },
+    "rule_classify_row": {
+      "mean_ms": 0.0517,
+      "median_ms": 0.047,
+      "p95_ms": 0.0819
+    },
+    "PipelineCache.get_unified_frame": {
+      "mean_ms": 1151.6656,
+      "median_ms": 1151.6656,
+      "p95_ms": 1151.6656
+    },
+    "FeatureBuilder.compute_at": {
+      "mean_ms": 91.5568,
+      "median_ms": 91.5568,
+      "p95_ms": 91.5568
+    },
+    "predict_proba": {
+      "mean_ms": 15.1657,
+      "median_ms": 15.1657,
+      "p95_ms": 1.4076
+    },
+    "RangeEngineAdapter.evaluate": {
+      "mean_ms": 117.0544,
+      "median_ms": 117.0544,
+      "p95_ms": 117.0544
+    },
+    "TrendEngine.evaluate": {
+      "mean_ms": 43.2854,
+      "median_ms": 43.2854,
+      "p95_ms": 43.2854
+    },
+    "DecisionOrchestrator": {
+      "mean_ms": 0.0564,
+      "median_ms": 0.0564,
+      "p95_ms": 0.0564
+    },
+    "Calibration": {
+      "mean_ms": 11.2881,
+      "median_ms": 11.2881,
+      "p95_ms": 11.2881
+    },
+    "AdaptiveRisk": {
+      "mean_ms": 0.0106,
+      "median_ms": 0.0106,
+      "p95_ms": 0.0106
+    },
+    "TradeQuality": {
+      "mean_ms": 0.0112,
+      "median_ms": 0.0112,
+      "p95_ms": 0.0112
+    }
+  },
+  "duplicate_flags": [
+    {
+      "stage": "predict_proba",
+      "count": 2,
+      "expected": 1,
+      "is_duplicate": true
+    },
+    {
+      "stage": "HealthGate",
+      "count": 2,
+      "expected": 1,
+      "is_duplicate": true
+    },
+    {
+      "stage": "rule_classify_row",
+      "count": 79,
+      "expected": 1,
+      "is_duplicate": true
+    }
+  ],
+  "verified_components": {
+    "PipelineCache.get_unified_frame": 1,
+    "build_unified_frame": 0,
+    "FeatureBuilder.compute_at": 1,
+    "RangeEngineAdapter.evaluate": 1,
+    "TrendEngine.evaluate": 1,
+    "HealthGate": 2,
+    "TradeQuality": 1
+  },
+  "generated_utc": "2026-07-08T13:06:04.885148+00:00"
+}

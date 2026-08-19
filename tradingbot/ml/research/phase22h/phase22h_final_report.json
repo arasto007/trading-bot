@@ -1,0 +1,35 @@
+{
+  "phase": "22H",
+  "generated_at": "2026-07-05T04:22:31.282257+00:00",
+  "fix_id": "22G-001",
+  "production_modified": true,
+  "modified_files": [
+    "tradingbot/ml/integration/health_gate.py",
+    "tradingbot/ml/integration/recovered_calibration.py",
+    "tradingbot/ml/decision_engine/strategy_selector.py",
+    "tradingbot/ml/decision_engine/validation.py",
+    "tradingbot/ml/monitoring/bundle_monitor.py",
+    "tradingbot/ml/monitoring/health_monitor.py"
+  ],
+  "elapsed_sec": 1219.8,
+  "verdict": "ACTIVE_ENGINE_ALIGNMENT_COMPLETE",
+  "final_questions": {
+    "1_same_active_engine": true,
+    "2_hidden_v40_references": true,
+    "3_buy_sell_improved": true,
+    "4_hold_decreased": false,
+    "5_internally_consistent": true
+  },
+  "regression_summary": {
+    "trades": 0,
+    "hold_pct": null,
+    "pf": 0.0
+  },
+  "delta": {
+    "trades": -2.0,
+    "profit_factor": 0.0,
+    "expectancy": 10.719,
+    "buy_emitted": -13,
+    "sell_emitted": -47
+  }
+}

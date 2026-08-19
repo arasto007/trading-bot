@@ -1,0 +1,41 @@
+{
+  "phase": "24D",
+  "baseline_phase24c_p95_ms": {
+    "pipeline_cache_unified_frame": 162.1114,
+    "unified_frame_merge": 136.6904,
+    "dataset_store_load": 40.1912,
+    "feature_builder_compute_at": 68.9256
+  },
+  "strategies": [
+    {
+      "id": "A",
+      "name": "Incremental unified frame update",
+      "description": "Maintain rolling 300-bar unified frame; append one bar per cycle instead of full rebuild",
+      "estimated_p95_reduction_ms": 45.88,
+      "estimated_p95_after_ms": 116.23,
+      "basis": "build_ml_p95=20.9387, regime_p95=18.7021, attach_top5_p95=6.3933 \u00d7 (1 - 1/300)",
+      "latency_reduction_pct": 28.3
+    },
+    {
+      "id": "B",
+      "name": "Persistent dataset_v2 in memory",
+      "description": "Load dataset_v2 once per process; reuse for merge; optional timestamp index",
+      "estimated_p95_reduction_ms": 40.19,
+      "estimated_p95_after_ms": 121.92,
+      "basis": "phase24c dataset_store_load p95=40.1912ms eliminated",
+      "latency_reduction_pct": 24.8
+    },
+    {
+      "id": "C",
+      "name": "FeatureBuilder incremental feature computation",
+      "description": "Cache rolling state for families with incremental updates (session/microstructure only safe without parity suite)",
+      "estimated_p95_reduction_ms": 0.84,
+      "estimated_p95_after_ms": 68.08,
+      "basis": "measured session_p95=0.1513, micro_p95=0.6918 \u2014 does NOT affect unified frame path",
+      "latency_reduction_pct": 1.2,
+      "scope_note": "Affects RangeEngineAdapter path only, not PipelineCache bottleneck"
+    }
+  ],
+  "combined_ab_estimated_p95_ms": 76.04,
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

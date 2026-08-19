@@ -1,0 +1,53 @@
+{
+  "phase": "24B",
+  "verdict": "ARCHITECTURE_FULLY_TRACED",
+  "production_modified": false,
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00",
+  "answers": {
+    "1_how_system_works": "LiveRunner connects MT5, starts background services, and runs TradingKernel.run_forever. Each cycle: update market data \u2192 for each symbol:timeframe run pipeline DataStage\u2192IndicatorStage\u2192SignalStage\u2192RiskStage\u2192ExecutionStage. When USE_ML_KERNEL=true, SignalStage calls MLKernelRegistry\u2192KernelAdapter which builds unified features, runs health checks, evaluates range/trend engines, orchestrates decision, applies calibration/risk/quality/filters, maps to TradingSignal. Non-HOLD signals pass legacy RiskGate then Mt5ExecutionAdapter (dry-run/paper/live).",
+    "2_major_module_responsibilities": "See module_inventory.json \u2014 8 core production modules documented.",
+    "3_independent_modules": [
+      "BackgroundServices",
+      "KillSwitchService",
+      "Research phases (ml/research/*)",
+      "Backtest engine (separate entry)"
+    ],
+    "4_tightly_coupled_modules": [
+      "KernelAdapter + PipelineCache + EngineRegistry",
+      "factory.build_ml_kernel_stack components",
+      "MLKernelRegistry + KernelAdapter + HealthGate",
+      "SignalStage + strategy registry + RiskStage"
+    ],
+    "5_architecture_assumptions": [
+      "Frozen ML artifacts exist and match fingerprints",
+      "dataset_v2 parquet available for phase99 feature merge",
+      "MT5 connectivity and tick freshness (HEALTH_MAX_TICK_AGE_SEC)",
+      "Chronological bar processing \u2014 SignalStage dedups same closed bar",
+      "Legacy RiskGate remains authoritative for execution gating"
+    ],
+    "6_safe_future_modifications": [
+      "Research phases under ml/research/ with isolation",
+      "Regime filter profile tuning via regime_filter_profiles.py (23G pattern)",
+      "Observability/logging additions in integration/monitoring",
+      "Phase24 shadow validation expansions",
+      "Env toggles with rollback switches (ENABLE_RANGE_FILTER_PROFILE pattern)"
+    ],
+    "7_dangerous_future_modifications": [
+      "TradingKernel pipeline stage reordering",
+      "RiskGate core logic changes",
+      "Mt5ExecutionAdapter order_send flow",
+      "Direct CandleStore wiring into LiveRunner loop without batch design",
+      "Automatic model replacement / build_if_missing=True in hot path",
+      "Feature pipeline changes without dataset fingerprint update",
+      "Removing HealthGate or fallback paths"
+    ],
+    "8_investigate_before_changes": [
+      "TradingKernel pipeline stage order and SignalStage bar dedup",
+      "PipelineCache feature cache invalidation (key includes last bar timestamp)",
+      "Phase22C threshold interaction with DecisionPolicy",
+      "Live dataset_v2 freshness vs MT5 ParquetCache sync",
+      "RiskGate vs ML AdaptiveRiskEngine double-gating",
+      "Latency budget: unified frame build + quality.evaluate chain"
+    ]
+  }
+}

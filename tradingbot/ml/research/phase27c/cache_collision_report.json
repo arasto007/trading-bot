@@ -1,0 +1,13 @@
+{
+  "phase": "27C",
+  "bars_evaluated": 5203,
+  "unique_prediction_keys": 5203,
+  "unique_candle_timestamps": 5203,
+  "cache_collisions": 0,
+  "collision_details": [],
+  "legacy_key_unique": 1,
+  "legacy_key_worst_collision": 5203,
+  "legacy_key_example": "XAUUSD:M5:79",
+  "pass": true,
+  "generated_utc": "2026-07-09T13:12:45.914121+00:00"
+}

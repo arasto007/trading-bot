@@ -1,0 +1,36 @@
+{
+  "cache_key_format": "{symbol}:{timeframe}:{len(tail)}:{tail.index[-1]}",
+  "source_file": "tradingbot/ml/integration/pipeline_cache.py",
+  "source_lines": "102-103",
+  "key_fields": [
+    {
+      "field": "symbol",
+      "changes_per_bar": false,
+      "example": "XAUUSD"
+    },
+    {
+      "field": "timeframe",
+      "changes_per_bar": false,
+      "example": "M5"
+    },
+    {
+      "field": "len(tail)",
+      "changes_per_bar": "Rarely \u2014 fixed at 300 unless warmup",
+      "example": 300
+    },
+    {
+      "field": "tail.index[-1]",
+      "changes_per_bar": true,
+      "invalidates_every_bar": true,
+      "reason": "Each live cycle closes a new bar \u2192 new timestamp \u2192 new cache key"
+    }
+  ],
+  "invalidating_field": "tail.index[-1] (last closed bar timestamp)",
+  "samples_analyzed": 80,
+  "unique_keys": 80,
+  "hit_ratio_expected_live": 0.0,
+  "hit_scenario": "Cache hits only when the same closed bar is evaluated twice with identical tail length",
+  "phase24c_measured_hit_ratio": 0.0,
+  "phase": "24D",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "49",
+  "title": "Fixed Bar Index + Expanded ML Capture",
+  "timestamp_utc": "2026-07-13T11:01:29Z",
+  "verdict": "V7_FIXED_INDEX_CAPTURED",
+  "dataset_v7_rows": 81035,
+  "years_covered": 6,
+  "year_distribution": {
+    "2021": 14301,
+    "2022": 14193,
+    "2023": 13931,
+    "2024": 15131,
+    "2025": 15783,
+    "2026": 7696
+  },
+  "comparison_vs_v6_buggy": {
+    "v6_rows": 3827,
+    "test_pf_v7": 0.3447,
+    "test_auc_v7": 0.4777
+  }
+}

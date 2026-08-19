@@ -1,0 +1,18 @@
+{
+  "phase": "26A",
+  "trades": 0,
+  "profit_factor": 0.0,
+  "expectancy": 0.0,
+  "win_rate": 0.0,
+  "average_rr": 0.0,
+  "model_engine": {
+    "phase": "26A",
+    "engine": "trend_rf_v41",
+    "trades": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "win_rate": 0.0,
+    "average_rr": 0.0
+  },
+  "generated_utc": "2026-07-08T17:35:36.207635+00:00"
+}

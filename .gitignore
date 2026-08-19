@@ -1,0 +1,51 @@
+.env
+*.pyc
+__pycache__/
+.pytest_cache/
+logs/
+data/trade_journal.db
+data/hta_status_tmp.txt
+# Database files
+*.db
+
+# Logs and reports
+*.log
+*_out.txt
+*_err.txt
+*_report.txt
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Data
+data/
+
+# Temporary reports
+_audit_*.txt
+_diag_*.txt
+_process_*.txt
+_smoke_*.txt
+_full_report.txt
+_litefinance_out.txt
+backtest_out.txt
+check_signals_out.txt
+explore_result.txt
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
+
+# Temporary outputs
+*_out.txt
+*_err.txt
+*_report.txt
+verify_run.log
+phase*_run.log

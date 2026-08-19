@@ -1,0 +1,43 @@
+{
+  "phase": "22M",
+  "step": 7,
+  "implementation_status": "NOT_IMPLEMENTED — plan only",
+  "constraints": [
+    "no model retrain",
+    "no strategy/threshold/risk changes",
+    "max 3 files"
+  ],
+  "minimal_repair": {
+    "summary": "Add offline batch orchestration (existing scripts) on a schedule. Do NOT wire LiveRunner to dataset build inline.",
+    "files": [
+      {
+        "path": "scripts/scheduled_ml_refresh.py",
+        "action": "CREATE",
+        "purpose": "Orchestrate: collect_ml_data.py --incremental --symbol XAUUSD then build_ml_dataset.py --phase9-1. Log manifest timestamps. Exit non-zero on failure.",
+        "rationale": "Repository already has both steps; only missing chained entry point."
+      },
+      {
+        "path": "start/15_refresh_ml_dataset.bat",
+        "action": "CREATE",
+        "purpose": "Manual + Windows Task Scheduler entry (e.g. daily off-hours) calling scheduled_ml_refresh.py",
+        "rationale": "Matches existing start/*.bat pattern; no live loop change."
+      },
+      {
+        "path": "scripts/verify_ml_live_ready.py",
+        "action": "OPTIONAL_EXTEND",
+        "purpose": "Warn if dataset_v2 max_timestamp lags CandleStore or is older than N days (read-only check before live start)",
+        "rationale": "start/3 already calls verify before live — surfaces staleness without auto-mutation."
+      }
+    ]
+  },
+  "explicitly_not_recommended_in_22m": [
+    "Modifying LiveRunner to write CandleStore each cycle (high risk, duplicates MLDataPipeline)",
+    "Modifying PipelineCache/KernelAdapter for live FeatureBuilder overlay (engine change — Phase 22J scope)",
+    "Modifying TradingKernel or RiskGate"
+  ],
+  "operator_workflow_until_automation": [
+    "start/13_collect_ml_data.bat --incremental",
+    "python scripts/build_ml_dataset.py --phase9-1",
+    "Restart live to reload PipelineCache (process restart)"
+  ]
+}

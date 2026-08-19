@@ -1,0 +1,71 @@
+{
+  "phase": "22K",
+  "generated_utc": "2026-07-05T12:45:00Z",
+  "pipeline": "MT5 candle → DataStage → IndicatorStage → SignalStage(KernelAdapter) → PipelineCache → phase9_9",
+  "features": {
+    "structure_distance": {
+      "training_source": "FeatureBuilder → SmcStructureFeatures (bars since last BOS/CHoCH)",
+      "training_path": "DatasetBuilder._merge_features_at → dataset_v2 parquet column structure_distance",
+      "inference_source": "dataset_v2 merge only — NOT FeatureBuilder at inference",
+      "created": "FeatureBuilder/SmcStructureFeatures.compute_features at dataset build time",
+      "modified": "stored in dataset_v2; never recomputed live",
+      "merged": "build_unified_frame: dataset[structure_distance] → phase99_structure_distance via PHASE99_FEATURE_MAP",
+      "cached": "PipelineCache._feature_cache stores unified frame after merge",
+      "overwritten": "never overwrites trend columns (TREND_PROTECTED_COLUMNS)",
+      "fillna": "build_unified_frame line 48: base[dst].fillna(0.0) after left merge on timestamp",
+      "final_inference_column": "phase99_structure_distance → row_for_phase99_range → structure_distance for RangeEngineAdapter",
+      "native_dataset_zero_pct": 98.7,
+      "feature_builder_live_nonzero_pct_sample": 1.8
+    },
+    "ema50_slope": {
+      "training_source": "FeatureBuilder trend family → dataset_v2",
+      "inference_dual_path": {
+        "live_trend_column": "build_ml_features → ema50_slope (always computed from candles)",
+        "range_model_column": "phase99_ema50_slope from dataset_v2 merge"
+      },
+      "created": "compute_trend_features at unified build; dataset column at build time",
+      "merged": "PHASE99_FEATURE_MAP ema50_slope → phase99_ema50_slope",
+      "cached": "PipelineCache singleton FeatureCacheEntry",
+      "fillna": "fillna(0.0) on merge miss",
+      "final_inference_column": "phase99_ema50_slope (range engine ignores live ema50_slope column)",
+      "native_dataset_zero_pct": 0.1
+    },
+    "candle_direction": {
+      "training_source": "FeatureBuilder PriceActionFeatures → dataset_v2",
+      "inference_dual_path": {
+        "live": "not in build_ml_features base columns",
+        "range_model": "phase99_candle_direction from dataset_v2 merge"
+      },
+      "merged": "candle_direction → phase99_candle_direction",
+      "fillna": "fillna(0.0) on merge miss",
+      "native_dataset_zero_pct": 0.0
+    }
+  },
+  "other_model_features": {
+    "trend_v41_top5": {
+      "source": "attach_top5_features on unified frame in PipelineCache._attach_trend_v41_features",
+      "created_from": "rolling candle history (300-bar tail)",
+      "not_from_dataset_v2": true
+    },
+    "regime_features": {
+      "source": "compute_regime_features_from_candles merged with regime_ prefix on collision"
+    }
+  },
+  "fillna_locations": [
+    {
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "line": 48,
+      "operation": "base[dst].fillna(0.0) for each phase99_* column after dataset left-merge"
+    },
+    {
+      "file": "tradingbot/ml/features/registry/enrichment.py",
+      "policy": "nullable_policy zero_fill for structure_distance, ema50_slope, candle_direction at dataset build"
+    },
+    {
+      "file": "tradingbot/ml/dataset/builder.py",
+      "function": "_merge_features_at",
+      "operation": "returns 0.0 when feature index lookup fails"
+    }
+  ],
+  "key_architectural_fact": "Range engine reads phase99_* via row_for_phase99_range; live-computed ema50_slope in unified frame is unused by phase9_9"
+}

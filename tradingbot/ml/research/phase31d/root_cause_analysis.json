@@ -1,0 +1,185 @@
+{
+  "phase": "31D",
+  "dominant_root_cause": "RC01",
+  "secondary_root_cause": "RC02",
+  "production_exit_distribution": {
+    "hybrid_sl": 97,
+    "sl": 214,
+    "hybrid_time": 169,
+    "time": 9
+  },
+  "proxy_exit_distribution": {
+    "sl": 282,
+    "time": 199,
+    "timeout": 8
+  },
+  "truncated_replay_exit_distribution": {
+    "time": 480,
+    "hybrid_time": 9
+  },
+  "early_1bar_time_exits": 0,
+  "duration_delta_histogram": {
+    "-14": 128,
+    "-13": 9,
+    "-12": 6,
+    "-11": 8,
+    "-10": 4,
+    "-9": 7,
+    "-8": 8,
+    "-7": 9,
+    "-6": 9,
+    "-5": 11,
+    "-4": 9,
+    "-3": 14,
+    "-2": 13,
+    "-1": 18,
+    "0": 180,
+    "1": 1,
+    "2": 1,
+    "4": 3,
+    "5": 2,
+    "7": 2,
+    "8": 4,
+    "14": 1,
+    "21": 2,
+    "39": 2,
+    "41": 2,
+    "42": 1,
+    "58": 1,
+    "59": 2,
+    "60": 1,
+    "62": 2,
+    "63": 3,
+    "64": 3,
+    "65": 4,
+    "66": 2,
+    "67": 6,
+    "68": 4,
+    "69": 3,
+    "70": 3,
+    "71": 1
+  },
+  "total_pnl_impact_proxy_minus_production": 1529.9481,
+  "truncated_replay_duration_matches": 489,
+  "truncated_replay_duration_match_pct": 100.0,
+  "repaired_oracle_match_count": 489,
+  "repaired_oracle_match_pct": 100.0,
+  "ranked_causes": [
+    {
+      "cause_id": "RC01",
+      "title": "Truncated causal candle window in replay portfolio",
+      "file": "tradingbot/ml/research/phase25b/replay_portfolio.py",
+      "function": "ReplayPortfolioTracker._exit_up_to_bar",
+      "code_path": "advance_to_bar \u2192 _exit_up_to_bar \u2192 resolve_paper_trade_exit(candles=sub)",
+      "reason": "Each bar, exit is re-evaluated on candles.iloc[:bar_index+1]. On the first bar after entry, end=start+1 in resolve_hybrid_b, so j==end fires immediately as a 1-bar time exit.",
+      "confidence": 0.99,
+      "numerical_impact": {
+        "pf_contribution_pct": 55.95,
+        "trades_affected": 0,
+        "trades_affected_pct": 0.0,
+        "truncated_duration_match_pct": 100.0,
+        "estimated_pnl_delta": 1529.95
+      }
+    },
+    {
+      "cause_id": "RC02",
+      "title": "Full-frame counterfactual in research simulator",
+      "file": "tradingbot/ml/research/phase27n/hybrid_simulators.py",
+      "function": "simulate_hybrid",
+      "code_path": "simulate_strategy \u2192 simulate_hybrid \u2192 bar loop to MAX_HOLD_BARS (72)",
+      "reason": "hybrid_b_proxy walks the complete post-entry frame (up to 72 bars), allowing partial close at +1R, SL hits, and true max-hold time exits \u2014 not available in truncated replay.",
+      "confidence": 0.99,
+      "numerical_impact": {
+        "pf_contribution_pct": 55.95,
+        "proxy_pf": 2.0626,
+        "production_pf": 1.3226,
+        "estimated_pnl_delta": 1529.95
+      }
+    },
+    {
+      "cause_id": "RC03",
+      "title": "No partial-state persistence across replay bars",
+      "file": "tradingbot/ml/research/phase25b/replay_portfolio.py",
+      "function": "ReplayPortfolioTracker._exit_up_to_bar",
+      "code_path": "resolve_hybrid_b re-invoked from scratch each bar; partial_done resets",
+      "reason": "Even if truncation were fixed, partial close state is not carried on ReplayOpenPosition; each evaluation restarts Hybrid B from entry with full lot.",
+      "confidence": 0.92,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    },
+    {
+      "cause_id": "RC04",
+      "title": "Production policy matches full-frame resolve_hybrid_b",
+      "file": "tradingbot/services/exit_policy.py",
+      "function": "resolve_hybrid_b",
+      "code_path": "resolve_exit \u2192 resolve_hybrid_b (HYBRID_B mode)",
+      "reason": "Production exit policy logic is identical between exit_policy.resolve_hybrid_b and phase27n simulate_hybrid(hybrid_b); divergence is data-window not policy.",
+      "confidence": 0.97,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    },
+    {
+      "cause_id": "RC05",
+      "title": "Accounting path consistent when exit_info matches",
+      "file": "tradingbot/accounting/engine.py",
+      "function": "AccountingEngine.close_trade",
+      "code_path": "_finalize_close \u2192 accounting.close_trade(exit_info=...)",
+      "reason": "PnL uses exit_info from resolve_hybrid_b _finalize; when truncated replay forces early time exit, accounting correctly records the wrong-duration outcome.",
+      "confidence": 0.95,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    },
+    {
+      "cause_id": "RC06",
+      "title": "Spread and slippage not a material PF driver",
+      "file": "tradingbot/services/exit_policy.py",
+      "function": "_finalize",
+      "code_path": "spread parameter stored; PaperBroker bar resolution has no slippage model",
+      "reason": "Both production replay and simulator use PaperBroker with fixed spread=0.30; no slippage delta.",
+      "confidence": 0.88,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    },
+    {
+      "cause_id": "RC07",
+      "title": "Trailing logic not involved",
+      "file": "tradingbot/services/exit_policy.py",
+      "function": "resolve_hybrid_b",
+      "code_path": "effective_sl unchanged; no trailing in Hybrid B",
+      "reason": "Hybrid B maintains original SL; trailing_atr is not in production or proxy path.",
+      "confidence": 1.0,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    },
+    {
+      "cause_id": "RC08",
+      "title": "Candle alignment acceptable at M5 resolution",
+      "file": "tradingbot/ml/research/phase31c/exit_simulators.py",
+      "function": "_trade_window_candles / _entry_idx",
+      "code_path": "searchsorted(entry_timestamp) on full M5 frame",
+      "reason": "Entry timestamps align to M5 bar opens; close matches fill_price on entry bar. Not the primary PF divergence source.",
+      "confidence": 0.9,
+      "numerical_impact": {
+        "pf_contribution_pct": 0.0,
+        "trades_affected": 0,
+        "note": "secondary or non-material"
+      }
+    }
+  ],
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

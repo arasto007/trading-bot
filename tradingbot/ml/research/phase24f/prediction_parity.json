@@ -1,0 +1,47 @@
+{
+  "phase": "24F",
+  "samples": [
+    {
+      "bar_index": 250,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 252,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 254,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 256,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 258,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 260,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 262,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 264,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 266,
+      "frames_equal": true
+    },
+    {
+      "bar_index": 268,
+      "frames_equal": true
+    }
+  ],
+  "all_match": false,
+  "generated_utc": "2026-07-08T12:11:17.506296+00:00"
+}

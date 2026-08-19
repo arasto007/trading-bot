@@ -1,0 +1,57 @@
+{
+  "phase": "22K",
+  "validation_method": "Repository trace + 400-bar consecutive inference sample + stride-10 Dataset A window (no production edits)",
+  "dataset_v2": {
+    "path": "data/ml/datasets/XAUUSD_M5_dataset_v2.parquet",
+    "rows": 5724,
+    "max_timestamp": "2026-06-29T13:45:00+00:00",
+    "build_timestamp_utc": "2026-06-29T16:46:56.771535+00:00",
+    "native_feature_zeros_pct": {
+      "structure_distance": 98.7,
+      "ema50_slope": 0.1,
+      "candle_direction": 0.0
+    },
+    "sanity_warn_constant_features": ["spread_pips", "spread_spike", "spread_zscore"],
+    "structure_distance_not_flagged_constant": true,
+    "structure_distance_median_in_dataset": 0.0
+  },
+  "inference_sample_400_consecutive_bars": {
+    "bars": 400,
+    "window": "last 400 bars of Dataset A candle frame",
+    "merge_hit_count": 0,
+    "merge_hit_pct": 0.0,
+    "phase99_zero_counts": {
+      "phase99_structure_distance": 400,
+      "phase99_ema50_slope": 400,
+      "phase99_candle_direction": 400
+    },
+    "phase99_zero_pct": {
+      "phase99_structure_distance": 100.0,
+      "phase99_ema50_slope": 100.0,
+      "phase99_candle_direction": 100.0
+    },
+    "cause": "all 400 bars timestamp > dataset_v2 max → left merge NaN → fillna(0.0)"
+  },
+  "stride_sample_dataset_a": {
+    "stride": 10,
+    "warmup": 300,
+    "bars": 163,
+    "phase99_zero_pct": {
+      "phase99_structure_distance": 100.0,
+      "phase99_ema50_slope": 90.8,
+      "phase99_candle_direction": 90.8
+    },
+    "zeros_fully_explained_by_merge_miss_for_ema_and_candle": true,
+    "structure_distance_additional_native_zeros_when_merge_hits": true
+  },
+  "range_engine_impact": {
+    "p_win_cluster_on_range_bars_22j": "mean 0.364, 100% sell_zone — consistent with near-constant low features",
+    "not_probability_compression_at_0.5": true,
+    "22j_finding_partially_valid": "zeros real, but cause is mixed not single fillna bug"
+  },
+  "training_inference_alignment_post_22h": {
+    "schema_checksums": "pass",
+    "feature_order": "pass",
+    "phase99_merge_logic_unchanged_since_22h": true
+  }
+}

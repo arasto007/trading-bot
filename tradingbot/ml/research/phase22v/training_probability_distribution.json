@@ -1,0 +1,30 @@
+{
+  "freeze_train_slice": {
+    "n": 851,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 100.0,
+    "neutral_pct": 0.0,
+    "max_p_win": 0.434012,
+    "min_p_win": 0.004813,
+    "p_win_mean": 0.36192,
+    "p_win_std": 0.03302
+  },
+  "full_resolved_dataset_v2": {
+    "n": 5688,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 99.8945,
+    "neutral_pct": 0.1055,
+    "max_p_win": 0.479703,
+    "min_p_win": 0.000262
+  },
+  "dataset_a_subset": {
+    "n": 158,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 100.0,
+    "neutral_pct": 0.0,
+    "max_p_win": 0.419381,
+    "min_p_win": 0.341239
+  },
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

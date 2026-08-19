@@ -1,0 +1,118 @@
+{
+  "phase": "22AB",
+  "anchor_function": "freeze_phase9_9_artifacts",
+  "anchor_file": "tradingbot/ml/paper_trading/model_registry.py",
+  "direct_callers": [
+    {
+      "path": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "entry_point": "build_if_missing=True and model.pkl absent",
+      "cli_path": "none (library call)",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A — acceptance not loaded",
+      "trigger": "indirect via load_phase9_9_bundle → freeze_phase9_9_artifacts"
+    },
+    {
+      "path": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "function": "ShadowEngine.run",
+      "entry_point": "load_phase9_9_bundle(build_if_missing=True, training_df=raw)",
+      "cli_path": "Phase 9.10 shadow run (not train_model --phase9-9)",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "function": "KernelShadowRunner._ensure_artifacts",
+      "entry_point": "KernelShadowRunner.run when model.pkl missing",
+      "cli_path": "kernel shadow integration",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tradingbot/ml/shadow/ml_adapter.py",
+      "function": "MLAdapter.load",
+      "entry_point": "load_phase9_9_bundle(build_if_missing=training_df is not None)",
+      "cli_path": "MLAdapter.load with training_df",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_paper_phase9_10.py",
+      "function": "multiple test methods",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_phase10_1_kernel_bridge.py",
+      "function": "test setup",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_phase10_2_live_shadow.py",
+      "function": "test setup",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_phase11_paper.py",
+      "function": "test setup",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_shadow_phase10.py",
+      "function": "test setup",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    },
+    {
+      "path": "tests/test_ml_phase10_4_monitoring.py",
+      "function": "test setup",
+      "entry_point": "unit tests",
+      "cli_path": "pytest",
+      "acceptance_available": false,
+      "acceptance_checked": false,
+      "acceptance_ignored": "N/A"
+    }
+  ],
+  "explicitly_not_calling_freeze": [
+    {
+      "path": "scripts/train_model.py",
+      "function": "main --phase9-9",
+      "note": "Calls RobustnessOptimizer.run only; never freeze_phase9_9_artifacts"
+    },
+    {
+      "path": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "function": "RobustnessOptimizer.run",
+      "note": "Ends at save_reports + acceptance; no import of model_registry freeze"
+    }
+  ],
+  "load_only_no_freeze": [
+    "tradingbot/ml/integration/health_gate.py",
+    "tradingbot/ml/integration/pipeline_cache.py",
+    "tradingbot/ml/phase15a/engine_registry.py",
+    "tradingbot/ml/research/regime_router/range_engine_adapter.py"
+  ],
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

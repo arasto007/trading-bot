@@ -1,0 +1,309 @@
+{
+  "phase": "22P",
+  "source": "repository_static_trace",
+  "orchestrator": "tradingbot/kernel/trading_kernel.py → run_market_cycle",
+  "live_entry": "start/3_live_loop_execute.bat → run_live_watchdog.py → tradingbot --loop",
+  "stages": [
+    {
+      "order": 1,
+      "stage": "New Candle",
+      "module": "Mt5MarketDataAdapter",
+      "file": "tradingbot/adapters/mt5_market_data.py",
+      "function": "update_all → _fetch_from_mt5",
+      "input": "MT5 copy_rates_from_pos(symbol, timeframe)",
+      "output": "OHLCV DataFrame → ParquetCache.store",
+      "reason": "Live market data ingestion; forming bar excluded later in SignalStage"
+    },
+    {
+      "order": 2,
+      "stage": "Data",
+      "module": "DataStage",
+      "file": "tradingbot/pipeline/data_stage.py",
+      "function": "DataStage.run",
+      "input": "MarketKey, fetch_bars (~300)",
+      "output": "ctx.raw_ohlcv",
+      "reason": "Kernel pipeline stage 1 — loads cached OHLCV window"
+    },
+    {
+      "order": 3,
+      "stage": "Indicators",
+      "module": "TechnicalIndicatorEngine",
+      "file": "tradingbot/adapters/indicator_engine.py",
+      "function": "enrich_for_market",
+      "input": "ctx.raw_ohlcv",
+      "output": "ctx.enriched_ohlcv (RSI, ADX, ATR, etc.)",
+      "reason": "domain.indicators.compute_indicators applied once per cycle"
+    },
+    {
+      "order": 4,
+      "stage": "FeatureBuilder",
+      "module": "FeatureBuilder (offline) / build_ml_features (inference)",
+      "file": "tradingbot/ml/features/builder.py",
+      "function": "FeatureBuilder.compute_at (offline); build_ml_features via unified frame",
+      "input": "M5 window + optional H4/M15",
+      "output": "Per-bar engineered features (8 families offline)",
+      "reason": "Live inference uses build_ml_features inside unified frame, not FeatureBuilder directly"
+    },
+    {
+      "order": 5,
+      "stage": "Unified Frame",
+      "module": "PipelineCache + build_unified_frame",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "function": "PipelineCache.get_unified_frame",
+      "input": "candles.tail(300), DatasetStore.load_v2()",
+      "output": "Unified DataFrame (trend + regime + phase99_* merge)",
+      "reason": "Left-merge dataset_v2 on timestamp; fillna(0.0) on miss — tradingbot/ml/research/phase13_9/unified_features.py:45-48"
+    },
+    {
+      "order": 6,
+      "stage": "ML Models",
+      "module": "EngineRegistry",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "input": "Frozen phase9_9 + trend_rf_v41 bundles",
+      "output": "RangeEngineAdapter + TrendRfEngine inner predictors",
+      "reason": "Range uses phase99_* from unified row; trend uses v41 Top5 attached in PipelineCache"
+    },
+    {
+      "order": 7,
+      "stage": "Regime",
+      "module": "regime_classifier + attach_regime_labels",
+      "file": "tradingbot/ml/research/regime_detector/regime_classifier.py",
+      "function": "rule_classify_row / attach_regime_labels",
+      "input": "Unified feature row",
+      "output": "regime label (TREND/RANGE/HIGH_VOLATILITY/NO_TRADE)",
+      "reason": "Routes engine via strategy_selector.select_engine"
+    },
+    {
+      "order": 8,
+      "stage": "Signal",
+      "module": "DecisionOrchestrator + engines",
+      "file": "tradingbot/ml/decision_engine/orchestrator.py",
+      "function": "DecisionOrchestrator.decide",
+      "input": "MarketContext (range_signal, trend_signal, regime)",
+      "output": "FinalDecision BUY/SELL/HOLD",
+      "reason": "select_engine + select_signal + DecisionPolicy.apply(min_confidence)"
+    },
+    {
+      "order": 9,
+      "stage": "Decision",
+      "module": "KernelAdapter",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "produce_unified_signal",
+      "input": "Enriched OHLCV window",
+      "output": "UnifiedSignal direction + confidence",
+      "reason": "Stacks calibration, adaptive risk, trade quality, Phase19C RSI/ADX filters"
+    },
+    {
+      "order": 10,
+      "stage": "Calibration",
+      "module": "CalibratedDecisionAdapter",
+      "file": "tradingbot/ml/confidence_engine/validator.py",
+      "function": "CalibratedDecisionAdapter.evaluate (via TradeQualityAdapter stack)",
+      "input": "MarketContext",
+      "output": "calibrated final_action, final_confidence",
+      "reason": "May downgrade BUY/SELL to HOLD after orchestrator"
+    },
+    {
+      "order": 11,
+      "stage": "Risk (pre-gate)",
+      "module": "AdaptiveRiskAdapter",
+      "file": "tradingbot/ml/risk_intelligence/validator.py",
+      "function": "AdaptiveRiskAdapter.evaluate",
+      "input": "MarketContext",
+      "output": "risk.allowed, risk_percent",
+      "reason": "ML-layer risk before TradingSignal reaches RiskGate"
+    },
+    {
+      "order": 12,
+      "stage": "Quality",
+      "module": "TradeQualityAdapter",
+      "file": "tradingbot/ml/trade_quality/adapter.py",
+      "function": "TradeQualityAdapter.evaluate",
+      "input": "MarketContext",
+      "output": "quality.allowed, quality.score",
+      "reason": "Trade quality gate in ML stack"
+    },
+    {
+      "order": 13,
+      "stage": "RSI/ADX Filters",
+      "module": "Phase19C filters",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "function": "apply_profitability_filters",
+      "input": "Unified row dict",
+      "output": "passed / blocked_by (rsi_filter, adx_filter)",
+      "reason": "Applied only when calibrated action is BUY/SELL and risk+quality allowed"
+    },
+    {
+      "order": 14,
+      "stage": "SignalStage gate",
+      "module": "SignalStage",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "function": "SignalStage.run",
+      "input": "Closed bar only, dedupe by timestamp",
+      "output": "ctx.signal or pipeline stop",
+      "reason": "Skips forming bar and duplicate timestamps; HOLD stops pipeline"
+    },
+    {
+      "order": 15,
+      "stage": "RiskGate",
+      "module": "RiskGate / BacktestRiskGate",
+      "file": "tradingbot/adapters/risk_gate.py",
+      "function": "RiskGate.evaluate",
+      "input": "TradingSignal, portfolio snapshot",
+      "output": "RiskDecision allowed + lot size",
+      "reason": "Max positions, news, spread, HTF, meta-labeler, daily loss, cooldown"
+    },
+    {
+      "order": 16,
+      "stage": "Position Manager",
+      "module": "Mt5PositionManager",
+      "file": "tradingbot/adapters/mt5_position_manager.py",
+      "function": "manage_all",
+      "input": "Open MT5 positions",
+      "output": "Trailing/partial/emergency modify/close orders",
+      "reason": "Separate from entry path; runs in kernel cycle"
+    },
+    {
+      "order": 17,
+      "stage": "Execution",
+      "module": "ExecutionStage + Mt5ExecutionAdapter",
+      "file": "tradingbot/pipeline/execution_stage.py",
+      "function": "ExecutionStage.run → Mt5ExecutionAdapter.execute",
+      "input": "TradingSignal + approved lot",
+      "output": "ExecutionResult",
+      "reason": "order_logic validation then MT5 TRADE_ACTION_DEAL"
+    },
+    {
+      "order": 18,
+      "stage": "MT5 order_send",
+      "module": "Mt5ExecutionAdapter",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "function": "_order_send_with_retry",
+      "input": "MT5 order request dict",
+      "output": "MT5 order result / fill",
+      "reason": "Final broker interaction; dry-run skips when TRADINGBOT_DRY_RUN=1"
+    }
+  ],
+  "stage_count": 18,
+  "generated_utc": "2026-07-05T16:42:18.094654+00:00",
+  "dataset_a": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "live_run_metrics": {
+    "elapsed_sec": 819.5,
+    "bars_evaluated": 4308,
+    "trades_executed": 0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "max_drawdown_pct": 0.0
+  },
+  "funnel": [
+    {
+      "stage": "model_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 4308,
+      "lost_pct_from_prev": 100.0
+    },
+    {
+      "stage": "calibration_pass",
+      "count": 61,
+      "pct_of_bars": 1.416,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "quality_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 61,
+      "lost_pct_from_prev": 100.0
+    },
+    {
+      "stage": "rsi_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "adx_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "meta_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "riskgate_reached",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "riskgate_pass",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    },
+    {
+      "stage": "executed",
+      "count": 0,
+      "pct_of_bars": 0.0,
+      "lost_from_prev": 0,
+      "lost_pct_from_prev": 0.0
+    }
+  ],
+  "hold_chain": {
+    "bars_evaluated": 4308,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "ml_signals": 0,
+    "ml_hold_stages": {
+      "decision_hold": 4247,
+      "calibration_hold": 0,
+      "trade_quality_hold": 61,
+      "rsi_filter_hold": 0,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 4308,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "summary": {
+    "trades": 0,
+    "buy_pct": 0.0,
+    "sell_pct": 0.0,
+    "hold_pct": 98.58,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "max_drawdown_pct": 0.0,
+    "avg_trade_duration_min": 0.0,
+    "signals_reaching_riskgate": 0,
+    "signals_blocked_riskgate": 0,
+    "riskgate_block_reasons": {},
+    "model_utilization": {
+      "trend_rf_v41": 4249,
+      "phase9_9": 59
+    },
+    "regime_distribution": {
+      "TREND": 4249,
+      "RANGE": 59
+    },
+    "trend_trades": 0,
+    "range_trades": 0
+  }
+}

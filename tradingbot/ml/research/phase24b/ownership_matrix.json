@@ -1,0 +1,51 @@
+{
+  "phase": "24B",
+  "ownership": [
+    {
+      "component": "LiveRunner lifecycle",
+      "owner": "application/live_runner.py",
+      "coupling": "low"
+    },
+    {
+      "component": "Pipeline orchestration",
+      "owner": "kernel/trading_kernel.py",
+      "coupling": "high"
+    },
+    {
+      "component": "ML signal generation",
+      "owner": "ml/integration/kernel_adapter.py",
+      "coupling": "high"
+    },
+    {
+      "component": "Engine registry + bundles",
+      "owner": "ml/phase15a/engine_registry.py",
+      "coupling": "high"
+    },
+    {
+      "component": "Frozen phase9_9 artifacts",
+      "owner": "data/ml/research/phase9_9_best/",
+      "coupling": "high"
+    },
+    {
+      "component": "Profitability filters",
+      "owner": "ml/integration/regime_filter_profiles.py",
+      "coupling": "medium"
+    },
+    {
+      "component": "Broker execution",
+      "owner": "adapters/mt5_execution.py",
+      "coupling": "medium"
+    },
+    {
+      "component": "Legacy RiskGate",
+      "owner": "adapters/risk_gate.py",
+      "coupling": "high"
+    },
+    {
+      "component": "Research phases",
+      "owner": "ml/research/*",
+      "coupling": "isolated by rule"
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

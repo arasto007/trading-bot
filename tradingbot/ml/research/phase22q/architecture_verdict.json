@@ -1,0 +1,91 @@
+{
+  "phase": "22Q",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "verdict": "C",
+  "verdict_label": "Hybrid — Phase99 partially useful; needs architectural refactor",
+  "rejected": {
+    "A": "Not supported: repository shows ~8% merge coverage at best (sparse events), fillna(0) on 92%+ bars, and FeatureBuilder bypass — not solvable by dataset refresh alone.",
+    "B": "Not supported: phase9_9 frozen model and EngineRegistry RANGE routing are production mandatory; cannot delete phase99 path without replacing range engine entirely."
+  },
+  "why_C": {
+    "partially_useful": [
+      "Frozen phase9_9 model + 3 features remain valid RANGE engine artifacts",
+      "phase99_* prefix correctly isolates range-training features from trend columns",
+      "Training pipeline (FeatureBuilder → sparse dataset) is coherent"
+    ],
+    "needs_refactor": [
+      "Inference must not rely on dataset_v2 left-merge for every M5 bar",
+      "Live FeatureBuilder.compute_at (already in RangeEngineAdapter fallback) should be primary inference source with training parity validation",
+      "fillna(0) merge policy is incorrect default for live inference"
+    ],
+    "recommended_future_direction": "Approved production phase: live FeatureBuilder overlay at inference (22J-005 concept) WITHOUT retraining model until parity proven — separate from dataset maintenance (22N/O)."
+  },
+  "primary_evidence_files": [
+    "tradingbot/ml/research/phase13_9/unified_features.py",
+    "tradingbot/ml/integration/pipeline_cache.py",
+    "tradingbot/ml/phase15a/engine_registry.py",
+    "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+    "tradingbot/ml/dataset/sparse_event_builder.py"
+  ],
+  "removal_impact": {
+    "phase": "22Q",
+    "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+    "if_phase99_inference_removed": {
+      "broken_production_modules": [
+        "tradingbot/ml/phase15a/engine_registry.py (Phase99EngineWrapper)",
+        "tradingbot/ml/decision_engine/validation.py (build_market_context range path)",
+        "tradingbot/ml/integration/pipeline_cache.py (dataset merge in unified frame)",
+        "tradingbot/ml/integration/health_gate.py",
+        "tradingbot/ml/integration/factory.py (ML kernel stack)"
+      ],
+      "models_that_stop": [
+        "phase9_9 range RF (frozen)"
+      ],
+      "range_regime_behavior": "RANGE routing would have no valid engine inputs unless replaced",
+      "tests_likely_fail": [
+        "tests/test_phase15b_kernel_integration.py",
+        "tests/test_phase14_1_decision_engine.py",
+        "tests/test_ml_phase13_9_unified_router.py",
+        "tests/test_phase15i_range_recovery.py",
+        "tests/test_phase15a_preparation.py"
+      ],
+      "note": "Removing phase99 prefix only (keeping model) requires new inference wiring — not removal of model"
+    },
+    "if_phase9_9_model_removed_entirely": {
+      "broken": "Entire RANGE ML path + EngineRegistry + verify_ml_live_ready RANGE_P99",
+      "requires": "New range strategy or retrain + router change"
+    }
+  },
+  "dataset_vs_architecture": {
+    "phase": "22Q",
+    "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+    "dataset_only_issues": [
+      "dataset_v2 stale vs live candles (operational — Phase 22N/O addresses refresh)",
+      "Temporal gap amplifies zero-fill on recent bars"
+    ],
+    "architectural_issues": [
+      {
+        "issue": "event-sparse dataset merged on every M5 bar",
+        "evidence": "dataset_v2 ~5724 rows vs ~1.48M M5 bars in CandleStore; merge hit ~8% even when fresh (phase22l)",
+        "file": "tradingbot/ml/research/phase13_9/unified_features.py"
+      },
+      {
+        "issue": "fillna(0.0) on merge miss",
+        "evidence": "lines 46-48 — zeros are valid model inputs, indistinguishable from real zeros",
+        "file": "tradingbot/ml/research/phase13_9/unified_features.py"
+      },
+      {
+        "issue": "live FeatureBuilder path exists but is bypassed",
+        "evidence": "row_for_phase99_range reads phase99_* only; Phase99EngineWrapper always maps prefix",
+        "file": "tradingbot/ml/phase15a/engine_registry.py:36-37"
+      },
+      {
+        "issue": "structure_distance native sparsity in training data",
+        "evidence": "98.7% zero in dataset_v2 even on merge hit (deep_audit / phase22k)",
+        "file": "tradingbot/ml/features/smc.py",
+        "not_fixed_by_refresh_alone": true
+      }
+    ],
+    "conclusion": "Dataset maintenance alone cannot fix architecture: sparse-event merge + fillna(0) guarantees majority of live bars receive zero phase99 inputs even with perfect refresh. Architecture must change inference source (e.g. live FeatureBuilder overlay) while keeping frozen model."
+  }
+}

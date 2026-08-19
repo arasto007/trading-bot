@@ -1,0 +1,280 @@
+{
+  "phase": "22B",
+  "completed_at": "2026-07-04T20:08:43.002656Z",
+  "Q1_using_100_percent": {
+    "answer": "NO",
+    "evidence": {
+      "phase": "22B",
+      "unused_timeframes": [
+        "M1",
+        "M15",
+        "M30",
+        "H1",
+        "D1"
+      ],
+      "unused_strategies": [
+        "advancedml",
+        "arbitrage",
+        "breakout",
+        "dynamicsizing",
+        "gridtrading",
+        "hedgingprofessional",
+        "meanreversion",
+        "ml",
+        "momentum",
+        "patternrecognition",
+        "pullback",
+        "rangebound",
+        "scalping",
+        "trendfollowing",
+        "trendmomentumcombo",
+        "volatilitybreakout"
+      ],
+      "unused_models": {
+        "trend_v40": true,
+        "training_artifacts": "data/ml/models/model_v* \u2014 not loaded in EngineRegistry.build_default"
+      },
+      "unused_features": [
+        "ENABLE_ML_SHADOW",
+        "ML_SHADOW_MODE \u2014 default false",
+        "PositionProtector thread \u2014 default off in LiveRunner",
+        "advancedml, ml, trendfollowing, etc. \u2014 ACTIVE_STRATEGIES false",
+        "TIMEFRAME_CONFIGS for 1m, 1h, 30m \u2014 config exists but not in live TIMEFRAMES"
+      ],
+      "unused_execution_paths": [
+        "run_system_manager.py \u2014 file absent",
+        "70+ scripts/run_phase*.py \u2014 research only",
+        "paper mode unless --paper flag",
+        "legacy-only path when USE_ML_KERNEL=false"
+      ],
+      "estimated_unused_pct": "~75% of codebase files (409 research + 17 disabled strategies + 4 unconfigured TFs)"
+    }
+  },
+  "Q2_exactly_unused": {
+    "phase": "22B",
+    "unused_timeframes": [
+      "M1",
+      "M15",
+      "M30",
+      "H1",
+      "D1"
+    ],
+    "unused_strategies": [
+      "advancedml",
+      "arbitrage",
+      "breakout",
+      "dynamicsizing",
+      "gridtrading",
+      "hedgingprofessional",
+      "meanreversion",
+      "ml",
+      "momentum",
+      "patternrecognition",
+      "pullback",
+      "rangebound",
+      "scalping",
+      "trendfollowing",
+      "trendmomentumcombo",
+      "volatilitybreakout"
+    ],
+    "unused_models": {
+      "trend_v40": true,
+      "training_artifacts": "data/ml/models/model_v* \u2014 not loaded in EngineRegistry.build_default"
+    },
+    "unused_features": [
+      "ENABLE_ML_SHADOW",
+      "ML_SHADOW_MODE \u2014 default false",
+      "PositionProtector thread \u2014 default off in LiveRunner",
+      "advancedml, ml, trendfollowing, etc. \u2014 ACTIVE_STRATEGIES false",
+      "TIMEFRAME_CONFIGS for 1m, 1h, 30m \u2014 config exists but not in live TIMEFRAMES"
+    ],
+    "unused_execution_paths": [
+      "run_system_manager.py \u2014 file absent",
+      "70+ scripts/run_phase*.py \u2014 research only",
+      "paper mode unless --paper flag",
+      "legacy-only path when USE_ML_KERNEL=false"
+    ],
+    "estimated_unused_pct": "~75% of codebase files (409 research + 17 disabled strategies + 4 unconfigured TFs)"
+  },
+  "Q3_why_M15_H4_no_trades": {
+    "answer": "Zero signals emitted \u2014 ML HOLD on all processed bars in audit period",
+    "M15_signal_emitted": 0,
+    "H4_signal_emitted": 0,
+    "M15_ml_hold": 6696,
+    "H4_ml_hold": 846
+  },
+  "Q4_why_only_2_trades": {
+    "phase": "22B",
+    "question": "Why only 2 trades in one month?",
+    "answer_proven": {
+      "primary_bottleneck": "ML pipeline HOLD decision",
+      "evidence": {
+        "M5_ml_calls": 10068,
+        "M5_ml_hold": 10032,
+        "M5_ml_hold_pct": 99.64,
+        "M5_ml_buy_sell": 36,
+        "M5_signals_emitted": 36,
+        "M5_trades": 2,
+        "M15_signals_emitted": 0,
+        "M15_trades": 0,
+        "H4_signals_emitted": 0,
+        "H4_trades": 0
+      },
+      "mechanism": [
+        "DecisionPolicy min_confidence=0.55 converts low-confidence BUY/SELL to HOLD",
+        "TradeQualityAdapter and AdaptiveRisk can force HOLD",
+        "Phase19C RSI 40-60 and ADX 15-50 filters block signals",
+        "SignalStage only fires once per closed bar; most bars \u2192 HOLD \u2192 pipeline stops before risk",
+        "M15/H4: same HOLD dominance \u2014 0 signals emitted in audit period"
+      ],
+      "NOT_the_cause": {
+        "ml_fallback": 0,
+        "data_failures": 0,
+        "meta_rejections": 0
+      }
+    }
+  },
+  "Q5_top_20_improvements_ranked": [
+    {
+      "rank": 1,
+      "improvement": "Reduce ML HOLD rate \u2014 audit DecisionPolicy min_confidence vs live signal rate",
+      "implement": false
+    },
+    {
+      "rank": 2,
+      "improvement": "Phase19C filter sensitivity study (RSI 40-60 band)",
+      "implement": false
+    },
+    {
+      "rank": 3,
+      "improvement": "TradeQuality threshold calibration on recent data",
+      "implement": false
+    },
+    {
+      "rank": 4,
+      "improvement": "AdaptiveRisk allowed-rate audit",
+      "implement": false
+    },
+    {
+      "rank": 5,
+      "improvement": "M15/H4 preset session window vs signal density",
+      "implement": false
+    },
+    {
+      "rank": 6,
+      "improvement": "HTF alignment false-negative rate",
+      "implement": false
+    },
+    {
+      "rank": 7,
+      "improvement": "Meta-labeler gate effectiveness per TF",
+      "implement": false
+    },
+    {
+      "rank": 8,
+      "improvement": "Combined portfolio backtest (shared balance across TFs)",
+      "implement": false
+    },
+    {
+      "rank": 9,
+      "improvement": "Walk-forward PF by regime TREND vs RANGE",
+      "implement": false
+    },
+    {
+      "rank": 10,
+      "improvement": "Range phase9_9 threshold buy/sell 0.55/0.45 review",
+      "implement": false
+    },
+    {
+      "rank": 11,
+      "improvement": "Trend v41 vs v40 A/B on same period",
+      "implement": false
+    },
+    {
+      "rank": 12,
+      "improvement": "Feature unified frame empty rate monitoring",
+      "implement": false
+    },
+    {
+      "rank": 13,
+      "improvement": "ML latency vs 500ms timeout headroom live",
+      "implement": false
+    },
+    {
+      "rank": 14,
+      "improvement": "Spread gate rejection rate live",
+      "implement": false
+    },
+    {
+      "rank": 15,
+      "improvement": "News blackout impact quantification",
+      "implement": false
+    },
+    {
+      "rank": 16,
+      "improvement": "Cooldown/max trades per day sensitivity",
+      "implement": false
+    },
+    {
+      "rank": 17,
+      "improvement": "Position overlap M5+M15 same symbol",
+      "implement": false
+    },
+    {
+      "rank": 18,
+      "improvement": "SL/TP ATR multiplier expectancy study",
+      "implement": false
+    },
+    {
+      "rank": 19,
+      "improvement": "Enable shadow mode parallel logging without execution",
+      "implement": false
+    },
+    {
+      "rank": 20,
+      "improvement": "Phase 20C real demo trade certification completion",
+      "implement": false
+    }
+  ],
+  "profitability_baseline_summary": {
+    "phase": "22B",
+    "period": "2026-06-04 00:00 to 2026-07-04 23:59",
+    "balance": 200.0,
+    "per_timeframe": {
+      "M5": {
+        "trade_count": 2,
+        "profit_factor": 0.0,
+        "expectancy": -10.719,
+        "max_drawdown_pct": 10.72,
+        "win_rate_pct": 0.0,
+        "net_profit": -21.44,
+        "return_pct": -10.72,
+        "avg_win": 0.0,
+        "avg_loss": -10.72
+      },
+      "M15": {
+        "trade_count": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "net_profit": 0,
+        "return_pct": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0
+      },
+      "H4": {
+        "trade_count": 0,
+        "profit_factor": 0.0,
+        "expectancy": 0.0,
+        "max_drawdown_pct": 0.0,
+        "win_rate_pct": 0.0,
+        "net_profit": 0,
+        "return_pct": 0.0,
+        "avg_win": 0.0,
+        "avg_loss": 0.0
+      }
+    },
+    "combined_note": "Backtest runs each TF independently with separate 200 USD (matches backtest_custom_range.py design, NOT shared portfolio live simulation)"
+  }
+}

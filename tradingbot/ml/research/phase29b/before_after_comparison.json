@@ -1,0 +1,29 @@
+{
+  "phase": "29B",
+  "phase28f_off": {
+    "completed_trades": 575,
+    "profit_factor": 1.0923,
+    "expectancy": 0.1318,
+    "max_drawdown_pct": 30.6312,
+    "net_profit": 75.7757,
+    "win_rate_pct": 52.0,
+    "sharpe_ratio": 10.8077,
+    "recovery_factor": 0.8482
+  },
+  "phase29b_wpsqf": {
+    "completed_trades": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "max_drawdown_pct": 24.264,
+    "net_profit": 136.1007,
+    "win_rate_pct": 53.17,
+    "sharpe_ratio": 19.3263,
+    "recovery_factor": 1.8284
+  },
+  "latency_ms_p95": 1.2386,
+  "memory_peak_kb": 116.52,
+  "per_evaluation_ms": 3.905,
+  "deterministic": true,
+  "backward_compatible": true,
+  "generated_utc": "2026-07-10T03:01:36.068377+00:00"
+}

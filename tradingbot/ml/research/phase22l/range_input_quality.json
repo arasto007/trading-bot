@@ -1,0 +1,134 @@
+{
+  "phase": "22L",
+  "step": 5,
+  "old_dataset": {
+    "phase": "22L",
+    "step": 5,
+    "bars_evaluated": 325,
+    "feature_order": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "probability_stats": {
+      "mean": 0.3652,
+      "std": 0.0051,
+      "min": 0.3436,
+      "max": 0.4028,
+      "median": 0.3648
+    },
+    "probability_histogram": {
+      "0.00-0.35": 5,
+      "0.35-0.45": 320,
+      "0.45-0.55": 0,
+      "0.55-0.65": 0,
+      "0.65-1.00": 0
+    },
+    "feature_stats": {
+      "ema50_slope": {
+        "mean": -0.007536,
+        "std": 0.086407,
+        "variance": 0.00746623,
+        "zero_pct": 91.69,
+        "unique": 28,
+        "min": -0.652417,
+        "max": 0.429455
+      },
+      "candle_direction": {
+        "mean": -0.009231,
+        "std": 0.288083,
+        "variance": 0.08299172,
+        "zero_pct": 91.69,
+        "unique": 3,
+        "min": -1.0,
+        "max": 1.0
+      },
+      "structure_distance": {
+        "mean": 0.0,
+        "std": 0.0,
+        "variance": 0.0,
+        "zero_pct": 100.0,
+        "unique": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "dead_features": [
+      "structure_distance"
+    ],
+    "flat_features": [
+      "structure_distance"
+    ],
+    "feature_correlation": {
+      "ema50_slope|candle_direction": 0.3273,
+      "ema50_slope|structure_distance": NaN,
+      "candle_direction|structure_distance": NaN
+    },
+    "model_feature_importance_from_bundle": null
+  },
+  "refreshed_dataset": {
+    "phase": "22L",
+    "step": 5,
+    "bars_evaluated": 325,
+    "feature_order": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "probability_stats": {
+      "mean": 0.3652,
+      "std": 0.0051,
+      "min": 0.3436,
+      "max": 0.4028,
+      "median": 0.3648
+    },
+    "probability_histogram": {
+      "0.00-0.35": 5,
+      "0.35-0.45": 320,
+      "0.45-0.55": 0,
+      "0.55-0.65": 0,
+      "0.65-1.00": 0
+    },
+    "feature_stats": {
+      "ema50_slope": {
+        "mean": -0.007536,
+        "std": 0.086407,
+        "variance": 0.00746623,
+        "zero_pct": 91.69,
+        "unique": 28,
+        "min": -0.652417,
+        "max": 0.429455
+      },
+      "candle_direction": {
+        "mean": -0.009231,
+        "std": 0.288083,
+        "variance": 0.08299172,
+        "zero_pct": 91.69,
+        "unique": 3,
+        "min": -1.0,
+        "max": 1.0
+      },
+      "structure_distance": {
+        "mean": 0.0,
+        "std": 0.0,
+        "variance": 0.0,
+        "zero_pct": 100.0,
+        "unique": 1,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    "dead_features": [
+      "structure_distance"
+    ],
+    "flat_features": [
+      "structure_distance"
+    ],
+    "feature_correlation": {
+      "ema50_slope|candle_direction": 0.3273,
+      "ema50_slope|structure_distance": NaN,
+      "candle_direction|structure_distance": NaN
+    },
+    "model_feature_importance_from_bundle": null
+  }
+}

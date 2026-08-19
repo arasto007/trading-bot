@@ -1,0 +1,70 @@
+{
+  "phase": "27L",
+  "baseline_loser_count": 353,
+  "by_strategy": {
+    "breakeven_0.5r": {
+      "recovered_trades": 0,
+      "recovered_pct": 0.0,
+      "recovered_r_total": 0,
+      "recovered_dollars_delta": 0,
+      "recovered_expectancy": 0.0
+    },
+    "breakeven_1r": {
+      "recovered_trades": 0,
+      "recovered_pct": 0.0,
+      "recovered_r_total": 0,
+      "recovered_dollars_delta": 0,
+      "recovered_expectancy": 0.0
+    },
+    "trailing_atr": {
+      "recovered_trades": 82,
+      "recovered_pct": 23.23,
+      "recovered_r_total": 15.5468,
+      "recovered_dollars_delta": 1050.2406,
+      "recovered_expectancy": 2.9752
+    },
+    "trailing_swing": {
+      "recovered_trades": 33,
+      "recovered_pct": 9.35,
+      "recovered_r_total": 13.092,
+      "recovered_dollars_delta": 517.3429,
+      "recovered_expectancy": 1.4656
+    },
+    "partial_close_50": {
+      "recovered_trades": 9,
+      "recovered_pct": 2.55,
+      "recovered_r_total": 2.7136,
+      "recovered_dollars_delta": 81.0665,
+      "recovered_expectancy": 0.2297
+    },
+    "time_exit": {
+      "recovered_trades": 137,
+      "recovered_pct": 38.81,
+      "recovered_r_total": 557.083,
+      "recovered_dollars_delta": 6052.7071,
+      "recovered_expectancy": 17.1465
+    },
+    "atr_exit": {
+      "recovered_trades": 123,
+      "recovered_pct": 34.84,
+      "recovered_r_total": 57.3253,
+      "recovered_dollars_delta": 1913.0144,
+      "recovered_expectancy": 5.4193
+    },
+    "structure_exit": {
+      "recovered_trades": 108,
+      "recovered_pct": 30.59,
+      "recovered_r_total": 23.9946,
+      "recovered_dollars_delta": 1426.3986,
+      "recovered_expectancy": 4.0408
+    },
+    "dynamic_tp_1.5r": {
+      "recovered_trades": 46,
+      "recovered_pct": 13.03,
+      "recovered_r_total": 69.0,
+      "recovered_dollars_delta": 1301.1595,
+      "recovered_expectancy": 3.686
+    }
+  },
+  "generated_utc": "2026-07-09T18:10:48.053689+00:00"
+}

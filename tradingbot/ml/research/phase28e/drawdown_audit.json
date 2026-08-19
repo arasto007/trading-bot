@@ -1,0 +1,35 @@
+{
+  "phase": "28E",
+  "accounting_model": "closed_trade_balance_only",
+  "floating_equity_tracked": false,
+  "initial_balance": 200.0,
+  "peak_equity": 1546.6513,
+  "lowest_equity": 98.603,
+  "trough_trade_seq": 19,
+  "closed_drawdown": {
+    "max_drawdown_pct_from_peak": 87.9686,
+    "max_drawdown_abs_from_peak": 849.915,
+    "max_drawdown_pct_from_initial": 50.6985,
+    "max_drawdown_abs_from_initial": 101.397
+  },
+  "floating_drawdown": {
+    "max_drawdown_pct": 88.6372,
+    "max_drawdown_abs": 856.375
+  },
+  "reported_phase28d": {
+    "max_drawdown_pct": 87.9686,
+    "max_drawdown_abs": 849.915
+  },
+  "reported_matches_recalculation": true,
+  "is_87_97_pct_mathematically_correct": true,
+  "divergence_explanation": null,
+  "model_caveat": "Drawdown is measured from an inflated peak equity ($966) caused by fixed 0.01-lot dollar PnL on a growing notional balance. Peak-to-trough DD overstates risk relative to initial $200 capital; DD from initial balance is lower (see closed_drawdown).",
+  "worst_drawdown_point": {
+    "trade_seq": 319,
+    "timestamp": "2026-06-15T16:30:00+00:00",
+    "balance": 116.2424,
+    "peak_equity": 966.1574,
+    "drawdown_pct_from_peak": 87.9686
+  },
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

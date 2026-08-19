@@ -1,0 +1,20 @@
+{
+  "total_trades": 0,
+  "buy_trades": 0,
+  "sell_trades": 0,
+  "hold_decisions": 5203,
+  "buy_pct": 0.0,
+  "sell_pct": 0.0,
+  "hold_pct": 100.0,
+  "win_rate": 0.0,
+  "loss_rate": 0.0,
+  "breakeven_rate": 0.0,
+  "trades_per_day": 0.0,
+  "average_trades_per_session": 0.0,
+  "average_trade_duration_bars": 0.0,
+  "median_trade_duration_bars": 0.0,
+  "maximum_duration_bars": 0,
+  "minimum_duration_bars": 0,
+  "bars_evaluated": 5203,
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

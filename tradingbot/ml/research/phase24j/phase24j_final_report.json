@@ -1,0 +1,77 @@
+{
+  "phase": "24J",
+  "title": "Final Production Audit Before Paper Trading",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "verdict": "NOT_READY",
+  "question": "What can still fail in live trading?",
+  "executive_summary": "Repository evidence identifies 35 catalogued failure modes across MT5 connectivity, ML pipeline, risk gates, execution, restart state, and background services. Three CRITICAL blockers prevent paper trading readiness: (1) LiveRiskTracker.check_entry_allowed NameError on undefined config — risk path crashes on every entry attempt past early gates; (2) paper/dry-run guards apply only to Mt5ExecutionAdapter.execute while KillSwitch, PositionRecoveryService, and Mt5PositionManager still invoke mt5.order_send; (3) USE_ML_KERNEL defaults false so the default loop does not run the audited ML stack without explicit environment configuration.",
+  "components_inspected": [
+    "MT5 connection (mt5_market_data.py, mt5_utils.py, mt5_health.py)",
+    "LiveRunner (application/live_runner.py)",
+    "TradingKernel (kernel/trading_kernel.py)",
+    "PipelineCache (ml/integration/pipeline_cache.py)",
+    "DatasetStore (ml/dataset/store.py via PipelineCache)",
+    "UnifiedFrame (ml/research/phase13_9/unified_features.py)",
+    "FeatureBuilder (ml/research/regime_router/unified_feature_input.py phase24i path)",
+    "Regime Router / Engines (ml/integration/kernel_adapter.py, EngineRegistry)",
+    "Decision Orchestrator / Calibration / Trade Quality / Adaptive Risk (factory.build_ml_kernel_stack)",
+    "RiskGate (adapters/risk_gate.py)",
+    "ExecutionStage (pipeline/execution_stage.py)",
+    "Mt5ExecutionAdapter (adapters/mt5_execution.py)",
+    "KillSwitch (services/kill_switch.py)",
+    "HealthGate (ml/integration/health_gate.py)",
+    "ParquetCache (adapters/market_cache.py)",
+    "Logging (infra/logging, trade_journal)",
+    "Recovery (services/position_recovery_service.py, background_services.py)",
+    "Retry logic (mt5_execution._order_send_with_retry)",
+    "Thread safety (PipelineCache lock, KillSwitch thread, dual managers)"
+  ],
+  "deliverables": [
+    "production_failure_catalog.json",
+    "recovery_matrix.json",
+    "restart_matrix.json",
+    "execution_failure_matrix.json",
+    "broker_failure_matrix.json",
+    "risk_failure_matrix.json",
+    "thread_safety_report.json",
+    "state_recovery_report.json",
+    "paper_trading_readiness.json",
+    "phase24j_final_report.json"
+  ],
+  "critical_findings": [
+    {
+      "id": "AUD-002",
+      "file": "services/live_risk_tracker.py",
+      "line": 185,
+      "snippet": "risk_pct = float((config or {}).get(...))",
+      "issue": "undefined config parameter"
+    },
+    {
+      "id": "AUD-001",
+      "files": ["services/kill_switch.py:138", "adapters/mt5_position_manager.py:325,377,408", "services/position_recovery_service.py"],
+      "issue": "order_send without paper/dry-run guard"
+    },
+    {
+      "id": "AUD-003",
+      "file": "ml/integration/config.py",
+      "line": 27,
+      "issue": "USE_ML_KERNEL default false"
+    }
+  ],
+  "paper_trading_readiness": "NO",
+  "blockers_count": {
+    "CRITICAL": 3,
+    "HIGH": 10,
+    "MEDIUM": 15,
+    "LOW": 1
+  },
+  "risks": [
+    "Silent legacy fallback changes strategy and risk profile without halt",
+    "Restart loses bar dedup and position manager registry — duplicate actions possible",
+    "Kill switch can send real close orders even in default dry-run mode",
+    "Pipeline latency timeouts (~11% in Phase24A) trigger fallback under normal load"
+  ],
+  "next_recommendation": "Fix CRITICAL blockers in approved phase before any --paper or --execute session. Until then, signal observation only with USE_ML_KERNEL=1 --loop --no-recovery and accept that risk stage will error on entry path (AUD-002)."
+}

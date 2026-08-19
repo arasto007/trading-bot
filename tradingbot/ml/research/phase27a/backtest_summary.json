@@ -1,0 +1,27 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "replay_days": 30,
+  "warmup_bars": 300,
+  "stride": 1,
+  "window_bars": 5503,
+  "window_start": "2026-06-01T01:05:00+00:00",
+  "window_end": "2026-06-29T04:00:00+00:00",
+  "pipeline": "phase25b.run_unified_pipeline_replay",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "mode": "unified_pipeline_replay",
+  "pipeline_stages": [
+    "data",
+    "indicators",
+    "signals",
+    "risk",
+    "execution"
+  ],
+  "forming_bar_adapter": true,
+  "lookback_bars": 300,
+  "bars_evaluated": 5203,
+  "cached_elapsed_sec": 1248.4,
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00",
+  "elapsed_sec": 1248.4
+}

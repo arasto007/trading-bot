@@ -1,0 +1,9 @@
+{
+  "phase": "28D",
+  "average_spread": 0.3,
+  "average_latency_ms": 52.3529,
+  "journal_integrity": true,
+  "duplicate_trades": 0,
+  "missing_records": 0,
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

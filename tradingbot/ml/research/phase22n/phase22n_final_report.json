@@ -1,0 +1,54 @@
+{
+  "phase": "22N",
+  "title": "Automated ML Data Refresh",
+  "generated_utc": "2026-07-05T16:09:07.576521+00:00",
+  "verdict": "PASS",
+  "implementation_summary": "Added offline orchestrator scheduled_ml_refresh.py chaining incremental CandleStore collection and Phase 9.1 dataset_v2 rebuild with retry, logging, and verification. LiveRunner remains isolated; refresh runs outside the live loop via start/15_refresh_ml_dataset.bat.",
+  "constraints_respected": [
+    "no model changes",
+    "no strategy/threshold/risk/execution/dashboard changes",
+    "no LiveRunner ↔ Dataset Builder coupling"
+  ],
+  "dataset_auto_updates": {
+    "answer": "CONDITIONAL",
+    "explanation": "The repository now provides automated refresh tooling (scheduled_ml_refresh.py + 15_refresh_ml_dataset.bat). Dataset_v2 updates automatically only when that job is executed (manually or via Windows Task Scheduler). Live loop does NOT trigger refresh.",
+    "requires_operator_action": "Schedule start/15_refresh_ml_dataset.bat (e.g. daily off-hours) or run manually"
+  },
+  "timestamp_comparison": {
+    "phase": "22N",
+    "generated_utc": "2026-07-05T16:09:07.576521+00:00",
+    "before": {
+      "candle_store_max_timestamp_utc": "2026-06-29T13:50:00+00:00",
+      "dataset_v2_max_timestamp_utc": "2026-06-29T13:45:00+00:00",
+      "candle_store_rows": 1480180,
+      "dataset_v2_rows": 5724
+    },
+    "after": {
+      "candle_store_max_timestamp_utc": "2026-06-29T13:50:00+00:00",
+      "dataset_v2_max_timestamp_utc": "2026-06-29T13:45:00+00:00",
+      "candle_store_rows": 1480180,
+      "dataset_v2_rows": 5724
+    },
+    "candle_store_advanced": false,
+    "dataset_advanced": false,
+    "lag_hours_candle_to_dataset": 0.08,
+    "refresh_executed": false,
+    "refresh_exit_code": null
+  },
+  "verification": {
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "candle_store_advanced": false,
+    "dataset_advanced": false,
+    "lag_hours_candle_to_dataset": 0.08,
+    "feature_count_after": 45,
+    "feature_count_floor": 45,
+    "row_count_after": 5724,
+    "dataset_max_timestamp_utc": "2026-06-29T13:45:00+00:00",
+    "candle_store_max_timestamp_utc": "2026-06-29T13:50:00+00:00"
+  },
+  "next_recommendation": "Configure Windows Task Scheduler for 15_refresh_ml_dataset.bat after market close; restart live process after refresh so PipelineCache reloads dataset_v2."
+}

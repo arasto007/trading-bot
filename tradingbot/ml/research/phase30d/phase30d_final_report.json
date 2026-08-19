@@ -1,0 +1,28 @@
+{
+  "phase": "30D",
+  "verdict": "READY_FOR_DATA_COLLECTION",
+  "mission": "Broker fingerprint collection design \u2014 no calibration, no implementation",
+  "production_modified": false,
+  "metrics_specified": 32,
+  "datasets_required": 8,
+  "minimum_ticks": 500000,
+  "minimum_fills": 500,
+  "minimum_days": 30,
+  "collection_wall_clock_days": 90,
+  "next_phase": "30E \u2014 implement isolated collectors per collection plans",
+  "deliverables": [
+    "broker_fingerprint_schema.json",
+    "required_datasets.json",
+    "tick_collection_plan.json",
+    "execution_collection_plan.json",
+    "latency_collection_plan.json",
+    "spread_collection_plan.json",
+    "slippage_collection_plan.json",
+    "broker_statistics_requirements.json",
+    "minimum_sample_requirements.json",
+    "calibration_readiness.json",
+    "collection_priority_matrix.json",
+    "phase30d_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T11:04:24.681264+00:00"
+}

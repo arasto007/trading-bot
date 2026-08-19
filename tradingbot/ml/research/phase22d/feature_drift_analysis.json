@@ -1,0 +1,115 @@
+{
+  "phase": "22D",
+  "trend_v41_top5_drift": {
+    "ema20_slope": {
+      "train_mean": 0.736828,
+      "live_mean": -0.162823,
+      "delta_mean": -0.899651,
+      "live_std": 0.664206
+    },
+    "ema50_slope": {
+      "train_mean": 0.610771,
+      "live_mean": -0.139424,
+      "delta_mean": -0.750195,
+      "live_std": 0.435686
+    },
+    "ema_alignment": {
+      "train_mean": 0.655779,
+      "live_mean": -0.306256,
+      "delta_mean": -0.962035,
+      "live_std": 0.800437
+    },
+    "adx": {
+      "train_mean": 40.642148,
+      "live_mean": 43.018643,
+      "delta_mean": 2.376495,
+      "live_std": 13.019559
+    },
+    "atr_percentile": {
+      "train_mean": 48.302266,
+      "live_mean": 42.519542,
+      "delta_mean": -5.782724,
+      "live_std": 25.855797
+    },
+    "rsi": {
+      "train_mean": 59.161687,
+      "live_mean": 46.03636,
+      "delta_mean": -13.125327,
+      "live_std": 17.38629
+    },
+    "macd_histogram": {
+      "train_mean": 0.582594,
+      "live_mean": -0.04497,
+      "delta_mean": -0.627564,
+      "live_std": 1.150977
+    },
+    "breakout_distance": {
+      "train_mean": 4.032244,
+      "live_mean": 2.047885,
+      "delta_mean": -1.984359,
+      "live_std": 1.503353
+    },
+    "higher_high_count": {
+      "train_mean": 4.773869,
+      "live_mean": 1.778711,
+      "delta_mean": -2.995158,
+      "live_std": 2.501692
+    },
+    "lower_low_count": {
+      "train_mean": 1.734925,
+      "live_mean": 3.520075,
+      "delta_mean": 1.78515,
+      "live_std": 3.417563
+    },
+    "candle_momentum": {
+      "train_mean": 0.56338,
+      "live_mean": -0.127059,
+      "delta_mean": -0.690439,
+      "live_std": 1.349074
+    },
+    "adx_acceleration": {
+      "train_mean": 0.310084,
+      "live_mean": 0.05539,
+      "delta_mean": -0.254694,
+      "live_std": 2.655671
+    },
+    "swing_efficiency": {
+      "train_mean": 3.658405,
+      "live_mean": 1.57162,
+      "delta_mean": -2.086785,
+      "live_std": 1.135191
+    },
+    "fractal_dimension_proxy": {
+      "train_mean": 2.725449,
+      "live_mean": 2.852078,
+      "delta_mean": 0.126629,
+      "live_std": 0.351913
+    },
+    "trend_age": {
+      "train_mean": 12.295226,
+      "live_mean": 23.547152,
+      "delta_mean": 11.251926,
+      "live_std": 23.77066
+    },
+    "ema_curvature": {
+      "train_mean": -0.034017,
+      "live_mean": 0.004368,
+      "delta_mean": 0.038385,
+      "live_std": 0.366561
+    }
+  },
+  "range_phase99_live_stats": {
+    "ema50_slope": {
+      "live_mean": 0.002722,
+      "live_std": 0.042828
+    },
+    "candle_direction": {
+      "live_mean": -0.014286,
+      "live_std": 0.310478
+    },
+    "structure_distance": {
+      "live_mean": 0.0,
+      "live_std": 0.0
+    }
+  }
+}

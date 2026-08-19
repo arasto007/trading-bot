@@ -1,0 +1,43 @@
+{
+  "phase": "24K",
+  "generated_utc": "2026-07-08T16:16:53.261335+00:00",
+  "guard_module": "tradingbot/services/mt5_order_guard.py",
+  "locations": [
+    {
+      "file": "adapters/mt5_execution.py",
+      "function": "_order_send_with_retry",
+      "before": "mt5.order_send(request)",
+      "after": "guarded_order_send(mt5, request, label='Mt5ExecutionAdapter')",
+      "verified": true
+    },
+    {
+      "file": "services/kill_switch.py",
+      "function": "_close_all_positions",
+      "before": "mt5.order_send(request)",
+      "after": "guarded_order_send(mt5, request, label='KillSwitch')",
+      "verified": true
+    },
+    {
+      "file": "adapters/mt5_position_manager.py",
+      "function": "_close_partial/_update_stop_loss/_close_position",
+      "before": "mt5.order_send(request)",
+      "after": "guarded_order_send(..., label='PositionManager.*')",
+      "verified": true
+    },
+    {
+      "file": "services/position_recovery_service.py",
+      "function": "_emergency_close_position",
+      "before": "mt5.order_send(close_request)",
+      "after": "guarded_order_send(mt5, close_request, label='PositionRecovery.emergency')",
+      "verified": true
+    },
+    {
+      "file": "services/position_protector.py",
+      "function": "partial/trailing/close",
+      "before": "mt5.order_send(request)",
+      "after": "guarded_order_send(..., label='PositionProtector.*')",
+      "verified": true
+    }
+  ],
+  "entry_path_note": "Mt5ExecutionAdapter.execute retains early return for dry_run/paper before live path"
+}

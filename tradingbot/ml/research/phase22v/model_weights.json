@@ -1,0 +1,25 @@
+{
+  "estimator": "LogisticRegression",
+  "feature_order": [
+    "ema50_slope",
+    "candle_direction",
+    "structure_distance"
+  ],
+  "intercept": -0.5763581,
+  "coefficients": {
+    "ema50_slope": -0.09972859,
+    "candle_direction": 0.03971571,
+    "structure_distance": -0.22957667
+  },
+  "feature_importance_abs_coef": {
+    "ema50_slope": 0.270252,
+    "candle_direction": 0.107625,
+    "structure_distance": 0.622124
+  },
+  "classes": [
+    0,
+    1
+  ],
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

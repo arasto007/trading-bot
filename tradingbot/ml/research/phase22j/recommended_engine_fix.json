@@ -1,0 +1,39 @@
+{
+  "phase": "22J",
+  "selected_id": "22J-005",
+  "title": "Live phase99 overlay on unified frame",
+  "engineering_type": "feature_engineering",
+  "threshold_tuning": false,
+  "range_root_cause": "feature_distribution_zeros",
+  "trend_root_cause": "ml_threshold",
+  "true_engine_bottleneck": "phase99_feature_zeros_from_dataset_merge",
+  "problem_category": "features",
+  "evidence": {
+    "structure_distance_zero_pct": 100.0,
+    "ema50_slope_zero_pct": 89.7,
+    "range_prob_mean_with_zeros": 0.3641,
+    "range_prob_not_clustered_at_0.5_on_range_bars": true,
+    "trend_ml_threshold_blocks": 35,
+    "trend_rule_structure_fails": 27,
+    "training_alignment_post_22h": true
+  },
+  "proposed_change": "Overwrite phase99_* columns with FeatureBuilder.compute_at() on the unified frame last bar before range scoring — replaces dataset_v2 merge fillna(0.0) that produces constant degenerate inputs.",
+  "implementation_files": [
+    "tradingbot/ml/research/phase13_9/unified_features.py",
+    "tradingbot/ml/integration/pipeline_cache.py"
+  ],
+  "predicted_impact": {
+    "profit_factor_improvement": "unverified_on_dataset_a_backtest",
+    "trade_frequency_improvement": "Should increase range engine signal diversity once features are non-zero",
+    "expectancy": "Unknown until re-run with fixed hold-chain capture",
+    "engineering_risk": "LOW",
+    "validation_time_dataset_a_min": 25
+  },
+  "backtest_note": "All 6 Dataset A backtests showed 0 buy/sell emitted (hold-chain instrumentation issue, same as 22H/22I). Selection based on per-bar engine forensics, not backtest PF.",
+  "rejected_candidates": {
+    "22J-001_002": "No measurable backtest delta; patches did not wire candles into KernelAdapter path",
+    "22J-003": "Trend variant B — no backtest delta; rule changes alone insufficient",
+    "22J-004": "Extended window — no backtest delta"
+  },
+  "do_not_implement_yet": true
+}

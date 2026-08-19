@@ -1,0 +1,18 @@
+{
+  "phase": "27K",
+  "average_sl_distance_price": 11.3278,
+  "average_sl_atr_ratio": 2.0,
+  "median_sl_atr_ratio": 2.0,
+  "average_distance_to_swing": 8.4533,
+  "stop_too_tight_count": 0,
+  "stop_too_tight_pct": 0.0,
+  "sl_atr_distribution": [
+    {
+      "bin_start": 2.0,
+      "bin_end": 2.0,
+      "count": 353
+    }
+  ],
+  "verdict": "stops_adequate_vs_atr",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

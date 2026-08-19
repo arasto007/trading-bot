@@ -1,0 +1,161 @@
+{
+  "phase": "27K",
+  "loser_count": 353,
+  "rsi": {
+    "mean": 50.5399,
+    "median": 49.8428,
+    "distribution": [
+      {
+        "bin_start": 40.0175,
+        "bin_end": 43.099225,
+        "count": 58
+      },
+      {
+        "bin_start": 43.099225,
+        "bin_end": 46.18095,
+        "count": 55
+      },
+      {
+        "bin_start": 46.18095,
+        "bin_end": 49.262675,
+        "count": 54
+      },
+      {
+        "bin_start": 49.262675,
+        "bin_end": 52.3444,
+        "count": 48
+      },
+      {
+        "bin_start": 52.3444,
+        "bin_end": 55.426125,
+        "count": 48
+      },
+      {
+        "bin_start": 55.426125,
+        "bin_end": 58.50785,
+        "count": 34
+      },
+      {
+        "bin_start": 58.50785,
+        "bin_end": 61.589575,
+        "count": 32
+      },
+      {
+        "bin_start": 61.589575,
+        "bin_end": 64.6713,
+        "count": 24
+      }
+    ]
+  },
+  "adx": {
+    "mean": 19.9024,
+    "median": 19.9709,
+    "distribution": [
+      {
+        "bin_start": 15.1036,
+        "bin_end": 16.328475,
+        "count": 43
+      },
+      {
+        "bin_start": 16.328475,
+        "bin_end": 17.55335,
+        "count": 44
+      },
+      {
+        "bin_start": 17.55335,
+        "bin_end": 18.778225,
+        "count": 49
+      },
+      {
+        "bin_start": 18.778225,
+        "bin_end": 20.0031,
+        "count": 44
+      },
+      {
+        "bin_start": 20.0031,
+        "bin_end": 21.227975,
+        "count": 52
+      },
+      {
+        "bin_start": 21.227975,
+        "bin_end": 22.45285,
+        "count": 40
+      },
+      {
+        "bin_start": 22.45285,
+        "bin_end": 23.677725,
+        "count": 38
+      },
+      {
+        "bin_start": 23.677725,
+        "bin_end": 24.9026,
+        "count": 43
+      }
+    ]
+  },
+  "atr": {
+    "mean": 5.6639,
+    "median": 5.3521
+  },
+  "atr_percentile": {
+    "mean": 49.6935,
+    "median": 48.5,
+    "distribution": [
+      {
+        "bin_start": 6.99,
+        "bin_end": 17.7425,
+        "count": 31
+      },
+      {
+        "bin_start": 17.7425,
+        "bin_end": 28.495,
+        "count": 55
+      },
+      {
+        "bin_start": 28.495,
+        "bin_end": 39.2475,
+        "count": 52
+      },
+      {
+        "bin_start": 39.2475,
+        "bin_end": 50.0,
+        "count": 45
+      },
+      {
+        "bin_start": 50.0,
+        "bin_end": 60.7525,
+        "count": 56
+      },
+      {
+        "bin_start": 60.7525,
+        "bin_end": 71.505,
+        "count": 24
+      },
+      {
+        "bin_start": 71.505,
+        "bin_end": 82.2575,
+        "count": 34
+      },
+      {
+        "bin_start": 82.2575,
+        "bin_end": 93.01,
+        "count": 56
+      }
+    ]
+  },
+  "ema_alignment_distribution": {
+    "bullish_aligned": 8,
+    "bullish_misaligned": 75,
+    "mixed": 143,
+    "bearish_misaligned": 17,
+    "bearish_aligned": 110
+  },
+  "market_structure_distribution": {
+    "against_structure": 145,
+    "range_structure": 60,
+    "with_structure": 148
+  },
+  "against_structure_pct": 41.08,
+  "common_pattern": "against_structure",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

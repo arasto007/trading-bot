@@ -1,0 +1,20 @@
+{
+  "phase": "22M",
+  "title": "Live Data Pipeline & CandleStore Forensics",
+  "completed_utc": "2026-07-05T15:57:17.799750+00:00",
+  "production_modified": false,
+  "verdict": "D",
+  "verdict_label": "Architecture Incorrect",
+  "why_dataset_stopped_after_2026_06_29": "Last manual batch: CandleStore collected and dataset_v2 built on 2026-06-29. LiveRunner continues updating a separate ParquetCache only. No scheduler or code reconnects live data to CandleStore or dataset_v2.",
+  "minimal_repair": "Add offline batch orchestration (existing scripts) on a schedule. Do NOT wire LiveRunner to dataset build inline.",
+  "reports": [
+    "candlestore_forensics.json",
+    "data_pipeline_map.json",
+    "dataset_update_analysis.json",
+    "repository_usage_map.json",
+    "automation_analysis.json",
+    "repair_plan.json",
+    "root_cause_verdict.json",
+    "phase22m_final_report.json"
+  ]
+}

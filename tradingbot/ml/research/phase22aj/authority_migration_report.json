@@ -1,0 +1,23 @@
+{
+  "phase": "22AJ",
+  "removed": [
+    "DEFAULT_CONFIG as freeze winner source",
+    "hardcoded logistic_strong_reg in freeze body",
+    "hardcoded stable_top3 feature subset in freeze metadata",
+    "select_best as production freeze source",
+    "silent build_if_missing auto-freeze without contract"
+  ],
+  "added": [
+    "select_production_winner in candidate_selector.py",
+    "freeze_phase9_9_from_contract",
+    "validate_freeze_contract",
+    "freeze_manifest.json with acceptance snapshot and checksums",
+    "phase9_9_best_backup before artifact replace"
+  ],
+  "runtime_preserved": [
+    "load_phase9_9_bundle read path",
+    "phase9_9_best/model.pkl inference",
+    "HealthGate / KernelAdapter / RangeEngineAdapter unchanged"
+  ],
+  "generated_utc": "2026-07-07T20:05:52.547968+00:00"
+}

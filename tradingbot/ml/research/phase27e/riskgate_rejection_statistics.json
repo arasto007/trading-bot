@@ -1,0 +1,33 @@
+{
+  "phase": "27E",
+  "total_signals": 762,
+  "riskgate_blocked": 760,
+  "riskgate_passed": 2,
+  "by_reason": {
+    "max positions for symbol": 753,
+    "opposite direction position open": 7
+  },
+  "by_category": {
+    "max_positions": 753,
+    "duplicate_position": 7
+  },
+  "details": [
+    {
+      "reason": "max positions for symbol",
+      "count": 753,
+      "percentage": 98.8189,
+      "category": "max_positions",
+      "configuration": "MAX_OPEN_POSITIONS_PER_SYMBOL (default 2)",
+      "repository_location": "tradingbot/domain/live_gates.py:44 via tradingbot/adapters/risk_gate.py:219"
+    },
+    {
+      "reason": "opposite direction position open",
+      "count": 7,
+      "percentage": 0.9186,
+      "category": "duplicate_position",
+      "configuration": "hedge block (always on)",
+      "repository_location": "tradingbot/domain/live_gates.py:127 via tradingbot/adapters/risk_gate.py:258"
+    }
+  ],
+  "generated_utc": "2026-07-09T13:55:14.763897+00:00"
+}

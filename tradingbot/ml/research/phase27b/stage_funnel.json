@@ -1,0 +1,97 @@
+{
+  "phase": "27B",
+  "stages": {
+    "FeatureBuilder": {
+      "bars_entering": 5203,
+      "bars_leaving": 5203,
+      "bars_rejected": 0
+    },
+    "PipelineCache_unified_frame": {
+      "bars_entering": 5203,
+      "bars_leaving": 5203,
+      "bars_rejected": 0,
+      "note": "Integer index on unified frame \u2014 see root cause on prediction cache key"
+    },
+    "DecisionOrchestrator": {
+      "bars_entering": 5203,
+      "bars_leaving": 2275,
+      "bars_rejected": 2928
+    },
+    "Calibration": {
+      "bars_entering": 2275,
+      "bars_leaving": 2583,
+      "bars_rejected": 0
+    },
+    "AdaptiveRisk_TradeQuality": {
+      "bars_entering": 2583,
+      "bars_leaving": 1470,
+      "bars_rejected": 805
+    },
+    "ProfitabilityFilters": {
+      "bars_entering": 1470,
+      "bars_leaving": 761,
+      "bars_rejected": 709
+    }
+  },
+  "funnel_sequence": [
+    {
+      "stage": "orchestrator_actionable",
+      "bars_entering": 5203,
+      "bars_leaving": 2275,
+      "bars_rejected": 2928,
+      "rejection_rate_pct": 56.275
+    },
+    {
+      "stage": "calibration_pass",
+      "bars_entering": 2275,
+      "bars_leaving": 2583,
+      "bars_rejected": 0,
+      "rejection_rate_pct": 0.0
+    },
+    {
+      "stage": "trade_quality_pass",
+      "bars_entering": 2583,
+      "bars_leaving": 1470,
+      "bars_rejected": 1113,
+      "rejection_rate_pct": 43.089
+    },
+    {
+      "stage": "profitability_filter_pass",
+      "bars_entering": 1470,
+      "bars_leaving": 761,
+      "bars_rejected": 709,
+      "rejection_rate_pct": 48.231
+    },
+    {
+      "stage": "ml_signals_emitted",
+      "bars_entering": 761,
+      "bars_leaving": 761,
+      "bars_rejected": 0,
+      "rejection_rate_pct": 0.0
+    }
+  ],
+  "hold_stage_counts_fresh_trace": {
+    "rsi_filter_hold": 425,
+    "decision_hold": 2928,
+    "adx_filter_hold": 284,
+    "trade_quality_hold": 805
+  },
+  "phase27a_hold_chain": {
+    "bars_evaluated": 5203,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "ml_signals": 0,
+    "ml_hold_stages": {
+      "decision_hold": 2,
+      "calibration_hold": 0,
+      "trade_quality_hold": 0,
+      "rsi_filter_hold": 5201,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 5203,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "generated_utc": "2026-07-09T12:46:26.749412+00:00"
+}

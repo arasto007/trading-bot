@@ -1,0 +1,53 @@
+{
+  "phase": "27J",
+  "ranked_causes": [
+    {
+      "cause": "missed_move_exit_timing",
+      "impact_score": 706.68,
+      "evidence": "missed_move=353.34% exit_timing=353.34%"
+    },
+    {
+      "cause": "poor_capture_efficiency",
+      "impact_score": 620.52,
+      "evidence": "capture efficiency=-5.2052"
+    },
+    {
+      "cause": "hypothetical_slippage_drag",
+      "impact_score": 146.01,
+      "evidence": "slippage=146.01% of gross"
+    },
+    {
+      "cause": "post_exit_opportunity_left",
+      "impact_score": 67.53,
+      "evidence": "post-exit favorable R=3.3765"
+    },
+    {
+      "cause": "large_loser_count",
+      "impact_score": 61.39,
+      "evidence": "353 losers vs 222 winners"
+    },
+    {
+      "cause": "short_holding_time",
+      "impact_score": 52.56,
+      "evidence": "avg duration=23.7183 bars"
+    },
+    {
+      "cause": "execution_costs_spread_commission",
+      "impact_score": 34.989999999999995,
+      "evidence": "spread=31.33% commission=3.66%"
+    },
+    {
+      "cause": "small_winners_low_realized_r",
+      "impact_score": 14.41,
+      "evidence": "avg winner R=2.1398 vs planned 2.5"
+    },
+    {
+      "cause": "timeout_exits_underperform",
+      "impact_score": 0,
+      "evidence": "{'count': 65, 'average_profit': 6.5122, 'average_missed_move_r': 0.9572, 'average_efficiency': 0.2597, 'profit_factor': 4.662}"
+    }
+  ],
+  "primary_root_cause": "missed_move_exit_timing",
+  "combination_summary": "missed_move_exit_timing + poor_capture_efficiency",
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

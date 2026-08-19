@@ -1,0 +1,441 @@
+{
+  "phase": "31A",
+  "cluster_count": 8,
+  "method": "KMeans + silhouette k-selection + auto centroid labeling",
+  "clusters": [
+    {
+      "cluster_id": 7,
+      "discovered_name": "low_pnl_low_mfe_high_mae_losers",
+      "trade_count": 26,
+      "winners": 0,
+      "losers": 26,
+      "pf": 0.0,
+      "expectancy": -8.3408,
+      "total_pnl": -216.86,
+      "avg_mae": 0.9562,
+      "avg_mfe": 0.1037,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9683,
+      "confidence_cluster": 55.3,
+      "importance": 159.34,
+      "statistical_significance": "MEDIUM",
+      "centroid_top_features": [
+        {
+          "feature": "mae",
+          "z_score": 2.394
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": -1.96
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -0.911
+        },
+        {
+          "feature": "capture_efficiency",
+          "z_score": -0.907
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.865
+        }
+      ],
+      "sample_trade_ids": [
+        "beabd253e395",
+        "7f133531ca56",
+        "67f805ef1411",
+        "5a0a77ae3180",
+        "5a8354d161fd"
+      ],
+      "regime_mix": {
+        "RANGE": 26
+      },
+      "session_mix": {
+        "Asian": 11,
+        "NewYork": 8,
+        "Overlap": 4,
+        "London": 3
+      }
+    },
+    {
+      "cluster_id": 0,
+      "discovered_name": "low_mfe_mediocre",
+      "trade_count": 158,
+      "winners": 69,
+      "losers": 89,
+      "pf": 0.5912,
+      "expectancy": -0.4773,
+      "total_pnl": -75.42,
+      "avg_mae": 0.2455,
+      "avg_mfe": 0.1994,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9958,
+      "confidence_cluster": 82.3,
+      "importance": 55.41,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "mfe_r",
+          "z_score": -0.959
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.594
+        },
+        {
+          "feature": "confidence",
+          "z_score": 0.399
+        },
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": -0.361
+        },
+        {
+          "feature": "mfe",
+          "z_score": -0.265
+        }
+      ],
+      "sample_trade_ids": [
+        "8d3643b3202e",
+        "1ca483d29acd",
+        "f6a46e47dbc8",
+        "c82f6fa2efab",
+        "8148b67b6c5b"
+      ],
+      "regime_mix": {
+        "RANGE": 158
+      },
+      "session_mix": {
+        "Asian": 62,
+        "London": 49,
+        "Overlap": 28,
+        "NewYork": 19
+      }
+    },
+    {
+      "cluster_id": 2,
+      "discovered_name": "low_pnl_low_mfe_high_mae_losers",
+      "trade_count": 2,
+      "winners": 0,
+      "losers": 2,
+      "pf": 0.0,
+      "expectancy": -26.295,
+      "total_pnl": -52.59,
+      "avg_mae": 2.0158,
+      "avg_mfe": 0.0042,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9797,
+      "confidence_cluster": 50.4,
+      "importance": 38.64,
+      "statistical_significance": "LOW",
+      "centroid_top_features": [
+        {
+          "feature": "mfe_capture_ratio",
+          "z_score": -14.578
+        },
+        {
+          "feature": "mae_to_mfe",
+          "z_score": 12.978
+        },
+        {
+          "feature": "mae",
+          "z_score": 6.012
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": -4.829
+        },
+        {
+          "feature": "capture_efficiency",
+          "z_score": -3.361
+        }
+      ],
+      "sample_trade_ids": [
+        "8d585d04f1b5",
+        "9381a9e8953d"
+      ],
+      "regime_mix": {
+        "RANGE": 2
+      },
+      "session_mix": {
+        "Asian": 1,
+        "NewYork": 1
+      }
+    },
+    {
+      "cluster_id": 5,
+      "discovered_name": "low_pnl_low_mfe_low_capture_losers",
+      "trade_count": 1,
+      "winners": 0,
+      "losers": 1,
+      "pf": 0.0,
+      "expectancy": -1.5,
+      "total_pnl": -1.5,
+      "avg_mae": 0.4978,
+      "avg_mfe": 0.0029,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 1.0,
+      "confidence_cluster": 50.2,
+      "importance": 1.1,
+      "statistical_significance": "LOW",
+      "centroid_top_features": [
+        {
+          "feature": "capture_efficiency",
+          "z_score": -18.081
+        },
+        {
+          "feature": "mae_to_mfe",
+          "z_score": 3.205
+        },
+        {
+          "feature": "mfe_capture_ratio",
+          "z_score": -2.186
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -1.327
+        },
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": -1.097
+        }
+      ],
+      "sample_trade_ids": [
+        "457011d9ab3c"
+      ],
+      "regime_mix": {
+        "RANGE": 1
+      },
+      "session_mix": {
+        "London": 1
+      }
+    },
+    {
+      "cluster_id": 3,
+      "discovered_name": "high_mfe_low_mae_mediocre",
+      "trade_count": 129,
+      "winners": 63,
+      "losers": 66,
+      "pf": 1.0173,
+      "expectancy": 0.0159,
+      "total_pnl": 2.05,
+      "avg_mae": 0.2323,
+      "avg_mfe": 0.194,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.993,
+      "confidence_cluster": 76.4,
+      "importance": 1.51,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "mfe_r",
+          "z_score": 1.147
+        },
+        {
+          "feature": "mae_r",
+          "z_score": -0.925
+        },
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": -0.477
+        },
+        {
+          "feature": "confidence",
+          "z_score": 0.338
+        },
+        {
+          "feature": "mfe",
+          "z_score": -0.284
+        }
+      ],
+      "sample_trade_ids": [
+        "920424966021",
+        "371006bf7340",
+        "83e237c06a99",
+        "e81817a3a506",
+        "9fa8e346f076"
+      ],
+      "regime_mix": {
+        "RANGE": 129
+      },
+      "session_mix": {
+        "Asian": 60,
+        "NewYork": 35,
+        "Overlap": 21,
+        "London": 13
+      }
+    },
+    {
+      "cluster_id": 4,
+      "discovered_name": "low_confidence_winners",
+      "trade_count": 58,
+      "winners": 36,
+      "losers": 22,
+      "pf": 3.6685,
+      "expectancy": 1.6701,
+      "total_pnl": 96.8657,
+      "avg_mae": 0.1748,
+      "avg_mfe": 0.3056,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.8726,
+      "confidence_cluster": 61.9,
+      "importance": 71.17,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "confidence",
+          "z_score": -2.307
+        },
+        {
+          "feature": "risk_score",
+          "z_score": 0.49
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.273
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -0.273
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 0.248
+        }
+      ],
+      "sample_trade_ids": [
+        "2821a7eaa354",
+        "c30a32c85d31",
+        "7ece09efcbb1",
+        "7f5c8920e458",
+        "4a6f71b476bb"
+      ],
+      "regime_mix": {
+        "RANGE": 58
+      },
+      "session_mix": {
+        "Asian": 22,
+        "NewYork": 18,
+        "London": 11,
+        "Overlap": 7
+      }
+    },
+    {
+      "cluster_id": 6,
+      "discovered_name": "high_missed_r_winners",
+      "trade_count": 82,
+      "winners": 59,
+      "losers": 23,
+      "pf": 5.6307,
+      "expectancy": 1.9805,
+      "total_pnl": 162.4,
+      "avg_mae": 0.1632,
+      "avg_mfe": 0.3284,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9883,
+      "confidence_cluster": 66.8,
+      "importance": 119.32,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": 1.592
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.457
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 0.36
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.313
+        },
+        {
+          "feature": "risk_score",
+          "z_score": 0.242
+        }
+      ],
+      "sample_trade_ids": [
+        "d5e63b76981c",
+        "68e9cc8ef139",
+        "a34c19848a6b",
+        "9def43f43087",
+        "1b66b82a3440"
+      ],
+      "regime_mix": {
+        "RANGE": 82
+      },
+      "session_mix": {
+        "Asian": 28,
+        "London": 23,
+        "NewYork": 18,
+        "Overlap": 13
+      }
+    },
+    {
+      "cluster_id": 1,
+      "discovered_name": "high_pnl_high_mfe_low_mae_winners",
+      "trade_count": 33,
+      "winners": 33,
+      "losers": 0,
+      "pf": 999.0,
+      "expectancy": 6.7017,
+      "total_pnl": 221.155,
+      "avg_mae": 0.0896,
+      "avg_mfe": 0.8961,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9951,
+      "confidence_cluster": 56.7,
+      "importance": 162.49,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "mfe",
+          "z_score": 2.243
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 1.673
+        },
+        {
+          "feature": "mae_r",
+          "z_score": -1.212
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": 1.155
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.564
+        }
+      ],
+      "sample_trade_ids": [
+        "890289626ecc",
+        "be6150819914",
+        "1b3b1b091a4d",
+        "9581f4130484",
+        "fa46527444ea"
+      ],
+      "regime_mix": {
+        "RANGE": 33
+      },
+      "session_mix": {
+        "Asian": 13,
+        "London": 8,
+        "Overlap": 8,
+        "NewYork": 4
+      }
+    }
+  ],
+  "explanations": {
+    "why_winners_happen": "Winners concentrate in 4 discovered clusters. Top: ['high_pnl_high_mfe_low_mae_winners', 'high_missed_r_winners', 'low_confidence_winners']. Median MFE=0.345, capture efficiency mean=-0.613.",
+    "why_losers_happen": "Losers spread across 4 clusters. Top loss clusters: ['low_pnl_low_mfe_high_mae_losers', 'low_pnl_low_mfe_high_mae_losers', 'low_pnl_low_mfe_low_capture_losers']. Key patterns: momentum failure, counter-trend, uncaptured MFE, min-lot risk amplification.",
+    "why_mediocre_happen": "188 trades with |pnl_r|<0.15 \u2014 time exits and partial moves that neither win nor lose meaningfully. Dilute PF without adding edge."
+  },
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

@@ -1,0 +1,209 @@
+{
+  "count": 5,
+  "baseline_phase9_8": {
+    "robustness_score": 66.57,
+    "overfitting_risk": "HIGH",
+    "mean_profit_factor": 1.308,
+    "mean_expectancy": 0.1684,
+    "source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_8_walk_forward_report.json"
+  },
+  "candidates": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "model": "random_forest",
+      "feature_subset": "stable_4",
+      "composite_score": 0.616598,
+      "mean_profit_factor": 1.2967,
+      "win_rate": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "mean_expectancy": 0.1566,
+      "robustness_score": 59.09,
+      "overfitting_risk": "HIGH",
+      "profitable_windows": 3,
+      "window_count": 5,
+      "probability_metrics": {
+        "buy_coverage_pct": 0.3341,
+        "sell_coverage_pct": 92.4276,
+        "min_probability": 0.181628,
+        "max_probability": 0.551388,
+        "probability_std": 0.069321,
+        "histogram_total": 898
+      },
+      "probability_gate_passed": true,
+      "acceptance_status": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": true
+      },
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed",
+        "profitable_windows_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "probability_quality_passed"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_4",
+      "composite_score": 0.60158,
+      "mean_profit_factor": 1.308,
+      "win_rate": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "mean_expectancy": 0.1684,
+      "robustness_score": 66.57,
+      "overfitting_risk": "HIGH",
+      "profitable_windows": 4,
+      "window_count": 5,
+      "probability_metrics": {
+        "buy_coverage_pct": 11.5813,
+        "sell_coverage_pct": 71.7149,
+        "min_probability": 0.048443,
+        "max_probability": 0.896742,
+        "probability_std": 0.169883,
+        "histogram_total": 898
+      },
+      "probability_gate_passed": true,
+      "acceptance_status": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top3",
+      "composite_score": 0.599385,
+      "mean_profit_factor": 1.3074,
+      "win_rate": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "mean_expectancy": 0.1659,
+      "robustness_score": 66.11,
+      "overfitting_risk": "HIGH",
+      "profitable_windows": 4,
+      "window_count": 5,
+      "probability_metrics": {
+        "buy_coverage_pct": 10.1336,
+        "sell_coverage_pct": 76.7261,
+        "min_probability": 0.103543,
+        "max_probability": 0.858462,
+        "probability_std": 0.144918,
+        "histogram_total": 898
+      },
+      "probability_gate_passed": true,
+      "acceptance_status": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_top2",
+      "composite_score": 0.594067,
+      "mean_profit_factor": 1.2959,
+      "win_rate": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "mean_expectancy": 0.1578,
+      "robustness_score": 65.81,
+      "overfitting_risk": "HIGH",
+      "profitable_windows": 4,
+      "window_count": 5,
+      "probability_metrics": {
+        "buy_coverage_pct": 7.2383,
+        "sell_coverage_pct": 81.7372,
+        "min_probability": 0.131229,
+        "max_probability": 0.79716,
+        "probability_std": 0.123473,
+        "histogram_total": 898
+      },
+      "probability_gate_passed": true,
+      "acceptance_status": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ]
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "model": "xgboost",
+      "feature_subset": "stable_except_unstable",
+      "composite_score": 0.592035,
+      "mean_profit_factor": 1.227,
+      "win_rate": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "mean_expectancy": 0.1273,
+      "robustness_score": 66.76,
+      "overfitting_risk": "HIGH",
+      "profitable_windows": 4,
+      "window_count": 5,
+      "probability_metrics": {
+        "buy_coverage_pct": 11.1359,
+        "sell_coverage_pct": 72.9399,
+        "min_probability": 0.062302,
+        "max_probability": 0.904958,
+        "probability_std": 0.157166,
+        "histogram_total": 898
+      },
+      "probability_gate_passed": true,
+      "acceptance_status": "FAIL",
+      "acceptance_checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "failed_rules": [
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "robustness_improved",
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false
+}

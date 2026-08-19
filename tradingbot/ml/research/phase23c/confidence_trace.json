@@ -1,0 +1,105 @@
+{
+  "phase": "23C",
+  "calculations": [
+    {
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "RangeEngineAdapter.evaluate",
+      "line": 90,
+      "formula": "abs(probability - 0.5) * 2.0",
+      "caller": "build_market_context → range_engine.evaluate",
+      "consumer": "EngineSignal.confidence → DecisionOrchestrator.model_conf"
+    },
+    {
+      "file": "tradingbot/ml/decision_engine/confidence_engine.py",
+      "function": "ConfidenceEngine.compute",
+      "line": 57,
+      "formula": "model_confidence * regime_strength * market_quality (clamped 0-1)",
+      "caller": "ConfidenceEngine.from_context",
+      "consumer": "DecisionPolicy.apply"
+    },
+    {
+      "file": "tradingbot/ml/research/phase15i/recovery_adapter.py",
+      "function": "RangeAwareConfidenceEngine.from_context",
+      "line": 37,
+      "formula": "max(model_confidence, directional_prob) with regime_strength=1, market_quality=1 for RANGE/TREND recovery",
+      "caller": "RangeRecoveryOrchestrator.decide",
+      "consumer": "DecisionPolicy.apply (production factory uses recovery orchestrator)"
+    },
+    {
+      "file": "tradingbot/ml/confidence_engine/calibrator.py",
+      "function": "ConfidenceCalibrator.calibrate",
+      "line": 92,
+      "formula": "raw * engine_factor * regime_factor * session_factor * vol_factor",
+      "caller": "CalibratedDecisionAdapter.decide (fallback path)",
+      "consumer": "CalibrationPolicy.passes_gate"
+    },
+    {
+      "file": "tradingbot/ml/research/phase14_6/research_calibrator.py",
+      "function": "ResearchCalibratedAdapter.decide",
+      "line": 42,
+      "formula": "Platt/isotonic on RawConfidence (production path via recovered_calibration)",
+      "caller": "build_production_calibrated_adapter",
+      "consumer": "ResearchCalibrationPolicy.passes_gate"
+    },
+    {
+      "file": "tradingbot/ml/confidence_mapping/production_adapter.py",
+      "function": "MappedProductionRiskAdapter.evaluate",
+      "line": 64,
+      "formula": "empirical curve maps calibrated → risk-facing confidence",
+      "caller": "build_mapped_production_risk",
+      "consumer": "AdaptiveRiskEngine.recommend"
+    }
+  ],
+  "sell_probability_0_434": {
+    "probability": 0.434,
+    "formula": "confidence = abs(probability - 0.5) * 2.0",
+    "computed_confidence": 0.132,
+    "note": "Distance from 0.5 mapped to [0, 1]; max at prob 0 or 1."
+  },
+  "sell_probability_runtime_sample": {
+    "probability": 0.433644,
+    "formula": "confidence = abs(probability - 0.5) * 2.0",
+    "computed_confidence": 0.132712,
+    "note": "Distance from 0.5 mapped to [0, 1]; max at prob 0 or 1."
+  },
+  "recovery_path_note": "Production uses RangeAwareConfidenceEngine: SELL at prob 0.434 → directional=0.566 replaces raw 0.133 before DecisionPolicy.",
+  "consumers": [
+    {
+      "symbol": "min_confidence",
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "function": "DecisionPolicy.apply",
+      "condition": "confidence < min_confidence → HOLD",
+      "reject_count": 0,
+      "pass_count": 18
+    },
+    {
+      "symbol": "passes_gate",
+      "file": "tradingbot/ml/confidence_engine/calibration_policy.py",
+      "function": "CalibrationPolicy.passes_gate",
+      "condition": "calibrated < MIN_CALIBRATED_CONFIDENCE → HOLD",
+      "reject_count": null,
+      "pass_count": null
+    },
+    {
+      "symbol": "passes_gate",
+      "file": "tradingbot/ml/research/phase14_6/research_calibrator.py",
+      "function": "ResearchCalibrationPolicy.passes_gate",
+      "condition": "Platt output < threshold → HOLD",
+      "reject_count": 0,
+      "pass_count": 18
+    },
+    {
+      "symbol": "signal_quality_score",
+      "file": "tradingbot/ml/trade_quality/signal_quality.py",
+      "function": "signal_quality_score",
+      "condition": "uses ctx.confidence for quality scoring"
+    },
+    {
+      "symbol": "RISK_GATE_THRESHOLD",
+      "file": "tradingbot/ml/confidence_mapping/config.py",
+      "function": "ConfidenceMapper",
+      "condition": "mapped confidence vs risk gate 0.55"
+    }
+  ],
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

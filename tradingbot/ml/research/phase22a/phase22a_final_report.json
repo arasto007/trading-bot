@@ -1,0 +1,97 @@
+{
+  "phase": "22A",
+  "title": "Full Production System Reverse Engineering",
+  "mode": "READ_ONLY",
+  "completed_at": "2026-07-04T22:00:00+03:30",
+  "repository": "C:\\Users\\AMIR\\Desktop\\TradingBot new",
+  "file_count_approx": 2012,
+  "reports_generated": [
+    "system_architecture.md",
+    "execution_flow.md",
+    "ml_pipeline.md",
+    "strategy_flow.md",
+    "risk_pipeline.md",
+    "dashboard_architecture.md",
+    "thread_analysis.md",
+    "dependency_graph.json",
+    "production_truth.json",
+    "trading_readiness.json",
+    "hidden_issues.json",
+    "phase22a_final_report.json"
+  ],
+  "key_findings": {
+    "entry_point": "Dashboard LIVE → start/3_live_loop_execute.bat → run_live_watchdog.py → python -m tradingbot --loop --execute → LiveRunner",
+    "legacy_entry_removed": "run_system_manager.py does not exist; LiveRunner is replacement",
+    "ml_active": "USE_ML_KERNEL=true loads MLKernelRegistry with Trend v41 + Range phase9_9",
+    "execution_path": "ExecutionStage → Mt5ExecutionAdapter._order_send_with_retry → mt5.order_send",
+    "fallback": "Legacy PriceAction via StrategyManager on ML failure or USE_ML_KERNEL=false",
+    "dashboard": "HTA + VBScript + bat launchers; no REST API",
+    "research_isolation": "~409 files under tradingbot/ml/research/ not in live hot path"
+  },
+  "data_pipeline_summary": {
+    "market_data": "Mt5MarketDataAdapter.update_all → copy_rates → OHLCV DataFrame",
+    "indicators": "TechnicalIndicatorEngine.enrich → ATR, RSI, ADX, etc.",
+    "features_ml": "PipelineCache.get_unified_frame → build_unified_frame + DatasetStore v2",
+    "regime": "build_market_context → regime from range/trend engines",
+    "signal": "KernelAdapter or LegacyStrategyRegistry",
+    "trade_prep": "map_unified_to_trading_signal / build_trading_signal with SL/TP",
+    "risk": "RiskGate.evaluate + MetaLabeler",
+    "execution": "Mt5ExecutionAdapter.execute"
+  },
+  "final_questions": {
+    "1_fully_understand_production_robot": {
+      "answer": "YES — at engineering level",
+      "confidence": 0.9,
+      "evidence": [
+        "Complete call chain documented from HTA to order_send",
+        "All 5 pipeline stages traced in trading_kernel.py",
+        "ML stack load path verified via verify_ml_live_ready + backtest ML calls=10068",
+        "409 research files isolated from production hot path"
+      ]
+    },
+    "2_rebuild_from_scratch": {
+      "answer": "YES — with artifacts",
+      "confidence": 0.85,
+      "evidence": [
+        "Architecture layers documented in system_architecture.md",
+        "dependency_graph.json lists all production nodes/edges",
+        "Frozen models at data/ml/research/phase9_9_best and trend_rf_bundle",
+        "Meta models at data/models/meta_labeler_*.pkl"
+      ]
+    },
+    "3_understand_every_model": {
+      "answer": "YES — production models identified",
+      "confidence": 0.88,
+      "evidence": [
+        "Active: phase9_9 range, trend_rf_v41 (env TREND_MODEL_VERSION), meta M5/M15/H4",
+        "Inactive: v40 rollback only, training artifacts, paper/shadow engines",
+        "engine_registry.build_default source code lists exact loaders"
+      ]
+    },
+    "4_understand_every_trading_decision": {
+      "answer": "YES — decision chain documented",
+      "confidence": 0.87,
+      "evidence": [
+        "Closed bar gate → ML orchestrator regime route → calibration → quality → Phase19C filters → RiskGate 4-layer gates → Meta → order_logic",
+        "strategy_flow.md and execution_flow.md cover all decision points"
+      ]
+    },
+    "5_ready_optimize_profitability_without_guessing": {
+      "answer": "PARTIALLY — architecture yes, profitability no",
+      "confidence": 0.65,
+      "evidence_for": [
+        "No unknown execution paths",
+        "hidden_issues.json catalogued 15 items without fixes",
+        "ML vs legacy fallback measurable via ml_count/fallback_count"
+      ],
+      "evidence_against": [
+        "trading_readiness.json verdict NEEDS_REVIEW",
+        "1-month backtest: -21.44 USD, 2 trades, 0% WR on M5",
+        "Phase 20C real-trade validation still open",
+        "Trade frequency unexpectedly low — root cause not yet isolated"
+      ]
+    }
+  },
+  "verdict": "NEEDS_REVIEW",
+  "next_recommended_phase": "22B — Profitability baseline: shadow vs legacy PnL + trade frequency audit"
+}

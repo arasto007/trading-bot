@@ -1,0 +1,11 @@
+{
+  "phase": "31E",
+  "trades_validated": 489,
+  "oracle_fingerprint_matches": 489,
+  "oracle_match_pct": 100.0,
+  "duration_matches": 489,
+  "pf_gap_pct": 0.0,
+  "pnl_gap_pct": 0.0,
+  "pass": true,
+  "generated_utc": "2026-07-10T16:51:20.713158+00:00"
+}

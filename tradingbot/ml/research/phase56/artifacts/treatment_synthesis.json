@@ -1,0 +1,40 @@
+{
+  "now": "2026-07-15T01:18:20Z",
+  "verdict": "TREATMENT_REGATE_FAIL",
+  "integration_gate": "BLOCK_PRODUCTION_INTEGRATION",
+  "synthesis": {
+    "findings": [
+      "Labels reasonably aligned (100.0%)",
+      "Execution funnel destroys 100.0% of raw signals",
+      "Best model random_forest mean PF 0.90 \u2014 ML edge insufficient",
+      "11 low-importance features flagged for pruning"
+    ],
+    "blockers": [
+      "EXECUTION_FUNNEL_EDGE_LOSS",
+      "ML_PREDICTIVE_WEAK"
+    ],
+    "best_model": "random_forest"
+  },
+  "re_gate": {
+    "model": "random_forest",
+    "features_used": 36,
+    "mean_pf": 0.7098,
+    "mean_auc": 0.5117,
+    "gate_passed": false,
+    "gates": {
+      "mean_pf_ge_1_3": false,
+      "mean_auc_ge_0_55": false,
+      "min_windows_ge_3": true,
+      "majority_windows_pf_ge_1": false,
+      "trade_count_ok": true
+    },
+    "verdict": "STRICT_GATE_FAIL"
+  },
+  "phase_reports_used": {
+    "phase52": "V7_LABELS_HEALTHY",
+    "phase53": "FUNNEL_SEVERE_EDGE_LOSS",
+    "phase54": "MODEL_SWEEP_COMPLETE",
+    "phase55": "HIGH_NOISE_FEATURES"
+  },
+  "production_deploy_blocked": true
+}

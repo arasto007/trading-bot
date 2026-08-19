@@ -1,0 +1,61 @@
+{
+  "phase": "27M",
+  "strategies_tested": [
+    "time_exit",
+    "dynamic_tp_1.5r",
+    "structure_exit",
+    "atr_exit"
+  ],
+  "findings": {
+    "time_exit": {
+      "pf_30d": 1.8534,
+      "pf_long_window": 1.2848,
+      "expectancy_30d": 8.4091,
+      "expectancy_long": 14.0321,
+      "stability_score": 30.68,
+      "cv_expectancy": 3.1075,
+      "june_only_success": false,
+      "robust": true
+    },
+    "dynamic_tp_1.5r": {
+      "pf_30d": 1.2422,
+      "pf_long_window": 0.9517,
+      "expectancy_30d": 1.419,
+      "expectancy_long": -0.854,
+      "stability_score": 72.89,
+      "cv_expectancy": 3.0607,
+      "june_only_success": true,
+      "robust": false
+    },
+    "structure_exit": {
+      "pf_30d": 1.3545,
+      "pf_long_window": 1.0841,
+      "expectancy_30d": 1.1051,
+      "expectancy_long": 0.8974,
+      "stability_score": 79.95,
+      "cv_expectancy": 12.0326,
+      "june_only_success": false,
+      "robust": true
+    },
+    "atr_exit": {
+      "pf_30d": 1.2569,
+      "pf_long_window": 0.9151,
+      "expectancy_30d": 0.9771,
+      "expectancy_long": -1.0835,
+      "stability_score": 77.53,
+      "cv_expectancy": 5.9554,
+      "june_only_success": true,
+      "robust": false
+    }
+  },
+  "june_2026_only_strategies": [
+    "dynamic_tp_1.5r",
+    "atr_exit"
+  ],
+  "cross_window_robust_strategies": [
+    "time_exit",
+    "structure_exit"
+  ],
+  "overfit_detected": false,
+  "generated_utc": "2026-07-09T18:22:10.216877+00:00"
+}

@@ -1,0 +1,149 @@
+flowchart TB
+    %% backtest
+    tradingbot_ml_phase19c_backtest0[backtest]
+    tradingbot_ml_backtest_broker_sim_Simula1[SimulatedBroker]
+    tradingbot_ml_research_phase13_8_trend_c2[run_variant_backtest]
+    tradingbot_ml_backtest_state_EquityPoint3[EquityPoint]
+    tradingbot_ml_backtest_state_SignalActio4[SignalAction]
+    tradingbot_ml_backtest_risk_RiskConfig5[RiskConfig]
+    tradingbot_backtest_indicators6[indicators]
+    tradingbot_ml_backtest_metrics7[metrics]
+    tradingbot_backtest_config8[config]
+    tradingbot_ml_backtest_engine_BacktestCo9[BacktestConfig]
+    tradingbot_backtest_risk10[risk]
+    tradingbot_backtest_position_manager11[position_manager]
+    tradingbot_ml_research_regime_router_rou12[validate_router_backtest]
+    tradingbot_ml_research_trend_strategy_tr13[run_trend_backtest]
+    tradingbot_ml_backtest_state_TradeStatus14[TradeStatus]
+    tradingbot_backtest_models_VirtualPositi15[VirtualPosition]
+    tradingbot_ml_backtest_broker_sim_Broker16[BrokerConfig]
+    tradingbot_ml_backtest_broker_sim_FillRe17[FillResult]
+    tradingbot_ml_backtest_risk_PositionSize18[PositionSize]
+    tradingbot_ml_research_live_bt_backtest_19[_run_ml_v8_trend_gate]
+    tradingbot_ml_research_trend_strategy_tr20[trend_backtest]
+    tradingbot_ml_backtest_strategy_Threshol21[ThresholdStrategy]
+    tradingbot_ml_research_live_bt_backtest_22[_run_vol_regime_backtest]
+    tradingbot_ml_backtest_metrics_BacktestM23[BacktestMetrics]
+    tradingbot_backtest_htf_provider_Backtes24[BacktestHtfBiasProvider]
+    tradingbot_ml_backtest_engine_BacktestEn25[BacktestEngine]
+    scripts_backtest_vol_regime_today_run_ba26[run_backtest_day]
+    tradingbot_backtest_metrics27[metrics]
+    tradingbot_backtest_data_source_Backtest28[BacktestMarketData]
+    tradingbot_ml_backtest_model_loader_Inte29[IntegrityResult]
+    tradingbot_backtest_indicators_Passthrou30[PassthroughIndicatorEngine]
+    tradingbot_backtest_models_BacktestResul31[BacktestResult]
+    tradingbot_ml_backtest_model_loader32[model_loader]
+    tradingbot_backtest_engine33[engine]
+    tradingbot_ml_backtest_trade_state_Trade34[TradeStateMachine]
+    tradingbot_ml_phase19a_backtest35[backtest]
+    tradingbot_ml_phase19d_certification_run36[run_certification_backtests]
+    tradingbot_ml_backtest_phase97_engine_Ph37[Phase97BacktestResult]
+    tradingbot_ml_backtest_engine_BacktestRe38[BacktestResult]
+    tradingbot_backtest_monte_carlo39[monte_carlo]
+    folder_tradingbot_ml_backtest40{{backtest}}
+    scripts_run_backtest_build_parser41[build_parser]
+    tradingbot_backtest_position_manager_Bac42[BacktestPositionManager]
+    tradingbot_ml_backtest_trade_state43[trade_state]
+    scripts_backtest_vol_regime_today_main44[main]
+    tradingbot_ml_research_live_bt_backtest_45[_evaluate_vol_regime_gate]
+    tradingbot_ml_backtest_report46[report]
+    tradingbot_ml_backtest_report_allocate_r47[allocate_run_id]
+    tradingbot_ml_research_phase13_7_router_48[run_router_backtest]
+    folder_tradingbot_backtest49{{backtest}}
+    tradingbot_ml_backtest_model_loader_Phas50[Phase96ModelBundle]
+    tradingbot_ml_research_live_bt_backtest_51[_run_ml_vol_regime_entries]
+    tradingbot_backtest_risk_BacktestRiskGat52[BacktestRiskGate]
+    tradingbot_backtest_broker53[broker]
+    tradingbot_backtest_broker_SimulatedBrok54[SimulatedBroker]
+    tradingbot_ml_backtest_phase97_engine55[phase97_engine]
+    scripts_run_backtest56[run_backtest]
+    tradingbot_ml_research_regime_router_wal57[run_router_backtest]
+    tradingbot_ml_phase19c_backtest_run_filt58[run_filtered_backtest]
+    scripts_run_backtest__risk_fraction59[_risk_fraction]
+    scripts_backtest_vol_regime_24h60[backtest_vol_regime_24h]
+    scripts_backtest_vol_regime_24h_main61[main]
+    tradingbot_ml_research_live_bt_backtest_62[backtest_gate]
+    tradingbot_ml_phase19a_backtest_run_prod63[run_production_backtest]
+    tradingbot_ml_backtest_strategy_Strategy64[StrategyConfig]
+    tradingbot_ml_backtest_strategy65[strategy]
+    tradingbot_backtest___init__66[__init__]
+    tradingbot_ml_backtest_model_loader_buil67[build_phase9_6_artifacts]
+    tradingbot_ml_backtest_trade_state_Posit68[PositionState]
+    tradingbot_ml_backtest_broker_simulator69[broker_simulator]
+    tradingbot_ml_backtest_phase97_engine_Ph70[Phase97BacktestEngine]
+    tradingbot_backtest_monte_carlo_run_mont71[run_monte_carlo]
+    scripts_backtest_vol_regime_24h_run_back72[run_backtest]
+    tradingbot_ml_backtest_broker_sim73[broker_sim]
+    tradingbot_ml_backtest_state_SimulatedTr74[SimulatedTrade]
+    tradingbot_ml_research_phase13_9_router_75[run_unified_router_backtest]
+    tradingbot_ml_backtest___init__76[__init__]
+    tradingbot___main____run_backtest77[_run_backtest]
+    tradingbot_ml_backtest_risk78[risk]
+    tradingbot_ml_backtest_state79[state]
+    tradingbot_backtest_broker53 -->|contains| tradingbot_backtest_broker_SimulatedBrok54
+    tradingbot_backtest_indicators6 -->|contains| tradingbot_backtest_indicators_Passthrou30
+    tradingbot_backtest_monte_carlo39 -->|contains| tradingbot_backtest_monte_carlo_run_mont71
+    tradingbot_backtest_position_manager11 -->|contains| tradingbot_backtest_position_manager_Bac42
+    tradingbot_backtest_risk10 -->|contains| tradingbot_backtest_risk_BacktestRiskGat52
+    tradingbot_ml_backtest_broker_sim73 -->|contains| tradingbot_ml_backtest_broker_sim_Broker16
+    tradingbot_ml_backtest_broker_sim73 -->|contains| tradingbot_ml_backtest_broker_sim_FillRe17
+    tradingbot_ml_backtest_broker_sim73 -->|contains| tradingbot_ml_backtest_broker_sim_Simula1
+    tradingbot_ml_backtest_metrics7 -->|contains| tradingbot_ml_backtest_metrics_BacktestM23
+    tradingbot_ml_backtest_model_loader32 -->|contains| tradingbot_ml_backtest_model_loader_Inte29
+    tradingbot_ml_backtest_model_loader32 -->|contains| tradingbot_ml_backtest_model_loader_Phas50
+    tradingbot_ml_backtest_model_loader32 -->|contains| tradingbot_ml_backtest_model_loader_buil67
+    tradingbot_ml_backtest_phase97_engine55 -->|contains| tradingbot_ml_backtest_phase97_engine_Ph37
+    tradingbot_ml_backtest_phase97_engine55 -->|contains| tradingbot_ml_backtest_phase97_engine_Ph70
+    tradingbot_ml_backtest_report46 -->|contains| tradingbot_ml_backtest_report_allocate_r47
+    tradingbot_ml_backtest_risk78 -->|contains| tradingbot_ml_backtest_risk_RiskConfig5
+    tradingbot_ml_backtest_risk78 -->|contains| tradingbot_ml_backtest_risk_PositionSize18
+    tradingbot_ml_backtest_state79 -->|contains| tradingbot_ml_backtest_state_TradeStatus14
+    tradingbot_ml_backtest_state79 -->|contains| tradingbot_ml_backtest_state_SignalActio4
+    tradingbot_ml_backtest_state79 -->|contains| tradingbot_ml_backtest_state_EquityPoint3
+    tradingbot_ml_backtest_state79 -->|contains| tradingbot_ml_backtest_state_SimulatedTr74
+    tradingbot_ml_backtest_strategy65 -->|contains| tradingbot_ml_backtest_strategy_Strategy64
+    tradingbot_ml_backtest_strategy65 -->|contains| tradingbot_ml_backtest_strategy_Threshol21
+    tradingbot_ml_backtest_trade_state43 -->|contains| tradingbot_ml_backtest_trade_state_Posit68
+    tradingbot_ml_backtest_trade_state43 -->|contains| tradingbot_ml_backtest_trade_state_Trade34
+    tradingbot_ml_phase19a_backtest35 -->|contains| tradingbot_ml_phase19a_backtest_run_prod63
+    tradingbot_ml_phase19c_backtest0 -->|contains| tradingbot_ml_phase19c_backtest_run_filt58
+    tradingbot_ml_research_live_bt_backtest_62 -->|contains| tradingbot_ml_research_live_bt_backtest_45
+    tradingbot_ml_research_live_bt_backtest_62 -->|contains| tradingbot_ml_research_live_bt_backtest_22
+    tradingbot_ml_research_live_bt_backtest_62 -->|contains| tradingbot_ml_research_live_bt_backtest_19
+    tradingbot_ml_research_live_bt_backtest_62 -->|contains| tradingbot_ml_research_live_bt_backtest_51
+    tradingbot_ml_research_trend_strategy_tr20 -->|contains| tradingbot_ml_research_trend_strategy_tr13
+    scripts_backtest_vol_regime_24h60 -->|contains| scripts_backtest_vol_regime_24h_run_back72
+    scripts_backtest_vol_regime_24h60 -->|contains| scripts_backtest_vol_regime_24h_main61
+    scripts_run_backtest56 -->|contains| scripts_run_backtest_build_parser41
+    scripts_run_backtest56 -->|contains| scripts_run_backtest__risk_fraction59
+    tradingbot_backtest_broker53 -->|imports| tradingbot_backtest_config8
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_broker53
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_config8
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_indicators6
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_metrics27
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_position_manager11
+    tradingbot_backtest_engine33 -->|imports| tradingbot_backtest_risk10
+    tradingbot_backtest_position_manager11 -->|imports| tradingbot_backtest_config8
+    tradingbot_backtest_risk10 -->|imports| tradingbot_backtest_config8
+    tradingbot_backtest___init__66 -->|imports| tradingbot_backtest_config8
+    tradingbot_backtest___init__66 -->|imports| tradingbot_backtest_engine33
+    tradingbot_ml_backtest_broker_simulator69 -->|imports| tradingbot_ml_backtest_broker_sim73
+    tradingbot_ml_backtest_metrics7 -->|imports| tradingbot_ml_backtest_state79
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_broker_sim73
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_metrics7
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_model_loader32
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_report46
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_risk78
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_strategy65
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_state79
+    tradingbot_ml_backtest_phase97_engine55 -->|imports| tradingbot_ml_backtest_trade_state43
+    tradingbot_ml_backtest_report46 -->|imports| tradingbot_ml_backtest_metrics7
+    tradingbot_ml_backtest_report46 -->|imports| tradingbot_ml_backtest_state79
+    tradingbot_ml_backtest_strategy65 -->|imports| tradingbot_ml_backtest_state79
+    tradingbot_ml_backtest_trade_state43 -->|imports| tradingbot_ml_backtest_state79
+    tradingbot_ml_backtest___init__76 -->|imports| tradingbot_ml_backtest_phase97_engine55
+    tradingbot_ml_phase19c_backtest0 -->|imports| tradingbot_ml_phase19a_backtest35
+    scripts_run_backtest56 -->|imports| tradingbot_ml_backtest_broker_sim73
+    scripts_run_backtest56 -->|imports| tradingbot_ml_backtest_phase97_engine55
+    scripts_run_backtest56 -->|imports| tradingbot_ml_backtest_risk78
+    scripts_run_backtest56 -->|imports| tradingbot_ml_backtest_strategy65

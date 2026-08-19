@@ -1,0 +1,67 @@
+{
+  "train_rows": 851,
+  "holdout_rows": 151,
+  "before_scaling": {
+    "ema50_slope": {
+      "mean": 0.02166252,
+      "std": 0.38035506,
+      "min": -0.950551,
+      "max": 1.348118,
+      "variance": 0.14466998,
+      "skewness": 0.112929,
+      "zero_pct": 0.0,
+      "nonzero_count": 851
+    },
+    "candle_direction": {
+      "mean": 0.07403055,
+      "std": 0.99784242,
+      "min": -1.0,
+      "max": 1.0,
+      "variance": 0.9956895,
+      "skewness": -0.148469,
+      "zero_pct": 0.0,
+      "nonzero_count": 851
+    },
+    "structure_distance": {
+      "mean": 0.03172738,
+      "std": 0.38523234,
+      "min": 0.0,
+      "max": 8.0,
+      "variance": 0.14840395,
+      "skewness": 17.727778,
+      "zero_pct": 98.4724,
+      "nonzero_count": 13
+    }
+  },
+  "after_scaling": {
+    "ema50_slope": {
+      "mean_after_scale": 0.0,
+      "std_after_scale": 1.0,
+      "min_after_scale": -2.55757142,
+      "max_after_scale": 3.48946456
+    },
+    "candle_direction": {
+      "mean_after_scale": -0.0,
+      "std_after_scale": 1.0,
+      "min_after_scale": -1.07698583,
+      "max_after_scale": 0.92851732
+    },
+    "structure_distance": {
+      "mean_after_scale": 0.0,
+      "std_after_scale": 1.0,
+      "min_after_scale": -0.08240751,
+      "max_after_scale": 20.69649322
+    }
+  },
+  "feature_selection": {
+    "subset": "stable_top3",
+    "features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "source": "phase9_9_feature_selection.json / DEFAULT_CONFIG"
+  },
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

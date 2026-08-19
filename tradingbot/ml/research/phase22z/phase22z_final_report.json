@@ -1,0 +1,19 @@
+{
+  "phase": "22Z",
+  "title": "Acceptance Rule Validation — overfitting_risk_decreased",
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false,
+  "verdict": "RULE_TOO_STRICT",
+  "summary": "27/28 candidates have lower mean_auc_gap than Phase 9.8, but 15 still fail overfitting_risk_decreased because the ordinal HIGH label did not improve even when numeric gap improved.",
+  "rule_statistics": {
+    "total_candidates": 28,
+    "overfitting_risk_decreased_pass": 12,
+    "overfitting_risk_decreased_fail": 16,
+    "fail_really_overfit": 1,
+    "fail_label_logic": 15,
+    "numeric_mean_auc_gap_better_than_baseline": 27,
+    "numeric_mean_auc_gap_not_better": 1,
+    "probability_gate_passed_fail_overfitting_ordinal": 5
+  },
+  "gate_passed_fail_ordinal_count": 5
+}

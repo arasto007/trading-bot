@@ -1,0 +1,19 @@
+{
+  "before_repair": {
+    "source": "mt5_execution._quote_price only",
+    "failure_mode": "returns 0.0 when MT5 disconnected or tick None"
+  },
+  "after_repair": {
+    "resolver": "services/paper_fill_resolver.py",
+    "fallback_chain": [
+      "mt5_tick",
+      "candle_close",
+      "sl_tp_midpoint"
+    ],
+    "zero_fill_in_simulation": 0
+  },
+  "sources_in_simulation": [
+    "sl_tp_midpoint"
+  ],
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00"
+}

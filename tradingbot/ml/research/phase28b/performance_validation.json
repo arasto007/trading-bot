@@ -1,0 +1,24 @@
+{
+  "phase": "28B",
+  "window_days": 30,
+  "production_hybrid_b": {
+    "completed_trades": 575,
+    "net_profit": 1081.7446,
+    "profit_factor": 1.3803,
+    "expectancy": 1.8813
+  },
+  "phase28a_baseline": {
+    "net_profit": 1081.7446,
+    "profit_factor": 1.3803,
+    "expectancy": 1.8813,
+    "completed_trades": 575
+  },
+  "deviations_pct": {
+    "net_profit_pct": 0.0,
+    "profit_factor_pct": 0.0,
+    "expectancy_pct": 0.0
+  },
+  "within_2pct_tolerance": true,
+  "tolerance_pct": 2.0,
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

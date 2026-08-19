@@ -1,0 +1,46 @@
+{
+  "phase": "22H",
+  "active_trend_engine_id": "trend_rf_v41",
+  "active_bundle_version": "v41",
+  "routing_trend_engine": "trend_rf_v41",
+  "routing_matches_active": true,
+  "calibration_status": {
+    "production_uses_platt": true,
+    "active_trend_engine_id": "trend_rf_v41",
+    "calibration_method": "platt",
+    "confidence_threshold": 0.3,
+    "phase14_6_policy": {
+      "calibration_method": "platt",
+      "confidence_threshold": 0.3,
+      "engine_specific": true
+    },
+    "platt_fit_window": "phase14_7 MAX_RESEARCH_BARS on active EngineRegistry trend engine",
+    "missing_in_prior_production": "Platt calibration from Phase 14.6 was not wired in factory.py",
+    "prior_path": "CalibratedDecisionAdapter + ConfidenceCalibrator (heuristic 14.2A)",
+    "recovered_path": "ResearchCalibratedAdapter + Phase 14.6 Platt"
+  },
+  "components": {
+    "kernel_adapter": {
+      "uses": "resolve_active_trend_engine_id()",
+      "aligned": true
+    },
+    "health_gate": {
+      "uses": "resolve_bundle_version() + resolve_active_trend_engine_id()",
+      "aligned": true,
+      "hardcoded_v40_in_health": false
+    },
+    "recovered_calibration": {
+      "uses": "resolve_active_trend_engine_id()",
+      "aligned": true
+    },
+    "strategy_selector": {
+      "uses": "_active_trend_engine_id() -> resolve_active_trend_engine_id()",
+      "aligned": true
+    },
+    "bundle_monitor": {
+      "uses": "resolve_bundle_version()",
+      "aligned": true
+    }
+  },
+  "all_aligned": true
+}

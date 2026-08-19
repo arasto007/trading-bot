@@ -1,0 +1,28 @@
+{
+  "phase": "26B",
+  "rolling_window": 20,
+  "rolling_pf": [
+    {
+      "timestamp": "2026-06-23T04:30:00+00:00",
+      "value": "inf",
+      "window_trades": 1
+    }
+  ],
+  "rolling_expectancy": [
+    {
+      "timestamp": "2026-06-23T04:30:00+00:00",
+      "value": 23.575,
+      "window_trades": 1
+    }
+  ],
+  "rolling_win_rate": [
+    {
+      "timestamp": "2026-06-23T04:30:00+00:00",
+      "value": 1.0,
+      "window_trades": 1
+    }
+  ],
+  "degradation_detected": false,
+  "stability_assessment": "insufficient_sample_for_stability_analysis",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

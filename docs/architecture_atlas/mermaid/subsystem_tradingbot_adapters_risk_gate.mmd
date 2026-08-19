@@ -1,0 +1,160 @@
+flowchart TB
+    %% tradingbot.adapters.risk_gate
+    tradingbot_application_bootstrap_build_k0[build_kernel]
+    tradingbot_ml_live_validation_config1[config]
+    tradingbot_domain_trade_features__sl_atr2[_sl_atr_mult]
+    tradingbot_ml_dataset_store3[store]
+    tradingbot_ml_research_phase27l_exit_tra4[exit_trace]
+    tradingbot_ml_integration_composite_regi5[composite_registry]
+    tradingbot_pipeline_indicator_stage6[indicator_stage]
+    tradingbot_ml_research_phase25b_replay_p7[replay_portfolio]
+    tradingbot_adapters_risk_gate_RiskGate8[RiskGate]
+    tradingbot_ml_phase17d_config9[config]
+    tradingbot_ml_integration_ml_kernel_regi10[ml_kernel_registry]
+    tradingbot_services_paper_trade_recorder11[paper_trade_recorder]
+    tradingbot_ml_research_phase13_9_unified12[unified_features]
+    tradingbot_domain_risk_logic_RiskLimits13[RiskLimits]
+    tradingbot_ml_monitoring_observer14[observer]
+    tradingbot_application_live_runner_run_l15[run_live_loop]
+    tradingbot_ml_research_phase16b_kernel_r16[kernel_replay]
+    tradingbot_ml_phase18c_mt5_check17[mt5_check]
+    tradingbot_ml_shadow_kernel_bridge_Shado18[ShadowKernelBridge]
+    tradingbot_ml_research_phase25a_run_inve19[run_investigation]
+    tradingbot_ml_features_volatility20[volatility]
+    tradingbot_ml_research_phase23g_integrat21[integration_validation]
+    tradingbot_ml_research_phase32g_run_vali22[run_validation]
+    tradingbot_adapters_legacy_loader23[legacy_loader]
+    tradingbot_backtest_risk24[risk]
+    tradingbot_backtest_position_manager25[position_manager]
+    tradingbot_domain_models_RiskDecision26[RiskDecision]
+    tradingbot_domain_risk_logic_infer_regim27[infer_regime_from_ohlcv]
+    tradingbot_services_execution_mode28[execution_mode]
+    tradingbot_ml_research_phase22g_model_in29[model_inventory]
+    tradingbot_ml_research_phase25b_unified_30[ReplayConfig]
+    tradingbot_services_meta_labeler_MetaLab31[MetaLabeler]
+    tradingbot_domain_live_gates_position_ma32[position_matches_symbol]
+    tradingbot_ml_phase20a_execution_guard33[execution_guard]
+    tradingbot_ml_live_validation_validator34[validator]
+    tradingbot_ml_research_phase24c_latency_35[LatencyStats]
+    tradingbot_ml_research_phase27a_run_inve36[run_investigation]
+    tradingbot_application_bootstrap_build_k37[build_kernel_with_strategies]
+    tradingbot_application_bootstrap_KernelM38[KernelMode]
+    tradingbot_pipeline_data_stage39[data_stage]
+    tradingbot_ml_research_phase25b_parity_r40[parity_replay_adapter]
+    tradingbot_ml_phase20a_deployment_runner41[deployment_runner]
+    tradingbot_ml_phase20a_deployment_runner42[Phase20aDeploymentRunner]
+    tradingbot_ml_live_validation_live_healt43[live_health]
+    tradingbot_services_manual_stop44[manual_stop]
+    tradingbot_ml_research_phase22c_hold_cha45[HoldChainCounters]
+    tradingbot_ml_research_phase24a_live_sha46[live_shadow_validator]
+    scripts_status_snapshot47[status_snapshot]
+    tradingbot_config_live48[live]
+    tradingbot_domain_market_filters_compute49[compute_adx]
+    tradingbot_ml_shadow_shadow_engine50[shadow_engine]
+    scripts_check_today_signals51[check_today_signals]
+    tradingbot_ml_phase15f_recovery_validato52[recovery_validator]
+    tradingbot_infra_logging53[logging]
+    tradingbot_services_live_risk_tracker_Li54[LiveRiskSnapshot]
+    tradingbot_domain_trade_features_feature55[features_to_vector]
+    tradingbot_adapters_vol_regime_strategy_56[vol_regime_strategy_registry]
+    tradingbot_pipeline_base57[base]
+    tradingbot_ml_dataset_labels58[labels]
+    tradingbot_kernel_trading_kernel59[trading_kernel]
+    tradingbot_adapters_risk_gate_AccountSta60[AccountState]
+    tradingbot_backtest_engine61[engine]
+    tradingbot_ml_research_phase25b_unified_62[unified_pipeline_replay]
+    tradingbot_config_pa_symbol_tf_presets63[pa_symbol_tf_presets]
+    scripts_verify_ml_live_ready64[verify_ml_live_ready]
+    tradingbot_ml_research_phase24c_latency_65[StageRecorder]
+    tradingbot_ml_integration_replay_validat66[replay_validator]
+    tradingbot_adapters_symbols67[symbols]
+    tradingbot_config_dotenv_loader68[dotenv_loader]
+    tradingbot_ml_live_validation_latency_mo69[latency_monitor]
+    scripts_diagnose_vol_regime_signals70[diagnose_vol_regime_signals]
+    tradingbot_ml_research_phase15j_adapter_71[adapter_validation]
+    tradingbot_domain_live_gates_normalize_s72[normalize_symbol]
+    scripts_show_meta_stats73[show_meta_stats]
+    tradingbot_domain_models_MarketKey74[MarketKey]
+    tradingbot_config_settings75[settings]
+    tradingbot_ml_integration_ml_strategy76[ml_strategy]
+    tradingbot_pipeline___init__77[__init__]
+    tradingbot_pipeline_signal_stage78[signal_stage]
+    tradingbot_ml_phase15f_orchestrator79[orchestrator]
+    tradingbot_ml_phase20a_deployment_runner41 -->|contains| tradingbot_ml_phase20a_deployment_runner42
+    tradingbot_ml_research_phase25b_unified_62 -->|contains| tradingbot_ml_research_phase25b_unified_30
+    tradingbot_adapters_legacy_loader23 -->|imports| tradingbot_config_live48
+    tradingbot_adapters_symbols67 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_adapters_vol_regime_strategy_56 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_adapters_vol_regime_strategy_56 -->|imports| tradingbot_config_live48
+    tradingbot_backtest_engine61 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_backtest_engine61 -->|imports| tradingbot_config_pa_symbol_tf_presets63
+    tradingbot_backtest_engine61 -->|imports| tradingbot_backtest_position_manager25
+    tradingbot_backtest_engine61 -->|imports| tradingbot_backtest_risk24
+    tradingbot_backtest_engine61 -->|imports| tradingbot_config_settings75
+    tradingbot_backtest_engine61 -->|imports| tradingbot_kernel_trading_kernel59
+    tradingbot_infra_logging53 -->|imports| tradingbot_infra_logging53
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_config_settings75
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_pipeline_base57
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_pipeline_data_stage39
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_pipeline_indicator_stage6
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_pipeline_signal_stage78
+    tradingbot_kernel_trading_kernel59 -->|imports| tradingbot_adapters_symbols67
+    tradingbot_ml_integration_composite_regi5 -->|imports| tradingbot_ml_integration_ml_strategy76
+    tradingbot_ml_integration_ml_strategy76 -->|imports| tradingbot_ml_dataset_labels58
+    tradingbot_ml_integration_replay_validat66 -->|imports| tradingbot_ml_dataset_store3
+    tradingbot_ml_integration_replay_validat66 -->|imports| tradingbot_ml_integration_ml_kernel_regi10
+    tradingbot_ml_phase15f_orchestrator79 -->|imports| tradingbot_ml_dataset_store3
+    tradingbot_ml_phase15f_orchestrator79 -->|imports| tradingbot_ml_phase15f_recovery_validato52
+    tradingbot_ml_phase18c_mt5_check17 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_phase18c_mt5_check17 -->|imports| tradingbot_adapters_symbols67
+    tradingbot_ml_phase20a_deployment_runner41 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_phase20a_deployment_runner41 -->|imports| tradingbot_kernel_trading_kernel59
+    tradingbot_ml_phase20a_deployment_runner41 -->|imports| tradingbot_ml_phase20a_execution_guard33
+    tradingbot_ml_phase20a_deployment_runner41 -->|imports| tradingbot_services_manual_stop44
+    tradingbot_ml_research_phase16b_kernel_r16 -->|imports| tradingbot_ml_research_phase13_9_unified12
+    tradingbot_ml_research_phase23g_integrat21 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase24a_live_sha46 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase24a_live_sha46 -->|imports| tradingbot_ml_dataset_store3
+    tradingbot_ml_research_phase24a_live_sha46 -->|imports| tradingbot_ml_phase17d_config9
+    tradingbot_ml_research_phase24a_live_sha46 -->|imports| tradingbot_ml_research_phase13_9_unified12
+    tradingbot_ml_research_phase24a_live_sha46 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase25a_run_inve19 -->|imports| tradingbot_ml_research_phase24a_live_sha46
+    tradingbot_ml_research_phase25a_run_inve19 -->|imports| tradingbot_services_execution_mode28
+    tradingbot_ml_research_phase25a_run_inve19 -->|imports| tradingbot_ml_integration_ml_kernel_regi10
+    tradingbot_ml_research_phase25a_run_inve19 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_ml_research_phase25b_parity_r40
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_ml_research_phase25b_replay_p7
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_config_settings75
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_kernel_trading_kernel59
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase25b_unified_62 -->|imports| tradingbot_ml_research_phase24a_live_sha46
+    tradingbot_ml_research_phase27a_run_inve36 -->|imports| tradingbot_ml_research_phase25b_unified_62
+    tradingbot_ml_research_phase32g_run_vali22 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_ml_research_phase32g_run_vali22 -->|imports| tradingbot_ml_dataset_store3
+    tradingbot_ml_research_phase32g_run_vali22 -->|imports| tradingbot_ml_research_phase13_9_unified12
+    tradingbot_ml_shadow_shadow_engine50 -->|imports| tradingbot_ml_dataset_store3
+    tradingbot_ml_shadow_shadow_engine50 -->|imports| tradingbot_adapters_legacy_loader23
+    tradingbot_pipeline_data_stage39 -->|imports| tradingbot_pipeline_base57
+    tradingbot_pipeline_indicator_stage6 -->|imports| tradingbot_pipeline_base57
+    tradingbot_pipeline_signal_stage78 -->|imports| tradingbot_pipeline_base57
+    tradingbot_pipeline___init__77 -->|imports| tradingbot_pipeline_base57
+    tradingbot_pipeline___init__77 -->|imports| tradingbot_pipeline_data_stage39
+    tradingbot_pipeline___init__77 -->|imports| tradingbot_pipeline_indicator_stage6
+    tradingbot_pipeline___init__77 -->|imports| tradingbot_pipeline_signal_stage78
+    tradingbot_services_paper_trade_recorder11 -->|imports| tradingbot_services_execution_mode28
+    scripts_check_today_signals51 -->|imports| tradingbot_config_dotenv_loader68
+    scripts_check_today_signals51 -->|imports| tradingbot_adapters_legacy_loader23
+    scripts_check_today_signals51 -->|imports| tradingbot_adapters_symbols67
+    scripts_diagnose_vol_regime_signals70 -->|imports| tradingbot_config_dotenv_loader68
+    scripts_diagnose_vol_regime_signals70 -->|imports| tradingbot_adapters_legacy_loader23
+    scripts_diagnose_vol_regime_signals70 -->|imports| tradingbot_adapters_symbols67
+    scripts_diagnose_vol_regime_signals70 -->|imports| tradingbot_adapters_vol_regime_strategy_56
+    scripts_status_snapshot47 -->|imports| tradingbot_config_dotenv_loader68
+    scripts_status_snapshot47 -->|imports| tradingbot_adapters_legacy_loader23
+    scripts_status_snapshot47 -->|imports| tradingbot_adapters_legacy_loader23
+    scripts_status_snapshot47 -->|imports| tradingbot_adapters_symbols67
+    scripts_status_snapshot47 -->|imports| tradingbot_config_live48
+    scripts_verify_ml_live_ready64 -->|imports| tradingbot_config_dotenv_loader68
+    scripts_verify_ml_live_ready64 -->|imports| tradingbot_adapters_legacy_loader23
+    scripts_verify_ml_live_ready64 -->|imports| tradingbot_ml_integration_ml_kernel_regi10
+    tradingbot_kernel_trading_kernel59 -->|creates| tradingbot_pipeline_data_stage39

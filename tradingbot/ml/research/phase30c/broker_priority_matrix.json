@@ -1,0 +1,141 @@
+{
+  "phase": "30C",
+  "scale": {
+    "complexity": "1-5",
+    "benefit": "1-5",
+    "production_risk": "1-5 lower safer",
+    "realism_gain": "points toward 100 realism score"
+  },
+  "modules": [
+    {
+      "module": "SpreadEngine (tick-level entry+exit)",
+      "complexity": 4,
+      "benefit": 5,
+      "production_risk": 3,
+      "dev_days": 8,
+      "realism_gain": 18,
+      "priority": 1
+    },
+    {
+      "module": "SlippageEngine (exit leg)",
+      "complexity": 4,
+      "benefit": 5,
+      "production_risk": 3,
+      "dev_days": 6,
+      "realism_gain": 15,
+      "priority": 2
+    },
+    {
+      "module": "MarketDataFeed / TickStore",
+      "complexity": 5,
+      "benefit": 5,
+      "production_risk": 2,
+      "dev_days": 10,
+      "realism_gain": 20,
+      "priority": 3
+    },
+    {
+      "module": "LatencySimulator + price coupling",
+      "complexity": 5,
+      "benefit": 4,
+      "production_risk": 3,
+      "dev_days": 8,
+      "realism_gain": 12,
+      "priority": 4
+    },
+    {
+      "module": "BrokerRules (stops/freeze/digits)",
+      "complexity": 3,
+      "benefit": 3,
+      "production_risk": 2,
+      "dev_days": 4,
+      "realism_gain": 8,
+      "priority": 5
+    },
+    {
+      "module": "GapEngine (SL/TP gap-through)",
+      "complexity": 4,
+      "benefit": 4,
+      "production_risk": 2,
+      "dev_days": 5,
+      "realism_gain": 10,
+      "priority": 6
+    },
+    {
+      "module": "FillEngine + requote taxonomy",
+      "complexity": 4,
+      "benefit": 3,
+      "production_risk": 3,
+      "dev_days": 6,
+      "realism_gain": 7,
+      "priority": 7
+    },
+    {
+      "module": "LiquidityBook",
+      "complexity": 4,
+      "benefit": 3,
+      "production_risk": 2,
+      "dev_days": 5,
+      "realism_gain": 6,
+      "priority": 8
+    },
+    {
+      "module": "BrokerProfile calibration pipeline",
+      "complexity": 5,
+      "benefit": 5,
+      "production_risk": 1,
+      "dev_days": 12,
+      "realism_gain": 22,
+      "priority": 9
+    },
+    {
+      "module": "MarginEngine + stop-out",
+      "complexity": 4,
+      "benefit": 2,
+      "production_risk": 2,
+      "dev_days": 6,
+      "realism_gain": 5,
+      "priority": 10
+    },
+    {
+      "module": "CarryEngine (swap/commission)",
+      "complexity": 2,
+      "benefit": 2,
+      "production_risk": 1,
+      "dev_days": 3,
+      "realism_gain": 3,
+      "priority": 11
+    },
+    {
+      "module": "ExecutionTelemetry / TCA",
+      "complexity": 2,
+      "benefit": 3,
+      "production_risk": 1,
+      "dev_days": 3,
+      "realism_gain": 4,
+      "priority": 12
+    }
+  ],
+  "recommended_sequence": [
+    "SpreadEngine (tick-level entry+exit)",
+    "SlippageEngine (exit leg)",
+    "MarketDataFeed / TickStore",
+    "LatencySimulator + price coupling",
+    "BrokerRules (stops/freeze/digits)",
+    "GapEngine (SL/TP gap-through)",
+    "FillEngine + requote taxonomy",
+    "LiquidityBook",
+    "BrokerProfile calibration pipeline",
+    "MarginEngine + stop-out",
+    "CarryEngine (swap/commission)",
+    "ExecutionTelemetry / TCA"
+  ],
+  "mvp_scope": [
+    "TickStore",
+    "SpreadEngine",
+    "SlippageEngine exit",
+    "LatencySimulator coupled",
+    "BrokerProfile v1"
+  ],
+  "generated_utc": "2026-07-10T08:54:32.601756+00:00"
+}

@@ -1,0 +1,135 @@
+flowchart TB
+    %% architecture
+    tradingbot_ports_execution_IOrderExecuto0[IOrderExecutor]
+    tradingbot_ports_risk1[risk]
+    folder_tradingbot2{{tradingbot}}
+    tradingbot_pipeline_risk_stage_RiskStage3[RiskStage]
+    tradingbot_ports_events_IEventPublisher4[IEventPublisher]
+    tradingbot_pipeline_indicator_stage_Indi5[IndicatorStage]
+    tradingbot_application___init__6[__init__]
+    tradingbot_pipeline_execution_stage_Exec7[ExecutionStage]
+    tradingbot_pipeline_execution_stage8[execution_stage]
+    tradingbot_pipeline_indicator_stage9[indicator_stage]
+    tradingbot_pipeline_signal_filter_stage10[signal_filter_stage]
+    tradingbot_pipeline_signal_filter_stage_11[SignalFilterStage]
+    tradingbot_kernel___init__12[__init__]
+    tradingbot_ports_strategies13[strategies]
+    tradingbot_ports_indicators14[indicators]
+    tradingbot_ports_strategies_IStrategyReg15[IStrategyRegistry]
+    tradingbot_pipeline_base_PipelineStage16[PipelineStage]
+    tradingbot_ports_storage17[storage]
+    tradingbot_pipeline_base18[base]
+    tradingbot_ports___init__19[__init__]
+    tradingbot_kernel_trading_kernel20[trading_kernel]
+    tradingbot_ports_indicators_IIndicatorEn21[IIndicatorEngine]
+    folder_tradingbot_kernel22{{kernel}}
+    tradingbot_pipeline_signal_stage_SignalS23[SignalStage]
+    tradingbot_ports_position_manager_IPosit24[IPositionManager]
+    folder_tradingbot_application25{{application}}
+    tradingbot_ports_market_data26[market_data]
+    tradingbot_ports_market_data_IMarketData27[IMarketDataProvider]
+    tradingbot_kernel_trading_kernel_Trading28[TradingKernel]
+    tradingbot_ports_events29[events]
+    folder_tradingbot_ports30{{ports}}
+    tradingbot_pipeline_data_stage_DataStage31[DataStage]
+    tradingbot_ports_storage_IMarketDataStor32[IMarketDataStore]
+    tradingbot_ports_execution33[execution]
+    tradingbot_application_live_runner_LiveR34[LiveRunner]
+    tradingbot_pipeline___init__35[__init__]
+    tradingbot_application_live_runner36[live_runner]
+    tradingbot_ports_position_manager37[position_manager]
+    tradingbot_pipeline_signal_stage38[signal_stage]
+    folder_engine39{{engine}}
+    folder_tradingbot_pipeline40{{pipeline}}
+    tradingbot_application_bootstrap41[bootstrap]
+    tradingbot_pipeline_risk_stage42[risk_stage]
+    tradingbot_ports_risk_IRiskGate43[IRiskGate]
+    tradingbot_pipeline_data_stage44[data_stage]
+    tradingbot_application_bootstrap_KernelM45[KernelMode]
+    tradingbot_application_bootstrap41 -->|contains| tradingbot_application_bootstrap_KernelM45
+    tradingbot_application_live_runner36 -->|contains| tradingbot_application_live_runner_LiveR34
+    tradingbot_kernel_trading_kernel20 -->|contains| tradingbot_kernel_trading_kernel_Trading28
+    tradingbot_pipeline_base18 -->|contains| tradingbot_pipeline_base_PipelineStage16
+    tradingbot_pipeline_data_stage44 -->|contains| tradingbot_pipeline_data_stage_DataStage31
+    tradingbot_pipeline_execution_stage8 -->|contains| tradingbot_pipeline_execution_stage_Exec7
+    tradingbot_pipeline_indicator_stage9 -->|contains| tradingbot_pipeline_indicator_stage_Indi5
+    tradingbot_pipeline_risk_stage42 -->|contains| tradingbot_pipeline_risk_stage_RiskStage3
+    tradingbot_pipeline_signal_filter_stage10 -->|contains| tradingbot_pipeline_signal_filter_stage_11
+    tradingbot_pipeline_signal_stage38 -->|contains| tradingbot_pipeline_signal_stage_SignalS23
+    tradingbot_ports_events29 -->|contains| tradingbot_ports_events_IEventPublisher4
+    tradingbot_ports_execution33 -->|contains| tradingbot_ports_execution_IOrderExecuto0
+    tradingbot_ports_indicators14 -->|contains| tradingbot_ports_indicators_IIndicatorEn21
+    tradingbot_ports_market_data26 -->|contains| tradingbot_ports_market_data_IMarketData27
+    tradingbot_ports_position_manager37 -->|contains| tradingbot_ports_position_manager_IPosit24
+    tradingbot_ports_risk1 -->|contains| tradingbot_ports_risk_IRiskGate43
+    tradingbot_ports_storage17 -->|contains| tradingbot_ports_storage_IMarketDataStor32
+    tradingbot_ports_strategies13 -->|contains| tradingbot_ports_strategies_IStrategyReg15
+    folder_tradingbot2 -->|uses| folder_tradingbot_kernel22
+    folder_tradingbot2 -->|uses| folder_tradingbot_application25
+    folder_tradingbot2 -->|uses| folder_tradingbot_application25
+    tradingbot_application_bootstrap41 -->|imports| tradingbot_kernel_trading_kernel20
+    folder_tradingbot_application25 -->|uses| folder_tradingbot_kernel22
+    tradingbot_application_live_runner36 -->|imports| tradingbot_kernel_trading_kernel20
+    folder_tradingbot_application25 -->|uses| folder_tradingbot_kernel22
+    tradingbot_application___init__6 -->|imports| tradingbot_application_bootstrap41
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_base18
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_data_stage44
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_execution_stage8
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_indicator_stage9
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_risk_stage42
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_signal_filter_stage10
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_pipeline_signal_stage38
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_pipeline40
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_execution33
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_indicators14
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_market_data26
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_position_manager37
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_risk1
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel_trading_kernel20 -->|imports| tradingbot_ports_strategies13
+    folder_tradingbot_kernel22 -->|uses| folder_tradingbot_ports30
+    tradingbot_kernel___init__12 -->|imports| tradingbot_kernel_trading_kernel20
+    tradingbot_pipeline_data_stage44 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_data_stage44 -->|imports| tradingbot_ports_market_data26
+    folder_tradingbot_pipeline40 -->|uses| folder_tradingbot_ports30
+    tradingbot_pipeline_execution_stage8 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_execution_stage8 -->|imports| tradingbot_ports_execution33
+    folder_tradingbot_pipeline40 -->|uses| folder_tradingbot_ports30
+    tradingbot_pipeline_indicator_stage9 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_indicator_stage9 -->|imports| tradingbot_ports_indicators14
+    folder_tradingbot_pipeline40 -->|uses| folder_tradingbot_ports30
+    tradingbot_pipeline_risk_stage42 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_risk_stage42 -->|imports| tradingbot_ports_risk1
+    folder_tradingbot_pipeline40 -->|uses| folder_tradingbot_ports30
+    tradingbot_pipeline_signal_filter_stage10 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_signal_stage38 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline_signal_stage38 -->|imports| tradingbot_ports_strategies13
+    folder_tradingbot_pipeline40 -->|uses| folder_tradingbot_ports30
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_base18
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_data_stage44
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_execution_stage8
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_indicator_stage9
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_risk_stage42
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_signal_filter_stage10
+    tradingbot_pipeline___init__35 -->|imports| tradingbot_pipeline_signal_stage38
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_execution33
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_indicators14
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_market_data26
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_position_manager37
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_risk1
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_storage17
+    tradingbot_ports___init__19 -->|imports| tradingbot_ports_strategies13
+    tradingbot_application_live_runner36 -->|creates| tradingbot_kernel_trading_kernel20
+    tradingbot_kernel_trading_kernel20 -->|creates| tradingbot_pipeline_data_stage44
+    tradingbot_kernel_trading_kernel20 -->|creates| tradingbot_pipeline_risk_stage42
+    tradingbot_kernel_trading_kernel20 -->|creates| tradingbot_pipeline_execution_stage8

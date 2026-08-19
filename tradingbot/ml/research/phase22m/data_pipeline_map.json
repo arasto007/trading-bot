@@ -1,0 +1,65 @@
+{
+  "phase": "22M",
+  "step": 2,
+  "generated_utc": "2026-07-05T15:57:17.799750+00:00",
+  "stages": [
+    {
+      "stage": "MT5",
+      "producer": "MetaTrader5 terminal",
+      "consumer": "Mt5MarketDataAdapter._fetch_from_mt5 / MLDataPipeline.fetch",
+      "api": "mt5.copy_rates_from_pos / copy_rates_range",
+      "update_frequency": "every kernel cycle (live) OR batch collection (ML)",
+      "persistence": "none (in-memory rates)"
+    },
+    {
+      "stage": "Live ParquetCache",
+      "producer": "Mt5MarketDataAdapter.get_ohlcv / update_all",
+      "consumer": "TradingKernel DataStage via get_ohlcv",
+      "path": "data/{symbol}_{timeframe}.parquet",
+      "update_frequency": "each live cycle when cache stale (< bars requested)",
+      "persistence": "overwrite rolling ~3000 bars",
+      "on_disk_max_ts": "2026-07-03 19:55:00+00:00",
+      "on_disk_mtime_utc": "2026-07-04T17:44:32.661252Z"
+    },
+    {
+      "stage": "CandleStore",
+      "producer": "MLDataPipeline.collect_historical*",
+      "consumer": "SparseEventDatasetBuilder.build",
+      "update_frequency": "manual/batch only (start/13, collect_ml_data.py)",
+      "persistence": "merge_store append/dedupe parquet",
+      "on_disk_max_ts": "2026-06-29 13:50:00+00:00",
+      "disconnected_from_live": true
+    },
+    {
+      "stage": "Dataset Builder",
+      "producer": "SparseEventDatasetBuilder + ProductionDatasetV2Builder",
+      "consumer": "none at runtime until next manual build",
+      "entry": "scripts/build_ml_dataset.py --phase9-1",
+      "update_frequency": "manual only — last 2026-06-29",
+      "persistence": "dataset_v2 parquet"
+    },
+    {
+      "stage": "dataset_v2",
+      "producer": "ProductionDatasetV2Builder.store_v2",
+      "consumer": "PipelineCache.get_unified_frame → build_unified_frame merge",
+      "update_frequency": "manual build only",
+      "on_disk_max_ts": "2026-06-29 13:45:00+00:00",
+      "on_disk_mtime_utc": "2026-06-29T17:02:14.420426Z"
+    },
+    {
+      "stage": "PipelineCache",
+      "producer": "build_unified_frame + attach_top5_features",
+      "consumer": "KernelAdapter.produce_unified_signal",
+      "update_frequency": "every signal cycle",
+      "persistence": "in-memory singleton cache only"
+    },
+    {
+      "stage": "Range Engine",
+      "producer": "Phase99EngineWrapper via row_for_phase99_range",
+      "consumer": "DecisionOrchestrator",
+      "update_frequency": "every signal cycle",
+      "persistence": "none"
+    }
+  ],
+  "critical_split": "Live inference reads MT5→ParquetCache; phase99 features read dataset_v2 built from CandleStore. No repository path connects ParquetCache→CandleStore→dataset_v2 during LiveRunner."
+}

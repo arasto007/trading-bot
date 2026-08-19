@@ -1,0 +1,120 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "verdict": "NOT_READY",
+  "paper_trading_definition": "python -m tradingbot --loop --paper (TRADINGBOT_PAPER=1, simulated entry fills, real MT5 ticks)",
+  "modes_assessed": {
+    "dry_run_default_loop": {
+      "cli": "python -m tradingbot --loop",
+      "entry_orders": "blocked",
+      "auxiliary_orders": "KillSwitch/Recovery/PositionManager may still order_send",
+      "ml_kernel": "requires USE_ML_KERNEL=1",
+      "risk_path": "broken at daily loss check (AUD-002)",
+      "safe_for_signal_observation": "PARTIAL"
+    },
+    "paper_loop": {
+      "cli": "python -m tradingbot --loop --paper",
+      "entry_orders": "simulated only",
+      "auxiliary_orders": "REAL order_send paths active",
+      "risk_counters": "not updated on paper fills",
+      "safe_for_paper_trading": false
+    },
+    "live_execute": {
+      "cli": "python -m tradingbot --loop --execute",
+      "assessment": "NOT READY — all blockers apply"
+    }
+  },
+  "blockers_ordered_by_severity": [
+    {
+      "rank": 1,
+      "severity": "CRITICAL",
+      "id": "AUD-002",
+      "title": "LiveRiskTracker NameError blocks risk approval path",
+      "evidence": "services/live_risk_tracker.py:185 references undefined `config`",
+      "impact": "Any entry after cooldown gate raises exception in RiskStage — no trades pass risk"
+    },
+    {
+      "rank": 2,
+      "severity": "CRITICAL",
+      "id": "AUD-001",
+      "title": "Paper/dry-run guard not enforced on auxiliary order_send paths",
+      "evidence": "kill_switch.py:138; mt5_position_manager.py checks dry_run only not is_paper; position_recovery_service.py no mode guard",
+      "impact": "Real broker orders possible under --paper and during kill switch in any mode"
+    },
+    {
+      "rank": 3,
+      "severity": "CRITICAL",
+      "id": "AUD-003",
+      "title": "USE_ML_KERNEL defaults false",
+      "evidence": "ml/integration/config.py:27; factory.py:139",
+      "impact": "Production loop runs legacy PriceAction unless env explicitly set — not the audited ML stack"
+    },
+    {
+      "rank": 4,
+      "severity": "HIGH",
+      "id": "AUD-030",
+      "title": "Kill switch EMERGENCY_STOP not persisted across restart",
+      "evidence": "kernel/trading_kernel.py:230-231 in-memory only",
+      "impact": "Bot may resume trading after kill event on restart"
+    },
+    {
+      "rank": 5,
+      "severity": "HIGH",
+      "id": "AUD-013",
+      "title": "Dual position management default (kernel + recovery)",
+      "evidence": "live_runner.py:48 enable_recovery=True default; --no-recovery required to disable",
+      "impact": "Duplicate partial/trail/emergency actions"
+    },
+    {
+      "rank": 6,
+      "severity": "HIGH",
+      "id": "AUD-006",
+      "title": "Silent ML to legacy fallback",
+      "evidence": "ml_kernel_registry.py:74-89",
+      "impact": "Trades on unvalidated strategy without halt"
+    },
+    {
+      "rank": 7,
+      "severity": "HIGH",
+      "id": "AUD-008",
+      "title": "500ms pipeline timeout causes fallback",
+      "evidence": "kernel_adapter.py:226-227; phase24a/runtime_statistics.json pipeline_timeouts=12",
+      "impact": "~11% bars may use legacy signals under load"
+    },
+    {
+      "rank": 8,
+      "severity": "HIGH",
+      "id": "AUD-009",
+      "title": "Risk counters not rebuilt on restart",
+      "evidence": "live_risk_tracker.py sync_from_mt5 skips trades_today",
+      "impact": "max trades/day and cooldown unreliable after restart"
+    },
+    {
+      "rank": 9,
+      "severity": "HIGH",
+      "id": "AUD-005",
+      "title": "Stale tick does not halt trading",
+      "evidence": "mt5_health.py:99-101; trading_kernel.py:146-147",
+      "impact": "Signals on stale prices during close/weekend"
+    },
+    {
+      "rank": 10,
+      "severity": "HIGH",
+      "id": "AUD-035",
+      "title": "AutoTrading check not in hot path",
+      "evidence": "check_autotrading_ready exists but not called in run_global_cycle",
+      "impact": "Silent execution failures until live --execute"
+    }
+  ],
+  "safest_observation_config": {
+    "command": "USE_ML_KERNEL=1 python -m tradingbot --loop --no-recovery",
+    "note": "Still blocked by AUD-002 for entries; useful for signal/journal observation only until risk bug fixed. Do NOT use --paper until AUD-001 fixed."
+  },
+  "conditions_for_ready": [
+    "Fix AUD-002 NameError in LiveRiskTracker",
+    "Enforce is_paper/is_dry_run on ALL order_send call sites (AUD-001)",
+    "Document and require USE_ML_KERNEL=1 for ML paper session",
+    "Default --no-recovery or resolve dual manager (AUD-013)",
+    "Persist or manual gate EMERGENCY_STOP across restart (AUD-030)"
+  ]
+}

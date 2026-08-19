@@ -1,0 +1,20 @@
+{
+  "phase": "25B",
+  "generated_utc": "2026-07-08T17:01:49.425227+00:00",
+  "verdict": "PARITY_RESTORED",
+  "success_criteria": {
+    "timestamp_match_100": true,
+    "decision_match_995": true,
+    "feature_match_100": true,
+    "confidence_tol_1e9": true,
+    "pipeline_depth_identical": true,
+    "determinism_pass": true
+  },
+  "primary_window_decision_match": 1.0,
+  "legacy_vs_repaired_decision_match": 1.0,
+  "legacy_vs_repaired_joined_bars_90d": 0,
+  "legacy_vs_repaired_90d_timestamp_join_failed": true,
+  "note": "Repaired research and paper reference share run_unified_pipeline_replay; legacy phase24a uses different timestamp scheme on long windows",
+  "audit_mode": "RESEARCH_INFRASTRUCTURE_ONLY",
+  "production_modified": false
+}

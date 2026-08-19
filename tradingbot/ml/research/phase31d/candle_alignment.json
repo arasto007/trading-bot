@@ -1,0 +1,74 @@
+{
+  "phase": "31D",
+  "research_candle_source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase31c\\_cache\\candles_m5.parquet",
+  "replay_candle_source": "CandleStore + prepare_calibration_candles(days=30)",
+  "research_frame_bars": 5489,
+  "replay_frame_bars": 5503,
+  "aligned_trades": 489,
+  "misaligned_trades": 0,
+  "max_close_entry_delta": 0,
+  "bar_walking": "searchsorted(entry_timestamp) on M5 DatetimeIndex",
+  "samples": [
+    {
+      "entry_timestamp": "2026-06-02T03:15:00+00:00",
+      "resolved_bar_index": 288,
+      "journal_bar_index": 302,
+      "bar_timestamp": "2026-06-02 03:15:00+00:00",
+      "entry_price": 4485.06,
+      "bar_close": 4485.06,
+      "bar_open": 4481.11,
+      "bar_atr": 3.4043,
+      "close_entry_delta": 0.0,
+      "aligned": true
+    },
+    {
+      "entry_timestamp": "2026-06-02T03:20:00+00:00",
+      "resolved_bar_index": 289,
+      "journal_bar_index": 303,
+      "bar_timestamp": "2026-06-02 03:20:00+00:00",
+      "entry_price": 4489.59,
+      "bar_close": 4489.59,
+      "bar_open": 4485.01,
+      "bar_atr": 3.7121,
+      "close_entry_delta": 0.0,
+      "aligned": true
+    },
+    {
+      "entry_timestamp": "2026-06-02T03:25:00+00:00",
+      "resolved_bar_index": 290,
+      "journal_bar_index": 304,
+      "bar_timestamp": "2026-06-02 03:25:00+00:00",
+      "entry_price": 4493.67,
+      "bar_close": 4493.67,
+      "bar_open": 4489.55,
+      "bar_atr": 3.9364,
+      "close_entry_delta": 0.0,
+      "aligned": true
+    },
+    {
+      "entry_timestamp": "2026-06-02T03:35:00+00:00",
+      "resolved_bar_index": 292,
+      "journal_bar_index": 306,
+      "bar_timestamp": "2026-06-02 03:35:00+00:00",
+      "entry_price": 4489.09,
+      "bar_close": 4489.09,
+      "bar_open": 4489.14,
+      "bar_atr": 4.5036,
+      "close_entry_delta": 0.0,
+      "aligned": true
+    },
+    {
+      "entry_timestamp": "2026-06-02T03:40:00+00:00",
+      "resolved_bar_index": 293,
+      "journal_bar_index": 307,
+      "bar_timestamp": "2026-06-02 03:40:00+00:00",
+      "entry_price": 4487.05,
+      "bar_close": 4487.05,
+      "bar_open": 4489.03,
+      "bar_atr": 4.5929,
+      "close_entry_delta": 0.0,
+      "aligned": true
+    }
+  ],
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

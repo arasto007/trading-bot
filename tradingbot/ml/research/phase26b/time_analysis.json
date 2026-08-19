@@ -1,0 +1,38 @@
+{
+  "phase": "26B",
+  "by_hour_utc": {
+    "3": {
+      "trades": 1,
+      "expectancy": 23.575,
+      "pf": "inf"
+    }
+  },
+  "by_day_of_week": {
+    "Tuesday": {
+      "trades": 1,
+      "expectancy": 23.575,
+      "pf": "inf"
+    }
+  },
+  "by_session": {
+    "Asian": {
+      "trades": 1,
+      "expectancy": 23.575,
+      "pf": "inf"
+    }
+  },
+  "sessions": {
+    "Asian": {
+      "trades": 1,
+      "expectancy": 23.575,
+      "pf": "inf"
+    },
+    "London": {},
+    "New York": {},
+    "Overlap": {}
+  },
+  "strongest_session": "Asian",
+  "strongest_hour_utc": "3",
+  "note": "Single-trade sample \u2014 session rankings not statistically meaningful",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

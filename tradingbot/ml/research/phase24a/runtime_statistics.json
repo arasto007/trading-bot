@@ -1,0 +1,63 @@
+{
+  "phase": "24A",
+  "mode": "candle_store_shadow",
+  "execution_enabled": false,
+  "order_send": false,
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "runtime_failures": 12,
+  "health_gate_blocks": 0,
+  "pipeline_timeouts": 12,
+  "data_source": "candle_store",
+  "bars_evaluated": 108,
+  "warmup_bars": 300,
+  "lookback_bars": 300,
+  "hold_chain": {
+    "bars_evaluated": 96,
+    "buy_emitted": 96,
+    "sell_emitted": 0,
+    "ml_signals": 96,
+    "ml_hold_stages": {
+      "decision_hold": 0,
+      "calibration_hold": 0,
+      "trade_quality_hold": 0,
+      "rsi_filter_hold": 0,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 0,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "latency_tick_ms": {
+    "count": 108,
+    "mean_ms": 552.712,
+    "median_ms": 511.357,
+    "p95_ms": 807.583,
+    "max_ms": 1001.424,
+    "std_ms": 105.518
+  },
+  "latency_tick_warm_ms": {
+    "count": 105,
+    "mean_ms": 555.922,
+    "median_ms": 511.482,
+    "p95_ms": 807.583,
+    "max_ms": 1001.424,
+    "std_ms": 104.099
+  },
+  "memory": {
+    "start_mb": 376.32,
+    "baseline_mb": 376.32,
+    "end_mb": 605.141,
+    "delta_mb": 228.821,
+    "per_bar_delta_mb": 2.1792,
+    "tracemalloc_peak_mb": 993.944,
+    "leak_suspected": false
+  },
+  "signal_summary": {
+    "buy": 55,
+    "sell": 0,
+    "hold": 53
+  },
+  "generated_utc": "2026-07-08T02:46:39.816908+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "22D",
+  "range": {
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
+    "max_probability": 0.419381,
+    "min_probability": 0.333177,
+    "buy_mathematically_possible": false,
+    "bars_gte_buy": 0,
+    "bars_lte_sell": 1830
+  },
+  "trend_ml_threshold": 0.4
+}

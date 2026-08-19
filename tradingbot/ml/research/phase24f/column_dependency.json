@@ -1,0 +1,145 @@
+{
+  "phase": "24F",
+  "columns": [
+    {
+      "column": "open/high/low/close",
+      "dependency": "A",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true
+    },
+    {
+      "column": "ema20/ema50/ema200",
+      "dependency": "B",
+      "needs_full_rebuild": true,
+      "can_update_incrementally": false,
+      "lookback": 200,
+      "note": "EWM warm-start shifts with tail(300) slide \u2014 overlap rows drift"
+    },
+    {
+      "column": "ema_alignment",
+      "dependency": "A",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true
+    },
+    {
+      "column": "ema20_slope/ema50_slope",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 5
+    },
+    {
+      "column": "adx",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 14
+    },
+    {
+      "column": "atr",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 14
+    },
+    {
+      "column": "atr_percentile",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 252
+    },
+    {
+      "column": "rsi",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 14
+    },
+    {
+      "column": "macd_histogram",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 26
+    },
+    {
+      "column": "higher_high_count/lower_low_count",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 40
+    },
+    {
+      "column": "breakout_distance",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 20
+    },
+    {
+      "column": "candle_momentum",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 5
+    },
+    {
+      "column": "regime_* (prefixed duplicates)",
+      "dependency": "C",
+      "needs_full_rebuild": true,
+      "can_update_incrementally": false,
+      "note": "Separate full pass today \u2014 overlap rows stable"
+    },
+    {
+      "column": "phase99_*",
+      "dependency": "A",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "source": "dataset_v2 timestamp lookup"
+    },
+    {
+      "column": "regime",
+      "dependency": "A",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true
+    },
+    {
+      "column": "adx_acceleration",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 2
+    },
+    {
+      "column": "swing_efficiency",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 10
+    },
+    {
+      "column": "fractal_dimension_proxy",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 30
+    },
+    {
+      "column": "trend_age",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "note": "Needs regime column through prior row"
+    },
+    {
+      "column": "ema_curvature",
+      "dependency": "B",
+      "needs_full_rebuild": false,
+      "can_update_incrementally": true,
+      "lookback": 3
+    }
+  ],
+  "columns_changing_on_single_new_bar": "Only last row appended; overlap rows unchanged if causal invariant holds",
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

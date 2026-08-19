@@ -1,0 +1,132 @@
+{
+  "phase": "22A",
+  "audit_mode": "READ_ONLY",
+  "issues": [
+    {
+      "id": "HI-001",
+      "category": "dead_code",
+      "severity": "low",
+      "title": "run_system_manager.py removed but referenced in docs",
+      "location": "live_runner.py docstring, old docs",
+      "impact": "Confusion only"
+    },
+    {
+      "id": "HI-002",
+      "category": "duplicate_logic",
+      "severity": "medium",
+      "title": "Dual position management paths",
+      "location": "Mt5PositionManager vs PositionProtector vs PositionRecoveryService",
+      "impact": "Protector disabled by default to avoid double trailing"
+    },
+    {
+      "id": "HI-003",
+      "category": "silent_failure",
+      "severity": "medium",
+      "title": "Stale tick skips entire cycle without retry",
+      "location": "trading_kernel.py check_mt5_health",
+      "impact": "No trades when tick age > 120s even if market open lag"
+    },
+    {
+      "id": "HI-004",
+      "category": "performance_bottleneck",
+      "severity": "high",
+      "title": "ML stack sync on asyncio event loop",
+      "location": "kernel_adapter.py, backtest engine loop",
+      "impact": "41+ min for 1-month 3-TF backtest; live cycle latency risk"
+    },
+    {
+      "id": "HI-005",
+      "category": "blocking_calls",
+      "severity": "medium",
+      "title": "order_send retry sleep(0.5) blocks async loop",
+      "location": "mt5_execution._order_send_with_retry",
+      "impact": "Delays parallel market cycles"
+    },
+    {
+      "id": "HI-006",
+      "category": "race_condition",
+      "severity": "medium",
+      "title": "MT5 API accessed from multiple threads without lock",
+      "location": "kill_switch.py, position_recovery_service.py, main loop",
+      "impact": "Potential intermittent MT5 errors"
+    },
+    {
+      "id": "HI-007",
+      "category": "config_conflict",
+      "severity": "low",
+      "title": "BASE_DIR vs data/ml path normalization",
+      "location": "normalize_ml_base_dir — recently fixed",
+      "impact": "Was causing LIVE crash; verify persists across all callers"
+    },
+    {
+      "id": "HI-008",
+      "category": "silent_failure",
+      "severity": "medium",
+      "title": "ML fallback to legacy without dashboard alert",
+      "location": "ml_kernel_registry.py KernelFallbackError handler",
+      "impact": "User may think ML active while on Price Action"
+    },
+    {
+      "id": "HI-009",
+      "category": "startup_risk",
+      "severity": "medium",
+      "title": "Watchdog rapid restart loop",
+      "location": "run_live_watchdog.py MAX_RAPID_RESTARTS=8",
+      "impact": "Crash loop if ML artifacts missing"
+    },
+    {
+      "id": "HI-010",
+      "category": "shutdown_risk",
+      "severity": "low",
+      "title": "Recovery thread join timeout 5s may leave orphan",
+      "location": "background_services.stop_all",
+      "impact": "Rare on Windows shutdown"
+    },
+    {
+      "id": "HI-011",
+      "category": "duplicate_logic",
+      "severity": "low",
+      "title": "Trend v40 and v41 both loaded in registry",
+      "location": "engine_registry.build_default",
+      "impact": "Memory overhead; only one active via versioning"
+    },
+    {
+      "id": "HI-012",
+      "category": "resource_leak",
+      "severity": "low",
+      "title": "PipelineCache prediction cache grows to 256 then evicts FIFO",
+      "location": "pipeline_cache.py",
+      "impact": "Bounded; acceptable"
+    },
+    {
+      "id": "HI-013",
+      "category": "config_conflict",
+      "severity": "medium",
+      "title": "Multiple config sources merge order",
+      "location": "legacy_loader.py: engine_settings > live.py > env > .env",
+      "impact": "Empty live.py MT5 fields previously wiped creds (fixed)"
+    },
+    {
+      "id": "HI-014",
+      "category": "performance_bottleneck",
+      "severity": "medium",
+      "title": "DatasetStore.load_v2 per prediction",
+      "location": "PipelineCache.get_unified_frame",
+      "impact": "Disk IO every bar if cache miss"
+    },
+    {
+      "id": "HI-015",
+      "category": "silent_failure",
+      "severity": "low",
+      "title": "SignalStage returns False on duplicate bar without journal reason",
+      "location": "signal_stage.py _last_closed_bar dedupe",
+      "impact": "Expected behavior; reduces noise"
+    }
+  ],
+  "issue_count": {
+    "critical": 0,
+    "high": 1,
+    "medium": 8,
+    "low": 6
+  }
+}

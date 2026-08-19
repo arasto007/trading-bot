@@ -1,0 +1,75 @@
+{
+  "phase": "28F",
+  "dynamic_sizing_enabled": true,
+  "trades_with_min_lot_limit": 575,
+  "min_lot_limit_pct": 100.0,
+  "sample_sizing": [
+    {
+      "configured_risk_percent": 0.2915,
+      "requested_lot": 0.000856,
+      "executed_lot": 0.01,
+      "dollar_risk_configured": 0.583,
+      "dollar_risk_actual": 6.8086,
+      "actual_risk_percent": 3.4043,
+      "risk_deviation_percent": 3.1128,
+      "min_lot_limit_applied": true,
+      "limit_reason": "MIN_LOT_LIMIT",
+      "sl_distance": 6.8086,
+      "equity_at_entry": 200.0
+    },
+    {
+      "configured_risk_percent": 0.2915,
+      "requested_lot": 0.000803,
+      "executed_lot": 0.01,
+      "dollar_risk_configured": 0.5962,
+      "dollar_risk_actual": 7.4243,
+      "actual_risk_percent": 3.6299,
+      "risk_deviation_percent": 3.3384,
+      "min_lot_limit_applied": true,
+      "limit_reason": "MIN_LOT_LIMIT",
+      "sl_distance": 7.4243,
+      "equity_at_entry": 204.53
+    },
+    {
+      "configured_risk_percent": 0.265,
+      "requested_lot": 0.000675,
+      "executed_lot": 0.01,
+      "dollar_risk_configured": 0.5312,
+      "dollar_risk_actual": 7.8729,
+      "actual_risk_percent": 3.9276,
+      "risk_deviation_percent": 3.6626,
+      "min_lot_limit_applied": true,
+      "limit_reason": "MIN_LOT_LIMIT",
+      "sl_distance": 7.8729,
+      "equity_at_entry": 200.45
+    },
+    {
+      "configured_risk_percent": 0.265,
+      "requested_lot": 0.000603,
+      "executed_lot": 0.01,
+      "dollar_risk_configured": 0.5432,
+      "dollar_risk_actual": 9.0071,
+      "actual_risk_percent": 4.3939,
+      "risk_deviation_percent": 4.1289,
+      "min_lot_limit_applied": true,
+      "limit_reason": "MIN_LOT_LIMIT",
+      "sl_distance": 9.0071,
+      "equity_at_entry": 204.99
+    },
+    {
+      "configured_risk_percent": 0.265,
+      "requested_lot": 0.000597,
+      "executed_lot": 0.01,
+      "dollar_risk_configured": 0.5486,
+      "dollar_risk_actual": 9.1857,
+      "actual_risk_percent": 4.4369,
+      "risk_deviation_percent": 4.1719,
+      "min_lot_limit_applied": true,
+      "limit_reason": "MIN_LOT_LIMIT",
+      "sl_distance": 9.1857,
+      "equity_at_entry": 207.03
+    }
+  ],
+  "avg_actual_risk_pct": 4.5631,
+  "generated_utc": "2026-07-09T23:58:22.201686+00:00"
+}

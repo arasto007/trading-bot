@@ -1,0 +1,94 @@
+{
+  "phase": "24B",
+  "decisions": {
+    "BUY": {
+      "created_by": [
+        {
+          "module": "RangeEngineAdapter/TrendEngine",
+          "when": "probability/threshold \u2192 BUY"
+        },
+        {
+          "module": "DecisionOrchestrator",
+          "when": "policy passes + engine selected"
+        }
+      ],
+      "modified_by": [
+        {
+          "module": "DecisionPolicy",
+          "can_downgrade_to": "HOLD",
+          "line": "decision_policy.py:26"
+        },
+        {
+          "module": "CalibratedDecisionAdapter",
+          "file": "confidence_engine/validator.py"
+        },
+        {
+          "module": "AdaptiveRiskAdapter",
+          "can_block": true
+        },
+        {
+          "module": "TradeQualityEngine",
+          "can_block": true
+        },
+        {
+          "module": "apply_profitability_filters",
+          "can_downgrade_to": "HOLD",
+          "file": "tradingbot/ml/integration/kernel_adapter.py",
+          "line": 247
+        },
+        {
+          "module": "KernelAdapter",
+          "note": "returns None to SignalStage if still HOLD after mapping",
+          "line": 312
+        },
+        {
+          "module": "RiskStage IRiskGate",
+          "can_block": "before execution",
+          "file": "tradingbot/pipeline/risk_stage.py",
+          "line": 37
+        }
+      ],
+      "confirmed_by": [
+        {
+          "module": "ExecutionStage",
+          "when": "ctx.execution.success"
+        },
+        {
+          "module": "Mt5ExecutionAdapter",
+          "when": "retcode DONE"
+        }
+      ]
+    },
+    "SELL": {
+      "same_as": "BUY",
+      "symmetric": true
+    },
+    "HOLD": {
+      "created_by": [
+        {
+          "module": "DecisionOrchestrator",
+          "regimes": [
+            "HIGH_VOLATILITY",
+            "NO_TRADE"
+          ],
+          "line": "tradingbot/ml/decision_engine/orchestrator.py"
+        },
+        {
+          "module": "DecisionPolicy",
+          "reason": "confidence below min_confidence"
+        },
+        {
+          "module": "KernelAdapter",
+          "lines": "243-248",
+          "reasons": [
+            "calibration action not BUY/SELL",
+            "risk/quality blocked",
+            "filter blocked"
+          ]
+        }
+      ],
+      "propagation": "HOLD \u2192 generate_signal returns None \u2192 SignalStage returns False \u2192 pipeline stops before Risk/Execution"
+    }
+  },
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

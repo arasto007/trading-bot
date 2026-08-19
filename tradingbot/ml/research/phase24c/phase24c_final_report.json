@@ -1,0 +1,40 @@
+{
+  "phase": "24C",
+  "verdict": "ONE_BOTTLENECK",
+  "production_modified": false,
+  "primary_bottleneck": {
+    "stage": "pipeline_cache_unified_frame",
+    "p95_ms": 162.1114,
+    "mean_ms": 115.5723,
+    "share_of_total_p95": 0.978,
+    "share_of_total_mean": 1.7972
+  },
+  "pipeline_budget_ms": 500.0,
+  "total_p95_ms": 165.7562,
+  "total_mean_ms": 64.3085,
+  "cache_statistics": {
+    "pipeline_cache_feature": {
+      "hits": 0,
+      "misses": 1130,
+      "hit_ratio": 0.0
+    },
+    "pipeline_cache_prediction": {
+      "hits": 1044,
+      "misses": 86,
+      "hit_ratio": 0.9239
+    },
+    "feature_builder": {
+      "calls": 1130,
+      "internal_cache": false,
+      "note": "FeatureBuilder.compute_at has no cache \u2014 every call is a full recompute"
+    }
+  },
+  "findings": [
+    "Primary bottleneck stage: pipeline_cache_unified_frame",
+    "p95 share of produce_unified_signal: 97.8%",
+    "Pipeline cache feature hit ratio: 0.0%",
+    "FeatureBuilder calls (no internal cache): 1130",
+    "predict_proba_only p95: 1.4423 ms"
+  ],
+  "generated_utc": "2026-07-08T11:27:51.546779+00:00"
+}

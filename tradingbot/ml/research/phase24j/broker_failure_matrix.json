@@ -1,0 +1,105 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "matrix_type": "broker_failure",
+  "entries": [
+    {
+      "failure_mode": "terminal_not_connected",
+      "detection": "mt5_health.py:87-88; trading_kernel.py:128-133",
+      "kernel_behavior": "skip cycle return {}",
+      "auto_retry": true,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "stale_tick",
+      "detection": "mt5_health.py:99-100",
+      "kernel_behavior": "warn and continue (AUD-005)",
+      "auto_retry": true,
+      "can_lose_money": true
+    },
+    {
+      "failure_mode": "autotrading_disabled_10027",
+      "detection": "mt5_health.py:74-75 (preflight only)",
+      "kernel_behavior": "live order fails at execution",
+      "auto_retry": false,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "symbol_not_selectable",
+      "detection": "mt5_market_data.py:84-85",
+      "kernel_behavior": "warning at connect; fetch may fail",
+      "auto_retry": false,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "no_rates",
+      "detection": "mt5_market_data.py:133-135",
+      "kernel_behavior": "empty OHLCV → signal stage fail",
+      "auto_retry": true,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "invalid_volume",
+      "detection": "broker retcode at order_send",
+      "kernel_behavior": "execution failure logged",
+      "auto_retry": false,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "invalid_stops",
+      "detection": "broker retcode on SL/TP modify",
+      "kernel_behavior": "trail/partial fail logs in position manager",
+      "auto_retry": false,
+      "can_lose_money": true
+    },
+    {
+      "failure_mode": "slippage",
+      "detection": "mt5_execution.py:180-181 slip_pips journal",
+      "kernel_behavior": "accepted as fill_price",
+      "auto_retry": false,
+      "can_lose_money": true
+    },
+    {
+      "failure_mode": "partial_fill",
+      "detection": "deal volume vs request (manual)",
+      "kernel_behavior": "treated as success if DONE",
+      "auto_retry": false,
+      "can_lose_money": true
+    },
+    {
+      "failure_mode": "spread_spike",
+      "detection": "risk_gate check_spread_gate",
+      "kernel_behavior": "blocks entry pre-execution",
+      "auto_retry": true,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "ipc_disconnect_10004",
+      "detection": "mt5_utils.py:252-253",
+      "kernel_behavior": "reconnect loop; skip or fail order",
+      "auto_retry": true,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "weekend_market_closed",
+      "detection": "stale tick + no new rates",
+      "kernel_behavior": "may still evaluate signals (AUD-005)",
+      "auto_retry": true,
+      "can_lose_money": true
+    },
+    {
+      "failure_mode": "filling_mode_mismatch",
+      "detection": "order_logic.filling_mode_name + retcode",
+      "kernel_behavior": "order reject or retry",
+      "auto_retry": true,
+      "can_lose_money": false
+    },
+    {
+      "failure_mode": "account_authorization_6",
+      "detection": "mt5_utils.py:247-250",
+      "kernel_behavior": "ensure_connected false",
+      "auto_retry": true,
+      "can_lose_money": false
+    }
+  ]
+}

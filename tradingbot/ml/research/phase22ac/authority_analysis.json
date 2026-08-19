@@ -1,0 +1,76 @@
+{
+  "phase": "22AC",
+  "question": "Which component is the true authority for selecting the production model?",
+  "answer": "No single authority — multiple independent selection/write paths exist",
+  "authorities": [
+    {
+      "name": "Phase 9.9 Optimizer (RobustnessOptimizer)",
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "scope": "selection + acceptance reports only",
+      "selects_production_model": false,
+      "evidence": "train_model --phase9-9 stops after JSON reports; never calls freeze"
+    },
+    {
+      "name": "Model Registry freeze (DEFAULT_CONFIG)",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "scope": "artifact write authority",
+      "selects_production_model": true,
+      "evidence": "freeze_phase9_9_artifacts trains logistic_strong_reg from DEFAULT_CONFIG; ignores select_best()"
+    },
+    {
+      "name": "Engine Registry",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "scope": "runtime assembly",
+      "selects_production_model": false,
+      "evidence": "load_phase9_9_bundle(build_if_missing=False) — reads whatever is on disk"
+    },
+    {
+      "name": "Bundle Loader (load_phase9_9_bundle)",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "scope": "read + conditional auto-freeze",
+      "selects_production_model": "conditional",
+      "evidence": "default build_if_missing=True can re-freeze DEFAULT_CONFIG when model.pkl missing"
+    },
+    {
+      "name": "Health Gate",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "scope": "runtime validation only",
+      "selects_production_model": false,
+      "evidence": "build_if_missing=False; checks integrity and fingerprint files"
+    },
+    {
+      "name": "CLI (train_model --phase9-9)",
+      "file": "scripts/train_model.py",
+      "scope": "research training entry",
+      "selects_production_model": false,
+      "evidence": "runs optimizer; does not freeze"
+    },
+    {
+      "name": "Hardcoded DEFAULT_CONFIG / paper EXPECTED_FEATURES",
+      "file": "tradingbot/ml/paper/config.py",
+      "scope": "validation expectations",
+      "selects_production_model": true,
+      "evidence": "EXPECTED_FEATURES imported from DEFAULT_CONFIG at module load, not from artifact"
+    },
+    {
+      "name": "Shadow auto-freeze paths",
+      "file": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "scope": "side-effect write on missing model.pkl",
+      "selects_production_model": true,
+      "evidence": "ShadowEngine + KernelShadowRunner can overwrite artifacts without acceptance"
+    }
+  ],
+  "frozen_vs_optimizer_report": {
+    "frozen_metadata_candidate_id": "logistic_strong_reg",
+    "frozen_robustness_score": 77.73,
+    "report_best_candidate_id": "random_forest_shallow",
+    "report_robustness_score": 59.09,
+    "aligned": false
+  },
+  "single_authority": false,
+  "primary_write_authority": "freeze_phase9_9_artifacts (DEFAULT_CONFIG)",
+  "primary_report_authority": "RobustnessOptimizer + evaluate_acceptance (disconnected from freeze)",
+  "primary_runtime_authority": "On-disk phase9_9_best bundle loaded with build_if_missing=False",
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

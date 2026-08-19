@@ -1,0 +1,8 @@
+{
+  "phase": "24K",
+  "generated_utc": "2026-07-08T16:16:53.261335+00:00",
+  "default": "ALLOW_LEGACY_FALLBACK=false",
+  "ml_failure_behaviour": "safe HOLD (None signal), hold_count incremented",
+  "legacy_opt_in": "ALLOW_LEGACY_FALLBACK=1",
+  "tests": "tests/test_phase24k.py::TestFallbackAUD006"
+}

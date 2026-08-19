@@ -1,0 +1,87 @@
+{
+  "phase": "22AJ0",
+  "definitions": [
+    {
+      "name": "rank_number_one",
+      "component": "rank_candidates() sorted list",
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "function": "rank_candidates",
+      "rule": "ranked[0] after sort by (probability_gate_passed asc, -composite_score, -robustness_score, overfitting_risk asc, -profitable_windows)",
+      "filters": "Does not exclude failed probability gate — rank #1 may fail gate",
+      "stored_in": "phase9_9_model_comparison.json ranked_candidates[0]",
+      "role": "Ranking display / composite ordering"
+    },
+    {
+      "name": "select_best",
+      "component": "Optimizer selection",
+      "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+      "function": "select_best",
+      "rule": "First row in ranked list where probability_gate_passed == True",
+      "equivalent_to": "Highest composite among probability-gate passers (given rank_candidates sort order)",
+      "stored_in": "RobustnessOptimizationResult.best_candidate; phase9_9_robustness_report.json best_candidate",
+      "wired_by": "optimization_orchestrator.py line ~141: best = select_best(ranked)",
+      "role": "Current optimizer 'winner' written to reports"
+    },
+    {
+      "name": "evaluate_acceptance",
+      "component": "Acceptance gate",
+      "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "function": "evaluate_acceptance",
+      "rule": "All checks true: robustness_improved, numeric mean_auc_gap, mean_expectancy>0, profitable_windows>=4, probability_quality_passed",
+      "current_wiring": "Called ONLY on select_best output in optimization_orchestrator.py — not per-candidate scan",
+      "stored_in": "phase9_9_robustness_report.json acceptance",
+      "role": "Binary PASS/FAIL gate on one candidate today"
+    },
+    {
+      "name": "freeze_bridge_prototype",
+      "component": "Research freeze contract builder",
+      "file": "tradingbot/ml/research/robustness_optimizer/freeze_bridge.py",
+      "function": "validate_authority_chain / build_freeze_contract",
+      "rule": "Prototype scans ALL ranked rows for acceptance PASS; builds contract on first accepted (Phase 22AI)",
+      "note": "Differs from orchestrator which evaluates acceptance only on select_best",
+      "role": "Research prototype — not production freeze writer"
+    },
+    {
+      "name": "future_freeze_target",
+      "component": "Phase 22AF authority redesign",
+      "file": "tradingbot/ml/research/phase22af/authority_redesign.json",
+      "rule": "select_best → evaluate_acceptance PASS → FreezeContract → registry (design intent)",
+      "current_gap": "select_best winner fails acceptance on current 28-candidate artifact set",
+      "production_freeze_today": "model_registry.freeze_phase9_9_artifacts uses DEFAULT_CONFIG / logistic_strong_reg — unrelated to optimizer",
+      "role": "Target production write authority (not yet wired)"
+    },
+    {
+      "name": "runtime_artifact",
+      "component": "Frozen bundle on disk",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle / freeze_phase9_9_artifacts",
+      "rule": "Runtime reads phase9_9_best/*; freeze writes hardcoded DEFAULT_CONFIG candidate",
+      "role": "Runtime inference authority (read-only load); NOT optimizer winner today"
+    }
+  ],
+  "conflicts_detected": [
+    {
+      "between": [
+        "select_best",
+        "evaluate_acceptance (per-candidate potential)"
+      ],
+      "evidence": "select_best=random_forest_shallow__stable_4__RANGE; only acceptance PASS=xgb_baseline_phase96__stable_except_unstable__RANGE"
+    },
+    {
+      "between": [
+        "report best_candidate",
+        "freeze_bridge prototype scan"
+      ],
+      "evidence": "Report stores select_best; freeze_bridge Phase 22AI built contract from acceptance PASS scan"
+    },
+    {
+      "between": [
+        "optimizer winner",
+        "model_registry DEFAULT_CONFIG freeze"
+      ],
+      "evidence": "Phase 22AE/22AB: freeze never reads select_best or best_candidate.candidate_id"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:55:52.965394+00:00",
+  "production_modified": false
+}

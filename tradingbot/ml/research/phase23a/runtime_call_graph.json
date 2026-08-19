@@ -1,0 +1,178 @@
+{
+  "phase": "23A",
+  "mode": "read_only",
+  "nodes": [
+    {
+      "order": 1,
+      "name": "FeatureBuilder",
+      "file": "tradingbot/ml/features/builder.py",
+      "class": "FeatureBuilder",
+      "function": "compute_at",
+      "caller": "RangeEngineAdapter._features_from_candles (fallback only)",
+      "callee": "feature family compute_features",
+      "inputs": [
+        "m5_df",
+        "index"
+      ],
+      "outputs": [
+        "dict feature_name -> float"
+      ],
+      "early_exits": [
+        "index < 0 → all zeros"
+      ],
+      "production_reached": false,
+      "note": "Kernel path never passes candles to RangeEngineAdapter.evaluate"
+    },
+    {
+      "order": 2,
+      "name": "Market Context Builder",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "class": null,
+      "function": "build_market_context",
+      "caller": "KernelAdapter.produce_unified_signal",
+      "callee": [
+        "UnifiedRangeWrapper.evaluate",
+        "RecoveredTrendEngine.evaluate"
+      ],
+      "inputs": [
+        "unified row",
+        "range_engine",
+        "trend_engine"
+      ],
+      "outputs": [
+        "MarketContext"
+      ],
+      "early_exits": []
+    },
+    {
+      "order": 3,
+      "name": "Unified Frame Builder",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "class": null,
+      "function": "build_unified_frame",
+      "caller": "PipelineCache.get_unified_frame",
+      "callee": [
+        "build_ml_features",
+        "DatasetStore.load_v2 merge"
+      ],
+      "inputs": [
+        "candles tail(300)",
+        "dataset_v2"
+      ],
+      "outputs": [
+        "unified DataFrame with phase99_* columns"
+      ],
+      "early_exits": [
+        "merge miss → fillna(0.0)"
+      ]
+    },
+    {
+      "order": 4,
+      "name": "Feature Mapping",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "class": null,
+      "function": "row_for_phase99_range",
+      "caller": [
+        "UnifiedRangeWrapper.evaluate",
+        "build_market_context"
+      ],
+      "callee": null,
+      "inputs": [
+        "unified row"
+      ],
+      "outputs": [
+        "row with model feature names from phase99_* only"
+      ],
+      "early_exits": [
+        "missing dst column → feature not mapped"
+      ],
+      "filters": [
+        "PHASE99_FEATURE_MAP excludes ema_cross_state"
+      ]
+    },
+    {
+      "order": 5,
+      "name": "RangeEngine",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "class": "RangeEngineAdapter",
+      "function": "evaluate",
+      "caller": "UnifiedRangeWrapper.evaluate",
+      "callee": [
+        "_features_from_row",
+        "Phase99Bundle.predict_proba",
+        "SignalEngine.generate"
+      ],
+      "inputs": [
+        "row"
+      ],
+      "outputs": [
+        "signal",
+        "probability",
+        "confidence"
+      ],
+      "early_exits": [
+        "_features_from_row None and no candles → HOLD conf 0.0 without predict_proba",
+        "missing feature keys → HOLD"
+      ]
+    },
+    {
+      "order": 6,
+      "name": "KernelAdapter",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "class": "KernelAdapter",
+      "function": "produce_unified_signal",
+      "caller": "MLKernelRegistry.generate_signal → SignalStage",
+      "callee": [
+        "PipelineCache",
+        "build_market_context",
+        "CalibratedDecisionAdapter.evaluate"
+      ],
+      "outputs": [
+        "UnifiedSignal"
+      ],
+      "early_exits": [
+        "KernelFallbackError",
+        "pipeline timeout",
+        "cached prediction replay"
+      ]
+    },
+    {
+      "order": 7,
+      "name": "DecisionStage",
+      "file": "tradingbot/ml/decision_engine/orchestrator.py",
+      "class": "DecisionOrchestrator",
+      "function": "decide",
+      "caller": "CalibratedDecisionAdapter (via TradeQualityAdapter stack)",
+      "outputs": [
+        "FinalDecision action/confidence"
+      ],
+      "early_exits": [
+        "blocked regime → HOLD",
+        "confidence < 0.55 → HOLD"
+      ]
+    },
+    {
+      "order": 8,
+      "name": "SignalStage",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "class": "SignalStage",
+      "function": "process",
+      "outputs": [
+        "TradingSignal or stop pipeline"
+      ],
+      "early_exits": [
+        "generate_signal returns None on HOLD"
+      ]
+    },
+    {
+      "order": 9,
+      "name": "RiskGate / Execution",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "class": "TradingKernel",
+      "function": "run_market_cycle",
+      "note": "Not reached for model_pass in Phase 22AL — all bars blocked upstream"
+    }
+  ],
+  "edges": "sequential as listed",
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

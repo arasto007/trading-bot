@@ -1,0 +1,30 @@
+{
+  "note": "Probability compared via unified confidence + checksum proxy; legacy raw_probability separate",
+  "confidence_tolerance": 1e-09,
+  "windows": [
+    {
+      "window": "300_bars",
+      "max_confidence_delta": 0.0,
+      "confidence_mismatch_count": 0,
+      "passes_tol": true
+    },
+    {
+      "window": "7_days",
+      "max_confidence_delta": 0.0,
+      "confidence_mismatch_count": 0,
+      "passes_tol": true
+    },
+    {
+      "window": "30_days",
+      "max_confidence_delta": 0.0,
+      "confidence_mismatch_count": 0,
+      "passes_tol": true
+    },
+    {
+      "window": "90_days",
+      "max_confidence_delta": 0.0,
+      "confidence_mismatch_count": 0,
+      "passes_tol": true
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "phase": "23C",
+  "window": {
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "tail_bars": 300
+  },
+  "counts": {
+    "bars": 119,
+    "range_bars": 18,
+    "predict_proba_called": 18,
+    "engine_buy": 0,
+    "engine_sell": 18,
+    "engine_hold": 0,
+    "engine_actionable": 18,
+    "orchestrator_buy": 0,
+    "orchestrator_sell": 18,
+    "orchestrator_hold": 0,
+    "calibrated_buy": 0,
+    "calibrated_sell": 18,
+    "calibrated_hold": 0,
+    "blocked_decision_policy": 0,
+    "blocked_calibration": 0,
+    "blocked_risk": 0,
+    "blocked_quality": 0,
+    "blocked_profitability_filter": 9,
+    "kernel_actionable": 9,
+    "kernel_hold": 9
+  },
+  "latest_bar_trace": {
+    "range_evaluation": {
+      "signal": "SELL",
+      "probability": 0.471863,
+      "confidence": 0.056274,
+      "sl": 4051.405714,
+      "tp": 4037.858572,
+      "model_version": "phase9_9_best",
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "entry": 4046.89,
+      "risk_pct": 0.005,
+      "predict_proba_called": true,
+      "feature_validation_failed": false,
+      "feature_source": "feature_builder",
+      "feature_vector": {
+        "candle_direction": -1.0,
+        "structure_distance": 0.0,
+        "ema50_slope": 0.15953,
+        "ema_cross_state": -1.0
+      },
+      "timeframe": "M5"
+    },
+    "pipeline_stages": [
+      {
+        "stage": "RangeEngineAdapter.evaluate",
+        "input": {
+          "predict_proba": true
+        },
+        "output": {
+          "signal": "SELL",
+          "probability": 0.471863,
+          "confidence": 0.056274
+        },
+        "reason": "SignalEngine on probability; confidence = abs(p-0.5)*2"
+      },
+      {
+        "stage": "DecisionOrchestrator.decide",
+        "input": {
+          "raw_engine_signal": "SELL",
+          "model_confidence": 0.056274,
+          "regime": "RANGE"
+        },
+        "output": {
+          "action": "SELL",
+          "confidence": 0.528137
+        },
+        "reason": "volatility acceptable"
+      },
+      {
+        "stage": "ResearchCalibratedAdapter.decide",
+        "input": {
+          "orchestrator_action": "SELL",
+          "raw_confidence": 0.528137
+        },
+        "output": {
+          "final_action": "SELL",
+          "final_confidence": 0.528137
+        },
+        "reason": "calibration gate pass"
+      },
+      {
+        "stage": "AdaptiveRiskAdapter.evaluate",
+        "input": {
+          "action": "SELL",
+          "confidence": 0.8503849263561216
+        },
+        "output": {
+          "allowed": true,
+          "risk_percent": 0.3644,
+          "blocked_by": null
+        },
+        "reason": "risk allowed"
+      },
+      {
+        "stage": "TradeQualityAdapter.evaluate",
+        "input": {
+          "action": "SELL"
+        },
+        "output": {
+          "allowed": true,
+          "score": 1.0,
+          "blocked_by": null
+        },
+        "reason": "quality allowed"
+      },
+      {
+        "stage": "KernelAdapter.produce_unified_signal (filters)",
+        "input": {
+          "calibrated_action": "SELL"
+        },
+        "output": {
+          "direction": "HOLD",
+          "filter_passed": false
+        },
+        "reason": [
+          "rsi_filter"
+        ]
+      }
+    ],
+    "first_block_after_engine_actionable": {
+      "stage": "ProfitabilityFilter",
+      "reason": [
+        "rsi_filter"
+      ]
+    },
+    "final_kernel_direction": "HOLD"
+  },
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

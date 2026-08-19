@@ -1,0 +1,20 @@
+{
+  "phase": "28A",
+  "verdict": "HYBRID_B_IS_BEST",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "simulation_only": true,
+  "strategy_a": "hybrid_b",
+  "strategy_b": "time_exit",
+  "decision_winner": "hybrid_b",
+  "score_margin": 151.54,
+  "paired_summary": {
+    "hybrid_wins": 911,
+    "time_exit_wins": 1197,
+    "draws": 51,
+    "average_dollar_advantage_hybrid": -1.7192
+  },
+  "blockers": [],
+  "conclusion": "A/B paper validation: HYBRID_B_IS_BEST. Decision margin: 151.54. Paired hybrid wins: 911 vs time_exit: 1197.",
+  "generated_utc": "2026-07-09T20:01:08.174165+00:00"
+}

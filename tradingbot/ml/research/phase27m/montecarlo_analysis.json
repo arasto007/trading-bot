@@ -1,0 +1,156 @@
+{
+  "phase": "27M",
+  "strategies": {
+    "current_tp_sl": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 1101.1854,
+        "p05_net_profit": 1101.1854,
+        "median_profit_factor": 1.2847,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 995.3737,
+          "worst_net": 682.3292
+        },
+        "20pct": {
+          "median_net": 879.4558,
+          "worst_net": 541.1909
+        },
+        "30pct": {
+          "median_net": 730.7832,
+          "worst_net": 269.3869
+        }
+      },
+      "delay_1_bar_baseline_pnl": 1052.7226,
+      "failure_10pct_mean_pnl": 972.2763
+    },
+    "time_exit": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 4835.22,
+        "p05_net_profit": 4835.22,
+        "median_profit_factor": 1.8534,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 4304.3,
+          "worst_net": 3663.72
+        },
+        "20pct": {
+          "median_net": 3908.71,
+          "worst_net": 2908.62
+        },
+        "30pct": {
+          "median_net": 3316.2,
+          "worst_net": 2096.81
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "dynamic_tp_1.5r": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 815.9383,
+        "p05_net_profit": 815.9383,
+        "median_profit_factor": 1.2422,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 723.7679,
+          "worst_net": 464.791
+        },
+        "20pct": {
+          "median_net": 635.9678,
+          "worst_net": 394.3557
+        },
+        "30pct": {
+          "median_net": 554.3217,
+          "worst_net": 231.9732
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "structure_exit": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 635.4209,
+        "p05_net_profit": 635.4209,
+        "median_profit_factor": 1.3545,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 562.6076,
+          "worst_net": 300.6979
+        },
+        "20pct": {
+          "median_net": 513.2172,
+          "worst_net": 284.8435
+        },
+        "30pct": {
+          "median_net": 460.2754,
+          "worst_net": 150.5817
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "atr_exit": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 561.8585,
+        "p05_net_profit": 561.8585,
+        "median_profit_factor": 1.2569,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 499.347,
+          "worst_net": 327.037
+        },
+        "20pct": {
+          "median_net": 422.3544,
+          "worst_net": 266.5457
+        },
+        "30pct": {
+          "median_net": 381.3772,
+          "worst_net": 145.1103
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "partial_close_50": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 853.1792,
+        "p05_net_profit": 853.1792,
+        "median_profit_factor": 1.3,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 794.9831,
+          "worst_net": 548.2495
+        },
+        "20pct": {
+          "median_net": 693.9467,
+          "worst_net": 327.526
+        },
+        "30pct": {
+          "median_net": 608.6635,
+          "worst_net": 166.7296
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    }
+  },
+  "generated_utc": "2026-07-09T18:22:10.216877+00:00"
+}

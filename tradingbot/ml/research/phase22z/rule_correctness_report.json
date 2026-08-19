@@ -1,0 +1,55 @@
+{
+  "rule": "overfitting_risk_decreased",
+  "implementation": {
+    "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+    "function": "evaluate_acceptance / _risk_improved",
+    "formula": "order[candidate_risk] < order[baseline_risk]",
+    "risk_order": {
+      "LOW": 0,
+      "MEDIUM": 1,
+      "HIGH": 2
+    }
+  },
+  "label_source": {
+    "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+    "function": "assess_overfitting_risk",
+    "thresholds": {
+      "HIGH": "mean_gap>0.12 OR robustness<45 OR mean_degradation>0.25",
+      "MEDIUM": "mean_gap>0.06 OR robustness<70 OR mean_degradation>0.12",
+      "LOW": "otherwise"
+    }
+  },
+  "statistics": {
+    "total_candidates": 28,
+    "overfitting_risk_decreased_pass": 12,
+    "overfitting_risk_decreased_fail": 16,
+    "fail_really_overfit": 1,
+    "fail_label_logic": 15,
+    "numeric_mean_auc_gap_better_than_baseline": 27,
+    "numeric_mean_auc_gap_not_better": 1,
+    "probability_gate_passed_fail_overfitting_ordinal": 5
+  },
+  "is_too_strict_evidence": {
+    "baseline_is_high_risk": true,
+    "candidates_numeric_gap_better_but_ordinal_fail": 15,
+    "gate_passed_all_fail_ordinal": true,
+    "example": {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "overfitting_risk_decreased_passed": false,
+      "rejection_category": "Rejected because: Label Logic",
+      "rejection_reason": "mean_auc_gap improved (0.1562 < 0.3308) but ordinal label unchanged (HIGH vs baseline HIGH); assess_overfitting_risk buckets both as HIGH",
+      "candidate_overfitting_risk": "HIGH",
+      "baseline_overfitting_risk": "HIGH",
+      "mean_auc_gap": 0.1562,
+      "baseline_mean_auc_gap": 0.3308,
+      "mean_auc_gap_delta_vs_baseline": 0.1746,
+      "numeric_auc_gap_better_than_baseline": true,
+      "mean_degradation": "NOT_STORED_IN_PHASE9_9_RANKING_JSON",
+      "high_label_triggers_if_applicable": [
+        "mean_auc_gap>0.12"
+      ]
+    }
+  },
+  "generated_utc": "2026-07-07T19:00:45.278480+00:00",
+  "production_modified": false
+}

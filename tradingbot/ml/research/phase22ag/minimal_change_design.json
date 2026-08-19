@@ -1,0 +1,24 @@
+{
+  "phase": "22AG",
+  "recommendation": "Replace ordinal overfitting_risk_decreased with numeric mean_auc_gap improvement",
+  "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+  "function": "evaluate_acceptance",
+  "change_description": "Replace checks['overfitting_risk_decreased'] = _risk_improved(base_risk, best_risk) with checks['mean_auc_gap_improved'] = float(best.get('mean_auc_gap', inf)) < baseline_mean_auc_gap where baseline_mean_auc_gap is loaded from phase9_8_robustness_report train_test_gap (0.3308). Keep probability_quality_passed, mean_expectancy_positive, profitable_windows_ge_4, robustness_improved unchanged.",
+  "risk": "MEDIUM",
+  "risk_rationale": "Numeric gate aligns acceptance with actual generalization gap; still blocked by robustness and 4-window rules",
+  "expected_effect": {
+    "accepted_candidates_variant_D": 1,
+    "accepted_ids": [
+      "xgb_baseline_phase96__stable_except_unstable__RANGE"
+    ],
+    "freeze_gate_can_open": true,
+    "dominant_remaining_blocker_if_zero": "robustness_improved or profitable_windows_ge_4"
+  },
+  "out_of_scope_minimal_change": [
+    "Lowering profitable_windows threshold",
+    "Removing probability gate",
+    "Changing assess_overfitting_risk label buckets"
+  ],
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,145 @@
+{
+  "phase": "24B",
+  "edges": [
+    {
+      "from": "main()",
+      "to": "run_live_loop()",
+      "file": "tradingbot/__main__.py",
+      "line": 79
+    },
+    {
+      "from": "run_live_loop()",
+      "to": "LiveRunner.__init__",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 147
+    },
+    {
+      "from": "LiveRunner.__init__",
+      "to": "build_strategy_registry()",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 76
+    },
+    {
+      "from": "build_strategy_registry()",
+      "to": "build_kernel_adapter()",
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 141
+    },
+    {
+      "from": "build_kernel_adapter()",
+      "to": "build_ml_kernel_stack()",
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 119
+    },
+    {
+      "from": "build_ml_kernel_stack()",
+      "to": "PipelineCache.get_registry()",
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 61
+    },
+    {
+      "from": "LiveRunner._run()",
+      "to": "TradingKernel.run_forever()",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 113
+    },
+    {
+      "from": "run_forever()",
+      "to": "run_global_cycle()",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 222
+    },
+    {
+      "from": "run_global_cycle()",
+      "to": "run_market_cycle()",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 158
+    },
+    {
+      "from": "run_market_cycle()",
+      "to": "PipelineStage.run() x5",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 184
+    },
+    {
+      "from": "SignalStage.run()",
+      "to": "MLKernelRegistry.generate_signal()",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "line": 35
+    },
+    {
+      "from": "MLKernelRegistry.generate_signal()",
+      "to": "KernelAdapter.generate_signal()",
+      "file": "tradingbot/ml/integration/ml_kernel_registry.py",
+      "line": 64
+    },
+    {
+      "from": "KernelAdapter.generate_signal()",
+      "to": "produce_unified_signal()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 292
+    },
+    {
+      "from": "produce_unified_signal()",
+      "to": "require_health()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 172
+    },
+    {
+      "from": "produce_unified_signal()",
+      "to": "PipelineCache.get_unified_frame()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 178
+    },
+    {
+      "from": "produce_unified_signal()",
+      "to": "build_market_context()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 208
+    },
+    {
+      "from": "produce_unified_signal()",
+      "to": "TradeQualityAdapter.evaluate()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 219
+    },
+    {
+      "from": "TradeQualityAdapter.evaluate()",
+      "to": "AdaptiveRiskAdapter.evaluate()",
+      "file": "tradingbot/ml/trade_quality/adapter.py",
+      "line": 64
+    },
+    {
+      "from": "produce_unified_signal()",
+      "to": "apply_profitability_filters()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 239
+    },
+    {
+      "from": "generate_signal()",
+      "to": "map_unified_to_trading_signal()",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 295
+    },
+    {
+      "from": "RiskStage.run()",
+      "to": "IRiskGate.evaluate()",
+      "file": "tradingbot/pipeline/risk_stage.py",
+      "line": 35
+    },
+    {
+      "from": "ExecutionStage.run()",
+      "to": "Mt5ExecutionAdapter.execute()",
+      "file": "tradingbot/pipeline/execution_stage.py",
+      "line": 21
+    },
+    {
+      "from": "Mt5ExecutionAdapter.execute()",
+      "to": "mt5.order_send()",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "line": 240
+    }
+  ],
+  "node_count": 30,
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

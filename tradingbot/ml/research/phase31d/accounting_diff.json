@@ -1,0 +1,17 @@
+{
+  "phase": "31D",
+  "repaired_mode": true,
+  "production_net_pnl": 796.0066,
+  "simulator_net_pnl": 796.0066,
+  "net_pnl_delta": 0.0,
+  "pnl_gap_pct": 0.0,
+  "production_pf": 1.3226,
+  "simulator_pf": 1.3226,
+  "pf_gap_pct": 0.0,
+  "partial_close_mismatch_count": 0,
+  "floating_pnl_note": "Replay uses realized PnL only; no floating PnL divergence in closed trades",
+  "closed_pnl_trades_compared": 489,
+  "acceptance_pnl_tolerance_pct": 0.5,
+  "acceptance_pf_tolerance_pct": 0.5,
+  "generated_utc": "2026-07-10T16:51:48.363630+00:00"
+}

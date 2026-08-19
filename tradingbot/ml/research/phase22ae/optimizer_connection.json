@@ -1,0 +1,70 @@
+{
+  "phase": "22AE",
+  "optimizer_can_reach_freeze": false,
+  "exact_path_exists": false,
+  "optimizer_pipeline_end": {
+    "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+    "last_steps": [
+      "rank_candidates(experiments)",
+      "select_best(ranked)",
+      "evaluate_acceptance(best, baseline)",
+      "save_reports(...) → JSON under data/ml/reports/"
+    ],
+    "returns": "RobustnessOptimizationResult (no freeze)"
+  },
+  "train_cli_end": {
+    "file": "scripts/train_model.py",
+    "phase9_9_block": "RobustnessOptimizer.run → print JSON → exit",
+    "calls_freeze": true
+  },
+  "freeze_reads_optimizer": {
+    "imports_robustness_optimizer": "model_registry imports create_regularized_model only",
+    "reads_best_candidate_id": false,
+    "reads_experiment_id": false,
+    "reads_feature_subset_from_report": false,
+    "reads_robustness_score_only": true
+  },
+  "broken_edges": [
+    {
+      "from": "RobustnessOptimizer.run",
+      "to": "freeze_phase9_9_artifacts",
+      "status": "MISSING",
+      "evidence": "optimization_orchestrator.py ends at save_reports(); no import of model_registry freeze"
+    },
+    {
+      "from": "select_best(ranked)",
+      "to": "freeze config/candidate",
+      "status": "MISSING",
+      "evidence": "best dict stored in JSON report only; never passed to freeze"
+    },
+    {
+      "from": "scripts/train_model.py --phase9-9",
+      "to": "freeze_phase9_9_artifacts",
+      "status": "MISSING",
+      "evidence": "train_model.py lines 191-201 return after optimizer.run(); no freeze call"
+    },
+    {
+      "from": "phase9_9_robustness_report.json",
+      "to": "freeze candidate selection",
+      "status": "PARTIAL_READ_ONLY",
+      "evidence": "_load_phase99_score reads robustness_score only; ignores candidate_id/experiment_id"
+    },
+    {
+      "from": "evaluate_acceptance",
+      "to": "freeze gate",
+      "status": "MISSING",
+      "evidence": "acceptance verdict never consulted before freeze (phase 22AB confirmed)"
+    }
+  ],
+  "current_report_vs_frozen": {
+    "report_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_robustness_report.json",
+    "report_best_candidate_id": "random_forest_shallow",
+    "report_experiment_id": "random_forest_shallow__stable_4__RANGE",
+    "report_robustness_score": 59.09,
+    "frozen_metadata_candidate_id": "logistic_strong_reg",
+    "aligned": false
+  },
+  "hypothetical_wiring_gap": "Even if select_best output were passed as config=, freeze would still hardcode candidate_id/model_name unless freeze implementation changed",
+  "generated_utc": "2026-07-07T19:28:18.301547+00:00",
+  "production_modified": false
+}

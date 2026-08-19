@@ -1,0 +1,33 @@
+{
+  "caches": [
+    "PipelineCache (thread lock)",
+    "DatasetStore memory cache",
+    "ParquetCache market data"
+  ],
+  "thread_safety": [
+    {
+      "component": "PipelineCache",
+      "status": "locked"
+    },
+    {
+      "component": "LiveRiskTracker file writes",
+      "status": "potential race with KillSwitch",
+      "source": "phase24j/thread_safety_report.json"
+    },
+    {
+      "component": "SignalStage bar dedup",
+      "status": "in-memory per process \u2014 lost on restart"
+    }
+  ],
+  "memory": {
+    "phase24a_leak_suspected": true,
+    "note": "tracemalloc in research shadow only"
+  },
+  "handles": [
+    "SQLite trade_journal.db",
+    "MT5 terminal connection",
+    "Parquet candle files"
+  ],
+  "phase25b_determinism": "PASS on unified replay stable fields",
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

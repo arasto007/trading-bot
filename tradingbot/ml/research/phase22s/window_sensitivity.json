@@ -1,0 +1,2056 @@
+{
+  "phase": "22S",
+  "feature": "structure_distance",
+  "note": "full = m5_window from production start to event bar (training path); tail windows simulate live PipelineCache",
+  "samples": [
+    {
+      "timestamp": "2021-07-23 01:05:00+00:00",
+      "bar_index": 3349,
+      "dataset_v2_value": 5.0,
+      "by_window": {
+        "300": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 3350
+        }
+      }
+    },
+    {
+      "timestamp": "2021-07-30 07:00:00+00:00",
+      "bar_index": 4790,
+      "dataset_v2_value": 9.0,
+      "by_window": {
+        "300": {
+          "value": 9.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 9.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 9.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 9.0,
+          "matches_dataset": true,
+          "bars_in_window": 4791
+        }
+      }
+    },
+    {
+      "timestamp": "2021-08-05 12:00:00+00:00",
+      "bar_index": 5947,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 5948
+        }
+      }
+    },
+    {
+      "timestamp": "2021-11-19 17:00:00+00:00",
+      "bar_index": 26746,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 26747
+        }
+      }
+    },
+    {
+      "timestamp": "2021-12-13 12:00:00+00:00",
+      "bar_index": 30985,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 30986
+        }
+      }
+    },
+    {
+      "timestamp": "2022-04-18 17:00:00+00:00",
+      "bar_index": 55115,
+      "dataset_v2_value": 7.0,
+      "by_window": {
+        "300": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 55116
+        }
+      }
+    },
+    {
+      "timestamp": "2022-07-20 17:00:00+00:00",
+      "bar_index": 73474,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 73475
+        }
+      }
+    },
+    {
+      "timestamp": "2022-08-23 01:00:00+00:00",
+      "bar_index": 79906,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 79907
+        }
+      }
+    },
+    {
+      "timestamp": "2022-09-07 17:00:00+00:00",
+      "bar_index": 83074,
+      "dataset_v2_value": 4.0,
+      "by_window": {
+        "300": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 83075
+        }
+      }
+    },
+    {
+      "timestamp": "2022-09-16 01:00:00+00:00",
+      "bar_index": 84814,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 84815
+        }
+      }
+    },
+    {
+      "timestamp": "2022-12-07 12:00:00+00:00",
+      "bar_index": 100868,
+      "dataset_v2_value": 8.0,
+      "by_window": {
+        "300": {
+          "value": 8.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 8.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 8.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 8.0,
+          "matches_dataset": true,
+          "bars_in_window": 100869
+        }
+      }
+    },
+    {
+      "timestamp": "2023-02-14 17:00:00+00:00",
+      "bar_index": 113868,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 113869
+        }
+      }
+    },
+    {
+      "timestamp": "2023-02-27 12:00:00+00:00",
+      "bar_index": 116260,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 116261
+        }
+      }
+    },
+    {
+      "timestamp": "2023-02-28 01:00:00+00:00",
+      "bar_index": 116404,
+      "dataset_v2_value": 12.0,
+      "by_window": {
+        "300": {
+          "value": 12.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 12.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 12.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 12.0,
+          "matches_dataset": true,
+          "bars_in_window": 116405
+        }
+      }
+    },
+    {
+      "timestamp": "2023-03-01 21:00:00+00:00",
+      "bar_index": 116920,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 116921
+        }
+      }
+    },
+    {
+      "timestamp": "2023-04-05 01:00:00+00:00",
+      "bar_index": 123579,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 123580
+        }
+      }
+    },
+    {
+      "timestamp": "2023-04-20 01:00:00+00:00",
+      "bar_index": 126339,
+      "dataset_v2_value": 7.0,
+      "by_window": {
+        "300": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 126340
+        }
+      }
+    },
+    {
+      "timestamp": "2023-05-02 07:00:00+00:00",
+      "bar_index": 128619,
+      "dataset_v2_value": 5.0,
+      "by_window": {
+        "300": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 128620
+        }
+      }
+    },
+    {
+      "timestamp": "2023-05-03 17:00:00+00:00",
+      "bar_index": 129015,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 129016
+        }
+      }
+    },
+    {
+      "timestamp": "2023-06-21 02:55:00+00:00",
+      "bar_index": 138418,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 138419
+        }
+      }
+    },
+    {
+      "timestamp": "2023-06-21 07:00:00+00:00",
+      "bar_index": 138467,
+      "dataset_v2_value": 6.0,
+      "by_window": {
+        "300": {
+          "value": 6.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 6.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 6.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 6.0,
+          "matches_dataset": true,
+          "bars_in_window": 138468
+        }
+      }
+    },
+    {
+      "timestamp": "2023-07-03 01:00:00+00:00",
+      "bar_index": 140603,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 140604
+        }
+      }
+    },
+    {
+      "timestamp": "2023-07-06 23:00:00+00:00",
+      "bar_index": 141651,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 141652
+        }
+      }
+    },
+    {
+      "timestamp": "2023-07-12 01:00:00+00:00",
+      "bar_index": 142491,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 142492
+        }
+      }
+    },
+    {
+      "timestamp": "2023-08-03 17:00:00+00:00",
+      "bar_index": 147099,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 147100
+        }
+      }
+    },
+    {
+      "timestamp": "2023-08-08 12:00:00+00:00",
+      "bar_index": 147867,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 147868
+        }
+      }
+    },
+    {
+      "timestamp": "2023-08-30 09:30:00+00:00",
+      "bar_index": 152253,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 152254
+        }
+      }
+    },
+    {
+      "timestamp": "2023-08-30 12:00:00+00:00",
+      "bar_index": 152283,
+      "dataset_v2_value": 7.0,
+      "by_window": {
+        "300": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 152284
+        }
+      }
+    },
+    {
+      "timestamp": "2023-11-27 17:00:00+00:00",
+      "bar_index": 169598,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 169599
+        }
+      }
+    },
+    {
+      "timestamp": "2023-12-22 07:00:00+00:00",
+      "bar_index": 174718,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 174719
+        }
+      }
+    },
+    {
+      "timestamp": "2024-01-12 07:00:00+00:00",
+      "bar_index": 178300,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 178301
+        }
+      }
+    },
+    {
+      "timestamp": "2024-01-22 01:00:00+00:00",
+      "bar_index": 179851,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 179852
+        }
+      }
+    },
+    {
+      "timestamp": "2024-01-25 07:00:00+00:00",
+      "bar_index": 180751,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 180752
+        }
+      }
+    },
+    {
+      "timestamp": "2024-01-30 07:00:00+00:00",
+      "bar_index": 181579,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 181580
+        }
+      }
+    },
+    {
+      "timestamp": "2024-02-02 07:00:00+00:00",
+      "bar_index": 182407,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 182408
+        }
+      }
+    },
+    {
+      "timestamp": "2024-02-07 01:00:00+00:00",
+      "bar_index": 183163,
+      "dataset_v2_value": 7.0,
+      "by_window": {
+        "300": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 183164
+        }
+      }
+    },
+    {
+      "timestamp": "2024-02-07 07:00:00+00:00",
+      "bar_index": 183235,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 183236
+        }
+      }
+    },
+    {
+      "timestamp": "2024-04-17 01:00:00+00:00",
+      "bar_index": 196646,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 196647
+        }
+      }
+    },
+    {
+      "timestamp": "2024-05-07 01:00:00+00:00",
+      "bar_index": 200399,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 200400
+        }
+      }
+    },
+    {
+      "timestamp": "2024-06-12 12:00:00+00:00",
+      "bar_index": 207658,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 207659
+        }
+      }
+    },
+    {
+      "timestamp": "2024-06-17 17:00:00+00:00",
+      "bar_index": 208545,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 208546
+        }
+      }
+    },
+    {
+      "timestamp": "2024-06-26 01:00:00+00:00",
+      "bar_index": 210239,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 210240
+        }
+      }
+    },
+    {
+      "timestamp": "2024-07-25 12:00:00+00:00",
+      "bar_index": 216118,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 216119
+        }
+      }
+    },
+    {
+      "timestamp": "2024-08-16 01:00:00+00:00",
+      "bar_index": 220399,
+      "dataset_v2_value": 4.0,
+      "by_window": {
+        "300": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 4.0,
+          "matches_dataset": true,
+          "bars_in_window": 220400
+        }
+      }
+    },
+    {
+      "timestamp": "2024-09-02 17:00:00+00:00",
+      "bar_index": 223624,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 223625
+        }
+      }
+    },
+    {
+      "timestamp": "2024-10-04 21:00:00+00:00",
+      "bar_index": 230250,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 230251
+        }
+      }
+    },
+    {
+      "timestamp": "2024-11-19 01:00:00+00:00",
+      "bar_index": 238831,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 238832
+        }
+      }
+    },
+    {
+      "timestamp": "2024-12-26 12:00:00+00:00",
+      "bar_index": 245990,
+      "dataset_v2_value": 7.0,
+      "by_window": {
+        "300": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 7.0,
+          "matches_dataset": true,
+          "bars_in_window": 245991
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-02 12:00:00+00:00",
+      "bar_index": 247066,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 247067
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-21 01:15:00+00:00",
+      "bar_index": 250472,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 250473
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-23 10:00:00+00:00",
+      "bar_index": 251129,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 251130
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-24 12:00:00+00:00",
+      "bar_index": 251429,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 251430
+        }
+      }
+    },
+    {
+      "timestamp": "2025-01-24 13:05:00+00:00",
+      "bar_index": 251442,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 251443
+        }
+      }
+    },
+    {
+      "timestamp": "2025-02-14 07:00:00+00:00",
+      "bar_index": 255502,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 255503
+        }
+      }
+    },
+    {
+      "timestamp": "2025-03-21 12:00:00+00:00",
+      "bar_index": 262435,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 262436
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-01 17:00:00+00:00",
+      "bar_index": 264413,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 264414
+        }
+      }
+    },
+    {
+      "timestamp": "2025-04-24 13:15:00+00:00",
+      "bar_index": 268781,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 268782
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-15 01:00:00+00:00",
+      "bar_index": 272770,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 272771
+        }
+      }
+    },
+    {
+      "timestamp": "2025-05-30 12:00:00+00:00",
+      "bar_index": 275903,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 275904
+        }
+      }
+    },
+    {
+      "timestamp": "2025-06-18 12:00:00+00:00",
+      "bar_index": 279488,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 279489
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-07 12:00:00+00:00",
+      "bar_index": 282977,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 282978
+        }
+      }
+    },
+    {
+      "timestamp": "2025-07-11 12:00:00+00:00",
+      "bar_index": 284081,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 284082
+        }
+      }
+    },
+    {
+      "timestamp": "2025-08-08 17:00:00+00:00",
+      "bar_index": 289655,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 289656
+        }
+      }
+    },
+    {
+      "timestamp": "2025-08-19 01:00:00+00:00",
+      "bar_index": 291393,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 291394
+        }
+      }
+    },
+    {
+      "timestamp": "2025-08-21 17:00:00+00:00",
+      "bar_index": 292137,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 292138
+        }
+      }
+    },
+    {
+      "timestamp": "2025-09-12 01:00:00+00:00",
+      "bar_index": 296324,
+      "dataset_v2_value": 13.0,
+      "by_window": {
+        "300": {
+          "value": 13.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 13.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 13.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 13.0,
+          "matches_dataset": true,
+          "bars_in_window": 296325
+        }
+      }
+    },
+    {
+      "timestamp": "2025-09-16 01:00:00+00:00",
+      "bar_index": 296875,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 296876
+        }
+      }
+    },
+    {
+      "timestamp": "2025-09-16 17:00:00+00:00",
+      "bar_index": 297067,
+      "dataset_v2_value": 2.0,
+      "by_window": {
+        "300": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 2.0,
+          "matches_dataset": true,
+          "bars_in_window": 297068
+        }
+      }
+    },
+    {
+      "timestamp": "2025-10-29 00:00:00+00:00",
+      "bar_index": 305425,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 305426
+        }
+      }
+    },
+    {
+      "timestamp": "2026-01-21 17:00:00+00:00",
+      "bar_index": 321415,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 321416
+        }
+      }
+    },
+    {
+      "timestamp": "2026-02-27 07:00:00+00:00",
+      "bar_index": 328706,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 328707
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-16 07:00:00+00:00",
+      "bar_index": 331751,
+      "dataset_v2_value": 5.0,
+      "by_window": {
+        "300": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 5.0,
+          "matches_dataset": true,
+          "bars_in_window": 331752
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-17 07:00:00+00:00",
+      "bar_index": 338083,
+      "dataset_v2_value": 3.0,
+      "by_window": {
+        "300": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 3.0,
+          "matches_dataset": true,
+          "bars_in_window": 338084
+        }
+      }
+    },
+    {
+      "timestamp": "2026-04-20 07:00:00+00:00",
+      "bar_index": 338358,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 338359
+        }
+      }
+    },
+    {
+      "timestamp": "2026-06-04 12:00:00+00:00",
+      "bar_index": 347483,
+      "dataset_v2_value": 1.0,
+      "by_window": {
+        "300": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 300
+        },
+        "500": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 500
+        },
+        "1000": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 1000
+        },
+        "full": {
+          "value": 1.0,
+          "matches_dataset": true,
+          "bars_in_window": 347484
+        }
+      }
+    }
+  ],
+  "convergence_summary": {
+    "300": {
+      "match_count": 75,
+      "match_pct": 100.0,
+      "n_samples": 75
+    },
+    "500": {
+      "match_count": 75,
+      "match_pct": 100.0,
+      "n_samples": 75
+    },
+    "1000": {
+      "match_count": 75,
+      "match_pct": 100.0,
+      "n_samples": 75
+    },
+    "full": {
+      "match_count": 75,
+      "match_pct": 100.0,
+      "n_samples": 75
+    }
+  },
+  "stable_window_at_99pct": 300,
+  "generated_utc": "2026-07-05T17:27:21.614609+00:00"
+}

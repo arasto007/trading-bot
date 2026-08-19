@@ -1,0 +1,28 @@
+{
+  "phase": "24C",
+  "pipeline_cache_feature": {
+    "hits": 0,
+    "misses": 1130,
+    "hit_ratio": 0.0
+  },
+  "pipeline_cache_prediction": {
+    "hits": 1044,
+    "misses": 86,
+    "hit_ratio": 0.9239
+  },
+  "feature_builder": {
+    "calls": 1130,
+    "internal_cache": false,
+    "note": "FeatureBuilder.compute_at has no cache \u2014 every call is a full recompute"
+  },
+  "meta": {
+    "phase": "24C",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "pipeline_budget_ms": 500.0,
+    "method": "perf_counter_per_stage",
+    "production_modified": false,
+    "bars_profiled": 1130,
+    "generated_utc": "2026-07-08T11:27:51.259241+00:00"
+  }
+}

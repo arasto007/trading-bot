@@ -1,0 +1,13 @@
+{
+  "total_rows": 851,
+  "positive_tp_first": 308,
+  "negative_sl_first": 543,
+  "positive_pct": 36.1927,
+  "negative_pct": 63.8073,
+  "classes_present": [
+    0,
+    1
+  ],
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

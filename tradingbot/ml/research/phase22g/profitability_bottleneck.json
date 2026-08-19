@@ -1,0 +1,91 @@
+{
+  "phase": "22G",
+  "evidence_sources": [
+    "M5_backtest_hold_chain",
+    "execution_trace_stage_blocks"
+  ],
+  "first_destroyer": "decision_hold (hold_chain)",
+  "first_destroyer_detail": "Engine + orchestrator produce HOLD on ~96%+ bars before RiskGate. Primary code path: regime_classifier -> range/trend engines -> DecisionPolicy confidence gate. RiskGate cascade (min balance, daily loss) is secondary once trades occur.",
+  "executed_trade_metrics_m5": {
+    "trades": 2,
+    "profit_factor": 0.0,
+    "expectancy": -10.719,
+    "max_drawdown_pct": 6.47,
+    "buy_trades": 0,
+    "sell_trades": 2
+  },
+  "stage_loss_ranked": [
+    {
+      "stage": "decision_hold (hold_chain)",
+      "blocks": 4234
+    },
+    {
+      "stage": "riskgate_hold (hold_chain)",
+      "blocks": 58
+    }
+  ],
+  "funnel": [
+    {
+      "stage": "bars",
+      "count": 4308,
+      "pct": 100.0
+    },
+    {
+      "stage": "engine_actionable",
+      "count": 60,
+      "lost_pct": 98.61
+    },
+    {
+      "stage": "decision_hold",
+      "count": 4234,
+      "source": "hold_chain"
+    },
+    {
+      "stage": "calibration_hold",
+      "count": 0
+    },
+    {
+      "stage": "trade_quality_hold",
+      "count": 0
+    },
+    {
+      "stage": "rsi_filter",
+      "count": 14
+    },
+    {
+      "stage": "adx_filter",
+      "count": 0
+    },
+    {
+      "stage": "meta_hold",
+      "count": 0
+    },
+    {
+      "stage": "riskgate_hold",
+      "count": 58,
+      "reasons": {
+        "max positions for symbol": 4,
+        "daily loss limit": 54
+      }
+    },
+    {
+      "stage": "executed_trades",
+      "count": 2
+    }
+  ],
+  "summary": "Information loss peaks at 'decision_hold (hold_chain)'. Only 2 trades executed from 4308 bars. Executed PF=0.0.",
+  "execution_trace_sample": {
+    "stride": 10,
+    "bars_ok": 163,
+    "bars_error": 0,
+    "hold_pct": 94.48,
+    "stage_block_counts": {
+      "calibration_hold": 137,
+      "risk": 137,
+      "quality": 137,
+      "rsi_filter": 14,
+      "adx_filter": 6
+    },
+    "note": "Per-candle trace confirms engine/orchestrator HOLD dominates before RiskGate; trace regenerated after tracer fix."
+  }
+}

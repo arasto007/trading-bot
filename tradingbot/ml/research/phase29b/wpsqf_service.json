@@ -1,0 +1,25 @@
+{
+  "phase": "29B",
+  "service": "WinnerPopulationSignalQualityFilter",
+  "module": "tradingbot.services.winner_population_signal_quality_filter",
+  "pipeline_stage": "tradingbot.pipeline.signal_filter_stage.SignalFilterStage",
+  "position": "after SignalStage, before RiskStage",
+  "config_env": {
+    "TRADINGBOT_SIGNAL_FILTER": [
+      "OFF",
+      "WPSQF"
+    ],
+    "TRADINGBOT_WPSQF_THRESHOLD": "float, default 77.56"
+  },
+  "default_threshold": 77.56,
+  "calibration": {
+    "adx": 20.55162408026756,
+    "confidence": 0.9761393883020575,
+    "false_signal_score": 29.468227424749163,
+    "context_score": 52.324414715719065,
+    "trend_aligned_rate": 0.5919732441471572
+  },
+  "reject_rule": "signal_quality_score < threshold",
+  "deterministic": true,
+  "generated_utc": "2026-07-10T03:01:36.068377+00:00"
+}

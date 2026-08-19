@@ -1,0 +1,23 @@
+{
+  "phase": "30D",
+  "objective": "Continuous bid/ask stream for spread and latency-price coupling",
+  "mode": "Research collector process \u2014 isolated from production pipeline",
+  "method": {
+    "primary": "Poll MT5 symbol_info_tick every 100ms during 00:00\u201322:00 UTC",
+    "secondary": "On every bot order send capture quote snapshot",
+    "high_frequency_windows": "1-second poll during news and rollover"
+  },
+  "windows": {
+    "continuous": "Mon\u2013Fri 00:00\u201322:00 UTC",
+    "news": "T-5min to T+15min high impact USD/XAU",
+    "rollover": "21:55\u201322:15 UTC daily",
+    "weekend_open": "Sun 22:00\u2013Mon 02:00 UTC first ticks"
+  },
+  "output": "tick_store/XAUUSD/YYYY/MM/DD/part-*.parquet",
+  "phase30c_alignment": "Matches phase30c tick_requirements.json storage proposal",
+  "duration_days": 30,
+  "target_rows": 500000,
+  "collector_location": "tradingbot/ml/research/phase30d/collectors/ (Phase 30E implement)",
+  "safety": "Read-only MT5 \u2014 no orders from tick collector",
+  "generated_utc": "2026-07-10T11:04:24.685261+00:00"
+}

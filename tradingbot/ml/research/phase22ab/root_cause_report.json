@@ -1,0 +1,32 @@
+{
+  "phase": "22AB",
+  "question": "Why can a rejected model still become a frozen artifact?",
+  "answer": "freeze_phase9_9_artifacts() is a separate Phase 9.10 registry function that never reads evaluate_acceptance() or overfitting_risk_decreased. It trains a hardcoded logistic_strong_reg model from DEFAULT_CONFIG and can be invoked directly or via load_phase9_9_bundle(build_if_missing=True) without any connection to the Phase 9.9 RobustnessOptimizer pipeline.",
+  "repository_evidence": [
+    {
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "lines": "92-144",
+      "fact": "freeze uses DEFAULT_CONFIG; no acceptance import"
+    },
+    {
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "lines": "154-165",
+      "fact": "load_phase9_9_bundle auto-freezes when model.pkl missing"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "fact": "run() ends at save_reports; never calls freeze"
+    },
+    {
+      "file": "data/ml/research/phase9_9_best/metadata.json",
+      "fact": "frozen candidate=logistic_strong_reg at 2026-06-29T22:15:00.449792+00:00"
+    },
+    {
+      "file": "data/ml/reports/phase9_9_robustness_report.json",
+      "fact": "current acceptance.final_verdict=FAIL"
+    }
+  ],
+  "no_speculation": true,
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

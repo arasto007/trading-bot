@@ -1,0 +1,55 @@
+{
+  "phase": "23D",
+  "rsi_dependencies": {
+    "feature_source": "unified row / dataset_v2 rsi column",
+    "read_by": "apply_profitability_filters → _feature_float(features, 'rsi')",
+    "default_if_missing": 50.0,
+    "affects": [
+      "KernelAdapter.produce_unified_signal direction",
+      "HoldStage.RSI_FILTER counter"
+    ],
+    "does_not_affect": [
+      "RiskGate core",
+      "Mt5ExecutionAdapter order_send",
+      "FeatureBuilder / predict_proba",
+      "HealthGate phase9 artifact checks",
+      "Frozen model artifacts"
+    ]
+  },
+  "adx_dependencies": {
+    "feature_source": "unified row adx column",
+    "read_by": "apply_profitability_filters",
+    "default_if_missing": 0.0,
+    "affects": [
+      "KernelAdapter direction",
+      "HoldStage.ADX_FILTER counter"
+    ],
+    "does_not_affect": [
+      "RiskGate SL/TP",
+      "Training pipeline",
+      "Regime detector core"
+    ]
+  },
+  "profitability_filter_dependencies": {
+    "module": "tradingbot/ml/phase19c/filters.py",
+    "called_from": [
+      "tradingbot/ml/integration/kernel_adapter.py",
+      "tradingbot/ml/phase19c/backtest.py",
+      "tradingbot/ml/research/phase23c/decision_gate_investigation.py"
+    ],
+    "changing_thresholds_would_affect": [
+      "UnifiedSignal.direction (HOLD vs BUY/SELL)",
+      "TradingSignal emission (None when HOLD)",
+      "Hold chain rsi_filter_hold / adx_filter_hold counters",
+      "Phase 19C/22C backtest replay statistics"
+    ],
+    "changing_would_not_affect": [
+      "RangeEngineAdapter predict_proba",
+      "DecisionOrchestrator policy thresholds",
+      "Platt calibration fit",
+      "RiskGate max positions / daily loss (downstream of signal)"
+    ]
+  },
+  "research_replay_isolation": "phase19c/backtest and phase23d use same apply_profitability_filters — read-only simulation safe",
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

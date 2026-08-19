@@ -1,0 +1,88 @@
+{
+  "phase": "23G",
+  "pipeline_a_label": "Phase22C production filters (rollback baseline)",
+  "pipeline_b_label": "Integrated RANGE profile (ENABLE_RANGE_FILTER_PROFILE=true behavior)",
+  "pipeline_a_profile": {
+    "profile_id": "production_phase22c",
+    "mode": "both",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "pipeline_b_profile": {
+    "profile_id": "f2b3f3a1c2d7",
+    "mode": "range_specific",
+    "enable_rsi_filter": true,
+    "enable_adx_filter": true,
+    "rsi_min": 40.0,
+    "rsi_max": 65.0,
+    "adx_min": 15.0,
+    "adx_max": 40.0
+  },
+  "windows": {
+    "last_300_bars": {
+      "pipeline_a": {
+        "trade_count": 0,
+        "profit_factor": 0.0,
+        "expectancy_r": 0.0,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": 0.0,
+        "sharpe_proxy": 0.0,
+        "mean_confidence": 0.0,
+        "buy_ratio": 0.0,
+        "sell_ratio": 0.0,
+        "pipeline_actionable_signals": 0
+      },
+      "pipeline_b": {
+        "trade_count": 0,
+        "profit_factor": 0.0,
+        "expectancy_r": 0.0,
+        "win_rate": 0.0,
+        "maximum_drawdown_r": 0.0,
+        "sharpe_proxy": 0.0,
+        "mean_confidence": 0.0,
+        "buy_ratio": 0.0,
+        "sell_ratio": 0.0,
+        "pipeline_actionable_signals": 0
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 0,
+        "blocked_losers": 0,
+        "false_hold": 0,
+        "true_hold": 0,
+        "false_buy": 0,
+        "false_sell": 0,
+        "precision": 0.0
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 0,
+        "blocked_losers": 0,
+        "false_hold": 0,
+        "true_hold": 0,
+        "false_buy": 0,
+        "false_sell": 0,
+        "precision": 0.0
+      },
+      "b_wins_pf": false,
+      "b_wins_expectancy": false,
+      "b_dd_not_worse": true,
+      "signals": 0
+    }
+  },
+  "range_365d": {
+    "pipeline_a": {},
+    "pipeline_b": {}
+  },
+  "trend_365d_unchanged": true,
+  "window_b_wins_count": 0,
+  "range_improved_365d": true,
+  "checks": {
+    "trend_unchanged": true,
+    "range_improved_or_equal": true,
+    "multi_window_consensus": false
+  },
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

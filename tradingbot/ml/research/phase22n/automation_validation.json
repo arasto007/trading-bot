@@ -1,0 +1,41 @@
+{
+  "phase": "22N",
+  "generated_utc": "2026-07-05T16:09:07.576521+00:00",
+  "implementation_status": "IMPLEMENTED",
+  "files_created": [
+    "scripts/scheduled_ml_refresh.py",
+    "start/15_refresh_ml_dataset.bat"
+  ],
+  "files_modified": [
+    "scripts/verify_ml_live_ready.py"
+  ],
+  "pipeline_steps": [
+    "collect_ml_data.py --incremental --symbol XAUUSD",
+    "build_ml_dataset.py --phase9-1 --symbol XAUUSD --timeframe M5",
+    "verify: timestamp, coverage, feature count"
+  ],
+  "retry_policy": "ML_REFRESH_RETRIES env (default 2) per step",
+  "exit_codes": {
+    "0": "success",
+    "1": "collect failed",
+    "2": "build failed",
+    "3": "verify failed"
+  },
+  "live_runner_isolation": {
+    "live_runner_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\application\\live_runner.py",
+    "forbidden_imports_or_calls": {
+      "CandleStore": false,
+      "DatasetStore": false,
+      "build_ml_dataset": false,
+      "scheduled_ml_refresh": false,
+      "collect_ml_data": false
+    },
+    "isolated": true
+  },
+  "operator_entry_points": [
+    "start/15_refresh_ml_dataset.bat",
+    "python scripts/scheduled_ml_refresh.py"
+  ],
+  "windows_task_scheduler": "NOT_CONFIGURED_IN_REPO — operator must schedule 15_refresh_ml_dataset.bat",
+  "automatic_refresh_without_scheduler": false
+}

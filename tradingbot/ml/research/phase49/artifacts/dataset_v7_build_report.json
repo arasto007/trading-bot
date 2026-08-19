@@ -1,0 +1,47 @@
+{
+  "verdict": "V7_FIXED_INDEX_CAPTURED",
+  "bar_index_fix": "timestamp_resolved_absolute_index",
+  "signals_collected": 86793,
+  "dataset_v7_rows": 81035,
+  "year_distribution": {
+    "2021": 14301,
+    "2022": 14193,
+    "2023": 13931,
+    "2024": 15131,
+    "2025": 15783,
+    "2026": 7696
+  },
+  "years_covered": 6,
+  "retrain_v7": {
+    "label_column": "label_v3",
+    "train_rows": 56724,
+    "val_rows": 12155,
+    "test_rows": 12102,
+    "features": 47,
+    "validation": {
+      "split": "validation",
+      "rows": 12155,
+      "auc": 0.4979,
+      "accuracy": 0.5198,
+      "pf": 0.4124,
+      "trades": 5565,
+      "win_rate": 29.2
+    },
+    "test": {
+      "split": "test",
+      "rows": 12102,
+      "auc": 0.4777,
+      "accuracy": 0.4712,
+      "pf": 0.3447,
+      "trades": 6448,
+      "win_rate": 25.64
+    },
+    "baseline_test_pf": 0.3684,
+    "baseline_test_wr": 26.92
+  },
+  "comparison_vs_v6_buggy": {
+    "v6_rows": 3827,
+    "test_pf_v7": 0.3447,
+    "test_auc_v7": 0.4777
+  }
+}

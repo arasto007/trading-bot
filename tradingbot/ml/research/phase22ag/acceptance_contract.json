@@ -1,0 +1,33 @@
+{
+  "phase": "22AG",
+  "version": "2.0-proposed",
+  "guarantees": {
+    "probability_quality": {
+      "rule": "probability_gate_passed == True",
+      "source": "probability_selection_gate.py (unchanged from 22X)"
+    },
+    "non_degenerated_distribution": {
+      "rule": "buy_coverage > 0 AND sell_coverage > 0 AND std >= 0.015",
+      "source": "embedded in probability gate"
+    },
+    "positive_expectancy": {
+      "rule": "mean_expectancy > 0",
+      "source": "retain current check"
+    },
+    "walk_forward_robustness": {
+      "rule": "robustness_score > baseline_phase9_8.robustness_score AND profitable_windows >= 4",
+      "source": "retain robustness_improved + profitable_windows_ge_4"
+    },
+    "controlled_overfitting": {
+      "rule": "mean_auc_gap < baseline_mean_auc_gap (numeric, strict)",
+      "replaces": "overfitting_risk_decreased ordinal comparison",
+      "optional_secondary": "mean_auc_gap <= 0.06 after beating baseline"
+    }
+  },
+  "removed": [
+    "Ordinal-only overfitting_risk_decreased when baseline is HIGH"
+  ],
+  "final_verdict": "PASS iff all guarantee rules true",
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

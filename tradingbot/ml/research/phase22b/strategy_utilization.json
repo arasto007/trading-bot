@@ -1,0 +1,43 @@
+{
+  "phase": "22B",
+  "strategies_defined_in_ACTIVE_STRATEGIES": {
+    "priceaction": true
+  },
+  "disabled_count": 16,
+  "disabled_list": [
+    "advancedml",
+    "arbitrage",
+    "breakout",
+    "dynamicsizing",
+    "gridtrading",
+    "hedgingprofessional",
+    "meanreversion",
+    "ml",
+    "momentum",
+    "patternrecognition",
+    "pullback",
+    "rangebound",
+    "scalping",
+    "trendfollowing",
+    "trendmomentumcombo",
+    "volatilitybreakout"
+  ],
+  "production_signal_path": "MLKernelRegistry (USE_ML_KERNEL=true)",
+  "legacy_fallback_count_M5": 0,
+  "legacy_priceaction_submodules": [
+    "m5_london_sweep",
+    "m5_scalp",
+    "m15_intraday",
+    "h4_swing"
+  ],
+  "signals_by_tf": {
+    "M5": 36,
+    "M15": 0,
+    "H4": 0
+  },
+  "trades_by_tf": {
+    "M5": 2,
+    "M15": 0,
+    "H4": 0
+  }
+}

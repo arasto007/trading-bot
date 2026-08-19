@@ -1,0 +1,13 @@
+{
+  "symbol": "XAUUSD",
+  "timeframe": "H4",
+  "run_id": "2c9a9d934440458c",
+  "last_successful_timestamp": "2026-06-29T00:00:00+00:00",
+  "completed_chunks": [
+    "H4_202106300401_202601212001",
+    "H4_202601212001_202606290401"
+  ],
+  "failed_chunks": [],
+  "total_fetched": 7729,
+  "updated_at_utc": "2026-06-29T04:01:51.850798+00:00"
+}

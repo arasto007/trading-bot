@@ -1,0 +1,31 @@
+{
+  "run_id": "8b70cc619f974754",
+  "timestamp": "2026-07-10T19:09:00.807350+00:00",
+  "git_commit": "unknown",
+  "symbol": "XAUUSD",
+  "timeframes": [
+    "M5",
+    "M15",
+    "H4"
+  ],
+  "source": "mt5_read_only",
+  "date_start": "2025-07-10T19:08:58.432430+00:00",
+  "date_end": "2026-07-10T19:08:58.432430+00:00",
+  "bars_fetched": {
+    "M5": 5,
+    "M15": 1
+  },
+  "validation_status": "partial",
+  "raw_files": {
+    "M5": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m5\\XAUUSD_m5.parquet",
+    "M15": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m15\\XAUUSD_m15.parquet"
+  },
+  "fingerprint": {
+    "M5": "39fbf5f3f90e773b3536eb87dda7f1ff8018fb4249ef203cb00985d49ab09f38",
+    "M15": "3592de3a89986c5a892b77c73598c2d1c619d431f3f8cce6d8f53de2768748bd"
+  },
+  "rejected": {
+    "H4": "fetch_returned_empty"
+  },
+  "incremental": true
+}

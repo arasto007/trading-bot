@@ -1,0 +1,55 @@
+{
+  "phase": "30E",
+  "limitations": [
+    {
+      "id": "B1",
+      "limitation": "Retail XAUUSD rarely exposes DOM / Level II",
+      "impact": "Liquidity book calibration impossible",
+      "mitigation": "Spread + requote + partial fill proxies",
+      "risk": "High"
+    },
+    {
+      "id": "B2",
+      "limitation": "Internal order queue invisible",
+      "impact": "Queue model cannot be calibrated",
+      "mitigation": "Remove queue from DBT MVP",
+      "risk": "Impossible"
+    },
+    {
+      "id": "B3",
+      "limitation": "ECN/STP/Market Maker label not in API",
+      "impact": "Business model classification unavailable",
+      "mitigation": "Manual manifest + trade_execution_mode enum",
+      "risk": "Medium"
+    },
+    {
+      "id": "B4",
+      "limitation": "Last/volume often zero on FX ticks",
+      "impact": "Trade tick volume unusable for liquidity",
+      "mitigation": "Ignore volume_real for FX/XAUUSD spread model",
+      "risk": "Medium"
+    },
+    {
+      "id": "B5",
+      "limitation": "Gap-through-stop is episodic",
+      "impact": "Insufficient samples without long horizon",
+      "mitigation": "Model from weekend gap distribution",
+      "risk": "Medium"
+    },
+    {
+      "id": "B6",
+      "limitation": "Partial fills rare at minimum lot",
+      "impact": "Low sample for FillEngine partial model",
+      "mitigation": "Optional sweep at 0.05 lot on demo only",
+      "risk": "Medium"
+    },
+    {
+      "id": "B7",
+      "limitation": "Broker server clock vs VPS clock skew",
+      "impact": "Server latency estimate unreliable",
+      "mitigation": "Exclude server-only latency from MVP",
+      "risk": "High"
+    }
+  ],
+  "generated_utc": "2026-07-10T11:11:07.049326+00:00"
+}

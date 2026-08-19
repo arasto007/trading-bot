@@ -1,0 +1,99 @@
+{
+  "phase": "27B",
+  "file": "tradingbot/ml/phase19c/filters.py",
+  "function": "apply_profitability_filters",
+  "rsi_block_line": 100,
+  "caller": {
+    "file": "tradingbot/ml/integration/kernel_adapter.py",
+    "function": "produce_unified_signal",
+    "line": 255
+  },
+  "profile_selector": {
+    "file": "tradingbot/ml/integration/regime_filter_profiles.py",
+    "function": "select_profitability_filter_settings"
+  },
+  "hold_chain_consumer": {
+    "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+    "stage": "rsi_filter_hold"
+  },
+  "formula": {
+    "rsi_pass": "rsi_min <= rsi <= rsi_max",
+    "adx_pass": "adx_min <= adx <= adx_max",
+    "inputs": [
+      "rsi",
+      "adx from unified frame row.to_dict()"
+    ],
+    "outputs": [
+      "passed: bool",
+      "blocked_by: list[str]",
+      "rsi",
+      "adx"
+    ]
+  },
+  "defaults_phase19c": {
+    "rsi_min": 40.0,
+    "rsi_max": 60.0,
+    "adx_min": 15.0,
+    "adx_max": 50.0
+  },
+  "phase22c_enabled": true,
+  "phase22c_bands": {
+    "rsi_min": 35.0,
+    "rsi_max": 65.0,
+    "adx_min": 10.0,
+    "adx_max": 55.0
+  },
+  "runtime_profiles": {
+    "RANGE_phase9_9": {
+      "profile": "range_phase23e",
+      "rsi_limits": [
+        40.0,
+        65.0
+      ],
+      "adx_limits": [
+        15.0,
+        40.0
+      ],
+      "settings": {
+        "enable_rsi_filter": true,
+        "enable_adx_filter": true,
+        "rsi_min": 40.0,
+        "rsi_max": 65.0,
+        "adx_min": 15.0,
+        "adx_max": 40.0
+      }
+    },
+    "TREND": {
+      "profile": "trend_phase22c",
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "settings": {
+        "enable_rsi_filter": true,
+        "enable_adx_filter": true,
+        "rsi_min": 35.0,
+        "rsi_max": 65.0,
+        "adx_min": 10.0,
+        "adx_max": 55.0
+      }
+    }
+  },
+  "environment_variables": [
+    "ENABLE_RSI_FILTER",
+    "RSI_MIN",
+    "RSI_MAX",
+    "ENABLE_ADX_FILTER",
+    "ADX_MIN",
+    "ADX_MAX",
+    "ENABLE_RANGE_FILTER_PROFILE",
+    "PHASE22C_ENABLED",
+    "PHASE22C_RSI_MIN",
+    "PHASE22C_RSI_MAX"
+  ],
+  "generated_utc": "2026-07-09T12:46:26.273219+00:00"
+}

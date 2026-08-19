@@ -1,0 +1,96 @@
+{
+  "phase": "29A",
+  "baseline": {
+    "initial_balance": 200.0,
+    "final_balance": 275.7757,
+    "net_profit": 75.7757,
+    "gross_profit": 896.5957,
+    "gross_loss": -820.82,
+    "profit_factor": 1.0923,
+    "expectancy": 0.1318,
+    "recovery_factor": 0.8482,
+    "sharpe_ratio": 10.8077,
+    "sortino_ratio": 10.1158,
+    "calmar_ratio": 1.2369,
+    "max_drawdown_pct": 30.6312,
+    "max_drawdown_abs": 89.3329,
+    "completed_trades": 575,
+    "win_rate_pct": 52.0,
+    "average_actual_risk_pct": 0.0
+  },
+  "cutoff_results": [
+    {
+      "remove_bottom_pct": 5,
+      "threshold_score": 70.68,
+      "trade_count": 547,
+      "net_profit": 86.6964,
+      "profit_factor": 1.1124,
+      "expectancy": 0.1585,
+      "max_drawdown_pct": 28.229,
+      "sharpe_ratio": 12.5179,
+      "recovery_factor": 1.0114,
+      "win_rate_pct": 51.92
+    },
+    {
+      "remove_bottom_pct": 10,
+      "threshold_score": 73.58,
+      "trade_count": 518,
+      "net_profit": 131.5864,
+      "profit_factor": 1.1891,
+      "expectancy": 0.254,
+      "max_drawdown_pct": 22.0045,
+      "sharpe_ratio": 18.33,
+      "recovery_factor": 1.8944,
+      "win_rate_pct": 52.7
+    },
+    {
+      "remove_bottom_pct": 15,
+      "threshold_score": 77.56,
+      "trade_count": 489,
+      "net_profit": 136.1007,
+      "profit_factor": 1.211,
+      "expectancy": 0.2783,
+      "max_drawdown_pct": 24.264,
+      "sharpe_ratio": 19.3263,
+      "recovery_factor": 1.8284,
+      "win_rate_pct": 53.17
+    },
+    {
+      "remove_bottom_pct": 20,
+      "threshold_score": 79.63,
+      "trade_count": 460,
+      "net_profit": 127.9107,
+      "profit_factor": 1.2109,
+      "expectancy": 0.2781,
+      "max_drawdown_pct": 23.1467,
+      "sharpe_ratio": 18.6086,
+      "recovery_factor": 1.9444,
+      "win_rate_pct": 52.39
+    },
+    {
+      "remove_bottom_pct": 25,
+      "threshold_score": 81.19,
+      "trade_count": 432,
+      "net_profit": 114.7399,
+      "profit_factor": 1.1967,
+      "expectancy": 0.2656,
+      "max_drawdown_pct": 22.4695,
+      "sharpe_ratio": 17.6623,
+      "recovery_factor": 1.8714,
+      "win_rate_pct": 52.78
+    }
+  ],
+  "optimal_cutoff": {
+    "remove_bottom_pct": 15,
+    "threshold_score": 77.56,
+    "trade_count": 489,
+    "net_profit": 136.1007,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "max_drawdown_pct": 24.264,
+    "sharpe_ratio": 19.3263,
+    "recovery_factor": 1.8284,
+    "win_rate_pct": 53.17
+  },
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

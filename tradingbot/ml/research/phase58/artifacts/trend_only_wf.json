@@ -1,0 +1,227 @@
+{
+  "verdict": "STRICT_GATE_FAIL",
+  "gate_passed": false,
+  "gates": {
+    "mean_pf_ge_1_3": false,
+    "mean_auc_ge_0_55": false,
+    "min_windows_ge_5": true,
+    "majority_windows_pf_ge_1": false,
+    "trade_count_ok": true
+  },
+  "regime": "TREND",
+  "model": "random_forest",
+  "features_used": [
+    "tick_volume_proxy",
+    "atr_14",
+    "realized_vol_20",
+    "rsi_14",
+    "macd_histogram"
+  ],
+  "feature_count": 5,
+  "primary_threshold": 0.4,
+  "comparison_thresholds": [
+    0.35,
+    0.4,
+    0.45
+  ],
+  "windows": 5,
+  "mean_pf": 0.8139,
+  "mean_auc": 0.5138,
+  "primary_threshold_summary": {
+    "threshold": 0.4,
+    "mean_pf": 0.8139,
+    "windows_with_min_trades": 5,
+    "per_year_pf": [
+      0.5625,
+      0.9167,
+      1.625,
+      0.5333,
+      0.4322
+    ]
+  },
+  "threshold_summary": [
+    {
+      "threshold": 0.35,
+      "mean_pf": 0.5319,
+      "windows_with_min_trades": 5,
+      "per_year_pf": [
+        0.3257,
+        1.0,
+        0.5087,
+        0.4187,
+        0.4062
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "mean_pf": 0.8139,
+      "windows_with_min_trades": 5,
+      "per_year_pf": [
+        0.5625,
+        0.9167,
+        1.625,
+        0.5333,
+        0.4322
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "mean_pf": 2.5,
+      "windows_with_min_trades": 3,
+      "per_year_pf": [
+        0.5,
+        6.5,
+        0.5
+      ]
+    }
+  ],
+  "windows_pf_above_1": 1,
+  "windows_pf_above_1_3": 1,
+  "per_year": [
+    {
+      "test_year": 2022,
+      "train_rows": 14301,
+      "test_rows": 14193,
+      "auc": 0.4858,
+      "primary_threshold": 0.4,
+      "primary_pf": 0.5625,
+      "primary_trades": 100,
+      "primary_win_rate": 36.0,
+      "meets_min_trades": true,
+      "by_threshold": {
+        "0.35": {
+          "pf": 0.3257,
+          "trades": 289,
+          "win_rate": 24.57
+        },
+        "0.4": {
+          "pf": 0.5625,
+          "trades": 100,
+          "win_rate": 36.0
+        },
+        "0.45": {
+          "pf": 0.5,
+          "trades": 54,
+          "win_rate": 33.33
+        }
+      }
+    },
+    {
+      "test_year": 2023,
+      "train_rows": 28494,
+      "test_rows": 13931,
+      "auc": 0.5285,
+      "primary_threshold": 0.4,
+      "primary_pf": 0.9167,
+      "primary_trades": 23,
+      "primary_win_rate": 47.83,
+      "meets_min_trades": true,
+      "by_threshold": {
+        "0.35": {
+          "pf": 1.0,
+          "trades": 94,
+          "win_rate": 50.0
+        },
+        "0.4": {
+          "pf": 0.9167,
+          "trades": 23,
+          "win_rate": 47.83
+        },
+        "0.45": {
+          "pf": 3.0,
+          "trades": 4,
+          "win_rate": 75.0
+        }
+      }
+    },
+    {
+      "test_year": 2024,
+      "train_rows": 42425,
+      "test_rows": 15131,
+      "auc": 0.522,
+      "primary_threshold": 0.4,
+      "primary_pf": 1.625,
+      "primary_trades": 42,
+      "primary_win_rate": 61.9,
+      "meets_min_trades": true,
+      "by_threshold": {
+        "0.35": {
+          "pf": 0.5087,
+          "trades": 261,
+          "win_rate": 33.72
+        },
+        "0.4": {
+          "pf": 1.625,
+          "trades": 42,
+          "win_rate": 61.9
+        },
+        "0.45": {
+          "pf": 6.5,
+          "trades": 15,
+          "win_rate": 86.67
+        }
+      }
+    },
+    {
+      "test_year": 2025,
+      "train_rows": 57556,
+      "test_rows": 15783,
+      "auc": 0.4844,
+      "primary_threshold": 0.4,
+      "primary_pf": 0.5333,
+      "primary_trades": 115,
+      "primary_win_rate": 34.78,
+      "meets_min_trades": true,
+      "by_threshold": {
+        "0.35": {
+          "pf": 0.4187,
+          "trades": 288,
+          "win_rate": 29.51
+        },
+        "0.4": {
+          "pf": 0.5333,
+          "trades": 115,
+          "win_rate": 34.78
+        },
+        "0.45": {
+          "pf": 0.5,
+          "trades": 18,
+          "win_rate": 33.33
+        }
+      }
+    },
+    {
+      "test_year": 2026,
+      "train_rows": 73339,
+      "test_rows": 7696,
+      "auc": 0.5485,
+      "primary_threshold": 0.4,
+      "primary_pf": 0.4322,
+      "primary_trades": 285,
+      "primary_win_rate": 30.18,
+      "meets_min_trades": true,
+      "by_threshold": {
+        "0.35": {
+          "pf": 0.4062,
+          "trades": 727,
+          "win_rate": 28.89
+        },
+        "0.4": {
+          "pf": 0.4322,
+          "trades": 285,
+          "win_rate": 30.18
+        },
+        "0.45": {
+          "pf": 0.8571,
+          "trades": 13,
+          "win_rate": 46.15
+        }
+      }
+    }
+  ],
+  "rows_trend": 81035,
+  "gate_targets": {
+    "mean_pf": 1.3,
+    "mean_auc": 0.55
+  }
+}

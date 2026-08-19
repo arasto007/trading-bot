@@ -1,0 +1,51 @@
+{
+  "phase": "23A",
+  "filters": [
+    {
+      "name": "feature_vector_completeness",
+      "file": "range_engine_adapter.py",
+      "condition": "all feature_order columns in row",
+      "reject_effect": "HOLD without predict_proba"
+    },
+    {
+      "name": "signal_engine_threshold",
+      "file": "paper_trading/signal_engine.py",
+      "condition": "prob >= 0.55 BUY, prob <= 0.45 SELL else HOLD"
+    },
+    {
+      "name": "decision_policy_confidence",
+      "file": "decision_engine/decision_policy.py",
+      "condition": "confidence < 0.55 → HOLD",
+      "reject_count_proxy": 3730
+    },
+    {
+      "name": "calibrated_confidence",
+      "file": "confidence_engine/validator.py",
+      "condition": "MIN_CALIBRATED_CONFIDENCE 0.55",
+      "reject_count_proxy": 0
+    },
+    {
+      "name": "trade_quality",
+      "reject_count": 2
+    },
+    {
+      "name": "rsi_filter",
+      "reject_count": 0
+    },
+    {
+      "name": "adx_filter",
+      "reject_count": 0
+    },
+    {
+      "name": "riskgate",
+      "reject_count": 0
+    },
+    {
+      "name": "health_gate_pre_decision",
+      "file": "integration/health_gate.py",
+      "condition": "artifact integrity before inference",
+      "pass": true
+    }
+  ],
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

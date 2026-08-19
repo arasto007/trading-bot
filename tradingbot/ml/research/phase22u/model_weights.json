@@ -1,0 +1,65 @@
+{
+  "model_type": "_SklearnWrapper",
+  "estimator_type": "LogisticRegression",
+  "feature_order": [
+    "ema50_slope",
+    "candle_direction",
+    "structure_distance"
+  ],
+  "classes": [
+    0,
+    1
+  ],
+  "coefficients": {
+    "ema50_slope": -0.09972859,
+    "candle_direction": 0.03971571,
+    "structure_distance": -0.22957667
+  },
+  "feature_importance_abs_coef_normalized": {
+    "ema50_slope": 0.270252,
+    "candle_direction": 0.107625,
+    "structure_distance": 0.622124
+  },
+  "intercept": -0.5763581,
+  "scaler": {
+    "mean": {
+      "ema50_slope": 0.02166252,
+      "candle_direction": 0.07403055,
+      "structure_distance": 0.03172738
+    },
+    "scale": {
+      "ema50_slope": 0.38013152,
+      "candle_direction": 0.99725597,
+      "structure_distance": 0.38500593
+    }
+  },
+  "config": {
+    "model": "LogisticRegression",
+    "parameters": {
+      "C": 0.1
+    },
+    "features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "regime": "RANGE",
+    "event_filter": "A_all_events",
+    "risk_pct": 0.005,
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
+    "tp_r": 2.0,
+    "sl_r": 1.0
+  },
+  "metadata": {
+    "phase": "9.9",
+    "frozen_at_utc": "2026-06-29T22:15:00.449792+00:00",
+    "candidate_id": "logistic_strong_reg",
+    "feature_subset": "stable_top3",
+    "train_rows": 851,
+    "dataset_fingerprint": "70b38325ee1c7e1e",
+    "robustness_score": 77.73
+  },
+  "generated_utc": "2026-07-05T20:57:00.053723+00:00",
+  "phase": "22U"
+}

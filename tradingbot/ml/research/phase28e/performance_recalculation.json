@@ -1,0 +1,33 @@
+{
+  "phase": "28E",
+  "recalculated": {
+    "net_profit": 1081.7446,
+    "final_balance": 1281.7446,
+    "max_drawdown_pct": 87.9686,
+    "max_drawdown_abs": 849.915,
+    "recovery_factor": 1.2728,
+    "sharpe_ratio": 27.4328,
+    "sortino_ratio": 38.2672,
+    "calmar_ratio": 6.1485
+  },
+  "reported_phase28d": {
+    "net_profit": 1081.7446,
+    "max_drawdown_pct": 87.9686,
+    "max_drawdown_abs": 849.915,
+    "recovery_factor": 1.2728,
+    "sharpe_ratio": 27.4328,
+    "sortino_ratio": 38.2672,
+    "calmar_ratio": 6.1485
+  },
+  "deltas": {
+    "net_profit": 0.0,
+    "max_drawdown_pct": 0.0,
+    "max_drawdown_abs": 0.0,
+    "recovery_factor": 0.0,
+    "sharpe_ratio": 0.0,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": 0.0
+  },
+  "metrics_match": true,
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

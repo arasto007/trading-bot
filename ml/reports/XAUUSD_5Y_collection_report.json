@@ -1,0 +1,62 @@
+{
+  "symbol": "XAUUSD",
+  "period": "5Y",
+  "generated_at_utc": "2026-06-29T05:01:24.644531+00:00",
+  "timeframes": {
+    "M5": {
+      "bars": 99962,
+      "start": "2025-01-28",
+      "end": "2026-06-29",
+      "status": "FAIL",
+      "duplicates": 0,
+      "missing_gaps": 25965,
+      "large_gaps": 0,
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m5\\XAUUSD_m5.parquet"
+    },
+    "M15": {
+      "bars": 99987,
+      "start": "2022-04-01",
+      "end": "2026-06-29",
+      "status": "FAIL",
+      "duplicates": 0,
+      "missing_gaps": 9044,
+      "large_gaps": 0,
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\m15\\XAUUSD_m15.parquet"
+    },
+    "H4": {
+      "bars": 7729,
+      "start": "2021-06-30",
+      "end": "2026-06-29",
+      "status": "PASS",
+      "duplicates": 0,
+      "missing_gaps": 2438,
+      "large_gaps": 0,
+      "storage_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\ml\\raw\\candles\\h4\\XAUUSD_h4.parquet"
+    }
+  },
+  "duplicates": 0,
+  "missing_gaps": 37447,
+  "cross_timeframe": {
+    "status": "PASS",
+    "m5_to_m15": {
+      "checked": 5262,
+      "misaligned": 0
+    },
+    "m5_to_h4": {
+      "checked": 5262,
+      "misaligned": 0
+    }
+  },
+  "fingerprint": "929afc1fdecd790f60afd4b53b40d11edb0f5b853e655c6b196711a116da1110",
+  "fingerprints": {
+    "aggregate": "929afc1fdecd790f60afd4b53b40d11edb0f5b853e655c6b196711a116da1110"
+  },
+  "status": "FAIL",
+  "passed": false,
+  "issues": [
+    "M5:below_minimum_bars:99962<300000",
+    "M5:start_too_late",
+    "M15:below_minimum_bars:99987<100000",
+    "M15:start_too_late"
+  ]
+}

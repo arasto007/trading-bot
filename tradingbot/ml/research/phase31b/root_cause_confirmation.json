@@ -1,0 +1,32 @@
+{
+  "phase": "31B",
+  "phase31a_top3_tested": [
+    {
+      "rank": 1,
+      "cause": "min_lot_oversize_risk",
+      "replay": "C",
+      "result": "PARTIALLY_CONFIRMED"
+    },
+    {
+      "rank": 2,
+      "cause": "range_regime_losers",
+      "replay": "A",
+      "result": "REJECTED_AS_FILTER"
+    },
+    {
+      "rank": 3,
+      "cause": "time_exit_undercaptured",
+      "replay": "B",
+      "result": "CONFIRMED"
+    }
+  ],
+  "truly_dominant": "time_exit_undercaptured",
+  "causal": [
+    "time_exit_undercaptured",
+    "min_lot_oversize_risk (risk scope only)"
+  ],
+  "correlated_only": [
+    "range_regime_losers"
+  ],
+  "generated_utc": "2026-07-10T15:54:15.690639+00:00"
+}

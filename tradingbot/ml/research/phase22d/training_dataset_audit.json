@@ -1,0 +1,70 @@
+{
+  "phase": "22D",
+  "phase9_9": {
+    "features": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "train_rows_metadata": {
+      "model": "LogisticRegression",
+      "parameters": {
+        "C": 0.1
+      },
+      "features": [
+        "ema50_slope",
+        "candle_direction",
+        "structure_distance"
+      ],
+      "regime": "RANGE",
+      "event_filter": "A_all_events",
+      "risk_pct": 0.005,
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.45,
+      "tp_r": 2.0,
+      "sl_r": 1.0
+    },
+    "class_balance": {
+      "total": 1002,
+      "label_1_tp_before_sl": 383,
+      "label_0_sl_before_tp": 619,
+      "positive_rate": 0.3822
+    }
+  },
+  "trend_rf_v41": {
+    "features": [
+      "ema20_slope",
+      "ema50_slope",
+      "ema_alignment",
+      "adx",
+      "atr_percentile",
+      "rsi",
+      "macd_histogram",
+      "breakout_distance",
+      "higher_high_count",
+      "lower_low_count",
+      "candle_momentum",
+      "adx_acceleration",
+      "swing_efficiency",
+      "fractal_dimension_proxy",
+      "trend_age",
+      "ema_curvature"
+    ],
+    "top5": [
+      "adx_acceleration",
+      "swing_efficiency",
+      "fractal_dimension_proxy",
+      "trend_age",
+      "ema_curvature"
+    ],
+    "train_rows": 796,
+    "class_balance": {
+      "total": 1138,
+      "successful": 498,
+      "failed": 640,
+      "positive_rate": 0.4376
+    },
+    "chronological": true,
+    "shuffled": false
+  }
+}

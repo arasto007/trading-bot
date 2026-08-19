@@ -1,0 +1,23 @@
+# --- هسته (پردازش داده و عددی) ---
+pandas>=2.0
+numpy>=1.24
+pyarrow>=14.0          # ذخیره‌سازی parquet در engine/storage.py
+
+# --- اتصال بروکر ---
+# MetaTrader5 — از ترمینال بروکر نصب می‌شود
+MetaTrader5>=5.0.45
+
+# --- منطق استراتژی/ریسک (engine) ---
+scipy>=1.11            # اختیاری — وابستگی‌های آماری
+scikit-learn>=1.3      # مدل baseline logistic + metrics
+
+# --- ML offline research (Phase 4.0 — not connected to live trading) ---
+xgboost>=2.0
+lightgbm>=4.0
+# shap>=0.44           # optional — scripts/analyze_shap.py
+
+# --- ابزار ---
+colorama>=0.4          # رنگ خروجی کنسول در engine/logger.py
+
+# --- اختیاری ---
+# redis>=4.0           # کش اختیاری در engine/storage.py؛ نبودش با خطا متوقف نمی‌شود

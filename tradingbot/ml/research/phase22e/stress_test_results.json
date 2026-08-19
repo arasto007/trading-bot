@@ -1,0 +1,81 @@
+{
+  "phase": "22E",
+  "timeframe": "M5",
+  "window": {
+    "label": "1m",
+    "start_tehran": "2026-06-05 03:46",
+    "end_tehran": "2026-07-05 03:46"
+  },
+  "scenarios": {
+    "baseline": {
+      "trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "net_profit": 0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "passed": true
+    },
+    "high_spread": {
+      "trades": 6,
+      "profit_factor": 0.197,
+      "expectancy": -4.508,
+      "net_profit": -27.05,
+      "max_drawdown_pct": 9.89,
+      "win_rate_pct": 33.33,
+      "passed": true
+    },
+    "low_spread": {
+      "trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "net_profit": 0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "passed": true
+    },
+    "high_slippage": {
+      "trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "net_profit": 0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "passed": false
+    },
+    "missed_ticks": {
+      "trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "net_profit": 0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "passed": false
+    },
+    "delayed_execution": {
+      "trades": 0,
+      "profit_factor": 0.0,
+      "expectancy": 0.0,
+      "net_profit": 0,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 0.0,
+      "passed": false
+    }
+  },
+  "volatility_regimes": {
+    "high_spread_vs_baseline": {
+      "pf_delta": 0.197,
+      "dd_delta": 9.89
+    },
+    "low_spread_vs_baseline": {
+      "pf_delta": 0.0
+    }
+  },
+  "overall_passed": true,
+  "trade_regime_segments": {
+    "phase": "19D",
+    "passed": false,
+    "note": "no_trades",
+    "segments": []
+  }
+}

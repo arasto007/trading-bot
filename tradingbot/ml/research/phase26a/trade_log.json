@@ -1,0 +1,66 @@
+{
+  "phase": "26A",
+  "generated_utc": "2026-07-08T17:35:36.207635+00:00",
+  "count": 1,
+  "collection_meta": {
+    "mode": "observation_only",
+    "sources": [
+      "trade_journal.db",
+      "unified_pipeline_replay"
+    ],
+    "journal_executions": 54,
+    "replay_signals": 226,
+    "completed_trades": 1,
+    "valid_journal_trades": 0,
+    "journal_skipped_reason": "incomplete_exit_simulation_or_zero_fill",
+    "replay_meta": {
+      "mode": "unified_pipeline_replay",
+      "pipeline_stages": [
+        "data",
+        "indicators",
+        "signals",
+        "risk",
+        "execution"
+      ],
+      "forming_bar_adapter": true,
+      "lookback_bars": 300,
+      "bars_evaluated": 226,
+      "warmup_bars": 250,
+      "stride": 5
+    }
+  },
+  "trades": [
+    {
+      "timestamp": "2026-06-23T03:55:00+00:00",
+      "symbol": "XAUUSD",
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "direction": "SELL",
+      "probability": 1.0,
+      "confidence": 1.0,
+      "sl": 4202.610000305176,
+      "tp": 4169.604999237061,
+      "lot": 0.01,
+      "rr": 2.5,
+      "spread": 0.3,
+      "adx": null,
+      "rsi": null,
+      "atr": null,
+      "feature_checksum": "bf02cddf106a7145",
+      "model_checksum": "bf02cddf106a7145",
+      "filter_profile": "RANGE",
+      "decision_source": "ml_kernel",
+      "exit_reason": "tp",
+      "pnl": 23.575,
+      "pnl_r": 2.5,
+      "duration_bars": 7,
+      "mae": 0.525981,
+      "mfe": 2.641569,
+      "entry_price": 4193.18,
+      "exit_price": 4169.604999,
+      "exit_timestamp": "2026-06-23T04:30:00+00:00",
+      "timeframe": "M5",
+      "extra": {}
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "phase": "22M",
+  "step": 1,
+  "generated_utc": "2026-07-05T15:57:17.799750+00:00",
+  "class": "tradingbot.ml.data.stores.candle_store.CandleStore",
+  "persistence_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\raw\\candles\\m5\\XAUUSD_m5.parquet",
+  "path_pattern": "data/ml/raw/candles/{tf}/{SYMBOL}_{tf}.parquet",
+  "creators": [
+    {
+      "module": "tradingbot.ml.data.pipeline.MLDataPipeline",
+      "methods": [
+        "collect_historical",
+        "collect_historical_optimized",
+        "collect_reference_candles",
+        "run_full"
+      ],
+      "write_api": "CandleStore.merge_store"
+    }
+  ],
+  "entry_scripts": [
+    "scripts/collect_ml_data.py (--historical, --incremental, --production-5y, default run_full)",
+    "start/13_collect_ml_data.bat"
+  ],
+  "live_runner_updates": false,
+  "live_runner_evidence": "tradingbot/application/live_runner.py imports Mt5MarketDataAdapter only — no CandleStore import",
+  "on_disk": {
+    "exists": true,
+    "rows": 1480180,
+    "max_timestamp_utc": "2026-06-29 13:50:00+00:00",
+    "file_mtime_utc": "2026-06-29T10:54:12.435475Z"
+  },
+  "writers_in_production_code": [
+    "tradingbot/ml/data/pipeline.py (merge_store only non-test writer)"
+  ],
+  "readers": "SparseEventDatasetBuilder, 40+ research orchestrators, Phase91 build, PipelineCache indirect via dataset_v2"
+}

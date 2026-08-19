@@ -1,0 +1,73 @@
+{
+  "phase": "30D",
+  "datasets": [
+    {
+      "id": "DS1",
+      "name": "TickStream",
+      "required": true,
+      "feeds": [
+        "SpreadEngine",
+        "LatencyEngine"
+      ]
+    },
+    {
+      "id": "DS2",
+      "name": "ExecutionFills",
+      "required": true,
+      "feeds": [
+        "SlippageEngine",
+        "FillEngine"
+      ]
+    },
+    {
+      "id": "DS3",
+      "name": "OrderAttempts",
+      "required": true,
+      "feeds": [
+        "Retcode model"
+      ]
+    },
+    {
+      "id": "DS4",
+      "name": "SymbolInfoDaily",
+      "required": true,
+      "feeds": [
+        "BrokerRules"
+      ]
+    },
+    {
+      "id": "DS5",
+      "name": "AccountSnapshots",
+      "required": false,
+      "feeds": [
+        "MarginEngine"
+      ]
+    },
+    {
+      "id": "DS6",
+      "name": "NewsCalendar",
+      "required": true,
+      "feeds": [
+        "News spread flags"
+      ],
+      "source": "External FF calendar JSON"
+    },
+    {
+      "id": "DS7",
+      "name": "GapEvents",
+      "required": true,
+      "feeds": [
+        "GapEngine"
+      ]
+    },
+    {
+      "id": "DS8",
+      "name": "BrokerManifest",
+      "required": true,
+      "feeds": [
+        "All modules metadata"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-10T11:04:24.684263+00:00"
+}

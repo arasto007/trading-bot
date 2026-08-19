@@ -1,0 +1,10 @@
+{
+  "journal_only_replay_ok": 100,
+  "journal_only_replay_fail": 0,
+  "collector_trades": 100,
+  "collector_source": [
+    "paper_trades"
+  ],
+  "replay_compatible": true,
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00"
+}

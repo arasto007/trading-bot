@@ -1,0 +1,59 @@
+{
+  "phase": "22L",
+  "step": 6,
+  "engine_modified": false,
+  "thresholds_modified": false,
+  "dataset_a": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "before_old_dataset": {
+    "bars": 163,
+    "merge_hit_pct": 9.2,
+    "direction_counts": {
+      "BUY": 0,
+      "SELL": 163,
+      "HOLD": 0
+    },
+    "buy_pct": 0.0,
+    "sell_pct": 100.0,
+    "hold_pct": 0.0,
+    "p_win_mean": 0.3648,
+    "p_win_std": 0.0046,
+    "p_win_min": 0.3436,
+    "p_win_max": 0.3957
+  },
+  "after_refreshed_dataset": {
+    "bars": 163,
+    "merge_hit_pct": 9.2,
+    "direction_counts": {
+      "BUY": 0,
+      "SELL": 163,
+      "HOLD": 0
+    },
+    "buy_pct": 0.0,
+    "sell_pct": 100.0,
+    "hold_pct": 0.0,
+    "p_win_mean": 0.3648,
+    "p_win_std": 0.0046,
+    "p_win_min": 0.3436,
+    "p_win_max": 0.3957
+  },
+  "delta": {
+    "merge_hit_pct": 0.0,
+    "buy_pct": 0.0,
+    "sell_pct": 0.0,
+    "hold_pct": 0.0,
+    "p_win_mean": 0.0
+  },
+  "backtest_pf_trades": {
+    "note": "Full PF backtest skipped — hold_chain unreliable per 22K; engine-level profile used instead",
+    "pf": null,
+    "trades": null,
+    "expectancy": null
+  },
+  "measurable_change": false,
+  "no_change_reason": "CandleStore M5 history ends near old dataset max; refresh added few/no event rows in Dataset A window. Remaining bars still miss sparse-event merge OR have native structure_distance=0. Engine thresholds unchanged — P(win) remains in sell_zone."
+}

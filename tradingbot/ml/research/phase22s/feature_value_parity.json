@@ -1,0 +1,94 @@
+{
+  "phase": "22S",
+  "build_pipeline": {
+    "builder": "SparseEventDatasetBuilder",
+    "file": "tradingbot/ml/dataset/sparse_event_builder.py",
+    "feature_call": "FeatureBuilder.compute_at(m5_window, bar_idx, h4_df=h4_full, m15_df=m15_full, spread_series=spread_proxy)",
+    "m5_window": "filter_candles_to_production_window(m5_full, production_date_range())",
+    "storage": "dataset_v2 parquet via ProductionDatasetV2Builder / Phase91",
+    "event_rows_in_dataset_v2": 5724,
+    "features_certified": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ]
+  },
+  "rows_in_dataset_v2": 5724,
+  "rows_compared": 5705,
+  "rows_skipped_no_bar": 19,
+  "m5_window_bars": 352161,
+  "m5_window_start": "2021-07-06 17:30:00+00:00",
+  "m5_window_end": "2026-06-29 13:50:00+00:00",
+  "feature_statistics": {
+    "ema50_slope": {
+      "feature": "ema50_slope",
+      "n_compared": 5705,
+      "exact_match_pct": 99.9124,
+      "mean_abs_error": 8.78e-06,
+      "max_abs_error": 0.047654,
+      "rmse": 0.00063165,
+      "mismatch_count": 5
+    },
+    "candle_direction": {
+      "feature": "candle_direction",
+      "n_compared": 5705,
+      "exact_match_pct": 100.0,
+      "mean_abs_error": 0.0,
+      "max_abs_error": 0.0,
+      "rmse": 0.0,
+      "mismatch_count": 0
+    },
+    "structure_distance": {
+      "feature": "structure_distance",
+      "n_compared": 5705,
+      "exact_match_pct": 100.0,
+      "mean_abs_error": 0.0,
+      "max_abs_error": 0.0,
+      "rmse": 0.0,
+      "mismatch_count": 0
+    }
+  },
+  "mismatch_samples": [
+    {
+      "timestamp": "2021-07-07 01:05:00+00:00",
+      "bar_index": 77,
+      "feature": "ema50_slope",
+      "dataset_v2": -0.165851,
+      "recomputed": -0.118197,
+      "abs_error": 0.047654
+    },
+    {
+      "timestamp": "2021-07-07 07:00:00+00:00",
+      "bar_index": 148,
+      "feature": "ema50_slope",
+      "dataset_v2": 0.550704,
+      "recomputed": 0.553,
+      "abs_error": 0.0022960000000000758
+    },
+    {
+      "timestamp": "2021-07-07 12:00:00+00:00",
+      "bar_index": 208,
+      "feature": "ema50_slope",
+      "dataset_v2": 0.19491,
+      "recomputed": 0.195026,
+      "abs_error": 0.00011600000000000499
+    },
+    {
+      "timestamp": "2021-07-07 17:00:00+00:00",
+      "bar_index": 268,
+      "feature": "ema50_slope",
+      "dataset_v2": 0.053626,
+      "recomputed": 0.053632,
+      "abs_error": 5.999999999999062e-06
+    },
+    {
+      "timestamp": "2021-07-08 01:05:00+00:00",
+      "bar_index": 351,
+      "feature": "ema50_slope",
+      "dataset_v2": -0.053492,
+      "recomputed": -0.053491,
+      "abs_error": 1.000000000001e-06
+    }
+  ],
+  "generated_utc": "2026-07-05T17:27:21.614609+00:00"
+}

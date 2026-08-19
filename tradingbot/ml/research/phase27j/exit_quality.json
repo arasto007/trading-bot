@@ -1,0 +1,34 @@
+{
+  "phase": "27J",
+  "by_exit_type": {
+    "TP": {
+      "count": 173,
+      "average_profit": 25.6096,
+      "average_missed_move_r": 0.293,
+      "average_efficiency": 0.9033,
+      "profit_factor": "inf"
+    },
+    "SL": {
+      "count": 337,
+      "average_profit": -11.1352,
+      "average_missed_move_r": 0.6824,
+      "average_efficiency": -9.4581,
+      "profit_factor": 0.0
+    },
+    "TIMEOUT": {
+      "count": 65,
+      "average_profit": 6.5122,
+      "average_missed_move_r": 0.9572,
+      "average_efficiency": 0.2597,
+      "profit_factor": 4.662
+    },
+    "Manual": {
+      "count": 0,
+      "average_profit": 0.0,
+      "average_missed_move_r": 0.0,
+      "average_efficiency": 0.0,
+      "profit_factor": 0.0
+    }
+  },
+  "generated_utc": "2026-07-09T18:00:07.114258+00:00"
+}

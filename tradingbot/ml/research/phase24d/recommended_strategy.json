@@ -1,0 +1,14 @@
+{
+  "phase": "24D",
+  "minimum_safe_optimization": "Strategy B \u2014 persistent in-memory dataset_v2",
+  "rationale": [
+    "Eliminates measured 40ms p95 parquet reload with zero merge logic change",
+    "feature_parity: True \u2014 identical merge input",
+    "rollback: env flag to disable in-memory cache",
+    "Does not touch build_ml_features, models, thresholds, or filters"
+  ],
+  "second_phase": "Strategy A \u2014 incremental unified frame after Phase 22S-style parity certification",
+  "not_recommended_alone": "Strategy C \u2014 insufficient impact on PipelineCache bottleneck (~2-5ms)",
+  "implementation_phase": "Future approved integration phase \u2014 NOT this research phase",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

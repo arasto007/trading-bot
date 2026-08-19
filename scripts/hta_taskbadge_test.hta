@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html><head><HTA:APPLICATION /></head><body>
+<script language="VBScript">
+Function TaskBadgeHtml(status)
+  TaskBadgeHtml = "<span>" & status
+End Function
+Dim fso, ts
+Set fso = CreateObject("Scripting.FileSystemObject")
+Set ts = fso.CreateTextFile("data\hta_taskbadge_ok.txt", True, False)
+ts.Write TaskBadgeHtml("X")
+ts.Close
+</script>
+</body></html>

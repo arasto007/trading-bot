@@ -1,0 +1,48 @@
+{
+  "phase": "30B",
+  "execution_risks": [
+    {
+      "risk": "Edge illusion from ideal paper PF",
+      "likelihood": "high",
+      "severity": "critical",
+      "mitigation": "Apply execution sim before promotion"
+    },
+    {
+      "risk": "Spread spike during news",
+      "likelihood": "medium",
+      "severity": "critical",
+      "evidence": "news PF 0.73"
+    },
+    {
+      "risk": "Flash crash slippage",
+      "likelihood": "low",
+      "severity": "critical",
+      "evidence": "flash PF 0.58"
+    },
+    {
+      "risk": "Weekend gap through SL",
+      "likelihood": "medium",
+      "severity": "high",
+      "evidence": "weekend PF 0.68"
+    },
+    {
+      "risk": "Paper-live divergence",
+      "likelihood": "high",
+      "severity": "high",
+      "evidence": "journal slippage=0"
+    },
+    {
+      "risk": "Latency race at bar close",
+      "likelihood": "medium",
+      "severity": "medium",
+      "evidence": "latency not modelled in PnL"
+    },
+    {
+      "risk": "Partial fill strand",
+      "likelihood": "low",
+      "severity": "low",
+      "evidence": "0.01 lot retail"
+    }
+  ],
+  "generated_utc": "2026-07-10T08:44:28.834529+00:00"
+}

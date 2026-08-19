@@ -1,0 +1,43 @@
+{
+  "phase": "29A",
+  "causal_feature_list": [
+    "rsi",
+    "adx",
+    "atr",
+    "atr_percentile",
+    "volume_percentile",
+    "ema20_distance_pct",
+    "ema50_distance_pct",
+    "ema_slope",
+    "market_structure_hh",
+    "market_structure_ll",
+    "range_compression",
+    "trend_aligned",
+    "swing_position",
+    "session",
+    "hour_utc",
+    "sl_atr_multiple"
+  ],
+  "forbidden_in_filter": [
+    "mfe",
+    "mae",
+    "pnl",
+    "pnl_r",
+    "exit_timestamp",
+    "exit_price",
+    "exit_reason",
+    "duration_bars",
+    "duration_sec",
+    "partial_pnl"
+  ],
+  "checks": {
+    "features_use_closed_bars_only": true,
+    "no_exit_fields_in_filter_inputs": true,
+    "no_future_bar_access": true,
+    "bar_index_monotonic": true
+  },
+  "all_pass": true,
+  "violations": [],
+  "methodology": "All filter/scoring features computed from candles.iloc[:entry_idx] excluding forming bar for indicators. MFE/MAE used only in post-hoc winner/loser analysis, never in signal filter score.",
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

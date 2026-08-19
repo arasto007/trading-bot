@@ -1,0 +1,16 @@
+{
+  "phase": "23C",
+  "title": "Decision Gate Investigation",
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00",
+  "verdict": "EXECUTION_GATE_BLOCKING",
+  "first_gate": "Phase22C RSI/ADX filters",
+  "engine_actionable": 18,
+  "kernel_actionable": 9,
+  "confidence_0_133_from_0_434": {
+    "probability": 0.434,
+    "formula": "confidence = abs(probability - 0.5) * 2.0",
+    "computed_confidence": 0.132,
+    "note": "Distance from 0.5 mapped to [0, 1]; max at prob 0 or 1."
+  },
+  "summary": "Raw engine confidence abs(p-0.5)*2 yields ~0.133 at prob 0.434; RangeAwareConfidenceEngine recovers directional probability before DecisionPolicy. On current RANGE replay, decision and Platt calibration pass all 18 engine SELLs; Phase22C RSI/ADX profitability filters block half before KernelAdapter emits a unified signal."
+}

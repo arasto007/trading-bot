@@ -1,0 +1,100 @@
+{
+  "phase": "22AF",
+  "minimum_production_surface": [
+    "model_registry.py",
+    "optimization_orchestrator.py",
+    "report_generator.py",
+    "kernel_shadow_runner.py",
+    "shadow_engine.py"
+  ],
+  "recommended_new_module": {
+    "path": "tradingbot/ml/research/robustness_optimizer/freeze_bridge.py",
+    "role": "Build FreezeContract, run guards, call registry freeze — keeps orchestrator thin",
+    "note": "Research module first; production import only after approval phase"
+  },
+  "files": [
+    {
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "current_role": "DEFAULT_CONFIG, hardcoded freeze, bundle load",
+      "required_change": "Replace hardcoded freeze with contract-driven freeze; deprecate DEFAULT_CONFIG as freeze source; keep load/verify; default build_if_missing=False for production callers",
+      "risk": "CRITICAL",
+      "approval": "Explicit production approval required (core registry)"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+      "current_role": "Runs grid, ranks, accepts, saves JSON, stops",
+      "required_change": "After save_reports, if acceptance PASS invoke freeze bridge with best_candidate + acceptance snapshot; if FAIL log and skip freeze",
+      "risk": "HIGH",
+      "approval": "Phase 9.9 pipeline scope (22X precedent)"
+    },
+    {
+      "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+      "current_role": "evaluate_acceptance, save_reports",
+      "required_change": "Export stable FreezeContract builder helper from best row + feature_subsets map + acceptance; embed report_path checksum in contract",
+      "risk": "MEDIUM",
+      "approval": "Phase 9.9 research pipeline"
+    },
+    {
+      "file": "scripts/train_model.py",
+      "current_role": "CLI entry --phase9-9 exits after optimizer",
+      "required_change": "Surface freeze outcome in exit message; optional --dry-freeze flag for contract validation without write (research)",
+      "risk": "LOW",
+      "approval": "CLI only"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "current_role": "_ensure_artifacts calls freeze_phase9_9_artifacts directly",
+      "required_change": "Remove direct freeze; require pre-existing artifacts or fail with actionable error pointing to train_model --phase9-9",
+      "risk": "HIGH",
+      "approval": "Shadow integration — not live hot path but can overwrite artifacts"
+    },
+    {
+      "file": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "current_role": "load_phase9_9_bundle(build_if_missing=True)",
+      "required_change": "Change to build_if_missing=False or gated research-only flag; never auto-freeze DEFAULT_CONFIG in production base_dir",
+      "risk": "HIGH",
+      "approval": "Paper/shadow path"
+    },
+    {
+      "file": "tradingbot/ml/shadow/ml_adapter.py",
+      "current_role": "Conditional build_if_missing when training_df provided",
+      "required_change": "Same as shadow_engine — disable unguarded auto-freeze on production artifact path",
+      "risk": "MEDIUM",
+      "approval": "Shadow adapter"
+    },
+    {
+      "file": "tradingbot/ml/paper/config.py",
+      "current_role": "EXPECTED_FEATURES from DEFAULT_CONFIG at import",
+      "required_change": "Validate against artifact feature_order.json at runtime; stop hard-binding to DEFAULT_CONFIG features",
+      "risk": "HIGH",
+      "approval": "Paper validation path"
+    },
+    {
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "current_role": "load bundle, verify integrity, fingerprint checks",
+      "required_change": "Optional: verify metadata.acceptance_status==PASS and contract checksum matches report; fail health if manifest stale",
+      "risk": "MEDIUM",
+      "approval": "Health gate — live fallback behavior"
+    },
+    {
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "current_role": "EngineRegistry.build_default loads bundle",
+      "required_change": "No logic change if registry load unchanged; document dependency on post-freeze artifacts",
+      "risk": "LOW",
+      "approval": "Read-only consumer"
+    }
+  ],
+  "out_of_scope_for_minimal_fix": [
+    "TradingKernel",
+    "RiskGate core",
+    "Mt5ExecutionAdapter",
+    "Feature pipeline",
+    "Dataset builder"
+  ],
+  "prerequisite_work": [
+    "Phase 22Y/22Z: acceptance rule overfitting_risk_decreased may block all freezes until calibrated",
+    "Ensure at least one candidate can PASS before first production freeze"
+  ],
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

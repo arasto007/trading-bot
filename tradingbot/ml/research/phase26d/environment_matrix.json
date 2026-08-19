@@ -1,0 +1,18 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "required": {
+    "USE_ML_KERNEL": "Must be explicitly set to 1/true or 0/false before loop startup"
+  },
+  "optional": {
+    "ALLOW_LEGACY_FALLBACK": "default false \u2014 HOLD on ML failure when false",
+    "TREND_MODEL_VERSION": "default v41",
+    "TRADINGBOT_SKIP_MT5_STARTUP": "test/dev only \u2014 skip MT5 probe",
+    "PHASE22C_*": "profitability recovery overrides",
+    "ENABLE_RSI_FILTER": "filter flags",
+    "ENABLE_ADX_FILTER": "filter flags"
+  },
+  "deprecated": {
+    "ENABLE_ML_SHADOW": "shadow mode \u2014 not production loop",
+    "ML_SHADOW_MODE": "shadow mode \u2014 not production loop"
+  }
+}

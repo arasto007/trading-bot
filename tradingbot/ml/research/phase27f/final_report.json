@@ -1,0 +1,36 @@
+{
+  "phase": "27F",
+  "verdict": "REPLAY_PORTFOLIO_FIXED",
+  "blockers": [],
+  "repair_target": "replay portfolio open_positions lifecycle",
+  "before_executed": 2,
+  "after_executed": 575,
+  "before_max_position_blocks": 753,
+  "after_max_position_blocks": 0,
+  "portfolio_summary": {
+    "opens": 575,
+    "closes": 575,
+    "max_concurrent_open": 0,
+    "bars_with_open_gte_2": 0,
+    "realized_pnl": 131.7493
+  },
+  "portfolio_consistent": true,
+  "execution_statistics": {
+    "phase": "27F",
+    "emitted_ml_signals": 762,
+    "riskgate_blocked": 186,
+    "riskgate_passed": 575,
+    "executed": 575,
+    "by_reason": {
+      "ATR percentile too low": 127,
+      "news blackout": 8,
+      "friday no entry window": 51
+    },
+    "execution_failures_after_riskgate": 0,
+    "execution_success_rate": 100.0
+  },
+  "replay_elapsed_sec": 1823.6,
+  "bars_evaluated": 5203,
+  "conclusion": "Replay portfolio now removes closed positions; RiskGate receives current state.",
+  "generated_utc": "2026-07-09T14:38:28.919980+00:00"
+}

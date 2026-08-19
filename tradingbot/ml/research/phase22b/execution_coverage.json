@@ -1,0 +1,59 @@
+{
+  "phase": "22B",
+  "period": "2026-06-04 00:00 to 2026-07-04 23:59",
+  "per_trade_traces": [
+    {
+      "trade": {
+        "side": "SELL",
+        "entry_time": "2026-06-29 04:10:00",
+        "pnl": -9.09,
+        "reason": "emergency"
+      },
+      "path_proven": "M5 ML signal \u2192 risk approved \u2192 dry_run execution (backtest broker sim)",
+      "exit_reasons": "emergency"
+    },
+    {
+      "trade": {
+        "side": "SELL",
+        "entry_time": "2026-06-29 04:15:00",
+        "pnl": -12.35,
+        "reason": "sl"
+      },
+      "path_proven": "M5 ML signal \u2192 risk approved \u2192 dry_run execution (backtest broker sim)",
+      "exit_reasons": "sl"
+    }
+  ],
+  "stage_summary_M5": {
+    "new_candles_processed": 10068,
+    "data_stage": {
+      "entered": 10068,
+      "failed": 0
+    },
+    "indicator_stage": {
+      "entered": 10068
+    },
+    "signal_stage": {
+      "bar_dedupe_skipped": 0,
+      "no_signal_exit": 10032,
+      "signals_emitted": 36
+    },
+    "ml_stage": {
+      "calls": 10068,
+      "hold": 10032,
+      "buy": 0,
+      "sell": 36,
+      "fallback": 0
+    },
+    "risk_stage": {
+      "allowed": 2,
+      "blocked": {
+        "max positions for symbol": 4,
+        "daily loss limit": 30
+      }
+    },
+    "execution_stage": {
+      "attempts": 2,
+      "success_dry_run": 2
+    }
+  }
+}

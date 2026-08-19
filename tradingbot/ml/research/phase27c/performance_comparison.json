@@ -1,0 +1,13 @@
+{
+  "phase": "27C",
+  "first_pass_avg_ms": 181.26,
+  "repeat_cached_pass_avg_ms": 62.444,
+  "cached_pass_latency_ratio_pct": 34.45,
+  "key_build_overhead_negligible": true,
+  "note": "Repeat pass avg latency should be lower than first pass (cache hits). Key hash overhead is microsecond-scale vs millisecond pipeline.",
+  "phase27a_corrupted_hit_rate_pct": 99.942,
+  "first_pass_hit_rate_pct": 0.0,
+  "repeat_pass_hit_rate_pct": 99.5,
+  "performance_regression_pass": true,
+  "generated_utc": "2026-07-09T13:12:45.920251+00:00"
+}

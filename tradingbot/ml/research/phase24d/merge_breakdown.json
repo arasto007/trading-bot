@@ -1,0 +1,186 @@
+{
+  "phase": "24D",
+  "source_function": "build_unified_frame",
+  "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+  "operations": [
+    {
+      "op": "build_ml_features",
+      "type": "dataframe_creation",
+      "stats": {
+        "count": 80,
+        "mean_ms": 19.8556,
+        "median_ms": 19.164,
+        "p95_ms": 20.9387,
+        "p99_ms": 24.6765,
+        "max_ms": 55.7896
+      }
+    },
+    {
+      "op": "base.copy",
+      "type": "copy",
+      "stats": {
+        "count": 80,
+        "mean_ms": 0.1788,
+        "median_ms": 0.1657,
+        "p95_ms": 0.2395,
+        "p99_ms": 0.3116,
+        "max_ms": 0.3839
+      }
+    },
+    {
+      "op": "compute_regime_features_from_candles",
+      "type": "feature_extraction",
+      "stats": {
+        "count": 80,
+        "mean_ms": 15.6274,
+        "median_ms": 15.1915,
+        "p95_ms": 18.7021,
+        "p99_ms": 19.9083,
+        "max_ms": 21.1358
+      }
+    },
+    {
+      "op": "regime_column_merge_loop",
+      "type": "join",
+      "stats": {
+        "count": 80,
+        "mean_ms": 33.3895,
+        "median_ms": 32.6407,
+        "p95_ms": 39.6643,
+        "p99_ms": 43.3148,
+        "max_ms": 49.0705
+      }
+    },
+    {
+      "op": "dataset_slice_copy_rename",
+      "type": "copy+rename",
+      "stats": {
+        "count": 80,
+        "mean_ms": 10.6145,
+        "median_ms": 6.5631,
+        "p95_ms": 58.3683,
+        "p99_ms": 59.6944,
+        "max_ms": 59.8739
+      }
+    },
+    {
+      "op": "dataset_merge_on_timestamp",
+      "type": "merge",
+      "stats": {
+        "count": 80,
+        "mean_ms": 2.2399,
+        "median_ms": 2.135,
+        "p95_ms": 3.0047,
+        "p99_ms": 3.1685,
+        "max_ms": 3.4199
+      }
+    },
+    {
+      "op": "attach_regime_labels",
+      "type": "feature_alignment",
+      "stats": {
+        "count": 80,
+        "mean_ms": 3.1077,
+        "median_ms": 3.1626,
+        "p95_ms": 3.6345,
+        "p99_ms": 4.8645,
+        "max_ms": 5.3741
+      }
+    },
+    {
+      "op": "sort_reset_index",
+      "type": "sort+indexing",
+      "stats": {
+        "count": 80,
+        "mean_ms": 0.4867,
+        "median_ms": 0.4594,
+        "p95_ms": 0.6538,
+        "p99_ms": 0.7332,
+        "max_ms": 0.7567
+      }
+    },
+    {
+      "op": "attach_top5_features",
+      "type": "feature_extraction",
+      "stats": {
+        "count": 80,
+        "mean_ms": 5.7207,
+        "median_ms": 5.6709,
+        "p95_ms": 6.3933,
+        "p99_ms": 7.108,
+        "max_ms": 8.6498
+      }
+    },
+    {
+      "op": "candles_tail_copy",
+      "type": "copy",
+      "stats": {
+        "count": 80,
+        "mean_ms": 0.0965,
+        "median_ms": 0.092,
+        "p95_ms": 0.1351,
+        "p99_ms": 0.1485,
+        "max_ms": 0.1639
+      }
+    }
+  ],
+  "ranked_by_p95": [
+    {
+      "op": "build_unified_frame_reference_total",
+      "p95_ms": 85.5229
+    },
+    {
+      "op": "dataset_slice_copy_rename",
+      "p95_ms": 58.3683
+    },
+    {
+      "op": "regime_column_merge_loop_total",
+      "p95_ms": 39.6643
+    },
+    {
+      "op": "build_ml_features",
+      "p95_ms": 20.9387
+    },
+    {
+      "op": "compute_regime_features_from_candles",
+      "p95_ms": 18.7021
+    },
+    {
+      "op": "attach_top5_features",
+      "p95_ms": 6.3933
+    },
+    {
+      "op": "attach_regime_labels",
+      "p95_ms": 3.6345
+    },
+    {
+      "op": "regime_column_merge_per_column_avg",
+      "p95_ms": 3.3054
+    },
+    {
+      "op": "dataset_merge_on_timestamp",
+      "p95_ms": 3.0047
+    },
+    {
+      "op": "sort_reset_index",
+      "p95_ms": 0.6538
+    },
+    {
+      "op": "regime_timestamp_convert",
+      "p95_ms": 0.5607
+    },
+    {
+      "op": "base_timestamp_convert",
+      "p95_ms": 0.4935
+    },
+    {
+      "op": "base_copy",
+      "p95_ms": 0.2395
+    },
+    {
+      "op": "candles_tail_copy",
+      "p95_ms": 0.1351
+    }
+  ],
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

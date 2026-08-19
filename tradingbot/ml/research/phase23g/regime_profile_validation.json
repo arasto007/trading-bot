@@ -1,0 +1,66 @@
+{
+  "phase": "23G",
+  "range_uses_phase23e_profile": true,
+  "trend_uses_phase22c_profile": true,
+  "transition_uses_phase22c_profile": true,
+  "range_profile_id": "range_phase23e",
+  "trend_profile_id": "trend_phase22c",
+  "transition_profile_id": "transition_phase22c",
+  "range_only_when_engine_phase99": true,
+  "diagnostics_sample": {
+    "range": {
+      "profile_used": "range_phase23e",
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "rsi_limits": [
+        40.0,
+        65.0
+      ],
+      "adx_limits": [
+        15.0,
+        40.0
+      ],
+      "enable_range_filter_profile": true,
+      "filter_reason": null,
+      "blocked_by": []
+    },
+    "trend": {
+      "profile_used": "trend_phase22c",
+      "regime": "TREND",
+      "engine": "trend_rf_v41",
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "enable_range_filter_profile": true,
+      "filter_reason": null,
+      "blocked_by": []
+    },
+    "transition": {
+      "profile_used": "transition_phase22c",
+      "regime": "HIGH_VOLATILITY",
+      "engine": null,
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "enable_range_filter_profile": true,
+      "filter_reason": null,
+      "blocked_by": []
+    }
+  },
+  "checks": {
+    "range_profile_correct": true,
+    "trend_unchanged": true,
+    "transition_unchanged": true
+  },
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

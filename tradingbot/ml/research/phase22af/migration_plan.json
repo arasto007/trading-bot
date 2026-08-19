@@ -1,0 +1,53 @@
+{
+  "phase": "22AF",
+  "migration_phases": [
+    {
+      "phase": 1,
+      "name": "Contract + guards (research-only prototype)",
+      "order": 1,
+      "tasks": [
+        "Implement FreezeContract schema and freeze_bridge.validate_before_freeze in research module",
+        "Unit tests: guards reject no acceptance, failed probability gate, unknown candidate, missing report",
+        "Prototype freeze_from_contract writing to temp directories only",
+        "Document train_protocol alignment (85% refit vs full-data) with walk-forward methodology"
+      ],
+      "production_touch": false,
+      "exit_criteria": "All guard tests pass; contract builds from live phase9_9_robustness_report.json"
+    },
+    {
+      "phase": 2,
+      "name": "Pipeline connection + side-path removal (approved production)",
+      "order": 2,
+      "tasks": [
+        "Refactor model_registry freeze to consume FreezeContract; remove hardcoded logistic_strong_reg",
+        "Wire optimization_orchestrator to call freeze_bridge after acceptance PASS only",
+        "Disable unguarded auto-freeze in kernel_shadow_runner, shadow_engine, ml_adapter",
+        "Change load_phase9_9_bundle default to build_if_missing=False globally for production callers",
+        "Resolve acceptance rule blocker (22Y/22Z) so at least one candidate can PASS",
+        "Run train_model --phase9-9 end-to-end; verify artifacts match winner experiment_id"
+      ],
+      "production_touch": true,
+      "exit_criteria": "phase9_9_best metadata candidate_id matches report best_candidate; HealthGate PASS; pytest full"
+    },
+    {
+      "phase": 3,
+      "name": "Runtime validation + operational hardening",
+      "order": 3,
+      "tasks": [
+        "Extend HealthGate to verify acceptance_snapshot and report checksum in metadata",
+        "Update paper/config EXPECTED_FEATURES to read artifact feature_order.json",
+        "Add verify_ml_live_ready check for freeze_manifest presence",
+        "Archive backup of pre-migration logistic_strong_reg artifacts",
+        "Document operator runbook: train → accept → freeze → restart live (PipelineCache reload)"
+      ],
+      "production_touch": true,
+      "exit_criteria": "Live path loads new bundle; no shadow overwrite; dashboard/live ready checks pass"
+    }
+  ],
+  "rollback": "Restore backed-up phase9_9_best/ directory; restart live process",
+  "blocked_until": [
+    "Acceptance calibration (overfitting_risk_decreased) — otherwise freeze gate never opens"
+  ],
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

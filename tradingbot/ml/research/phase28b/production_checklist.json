@@ -1,0 +1,15 @@
+{
+  "phase": "28B",
+  "items": {
+    "exit_only_change": true,
+    "entry_unchanged": true,
+    "ml_unchanged": true,
+    "riskgate_unchanged": true,
+    "execution_adapter_unchanged": true,
+    "config_switch": true,
+    "unit_tests": true,
+    "performance_parity": true,
+    "failure_recovery": true
+  },
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

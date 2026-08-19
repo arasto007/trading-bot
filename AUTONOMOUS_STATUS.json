@@ -1,0 +1,35 @@
+﻿{
+    "days_left":  54,
+    "paper_running":  true,
+    "trades":  56,
+    "autonomous_mode":  true,
+    "candle_source":  "candles",
+    "live_feed_connected":  false,
+    "user_action_required":  false,
+    "production_blocked":  true,
+    "candle_refresh_log":  "logs/live_l5_candle_refresh.log",
+    "last_action":  "paper_result_sync",
+    "last_action_utc":  "2026-07-16T19:58:14.0138687Z",
+    "next_l6_check_utc":  "2026-07-16T20:13:14.0180826Z",
+    "mt5_note":  "Open MT5 logged in; refresh runs every 15min from paper monitor only (attach-only, no disconnect storm)",
+    "early_gate":  {
+                       "trades_min":  50,
+                       "pf_min":  1.1
+                   },
+    "logs":  {
+                 "l6_auto":  "logs/auto_l6_on_paper_complete.log",
+                 "orchestrator":  "logs/live_autonomous_orchestrator.log",
+                 "candle_refresh":  "logs/live_l5_candle_refresh.log",
+                 "paper_monitor":  "logs/live_l5_paper_monitor_run.log"
+             },
+    "orchestrator_pid":  11764,
+    "paper_monitor_pid":  1544,
+    "cycle_count":  115,
+    "production_note":  "BLOCKED until L6 gates pass - no live real-money orders",
+    "candle_end":  "2026-07-16 19:45:00+00:00",
+    "paper_end_date_utc":  "2026-09-09T06:33:19.0000000Z",
+    "static_only_warning":  true,
+    "pf":  1.24,
+    "updated_utc":  "2026-07-16T20:03:14.1016204Z",
+    "heartbeat":  "logs/live_autonomous_heartbeat.json"
+}

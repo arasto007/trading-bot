@@ -1,0 +1,11 @@
+{
+  "phase": "27I",
+  "entry_slippage_total": 803.9056,
+  "exit_slippage_total": 803.9055,
+  "entry_contribution_pct": 50.0,
+  "exit_contribution_pct": 50.0,
+  "primary_sensitivity": "both_equally",
+  "avg_entry_slippage_per_trade": 1.3981,
+  "avg_exit_slippage_per_trade": 1.3981,
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

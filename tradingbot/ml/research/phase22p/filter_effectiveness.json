@@ -1,0 +1,103 @@
+{
+  "phase": "22P",
+  "baseline": {
+    "profit_factor": 0.0,
+    "max_drawdown_pct": 0.0,
+    "trades": 0
+  },
+  "ranked_filters": [
+    {
+      "filter": "Decision/Engine Gate",
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "signals_removed": 4247,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "low_value_blocker"
+    },
+    {
+      "filter": "Trade Quality Gate",
+      "file": "tradingbot/ml/trade_quality/adapter.py",
+      "signals_removed": 61,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "blocks_losing_or_neutral"
+    },
+    {
+      "filter": "Calibration Gate",
+      "file": "tradingbot/ml/confidence_engine/validator.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "RSI Filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "ADX Filter",
+      "file": "tradingbot/ml/phase19c/filters.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "MetaLabeler",
+      "file": "tradingbot/services/meta_labeler.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "verdict": "inactive"
+    },
+    {
+      "filter": "RiskGate (all)",
+      "file": "tradingbot/adapters/risk_gate.py",
+      "signals_removed": 0,
+      "blocked_events_sampled": 0,
+      "blocked_positive_forward_r": 0,
+      "blocked_negative_forward_r": 0,
+      "pf_after_removal": 0.0,
+      "pf_change": 0.0,
+      "dd_after_removal": 0.0,
+      "note": "PF unchanged in forensics — no filter disabled; forward-R estimates only",
+      "reasons": {},
+      "verdict": "inactive"
+    }
+  ],
+  "method": "hold_chain counts + forward-R on blocked_events sample (no threshold changes)"
+}

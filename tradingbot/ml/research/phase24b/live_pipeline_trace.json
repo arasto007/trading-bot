@@ -1,0 +1,371 @@
+{
+  "phase": "24B",
+  "method": "static_source_trace",
+  "entry_points": [
+    {
+      "path": "start/3_live_loop_execute.bat",
+      "note": "batch \u2192 verify_ml_live_ready \u2192 watchdog"
+    },
+    {
+      "path": "tradingbot/__main__.py",
+      "line": 22,
+      "cli": "python -m tradingbot --loop [--execute|--paper]"
+    },
+    {
+      "path": "tradingbot/application/live_runner.py",
+      "line": 131,
+      "function": "LiveRunner.run \u2192 asyncio.run(_run)"
+    }
+  ],
+  "startup_wiring": {
+    "file": "tradingbot/application/live_runner.py",
+    "lines": "65-83",
+    "components": [
+      "Mt5MarketDataAdapter",
+      "Mt5ExecutionAdapter",
+      "create_risk_gate",
+      "Mt5PositionManager",
+      "TradingKernel(strategies=build_strategy_registry(...))"
+    ]
+  },
+  "kernel_loop": {
+    "file": "tradingbot/kernel/trading_kernel.py",
+    "run_forever": {
+      "line": null,
+      "calls": "run_global_cycle + sleep(interval)"
+    },
+    "run_global_cycle": {
+      "line": null,
+      "steps": [
+        "ensure_connected",
+        "check_mt5_health",
+        "market_data.update_all",
+        "run_market_cycle per market",
+        "executor.manage_open_positions",
+        "position_manager.manage_all"
+      ]
+    },
+    "pipeline_order": [
+      "DATA",
+      "INDICATORS",
+      "SIGNALS",
+      "RISK",
+      "EXECUTION"
+    ],
+    "pipeline_constructed_at": {
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 81
+    }
+  },
+  "ml_path_when_use_ml_kernel": [
+    {
+      "order": 1,
+      "phase": "Startup",
+      "file": "start/3_live_loop_execute.bat",
+      "function": "(batch)",
+      "object": "cmd.exe",
+      "action": "cd project root; call _load_env.bat; run verify_ml_live_ready.py",
+      "line": 17
+    },
+    {
+      "order": 2,
+      "phase": "Startup",
+      "file": "scripts/verify_ml_live_ready.py",
+      "function": "main",
+      "object": "PipelineCache",
+      "action": "preflight: get_registry(base_dir) if USE_ML_KERNEL and artifacts exist",
+      "line": 123,
+      "note": "Separate process from live child; validates health before spawn"
+    },
+    {
+      "order": 3,
+      "phase": "Startup",
+      "file": "scripts/run_live_watchdog.py",
+      "function": "main",
+      "object": "subprocess",
+      "action": "spawn [python, -m, tradingbot, --loop, --execute]",
+      "line": 62
+    },
+    {
+      "order": 4,
+      "phase": "Startup",
+      "file": "tradingbot/__main__.py",
+      "function": "main",
+      "object": "argparse",
+      "action": "parse --loop --execute \u2192 run_live_loop()",
+      "line": 22
+    },
+    {
+      "order": 5,
+      "phase": "Startup",
+      "file": "tradingbot/application/live_runner.py",
+      "function": "run_live_loop \u2192 LiveRunner.__init__",
+      "object": "LiveRunner",
+      "action": "construct TradingKernel with build_strategy_registry(legacy_config, base_dir)",
+      "line": 29
+    },
+    {
+      "order": 6,
+      "phase": "Registry",
+      "file": "tradingbot/ml/integration/factory.py",
+      "function": "build_strategy_registry",
+      "object": "MLKernelRegistry",
+      "action": "if USE_ML_KERNEL: build_kernel_adapter \u2192 MLKernelRegistry(adapter=...)",
+      "line": 14
+    },
+    {
+      "order": 7,
+      "phase": "Registry",
+      "file": "tradingbot/ml/integration/factory.py",
+      "function": "build_ml_kernel_stack",
+      "object": "PipelineCache",
+      "action": "configure(base_dir); get_registry(base_dir) \u2192 EngineRegistry.build_default",
+      "line": 61
+    },
+    {
+      "order": 8,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "load_phase9_9_bundle",
+      "action": "load_phase9_9_bundle(base_dir, build_if_missing=False) \u2014 checksum pass",
+      "line": 11
+    },
+    {
+      "order": 9,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "RangeEngineAdapter",
+      "action": "RangeEngineAdapter.load(symbol) \u2192 second bundle load (inference instance)",
+      "line": 113
+    },
+    {
+      "order": 10,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "RangeEngineAdapter.load",
+      "object": "Phase99Bundle",
+      "action": "load_phase9_9_bundle(base_dir=None, build_if_missing=False)",
+      "line": 10
+    },
+    {
+      "order": 11,
+      "phase": "Bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "load_phase9_9_bundle",
+      "object": "Phase99Bundle",
+      "action": "joblib.load(model.pkl); load scaler/feature_order/config/metadata JSON",
+      "line": 419
+    },
+    {
+      "order": 12,
+      "phase": "EngineRegistry",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "EngineRegistry.build_default",
+      "object": "Phase99EngineWrapper",
+      "action": "register(RANGE_ENGINE_ID, Phase99EngineWrapper(UnifiedRangeWrapper(range_inner), hash))",
+      "line": 31
+    },
+    {
+      "order": 13,
+      "phase": "Runtime loop",
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "function": "run_forever \u2192 run_market_cycle",
+      "object": "TradingKernel",
+      "action": "pipeline: DataStage \u2192 IndicatorStage \u2192 SignalStage \u2192 RiskStage \u2192 ExecutionStage",
+      "line": 81
+    },
+    {
+      "order": 14,
+      "phase": "Runtime loop",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "function": "SignalStage.run",
+      "object": "MLKernelRegistry",
+      "action": "strategies.generate_signal(market, closed_df)",
+      "line": 1
+    },
+    {
+      "order": 15,
+      "phase": "Runtime loop",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "KernelAdapter.generate_signal \u2192 produce_unified_signal",
+      "object": "KernelAdapter",
+      "action": "require_health(registry); get_unified_frame; build_market_context",
+      "line": 164
+    },
+    {
+      "order": 16,
+      "phase": "Health",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "function": "require_health \u2192 run_pre_decision_health",
+      "object": "HealthGate",
+      "action": "load_phase9_9_bundle(build_if_missing=False) read-only integrity probe",
+      "line": 16,
+      "note": "Per-bar health check; does not select or rewrite model"
+    },
+    {
+      "order": 17,
+      "phase": "RangeEngineAdapter",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "function": "build_market_context",
+      "object": "UnifiedRangeWrapper",
+      "action": "range_engine.evaluate(row=row_for_phase99_range(row))",
+      "line": 120
+    },
+    {
+      "order": 18,
+      "phase": "RangeEngineAdapter",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "RangeEngineAdapter.evaluate",
+      "object": "Phase99Bundle (in-memory)",
+      "action": "bundle.predict_proba(feats) \u2014 LIVE INFERENCE",
+      "line": 88
+    },
+    {
+      "order": 19,
+      "phase": "Phase99EngineWrapper",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "Phase99EngineWrapper.predict",
+      "object": "UnifiedRangeWrapper.inner",
+      "action": "alternative protocol path: inner.evaluate via row_for_phase99_range (same bundle)",
+      "line": 23,
+      "note": "Live bar path uses build_market_context inner reference from _engine_inners(), not wrapper.predict directly"
+    },
+    {
+      "order": 20,
+      "phase": "predict_proba",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "Phase99Bundle.predict_proba",
+      "object": "sklearn model + StandardScaler",
+      "action": "transform(features) \u2192 model.predict_proba \u2192 float(proba[1])",
+      "line": 69
+    },
+    {
+      "order": "15a",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "produce_unified_signal",
+      "action": "PipelineCache.get_unified_frame \u2192 build_market_context \u2192 quality.evaluate",
+      "line": 164
+    },
+    {
+      "order": "15b",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "function": "build_market_context",
+      "action": "rule_classify_row \u2192 range_engine.evaluate \u2192 trend_engine.evaluate",
+      "line": 101
+    },
+    {
+      "order": "15c",
+      "file": "tradingbot/ml/trade_quality/adapter.py",
+      "function": "TradeQualityAdapter.evaluate",
+      "action": "risk_adapter.evaluate \u2192 quality_engine.evaluate (chains calibration+risk+quality)",
+      "line": 60
+    },
+    {
+      "order": "15d",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "produce_unified_signal",
+      "action": "select_profitability_filter_settings \u2192 apply_profitability_filters \u2192 action HOLD gates",
+      "line": 26
+    },
+    {
+      "order": "15e",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "generate_signal",
+      "action": "map_unified_to_trading_signal; return None if HOLD",
+      "line": 282
+    },
+    {
+      "order": 21,
+      "phase": "Kernel pipeline",
+      "file": "tradingbot/pipeline/risk_stage.py",
+      "function": "RiskStage.run",
+      "action": "risk.evaluate(signal, snap) \u2014 IRiskGate legacy RiskManager",
+      "line": 35,
+      "input": "TradingSignal + portfolio_snapshot + ohlcv + htf_bias",
+      "output": "RiskDecision on ctx.risk; blocks if not allowed"
+    },
+    {
+      "order": 22,
+      "phase": "Kernel pipeline",
+      "file": "tradingbot/pipeline/execution_stage.py",
+      "function": "ExecutionStage.run",
+      "action": "executor.execute(signal, lot)",
+      "line": 21,
+      "input": "TradingSignal, lot (signal.lot_size or default 0.01)",
+      "output": "ExecutionResult on ctx.execution"
+    },
+    {
+      "order": 23,
+      "phase": "MT5 execution",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "function": "Mt5ExecutionAdapter.execute",
+      "action": "dry_run / paper / live branch",
+      "line": 42,
+      "branches": [
+        {
+          "condition": "TRADINGBOT_DRY_RUN=1",
+          "line": 44,
+          "result": "success=True, no order_send"
+        },
+        {
+          "condition": "TRADINGBOT_PAPER=1",
+          "line": 68,
+          "result": "journal simulated fill"
+        },
+        {
+          "condition": "live",
+          "line": 88,
+          "result": "_place_market_order \u2192 mt5.order_send"
+        }
+      ]
+    },
+    {
+      "order": 24,
+      "phase": "MT5 execution",
+      "file": "tradingbot/adapters/mt5_execution.py",
+      "function": "_place_market_order \u2192 _order_send_with_retry",
+      "action": "mt5.order_send(request) with retry on retcodes 10004,10006,...",
+      "line": 240,
+      "guards": [
+        {
+          "fn": "order_logic.validate_order",
+          "line": 138
+        },
+        {
+          "fn": "order_logic.check_order_risk",
+          "line": 143
+        }
+      ]
+    }
+  ],
+  "legacy_path_when_use_ml_kernel_false": [
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 139,
+      "action": "return LegacyStrategyRegistry"
+    },
+    {
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "line": 35,
+      "action": "legacy.generate_signal"
+    }
+  ],
+  "terminal_live_order": {
+    "file": "tradingbot/adapters/mt5_execution.py",
+    "function": "mt5.order_send",
+    "line": 240
+  },
+  "artifact_state": {
+    "model_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "model.pkl_exists": true,
+    "scaler.pkl_exists": true,
+    "feature_order_exists": true,
+    "config_exists": true,
+    "metadata_exists": true,
+    "metadata_candidate_id": "xgb_baseline_phase96",
+    "metadata_frozen_at": "2026-07-07T20:10:28.472964+00:00"
+  },
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

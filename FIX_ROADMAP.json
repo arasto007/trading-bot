@@ -1,0 +1,417 @@
+{
+  "version": "1.0",
+  "created_utc": "2026-07-15T02:30:00Z",
+  "updated_utc": "2026-07-15T03:50:19Z",
+  "mission_fa": "\u0631\u0641\u0639 \u0645\u0634\u06a9\u0644\u0627\u062a \u0627\u062c\u0631\u0627 \u0648 ML \u2014 \u0645\u0633\u06cc\u0631 \u067e\u0698\u0648\u0647\u0634\u06cc \u062a\u0627 \u0639\u0628\u0648\u0631 \u0627\u0632 gate\u0647\u0627\u06cc \u0633\u062e\u062a (\u0628\u062f\u0648\u0646 \u062a\u0636\u0645\u06cc\u0646 \u0633\u0648\u062f)",
+  "mission_en": "Fix execution and ML gaps \u2014 research-only path to strict gates (no profitability guarantee)",
+  "linked_from": "TREATMENT_ROADMAP.json",
+  "research_rules": [
+    "NO production deploy until ALL production gates pass",
+    "NO TradingKernel/RiskGate/TradeQuality changes in production code until Phase 70 gate review",
+    "Phases 62-69 are research / shadow / paper only",
+    "Profitability cannot be guaranteed \u2014 gates are evidence thresholds, not promises"
+  ],
+  "production_gates": {
+    "mean_auc_ge": 0.55,
+    "honest_pf_ge": 1.3,
+    "honest_pf_min_trades_per_window": 30,
+    "shadow_pf_ge": 1.0,
+    "capture_rate_hc_pct_ge": 20.0,
+    "note_fa": "\u0647\u0645\u0647 gate\u0647\u0627 \u0628\u0627\u06cc\u062f \u0647\u0645\u0632\u0645\u0627\u0646 \u067e\u0627\u0633 \u0634\u0648\u0646\u062f \u2014 \u06cc\u06a9 gate \u06a9\u0627\u0641\u06cc \u0646\u06cc\u0633\u062a",
+    "note_en": "All gates must pass simultaneously \u2014 partial pass is insufficient"
+  },
+  "current_baseline": {
+    "mean_auc": 0.5153,
+    "honest_pf": 0.5676,
+    "wf_pf_inflated": 1.7343,
+    "shadow_pf_path_b": 0.3932,
+    "capture_rate_full_path_pct": 0.0,
+    "tq_block_rate_hc_pct": 93.36,
+    "proximity_score": 70.0,
+    "production_status": "BLOCKED",
+    "shadow_pf_combined_best": 0.3932,
+    "capture_rate_combined_pct": 93.35,
+    "honest_pf_best": 0.5676,
+    "mean_auc_best": 0.5151,
+    "gates_passed_count": 1,
+    "gates_total": 4,
+    "all_gates_pass": false
+  },
+  "tracks": {
+    "E": {
+      "name_en": "Execution",
+      "name_fa": "\u0627\u062c\u0631\u0627\u06cc \u0645\u0639\u0627\u0645\u0644\u0627\u062a",
+      "focus": "TradeQuality shadow recalibration, AdaptiveRisk review, capture rate"
+    },
+    "M": {
+      "name_en": "Machine Learning",
+      "name_fa": "\u06cc\u0627\u062f\u06af\u06cc\u0631\u06cc \u0645\u0627\u0634\u06cc\u0646",
+      "focus": "AUC lift, TREND specialization, feature engineering, label experiments"
+    },
+    "I": {
+      "name_en": "Integration",
+      "name_fa": "\u06cc\u06a9\u067e\u0627\u0631\u0686\u0647\u200c\u0633\u0627\u0632\u06cc",
+      "focus": "shadow \u2192 paper \u2192 gated production (only after gates pass)"
+    }
+  },
+  "phases": [
+    {
+      "phase": "62",
+      "track": "E",
+      "title_fa": "\u062a\u062d\u0644\u06cc\u0644 \u0633\u0627\u06cc\u0647 TradeQuality",
+      "title_en": "TradeQuality Shadow Analysis",
+      "problem": "Execution",
+      "objective_fa": "\u062f\u0644\u06cc\u0644 \u0631\u062f \u06f9\u06f3\u066a+ \u0633\u06cc\u06af\u0646\u0627\u0644\u200c\u0647\u0627\u06cc TREND \u0628\u0627 confidence \u0628\u0627\u0644\u0627 \u062a\u0648\u0633\u0637 TradeQuality \u0631\u0627 \u062f\u0633\u062a\u0647\u200c\u0628\u0646\u062f\u06cc \u06a9\u0646",
+      "objective_en": "Categorize why TradeQuality rejects 93%+ of high-confidence TREND signals",
+      "inputs": [
+        "tradingbot/ml/research/phase46/.cache/ml_signals_fullest_*.json",
+        "tradingbot/ml/trade_quality/quality_engine.py",
+        "phase61_final_report.json"
+      ],
+      "deliverables": [
+        "phase62_final_report.json",
+        "tradingbot/ml/research/phase62/artifacts/tq_rejection_breakdown.json"
+      ],
+      "success_criteria": {
+        "rejection_categories_documented": true,
+        "primary_blocker_identified": true,
+        "shadow_threshold_proposals": true
+      },
+      "estimated_effort": "1 day",
+      "dependencies": [
+        "phase61"
+      ],
+      "risks": [
+        "Cache lacks full TQ trace \u2014 re-evaluation uses inferred session/ATR"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "TQ_ENGINE_ID_MISMATCH_CONFIRMED"
+    },
+    {
+      "phase": "63",
+      "track": "E",
+      "title_fa": "\u06a9\u0627\u0644\u06cc\u0628\u0631\u0627\u0633\u06cc\u0648\u0646 \u0633\u0627\u06cc\u0647 TradeQuality",
+      "title_en": "TradeQuality Shadow Recalibration",
+      "problem": "Execution",
+      "objective_fa": "\u067e\u06cc\u0627\u062f\u0647\u200c\u0633\u0627\u0632\u06cc policy \u0633\u0627\u06cc\u0647 (\u0641\u0642\u0637 \u067e\u0698\u0648\u0647\u0634): alias \u0645\u0648\u062a\u0648\u0631\u060c sweep \u0622\u0633\u062a\u0627\u0646\u0647\u060c \u0627\u0646\u062f\u0627\u0632\u0647\u200c\u06af\u06cc\u0631\u06cc capture \u0648 PF \u0633\u0627\u06cc\u0647",
+      "objective_en": "Implement shadow-only policy: engine alias, threshold sweep, measure shadow capture and PF",
+      "inputs": [
+        "phase62_final_report.json",
+        "phase46 caches",
+        "dataset_v7_ml_signals.parquet"
+      ],
+      "deliverables": [
+        "phase63_final_report.json",
+        "tradingbot/ml/research/phase63/artifacts/tq_shadow_policy.json"
+      ],
+      "success_criteria": {
+        "shadow_capture_rate_pct_ge": 20,
+        "best_threshold_identified": true,
+        "no_production_code_changes": true
+      },
+      "estimated_effort": "2 days",
+      "dependencies": [
+        "phase62"
+      ],
+      "risks": [
+        "Shadow PF may remain below 1.0 even after TQ fix \u2014 ML edge still weak"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "SHADOW_CAPTURE_OK_PF_FAIL"
+    },
+    {
+      "phase": "64",
+      "track": "E",
+      "title_fa": "\u0628\u0631\u0631\u0633\u06cc \u0633\u0627\u06cc\u0647 AdaptiveRisk",
+      "title_en": "AdaptiveRisk Shadow Review",
+      "problem": "Execution",
+      "objective_fa": "\u062a\u062d\u0644\u06cc\u0644 \u06f2\u06f9\u06f9 \u0628\u0644\u0627\u06a9 AdaptiveRisk\u061b \u0622\u06cc\u0627 AR \u0628\u0639\u062f \u0627\u0632 TQ \u0647\u0646\u0648\u0632 edge \u0631\u0627 \u0645\u06cc\u200c\u06a9\u0634\u062f\u061f",
+      "objective_en": "Analyze 299 AdaptiveRisk blocks; quantify AR impact after TQ recalibration",
+      "inputs": [
+        "phase46 caches",
+        "phase63 shadow policy",
+        "tradingbot/ml/risk_intelligence/"
+      ],
+      "deliverables": [
+        "phase64_final_report.json",
+        "tradingbot/ml/research/phase64/artifacts/adaptive_risk_shadow.json"
+      ],
+      "success_criteria": {
+        "ar_block_reasons_categorized": true,
+        "incremental_pf_if_ar_relaxed_documented": true
+      },
+      "estimated_effort": "1-2 days",
+      "dependencies": [
+        "phase63"
+      ],
+      "risks": [
+        "Relaxing AR in shadow may increase drawdown \u2014 paper phase required"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "AR_REVIEW_COMPLETE"
+    },
+    {
+      "phase": "65",
+      "track": "M",
+      "title_fa": "\u0627\u0631\u062a\u0642\u0627\u06cc AUC \u2014 \u0645\u0647\u0646\u062f\u0633\u06cc \u0648\u06cc\u0698\u06af\u06cc TREND",
+      "title_en": "AUC Lift \u2014 TREND Feature Engineering",
+      "problem": "ML",
+      "objective_fa": "\u0628\u0627\u0644\u0627 \u0628\u0631\u062f\u0646 AUC \u0627\u0632 ~0.51 \u0628\u0647 \u22650.55 \u0628\u0627 \u0648\u06cc\u0698\u06af\u06cc\u200c\u0647\u0627\u06cc regime-aware \u0648 \u062d\u0630\u0641 \u0646\u0648\u06cc\u0632",
+      "objective_en": "Lift AUC from ~0.51 toward \u22650.55 via regime-aware features and noise reduction",
+      "inputs": [
+        "dataset_v7_ml_signals.parquet",
+        "phase55 feature audit",
+        "phase59 rf_10f baseline"
+      ],
+      "deliverables": [
+        "phase65_final_report.json",
+        "tradingbot/ml/research/phase65/artifacts/auc_feature_lift.json"
+      ],
+      "success_criteria": {
+        "mean_auc_ge_0_55": true,
+        "strict_walk_forward_rerun": true
+      },
+      "estimated_effort": "3-5 days",
+      "dependencies": [
+        "phase59",
+        "phase60"
+      ],
+      "risks": [
+        "AUC lift may not translate to honest PF \u2014 overfitting risk on TREND-only subset"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "STRICT_GATE_FAIL"
+    },
+    {
+      "phase": "66",
+      "track": "M",
+      "title_fa": "\u0622\u0632\u0645\u0627\u06cc\u0634 \u0628\u0631\u0686\u0633\u0628 \u0648 \u0627\u0641\u0642 \u0632\u0645\u0627\u0646\u06cc",
+      "title_en": "Label & Horizon Experiments",
+      "problem": "ML",
+      "objective_fa": "Sweep \u0627\u0641\u0642 label (48/72/96 bar) \u0648 \u062a\u0639\u0631\u06cc\u0641 \u0633\u062e\u062a\u200c\u062a\u0631 TP-first\u061b honest PF \u0628\u0627 min 30 trade",
+      "objective_en": "Sweep label horizons and stricter TP-first; honest PF with min 30 trades per window",
+      "inputs": [
+        "phase35 label_alignment.py",
+        "phase59 horizon sweep baseline",
+        "dataset_v7_ml_signals.parquet"
+      ],
+      "deliverables": [
+        "phase66_final_report.json",
+        "tradingbot/ml/research/phase66/artifacts/label_horizon_experiments.json"
+      ],
+      "success_criteria": {
+        "honest_pf_ge_1_3": true,
+        "min_trades_per_window_ge_30": true
+      },
+      "estimated_effort": "2-3 days",
+      "dependencies": [
+        "phase65"
+      ],
+      "risks": [
+        "Stricter labels reduce sample size \u2014 may fail trade-count floor"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "STRICT_GATE_MARGINAL"
+    },
+    {
+      "phase": "67",
+      "track": "M",
+      "title_fa": "\u062a\u062e\u0635\u0635\u06cc\u200c\u0633\u0627\u0632\u06cc TREND + ensemble",
+      "title_en": "TREND Specialization & Ensemble",
+      "problem": "ML",
+      "objective_fa": "\u0645\u062f\u0644 TREND-only \u0628\u0627 threshold 0.40\u061b RF+HGB ensemble\u061b re-gate \u0633\u062e\u062a",
+      "objective_en": "TREND-only model at threshold 0.40; RF+HGB ensemble; strict re-gate",
+      "inputs": [
+        "phase65-66 best configs",
+        "phase58 trend_only patterns"
+      ],
+      "deliverables": [
+        "phase67_final_report.json",
+        "tradingbot/ml/research/phase67/artifacts/trend_specialization.json"
+      ],
+      "success_criteria": {
+        "mean_auc_ge_0_55": true,
+        "honest_pf_ge_1_3": true
+      },
+      "estimated_effort": "2-3 days",
+      "dependencies": [
+        "phase66"
+      ],
+      "risks": [
+        "Ensemble may not beat single RF \u2014 marginal gains expected"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "STRICT_GATE_MARGINAL"
+    },
+    {
+      "phase": "68",
+      "track": "E",
+      "title_fa": "\u0627\u0639\u062a\u0628\u0627\u0631\u0633\u0646\u062c\u06cc \u0645\u062c\u062f\u062f \u0633\u0627\u06cc\u0647 \u062a\u0631\u06a9\u06cc\u0628\u06cc",
+      "title_en": "Combined Shadow Revalidation",
+      "problem": "Both",
+      "objective_fa": "\u0627\u062c\u0631\u0627\u06cc \u0645\u0633\u06cc\u0631 \u06a9\u0627\u0645\u0644 \u0628\u0627 TQ \u0633\u0627\u06cc\u0647 + ML \u0628\u0647\u0628\u0648\u062f\u200c\u06cc\u0627\u0641\u062a\u0647\u061b capture \u226520\u066a \u0648 shadow PF \u22651.0",
+      "objective_en": "Full shadow path with recalibrated TQ + improved ML; capture \u226520% and shadow PF \u22651.0",
+      "inputs": [
+        "phase63 shadow policy",
+        "phase64 AR review",
+        "phase67 best ML config",
+        "phase46 caches"
+      ],
+      "deliverables": [
+        "phase68_final_report.json",
+        "tradingbot/ml/research/phase68/artifacts/combined_shadow_validation.json"
+      ],
+      "success_criteria": {
+        "shadow_pf_ge_1_0": true,
+        "capture_rate_hc_pct_ge_20": true,
+        "all_sub_gates_documented": true
+      },
+      "estimated_effort": "2 days",
+      "dependencies": [
+        "phase64",
+        "phase67"
+      ],
+      "risks": [
+        "Combined path may still show PF < 1.0 \u2014 would block integration"
+      ],
+      "production_gate": false,
+      "status": "COMPLETE",
+      "verdict": "COMBINED_SHADOW_GATES_FAIL"
+    },
+    {
+      "phase": "69",
+      "track": "I",
+      "title_fa": "\u0645\u0639\u0627\u0645\u0644\u0627\u062a \u06a9\u0627\u063a\u0630\u06cc \u0633\u0627\u06cc\u0647",
+      "title_en": "Shadow Paper Trading",
+      "problem": "Both",
+      "objective_fa": "\u0627\u062c\u0631\u0627\u06cc forward paper \u0628\u0627 policy \u0633\u0627\u06cc\u0647 \u2014 \u0628\u062f\u0648\u0646 deploy \u062a\u0648\u0644\u06cc\u062f",
+      "objective_en": "Forward paper trading with shadow policy \u2014 no production deploy",
+      "inputs": [
+        "phase68 passing config",
+        "live/sim feed"
+      ],
+      "deliverables": [
+        "phase69_final_report.json",
+        "tradingbot/ml/research/phase69/artifacts/paper_trading_log.json"
+      ],
+      "success_criteria": {
+        "paper_pf_ge_1_0": true,
+        "min_paper_trades_ge_50": true,
+        "no_production_deploy": true
+      },
+      "estimated_effort": "1-2 weeks (live observation)",
+      "dependencies": [
+        "phase68"
+      ],
+      "risks": [
+        "Paper results may diverge from backtest \u2014 slippage/spread not fully modeled"
+      ],
+      "production_gate": false,
+      "status": "SKIPPED",
+      "verdict": "GATES_FAIL_BLOCK_PAPER",
+      "skip_reason_en": "No config passes all gates simultaneously. Best shadow PF=0.3932 (config A). ML honest PF and shadow PF remain below targets. Phase69 paper trading NOT justified on evidence \u2014 optional observational paper only.",
+      "skip_reason_fa": "\u0647\u06cc\u0686 \u06a9\u0627\u0646\u0641\u06cc\u06af\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u0631\u0627 \u0647\u0645\u0632\u0645\u0627\u0646 \u067e\u0627\u0633 \u0646\u06a9\u0631\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 shadow PF=0.3932. \u0641\u0627\u0632 \u06f6\u06f9 \u0645\u0639\u0627\u0645\u0644\u0627\u062a \u06a9\u0627\u063a\u0630\u06cc \u0628\u0627 \u0627\u06cc\u0646 \u0634\u0648\u0627\u0647\u062f \u062a\u0648\u062c\u06cc\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u062f."
+    },
+    {
+      "phase": "70",
+      "track": "I",
+      "title_fa": "\u0628\u0627\u0632\u0628\u06cc\u0646\u06cc gate \u062a\u0648\u0644\u06cc\u062f",
+      "title_en": "Production Gate Review",
+      "problem": "Both",
+      "objective_fa": "\u0628\u0631\u0631\u0633\u06cc \u0646\u0647\u0627\u06cc\u06cc: AUC\u22650.55\u060c honest PF\u22651.3\u060c shadow PF\u22651.0\u060c capture\u226520\u066a \u2014 \u0641\u0642\u0637 then \u062a\u0648\u0644\u06cc\u062f",
+      "objective_en": "Final review: AUC\u22650.55, honest PF\u22651.3, shadow PF\u22651.0, capture\u226520% \u2014 production only if ALL pass",
+      "inputs": [
+        "phase65-69 reports",
+        "ENGINEERING_STATUS.json",
+        "FIX_ROADMAP.json production_gates"
+      ],
+      "deliverables": [
+        "phase70_final_report.json",
+        "PRODUCTION_READINESS.json"
+      ],
+      "success_criteria": {
+        "all_production_gates_pass": true,
+        "integration_recommendation_issued": true
+      },
+      "estimated_effort": "1 day",
+      "dependencies": [
+        "phase69"
+      ],
+      "risks": [
+        "Gate failure likely \u2014 honest PF 0.57 today; cannot guarantee pass"
+      ],
+      "production_gate": true,
+      "status": "BLOCKED",
+      "verdict": "FIX_ROADMAP_COMPLETE_BLOCKED",
+      "block_reason_en": "Production gate review runs only when ALL gates pass. Current best config passes 1/4 gates (capture only). Closure review issued instead of production approval.",
+      "block_reason_fa": "\u0628\u0627\u0632\u0628\u06cc\u0646\u06cc gate \u062a\u0648\u0644\u06cc\u062f \u0641\u0642\u0637 \u0648\u0642\u062a\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u067e\u0627\u0633 \u0634\u0648\u0646\u062f \u0627\u062c\u0631\u0627 \u0645\u06cc\u200c\u0634\u0648\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 \u06a9\u0627\u0646\u0641\u06cc\u06af \u0641\u0639\u0644\u06cc \u06f1/\u06f4 gate \u0631\u0627 \u067e\u0627\u0633 \u06a9\u0631\u062f (\u0641\u0642\u0637 capture). \u0628\u0647\u200c\u062c\u0627\u06cc \u062a\u0623\u06cc\u06cc\u062f \u062a\u0648\u0644\u06cc\u062f\u060c \u06af\u0632\u0627\u0631\u0634 \u0628\u0633\u062a\u0647\u200c\u0634\u062f\u0646 \u0635\u0627\u062f\u0631 \u0634\u062f."
+    }
+  ],
+  "timeline": {
+    "estimated_total_weeks": "4-8",
+    "note_fa": "\u0632\u0645\u0627\u0646\u200c\u0628\u0646\u062f\u06cc \u0635\u0627\u062f\u0642\u0627\u0646\u0647 \u2014 \u0627\u06af\u0631 ML edge \u0648\u0627\u0642\u0639\u06cc \u0646\u0628\u0627\u0634\u062f\u060c gate\u0647\u0627 \u0645\u0645\u06a9\u0646 \u0627\u0633\u062a \u0647\u0631\u06af\u0632 \u067e\u0627\u0633 \u0646\u0634\u0648\u0646\u062f",
+    "note_en": "Honest timeline \u2014 if ML edge is not real, gates may never pass",
+    "critical_path": [
+      "62",
+      "63",
+      "68",
+      "69",
+      "70"
+    ],
+    "parallel_tracks": {
+      "E": [
+        "62",
+        "63",
+        "64",
+        "68"
+      ],
+      "M": [
+        "65",
+        "66",
+        "67"
+      ],
+      "I": [
+        "69",
+        "70"
+      ]
+    }
+  },
+  "honest_assessment": {
+    "can_fix_fa": "\u0628\u0644\u0647\u060c \u0645\u0634\u06a9\u0644 \u0627\u062c\u0631\u0627 (TradeQuality) \u0642\u0627\u0628\u0644 \u0631\u0641\u0639 \u0627\u0633\u062a\u061b \u0645\u0634\u06a9\u0644 ML (AUC ~0.51) \u0633\u062e\u062a\u200c\u062a\u0631 \u0648 \u0628\u062f\u0648\u0646 \u062a\u0636\u0645\u06cc\u0646",
+    "can_fix_en": "Yes, execution issue (TradeQuality) is fixable; ML issue (AUC ~0.51) is harder with no guarantee",
+    "primary_execution_blocker": "Engine ID mismatch: trend_rf_v41 vs trend_rf_v40 in regime_quality.py",
+    "primary_ml_blocker": "Predictive signal near random (AUC ~0.51); honest PF ~0.57",
+    "phase68_verdict_en": "No config passes all gates simultaneously. Best shadow PF=0.3932 (config A). ML honest PF and shadow PF remain below targets. Phase69 paper trading NOT justified on evidence \u2014 optional observational paper only.",
+    "phase68_verdict_fa": "\u0647\u06cc\u0686 \u06a9\u0627\u0646\u0641\u06cc\u06af\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u0631\u0627 \u0647\u0645\u0632\u0645\u0627\u0646 \u067e\u0627\u0633 \u0646\u06a9\u0631\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 shadow PF=0.3932. \u0641\u0627\u0632 \u06f6\u06f9 \u0645\u0639\u0627\u0645\u0644\u0627\u062a \u06a9\u0627\u063a\u0630\u06cc \u0628\u0627 \u0627\u06cc\u0646 \u0634\u0648\u0627\u0647\u062f \u062a\u0648\u062c\u06cc\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u062f.",
+    "proceed_to_phase69": false,
+    "fix_roadmap_complete": true,
+    "production_blocked": true,
+    "phase69_status": "SKIPPED",
+    "phase70_status": "BLOCKED",
+    "phase70_verdict_en": "FIX roadmap phases 62-68 complete. Execution capture fixed in shadow (TQ engine alias map_to_v40); ML edge remains broken (best honest PF 0.5676, shadow PF 0.3932). Production gates: 1/4 pass. Phase69 SKIPPED, Phase70 BLOCKED \u2014 no production deploy.",
+    "phase70_verdict_fa": "\u0641\u0627\u0632\u0647\u0627\u06cc \u06f6\u06f2-\u06f6\u06f8 FIX roadmap \u06a9\u0627\u0645\u0644 \u0634\u062f. capture \u0627\u062c\u0631\u0627 \u062f\u0631 \u0633\u0627\u06cc\u0647 \u062d\u0644 \u0634\u062f (alias \u0645\u0648\u062a\u0648\u0631 TQ); edge ML \u0647\u0646\u0648\u0632 \u0634\u06a9\u0633\u062a\u0647 (\u0628\u0647\u062a\u0631\u06cc\u0646 PF \u0635\u0627\u062f\u0642 0.5676\u060c shadow PF 0.3932). gate\u0647\u0627\u06cc \u062a\u0648\u0644\u06cc\u062f: 1/4 \u067e\u0627\u0633. \u0641\u0627\u0632 \u06f6\u06f9 \u0631\u062f \u0634\u062f\u060c \u0641\u0627\u0632 \u06f7\u06f0 \u0645\u0633\u062f\u0648\u062f \u2014 deploy \u062a\u0648\u0644\u06cc\u062f\u06cc \u0646\u06cc\u0633\u062a.",
+    "final_verdict_file": "FIX_ROADMAP_FINAL_VERDICT.json"
+  },
+  "pipeline": {
+    "runner": "tradingbot/ml/research/run_fix_pipeline.py",
+    "execution_order": [
+      "62",
+      "63",
+      "64",
+      "65",
+      "66",
+      "67",
+      "68",
+      "69",
+      "70"
+    ],
+    "current_phase": "70_blocked",
+    "fix_roadmap_complete": true
+  }
+}

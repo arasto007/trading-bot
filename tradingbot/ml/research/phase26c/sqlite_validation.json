@@ -1,0 +1,8 @@
+{
+  "db_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase26c\\_validation_work\\data\\trade_journal.db",
+  "paper_trades_count": 100,
+  "executions_count": 100,
+  "schema_valid": true,
+  "duplicate_tickets": true,
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00"
+}

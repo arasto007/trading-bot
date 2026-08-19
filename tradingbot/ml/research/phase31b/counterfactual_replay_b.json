@@ -1,0 +1,71 @@
+{
+  "phase": "31B",
+  "replay_id": "B",
+  "name": "Perfect Capture Efficiency",
+  "description": "Mathematical recovery of missed_opportunity_r \u00d7 dollar risk. Production exits unchanged.",
+  "root_cause_tested": "time_exit_undercaptured",
+  "transformation_notes": {
+    "transformation": "pnl + missed_opportunity_r * dollar_risk_actual",
+    "trades_improved": 485,
+    "trades_flipped_to_winner": 151,
+    "mfe_peak_upper_bound_pnl": 7580.32,
+    "production_exits_unchanged": true
+  },
+  "metrics": {
+    "label": "B",
+    "trade_count": 489,
+    "profit_factor": 12.5435,
+    "expectancy": 7.0154,
+    "sharpe_ratio": 170.0925,
+    "sortino_ratio": 234.6337,
+    "max_drawdown_pct": 3.8976,
+    "max_drawdown_abs": 47.2998,
+    "net_profit": 3430.5095,
+    "recovery_factor": 72.5269,
+    "win_rate_pct": 84.05,
+    "edge_contribution": 3430.5095,
+    "gross_wins": 3727.6905,
+    "gross_losses": 297.181
+  },
+  "baseline_metrics": {
+    "label": "baseline",
+    "trade_count": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "sharpe_ratio": 19.3263,
+    "sortino_ratio": 17.9567,
+    "max_drawdown_pct": 24.264,
+    "max_drawdown_abs": 74.4372,
+    "net_profit": 136.1007,
+    "recovery_factor": 1.8284,
+    "win_rate_pct": 53.17,
+    "edge_contribution": 136.1007,
+    "gross_wins": 781.1407,
+    "gross_losses": 645.04
+  },
+  "isolated_edge_gain": {
+    "net_profit": 3294.4088,
+    "profit_factor": 11.3325,
+    "expectancy": 6.7371,
+    "sharpe_ratio": 150.7662,
+    "sortino_ratio": 216.677,
+    "max_drawdown_pct": -20.3664,
+    "win_rate_pct": 30.88,
+    "trade_count": 0
+  },
+  "pct_change": {
+    "net_profit_pct": 2420.57,
+    "profit_factor_pct": 935.8,
+    "expectancy_pct": 2420.8
+  },
+  "interaction_effect": "See causal_validation.json \u2014 replays are independent",
+  "confidence": 90,
+  "statistical_significance": "HIGH",
+  "bootstrap_pf_ci": {
+    "pf_low": 8.0939,
+    "pf_high": 20.6554,
+    "confidence": 95.0
+  },
+  "implementation_complexity": "HIGH",
+  "generated_utc": "2026-07-10T15:54:16.142091+00:00"
+}

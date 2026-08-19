@@ -1,0 +1,27 @@
+{
+  "phase": "22D",
+  "engine": "phase9_9",
+  "range_bars": 560,
+  "signal_counts": {
+    "SELL": 560
+  },
+  "probability_distribution": {
+    "count": 560,
+    "mean": 0.364484,
+    "std": 0.003474,
+    "p25": 0.364774,
+    "p50": 0.364774,
+    "p75": 0.364774,
+    "min": 0.343618,
+    "max": 0.386878
+  },
+  "thresholds": {
+    "buy": 0.55,
+    "sell": 0.45
+  },
+  "buy_zone_bars": 0,
+  "sell_zone_bars": 560,
+  "hold_zone_bars": 0,
+  "label_semantics": "P(label=1) where label=1 = TP before SL (long win)",
+  "verdict": "MODEL_OUTPUT_SKEW_LOW"
+}

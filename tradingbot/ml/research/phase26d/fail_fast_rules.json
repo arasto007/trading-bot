@@ -1,0 +1,50 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "rules": [
+    {
+      "code": "USE_ML_KERNEL_MISSING",
+      "condition": "USE_ML_KERNEL unset",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "EMERGENCY_STOP_ACTIVE",
+      "condition": "data/emergency_stop.json active=true",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "DUPLICATE_POSITION_OWNERSHIP",
+      "condition": "--protector enabled",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "EXEC_MODE_CONFLICT",
+      "condition": "paper+dry_run flags",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "ML_ARTIFACTS_INVALID",
+      "condition": "HealthGate fails at startup (ML mode)",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "PARQUET_UNAVAILABLE",
+      "condition": "No candles for ML mode",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "MT5_UNAVAILABLE",
+      "condition": "MT5 disconnected in paper/live",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "AUTOTRADING_DISABLED",
+      "condition": "Live mode order_check fails",
+      "action": "sys.exit(1)"
+    },
+    {
+      "code": "FILESYSTEM_UNAVAILABLE",
+      "condition": "data/logs/sqlite not writable",
+      "action": "sys.exit(1)"
+    }
+  ]
+}

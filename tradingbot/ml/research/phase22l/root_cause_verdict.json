@@ -1,0 +1,13 @@
+{
+  "phase": "22L",
+  "verdict_code": "B",
+  "verdict_label": "Dataset refresh had no measurable effect",
+  "evidence": {
+    "merge_hit_delta_pct": 0.0,
+    "measurable_engine_change": false,
+    "structure_distance_flat": true,
+    "p_win_std_old": 0.0051,
+    "refresh_row_delta": -17
+  },
+  "primary_problem_was_dataset_staleness": false
+}

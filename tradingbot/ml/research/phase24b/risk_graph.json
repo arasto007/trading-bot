@@ -1,0 +1,41 @@
+{
+  "phase": "24B",
+  "layers": [
+    {
+      "layer": "ML AdaptiveRiskEngine",
+      "file": "tradingbot/ml/risk_intelligence/adaptive_risk_engine.py",
+      "stage": "inside TradeQualityAdapter.evaluate before quality",
+      "output": "RiskRecommendation.allowed, risk_percent",
+      "default_max_risk": "DEFAULT_MAX_RISK_PERCENT from phase14_7/config"
+    },
+    {
+      "layer": "CalibratedDecisionAdapter",
+      "chains": "orchestrator \u2192 calibration mapping"
+    },
+    {
+      "layer": "Production RiskGate (legacy)",
+      "file": "tradingbot/adapters/risk_gate.py",
+      "factory": "create_risk_gate(legacy_config)",
+      "stage": "RiskStage pipeline line 35",
+      "can_adjust_lot": "decision.adjusted_lot \u2192 ctx.signal.lot_size line 40-41"
+    },
+    {
+      "layer": "KillSwitchService",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 92,
+      "effect": "kernel.emergency_stop \u2192 EMERGENCY_STOP state"
+    },
+    {
+      "layer": "HealthGate",
+      "effect": "ML fallback \u2014 no trade from ML path"
+    },
+    {
+      "layer": "Mt5ExecutionAdapter guards",
+      "functions": [
+        "validate_order",
+        "check_order_risk"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

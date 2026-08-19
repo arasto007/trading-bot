@@ -1,0 +1,18 @@
+{
+  "phase": "22AJ0",
+  "title": "Winner Authority Resolution",
+  "generated_utc": "2026-07-07T19:55:52.982670+00:00",
+  "production_modified": false,
+  "verdict": "SINGLE_AUTHORITY_DEFINED",
+  "summary": "Current code defines three conflicting 'best' notions: rank/select_best (random_forest_shallow__stable_4__RANGE), report best_candidate (same), and acceptance-eligible winner (xgb_baseline_phase96__stable_except_unstable__RANGE). Deterministic production rule: Acceptance PASS + highest composite → exactly one winner.",
+  "production_rule": "ProductionWinner :=\n  argmax(composite_score)\n  WHERE evaluate_acceptance(candidate, baseline) == PASS\n    AND probability_gate_passed == True",
+  "production_winner": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "select_best_winner": "random_forest_shallow__stable_4__RANGE",
+  "report_best_candidate": "random_forest_shallow__stable_4__RANGE",
+  "recommended_option": "C",
+  "wiring_gaps": [
+    "optimization_orchestrator still uses select_best not select_production_winner",
+    "model_registry freeze still uses DEFAULT_CONFIG",
+    "report best_candidate field still reflects select_best"
+  ]
+}

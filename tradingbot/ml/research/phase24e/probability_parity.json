@@ -1,0 +1,46 @@
+{
+  "phase": "24E",
+  "decisions_match": true,
+  "rows": [
+    {
+      "bar_index": 250,
+      "direction_off": "HOLD",
+      "direction_on": "HOLD",
+      "confidence_off": 0.2713727323736864,
+      "confidence_on": 0.2713727323736864,
+      "match": true
+    },
+    {
+      "bar_index": 253,
+      "direction_off": "HOLD",
+      "direction_on": "HOLD",
+      "confidence_off": 0.3196854209786764,
+      "confidence_on": 0.3196854209786764,
+      "match": true
+    },
+    {
+      "bar_index": 256,
+      "direction_off": "HOLD",
+      "direction_on": "HOLD",
+      "confidence_off": 0.17518276597003912,
+      "confidence_on": 0.17518276597003912,
+      "match": true
+    },
+    {
+      "bar_index": 259,
+      "direction_off": "HOLD",
+      "direction_on": "HOLD",
+      "confidence_off": 0.9375394930180934,
+      "confidence_on": 0.9375394930180934,
+      "match": true
+    },
+    {
+      "bar_index": 262,
+      "direction_off": "HOLD",
+      "direction_on": "HOLD",
+      "confidence_off": 0.0,
+      "confidence_on": 0.0,
+      "match": true
+    }
+  ]
+}

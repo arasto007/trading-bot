@@ -1,0 +1,20 @@
+{
+  "windows": [
+    {
+      "window": "300_bars",
+      "risk_mismatch_count": 0
+    },
+    {
+      "window": "7_days",
+      "risk_mismatch_count": 0
+    },
+    {
+      "window": "30_days",
+      "risk_mismatch_count": 0
+    },
+    {
+      "window": "90_days",
+      "risk_mismatch_count": 0
+    }
+  ]
+}

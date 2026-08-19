@@ -1,0 +1,32 @@
+{
+  "phase": "23B",
+  "required_features": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "feature_order_json": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "manifest_features": {
+    "candidate_id": "xgb_baseline_phase96",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "model_type": "xgboost",
+    "feature_subset": "stable_except_unstable"
+  },
+  "phase99_feature_map": {
+    "ema50_slope": "phase99_ema50_slope",
+    "candle_direction": "phase99_candle_direction",
+    "structure_distance": "phase99_structure_distance",
+    "ema_cross_state": "phase99_ema_cross_state"
+  },
+  "map_covers_feature_order": true,
+  "missing_from_map": [],
+  "patch_applied": true,
+  "removed_silent_zero_fill": "build_unified_frame no longer fillna(0.0) on phase99_* merge",
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

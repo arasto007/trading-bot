@@ -1,0 +1,106 @@
+{
+  "phase": "22AH",
+  "metrics_compared": [
+    "mean_auc_gap",
+    "median_auc_gap",
+    "max_auc_gap",
+    "trimmed_mean_gap_10pct"
+  ],
+  "results": {
+    "mean_auc_gap": {
+      "baseline_gap": 0.33082,
+      "baseline_gap_source": "phase9_8_window_results recomputed",
+      "candidate_gap_source": "phase9_9_model_comparison mean_auc_gap only",
+      "accepted_count": 1,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ],
+      "rejected_count": 27,
+      "not_simulated_count": 0,
+      "rejected_sample": [
+        {
+          "experiment_id": "random_forest_shallow__stable_4__RANGE",
+          "final_verdict": "FAIL",
+          "failed_rules": [
+            "robustness_improved",
+            "profitable_windows_ge_4"
+          ],
+          "gap_used": 0.1562,
+          "baseline_gap_used": 0.33082
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+          "final_verdict": "FAIL",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "gap_used": 0.3308,
+          "baseline_gap_used": 0.33082
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+          "final_verdict": "FAIL",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "gap_used": 0.2933,
+          "baseline_gap_used": 0.33082
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+          "final_verdict": "FAIL",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "gap_used": 0.2613,
+          "baseline_gap_used": 0.33082
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+          "final_verdict": "FAIL",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "gap_used": 0.0368,
+          "baseline_gap_used": 0.33082
+        }
+      ]
+    },
+    "median_auc_gap": {
+      "baseline_gap": 0.3338,
+      "baseline_gap_source": "phase9_8_window_results recomputed",
+      "candidate_gap_source": "NOT_SIMULATED — per-window gaps not persisted for Phase 9.9 candidates",
+      "accepted_count": 0,
+      "accepted": [],
+      "rejected_count": 0,
+      "not_simulated_count": 28,
+      "rejected_sample": []
+    },
+    "max_auc_gap": {
+      "baseline_gap": 0.4519,
+      "baseline_gap_source": "phase9_8_window_results recomputed",
+      "candidate_gap_source": "NOT_SIMULATED — per-window gaps not persisted for Phase 9.9 candidates",
+      "accepted_count": 0,
+      "accepted": [],
+      "rejected_count": 0,
+      "not_simulated_count": 28,
+      "rejected_sample": []
+    },
+    "trimmed_mean_gap_10pct": {
+      "baseline_gap": 0.33082,
+      "baseline_gap_source": "phase9_8_window_results recomputed",
+      "candidate_gap_source": "NOT_SIMULATED — per-window gaps not persisted for Phase 9.9 candidates",
+      "accepted_count": 0,
+      "accepted": [],
+      "rejected_count": 0,
+      "not_simulated_count": 28,
+      "rejected_sample": []
+    }
+  },
+  "finding": "Only mean_auc_gap can be simulated on all 28 candidates from persisted artifacts. median/max/trimmed require per-window persistence; baseline recomputation shows mean=0.33082, median=0.3338, max=0.4519, trimmed_10%=0.33082",
+  "mean_auc_gap_accepted": [
+    "xgb_baseline_phase96__stable_except_unstable__RANGE"
+  ],
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

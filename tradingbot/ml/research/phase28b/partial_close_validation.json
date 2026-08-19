@@ -1,0 +1,23 @@
+{
+  "phase": "28B",
+  "partial_at_r": 1.0,
+  "partial_fraction": 0.5,
+  "sl_unchanged_after_partial": true,
+  "sample": {
+    "exit_reason": "hybrid_time",
+    "exit_price": 2023.1,
+    "exit_timestamp": "2026-01-01T06:25:00+00:00",
+    "pnl": 16.55,
+    "pnl_r": 1.655,
+    "duration_bars": 72,
+    "duration_sec": 21600,
+    "mae": 0.0,
+    "mfe": 2.41,
+    "spread": 0.3,
+    "rr": 2.0,
+    "partial_close_applied": true,
+    "partial_pnl": 5.0,
+    "remaining_lot": 0.005
+  },
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

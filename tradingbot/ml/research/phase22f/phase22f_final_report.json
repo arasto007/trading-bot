@@ -1,0 +1,61 @@
+{
+  "phase": "22F",
+  "generated_at": "2026-07-05T02:44:10.990830+00:00",
+  "dataset": "A",
+  "elapsed_total_sec": 1590.5,
+  "production_modified": false,
+  "optimization_implemented": false,
+  "verdict": "READY_FOR_FAST_OPTIMIZATION",
+  "final_questions": {
+    "1_biggest_bottleneck": "decision_engine (5661 blocks, 95.998% of bars)",
+    "2_highest_roi_improvement": "Monitor decision_engine — 5661 blocks recorded",
+    "3_module_hurts_most": "net_negative_expectancy (all modules combined — PF < 1)",
+    "4_module_contributes_most": "trend_rf_v40 (4246 routed signals)",
+    "5_optimize_next_before_long_cert": "decision_engine"
+  },
+  "baseline_m5": {
+    "trades": 2,
+    "profit_factor": 0.0,
+    "expectancy": -10.719,
+    "max_drawdown_pct": 6.47
+  },
+  "overfiltering": "over_filtered",
+  "priority_top_3": [
+    {
+      "component": "decision_engine",
+      "evidence_blocks": 5661,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "medium",
+      "implementation_complexity_1_5": 3,
+      "confidence": "medium",
+      "risk_if_changed": "medium",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor decision_engine — 5661 blocks recorded"
+    },
+    {
+      "component": "rsi_filter",
+      "evidence_blocks": 176,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "medium",
+      "implementation_complexity_1_5": 1,
+      "confidence": "medium",
+      "risk_if_changed": "low",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor rsi_filter — 176 blocks recorded"
+    },
+    {
+      "component": "riskgate",
+      "evidence_blocks": 58,
+      "evidence_missed_r_sum": 0.0,
+      "expected_pf_improvement": 0.0,
+      "expected_dd_impact": "high",
+      "implementation_complexity_1_5": 3,
+      "confidence": "medium",
+      "risk_if_changed": "medium",
+      "estimated_fast_validation_min": 10,
+      "recommendation": "Monitor riskgate — 58 blocks recorded"
+    }
+  ]
+}

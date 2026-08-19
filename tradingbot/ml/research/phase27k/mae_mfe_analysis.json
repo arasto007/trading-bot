@@ -1,0 +1,12 @@
+{
+  "phase": "27K",
+  "average_mae_r": 1.2863,
+  "average_mfe_r": 0.7078,
+  "median_mae_r": 1.2058,
+  "median_mfe_r": 0.5086,
+  "ever_profitable_before_sl_count": 325,
+  "ever_profitable_before_sl_pct": 92.07,
+  "ever_profitable_avg_mfe_r": 0.7671,
+  "never_profitable_pct": 7.93,
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

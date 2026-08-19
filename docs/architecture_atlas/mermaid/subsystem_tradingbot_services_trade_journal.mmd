@@ -1,0 +1,333 @@
+flowchart TB
+    %% tradingbot.services.trade_journal
+    tradingbot_ml_research_phase26a_journal_0[journal_reader]
+    tradingbot_adapters_mt5_execution_Mt5Exe1[Mt5ExecutionAdapter]
+    tradingbot_services_paper_trade_recorder2[PaperTradeRecorder]
+    tradingbot_services_paper_trade_exit3[paper_trade_exit]
+    tradingbot_adapters_mt5_execution4[mt5_execution]
+    tradingbot_pipeline_execution_stage5[execution_stage]
+    tradingbot_ml_research_phase26c_run_inve6[_load_candles]
+    tradingbot_ml_research_phase26c_run_inve7[_root_cause]
+    tradingbot_pipeline_indicator_stage8[indicator_stage]
+    tradingbot_ml_research_phase28b_run_inve9[_candles]
+    tradingbot_domain_ohlcv10[ohlcv]
+    tradingbot_ports_strategies11[strategies]
+    tradingbot_ml_research_phase28b_run_inve12[run_investigation]
+    tradingbot_kernel___init__13[__init__]
+    tradingbot_ports_indicators14[indicators]
+    tradingbot_services_paper_trade_recorder15[paper_trade_recorder]
+    tradingbot_services_emergency_stop_state16[emergency_stop_state]
+    tradingbot_services_exit_mode17[exit_mode]
+    tradingbot_ml_research_phase26c_run_inve18[_journal_flow]
+    tradingbot_config_price_action19[price_action]
+    tradingbot_services_paper_fill_resolver20[paper_fill_resolver]
+    tradingbot_ports_market_data21[market_data]
+    tradingbot_ml_research_phase25a_run_inve22[run_investigation]
+    tradingbot_kernel_trading_kernel_Trading23[TradingKernel]
+    tradingbot_accounting_engine24[engine]
+    tradingbot_services_exit_policy25[exit_policy]
+    tradingbot_adapters_legacy_loader26[legacy_loader]
+    tradingbot_ml_research_phase28b_run_inve27[_pct_deviation]
+    tradingbot___init__28[__init__]
+    tradingbot_domain_enums29[enums]
+    tradingbot_services_execution_mode30[execution_mode]
+    tradingbot_services_trade_journal_TradeJ31[TradeJournal]
+    tradingbot_ml_research_phase28c_data_col32[data_collector]
+    tradingbot_ml_live_pilot_execution_guard33[execution_guard]
+    tradingbot_ml_research_phase26c_run_inve34[_simulate_paper_trades]
+    tradingbot_ml_research_phase26c_run_inve35[run_investigation]
+    tradingbot_services_kill_switch36[kill_switch]
+    tradingbot_pipeline_data_stage37[data_stage]
+    tradingbot_ml_phase20a_deployment_runner38[deployment_runner]
+    tradingbot_ml_research_regime_router_pha39[phase99_feature_validation]
+    tradingbot_adapters_mt5_utils40[mt5_utils]
+    tradingbot_ports_risk41[risk]
+    tradingbot_domain_htf_bias42[htf_bias]
+    tradingbot_domain_models43[models]
+    tradingbot_services_trade_journal44[trade_journal]
+    tradingbot_ml_data_stores_candle_store45[candle_store]
+    tradingbot_ml_research_phase26a_trade_co46[trade_collector]
+    tradingbot_ml_integration_kernel_builder47[kernel_builder]
+    scripts_audit_live_pipeline48[audit_live_pipeline]
+    tradingbot_pipeline_signal_filter_stage49[signal_filter_stage]
+    tradingbot_infra_logging50[logging]
+    tradingbot_ml_research_phase28b_run_inve51[_json_safe]
+    tradingbot_ml_research_phase28b_run_inve52[_write]
+    tradingbot_pipeline_base53[base]
+    tradingbot_kernel_trading_kernel54[trading_kernel]
+    tradingbot_backtest_engine55[engine]
+    tradingbot_ml_research_phase25b_unified_56[unified_pipeline_replay]
+    tradingbot_adapters_mt5_position_manager57[Mt5PositionManager]
+    tradingbot_services_mt5_order_guard58[mt5_order_guard]
+    tradingbot_adapters_mt5_health59[mt5_health]
+    tradingbot_adapters_risk_gate60[risk_gate]
+    tradingbot_adapters_symbols61[symbols]
+    tradingbot_adapters_mt5_position_manager62[mt5_position_manager]
+    tradingbot_domain_session_logic63[session_logic]
+    tradingbot_ml_research_phase28b_run_inve64[_profit_factor]
+    tradingbot_ports_execution65[execution]
+    tradingbot_ml_integration_recovered_cali66[recovered_calibration]
+    tradingbot_domain_position_preset67[position_preset]
+    tradingbot_ml_research_phase28c_run_inve68[run_investigation]
+    tradingbot_config_settings69[settings]
+    tradingbot_ml_research_phase26c_run_inve70[_make_signal]
+    tradingbot_ml_research_phase27a_trade_bu71[trade_builder]
+    tradingbot_application_live_runner72[live_runner]
+    tradingbot_pipeline_signal_stage73[signal_stage]
+    tradingbot_application_bootstrap74[bootstrap]
+    tradingbot_pipeline_risk_stage75[risk_stage]
+    tradingbot_ml_research_phase22e_portfoli76[portfolio]
+    tradingbot_domain_position_logic77[position_logic]
+    tradingbot_ports_position_manager78[position_manager]
+    tradingbot_services_notifier79[notifier]
+    tradingbot_adapters_mt5_execution4 -->|contains| tradingbot_adapters_mt5_execution_Mt5Exe1
+    tradingbot_adapters_mt5_position_manager62 -->|contains| tradingbot_adapters_mt5_position_manager57
+    tradingbot_kernel_trading_kernel54 -->|contains| tradingbot_kernel_trading_kernel_Trading23
+    tradingbot_ml_research_phase26c_run_inve35 -->|contains| tradingbot_ml_research_phase26c_run_inve18
+    tradingbot_ml_research_phase26c_run_inve35 -->|contains| tradingbot_ml_research_phase26c_run_inve7
+    tradingbot_ml_research_phase26c_run_inve35 -->|contains| tradingbot_ml_research_phase26c_run_inve70
+    tradingbot_ml_research_phase26c_run_inve35 -->|contains| tradingbot_ml_research_phase26c_run_inve6
+    tradingbot_ml_research_phase26c_run_inve35 -->|contains| tradingbot_ml_research_phase26c_run_inve34
+    tradingbot_ml_research_phase28b_run_inve12 -->|contains| tradingbot_ml_research_phase28b_run_inve51
+    tradingbot_ml_research_phase28b_run_inve12 -->|contains| tradingbot_ml_research_phase28b_run_inve52
+    tradingbot_ml_research_phase28b_run_inve12 -->|contains| tradingbot_ml_research_phase28b_run_inve9
+    tradingbot_ml_research_phase28b_run_inve12 -->|contains| tradingbot_ml_research_phase28b_run_inve27
+    tradingbot_ml_research_phase28b_run_inve12 -->|contains| tradingbot_ml_research_phase28b_run_inve64
+    tradingbot_services_paper_trade_recorder15 -->|contains| tradingbot_services_paper_trade_recorder2
+    tradingbot_services_trade_journal44 -->|contains| tradingbot_services_trade_journal_TradeJ31
+    tradingbot___init__28 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_adapters_legacy_loader26 -->|imports| tradingbot_config_price_action19
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_adapters_mt5_utils40
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_domain_enums29
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_domain_models43
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_domain_position_logic77
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_infra_logging50
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_ports_execution65
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_services_mt5_order_guard58
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_domain_position_preset67
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_adapters_mt5_health59
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_services_paper_trade_recorder15
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_adapters_mt5_execution4 -->|imports| tradingbot_services_notifier79
+    tradingbot_adapters_mt5_health59 -->|imports| tradingbot_adapters_mt5_utils40
+    tradingbot_adapters_mt5_health59 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_adapters_mt5_health59 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_services_mt5_order_guard58
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_domain_position_logic77
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_domain_position_preset67
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_domain_session_logic63
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_ports_position_manager78
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_infra_logging50
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_services_mt5_order_guard58
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_adapters_mt5_position_manager62 -->|imports| tradingbot_domain_position_preset67
+    tradingbot_adapters_mt5_utils40 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_adapters_mt5_utils40 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_config_price_action19
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_domain_models43
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_domain_session_logic63
+    tradingbot_adapters_risk_gate60 -->|imports| tradingbot_ports_risk41
+    tradingbot_adapters_symbols61 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_adapters_mt5_execution4
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_adapters_mt5_position_manager62
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_config_settings69
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_application_bootstrap74 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_application_live_runner72 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_application_live_runner72 -->|imports| tradingbot_adapters_mt5_execution4
+    tradingbot_application_live_runner72 -->|imports| tradingbot_adapters_mt5_position_manager62
+    tradingbot_application_live_runner72 -->|imports| tradingbot_config_settings69
+    tradingbot_application_live_runner72 -->|imports| tradingbot_domain_enums29
+    tradingbot_application_live_runner72 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_application_live_runner72 -->|imports| tradingbot_services_emergency_stop_state16
+    tradingbot_application_live_runner72 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_application_live_runner72 -->|imports| tradingbot_services_kill_switch36
+    tradingbot_application_live_runner72 -->|imports| tradingbot_services_notifier79
+    tradingbot_backtest_engine55 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_backtest_engine55 -->|imports| tradingbot_config_price_action19
+    tradingbot_backtest_engine55 -->|imports| tradingbot_config_settings69
+    tradingbot_backtest_engine55 -->|imports| tradingbot_domain_models43
+    tradingbot_backtest_engine55 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_domain_models43 -->|imports| tradingbot_domain_enums29
+    tradingbot_domain_position_preset67 -->|imports| tradingbot_config_price_action19
+    tradingbot_domain_session_logic63 -->|imports| tradingbot_domain_position_logic77
+    tradingbot_infra_logging50 -->|imports| tradingbot_infra_logging50
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_config_settings69
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_domain_enums29
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_domain_models43
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_base53
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_data_stage37
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_execution_stage5
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_indicator_stage8
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_risk_stage75
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_signal_filter_stage49
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_pipeline_signal_stage73
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_execution65
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_indicators14
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_market_data21
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_position_manager78
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_risk41
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_ports_strategies11
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_services_notifier79
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_services_emergency_stop_state16
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_services_emergency_stop_state16
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_config_price_action19
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_domain_htf_bias42
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_domain_htf_bias42
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_adapters_mt5_health59
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_kernel_trading_kernel54 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_kernel___init__13 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_ml_integration_kernel_builder47 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_ml_integration_kernel_builder47 -->|imports| tradingbot_config_settings69
+    tradingbot_ml_integration_kernel_builder47 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_ml_integration_kernel_builder47 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_ml_integration_recovered_cali66 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_live_pilot_execution_guard33 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_live_pilot_execution_guard33 -->|imports| tradingbot_ports_execution65
+    tradingbot_ml_live_pilot_execution_guard33 -->|imports| tradingbot_adapters_mt5_execution4
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_adapters_mt5_position_manager62
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_domain_enums29
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_services_kill_switch36
+    tradingbot_ml_phase20a_deployment_runner38 -->|imports| tradingbot_services_notifier79
+    tradingbot_ml_research_phase22e_portfoli76 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_ml_research_phase22e_portfoli76 -->|imports| tradingbot_config_settings69
+    tradingbot_ml_research_phase22e_portfoli76 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase22e_portfoli76 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_domain_enums29
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_ml_research_regime_router_pha39
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_ml_research_phase25a_run_inve22 -->|imports| tradingbot_adapters_mt5_execution4
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_domain_enums29
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_accounting_engine24
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_ml_research_regime_router_pha39
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_adapters_mt5_execution4
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_adapters_risk_gate60
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_config_settings69
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_ml_integration_recovered_cali66
+    tradingbot_ml_research_phase25b_unified_56 -->|imports| tradingbot_adapters_legacy_loader26
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_ml_research_phase26a_journal_0
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_ml_research_phase25b_unified_56
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_ml_research_regime_router_pha39
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_services_paper_trade_recorder15
+    tradingbot_ml_research_phase26a_trade_co46 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_domain_enums29
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_services_paper_trade_recorder15
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_ml_research_phase26a_journal_0
+    tradingbot_ml_research_phase26c_run_inve35 -->|imports| tradingbot_ml_research_phase26a_trade_co46
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_domain_enums29
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_domain_models43
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_services_exit_mode17
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_services_exit_policy25
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_services_paper_trade_exit3
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_services_paper_trade_recorder15
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_ml_integration_recovered_cali66
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_ml_research_phase27a_trade_bu71
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_ml_research_regime_router_pha39
+    tradingbot_ml_research_phase28b_run_inve12 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase28c_data_col32 -->|imports| tradingbot_ml_research_phase26a_journal_0
+    tradingbot_ml_research_phase28c_data_col32 -->|imports| tradingbot_services_exit_mode17
+    tradingbot_ml_research_phase28c_data_col32 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_ml_research_phase28c_run_inve68 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_ml_research_phase28c_run_inve68 -->|imports| tradingbot_ml_research_phase28c_data_col32
+    tradingbot_pipeline_base53 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_base53 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_data_stage37 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_data_stage37 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_data_stage37 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_data_stage37 -->|imports| tradingbot_ports_market_data21
+    tradingbot_pipeline_execution_stage5 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_execution_stage5 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_execution_stage5 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_execution_stage5 -->|imports| tradingbot_ports_execution65
+    tradingbot_pipeline_indicator_stage8 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_indicator_stage8 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_indicator_stage8 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_indicator_stage8 -->|imports| tradingbot_ports_indicators14
+    tradingbot_pipeline_risk_stage75 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_risk_stage75 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_risk_stage75 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_risk_stage75 -->|imports| tradingbot_ports_risk41
+    tradingbot_pipeline_signal_filter_stage49 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_signal_filter_stage49 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_signal_filter_stage49 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_pipeline_signal_filter_stage49 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_signal_stage73 -->|imports| tradingbot_domain_enums29
+    tradingbot_pipeline_signal_stage73 -->|imports| tradingbot_domain_models43
+    tradingbot_pipeline_signal_stage73 -->|imports| tradingbot_domain_ohlcv10
+    tradingbot_pipeline_signal_stage73 -->|imports| tradingbot_pipeline_base53
+    tradingbot_pipeline_signal_stage73 -->|imports| tradingbot_ports_strategies11
+    tradingbot_ports_execution65 -->|imports| tradingbot_domain_models43
+    tradingbot_ports_market_data21 -->|imports| tradingbot_domain_models43
+    tradingbot_ports_risk41 -->|imports| tradingbot_domain_models43
+    tradingbot_ports_strategies11 -->|imports| tradingbot_domain_models43
+    tradingbot_services_exit_policy25 -->|imports| tradingbot_domain_position_logic77
+    tradingbot_services_exit_policy25 -->|imports| tradingbot_services_exit_mode17
+    tradingbot_services_kill_switch36 -->|imports| tradingbot_kernel_trading_kernel54
+    tradingbot_services_kill_switch36 -->|imports| tradingbot_services_notifier79
+    tradingbot_services_kill_switch36 -->|imports| tradingbot_services_mt5_order_guard58
+    tradingbot_services_mt5_order_guard58 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_services_paper_fill_resolver20 -->|imports| tradingbot_domain_enums29
+    tradingbot_services_paper_fill_resolver20 -->|imports| tradingbot_domain_models43
+    tradingbot_services_paper_fill_resolver20 -->|imports| tradingbot_adapters_symbols61
+    tradingbot_services_paper_fill_resolver20 -->|imports| tradingbot_ml_data_stores_candle_store45
+    tradingbot_services_paper_trade_exit3 -->|imports| tradingbot_services_exit_mode17
+    tradingbot_services_paper_trade_exit3 -->|imports| tradingbot_services_exit_policy25
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_accounting_engine24
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_domain_models43
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_services_execution_mode30
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_services_exit_mode17
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_services_paper_fill_resolver20
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_services_paper_trade_exit3
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_services_trade_journal44
+    tradingbot_services_paper_trade_recorder15 -->|imports| tradingbot_ml_data_stores_candle_store45
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_legacy_loader26
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_kernel_trading_kernel54
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_risk_gate60
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_mt5_execution4
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_mt5_position_manager62
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_services_kill_switch36
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_services_mt5_order_guard58
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_mt5_utils40
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_domain_models43
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_adapters_mt5_utils40
+    scripts_audit_live_pipeline48 -->|imports| tradingbot_domain_enums29
+    tradingbot_application_live_runner72 -->|creates| tradingbot_kernel_trading_kernel54
+    tradingbot_kernel_trading_kernel54 -->|creates| tradingbot_pipeline_data_stage37
+    tradingbot_kernel_trading_kernel54 -->|creates| tradingbot_pipeline_risk_stage75
+    tradingbot_kernel_trading_kernel54 -->|creates| tradingbot_pipeline_execution_stage5
+    tradingbot_pipeline_risk_stage75 -->|calls| tradingbot_adapters_risk_gate60
+    tradingbot_pipeline_execution_stage5 -->|calls| tradingbot_adapters_mt5_execution4
+    tradingbot_application_live_runner72 -->|creates| tradingbot_services_kill_switch36
+    tradingbot_adapters_mt5_execution4 -->|writes| tradingbot_services_trade_journal44

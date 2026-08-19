@@ -1,0 +1,247 @@
+{
+  "verdict": "SHADOW_CAPTURE_OK_PF_FAIL",
+  "signals_analyzed": 2756,
+  "signals_raw_cache_rows": 4864,
+  "signals_deduped_by_id": true,
+  "confidence_threshold_hc": 0.4,
+  "alias_policy_comparison": {
+    "map_to_v40": {
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "equivalent": null
+    },
+    "register_v41_alias": {
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "equivalent": null
+    },
+    "policies_equivalent": true
+  },
+  "shadow_threshold_sweep_map_to_v40": [
+    {
+      "threshold": 0.4,
+      "alias_policy": "map_to_v40",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.45,
+      "alias_policy": "map_to_v40",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.5,
+      "alias_policy": "map_to_v40",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.55,
+      "alias_policy": "map_to_v40",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.6,
+      "alias_policy": "map_to_v40",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    }
+  ],
+  "shadow_threshold_sweep_register_v41": [
+    {
+      "threshold": 0.4,
+      "alias_policy": "register_v41_alias",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.45,
+      "alias_policy": "register_v41_alias",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.5,
+      "alias_policy": "register_v41_alias",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.55,
+      "alias_policy": "register_v41_alias",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    },
+    {
+      "threshold": 0.6,
+      "alias_policy": "register_v41_alias",
+      "allowed_count": 2569,
+      "capture_rate_pct": 93.21,
+      "mean_score": 0.8706,
+      "pf_proxy_label_v3": {
+        "pf": 0.3932,
+        "trades": 2374,
+        "wins": 670,
+        "losses": 1704,
+        "win_rate_pct": 28.22
+      }
+    }
+  ],
+  "best_threshold": {
+    "by_pf": {
+      "threshold": 0.4,
+      "capture_rate_pct": 93.21,
+      "pf": 0.3932,
+      "trades": 2374,
+      "win_rate_pct": 28.22
+    },
+    "recommended_for_phase68": {
+      "threshold": 0.4,
+      "capture_rate_pct": 93.21,
+      "pf": 0.3932,
+      "trades": 2374,
+      "win_rate_pct": 28.22,
+      "rationale_en": "Highest PF among thresholds meeting capture\u226520%; if tied, prefer higher capture for phase68 combined shadow path"
+    }
+  },
+  "gate_check": {
+    "capture_rate_pct_ge_20": true,
+    "shadow_pf_ge_1_0": false,
+    "all_gates_pass": false,
+    "capture_actual_pct": 93.21,
+    "shadow_pf_actual": 0.3932,
+    "threshold_used": 0.4
+  },
+  "per_year_breakdown": {
+    "2025": {
+      "signals_hc": 1618,
+      "allowed_count": 1506,
+      "capture_rate_pct": 93.08,
+      "pf_proxy_label_v3": 0.4879,
+      "trades": 1412,
+      "wins": 463,
+      "losses": 949,
+      "win_rate_pct": 32.79
+    },
+    "2026": {
+      "signals_hc": 1138,
+      "allowed_count": 1063,
+      "capture_rate_pct": 93.41,
+      "pf_proxy_label_v3": 0.2742,
+      "trades": 962,
+      "wins": 207,
+      "losses": 755,
+      "win_rate_pct": 21.52
+    }
+  },
+  "production_fix_recommendation": {
+    "file": "tradingbot/ml/trade_quality/regime_quality.py",
+    "one_line_fix_en": "Add `TREND_ENGINE_V41 = \"trend_rf_v41\"` and treat it like TREND_ENGINE in regime_quality_score (or change `if engine == TREND_ENGINE` to `if engine in (TREND_ENGINE, \"trend_rf_v41\")`).",
+    "one_line_fix_fa": "\u062f\u0631 regime_quality_score \u0634\u0631\u0637 \u0645\u0648\u062a\u0648\u0631 \u0631\u0627 \u0628\u0647 engine in (\"trend_rf_v40\", \"trend_rf_v41\") \u062a\u063a\u06cc\u06cc\u0631 \u062f\u0647\u06cc\u062f.",
+    "minimal_patch": "if engine in (TREND_ENGINE, \"trend_rf_v41\"):",
+    "applied_in_production": false,
+    "note": "Research-only recommendation \u2014 do NOT apply until Phase 70 gate review"
+  },
+  "shadow_policy": {
+    "engine_alias": {
+      "from": "trend_rf_v41",
+      "to": "trend_rf_v40",
+      "scope": "shadow_only",
+      "register_v41_alias_equivalent": true
+    },
+    "quality_threshold_recommended": 0.4,
+    "alias_policy_primary": "map_to_v40",
+    "threshold_sweep": [
+      0.4,
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "gates": {
+      "capture_rate_pct_ge_20": true,
+      "shadow_pf_ge_1_0": false,
+      "all_gates_pass": false,
+      "capture_actual_pct": 93.21,
+      "shadow_pf_actual": 0.3932,
+      "threshold_used": 0.4
+    }
+  },
+  "next_phase": "64",
+  "next_phase_alternate": "65",
+  "next_phase_note_en": "Phase 64 (AdaptiveRisk shadow) is next on execution track; Phase 65 (AUC lift) can run in parallel on ML track."
+}

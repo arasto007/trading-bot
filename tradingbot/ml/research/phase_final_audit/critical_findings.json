@@ -1,0 +1,85 @@
+{
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00",
+  "findings": [
+    {
+      "id": "FINAL-001",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "issue": "Insufficient paper trading sample for validation",
+      "evidence": "phase26b: 1 completed trade vs 200 minimum",
+      "file": "ml/research/phase26b/minimum_sample_report.json"
+    },
+    {
+      "id": "FINAL-002",
+      "severity": "CRITICAL",
+      "status": "OPEN",
+      "issue": "Paper journal executions not analytically usable (zero fill prices, candle store gap)",
+      "evidence": "phase26a collection_meta: journal_executions=54, valid_journal_trades=0; candle max 2026-06-29 vs journal 2026-07-08",
+      "files": [
+        "adapters/mt5_execution.py:68-86",
+        "ml/research/phase26a/trade_log.json"
+      ]
+    },
+    {
+      "id": "FINAL-003",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "issue": "USE_ML_KERNEL must be explicitly set or bot produces no ML signals",
+      "evidence": "ml/integration/factory.py UnconfiguredEngineRegistry"
+    },
+    {
+      "id": "FINAL-004",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "issue": "Paper mode does not update LiveRiskTracker via record_live_entry",
+      "evidence": "adapters/mt5_execution.py paper branch skips record_live_entry"
+    },
+    {
+      "id": "FINAL-005",
+      "severity": "HIGH",
+      "status": "OPEN",
+      "issue": "Mt5PositionManager skips trailing/partial/emergency simulation in paper",
+      "evidence": "adapters/mt5_position_manager.py dry_run early return"
+    },
+    {
+      "id": "FINAL-006",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "issue": "ML pipeline timeout at 500ms causes frequent KernelFallbackError on research path",
+      "evidence": "kernel_adapter.py:225; phase25b timeout_analysis legacy 9/10 timeouts"
+    },
+    {
+      "id": "FINAL-007",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "issue": "--no-recovery CLI flag ignored",
+      "evidence": "tradingbot/__main__.py:63-66 vs :83 enable_recovery=False hardcoded"
+    },
+    {
+      "id": "FINAL-008",
+      "severity": "MEDIUM",
+      "status": "OPEN",
+      "issue": "Multiple non-canonical paper engines reachable via scripts",
+      "evidence": "ml/paper/paper_engine.py vs LiveRunner --paper; phase25a DIV-009"
+    },
+    {
+      "id": "FINAL-009",
+      "severity": "LOW",
+      "status": "RESOLVED",
+      "issue": "Phase 24J critical blockers AUD-001/002/003",
+      "evidence": "phase24k PRODUCTION_BLOCKERS_FIXED; tests/test_phase24k.py 12 passed"
+    },
+    {
+      "id": "FINAL-010",
+      "severity": "INFO",
+      "status": "VERIFIED",
+      "issue": "Research/paper pipeline parity restored on frozen replay",
+      "evidence": "phase25b PARITY_RESTORED"
+    }
+  ],
+  "resolved_24k": [
+    "AUD-001",
+    "AUD-002",
+    "AUD-003"
+  ]
+}

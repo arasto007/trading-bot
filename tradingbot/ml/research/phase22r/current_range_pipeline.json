@@ -1,0 +1,75 @@
+{
+  "phase": "22R",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "title": "Current Range Inference Pipeline",
+  "chain": [
+    {
+      "step": 1,
+      "stage": "PipelineCache.get_unified_frame",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "function": "get_unified_frame (lines 92-111)",
+      "input": "candles.tail(300), base_dir, symbol, timeframe",
+      "output": "Unified DataFrame (trend/regime cols + phase99_* from merge)",
+      "reason": "Singleton cache; loads dataset_v2 once per process"
+    },
+    {
+      "step": 2,
+      "stage": "build_unified_frame",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "function": "build_unified_frame",
+      "input": "candles DataFrame, DatasetStore.load_v2() parquet",
+      "output": "base + regime extras + phase99_* columns (fillna 0 on miss)",
+      "reason": "Separates trend ema50_slope from range-training homonyms via prefix"
+    },
+    {
+      "step": 3,
+      "stage": "row_for_phase99_range",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "function": "row_for_phase99_range (lines 55-61)",
+      "input": "Unified row Series with phase99_* columns",
+      "output": "Series with ema50_slope, candle_direction, structure_distance copied from phase99_*",
+      "reason": "Only source used by production range path; ignores live homonym columns"
+    },
+    {
+      "step": 4,
+      "stage": "Phase99EngineWrapper / UnifiedRangeWrapper",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "function": "Phase99EngineWrapper.predict → row_for_phase99_range",
+      "input": "Unified frame row",
+      "output": "Calls inner RangeEngineAdapter.evaluate(row=mapped)",
+      "reason": "Production registry wrapper for RANGE engine"
+    },
+    {
+      "step": 5,
+      "stage": "RangeEngineAdapter.evaluate",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "function": "evaluate → _features_from_row",
+      "input": "Mapped row (3 feature names)",
+      "output": "feature dict → bundle.predict_proba → signal/confidence/sl/tp",
+      "reason": "FeatureBuilder fallback (_features_from_candles) exists but unused when row cols present (even zeros)"
+    },
+    {
+      "step": 6,
+      "stage": "phase9_9 bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "function": "Phase99Bundle.predict_proba",
+      "input": "dict ema50_slope, candle_direction, structure_distance",
+      "output": "P(win) float",
+      "reason": "Frozen sklearn model + scaler; feature_order.json"
+    },
+    {
+      "step": 7,
+      "stage": "build_market_context → DecisionOrchestrator",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "function": "build_market_context (line 118), orchestrator.decide",
+      "input": "MarketContext with range_signal from phase9_9",
+      "output": "FinalDecision BUY/SELL/HOLD",
+      "reason": "Regime router selects phase9_9 when RANGE"
+    }
+  ],
+  "training_path_reference": {
+    "file": "tradingbot/ml/dataset/sparse_event_builder.py",
+    "function": "FeatureBuilder.compute_at(m5_window, bar_idx, h4, m15, spread)",
+    "note": "Training writes features into dataset_v2; inference reads them back via merge"
+  }
+}

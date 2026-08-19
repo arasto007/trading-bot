@@ -1,0 +1,194 @@
+{
+  "phase": "22T",
+  "generated_utc": "2026-07-05T20:08:15.030319+00:00",
+  "features_changed": [
+    "structure_distance",
+    "ema50_slope",
+    "candle_direction"
+  ],
+  "only_source_changed": true,
+  "model_threshold_calibration_unchanged": true,
+  "diff_samples_baseline_vs_live": [
+    {
+      "timestamp": "2026-06-25 22:30:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.268712,
+        "candle_direction": -1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.268712,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-25 22:55:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.065786,
+        "candle_direction": 1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.065786,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-25 23:20:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.068,
+        "candle_direction": 1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.068,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-25 23:45:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.16944,
+        "candle_direction": -1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.16944,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 01:10:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.258078,
+        "candle_direction": -1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.258078,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 01:35:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.12313,
+        "candle_direction": 1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.12313,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 02:00:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.141462,
+        "candle_direction": -1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.141462,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 02:25:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.078243,
+        "candle_direction": 1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.078243,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 02:50:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.294521,
+        "candle_direction": -1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.294521,
+        "candle_direction": 1.0
+      }
+    },
+    {
+      "timestamp": "2026-06-26 04:55:00+00:00",
+      "merge": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.0,
+        "candle_direction": 0.0
+      },
+      "live": {
+        "structure_distance": 0.0,
+        "ema50_slope": -0.08565,
+        "candle_direction": 1.0
+      },
+      "abs_diff": {
+        "structure_distance": 0.0,
+        "ema50_slope": 0.08565,
+        "candle_direction": 1.0
+      }
+    }
+  ],
+  "bars_with_feature_diff_in_sample": 10
+}

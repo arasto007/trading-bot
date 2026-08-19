@@ -1,0 +1,25 @@
+{
+  "phase": "29B",
+  "filter_mode": "OFF",
+  "baseline_source": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\phase28f\\_cache\\replay_meta.json",
+  "trade_count_match": true,
+  "fingerprint_match": true,
+  "pnl_match": true,
+  "performance_match": {
+    "net_profit": true,
+    "completed_trades": true,
+    "profit_factor": true,
+    "expectancy": true,
+    "max_drawdown_pct": true
+  },
+  "pipeline_stages_off": [
+    "data",
+    "indicators",
+    "signals",
+    "signal_filter",
+    "risk",
+    "execution"
+  ],
+  "pass": true,
+  "generated_utc": "2026-07-10T03:01:36.068377+00:00"
+}

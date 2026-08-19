@@ -1,0 +1,23 @@
+{
+  "phase": "27I",
+  "planned_rr": {
+    "mean": 2.5,
+    "median": 2.5,
+    "count": 575
+  },
+  "realized_rr": {
+    "mean": 0.2277,
+    "median": -1.0,
+    "count": 575
+  },
+  "rr_after_slippage": {
+    "mean": -0.0223,
+    "median": -1.25,
+    "count": 575
+  },
+  "winners_avg_rr_decay": 0.25,
+  "losers_avg_rr_decay": 0.25,
+  "winners_lose_more_rr": false,
+  "note": "Slippage subtracts ~0.5 ATR from effective move in R terms when risk unit is SL distance",
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

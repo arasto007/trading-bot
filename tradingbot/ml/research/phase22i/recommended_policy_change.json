@@ -1,0 +1,26 @@
+{
+  "phase": "22I",
+  "selected_id": "22I-003",
+  "title": "Engine-confidence policy gate",
+  "engineering_type": "decision_policy",
+  "threshold_tuning": false,
+  "problem": "7.98% of profiled bars fail DecisionPolicy because composite confidence is compressed below 0.48 even when engine emitted BUY/SELL (policy_confidence_gate).",
+  "proposed_change": "DecisionPolicy.apply passes when max(final_confidence, model_confidence) >= min_confidence — removes double-compression rejection without lowering threshold.",
+  "implementation_files": [
+    "tradingbot/ml/decision_engine/decision_policy.py",
+    "tradingbot/ml/decision_engine/orchestrator.py"
+  ],
+  "rejected_candidates": {
+    "22I-004": "Increased trades 0→10 but PF stayed 0.0, expectancy -6.12, max DD 28.62% — over-trading risk",
+    "22I-001_002_005": "Identical to baseline on Dataset A (2 trades, PF 0.0)"
+  },
+  "predicted_impact": {
+    "profit_factor_improvement": "0.0 on Dataset A (none improved PF)",
+    "trade_frequency_improvement_pct": "0% for 22I-003 (same 2 trades as 001/002/005)",
+    "hold_pct_change": "Unchanged on full backtest; targets 7.98% policy_confidence_gate in profiler",
+    "engineering_risk": "LOW",
+    "validation_time_dataset_a_min": 20
+  },
+  "why_this_candidate": "Only candidate that directly fixes the decision-controllable hold reason (policy_confidence_gate) without the over-trading and drawdown explosion seen in 22I-004.",
+  "do_not_implement_yet": true
+}

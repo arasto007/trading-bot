@@ -1,0 +1,77 @@
+{
+  "grid": [
+    {
+      "risk_percent": 0.0025,
+      "final_equity": 10000.0,
+      "return_pct": 0.0,
+      "risk_adjusted_return": 0.0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "risk_percent": 0.005,
+      "final_equity": 10000.0,
+      "return_pct": 0.0,
+      "risk_adjusted_return": 0.0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "risk_percent": 0.0075,
+      "final_equity": 10000.0,
+      "return_pct": 0.0,
+      "risk_adjusted_return": 0.0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "risk_percent": 0.01,
+      "final_equity": 10000.0,
+      "return_pct": 0.0,
+      "risk_adjusted_return": 0.0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    }
+  ],
+  "current_risk": {
+    "risk_percent": 0.005,
+    "final_equity": 10000.0,
+    "return_pct": 0.0,
+    "risk_adjusted_return": 0.0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "best_risk_adjusted": {
+    "risk_percent": 0.0025,
+    "final_equity": 10000.0,
+    "return_pct": 0.0,
+    "risk_adjusted_return": 0.0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "recommendation": "Risk 0.0025 has best risk-adjusted return"
+}

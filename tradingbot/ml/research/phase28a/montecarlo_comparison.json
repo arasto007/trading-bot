@@ -1,0 +1,57 @@
+{
+  "phase": "28A",
+  "strategies": {
+    "hybrid_b": {
+      "label": "Hybrid B",
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 8846.6419,
+        "p05_net_profit": 8846.6419,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 7998.1441,
+          "worst_net": 5790.7557
+        },
+        "20pct": {
+          "median_net": 7000.461,
+          "worst_net": 5251.9649
+        },
+        "30pct": {
+          "median_net": 6295.1713,
+          "worst_net": 4526.9053
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "time_exit": {
+      "label": "Time Exit",
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 12558.43,
+        "p05_net_profit": 12558.43,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 11148.75,
+          "worst_net": 7601.53
+        },
+        "20pct": {
+          "median_net": 9729.535,
+          "worst_net": 5546.46
+        },
+        "30pct": {
+          "median_net": 8826.355,
+          "worst_net": 1937.58
+        }
+      },
+      "delay_1_bar_baseline_pnl": 1052.7226,
+      "failure_10pct_mean_pnl": 1005.033
+    }
+  },
+  "robustness_winner": "time_exit",
+  "generated_utc": "2026-07-09T20:01:08.174165+00:00"
+}

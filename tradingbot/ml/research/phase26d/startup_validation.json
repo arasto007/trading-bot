@@ -1,0 +1,96 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "sequence": [
+    {
+      "step": 1,
+      "node": "python -m tradingbot",
+      "file": "tradingbot/__main__.py"
+    },
+    {
+      "step": 2,
+      "node": "run_live_loop",
+      "file": "application/live_runner.py"
+    },
+    {
+      "step": 3,
+      "node": "LiveRunner.__init__ \u2192 build_strategy_registry",
+      "file": "ml/integration/factory.py"
+    },
+    {
+      "step": 4,
+      "node": "validate_startup (Phase 26D)",
+      "file": "services/startup_validator.py"
+    },
+    {
+      "step": 5,
+      "node": "write_startup_report",
+      "file": "data/startup/startup_report.json"
+    },
+    {
+      "step": 6,
+      "node": "market_data.ensure_connected",
+      "file": "adapters/mt5_market_data.py"
+    },
+    {
+      "step": 7,
+      "node": "TradingKernel.run_forever",
+      "file": "kernel/trading_kernel.py"
+    }
+  ],
+  "validator": "services/startup_validator.py",
+  "integration": "application/live_runner.py::_run",
+  "report_path": "data/startup/startup_report.json",
+  "scenarios": [
+    {
+      "outcome": "START_SUCCESSFULLY",
+      "execution_mode": "paper",
+      "engine": "ML_KERNEL",
+      "scenario": "paper_ml_mode"
+    },
+    {
+      "outcome": "START_SUCCESSFULLY",
+      "execution_mode": "live",
+      "engine": "ML_KERNEL",
+      "scenario": "live_ml_mode"
+    },
+    {
+      "outcome": "START_SUCCESSFULLY",
+      "execution_mode": "dry_run",
+      "engine": "LEGACY_PRICE_ACTION",
+      "scenario": "legacy_mode"
+    },
+    {
+      "outcome": "FAIL_WITH_EXPLICIT_REASON",
+      "code": "USE_ML_KERNEL_MISSING",
+      "reason": "USE_ML_KERNEL not set \u2014 refusing silent legacy; set USE_ML_KERNEL=1 or =0",
+      "scenario": "missing_use_ml_kernel"
+    },
+    {
+      "outcome": "FAIL_WITH_EXPLICIT_REASON",
+      "code": "EMERGENCY_STOP_ACTIVE",
+      "reason": "Emergency stop active \u2014 explicit reset required | reason=None",
+      "scenario": "emergency_stop"
+    },
+    {
+      "outcome": "FAIL_WITH_EXPLICIT_REASON",
+      "code": "DUPLICATE_POSITION_OWNERSHIP",
+      "reason": "PositionProtector (--protector) conflicts with kernel Mt5PositionManager \u2014 disable --protector",
+      "scenario": "duplicate_protector"
+    },
+    {
+      "outcome": "FAIL_WITH_EXPLICIT_REASON",
+      "code": "ML_ARTIFACTS_INVALID",
+      "reason": "checksum_fail",
+      "scenario": "broken_artifacts"
+    },
+    {
+      "outcome": "FAIL_WITH_EXPLICIT_REASON",
+      "code": "PARQUET_UNAVAILABLE",
+      "reason": "CandleStore empty for XAUUSD M5 \u2014 required for ML kernel",
+      "scenario": "missing_parquet"
+    }
+  ],
+  "success_count": 3,
+  "fail_explicit_count": 5,
+  "silent_count": 0
+}

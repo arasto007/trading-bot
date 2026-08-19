@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant KS as KillSwitchService
+    participant K as TradingKernel
+    participant PM as Mt5PositionManager
+    participant MT5 as MetaTrader5
+    KS->>K: emergency flag set
+    K->>PM: close all bot positions
+    PM->>MT5: close each ticket

@@ -1,0 +1,64 @@
+{
+  "title": "TradingBot vs Professional EA Checklist",
+  "updated_utc": "2026-07-17T00:20:00Z",
+  "project_root": "C:\\Users\\AMIR\\Desktop\\TradingBot new",
+  "overall_score_pct": 58,
+  "verdict_fa": "کد و بک‌تست قوی؛ live proof و VPS ضعیف. دو مسیر موازی PA kernel و VOL_REGIME — باید یکی production شود.",
+  "categories": {
+    "strategy": {
+      "score_pct": 75,
+      "have": ["VOL_REGIME ATR2.5 RR0.8 (PF 1.43 backtest)", "Price Action M5/M15/H4 kernel", "Trade Quality + vol_regime RR patch"],
+      "gaps": ["Single TF M5 on VOL_REGIME path", "ML rejected (AUC~0.51)", "Two parallel stacks not unified"]
+    },
+    "data_infra": {
+      "score_pct": 45,
+      "have": ["1.48M M5 candles", "MT5 attach + IPC lock", "15min refresh"],
+      "gaps": ["No VPS 24/7", "live_feed often static", "Bar backtest not tick 99.9%", "PC power/internet dependency"]
+    },
+    "risk": {
+      "score_pct": 72,
+      "have": ["Kill switch", "ATR SL", "spread/news/Friday gates", "lot from risk %", "demo safety guards"],
+      "gaps": ["Max trades/day often unlimited", "Prop firm preset missing", "Slippage tracking weak"]
+    },
+    "execution": {
+      "score_pct": 68,
+      "have": ["MT5 order_send", "dry/paper/live modes", "fill models in backtest", "watchdog restart"],
+      "gaps": ["Live slippage dashboard", "Order reconciliation partial", "0 verified live orders track record"]
+    },
+    "position_mgmt": {
+      "score_pct": 65,
+      "have": ["Trailing/partial/EOD", "position recovery SQLite", "exit policy paper"],
+      "gaps": ["VOL_REGIME path less tested for trailing", "structure-based trail missing"]
+    },
+    "monitoring": {
+      "score_pct": 50,
+      "have": ["live_dashboard.hta", "AUTONOMOUS_STATUS.json", "trade journal", "notifier (Telegram optional)"],
+      "gaps": ["Myfxbook/verified track", "Telegram likely unset", "Web dashboard basic"]
+    },
+    "validation": {
+      "score_pct": 55,
+      "have": ["6-year backtest PASS", "L6 shadow gates 10/10", "24h backtest script", "paper shadow 56+ trades"],
+      "gaps": ["No 6mo live verified", "Forward test <2 weeks equivalent", "Monte Carlo unused in gate", "Live vs BT drift monitor"]
+    },
+    "architecture": {
+      "score_pct": 70,
+      "have": ["TradingKernel 6-stage pipeline", "startup_validator", "218 test files"],
+      "gaps": ["6 test import errors", "Multiple live paths confusing", "Real money explicitly blocked"]
+    }
+  },
+  "top_5_gaps_priority": [
+    {"id": 1, "item": "Live verified track record (real orders + journal)", "priority": "critical"},
+    {"id": 2, "item": "VPS 24/7 near broker", "priority": "critical"},
+    {"id": 3, "item": "Unify production path (VOL_REGIME full kernel only)", "priority": "high"},
+    {"id": 4, "item": "Telegram alerts + daily PnL report", "priority": "medium"},
+    {"id": 5, "item": "Slippage/spread live logging vs backtest", "priority": "medium"}
+  ],
+  "working_now": [
+    "TradingKernel pipeline",
+    "VOL_REGIME shadow paper",
+    "Risk gate + kill switch",
+    "HTA dashboard + watchdog",
+    "Autonomous orchestrator"
+  ],
+  "audit_source": "853307c8-146e-40bf-a49a-4a27610f4557"
+}

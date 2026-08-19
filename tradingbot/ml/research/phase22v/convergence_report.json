@@ -1,0 +1,11 @@
+{
+  "estimator": "LogisticRegression",
+  "converged": true,
+  "n_iter": 7,
+  "max_iter": 500,
+  "solver": "lbfgs",
+  "warnings": [],
+  "coef_l2_norm": 0.253434,
+  "generated_utc": "2026-07-07T18:34:26.967939+00:00",
+  "phase": "22V"
+}

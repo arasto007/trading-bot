@@ -1,0 +1,26 @@
+{
+  "phase": "22D",
+  "root_causes": [
+    {
+      "id": "TREND_V41_TOP5_SINGLE_ROW",
+      "severity": "CRITICAL",
+      "evidence": "Phase 17B trains Top5 on full rolling frame; v41 _enriched_row used single-row attach_top5",
+      "fix": "PipelineCache._attach_trend_v41_features on unified frame"
+    },
+    {
+      "id": "TREND_CONFIDENCE_COMPRESSION",
+      "severity": "HIGH",
+      "evidence": "ConfidenceEngine multiplies model_conf \u00d7 regime_strength \u00d7 market_quality; TREND had no recovery path",
+      "fix": "Extend RangeAwareConfidenceEngine to TREND regime (Phase 22D)"
+    },
+    {
+      "id": "RANGE_LOW_PWIN_AUDIT_WINDOW",
+      "severity": "MEDIUM",
+      "evidence": "max_prob=0.419381, buy_possible=False",
+      "fix": "Not an engine bug if features match training; period-specific bearish output"
+    }
+  ],
+  "primary_blocker_trend": "TREND_V41_TOP5_SINGLE_ROW",
+  "primary_blocker_range": "RANGE_LOW_PWIN_AUDIT_WINDOW",
+  "verdict": "PROVEN_ENGINE_DEFECTS"
+}

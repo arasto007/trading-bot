@@ -1,0 +1,46 @@
+{
+  "phase": "23G",
+  "mode": "quick_selector_probe",
+  "sample_count": 2,
+  "range_sample_count": 1,
+  "samples": [
+    {
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "profile_used": "range_phase23e",
+      "rsi_limits": [
+        40.0,
+        65.0
+      ],
+      "adx_limits": [
+        15.0,
+        40.0
+      ],
+      "enable_range_filter_profile": true,
+      "filter_reason": null,
+      "blocked_by": []
+    },
+    {
+      "regime": "TREND",
+      "engine": "trend_rf_v41",
+      "profile_used": "trend_phase22c",
+      "rsi_limits": [
+        35.0,
+        65.0
+      ],
+      "adx_limits": [
+        10.0,
+        55.0
+      ],
+      "enable_range_filter_profile": true,
+      "filter_reason": null,
+      "blocked_by": []
+    }
+  ],
+  "checks": {
+    "samples_collected": true,
+    "diagnostics_fields_present": true,
+    "range_profile_observed": true
+  },
+  "generated_utc": "2026-07-08T01:49:17.244467+00:00"
+}

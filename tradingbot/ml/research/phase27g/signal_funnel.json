@@ -1,0 +1,42 @@
+{
+  "phase": "27G",
+  "funnel": [
+    {
+      "stage": "bars",
+      "count": 5203,
+      "pct_of_bars": 100.0,
+      "loss_from_previous": 0
+    },
+    {
+      "stage": "ml_signals",
+      "count": 762,
+      "pct_of_bars": 14.65,
+      "loss_from_previous": 4441
+    },
+    {
+      "stage": "risk_approved",
+      "count": 575,
+      "pct_of_bars": 11.05,
+      "loss_from_previous": 187
+    },
+    {
+      "stage": "executed_trades",
+      "count": 575,
+      "pct_of_bars": 11.05,
+      "loss_from_previous": 0
+    },
+    {
+      "stage": "winning_trades",
+      "count": 222,
+      "pct_of_bars": 4.27,
+      "loss_from_previous": 353
+    },
+    {
+      "stage": "losing_trades",
+      "count": 353,
+      "pct_of_bars": 6.78,
+      "loss_from_previous": -131
+    }
+  ],
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

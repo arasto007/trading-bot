@@ -1,0 +1,102 @@
+{
+  "phase": "28E",
+  "lot_sizing_mode": "fixed_minimum",
+  "all_trades_same_lot": true,
+  "fixed_lot": 0.01,
+  "reported_risk_percent": {
+    "min": 0.1484,
+    "max": 0.4008,
+    "mean": 0.2955,
+    "median": 0.2915,
+    "note": "Adaptive-risk target (fraction of equity), not realized dollar risk"
+  },
+  "actual_risk_pct_of_initial_balance": {
+    "min": 2.6136,
+    "max": 11.3585,
+    "mean": 5.5924,
+    "median": 5.2714,
+    "p95": 8.7607
+  },
+  "actual_risk_pct_of_running_balance": {
+    "min": 0.5108,
+    "max": 12.0708,
+    "mean": 2.1252,
+    "median": 1.3788,
+    "p95": 5.4034
+  },
+  "actual_risk_exceeds_reported_target": true,
+  "true_average_risk_pct": 2.1252,
+  "per_trade_sample": [
+    {
+      "seq": 1,
+      "timestamp": "2026-06-02T03:20:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.2915,
+      "dollar_risk": 7.4243,
+      "actual_risk_pct_of_initial": 3.7122,
+      "actual_risk_pct_of_running_balance": 3.7122,
+      "sl_distance": 7.4243
+    },
+    {
+      "seq": 2,
+      "timestamp": "2026-06-02T03:15:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.2915,
+      "dollar_risk": 6.8086,
+      "actual_risk_pct_of_initial": 3.4043,
+      "actual_risk_pct_of_running_balance": 3.5355,
+      "sl_distance": 6.8086
+    },
+    {
+      "seq": 3,
+      "timestamp": "2026-06-02T03:45:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.265,
+      "dollar_risk": 9.4757,
+      "actual_risk_pct_of_initial": 4.7378,
+      "actual_risk_pct_of_running_balance": 4.9205,
+      "sl_distance": 9.4757
+    },
+    {
+      "seq": 4,
+      "timestamp": "2026-06-02T03:50:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.265,
+      "dollar_risk": 9.4143,
+      "actual_risk_pct_of_initial": 4.7072,
+      "actual_risk_pct_of_running_balance": 5.1416,
+      "sl_distance": 9.4143
+    },
+    {
+      "seq": 5,
+      "timestamp": "2026-06-02T03:55:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.265,
+      "dollar_risk": 9.3171,
+      "actual_risk_pct_of_initial": 4.6585,
+      "actual_risk_pct_of_running_balance": 5.3643,
+      "sl_distance": 9.3171
+    },
+    {
+      "seq": 574,
+      "timestamp": "2026-06-29T03:45:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.1855,
+      "dollar_risk": 11.6643,
+      "actual_risk_pct_of_initial": 5.8322,
+      "actual_risk_pct_of_running_balance": 0.9149,
+      "sl_distance": 11.6643
+    },
+    {
+      "seq": 575,
+      "timestamp": "2026-06-29T03:50:00+00:00",
+      "lot": 0.01,
+      "reported_risk_percent": 0.1855,
+      "dollar_risk": 12.0243,
+      "actual_risk_pct_of_initial": 6.0122,
+      "actual_risk_pct_of_running_balance": 0.9417,
+      "sl_distance": 12.0243
+    }
+  ],
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

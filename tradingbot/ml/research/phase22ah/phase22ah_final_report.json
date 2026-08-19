@@ -1,0 +1,37 @@
+{
+  "phase": "22AH",
+  "title": "Numeric Acceptance Rule Validation",
+  "generated_utc": "2026-07-07T19:45:00.872740+00:00",
+  "production_modified": false,
+  "verdict": "SAFE_TO_PATCH",
+  "recommendation": "REPLACE_WITH_NUMERIC_MEAN",
+  "summary": "Replacing ordinal overfitting_risk_decreased with numeric mean_auc_gap < Phase 9.8 baseline (0.3308) is architecturally isolated to evaluate_acceptance. Simulation accepts 1 candidate(s) vs 0 under ordinal rule. Per-window gaps are not persisted for Phase 9.9 candidates; mean-only validation is sufficient for patch safety.",
+  "steps_completed": [
+    "metric_trace",
+    "stability_analysis",
+    "alternative_metric_simulation",
+    "baseline_sensitivity",
+    "dependency_scan",
+    "compatibility_report"
+  ],
+  "context": {
+    "candidate_count": 28,
+    "baseline_mean_auc_gap": 0.3308,
+    "current_report_acceptance_verdict": "FAIL",
+    "mean_metric_accepted_count": 1,
+    "mean_metric_accepted_ids": [
+      "xgb_baseline_phase96__stable_except_unstable__RANGE"
+    ]
+  },
+  "safe_to_patch_evidence": [
+    "No runtime/HealthGate dependency on overfitting_risk_decreased",
+    "mean_auc_gap already produced and stored for all ranked candidates",
+    "Baseline gap 0.3308 sourced from phase9_8_robustness_report train_test_gap",
+    "Backward compatible: same acceptance JSON schema, different check semantics"
+  ],
+  "residual_risks": [
+    "Phase 9.9 artifacts omit per-window gaps — median/max/trimmed rules not fully simulatable",
+    "Missing mean_auc_gap defaults to 0.0 in code — guard in patch recommended",
+    "Single candidate pass may be fragile to ±10% baseline perturbation if gaps cluster near threshold"
+  ]
+}

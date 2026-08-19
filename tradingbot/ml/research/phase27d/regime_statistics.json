@@ -1,0 +1,38 @@
+{
+  "trade_performance_by_regime": {
+    "RANGE": {
+      "trade_count": 2,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy": -8.7122,
+      "net_profit": -17.4243,
+      "average_confidence": 0.9611,
+      "average_probability": 0.9611,
+      "average_rr": 2.5,
+      "average_duration_bars": 9.5,
+      "contribution_to_total_pnl_pct": 100.0
+    },
+    "TREND": {
+      "trade_count": 0
+    },
+    "TRANSITION": {
+      "trade_count": 0
+    },
+    "HIGH_VOLATILITY": {
+      "trade_count": 0
+    },
+    "NO_TRADE": {
+      "trade_count": 0
+    },
+    "OTHER": {
+      "trade_count": 0
+    }
+  },
+  "bar_count_by_regime": {
+    "RANGE": 1561,
+    "HIGH_VOLATILITY": 243,
+    "TREND": 3047,
+    "NO_TRADE": 352
+  },
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

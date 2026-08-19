@@ -1,0 +1,48 @@
+{
+  "phase": "22R",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "risks": [
+    {
+      "risk": "Feature value drift vs training distribution",
+      "severity": "HIGH",
+      "probability": "MEDIUM",
+      "mitigation": "Research parity harness: FeatureBuilder.compute_at vs dataset_v2 at event timestamps before production"
+    },
+    {
+      "risk": "structure_distance window sensitivity (300-bar tail vs full history)",
+      "severity": "HIGH",
+      "probability": "MEDIUM",
+      "mitigation": "Compare breaks on tail(300) vs full window at sample timestamps; extend window if needed"
+    },
+    {
+      "risk": "API gap — evaluate(row) cannot call compute_at without candles",
+      "severity": "MEDIUM",
+      "probability": "CERTAIN",
+      "mitigation": "Extend MarketContext / adapter signature in approved production phase"
+    },
+    {
+      "risk": "Health gate / tests assume phase99_* merge path",
+      "severity": "MEDIUM",
+      "probability": "HIGH",
+      "mitigation": "Update validations to accept FeatureBuilder-sourced features"
+    },
+    {
+      "risk": "Model expects sparse structure_distance zeros — live may shift P(win)",
+      "severity": "MEDIUM",
+      "probability": "HIGH",
+      "mitigation": "Shadow compare P(win) distribution pre/post; no threshold change in 22R"
+    },
+    {
+      "risk": "Accidental use of build_ml_features ema50_slope instead of FeatureBuilder",
+      "severity": "HIGH",
+      "probability": "LOW",
+      "mitigation": "Code review: only FeatureBuilder path in adapter; never read unified ema50_slope homonym"
+    }
+  ],
+  "overall_risk_level": "MEDIUM-HIGH",
+  "blockers_before_production": [
+    "No repository test proving FeatureBuilder == dataset_v2 at aligned timestamps",
+    "structure_distance parity_score 72 — window dependency unvalidated",
+    "Production API passes row-only — refactor requires signature changes"
+  ]
+}

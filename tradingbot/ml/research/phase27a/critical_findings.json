@@ -1,0 +1,21 @@
+{
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00",
+  "findings": [
+    {
+      "id": "27A-001",
+      "severity": "CRITICAL",
+      "issue": "Insufficient trades for statistical confidence: 0 < 200"
+    },
+    {
+      "id": "27A-005",
+      "severity": "CRITICAL",
+      "issue": "Zero executable trades in 30-day replay \u2014 RSI filter blocked 5201/5203 bars",
+      "evidence": "ml/research/phase22c/hold_chain.py snapshot"
+    },
+    {
+      "id": "27A-003",
+      "severity": "CRITICAL",
+      "issue": "Replay trade reconstruction missing required fields"
+    }
+  ]
+}

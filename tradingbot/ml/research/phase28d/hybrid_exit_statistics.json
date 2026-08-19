@@ -1,0 +1,20 @@
+{
+  "phase": "28D",
+  "exit_counts": {
+    "hybrid_sl": 116,
+    "sl": 248,
+    "hybrid_time": 196,
+    "time": 15
+  },
+  "hybrid_partial_close": 312,
+  "hybrid_timeout": 211,
+  "hybrid_partial_plus_timeout": 196,
+  "hybrid_partial_plus_sl": 116,
+  "sl_only": 248,
+  "tp_only": 0,
+  "timeout_only": 0,
+  "average_partial_profit": 5.4432,
+  "average_remaining_profit": 6.9707,
+  "average_combined_profit": 12.4139,
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

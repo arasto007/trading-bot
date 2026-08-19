@@ -1,0 +1,64 @@
+{
+  "phase": "22K",
+  "comparison_matrix": {
+    "live_execution": {
+      "entry": "TradingKernel → SignalStage → KernelAdapter.produce_unified_signal",
+      "feature_path": "PipelineCache.get_unified_frame(candles.tail(300), dataset=DatasetStore.load_v2)",
+      "code_ref": "tradingbot/ml/integration/kernel_adapter.py:168",
+      "uses_feature_builder_for_phase99": false
+    },
+    "dataset_a_backtest_22f": {
+      "entry": "BacktestEngine → KernelAdapter (same stack)",
+      "feature_path": "PipelineCache.get_unified_frame — identical to live",
+      "code_ref": "tradingbot/ml/research/phase22f/rapid_runner.py"
+    },
+    "dataset_a_profiler_22j": {
+      "entry": "profile_range_engine per-bar loop",
+      "feature_path": "PipelineCache.get_unified_frame — identical to live",
+      "code_ref": "tradingbot/ml/research/phase22j/range_forensics.py:61"
+    },
+    "direct_research_build": {
+      "entry": "build_unified_frame(candles, dataset_v2)",
+      "feature_path": "same merge + fillna logic without PipelineCache wrapper",
+      "code_ref": "tradingbot/ml/research/phase13_9/unified_features.py"
+    }
+  },
+  "parity_result": {
+    "pipeline_cache_vs_build_unified_match_pct": 100.0,
+    "live_vs_22f_vs_22j_same_code_path": true,
+    "divergence_found": false
+  },
+  "zero_feature_appearance": {
+    "live_only": false,
+    "research_only": false,
+    "both": true,
+    "neither": false,
+    "explanation": "Zeros appear whenever dataset_v2 timestamp merge misses OR when merged dataset row contains native zero (structure_distance). Live and research share PipelineCache; no separate research feature path."
+  },
+  "dataset_a_window_vs_dataset_v2": {
+    "dataset_a_candle_range": "2026-06-24T20:30:00+00:00 to 2026-07-03T19:55:00+00:00",
+    "dataset_v2_max_timestamp": "2026-06-29T13:45:00+00:00",
+    "dataset_v2_build_utc": "2026-06-29T16:46:56+00:00",
+    "bars_after_dataset_v2_max": 1178,
+    "pct_after_dataset_v2_max": 61.2,
+    "consecutive_last_400_bars_merge_hit_pct": 0.0,
+    "consecutive_last_400_bars_phase99_zero_pct": 100.0
+  },
+  "within_coverage_stride_sample": {
+    "stride": 10,
+    "bars_sampled": 163,
+    "merge_miss_caused_zeros": {
+      "phase99_ema50_slope": 148,
+      "phase99_candle_direction": 148,
+      "phase99_structure_distance": 148
+    },
+    "note": "148/163 stride bars had no dataset_v2 row; fillna(0) applied identically on live and research paths"
+  },
+  "live_computed_alternatives_available_but_unused": {
+    "ema50_slope_nonzero_bars": 163,
+    "feature_builder_ema50_slope_nonzero": 163,
+    "feature_builder_candle_direction_nonzero": 163,
+    "feature_builder_structure_distance_nonzero": 3,
+    "range_engine_uses_these": false
+  }
+}

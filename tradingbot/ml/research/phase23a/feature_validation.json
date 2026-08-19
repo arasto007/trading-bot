@@ -1,0 +1,77 @@
+{
+  "phase": "23A",
+  "artifact_feature_order": {
+    "feature_order": [
+      "candle_direction",
+      "structure_distance",
+      "ema50_slope",
+      "ema_cross_state"
+    ]
+  },
+  "artifact_config_features": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "manifest_new_candidate": {
+    "candidate_id": "xgb_baseline_phase96",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "model_type": "xgboost",
+    "feature_subset": "stable_except_unstable"
+  },
+  "runtime_sample": {
+    "last_timestamp": "2026-06-29 13:50:00+00:00",
+    "regime": "TREND",
+    "feature_order": [
+      "candle_direction",
+      "structure_distance",
+      "ema50_slope",
+      "ema_cross_state"
+    ],
+    "mapped_column_presence": {
+      "candle_direction": true,
+      "structure_distance": true,
+      "ema50_slope": true,
+      "ema_cross_state": false
+    },
+    "mapped_values": {
+      "candle_direction": 0.0,
+      "structure_distance": 0.0,
+      "ema50_slope": 0.0,
+      "ema_cross_state": null
+    },
+    "feature_builder_values": {
+      "candle_direction": 0.0,
+      "structure_distance": 0.0,
+      "ema50_slope": 0.0,
+      "ema_cross_state": 0.0
+    },
+    "feature_builder_error": "'int' object has no attribute 'to_pydatetime'",
+    "phase99_column_zero_rate": {
+      "phase99_ema50_slope": 0.8403,
+      "phase99_candle_direction": 0.8403,
+      "phase99_structure_distance": 100.0
+    },
+    "live_ema50_slope_nonzero_rate": 100.0,
+    "_features_from_row": null,
+    "predict_proba_called": false,
+    "range_eval": {
+      "signal": "HOLD",
+      "probability": 0.5,
+      "confidence": 0.0,
+      "sl": null,
+      "tp": null,
+      "model_version": "phase9_9_best",
+      "regime": "RANGE",
+      "engine": "phase9_9"
+    },
+    "prob_from_feature_builder": null
+  },
+  "checks": {
+    "all_feature_order_columns_present_on_unified_row": false,
+    "predict_proba_reached": false,
+    "feature_builder_differs_from_mapped": true
+  },
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

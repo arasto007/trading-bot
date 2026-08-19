@@ -1,0 +1,32 @@
+{
+  "phase": "27F",
+  "before_label": "phase27d_pre_fix",
+  "after_label": "phase27f_post_fix",
+  "before": {
+    "emitted_ml_signals": 762,
+    "riskgate_blocked": 760,
+    "riskgate_passed": 2,
+    "executed": 2,
+    "by_reason": {
+      "opposite direction position open": 7,
+      "max positions for symbol": 753
+    }
+  },
+  "after": {
+    "emitted_ml_signals": 762,
+    "riskgate_blocked": 186,
+    "riskgate_passed": 575,
+    "executed": 575,
+    "by_reason": {
+      "ATR percentile too low": 127,
+      "news blackout": 8,
+      "friday no entry window": 51
+    }
+  },
+  "delta": {
+    "riskgate_blocked": -574,
+    "riskgate_passed": 573,
+    "executed": 573,
+    "max_positions_blocks_delta": -753
+  }
+}

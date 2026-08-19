@@ -1,0 +1,49 @@
+{
+  "phase": "31B",
+  "method": "Independent counterfactual replays on 489 WPSQF trades",
+  "findings": [
+    {
+      "root_cause": "range_regime_losers",
+      "verdict": "REJECTED_AS_FILTER",
+      "causal": false,
+      "correlated": true,
+      "dominant": false,
+      "reason": "100% of trades are RANGE regime \u2014 removing RANGE eliminates entire edge (+$136 net). Loser concentration is correlated, not removable by regime filter."
+    },
+    {
+      "root_cause": "time_exit_undercaptured",
+      "verdict": "CONFIRMED",
+      "causal": true,
+      "correlated": false,
+      "dominant": true,
+      "reason": "Perfect capture of missed opportunity raises PF 1.211 \u2192 12.5435 (+11.3325). 151 losers flip to winners."
+    },
+    {
+      "root_cause": "min_lot_oversize_risk",
+      "verdict": "PARTIALLY_CONFIRMED",
+      "causal": true,
+      "causal_scope": "risk_and_drawdown_not_pf_shape",
+      "correlated": true,
+      "dominant": false,
+      "reason": "Uniform risk rescale: PF delta -0.0013 (invariant as predicted), DD delta -21.8279%, net profit scaled to configured risk."
+    }
+  ],
+  "dominant_root_cause": "time_exit_undercaptured",
+  "causal_root_causes": [
+    "time_exit_undercaptured",
+    "min_lot_oversize_risk"
+  ],
+  "correlated_only": [
+    "range_regime_losers"
+  ],
+  "rejected_filters": [
+    "range_regime_losers"
+  ],
+  "interaction_summary": {
+    "A_and_B": "Independent \u2014 A removes trades, B transforms PnL in-place",
+    "B_and_C": "Orthogonal \u2014 B fixes capture path, C fixes risk scaling",
+    "A_and_C": "N/A when A removes all trades",
+    "combined_upper_bound_pf": 12.5435
+  },
+  "generated_utc": "2026-07-10T15:54:16.375807+00:00"
+}

@@ -1,0 +1,26 @@
+{
+  "phase": "24I",
+  "builder_verify_enabled": true,
+  "bar_count_results": {
+    "100": {
+      "bars_tested": 51,
+      "prediction_mismatches": 0,
+      "vector_mismatches": 0,
+      "all_equal": true
+    },
+    "500": {
+      "bars_tested": 251,
+      "prediction_mismatches": 0,
+      "vector_mismatches": 0,
+      "all_equal": true
+    },
+    "1000": {
+      "bars_tested": 501,
+      "prediction_mismatches": 0,
+      "vector_mismatches": 0,
+      "all_equal": true
+    }
+  },
+  "all_pass": true,
+  "generated_utc": "2026-07-08T13:26:50.369586+00:00"
+}

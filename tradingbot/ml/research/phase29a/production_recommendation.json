@@ -1,0 +1,18 @@
+{
+  "phase": "29A",
+  "filter_name": "Winner-Population Signal Quality Filter (WPSQF)",
+  "algorithm": "Composite score 0-100 from causal entry features: ADX trend strength, ML confidence, inverted false-signal score, market context score, and trend-alignment flag. Calibrated against historical winner centroid. Reject signals below threshold.",
+  "threshold": 77.56,
+  "remove_bottom_pct": 15,
+  "expected_improvement": {
+    "profit_factor_delta_pct": 10.87,
+    "expectancy_delta": 0.1465,
+    "drawdown_delta_pct": -6.37,
+    "trade_reduction_pct": 14.96
+  },
+  "risk": "Moderate \u2014 reduces trade count; may miss tail winners in low-score band",
+  "reasoning": "Winners show higher ADX, lower false-signal flags, better trend alignment, and stronger session context (Overlap/NY). Filter removes lowest-scoring ~15% without retraining ML.",
+  "implementation_phase": "29B",
+  "research_only": true,
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

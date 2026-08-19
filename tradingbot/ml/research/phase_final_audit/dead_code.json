@@ -1,0 +1,14 @@
+{
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00",
+  "estimate_off_hot_path_pct": 75,
+  "candidates": [
+    "LiveRunner --paper (canonical)",
+    "ml/paper/paper_engine.py KernelPaperEngine",
+    "ml/paper_trading/shadow_engine.py",
+    "ml/integration/kernel_shadow_runner.py",
+    "ml/research/phase* (624 modules)",
+    "KernelPaperEngine",
+    "live_pilot"
+  ],
+  "source": "phase22b capability audit + static analysis"
+}

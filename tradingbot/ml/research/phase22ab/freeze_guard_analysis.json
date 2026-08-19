@@ -1,0 +1,55 @@
+{
+  "phase": "22AB",
+  "guards": [
+    {
+      "guard": "acceptance_guard",
+      "location": "freeze_phase9_9_artifacts",
+      "status": "MISSING",
+      "evidence": "No import or call to evaluate_acceptance in model_registry.py"
+    },
+    {
+      "guard": "robustness_guard",
+      "location": "freeze_phase9_9_artifacts",
+      "status": "INACTIVE",
+      "evidence": "_load_phase99_score copies robustness_score into metadata only; does not block freeze"
+    },
+    {
+      "guard": "probability_quality_guard",
+      "location": "freeze_phase9_9_artifacts",
+      "status": "MISSING",
+      "evidence": "No probability_gate check before freeze"
+    },
+    {
+      "guard": "manual_override",
+      "location": "freeze_phase9_9_artifacts(config=...)",
+      "status": "ACTIVE",
+      "evidence": "Optional config parameter overrides DEFAULT_CONFIG"
+    },
+    {
+      "guard": "cli_override",
+      "location": "train_model --phase9-9",
+      "status": "MISSING",
+      "evidence": "CLI does not expose freeze; cannot pass acceptance result"
+    },
+    {
+      "guard": "environment_variable_override",
+      "location": "repository search",
+      "status": "MISSING",
+      "evidence": "No env var gates freeze_phase9_9_artifacts in model_registry.py"
+    },
+    {
+      "guard": "hardcoded_path",
+      "location": "DEFAULT_CONFIG + ModelCandidateConfig(logistic_strong_reg)",
+      "status": "ACTIVE",
+      "evidence": "Freeze always trains hardcoded logistic model regardless of rank/acceptance"
+    },
+    {
+      "guard": "build_if_missing_auto_freeze",
+      "location": "load_phase9_9_bundle",
+      "status": "ACTIVE",
+      "evidence": "Automatically calls freeze when model.pkl absent"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,113 @@
+{
+  "phase": "27O",
+  "split_method": "chronological_70_30",
+  "by_strategy": {
+    "current_tp_sl": {
+      "train_profit_factor": 0.9999,
+      "validation_profit_factor": 1.4613,
+      "train_expectancy": -0.0008,
+      "validation_expectancy": 5.5453,
+      "train_net_profit": -1.1337,
+      "validation_net_profit": 3604.4742,
+      "train_max_drawdown_pct": 36.2337,
+      "validation_max_drawdown_pct": 10.788,
+      "performance_decay": -6932.625,
+      "generalization_gap_pf": -0.4614,
+      "generalization_gap_expectancy": -5.5461,
+      "oos_consistent": true
+    },
+    "time_exit": {
+      "train_profit_factor": 0.819,
+      "validation_profit_factor": 2.2304,
+      "train_expectancy": -6.0766,
+      "validation_expectancy": 33.4278,
+      "train_net_profit": -9169.63,
+      "validation_net_profit": 21728.06,
+      "train_max_drawdown_pct": 240.9323,
+      "validation_max_drawdown_pct": 18.135,
+      "performance_decay": -6.5011,
+      "generalization_gap_pf": -1.4114,
+      "generalization_gap_expectancy": -39.5044,
+      "oos_consistent": true
+    },
+    "partial_close_50": {
+      "train_profit_factor": 0.9484,
+      "validation_profit_factor": 1.3976,
+      "train_expectancy": -0.4986,
+      "validation_expectancy": 3.5921,
+      "train_net_profit": -752.3984,
+      "validation_net_profit": 2334.8385,
+      "train_max_drawdown_pct": 29.1281,
+      "validation_max_drawdown_pct": 10.9647,
+      "performance_decay": -8.2044,
+      "generalization_gap_pf": -0.4492,
+      "generalization_gap_expectancy": -4.0907,
+      "oos_consistent": true
+    },
+    "structure_exit": {
+      "train_profit_factor": 0.9372,
+      "validation_profit_factor": 1.1882,
+      "train_expectancy": -0.4359,
+      "validation_expectancy": 1.395,
+      "train_net_profit": -657.8144,
+      "validation_net_profit": 906.782,
+      "train_max_drawdown_pct": 18.0454,
+      "validation_max_drawdown_pct": 7.8045,
+      "performance_decay": -4.2003,
+      "generalization_gap_pf": -0.251,
+      "generalization_gap_expectancy": -1.8309,
+      "oos_consistent": true
+    },
+    "hybrid_a": {
+      "train_profit_factor": 0.9618,
+      "validation_profit_factor": 1.7349,
+      "train_expectancy": -0.3731,
+      "validation_expectancy": 6.7482,
+      "train_net_profit": -562.9646,
+      "validation_net_profit": 4386.3392,
+      "train_max_drawdown_pct": 25.3314,
+      "validation_max_drawdown_pct": 9.8501,
+      "performance_decay": -19.0868,
+      "generalization_gap_pf": -0.7731,
+      "generalization_gap_expectancy": -7.1213,
+      "oos_consistent": true
+    },
+    "hybrid_d": {
+      "train_profit_factor": 0.937,
+      "validation_profit_factor": 1.7186,
+      "train_expectancy": -0.6153,
+      "validation_expectancy": 6.5653,
+      "train_net_profit": -928.551,
+      "validation_net_profit": 4267.4526,
+      "train_max_drawdown_pct": 24.5165,
+      "validation_max_drawdown_pct": 9.8792,
+      "performance_decay": -11.6701,
+      "generalization_gap_pf": -0.7816,
+      "generalization_gap_expectancy": -7.1806,
+      "oos_consistent": true
+    },
+    "hybrid_b": {
+      "train_profit_factor": 1.0049,
+      "validation_profit_factor": 2.493,
+      "train_expectancy": 0.0472,
+      "validation_expectancy": 13.5007,
+      "train_net_profit": 71.1748,
+      "validation_net_profit": 8775.4671,
+      "train_max_drawdown_pct": 31.6973,
+      "validation_max_drawdown_pct": 7.7593,
+      "performance_decay": -285.0318,
+      "generalization_gap_pf": -1.4881,
+      "generalization_gap_expectancy": -13.4535,
+      "oos_consistent": true
+    }
+  },
+  "hybrid_b_summary": {
+    "train_pf": 1.0049,
+    "validation_pf": 2.493,
+    "train_expectancy": 0.0472,
+    "validation_expectancy": 13.5007,
+    "performance_decay": -285.0318,
+    "oos_consistent": true
+  },
+  "generated_utc": "2026-07-09T19:52:47.697862+00:00"
+}

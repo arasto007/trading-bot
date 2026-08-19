@@ -1,0 +1,25 @@
+{
+  "source": "paper_trading/phase11_v1",
+  "duration_days": 30,
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "total_cycles": 0,
+  "signals": {
+    "phase9_9_ml_generated": 0,
+    "legacy_priceaction_generated": 0,
+    "final_ml_selected": 0,
+    "final_legacy_selected": 0,
+    "both_hold": 0
+  },
+  "agreement_cycles": 0,
+  "conflict_cycles": 0,
+  "final_trades": {
+    "total": 0,
+    "ml_only": 0,
+    "legacy_only": 0,
+    "strategy_agreement_trades": 0,
+    "strategy_conflict_trades": 0
+  },
+  "dominant_final_source": "Phase9.9_ML",
+  "ml_final_pct": 0.0
+}

@@ -1,0 +1,88 @@
+{
+  "phase": "24F",
+  "bar_count_results": {
+    "100": {
+      "bars_tested": 100,
+      "frame_mismatches": 50,
+      "overlap_reuse_failures": 99,
+      "all_frames_equal": false,
+      "overlap_identity_holds": false
+    },
+    "500": {
+      "bars_tested": 500,
+      "frame_mismatches": 450,
+      "overlap_reuse_failures": 499,
+      "all_frames_equal": false,
+      "overlap_identity_holds": false
+    },
+    "1000": {
+      "bars_tested": 1000,
+      "frame_mismatches": 950,
+      "overlap_reuse_failures": 999,
+      "all_frames_equal": false,
+      "overlap_identity_holds": false
+    }
+  },
+  "all_pass": false,
+  "consecutive_full_rebuild_overlap": {
+    "overlap_stable_between_consecutive_full_rebuilds": false,
+    "drift_threshold": 1e-06,
+    "failures": [
+      {
+        "bar_index": 301,
+        "worst_column": "adx_acceleration",
+        "worst_max_abs_diff": 3.4957832629854337,
+        "columns_differing_gt_1e6": 13,
+        "top_drift": {
+          "adx_acceleration": 3.4957832629854337,
+          "ema200": 2.073304072663632,
+          "fractal_dimension_proxy": 2.0,
+          "trend_age": 2.0,
+          "swing_efficiency": 0.9773869346733224
+        }
+      },
+      {
+        "bar_index": 302,
+        "worst_column": "adx_acceleration",
+        "worst_max_abs_diff": 3.1845368140995483,
+        "columns_differing_gt_1e6": 12,
+        "top_drift": {
+          "adx_acceleration": 3.1845368140995483,
+          "fractal_dimension_proxy": 2.0,
+          "candle_momentum": 1.3612774451096983,
+          "swing_efficiency": 0.6966471527407746,
+          "ema200": 0.4892558817000463
+        }
+      },
+      {
+        "bar_index": 303,
+        "worst_column": "adx_acceleration",
+        "worst_max_abs_diff": 2.2743443309610463,
+        "columns_differing_gt_1e6": 12,
+        "top_drift": {
+          "adx_acceleration": 2.2743443309610463,
+          "fractal_dimension_proxy": 2.0,
+          "candle_momentum": 1.3235016071090748,
+          "trend_age": 1.0,
+          "ema_curvature": 0.6168162468211449
+        }
+      },
+      {
+        "bar_index": 304,
+        "worst_column": "candle_momentum",
+        "worst_max_abs_diff": 2.7085148514850945,
+        "columns_differing_gt_1e6": 13,
+        "top_drift": {
+          "candle_momentum": 2.7085148514850945,
+          "swing_efficiency": 1.563080283997759,
+          "ema200": 1.284570936027194,
+          "trend_age": 1.0,
+          "adx_acceleration": 0.9497303530954824
+        }
+      }
+    ],
+    "root_cause": "tail(300) window slide shifts EWM/rolling warm-start; identical timestamps get different feature values each cycle"
+  },
+  "dataset_fingerprint": "70b38325ee1c7e1e",
+  "generated_utc": "2026-07-08T12:11:17.506296+00:00"
+}

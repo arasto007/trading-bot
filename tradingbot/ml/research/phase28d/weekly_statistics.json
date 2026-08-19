@@ -1,0 +1,41 @@
+{
+  "phase": "28D",
+  "weeks": [
+    {
+      "week": "2026-W23",
+      "trades": 163,
+      "net_profit": 673.4152,
+      "win_rate_pct": 39.88,
+      "profit_factor": 2.1076
+    },
+    {
+      "week": "2026-W24",
+      "trades": 141,
+      "net_profit": -627.4441,
+      "win_rate_pct": 14.18,
+      "profit_factor": 0.3931
+    },
+    {
+      "week": "2026-W25",
+      "trades": 91,
+      "net_profit": 780.3353,
+      "win_rate_pct": 51.65,
+      "profit_factor": 3.4096
+    },
+    {
+      "week": "2026-W26",
+      "trades": 167,
+      "net_profit": 260.5295,
+      "win_rate_pct": 39.52,
+      "profit_factor": 1.3077
+    },
+    {
+      "week": "2026-W27",
+      "trades": 13,
+      "net_profit": -5.0913,
+      "win_rate_pct": 38.46,
+      "profit_factor": 0.8419
+    }
+  ],
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00"
+}

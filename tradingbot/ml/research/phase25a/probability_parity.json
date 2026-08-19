@@ -1,0 +1,61 @@
+{
+  "fields_compared": [
+    "raw_probability",
+    "buy_probability",
+    "confidence"
+  ],
+  "research_sample": [
+    {
+      "timestamp": "2026-06-29T01:25:00+00:00",
+      "raw_probability": 0.377674,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": "2026-06-29T01:50:00+00:00",
+      "raw_probability": 0.46135,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T02:15:00+00:00",
+      "raw_probability": 0.371264,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T02:40:00+00:00",
+      "raw_probability": 0.191044,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T03:05:00+00:00",
+      "raw_probability": 0.46135,
+      "confidence": 0.0
+    }
+  ],
+  "paper_sample": [
+    {
+      "timestamp": "2026-06-29T01:20:00+00:00",
+      "probability": null,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T01:45:00+00:00",
+      "probability": null,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T02:10:00+00:00",
+      "probability": null,
+      "confidence": 0.0
+    },
+    {
+      "timestamp": "2026-06-29T02:35:00+00:00",
+      "probability": null,
+      "confidence": 1.0
+    },
+    {
+      "timestamp": "2026-06-29T03:00:00+00:00",
+      "probability": null,
+      "confidence": 0.8842915421124902
+    }
+  ]
+}

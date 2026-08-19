@@ -1,0 +1,132 @@
+{
+  "phase": "22D",
+  "action_counts": {
+    "HOLD": 1146,
+    "SELL": 629,
+    "BUY": 55
+  },
+  "buy_discarded_by_orchestrator": 0,
+  "sample_discards": [
+    {
+      "bar": 0,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.207835
+    },
+    {
+      "bar": 1,
+      "regime": "TREND",
+      "raw_trend": "SELL",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.47037
+    },
+    {
+      "bar": 2,
+      "regime": "TREND",
+      "raw_trend": "SELL",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.477239
+    },
+    {
+      "bar": 3,
+      "regime": "TREND",
+      "raw_trend": "SELL",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.445327
+    },
+    {
+      "bar": 4,
+      "regime": "TREND",
+      "raw_trend": "SELL",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.506234
+    },
+    {
+      "bar": 6,
+      "regime": "TREND",
+      "raw_trend": "SELL",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.543646
+    },
+    {
+      "bar": 8,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.205424
+    },
+    {
+      "bar": 9,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.233598
+    },
+    {
+      "bar": 10,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.260139
+    },
+    {
+      "bar": 11,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.33368
+    },
+    {
+      "bar": 12,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.376291
+    },
+    {
+      "bar": 13,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.357501
+    },
+    {
+      "bar": 14,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.275041
+    },
+    {
+      "bar": 15,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.230281
+    },
+    {
+      "bar": 16,
+      "regime": "TREND",
+      "raw_trend": "HOLD",
+      "raw_range": "SELL",
+      "final": "HOLD",
+      "confidence": 0.309009
+    }
+  ],
+  "orchestrator_discards_buy": false
+}

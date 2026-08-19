@@ -1,0 +1,77 @@
+{
+  "phase": "24C",
+  "candidates": [
+    {
+      "stage": "pipeline_cache_unified_frame",
+      "p95_ms": 162.1114,
+      "mean_ms": 115.5723,
+      "priority": 1,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "unified_frame_merge",
+      "p95_ms": 136.6904,
+      "mean_ms": 90.3446,
+      "priority": 2,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "range_engine_evaluate",
+      "p95_ms": 70.2467,
+      "mean_ms": 64.7057,
+      "priority": 3,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "feature_builder_compute_at",
+      "p95_ms": 68.9256,
+      "mean_ms": 63.6986,
+      "priority": 4,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "indicator_stage",
+      "p95_ms": 50.708,
+      "mean_ms": 48.6258,
+      "priority": 5,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "dataset_store_load",
+      "p95_ms": 40.1912,
+      "mean_ms": 37.1048,
+      "priority": 6,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "trend_engine_evaluate",
+      "p95_ms": 31.4718,
+      "mean_ms": 13.4067,
+      "priority": 7,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "health_gate",
+      "p95_ms": 25.8469,
+      "mean_ms": 24.6119,
+      "priority": 8,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "legacy_risk_gate",
+      "p95_ms": 7.1577,
+      "mean_ms": 7.0876,
+      "priority": 9,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    },
+    {
+      "stage": "predict_proba_only",
+      "p95_ms": 1.4423,
+      "mean_ms": 1.2039,
+      "priority": 10,
+      "note": "Measurement only \u2014 Phase 24C prohibits production changes"
+    }
+  ],
+  "disclaimer": "Read-only investigation \u2014 no optimizations applied",
+  "generated_utc": "2026-07-08T11:27:51.546779+00:00"
+}

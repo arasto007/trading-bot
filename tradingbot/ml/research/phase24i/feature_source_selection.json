@@ -1,0 +1,25 @@
+{
+  "phase": "24I",
+  "priority": [
+    "1. validated unified phase99 features",
+    "2. FeatureBuilder.compute_at fallback",
+    "3. direct unified row columns"
+  ],
+  "env_flags": {
+    "ENABLE_UNIFIED_FEATURE_INPUT": {
+      "default": true,
+      "rollback_value": "false"
+    },
+    "ENABLE_UNIFIED_BUILDER_VERIFY": {
+      "default": true,
+      "note": "When true, calls FeatureBuilder to confirm parity before using unified vector"
+    }
+  },
+  "source_counts": {
+    "unified_phase99": 0,
+    "feature_builder": 803,
+    "unified_row": 0
+  },
+  "unified_usage_pct": 0.0,
+  "generated_utc": "2026-07-08T13:26:50.369586+00:00"
+}

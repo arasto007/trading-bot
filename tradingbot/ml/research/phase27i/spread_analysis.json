@@ -1,0 +1,18 @@
+{
+  "phase": "27I",
+  "avg_spread": 0.3,
+  "avg_atr": 5.5924,
+  "avg_spread_atr_ratio": 0.0592,
+  "correlation_spread_atr_ratio_vs_baseline_pnl": 0.0708,
+  "high_spread_atr_ratio_half": {
+    "net_baseline": 997.5824,
+    "net_after_slippage": 400.7783,
+    "trade_count": 288
+  },
+  "low_spread_atr_ratio_half": {
+    "net_baseline": 103.603,
+    "net_after_slippage": -907.402,
+    "trade_count": 287
+  },
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

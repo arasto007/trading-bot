@@ -1,0 +1,12 @@
+{
+  "phase": "28E",
+  "points_reported": 576,
+  "points_rebuilt": 576,
+  "mismatch_count": 0,
+  "equity_calculation_correct": true,
+  "method": "balance += realized_pnl at each trade close; no intra-trade floating",
+  "mismatches": [],
+  "final_equity_reported": 1281.7446,
+  "final_equity_rebuilt": 1281.7446,
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

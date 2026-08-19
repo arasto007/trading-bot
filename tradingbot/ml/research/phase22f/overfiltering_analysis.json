@@ -1,0 +1,15 @@
+{
+  "phase": "22F",
+  "verdict": "over_filtered",
+  "evidence": {
+    "execution_rate_per_bar": 0.000339,
+    "signal_to_execution_ratio": 0.033333,
+    "riskgate_blocks": 58,
+    "ml_pipeline_holds": 5837,
+    "missed_profitable_signals": 0,
+    "missed_to_block_ratio": 0.0,
+    "bars_evaluated": 5897,
+    "trades_executed": 2
+  },
+  "interpretation": "Very low execution rate (0.0339%/bar) with 58 RiskGate blocks vs 2 trades. 0 blocked signals showed positive forward R."
+}

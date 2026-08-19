@@ -1,0 +1,21 @@
+{
+  "count": 489,
+  "profile": "normal",
+  "total_ms": {
+    "mean": 79.817,
+    "p50": 80.576,
+    "p95": 108.627,
+    "max": 149.297
+  },
+  "component_means_ms": {
+    "decision": 8.074,
+    "python": 2.039,
+    "mt5": 14.933,
+    "broker": 24.867,
+    "network": 9.896,
+    "execution": 20.008,
+    "total": 79.817
+  },
+  "phase": "30A",
+  "generated_utc": "2026-07-10T08:35:03.416574+00:00"
+}

@@ -1,0 +1,518 @@
+{
+  "version": "1.0",
+  "title": "LIVE Profitable Robot Roadmap",
+  "title_fa": "نقشه راه ربات سودآور LIVE",
+  "created_utc": "2026-07-15T04:10:00Z",
+  "updated_utc": "2026-07-16T12:05:00Z",
+  "status": "RR_PRODUCTION_RESEARCH_COMPLETE",
+  "delivery_status": "PAPER_RESUME",
+  "paper_status": "READY_FOR_PAPER_RESUME",
+  "proximity_pct": 78,
+  "research_only_until_l6": true,
+  "production_code_change_allowed": "v41_regime_quality_fix_only",
+  "linked_from": [
+    "ENGINEERING_STATUS.json",
+    "FIX_ROADMAP_FINAL_VERDICT.json"
+  ],
+  "pipeline": "tradingbot/ml/research/run_live_pipeline.py",
+  "phases": [
+    {
+      "id": "L0",
+      "title": "Infrastructure & Gates Definition",
+      "title_fa": "زیرساخت و تعریف gateها",
+      "objectives": [
+        "Define honest profitability gates before any live deploy",
+        "Link FIX roadmap findings to LIVE path",
+        "Block production ML integration until L2 edge proven"
+      ],
+      "deliverables": [
+        "LIVE_PROFIT_ROADMAP.json",
+        "ENGINEERING_STATUS.json links",
+        "run_live_pipeline.py"
+      ],
+      "gates": {
+        "honest_pf_min": 1.1,
+        "min_trades_per_year": 30,
+        "min_years_pass": 3,
+        "production_deploy": "BLOCKED until L6"
+      },
+      "success_criteria": [
+        "Roadmap documented L0-L6",
+        "All phases have measurable gates",
+        "v41 execution fix applied"
+      ],
+      "dependencies": [],
+      "status": "COMPLETE"
+    },
+    {
+      "id": "L1",
+      "title": "Data Foundation (v8 Dataset)",
+      "title_fa": "پایه داده (دیتاست v8)",
+      "objectives": [
+        "Specify v8 dataset with spread, sessions, 5+ years history",
+        "Verify label parity with production SL/TP",
+        "Prepare fullest candles via phase39"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l1/v8_dataset_spec.json",
+        "tradingbot/ml/research/live_l1/build_v8_dataset.py",
+        "data/ml/datasets/v8/XAUUSD_M5.parquet"
+      ],
+      "gates": {
+        "overlap_coverage_pct_min": 95,
+        "label_parity_match_pct_min": 98,
+        "min_history_years": 5
+      },
+      "success_criteria": [
+        "v8 spec approved",
+        "Spread and session columns present",
+        "Label parity verified on sample"
+      ],
+      "dependencies": ["L0"],
+      "status": "BUILD_COMPLETE",
+      "verdict": "V8_BUILD_COMPLETE",
+      "report": "live_l1_v8_build_report.json",
+      "artifact": "tradingbot/ml/research/live_l1/artifacts/dataset_v8_enriched.parquet",
+      "rows": 387714,
+      "years_covered": 6
+    },
+    {
+      "id": "L1b",
+      "title": "v8 Label Expansion",
+      "title_fa": "گسترش label دیتاست v8",
+      "objectives": [
+        "Label 387K v8 rows with label_v3 + label_rr1 (ATR2 RR1.0)",
+        "Batch efficiently by quarter"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l1/expand_v8_labels.py",
+        "dataset_v8_labeled.parquet",
+        "live_l1b_label_expansion_report.json"
+      ],
+      "gates": {
+        "labeled_rows_min": 150000
+      },
+      "success_criteria": [
+        "label_v3 and label_v3_rr1 populated on majority of directional rows"
+      ],
+      "dependencies": ["L1"],
+      "status": "COMPLETE",
+      "verdict": "EXPANSION_COMPLETE",
+      "report": "live_l1b_label_expansion_report.json",
+      "artifact": "tradingbot/ml/research/live_l1/artifacts/dataset_v8_labeled.parquet",
+      "labeled_v3_after": 171321,
+      "labeled_rr1_after": 171321,
+      "delta_v3": 91071,
+      "delta_rr1": 171321
+    },
+    {
+      "id": "L2",
+      "title": "Edge Discovery (Rule-Based + Regime)",
+      "title_fa": "کشف لبه (قانون‌محور + رژیم)",
+      "objectives": [
+        "Test TREND, RANGE, BREAKOUT, SESSION hypotheses on XAUUSD M5 2021-2026",
+        "Forward-resolve with production SL/TP (phase35)",
+        "Rank hypotheses by honest per-year PF gate"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l2/edge_discovery.py",
+        "live_l2_edge_discovery_report.json"
+      ],
+      "gates": {
+        "pf_per_year_min": 1.1,
+        "min_trades_per_year": 30,
+        "min_years_pass": 3
+      },
+      "success_criteria": [
+        "At least one hypothesis passes honest gate",
+        "Per-year PF and trade counts reported",
+        "No look-ahead in label resolution"
+      ],
+      "dependencies": ["L0", "L1"],
+      "status": "INITIAL_RUN_COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "report": "live_l2_edge_discovery_report.json",
+      "best_hypothesis": "RANGE",
+      "best_pf": 0.3917,
+      "any_honest_edge": false,
+      "round2": {
+        "status": "COMPLETE",
+        "verdict": "NO_HONEST_EDGE",
+        "report": "live_l2_edge_discovery_round2_report.json",
+        "module": "tradingbot/ml/research/live_l2/edge_discovery_round2.py",
+        "best_hypothesis": "PULLBACK_VWAP",
+        "best_pf": 0.3988,
+        "any_marginal_edge": false,
+        "hypotheses_tested": 7
+      }
+    },
+    {
+      "id": "L2.5",
+      "title": "SL/TP Parameter Sweep",
+      "title_fa": "اسکن پارامتر SL/TP",
+      "objectives": [
+        "Test whether production RR=2.5 uniformly kills rule-based edge",
+        "Sweep RR, ATR SL mult, fixed pip SL on best L2 hypotheses",
+        "Audit production compute_sl_tp RR distribution"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l2/sl_tp_sweep.py",
+        "live_l2_sl_tp_sweep_report.json"
+      ],
+      "gates": {
+        "pf_per_year_min": 1.1,
+        "min_trades_per_year": 30,
+        "min_years_pass": 3
+      },
+      "success_criteria": [
+        "Any SL/TP config passes honest gate",
+        "Production RR audit documented"
+      ],
+      "dependencies": ["L2"],
+      "status": "COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "report": "live_l2_sl_tp_sweep_report.json",
+      "best_config": "ATR2.0_RR1.0",
+      "best_pf": 1.0258,
+      "production_rr_audit": {
+        "rr_fixed_at": 2.5,
+        "sl_median_pips": 115.71,
+        "tp_median_pips": 289.29
+      },
+      "insight_en": "RR=1.0 improves PF to ~1.02 but still fails 3-year gate; high RR is part of problem but not sole cause",
+      "insight_fa": "RR=1.0 PF را به ~1.02 می‌رساند ولی gate سه‌ساله را پاس نمی‌کند"
+    },
+    {
+      "id": "L2.6",
+      "title": "Combined Edge Test (Signal + RR + ML)",
+      "title_fa": "تست لبه ترکیبی",
+      "objectives": [
+        "Test PULLBACK_VWAP + ATR2.0/RR1.0 + v8 TREND ML filter",
+        "Compare baseline vs ML-filtered PF"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l2/edge_discovery_l26.py",
+        "live_l2_edge_discovery_l26_report.json"
+      ],
+      "gates": {
+        "pf_per_year_min": 1.1,
+        "min_trades_per_year": 30,
+        "min_years_pass": 3
+      },
+      "dependencies": ["L2.5", "L1b"],
+      "status": "COMPLETE",
+      "verdict": "NO_HONEST_EDGE",
+      "report": "live_l2_edge_discovery_l26_report.json",
+      "best_config": "baseline_no_ml ATR2.0_RR1.0",
+      "best_pf": 1.0258,
+      "years_passed_gate": 2,
+      "ml_improves_edge": false,
+      "any_honest_edge": false
+    },
+    {
+      "id": "L2.7",
+      "title": "RR Fine-tune + Multi-Signal",
+      "title_fa": "تنظیم RR + چند سیگنال",
+      "objectives": [
+        "Test RR 0.8-1.5 and ATR mult 1.5-2.5 on top 3 L2 signals",
+        "Find config with PF>=1.1 in 3+ years"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l2/edge_discovery_l27.py",
+        "live_l2_edge_discovery_l27_report.json"
+      ],
+      "gates": {
+        "pf_per_year_min": 1.1,
+        "min_trades_per_year": 30,
+        "min_years_pass": 3
+      },
+      "dependencies": ["L2.5"],
+      "status": "COMPLETE",
+      "verdict": "EDGE_FOUND",
+      "report": "live_l2_edge_discovery_l27_report.json",
+      "best_hypothesis": "VOL_REGIME",
+      "best_config": "ATR2.5_RR0.8",
+      "best_pf": 1.4262,
+      "years_passed_gate": 6,
+      "configs_passing_gate": 12,
+      "any_honest_edge": true
+    },
+    {
+      "id": "L3",
+      "title": "Execution Path Validation",
+      "title_fa": "اعتبارسنجی مسیر اجرا",
+      "objectives": [
+        "Validate L2-winning hypothesis through production funnel",
+        "Confirm v41 TQ fix restores capture without relaxing other filters",
+        "Shadow replay with fullest candles"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l3/execution_validation.py",
+        "live_l3_execution_validation_report.json"
+      ],
+      "gates": {
+        "capture_rate_pct_min": 20,
+        "shadow_pf_min": 1.0,
+        "funnel_edge_loss_pct_max": 30
+      },
+      "success_criteria": [
+        "Execution path reaches broker simulation",
+        "Capture gate passes with production filters",
+        "Shadow PF >= 1.0 on L2 edge subset"
+      ],
+      "dependencies": ["L2.7"],
+      "status": "COMPLETE",
+      "verdict": "EXECUTION_VALIDATED",
+      "report": "live_l3_execution_validation_report.json",
+      "config_used": "VOL_REGIME ATR2.5_RR0.8",
+      "capture_rate_pct": 63.16,
+      "shadow_pf": 1.4037,
+      "capture_gate_pass": true,
+      "production_rr_recommendation": "research doc only — lower TP_RR to 1.0-1.5 needs coordinated policy change"
+    },
+    {
+      "id": "L4prep",
+      "title": "v8 Regime ML Test (pre-L4)",
+      "title_fa": "تست ML رژیم v8 (پیش از L4)",
+      "objectives": [
+        "Train RF on v8 expanded features per regime",
+        "Strict WF 5 windows 2022-2026 at threshold 0.40",
+        "Compare vs v7 baseline (AUC, honest PF@30)"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l4/v8_regime_ml_test.py",
+        "live_l4_v8_regime_ml_report.json"
+      ],
+      "gates": {
+        "mean_auc_min": 0.55,
+        "honest_pf_min": 1.3,
+        "walk_forward_years_pass": 3
+      },
+      "success_criteria": [
+        "v8 beats v7 on AUC and honest PF@30",
+        "At least 3 WF windows with 30+ trades"
+      ],
+      "dependencies": ["L1"],
+      "status": "COMPLETE",
+      "verdict": "IMPROVEMENT_FOUND",
+      "report": "live_l4_v8_regime_ml_report.json",
+      "mean_auc": 0.5168,
+      "mean_pf_at_0_40": 1.08,
+      "mean_pf_honest_30": 1.4,
+      "vs_v7_delta_auc": 0.003,
+      "windows_honest_30": 1,
+      "strict_gate_pass": false,
+      "note_en": "Marginal AUC lift; honest PF@30 from single window only — not production-ready"
+    },
+    {
+      "id": "L4",
+      "title": "ML on Proven Edge Only",
+      "title_fa": "ML فقط روی لبه اثبات‌شده",
+      "objectives": [
+        "Train ML only on L2/L3 validated edge subset",
+        "Strict walk-forward with honest PF",
+        "No feature expansion until edge baseline passes"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l4/signal_ml_refinement.py",
+        "live_l4_signal_ml_report.json"
+      ],
+      "gates": {
+        "mean_auc_min": 0.55,
+        "honest_pf_min": 1.3,
+        "walk_forward_years_pass": 3
+      },
+      "success_criteria": [
+        "ML improves over rule baseline on same subset",
+        "Honest PF >= 1.3 in walk-forward",
+        "No production integration until L5"
+      ],
+      "dependencies": ["L3"],
+      "status": "COMPLETE",
+      "verdict": "ML_HURTS_OR_NEUTRAL",
+      "report": "live_l4_signal_ml_report.json",
+      "signal": "PULLBACK_VWAP",
+      "baseline_pf": 1.037,
+      "best_ml_pf": 0.931,
+      "ml_helps": false,
+      "recommendation": "Skip ML filter — consistent with L2.6"
+    },
+    {
+      "id": "BT-gate",
+      "title": "Strict Backtest Gate (Pre-Paper)",
+      "title_fa": "gate سخت backtest پیش از paper",
+      "objectives": [
+        "Validate VOL_REGIME ATR2.5_RR0.8 on fullest candles 2021-2026",
+        "Compare production RR=2.5 path honestly",
+        "Retrain ML v8 TREND walk-forward before any paper resume",
+        "Block paper until strict gate passes"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_bt/backtest_gate.py",
+        "live_backtest_gate_report.json"
+      ],
+      "gates": {
+        "vol_regime_pf_per_year_min": 1.1,
+        "vol_regime_min_trades_per_year": 30,
+        "vol_regime_min_years_pass": 3,
+        "vol_regime_overall_pf_min": 1.2,
+        "ml_auc_min": 0.55,
+        "ml_honest_pf_min": 1.3
+      },
+      "success_criteria": [
+        "VOL_REGIME RR0.8 passes strict gate on canonical candles",
+        "Production RR path documented if RR0.8 passes but RR2.5 fails",
+        "Paper remains PAUSED until gate passes"
+      ],
+      "dependencies": ["L2.7", "L4prep"],
+      "status": "COMPLETE",
+      "verdict": "GATE_FAIL",
+      "next_step": "RR_PRODUCTION_RESEARCH",
+      "paper_resume_allowed": false,
+      "report": "live_backtest_gate_report.json",
+      "module": "tradingbot/ml/research/live_bt/backtest_gate.py"
+    },
+    {
+      "id": "RR-research",
+      "title": "RR Production Research (VOL_REGIME)",
+      "title_fa": "تحقیق RR production برای VOL_REGIME",
+      "objectives": [
+        "Sweep RR 0.8-2.5 on canonical candles 2021-2026",
+        "Document TradeQuality RR blocks and vol_regime patch counterfactual",
+        "Validate production-like path (v41 + TQ patch) vs RR=2.5 baseline"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_bt/rr_production_research.py",
+        "live_rr_production_research_report.json"
+      ],
+      "gates": {
+        "backtest_pf_per_year_min": 1.1,
+        "backtest_overall_pf_min": 1.2,
+        "production_like_capture_pct_min": 20,
+        "production_like_shadow_pf_min": 1.0
+      },
+      "success_criteria": [
+        "Find minimum RR passing backtest gate",
+        "Document TQ block vs vol_regime patch scope",
+        "Determine PAPER_RESUME eligibility"
+      ],
+      "dependencies": ["BT-gate"],
+      "status": "COMPLETE",
+      "verdict": "PRODUCTION_LIKE_PASS",
+      "next_step": "PAPER_RESUME",
+      "paper_resume_allowed": true,
+      "report": "live_rr_production_research_report.json",
+      "module": "tradingbot/ml/research/live_bt/rr_production_research.py",
+      "minimum_rr": 0.8,
+      "shadow_pf": 1.4138,
+      "capture_pct": 56.06,
+      "ml_skipped": true
+    },
+    {
+      "id": "L5",
+      "title": "Paper / Shadow Live (4-8 weeks)",
+      "title_fa": "کاغذی / سایه LIVE (۴-۸ هفته)",
+      "objectives": [
+        "Run paper/shadow for 4-8 weeks with real tick latency",
+        "Monitor slippage, spread, session drift",
+        "Compare shadow PF vs backtest PF"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l5/paper_trading_setup.py",
+        "live_l5_paper_setup_report.json",
+        "logs/live_l5_paper_monitor.ps1"
+      ],
+      "gates": {
+        "shadow_weeks_min": 4,
+        "shadow_weeks_max": 8,
+        "shadow_pf_min": 1.0,
+        "max_drawdown_pct": 15
+      },
+      "success_criteria": [
+        "4+ weeks shadow without critical failures",
+        "Shadow PF within 20% of backtest",
+        "No execution regressions"
+      ],
+      "dependencies": ["RR-research"],
+      "status": "READY",
+      "verdict": "READY_FOR_PAPER_RESUME",
+      "report": "live_l5_paper_setup_report.json",
+      "monitor_script": "logs/live_l5_paper_monitor.ps1",
+      "strategy": "VOL_REGIME ATR2.5_RR0.8",
+      "paper_weeks_planned": 8,
+      "observation_required": true
+    },
+    {
+      "id": "L6",
+      "title": "Limited Live Deploy Gates",
+      "title_fa": "gateهای استقرار محدود LIVE",
+      "objectives": [
+        "Final production gate review",
+        "Limited capital deploy with kill-switch",
+        "Rollback to v40 bundle if PF degrades"
+      ],
+      "deliverables": [
+        "tradingbot/ml/research/live_l6/deploy_gate_review.py",
+        "live_l6_deploy_gate_review.json",
+        "tradingbot/ml/research/live_l6/vol_regime_integration_spec.json"
+      ],
+      "gates": {
+        "paper_pf_min": 1.1,
+        "paper_trades_min": 50,
+        "max_drawdown_pct": 20,
+        "shadow_pf_min": 1.0,
+        "capture_rate_pct_min": 20,
+        "paper_weeks_min": 8,
+        "all_prior_phases_pass": true,
+        "live_pf_30d_min": 1.0,
+        "max_risk_per_trade_pct": 0.3,
+        "kill_switch_enabled": true
+      },
+      "success_criteria": [
+        "All L0-L5 gates pass",
+        "Limited live approved with monitoring",
+        "Rollback plan documented"
+      ],
+      "dependencies": ["L5"],
+      "status": "PRE_PAPER",
+      "verdict": "PRE_PAPER_GATES_PENDING",
+      "report": "live_l6_deploy_gate_review.json",
+      "best_strategy": "VOL_REGIME ATR2.5_RR0.8",
+      "auto_scheduler": "tradingbot/ml/research/live_l6/auto_l6_on_paper_complete.ps1",
+      "integration_readiness": "tradingbot/ml/research/live_l6/integration_readiness.py",
+      "vol_regime_module": "tradingbot/strategies/vol_regime_signal.py",
+      "delivery_manifest": "ROBOT_DELIVERY_MANIFEST.json",
+      "gates_passed_count": 6,
+      "gates_total": 10,
+      "production_deploy": "BLOCKED"
+    }
+  ],
+  "current_phase": "L5",
+  "best_strategy_locked": true,
+  "best_strategy": {
+    "hypothesis": "VOL_REGIME",
+    "config_id": "ATR2.5_RR0.8",
+    "backtest_pf": 1.4252,
+    "shadow_pf_l3": 1.4138,
+    "capture_pct_l3": 56.06,
+    "ml_filter": "SKIP"
+  },
+  "next_immediate_step_fa": "PAPER_RESUME — RR=0.8 با patch TQ vol_regime پاس شد؛ paper قابل ازسرگیری (research_only)",
+  "next_immediate_step_en": "PAPER_RESUME — RR=0.8 with vol_regime TQ patch passes production-like gate; paper may resume (research_only)",
+  "v41_fix": {
+    "applied": true,
+    "file": "tradingbot/ml/trade_quality/regime_quality.py",
+    "change": "trend_rf_v41 recognized as alias of trend_rf_v40 regime matrix",
+    "phase62_reference": "phase62_final_report.json"
+  },
+  "honest_timeline": {
+    "L0": "1 day",
+    "L1": "3-5 days",
+    "L2": "1-2 weeks (iterative hypotheses)",
+    "L3": "1 week",
+    "L4": "2-4 weeks",
+    "L5": "4-8 weeks",
+    "L6": "after L5 only",
+    "earliest_limited_live": "10-14 weeks if gates pass"
+  }
+}

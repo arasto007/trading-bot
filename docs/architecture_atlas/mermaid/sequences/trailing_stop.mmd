@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant K as TradingKernel
+    participant PM as Mt5PositionManager
+    participant MT5 as MetaTrader5
+    K->>PM: manage_positions()
+    PM->>MT5: positions_get
+    PM->>PM: compute trailing SL
+    PM->>MT5: order_send modify SL

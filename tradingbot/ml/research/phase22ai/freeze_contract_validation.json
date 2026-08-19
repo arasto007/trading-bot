@@ -1,0 +1,332 @@
+{
+  "phase": "22AI",
+  "validated_candidates": 28,
+  "contracts_built": 1,
+  "accepted_contracts": [
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "candidate_id": "xgb_baseline_phase96",
+      "model_type": "xgboost",
+      "feature_subset": "stable_except_unstable"
+    }
+  ],
+  "rows": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "overfitting_check_failed"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "acceptance_verdict": "PASS",
+      "validation_errors": [],
+      "contract_built": true
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "acceptance_verdict": "FAIL",
+      "validation_errors": [
+        "missing_acceptance_pass",
+        "missing_probability_gate"
+      ],
+      "contract_built": false
+    }
+  ],
+  "sample_contract": {
+    "contract_version": "1.0",
+    "phase": "9.9",
+    "generated_at_utc": "2026-07-07T19:50:31.368716+00:00",
+    "candidate_id": "xgb_baseline_phase96",
+    "model_type": "xgboost",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "feature_subset": "stable_except_unstable",
+    "features": [
+      "candle_direction",
+      "structure_distance",
+      "ema50_slope",
+      "ema_cross_state"
+    ],
+    "hyperparameters": {
+      "max_depth": 5,
+      "learning_rate": 0.08,
+      "n_estimators": 60,
+      "subsample": 0.9,
+      "colsample_bytree": 0.8
+    },
+    "thresholds": {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.45,
+      "tp_r": 2.0,
+      "sl_r": 1.0,
+      "risk_pct": 0.005
+    },
+    "regime": "RANGE",
+    "event_filter": "A_all_events",
+    "validation_metrics": {
+      "robustness_score": 66.76,
+      "overfitting_risk": "HIGH",
+      "mean_profit_factor": 1.227,
+      "mean_expectancy": 0.1273,
+      "mean_auc_gap": 0.3195,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.592035
+    },
+    "probability_metrics": {
+      "buy_coverage_pct": 11.1359,
+      "sell_coverage_pct": 72.9399,
+      "probability_std": 0.157166,
+      "min_probability": 0.062302,
+      "max_probability": 0.904958,
+      "probability_gate_passed": true
+    },
+    "acceptance_status": {
+      "final_verdict": "PASS",
+      "checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "baseline_mean_auc_gap": 0.3308,
+      "best_mean_auc_gap": 0.3195,
+      "overfitting_check_mode": "numeric_mean_auc_gap"
+    },
+    "metadata": {
+      "dataset_fingerprint": null,
+      "report_path": null,
+      "train_protocol": "chronological_walk_forward_refit",
+      "artifact_write": false,
+      "bridge_mode": "research_prototype"
+    }
+  },
+  "generated_utc": "2026-07-07T19:50:31.356723+00:00",
+  "production_modified": false
+}

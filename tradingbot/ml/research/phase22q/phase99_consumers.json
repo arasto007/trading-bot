@@ -1,0 +1,104 @@
+{
+  "phase": "22Q",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "production_consumers": [
+    {
+      "module": "PipelineCache.get_unified_frame",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "role": "loads dataset_v2, calls build_unified_frame"
+    },
+    {
+      "module": "Phase99EngineWrapper",
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "role": "always row_for_phase99_range before range evaluate"
+    },
+    {
+      "module": "build_market_context",
+      "file": "tradingbot/ml/decision_engine/validation.py",
+      "role": "range_engine.evaluate(row=row_for_phase99_range(row))"
+    },
+    {
+      "module": "KernelAdapter / ML stack",
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "role": "indirect via PipelineCache unified frame"
+    },
+    {
+      "module": "health_gate",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "role": "phase9_9 bundle integrity"
+    },
+    {
+      "module": "verify_ml_live_ready",
+      "file": "scripts/verify_ml_live_ready.py",
+      "role": "RANGE_P99 artifact check"
+    }
+  ],
+  "research_consumers_count": 51,
+  "files_referencing_row_for_phase99_or_map": [
+    "tests/test_phase15i_range_recovery.py",
+    "tradingbot/ml/decision_engine/validation.py",
+    "tradingbot/ml/phase15a/engine_registry.py",
+    "tradingbot/ml/phase18b/stability.py",
+    "tradingbot/ml/research/phase13_9/config.py",
+    "tradingbot/ml/research/phase13_9/feature_parity_checker.py",
+    "tradingbot/ml/research/phase13_9/router_pipeline_rebuilder.py",
+    "tradingbot/ml/research/phase13_9/unified_features.py",
+    "tradingbot/ml/research/phase14_7/baseline_runner.py",
+    "tradingbot/ml/research/phase14_9/range_engine_analysis.py",
+    "tradingbot/ml/research/phase15i/phase99_signal_audit.py",
+    "tradingbot/ml/research/phase15i/range_feature_validation.py",
+    "tradingbot/ml/research/phase18a/shadow_runner.py",
+    "tradingbot/ml/research/phase22d/run_forensics.py",
+    "tradingbot/ml/research/phase22j/engine_candidates.py",
+    "tradingbot/ml/research/phase22j/range_forensics.py",
+    "tradingbot/ml/research/phase22j/training_alignment.py",
+    "tradingbot/ml/research/phase22l/comparison.py",
+    "tradingbot/ml/research/phase22l/coverage.py",
+    "tradingbot/ml/research/phase22l/range_quality.py",
+    "tradingbot/ml/research/phase22l/unified_audit.py",
+    "tradingbot/ml/research/phase22m/run_investigation.py",
+    "tradingbot/ml/research/phase22q/run_investigation.py"
+  ],
+  "files_referencing_phase9_9": [
+    "scripts/run_ml_live_shadow.py",
+    "scripts/run_ml_paper_trading.py",
+    "scripts/run_ml_shadow.py",
+    "scripts/run_ml_shadow_monitor.py",
+    "scripts/run_paper_trading.py",
+    "scripts/run_phase14_1_decision_test.py",
+    "scripts/status_snapshot.py",
+    "scripts/train_model.py",
+    "scripts/verify_ml_live_ready.py",
+    "tests/test_ml_base_dir.py",
+    "tests/test_ml_paper_phase9_10.py",
+    "tests/test_ml_phase10_1_kernel_bridge.py",
+    "tests/test_ml_phase10_2_live_shadow.py",
+    "tests/test_ml_phase10_4_monitoring.py",
+    "tests/test_ml_phase11_5.py",
+    "tests/test_ml_phase11_paper.py",
+    "tests/test_ml_phase12_1_audit.py",
+    "tests/test_ml_phase12_live_pilot.py",
+    "tests/test_ml_phase13_10_router_final.py",
+    "tests/test_ml_phase13_5_router.py",
+    "tests/test_ml_phase13_6_optimizer.py",
+    "tests/test_ml_phase13_7_router_stability.py",
+    "tests/test_ml_phase13_8_trend_recovery.py",
+    "tests/test_ml_phase13_9_unified_router.py",
+    "tests/test_ml_research_phase9_9.py",
+    "tests/test_ml_shadow_phase10.py",
+    "tests/test_phase14_1_decision_engine.py",
+    "tests/test_phase14_2a_confidence.py",
+    "tests/test_phase14_2b_risk.py",
+    "tests/test_phase14_3_quality.py",
+    "tests/test_phase14_6_calibration_recovery.py",
+    "tests/test_phase14_7_pipeline_validation.py",
+    "tests/test_phase14_8_stress_validation.py",
+    "tests/test_phase14_9_stability.py",
+    "tests/test_phase15a_preparation.py",
+    "tests/test_phase15b_kernel_integration.py",
+    "tests/test_phase15c_monitoring.py",
+    "tests/test_phase15d_shadow.py",
+    "tests/test_phase15f_confidence_recovery.py",
+    "tests/test_phase15g_confidence_analysis.py"
+  ]
+}

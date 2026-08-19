@@ -1,0 +1,33 @@
+{
+  "phase": "30D",
+  "symbol_primary": "XAUUSD",
+  "minimums": {
+    "ticks_total": 500000,
+    "ticks_per_session": 50000,
+    "executions_total": 200,
+    "executions_preferred": 500,
+    "entry_fills": 200,
+    "exit_fills": 200,
+    "order_attempts": 1000,
+    "trading_days": 30,
+    "trading_days_preferred": 90,
+    "calendar_weeks": 4,
+    "news_events_high_impact": 20,
+    "rollover_windows": 20,
+    "weekend_transitions": 4,
+    "account_snapshots": 5000,
+    "symbol_info_daily_snapshots": 30
+  },
+  "statistical_reliability": {
+    "spread_session_p50": "\u00b10.02 points at 50k samples per session (CLT)",
+    "slippage_p50": "\u00b10.01 points at n\u2265200 fills",
+    "retcode_rates": "\u00b11% absolute at n\u22651000 orders",
+    "positive_slippage_rate": "\u00b13% at n\u2265200 fills"
+  },
+  "estimated_storage": {
+    "ticks_30d_100ms": "~2.5 GB compressed parquet",
+    "executions_500": "~500 KB",
+    "total_dataset": "~3 GB per symbol per 30 days"
+  },
+  "generated_utc": "2026-07-10T11:04:24.683263+00:00"
+}

@@ -1,0 +1,6 @@
+{
+  "research_includes_legacy_riskgate": false,
+  "paper_riskgate_blocks": 0,
+  "blocked_sample": [],
+  "ml_risk_in_research": "risk_result in collect_production_decisions record"
+}

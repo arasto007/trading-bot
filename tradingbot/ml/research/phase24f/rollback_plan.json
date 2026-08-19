@@ -1,0 +1,9 @@
+{
+  "phase": "24F",
+  "proposed_flag": "ENABLE_INCREMENTAL_UNIFIED_FRAME",
+  "default": false,
+  "rollback": "Set ENABLE_INCREMENTAL_UNIFIED_FRAME=false \u2192 full build_unified_frame path",
+  "validation_gate": "Phase 24F parity proof must pass before enabling",
+  "monitoring": "Log incremental vs full checksum mismatch \u2192 auto-fallback",
+  "generated_utc": "2026-07-08T12:11:17.511294+00:00"
+}

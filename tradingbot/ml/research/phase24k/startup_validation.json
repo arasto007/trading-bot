@@ -1,0 +1,10 @@
+{
+  "phase": "24K",
+  "generated_utc": "2026-07-08T16:16:53.261335+00:00",
+  "tests": "tests/test_phase24k.py::TestStartupDiagnosticsAUD003",
+  "behaviour": {
+    "USE_ML_KERNEL absent": "UnconfiguredEngineRegistry + WARNING log",
+    "USE_ML_KERNEL=0": "Explicit LegacyStrategyRegistry",
+    "USE_ML_KERNEL=1": "MLKernelRegistry"
+  }
+}

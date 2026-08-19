@@ -1,0 +1,146 @@
+{
+  "phase": "24D",
+  "source": "tradingbot/ml/features/builder.py",
+  "families": [
+    {
+      "name": "trend",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": true,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 6.1511,
+        "median_ms": 6.0914,
+        "p95_ms": 6.4495,
+        "p99_ms": 6.4495,
+        "max_ms": 6.7035
+      }
+    },
+    {
+      "name": "momentum",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": true,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 4.2895,
+        "median_ms": 4.2503,
+        "p95_ms": 4.626,
+        "p99_ms": 4.626,
+        "max_ms": 4.687
+      }
+    },
+    {
+      "name": "volatility",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": true,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 4.248,
+        "median_ms": 4.1433,
+        "p95_ms": 4.6201,
+        "p99_ms": 4.6201,
+        "max_ms": 4.8985
+      }
+    },
+    {
+      "name": "price_action",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": false,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 0.4948,
+        "median_ms": 0.4819,
+        "p95_ms": 0.5364,
+        "p99_ms": 0.5364,
+        "max_ms": 0.6372
+      }
+    },
+    {
+      "name": "smc_structure",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": true,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 23.551,
+        "median_ms": 23.3794,
+        "p95_ms": 23.9431,
+        "p99_ms": 23.9431,
+        "max_ms": 24.3817
+      }
+    },
+    {
+      "name": "session",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": false,
+      "depends_only_on_previous_bar": true,
+      "theoretically_cacheable": true,
+      "timing": {
+        "count": 10,
+        "mean_ms": 0.1459,
+        "median_ms": 0.1467,
+        "p95_ms": 0.1513,
+        "p99_ms": 0.1513,
+        "max_ms": 0.1659
+      }
+    },
+    {
+      "name": "microstructure",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": false,
+      "depends_only_on_previous_bar": true,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 0.5882,
+        "median_ms": 0.5573,
+        "p95_ms": 0.6918,
+        "p99_ms": 0.6918,
+        "max_ms": 0.6926
+      }
+    },
+    {
+      "name": "htf_context",
+      "recomputed_every_bar": true,
+      "deterministic_given_history": true,
+      "depends_on_prior_bars": true,
+      "depends_only_on_previous_bar": false,
+      "theoretically_cacheable": false,
+      "timing": {
+        "count": 10,
+        "mean_ms": 21.36,
+        "median_ms": 21.2705,
+        "p95_ms": 22.416,
+        "p99_ms": 22.416,
+        "max_ms": 22.5235
+      }
+    }
+  ],
+  "compute_at_total": {
+    "count": 10,
+    "mean_ms": 60.5875,
+    "median_ms": 60.4064,
+    "p95_ms": 61.8217,
+    "p99_ms": 61.8217,
+    "max_ms": 62.7789
+  },
+  "phase24c_measured_p95_ms": 68.9256,
+  "no_cache_implemented": true,
+  "cache_design_note": "DO NOT implement \u2014 rolling/SMC families need window state; cache requires parity proof",
+  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+}

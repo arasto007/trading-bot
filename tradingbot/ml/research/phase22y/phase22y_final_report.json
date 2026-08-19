@@ -1,0 +1,13 @@
+{
+  "phase": "22Y",
+  "title": "Accepted Candidate Failure Forensics",
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false,
+  "verdict": "ACCEPTANCE_RULE_TOO_STRICT",
+  "probability_gate_passed_count": 5,
+  "phase9_9_final_verdict": "FAIL",
+  "dominant_rejection_rule": "overfitting_risk_decreased",
+  "dominant_failed_label": "overfitting_risk_failed",
+  "candidates_accepted_if_dominant_rule_ignored": 1,
+  "summary": "All 5 probability-gate-passed candidates fail final acceptance. Dominant blocker: overfitting_risk_failed (5/5). No candidate can be frozen under current acceptance rules."
+}

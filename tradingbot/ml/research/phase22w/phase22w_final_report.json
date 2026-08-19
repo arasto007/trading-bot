@@ -1,0 +1,15 @@
+{
+  "phase": "22W",
+  "title": "Training Criterion Root-Cause Verification",
+  "generated_utc": "2026-07-07T18:40:53.360693+00:00",
+  "production_modified": false,
+  "verdict": "MODEL_SELECTION_CRITERIA",
+  "first_engineering_mistake": "MODEL_SELECTION_CRITERIA",
+  "summary": "Walk-forward selection optimizes trade-simulation PF and robustness while never recording or rejecting models with zero BUY-zone coverage. The frozen winner (logistic_strong_reg__stable_top3) achieved PF≈1.31 with 99.9% sell-zone probabilities (22U). SELL-only models pass selection. This is the earliest decision that explicitly permitted deployment of a degenerated classifier.",
+  "winner": "logistic_strong_reg__stable_top3__RANGE",
+  "winner_pf": 1.3087,
+  "winner_composite": 0.768628,
+  "probability_gates_in_selection": false,
+  "frozen_winner_buy_zone_22u": "0%",
+  "frozen_winner_max_p_22u": 0.434012
+}

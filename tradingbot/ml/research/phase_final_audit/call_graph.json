@@ -1,0 +1,128 @@
+{
+  "canonical_live_path": [
+    {
+      "step": 1,
+      "node": "python -m tradingbot --loop [--paper|--execute]",
+      "file": "tradingbot/__main__.py:76-84"
+    },
+    {
+      "step": 2,
+      "node": "run_live_loop",
+      "file": "application/live_runner.py:151-164"
+    },
+    {
+      "step": 3,
+      "node": "LiveRunner._run \u2192 log_engine_selection",
+      "file": "application/live_runner.py:96-124"
+    },
+    {
+      "step": 4,
+      "node": "TradingKernel.run_forever",
+      "file": "kernel/trading_kernel.py"
+    },
+    {
+      "step": 5,
+      "node": "run_global_cycle \u2192 update_all + run_market_cycle",
+      "file": "kernel/trading_kernel.py:116-167"
+    },
+    {
+      "step": 6,
+      "node": "DataStage.get_ohlcv",
+      "file": "pipeline/data_stage.py:19-24"
+    },
+    {
+      "step": 7,
+      "node": "IndicatorStage.enrich_for_market",
+      "file": "pipeline/indicator_stage.py:15-25"
+    },
+    {
+      "step": 8,
+      "node": "SignalStage \u2192 exclude_forming_bar \u2192 generate_signal",
+      "file": "pipeline/signal_stage.py:19-41"
+    },
+    {
+      "step": 9,
+      "node": "MLKernelRegistry \u2192 KernelAdapter.produce_unified_signal",
+      "file": "ml/integration/ml_kernel_registry.py:86-106",
+      "condition": "USE_ML_KERNEL=1"
+    },
+    {
+      "step": 10,
+      "node": "HealthGate + PipelineCache + quality.evaluate",
+      "file": "ml/integration/kernel_adapter.py:164-264"
+    },
+    {
+      "step": 11,
+      "node": "RiskStage \u2192 RiskGate.evaluate",
+      "file": "pipeline/risk_stage.py:15-40"
+    },
+    {
+      "step": 12,
+      "node": "ExecutionStage \u2192 Mt5ExecutionAdapter.execute",
+      "file": "pipeline/execution_stage.py:16-22"
+    },
+    {
+      "step": 13,
+      "node": "paper|dry-run|live branch",
+      "file": "adapters/mt5_execution.py:44-117"
+    },
+    {
+      "step": 14,
+      "node": "guarded_order_send (live only)",
+      "file": "services/mt5_order_guard.py:32-56"
+    },
+    {
+      "step": 15,
+      "node": "mt5.order_send",
+      "file": "services/mt5_order_guard.py:56",
+      "condition": "live only"
+    }
+  ],
+  "hold_paths": [
+    {
+      "trigger": "SignalStage HOLD/None",
+      "file": "pipeline/signal_stage.py:38-39",
+      "effect": "RiskStage+ExecutionStage skipped"
+    },
+    {
+      "trigger": "ML KernelFallbackError + ALLOW_LEGACY_FALLBACK=0",
+      "file": "ml/integration/ml_kernel_registry.py:60-61",
+      "effect": "safe HOLD"
+    },
+    {
+      "trigger": "RiskGate block",
+      "file": "pipeline/risk_stage.py:37-39",
+      "effect": "ExecutionStage skipped"
+    },
+    {
+      "trigger": "Kernel EMERGENCY_STOP",
+      "file": "kernel/trading_kernel.py:123-125",
+      "effect": "cycle skipped"
+    }
+  ],
+  "fallback_paths": [
+    {
+      "path": "USE_ML_KERNEL unset \u2192 UnconfiguredEngineRegistry",
+      "file": "ml/integration/factory.py",
+      "effect": "None signal"
+    },
+    {
+      "path": "USE_ML_KERNEL=0 \u2192 LegacyStrategyRegistry",
+      "file": "ml/integration/factory.py"
+    },
+    {
+      "path": "ML error + ALLOW_LEGACY_FALLBACK=1 \u2192 legacy",
+      "file": "ml/integration/ml_kernel_registry.py:51-65"
+    },
+    {
+      "path": "pipeline_timeout >500ms",
+      "file": "ml/integration/kernel_adapter.py:225-243"
+    }
+  ],
+  "verified_by": [
+    "static trace",
+    "tests/test_phase24k.py",
+    "phase25b PARITY_RESTORED"
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

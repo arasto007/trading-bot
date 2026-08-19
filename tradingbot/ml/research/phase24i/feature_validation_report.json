@@ -1,0 +1,13 @@
+{
+  "phase": "24I",
+  "checks": [
+    "feature_count",
+    "feature_names",
+    "feature_order",
+    "finite_values",
+    "dtype",
+    "range_sanity",
+    "optional_builder_parity_verify"
+  ],
+  "generated_utc": "2026-07-08T13:26:50.369586+00:00"
+}

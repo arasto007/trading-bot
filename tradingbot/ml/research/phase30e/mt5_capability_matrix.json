@@ -1,0 +1,416 @@
+{
+  "phase": "30E",
+  "scope": "MetaTrader 5 Python API capability vs Phase 30D requirements",
+  "api_version_evidence": "MetaTrader5 package installed; functions enumerated via dir(mt5)",
+  "rows": [
+    {
+      "metric": "Ticks",
+      "required": true,
+      "available": true,
+      "source": "MT5 terminal tick cache",
+      "method": "Direct API read",
+      "accuracy": "High \u2014 broker-sourced BBO",
+      "confidence": 95,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Bid",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct field",
+      "accuracy": "High",
+      "confidence": 96,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Ask",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct field",
+      "accuracy": "High",
+      "confidence": 96,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Spread",
+      "required": true,
+      "available": true,
+      "source": "MT5 derived",
+      "method": "Computed at ingest",
+      "accuracy": "High for tick-derived; Medium for symbol_info.spread alone",
+      "confidence": 92,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Tick timestamps",
+      "required": true,
+      "available": true,
+      "source": "MT5 broker clock",
+      "method": "Direct field",
+      "accuracy": "High at millisecond level",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Microsecond precision",
+      "required": false,
+      "available": false,
+      "source": "Custom collector",
+      "method": "Local monotonic clock at send only",
+      "accuracy": "Sub-ms local only; broker remains ms",
+      "confidence": 95,
+      "implementation_risk": "Impossible"
+    },
+    {
+      "metric": "Tick sequence",
+      "required": false,
+      "available": false,
+      "source": "Collector derived",
+      "method": "Monotonic index at ingest",
+      "accuracy": "Medium \u2014 gap detection only",
+      "confidence": 88,
+      "implementation_risk": "Impossible"
+    },
+    {
+      "metric": "OHLC generation",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct API",
+      "accuracy": "High",
+      "confidence": 94,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Market Depth (DOM)",
+      "required": false,
+      "available": true,
+      "source": "MT5 optional",
+      "method": "Subscribe then poll",
+      "accuracy": "Broker-dependent \u2014 often unavailable",
+      "confidence": 55,
+      "implementation_risk": "High"
+    },
+    {
+      "metric": "Level II",
+      "required": false,
+      "available": false,
+      "source": "N/A retail",
+      "method": "Not collectable",
+      "accuracy": "N/A",
+      "confidence": 85,
+      "implementation_risk": "Impossible"
+    },
+    {
+      "metric": "Liquidity",
+      "required": false,
+      "available": false,
+      "source": "Derived execution stats",
+      "method": "Estimated proxy composite",
+      "accuracy": "Low-Medium",
+      "confidence": 80,
+      "implementation_risk": "Impossible"
+    },
+    {
+      "metric": "Order queue",
+      "required": false,
+      "available": false,
+      "source": "N/A",
+      "method": "Impossible",
+      "accuracy": "N/A",
+      "confidence": 92,
+      "implementation_risk": "Impossible"
+    },
+    {
+      "metric": "Partial fills",
+      "required": true,
+      "available": true,
+      "source": "MT5 order result",
+      "method": "Direct retcode + volume compare",
+      "accuracy": "High when partial occurs",
+      "confidence": 88,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Execution price",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 95,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Requested price",
+      "required": true,
+      "available": true,
+      "source": "Custom logging",
+      "method": "Log at send",
+      "accuracy": "High if logged atomically with quote",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Fill price",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 95,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Entry slippage",
+      "required": true,
+      "available": true,
+      "source": "Derived custom+MT5",
+      "method": "Computed signed delta",
+      "accuracy": "High with logged request quote",
+      "confidence": 88,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Exit slippage",
+      "required": true,
+      "available": true,
+      "source": "Derived custom+MT5",
+      "method": "Computed vs expected level",
+      "accuracy": "High for market close; Medium for gap-through-stop",
+      "confidence": 86,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Execution delay",
+      "required": true,
+      "available": true,
+      "source": "Custom logging",
+      "method": "Local monotonic delta",
+      "accuracy": "High locally",
+      "confidence": 85,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Network latency",
+      "required": false,
+      "available": true,
+      "source": "Terminal proxy",
+      "method": "Estimated periodic ping",
+      "accuracy": "Low-Medium",
+      "confidence": 60,
+      "implementation_risk": "High"
+    },
+    {
+      "metric": "Server latency",
+      "required": false,
+      "available": true,
+      "source": "Estimated",
+      "method": "Clock delta estimate",
+      "accuracy": "Low",
+      "confidence": 55,
+      "implementation_risk": "High"
+    },
+    {
+      "metric": "Round-trip latency",
+      "required": true,
+      "available": true,
+      "source": "Custom logging",
+      "method": "Measured round-trip",
+      "accuracy": "High",
+      "confidence": 85,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Trade transaction timestamps",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High ms precision",
+      "confidence": 93,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Retcodes",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 94,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Requotes",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Retcode filter",
+      "accuracy": "High",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Freeze level",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct + event log",
+      "accuracy": "High",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Stops level",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 92,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Margin",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 93,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Margin level",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 93,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Swap",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct on deal",
+      "accuracy": "High",
+      "confidence": 88,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Commission",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Account snapshots",
+      "required": false,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 94,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Order history",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 92,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Deal history",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 94,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Position history",
+      "required": false,
+      "available": true,
+      "source": "MT5 derived",
+      "method": "Live direct; closed reconstructed",
+      "accuracy": "High live; Medium historical",
+      "confidence": 88,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Weekend gaps",
+      "required": true,
+      "available": true,
+      "source": "MT5 derived",
+      "method": "Computed gap",
+      "accuracy": "High",
+      "confidence": 85,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "News events",
+      "required": true,
+      "available": true,
+      "source": "External calendar",
+      "method": "External ingest + join",
+      "accuracy": "High for schedule; spread impact measured from ticks",
+      "confidence": 90,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Symbol specifications",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 95,
+      "implementation_risk": "Low"
+    },
+    {
+      "metric": "Broker execution model (ECN/STP/MM)",
+      "required": false,
+      "available": true,
+      "source": "Partial MT5 + manifest",
+      "method": "Proxy enum only",
+      "accuracy": "Low for ECN/STP/MM classification",
+      "confidence": 50,
+      "implementation_risk": "High"
+    },
+    {
+      "metric": "Execution mode",
+      "required": true,
+      "available": true,
+      "source": "MT5",
+      "method": "Direct",
+      "accuracy": "High",
+      "confidence": 88,
+      "implementation_risk": "Low"
+    }
+  ],
+  "summary": {
+    "total_metrics": 40,
+    "directly_available": 26,
+    "derived": 2,
+    "custom_logging": 2,
+    "external": 1,
+    "impossible": 5
+  },
+  "generated_utc": "2026-07-10T11:11:07.045718+00:00"
+}

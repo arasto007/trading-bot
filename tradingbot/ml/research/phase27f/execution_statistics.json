@@ -1,0 +1,14 @@
+{
+  "phase": "27F",
+  "emitted_ml_signals": 762,
+  "riskgate_blocked": 186,
+  "riskgate_passed": 575,
+  "executed": 575,
+  "by_reason": {
+    "ATR percentile too low": 127,
+    "news blackout": 8,
+    "friday no entry window": 51
+  },
+  "execution_failures_after_riskgate": 0,
+  "execution_success_rate": 100.0
+}

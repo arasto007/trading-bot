@@ -1,0 +1,31 @@
+{
+  "sell_trades_pct": 0.0,
+  "buy_trades": 0,
+  "sell_trades": 0,
+  "ml_cycles": {
+    "buy": 0,
+    "sell": 0,
+    "hold": 0
+  },
+  "probability_distribution": {
+    "mean": null,
+    "std": null,
+    "p25": null,
+    "p50": null,
+    "p75": null,
+    "sell_bucket_mean": null,
+    "buy_bucket_mean": null
+  },
+  "buy_opportunity_loss": {
+    "cycles_near_buy_threshold": 0,
+    "cycles_near_sell_threshold": 0
+  },
+  "market_context": {
+    "kernel_sell_signals": 0,
+    "kernel_buy_signals": 0
+  },
+  "root_causes": [],
+  "verdict": "calibration_issue",
+  "is_calibration_bug": true,
+  "is_market_bearish": false
+}

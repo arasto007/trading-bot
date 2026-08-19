@@ -1,0 +1,41 @@
+{
+  "phase": "28B",
+  "scenarios": {
+    "open_trade_exit": {
+      "pass": true,
+      "exit_reason": "hybrid_time"
+    },
+    "restart_after_partial": {
+      "pass": true,
+      "partial_before_restart": true,
+      "partial_after_restart": true
+    },
+    "duplicate_partial_close": {
+      "pass": true,
+      "deterministic": true
+    },
+    "duplicate_timeout": {
+      "pass": true,
+      "duration_bars": 72
+    },
+    "journal_recovery": {
+      "pass": true,
+      "trade_id": 1
+    },
+    "mt5_reconnect": {
+      "pass": true,
+      "note": "paper mode \u2014 no MT5 exit path modified"
+    },
+    "power_interruption": {
+      "pass": true,
+      "partial_before_restart": true,
+      "partial_after_restart": true
+    },
+    "open_position_sync": {
+      "pass": true,
+      "note": "replay portfolio uses production exit resolver"
+    }
+  },
+  "all_pass": true,
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

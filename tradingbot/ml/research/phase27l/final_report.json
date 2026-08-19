@@ -1,0 +1,53 @@
+{
+  "phase": "27L",
+  "verdict": "EXIT_ENGINE_ROOT_CAUSE_IDENTIFIED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "simulation_only": true,
+  "completed_trades": 575,
+  "recommended_exit_architecture": "time_exit",
+  "baseline_strategy": "current_tp_sl",
+  "baseline_metrics": {
+    "trade_count": 575,
+    "net_profit": 1101.1854,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "win_rate_pct": 38.61,
+    "average_winner": 22.3844,
+    "average_loser": -10.958,
+    "max_drawdown_pct": 12.4228,
+    "max_drawdown_abs": 1367.6,
+    "sharpe_ratio": 29.3198,
+    "sortino_ratio": 44.4679,
+    "calmar_ratio": 0.8864,
+    "recovery_factor": 0.8052
+  },
+  "recommended_metrics": {
+    "trade_count": 575,
+    "net_profit": 4835.22,
+    "profit_factor": 1.8534,
+    "expectancy": 8.4091,
+    "win_rate_pct": 58.43,
+    "average_winner": 31.2525,
+    "average_loser": -23.7055,
+    "max_drawdown_pct": 8.7551,
+    "max_drawdown_abs": 1187.89,
+    "sharpe_ratio": 60.2251,
+    "sortino_ratio": 72.1892,
+    "calmar_ratio": 5.5227,
+    "recovery_factor": 4.0704,
+    "composite_score": 67.27
+  },
+  "baseline_rank": 7,
+  "blockers": [],
+  "root_cause": "Fixed 2.5R TP allows 92% of losers to reach profit before full -1R reversal; simulated exits that secure profit earlier recover edge",
+  "evidence": {
+    "best_net_profit": 4835.22,
+    "best_profit_factor": 1.8534,
+    "best_expectancy": 8.4091,
+    "baseline_net_profit": 1101.1854,
+    "loser_recovery_best": 38.81
+  },
+  "conclusion": "Statistically best simulated exit: time_exit. No production changes made.",
+  "generated_utc": "2026-07-09T18:10:48.053689+00:00"
+}

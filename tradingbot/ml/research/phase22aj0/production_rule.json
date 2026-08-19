@@ -1,0 +1,23 @@
+{
+  "phase": "22AJ0",
+  "rule_id": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+  "rule_name": "Acceptance PASS with highest composite score",
+  "formal_definition": {
+    "ProductionWinner": "argmax(composite_score)",
+    "WHERE": [
+      "evaluate_acceptance(candidate, baseline).final_verdict == PASS",
+      "candidate.probability_gate_passed == True"
+    ],
+    "ORDER_BY": "composite_score DESC",
+    "TIE_BREAK": "rank_candidates sort order (robustness_score, overfitting_risk, profitable_windows)"
+  },
+  "ascii": "ProductionWinner :=\n  argmax(composite_score)\n  WHERE evaluate_acceptance(candidate, baseline) == PASS\n    AND probability_gate_passed == True",
+  "supersedes": [
+    "select_best alone (Option A) — insufficient without acceptance PASS",
+    "report best_candidate field alone — must be rewritten to resolved ProductionWinner at freeze wiring",
+    "DEFAULT_CONFIG freeze candidate — eliminated at production integration"
+  ],
+  "orchestrator_change_required": "Replace best = select_best(ranked) with select_production_winner(ranked, baseline) before evaluate_acceptance and save_reports at freeze wiring phase",
+  "generated_utc": "2026-07-07T19:55:52.965394+00:00",
+  "production_modified": false
+}

@@ -1,0 +1,72 @@
+{
+  "probability_gate_passed_count": 5,
+  "final_verdict_failures": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed",
+        "profitable_windows_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "probability_quality_passed"
+      ],
+      "acceptance_status": "FAIL"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ],
+      "acceptance_status": "FAIL"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ],
+      "acceptance_status": "FAIL"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "failed_rules": [
+        "robustness_failed",
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ],
+      "acceptance_status": "FAIL"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "failed_rules": [
+        "overfitting_risk_failed"
+      ],
+      "passed_rules": [
+        "robustness_improved",
+        "mean_expectancy_positive",
+        "profitable_windows_ge_4",
+        "probability_quality_passed"
+      ],
+      "acceptance_status": "FAIL"
+    }
+  ],
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false
+}

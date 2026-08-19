@@ -1,0 +1,40 @@
+{
+  "phase": "22B",
+  "unused_timeframes": ["M1", "M30", "H1", "D1"],
+  "unused_strategies": [
+    "advancedml",
+    "arbitrage",
+    "breakout",
+    "dynamicsizing",
+    "gridtrading",
+    "hedgingprofessional",
+    "meanreversion",
+    "ml",
+    "momentum",
+    "patternrecognition",
+    "pullback",
+    "rangebound",
+    "scalping",
+    "trendfollowing",
+    "trendmomentumcombo",
+    "volatilitybreakout"
+  ],
+  "unused_models": {
+    "trend_v40": true,
+    "training_artifacts": "data/ml/models/model_v* \u2014 not loaded in EngineRegistry.build_default"
+  },
+  "unused_features": [
+    "ENABLE_ML_SHADOW",
+    "ML_SHADOW_MODE \u2014 default false",
+    "PositionProtector thread \u2014 default off in LiveRunner",
+    "advancedml, ml, trendfollowing, etc. \u2014 ACTIVE_STRATEGIES false",
+    "TIMEFRAME_CONFIGS for 1m, 1h, 30m \u2014 config exists but not in live TIMEFRAMES"
+  ],
+  "unused_execution_paths": [
+    "run_system_manager.py \u2014 file absent",
+    "70+ scripts/run_phase*.py \u2014 research only",
+    "paper mode unless --paper flag",
+    "legacy-only path when USE_ML_KERNEL=false"
+  ],
+  "estimated_unused_pct": "~75% of codebase files (409 research + 17 disabled strategies + 4 unconfigured TFs)"
+}

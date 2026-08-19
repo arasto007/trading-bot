@@ -1,0 +1,32 @@
+{
+  "rows_scored": 5724,
+  "zone_thresholds_for_reporting_only": {
+    "buy_zone_min": 0.55,
+    "sell_zone_max": 0.45
+  },
+  "zones": {
+    "n": 5724,
+    "buy_zone_count": 0,
+    "sell_zone_count": 5718,
+    "neutral_count": 6,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 99.8952,
+    "neutral_pct": 0.1048
+  },
+  "statistics": {
+    "mean": 0.361875,
+    "std": 0.036336,
+    "median": 0.363906,
+    "min": 0.000262,
+    "max": 0.479703,
+    "p05": 0.315567,
+    "p95": 0.408862,
+    "pct_below_0_45": 99.8952,
+    "pct_above_0_55": 0.0,
+    "pct_in_neutral_band": 0.1048
+  },
+  "can_produce_buy_on_training": false,
+  "mostly_below_0_45": true,
+  "generated_utc": "2026-07-05T20:57:00.053723+00:00",
+  "phase": "22U"
+}

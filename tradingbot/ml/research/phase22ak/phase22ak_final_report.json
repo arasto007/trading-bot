@@ -1,0 +1,11 @@
+{
+  "phase": "22AK",
+  "title": "Controlled End-to-End Model Freeze Execution",
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00",
+  "verdict": "MODEL_FROZEN_SUCCESSFULLY",
+  "old_candidate": "logistic_strong_reg",
+  "new_candidate": "xgb_baseline_phase96",
+  "production_winner": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "backup_location": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "summary": "Full Phase 9.9 optimizer executed with ACCEPTANCE_PASS_HIGHEST_COMPOSITE authority. Artifacts backed up, contract-driven freeze applied, runtime bundle validated."
+}

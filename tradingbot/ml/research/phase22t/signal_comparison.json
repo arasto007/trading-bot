@@ -1,0 +1,435 @@
+{
+  "phase": "22T",
+  "generated_utc": "2026-07-05T20:08:15.030319+00:00",
+  "baseline": {
+    "mode": "current_repository",
+    "use_live_phase99": false,
+    "dataset": {
+      "label": "A",
+      "trading_days": 7,
+      "start_tehran": "2026-06-25 00:00",
+      "end_tehran": "2026-07-05 23:59"
+    },
+    "range_regime_bars": 108,
+    "bars_scored": 108,
+    "elapsed_sec": 46.3,
+    "signals": {
+      "BUY": 0,
+      "SELL": 108,
+      "HOLD": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 100.0,
+      "hold_pct": 0.0
+    },
+    "engine_hold": 0,
+    "signal_density_pct": 100.0,
+    "p_win": {
+      "mean": 0.364512,
+      "std": 0.004012,
+      "median": 0.364774,
+      "min": 0.343618,
+      "max": 0.382666
+    },
+    "feature_diff_sample_count": 10,
+    "feature_diff_samples": [
+      {
+        "timestamp": "2026-06-25 22:30:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.268712,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.268712,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 22:55:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.065786,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.065786,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 23:20:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.068,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.068,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 23:45:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.16944,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.16944,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 01:10:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.258078,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.258078,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 01:35:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.12313,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.12313,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:00:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.141462,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.141462,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:25:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.078243,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.078243,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:50:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.294521,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.294521,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 04:55:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.08565,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.08565,
+          "candle_direction": 1.0
+        }
+      }
+    ]
+  },
+  "live": {
+    "mode": "featurebuilder_live",
+    "use_live_phase99": true,
+    "dataset": {
+      "label": "A",
+      "trading_days": 7,
+      "start_tehran": "2026-06-25 00:00",
+      "end_tehran": "2026-07-05 23:59"
+    },
+    "range_regime_bars": 108,
+    "bars_scored": 108,
+    "elapsed_sec": 54.2,
+    "signals": {
+      "BUY": 0,
+      "SELL": 108,
+      "HOLD": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 100.0,
+      "hold_pct": 0.0
+    },
+    "engine_hold": 0,
+    "signal_density_pct": 100.0,
+    "p_win": {
+      "mean": 0.358348,
+      "std": 0.04604,
+      "median": 0.367534,
+      "min": 0.026464,
+      "max": 0.411344
+    },
+    "feature_diff_sample_count": 10,
+    "feature_diff_samples": [
+      {
+        "timestamp": "2026-06-25 22:30:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.268712,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.268712,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 22:55:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.065786,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.065786,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 23:20:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.068,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.068,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-25 23:45:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.16944,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.16944,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 01:10:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.258078,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.258078,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 01:35:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.12313,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.12313,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:00:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.141462,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.141462,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:25:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.078243,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.078243,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 02:50:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.294521,
+          "candle_direction": -1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.294521,
+          "candle_direction": 1.0
+        }
+      },
+      {
+        "timestamp": "2026-06-26 04:55:00+00:00",
+        "merge": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.0,
+          "candle_direction": 0.0
+        },
+        "live": {
+          "structure_distance": 0.0,
+          "ema50_slope": -0.08565,
+          "candle_direction": 1.0
+        },
+        "abs_diff": {
+          "structure_distance": 0.0,
+          "ema50_slope": 0.08565,
+          "candle_direction": 1.0
+        }
+      }
+    ]
+  },
+  "p_win_delta": {
+    "mean": -0.006164
+  },
+  "engine_hold_delta": 0,
+  "signal_density_delta_pct": 0.0
+}

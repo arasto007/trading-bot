@@ -1,0 +1,46 @@
+{
+  "phase": "22R",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "note": "Analysis only — no patches in 22R",
+  "production_files_likely_required": [
+    "tradingbot/ml/decision_engine/validation.py",
+    "tradingbot/ml/phase15a/engine_registry.py",
+    "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+    "tradingbot/ml/research/phase13_9/unified_features.py",
+    "tradingbot/ml/research/phase13_9/router_pipeline_rebuilder.py",
+    "tradingbot/ml/integration/pipeline_cache.py"
+  ],
+  "optional_production": [
+    "tradingbot/ml/integration/health_gate.py",
+    "tradingbot/ml/integration/kernel_adapter.py",
+    "tradingbot/ml/monitoring/anomaly_detector.py"
+  ],
+  "research_files_likely_required": [
+    "tradingbot/ml/research/phase15i/range_feature_validation.py",
+    "tradingbot/ml/research/phase15i/phase99_signal_audit.py",
+    "tradingbot/ml/research/phase22j/engine_candidates.py",
+    "tradingbot/ml/research/phase22j/training_alignment.py"
+  ],
+  "test_files_likely_required": [
+    "tests/test_phase14_1_decision_engine.py",
+    "tests/test_phase15b_kernel_integration.py",
+    "tests/test_phase15i_range_recovery.py",
+    "tests/test_ml_phase13_9_unified_router.py",
+    "tests/test_phase15a_preparation.py",
+    "tests/test_phase15c_monitoring.py"
+  ],
+  "api_gap": {
+    "issue": "build_market_context and Phase99EngineWrapper pass row only — FeatureBuilder.compute_at needs (candles, index)",
+    "files_blocked": [
+      "tradingbot/ml/decision_engine/validation.py:118",
+      "tradingbot/ml/phase15a/engine_registry.py:36-37"
+    ],
+    "resolution_required": "Thread candle window + bar index through MarketContext or adapter evaluate()"
+  },
+  "minimal_change_strategy": [
+    "RangeEngineAdapter.evaluate: prefer FeatureBuilder.compute_at when candles+index provided",
+    "Phase99EngineWrapper: pass candles/index instead of row_for_phase99_range",
+    "build_market_context: supply full tail window + index",
+    "build_unified_frame: stop merge/fillna for phase99 OR keep for audit-only"
+  ]
+}

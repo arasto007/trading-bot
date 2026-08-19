@@ -1,0 +1,22 @@
+{
+  "phase": "22O",
+  "title": "Full Automatic Dataset Maintenance",
+  "generated_utc": "2026-07-05T16:17:26.058611+00:00",
+  "verdict": "PASS",
+  "implementation_summary": "Added live_dataset_orchestrator.py and hooked it into run_live_watchdog.py before the first tradingbot child. Stale dataset_v2 (lag vs ParquetCache > threshold) triggers scheduled_ml_refresh.py automatically. Successful refresh starts a fresh live process so PipelineCache loads the new dataset. Failed refresh logs a warning and live continues. LiveRunner untouched; no refresh inside trading loop.",
+  "constraints_respected": [
+    "no model/strategy/threshold/risk/trading logic changes",
+    "LiveRunner not modified",
+    "refresh only at pre-live startup (not on watchdog crash restarts)"
+  ],
+  "dataset_always_fresh_without_user": {
+    "answer": "YES_WITH_CONDITIONS",
+    "explanation": "When the operator starts live via start/3_live_loop_execute.bat or the daemon (both route through run_live_watchdog.py), stale datasets refresh automatically before the first live child — no manual BAT required. Maintenance does NOT run on watchdog crash restarts mid-session. Refresh requires MT5 credentials for incremental collect; if MT5 fails, live starts with warning. Disable via ML_AUTO_DATASET_REFRESH=false.",
+    "operator_still_must": [
+      "Start live once (3_live_loop_execute.bat or daemon) — no separate 15_refresh bat",
+      "Keep MT5 available at live startup for incremental collect when dataset is stale"
+    ]
+  },
+  "startup_sequence_ref": "startup_sequence.json",
+  "next_recommendation": "Set ML_DATASET_REFRESH_THRESHOLD_HOURS to match acceptable phase99 staleness (default 48h)."
+}

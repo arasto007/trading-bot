@@ -1,0 +1,24 @@
+{
+  "phase": "27G",
+  "BUY": {
+    "trade_count": 41,
+    "win_rate_pct": 19.51,
+    "profit_factor": 0.5767,
+    "expectancy": -3.7258,
+    "average_rr": 2.5,
+    "realized_rr_avg": -0.383,
+    "max_drawdown_pct": 2.2321,
+    "net_profit": -152.7586
+  },
+  "SELL": {
+    "trade_count": 534,
+    "win_rate_pct": 40.07,
+    "profit_factor": 1.3575,
+    "expectancy": 2.3482,
+    "average_rr": 2.5,
+    "realized_rr_avg": 0.2746,
+    "max_drawdown_pct": 11.3006,
+    "net_profit": 1253.944
+  },
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

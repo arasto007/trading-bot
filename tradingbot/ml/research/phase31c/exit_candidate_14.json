@@ -1,0 +1,62 @@
+{
+  "phase": "31C",
+  "candidate_id": "14",
+  "name": "hybrid_b_proxy",
+  "meta": {
+    "live": true,
+    "simplicity": 5,
+    "safety": 9
+  },
+  "metrics": {
+    "label": "hybrid_b_proxy",
+    "trade_count": 489,
+    "profit_factor": 2.0626,
+    "expectancy": 4.7566,
+    "sharpe_ratio": 68.3444,
+    "sortino_ratio": 127.8167,
+    "max_drawdown_pct": 25.6106,
+    "max_drawdown_abs": 334.7432,
+    "net_profit": 2325.9547,
+    "recovery_factor": 6.9485,
+    "win_rate_pct": 40.49,
+    "edge_contribution": 2325.9547,
+    "gross_wins": 4514.9532,
+    "gross_losses": 2188.9985
+  },
+  "exit_distribution": {
+    "sl": 282,
+    "time": 199,
+    "timeout": 8
+  },
+  "avg_capture_efficiency": null,
+  "avg_holding_bars": 36.43,
+  "bootstrap": {
+    "simulations": 400,
+    "pf_median": 2.0616,
+    "pf_p05": 1.7418,
+    "pf_p95": 2.5309,
+    "net_median": 2310.57,
+    "confidence": 95
+  },
+  "montecarlo": {
+    "simulations": 500,
+    "net_median": 2325.95,
+    "net_p05": 2325.95,
+    "net_p95": 2325.95,
+    "sequence_risk": "LOW"
+  },
+  "walkforward": {
+    "train_trades": 342,
+    "test_trades": 147,
+    "train_pf": 2.2606,
+    "test_pf": 1.6207,
+    "train_net": 1905.5453,
+    "test_net": 420.4094,
+    "stable": false,
+    "walkforward_pass": false
+  },
+  "uses_future_info": false,
+  "live_implementable": true,
+  "implementation_complexity": "HIGH",
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

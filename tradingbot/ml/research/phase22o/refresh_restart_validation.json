@@ -1,0 +1,39 @@
+{
+  "phase": "22O",
+  "generated_utc": "2026-07-05T16:17:26.058611+00:00",
+  "threshold_hours": 48.0,
+  "current_lag_hours": 102.17,
+  "needs_refresh_now": true,
+  "before": {
+    "dataset_max_utc": "2026-06-29T13:45:00+00:00",
+    "live_max_utc": "2026-07-03T19:55:00+00:00"
+  },
+  "restart_semantics": "Pre-start refresh: no live process exists yet; first child spawn = restart equivalent. PipelineCache loads dataset_v2 on first get_unified_frame in new process.",
+  "refresh_on_watchdog_crash_restart": false,
+  "dry_run_maintenance": {
+    "phase": "22O",
+    "started_utc": "2026-07-05T16:17:28.928791+00:00",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "threshold_hours": 48.0,
+    "auto_refresh_enabled": true,
+    "ml_kernel_enabled": true,
+    "action": "would_refresh",
+    "refresh_attempted": false,
+    "refresh_success": null,
+    "warning": null,
+    "before": {
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "dataset_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\datasets\\XAUUSD_M5_dataset_v2.parquet",
+      "dataset_max_utc": "2026-06-29T13:45:00+00:00",
+      "live_cache_path": "data\\XAUUSD_5m.parquet",
+      "live_max_utc": "2026-07-03T19:55:00+00:00",
+      "lag_hours": 102.17,
+      "dataset_exists": true,
+      "live_cache_exists": true
+    },
+    "needs_refresh": true,
+    "finished_utc": "2026-07-05T16:17:28.953135+00:00"
+  }
+}

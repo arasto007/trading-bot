@@ -1,0 +1,36 @@
+{
+  "phase": "27G",
+  "RANGE": {
+    "trade_count": 575,
+    "win_rate_pct": 38.61,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "average_rr": 2.5,
+    "realized_rr_avg": 0.2277,
+    "max_drawdown_pct": 12.1956,
+    "net_profit": 1101.1854
+  },
+  "TREND": {
+    "trade_count": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "average_rr": 0.0,
+    "realized_rr_avg": 0.0,
+    "max_drawdown_pct": 0.0,
+    "net_profit": 0.0
+  },
+  "TRANSITION": {
+    "trade_count": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "average_rr": 0.0,
+    "realized_rr_avg": 0.0,
+    "max_drawdown_pct": 0.0,
+    "net_profit": 0.0
+  },
+  "best_regime": "RANGE",
+  "worst_regime": "RANGE",
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

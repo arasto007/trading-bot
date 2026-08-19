@@ -1,0 +1,6 @@
+sequenceDiagram
+    participant PM as Mt5PositionManager
+    participant MT5 as MetaTrader5
+    PM->>MT5: check profit vs partial level
+    PM->>MT5: close partial volume
+    PM->>MT5: move SL to breakeven

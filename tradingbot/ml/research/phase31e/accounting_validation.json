@@ -1,0 +1,14 @@
+{
+  "phase": "31E",
+  "production_net_pnl_repaired": 796.0066,
+  "oracle_net_pnl": 796.0066,
+  "net_pnl_delta": 0.0,
+  "production_pf_repaired": 1.3226,
+  "oracle_pf": 1.3226,
+  "pf_gap_pct": 0.0,
+  "pnl_gap_pct": 0.0,
+  "tolerance_pf_pct": 0.5,
+  "tolerance_pnl_pct": 0.5,
+  "within_tolerance": true,
+  "generated_utc": "2026-07-10T16:51:20.713158+00:00"
+}

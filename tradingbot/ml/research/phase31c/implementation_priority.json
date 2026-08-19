@@ -1,0 +1,31 @@
+{
+  "phase": "31C",
+  "recommended_exit": "trailing_atr_1x",
+  "rationale": "Best conservative score \u2014 not highest PF",
+  "priority": [
+    {
+      "rank": 1,
+      "name": "trailing_atr_1x",
+      "complexity": "MEDIUM",
+      "pf_gain": 0.5535
+    },
+    {
+      "rank": 2,
+      "name": "adx_deterioration_exit",
+      "complexity": "MEDIUM",
+      "pf_gain": 0.0075
+    },
+    {
+      "rank": 3,
+      "name": "volatility_short_timeout",
+      "complexity": "LOW",
+      "pf_gain": 0.0568
+    }
+  ],
+  "forbidden": [
+    "perfect_capture",
+    "mfe_oracle_exit",
+    "future_bar_lookahead"
+  ],
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

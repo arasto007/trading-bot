@@ -1,0 +1,415 @@
+{
+  "phase": "22F",
+  "pipeline": "Bars->Signals->Model->Calibration->TradeQuality->RSI->ADX->Meta->RiskGate->Execution",
+  "total_bars": 5897,
+  "per_timeframe": {
+    "M5": {
+      "bars": 4307,
+      "funnel": [
+        {
+          "stage": "signals_emitted",
+          "count": 60,
+          "lost_from_prev": 4247,
+          "lost_pct": 98.607
+        },
+        {
+          "stage": "decision_pass",
+          "count": 74,
+          "lost_from_prev": 4233,
+          "lost_pct": 98.282
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 74,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "trade_quality_pass",
+          "count": 74,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 60,
+          "lost_from_prev": 14,
+          "lost_pct": 18.919
+        },
+        {
+          "stage": "adx_pass",
+          "count": 60,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 60,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 60,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 2,
+          "lost_from_prev": 58,
+          "lost_pct": 96.667
+        },
+        {
+          "stage": "executed",
+          "count": 2,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        }
+      ],
+      "trace_funnel": [
+        {
+          "stage": "model_pass",
+          "count": 60,
+          "pct_of_bars": 1.393,
+          "lost_from_prev": 4248,
+          "lost_pct_from_prev": 98.607
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 74,
+          "pct_of_bars": 1.718,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "quality_pass",
+          "count": 74,
+          "pct_of_bars": 1.718,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 60,
+          "pct_of_bars": 1.393,
+          "lost_from_prev": 14,
+          "lost_pct_from_prev": 18.919
+        },
+        {
+          "stage": "adx_pass",
+          "count": 60,
+          "pct_of_bars": 1.393,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 60,
+          "pct_of_bars": 1.393,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 60,
+          "pct_of_bars": 1.393,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 2,
+          "pct_of_bars": 0.046,
+          "lost_from_prev": 58,
+          "lost_pct_from_prev": 96.667
+        },
+        {
+          "stage": "executed",
+          "count": 2,
+          "pct_of_bars": 0.046,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        }
+      ],
+      "riskgate_block_reasons": {
+        "max positions for symbol": 4,
+        "daily loss limit": 54
+      }
+    },
+    "M15": {
+      "bars": 1428,
+      "funnel": [
+        {
+          "stage": "signals_emitted",
+          "count": 0,
+          "lost_from_prev": 1428,
+          "lost_pct": 100.0
+        },
+        {
+          "stage": "decision_pass",
+          "count": 0,
+          "lost_from_prev": 1428,
+          "lost_pct": 100.0
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "trade_quality_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "adx_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "executed",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        }
+      ],
+      "trace_funnel": [
+        {
+          "stage": "model_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "quality_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "adx_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "executed",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        }
+      ],
+      "riskgate_block_reasons": {}
+    },
+    "H4": {
+      "bars": 162,
+      "funnel": [
+        {
+          "stage": "signals_emitted",
+          "count": 0,
+          "lost_from_prev": 162,
+          "lost_pct": 100.0
+        },
+        {
+          "stage": "decision_pass",
+          "count": 162,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 162,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "trade_quality_pass",
+          "count": 162,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 0,
+          "lost_from_prev": 162,
+          "lost_pct": 100.0
+        },
+        {
+          "stage": "adx_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        },
+        {
+          "stage": "executed",
+          "count": 0,
+          "lost_from_prev": 0,
+          "lost_pct": 0.0
+        }
+      ],
+      "trace_funnel": [
+        {
+          "stage": "model_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "calibration_pass",
+          "count": 162,
+          "pct_of_bars": 16200.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "quality_pass",
+          "count": 162,
+          "pct_of_bars": 16200.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "rsi_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 162,
+          "lost_pct_from_prev": 100.0
+        },
+        {
+          "stage": "adx_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "meta_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_reached",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "riskgate_pass",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        },
+        {
+          "stage": "executed",
+          "count": 0,
+          "pct_of_bars": 0.0,
+          "lost_from_prev": 0,
+          "lost_pct_from_prev": 0.0
+        }
+      ],
+      "riskgate_block_reasons": {}
+    }
+  },
+  "combined_stage_losses": {
+    "signals_emitted": 5837,
+    "decision_pass": 5661,
+    "calibration_pass": 0,
+    "trade_quality_pass": 0,
+    "rsi_pass": 176,
+    "adx_pass": 0,
+    "meta_pass": 0,
+    "riskgate_reached": 0,
+    "riskgate_pass": 58,
+    "executed": 0
+  }
+}

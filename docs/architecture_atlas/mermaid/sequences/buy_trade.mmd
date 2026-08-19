@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant U as User/MT5
+    participant LR as LiveRunner
+    participant K as TradingKernel
+    participant D as DataStage
+    participant S as SignalStage
+    participant R as RiskStage
+    participant E as ExecutionStage
+    participant MT5 as MetaTrader5
+    participant J as TradeJournal
+    LR->>K: run_global_cycle()
+    K->>D: fetch OHLCV
+    D->>MT5: copy_rates
+    K->>S: generate signal BUY
+    S-->>K: TradingSignal BUY
+    K->>R: evaluate risk
+    R-->>K: allowed + lot
+    K->>E: execute order
+    E->>MT5: order_send BUY
+    MT5-->>E: ticket filled
+    E->>J: log execution

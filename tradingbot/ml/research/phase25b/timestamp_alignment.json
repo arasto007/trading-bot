@@ -1,0 +1,34 @@
+{
+  "forming_bar_adapter": "ParityReplayMarketDataAdapter appends synthetic forming candle",
+  "decision_timestamp_source": "exclude_forming_bar(enriched_ohlcv).index[-1]",
+  "windows": [
+    {
+      "window": "300_bars",
+      "timestamp_match_rate": 1.0,
+      "left_only": 0,
+      "right_only": 0,
+      "passes_100": true
+    },
+    {
+      "window": "7_days",
+      "timestamp_match_rate": 1.0,
+      "left_only": 0,
+      "right_only": 0,
+      "passes_100": true
+    },
+    {
+      "window": "30_days",
+      "timestamp_match_rate": 1.0,
+      "left_only": 0,
+      "right_only": 0,
+      "passes_100": true
+    },
+    {
+      "window": "90_days",
+      "timestamp_match_rate": 1.0,
+      "left_only": 0,
+      "right_only": 0,
+      "passes_100": true
+    }
+  ]
+}

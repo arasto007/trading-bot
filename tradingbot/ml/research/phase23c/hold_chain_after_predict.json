@@ -1,0 +1,86 @@
+{
+  "phase": "23C",
+  "hold_sites": [
+    {
+      "file": "tradingbot/ml/paper_trading/signal_engine.py",
+      "function": "SignalEngine.generate",
+      "line": 35,
+      "condition": "probability between sell_threshold and buy_threshold",
+      "reason": "neutral probability band",
+      "stage": "engine_signal"
+    },
+    {
+      "file": "tradingbot/ml/decision_engine/decision_policy.py",
+      "function": "DecisionPolicy.apply",
+      "line": 26,
+      "condition": "confidence < min_confidence",
+      "reason": "decision policy gate",
+      "stage": "decision_policy"
+    },
+    {
+      "file": "tradingbot/ml/decision_engine/orchestrator.py",
+      "function": "DecisionOrchestrator.decide",
+      "line": 45,
+      "condition": "blocked regime or no engine",
+      "reason": "regime router block",
+      "stage": "decision_policy"
+    },
+    {
+      "file": "tradingbot/ml/confidence_engine/validator.py",
+      "function": "CalibratedDecisionAdapter.decide",
+      "line": 124,
+      "condition": "not passes_gate(final_conf) or engine_signal not BUY/SELL",
+      "reason": "calibration confidence gate",
+      "stage": "calibration"
+    },
+    {
+      "file": "tradingbot/ml/research/phase14_6/research_calibrator.py",
+      "function": "ResearchCalibratedAdapter.decide",
+      "line": 48,
+      "condition": "not policy.passes_gate(calibrated) or engine_signal not BUY/SELL",
+      "reason": "Platt calibration gate (production path)",
+      "stage": "calibration"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "KernelAdapter.produce_unified_signal",
+      "line": 131,
+      "condition": "calibrated.final_action not BUY/SELL",
+      "reason": "propagate calibration HOLD to unified signal",
+      "stage": "calibration"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "KernelAdapter.produce_unified_signal",
+      "line": 242,
+      "condition": "risk or quality blocked",
+      "reason": "trade quality / risk hold",
+      "stage": "trade_quality"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "function": "KernelAdapter.produce_unified_signal",
+      "line": 244,
+      "condition": "RSI/ADX profitability filter failed",
+      "reason": "phase22c filter hold",
+      "stage": "profitability_filter"
+    },
+    {
+      "file": "tradingbot/ml/integration/signal_mapper.py",
+      "function": "map_unified_to_trading_signal",
+      "line": 309,
+      "condition": "unified direction HOLD",
+      "reason": "kernel returns None — no execution signal",
+      "stage": "execution"
+    }
+  ],
+  "hold_chain_stages": [
+    "decision_hold",
+    "calibration_hold",
+    "trade_quality_hold",
+    "rsi_filter_hold",
+    "adx_filter_hold"
+  ],
+  "kernel_hold_chain_file": "tradingbot/ml/research/phase22c/hold_chain.py",
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

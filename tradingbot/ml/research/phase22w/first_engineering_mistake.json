@@ -1,0 +1,29 @@
+{
+  "phase": "22W",
+  "verdict": "MODEL_SELECTION_CRITERIA",
+  "question": "What is the FIRST engineering mistake that caused degenerated phase9_9?",
+  "answer": "MODEL_SELECTION_CRITERIA",
+  "chronology": [
+    {
+      "stage": "Feature subset stable_top3 includes structure_distance",
+      "category": "FEATURES",
+      "earlier": true,
+      "note": "structure_distance train_importance=0.0 but stability_score=1.0 in feature_stability_report"
+    },
+    {
+      "stage": "Phase 9.9 ranks candidates by PF/robustness composite without probability quality gate",
+      "category": "MODEL_SELECTION_CRITERIA",
+      "earlier": false,
+      "note": "Direct decision that froze a model with 0% BUY zone (Phase 22U)"
+    }
+  ],
+  "why_this_survives_as_primary": "Walk-forward selection optimizes trade-simulation PF and robustness while never recording or rejecting models with zero BUY-zone coverage. The frozen winner (logistic_strong_reg__stable_top3) achieved PF≈1.31 with 99.9% sell-zone probabilities (22U). SELL-only models pass selection. This is the earliest decision that explicitly permitted deployment of a degenerated classifier.",
+  "rejected_alternatives": {
+    "DATASET": "Labels balanced (36% positive, 22V); not corrupted",
+    "LABELS": "Not imbalanced; ruled out in 22V",
+    "MODEL": "Logistic choice is secondary; selection never tested probability spread",
+    "FEATURES": "Contributing factor but selection could have blocked zero-BUY artifact",
+    "TRAINING_PIPELINE": "85% slice is secondary; same criterion gap at freeze"
+  },
+  "generated_utc": "2026-07-07T18:40:53.360693+00:00"
+}

@@ -1,0 +1,61 @@
+{
+  "phase": "22J",
+  "engine": "phase9_9",
+  "dataset": {
+    "label": "A",
+    "trading_days": 7,
+    "start_tehran": "2026-06-25 00:00",
+    "end_tehran": "2026-07-05 23:59"
+  },
+  "timeframe": "M5",
+  "stride": 10,
+  "range_regime_bars": 58,
+  "bars_scored": 58,
+  "elapsed_sec": 31.4,
+  "probability_stats": {
+    "mean": 0.3641,
+    "std": 0.0043,
+    "median": 0.3648,
+    "min": 0.3436,
+    "max": 0.3771,
+    "pct_near_0.5": 0.0
+  },
+  "bucket_distribution": {
+    "sell_zone": {
+      "count": 58,
+      "pct": 100.0
+    }
+  },
+  "hold_causes": {},
+  "missing_feature_bars": 0,
+  "feature_zero_counts": {
+    "structure_distance": 58,
+    "unified_phase99_structure_distance": 58,
+    "ema50_slope": 52,
+    "candle_direction": 52,
+    "unified_phase99_ema50_slope": 52,
+    "unified_phase99_candle_direction": 52
+  },
+  "model_config": {
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
+    "feature_order": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "model": "LogisticRegression",
+    "training_regime": "RANGE"
+  },
+  "root_cause_hypothesis": {
+    "primary": "feature_distribution_zeros",
+    "all_observed": [
+      "feature_distribution_zeros"
+    ],
+    "evidence": {
+      "pct_probs_within_0.05_of_0.5": 0.0,
+      "dead_zone_holds": 0,
+      "missing_feature_bars": 0
+    }
+  }
+}

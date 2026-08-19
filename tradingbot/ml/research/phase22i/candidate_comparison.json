@@ -1,0 +1,103 @@
+{
+  "phase": "22I",
+  "baseline_id": "22I-BASELINE",
+  "baseline_metrics": {
+    "trades": null,
+    "profit_factor": null,
+    "expectancy": null,
+    "hold_pct": null
+  },
+  "ranked": [
+    {
+      "candidate_id": "22I-004",
+      "title": "Alternate engine confirmation",
+      "trades": 10,
+      "buy_emitted": 0,
+      "sell_emitted": 4207,
+      "hold_pct": 0.37,
+      "profit_factor": 0.0,
+      "expectancy": -6.123,
+      "max_drawdown_pct": 28.62,
+      "win_rate_pct": 0.0,
+      "decision_hold": 16,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 10
+    },
+    {
+      "candidate_id": "22I-001",
+      "title": "Universal directional recovery",
+      "trades": 2,
+      "buy_emitted": 0,
+      "sell_emitted": 47,
+      "hold_pct": 98.63,
+      "profit_factor": 0.0,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "win_rate_pct": 0.0,
+      "decision_hold": 4248,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 2
+    },
+    {
+      "candidate_id": "22I-002",
+      "title": "Regime strength floor on actionable signals",
+      "trades": 2,
+      "buy_emitted": 0,
+      "sell_emitted": 47,
+      "hold_pct": 98.58,
+      "profit_factor": 0.0,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "win_rate_pct": 0.0,
+      "decision_hold": 4247,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 2
+    },
+    {
+      "candidate_id": "22I-003",
+      "title": "Engine-confidence policy gate",
+      "trades": 2,
+      "buy_emitted": 0,
+      "sell_emitted": 47,
+      "hold_pct": 98.58,
+      "profit_factor": 0.0,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "win_rate_pct": 0.0,
+      "decision_hold": 4247,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 2
+    },
+    {
+      "candidate_id": "22I-005",
+      "title": "Spread-aware market quality",
+      "trades": 2,
+      "buy_emitted": 0,
+      "sell_emitted": 47,
+      "hold_pct": 98.58,
+      "profit_factor": 0.0,
+      "expectancy": -10.719,
+      "max_drawdown_pct": 6.47,
+      "win_rate_pct": 0.0,
+      "decision_hold": 4246,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 2
+    },
+    {
+      "candidate_id": "22I-BASELINE",
+      "title": "Production baseline (Phase 22C + RangeRecovery)",
+      "trades": null,
+      "buy_emitted": null,
+      "sell_emitted": null,
+      "hold_pct": null,
+      "profit_factor": 0.0,
+      "expectancy": null,
+      "max_drawdown_pct": null,
+      "win_rate_pct": null,
+      "decision_hold": null,
+      "pf_delta_vs_baseline": 0.0,
+      "trades_delta_vs_baseline": 0
+    }
+  ],
+  "best_candidate_id": "22I-004"
+}

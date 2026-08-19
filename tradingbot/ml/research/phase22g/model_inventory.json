@@ -1,0 +1,100 @@
+{
+  "phase": "22G",
+  "active_trend_engine_id": "trend_rf_v41",
+  "use_ml_kernel": true,
+  "models": {
+    "trend_v40": {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\trend_rf_bundle\\model.pkl",
+      "exists": true,
+      "loaded_in_production_stack": true,
+      "executed_on_signal_path": false,
+      "note": "Always registered in EngineRegistry.build_default"
+    },
+    "trend_v41": {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\trend_rf_bundle_v41\\model.pkl",
+      "exists": true,
+      "loaded_in_production_stack": true,
+      "executed_on_signal_path": true,
+      "note": "Registered only if bundle files exist; env default v41"
+    },
+    "range_phase9_9": {
+      "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+      "exists": true,
+      "loaded_in_production_stack": true,
+      "executed_on_signal_path": true,
+      "note": "Active when regime=RANGE"
+    },
+    "platt_calibration": {
+      "loaded": true,
+      "executed": true,
+      "note": "ResearchCalibratedAdapter; fit hardcoded on trend_rf_v40 in recovered_calibration.py"
+    },
+    "trade_quality_engine": {
+      "loaded": true,
+      "executed": true,
+      "note": "TradeQualityAdapter in ML stack"
+    },
+    "adaptive_risk_engine": {
+      "loaded": true,
+      "executed": true,
+      "note": "MappedProductionRiskAdapter"
+    },
+    "meta_labeler": {
+      "files": {
+        "M5": {
+          "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_m5.pkl",
+          "exists": true,
+          "loaded_in_production_stack": true,
+          "executed_on_signal_path": false,
+          "note": "RiskGate meta gate only"
+        },
+        "M15": {
+          "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_m15.pkl",
+          "exists": true,
+          "loaded_in_production_stack": true,
+          "executed_on_signal_path": false,
+          "note": "RiskGate meta gate only"
+        },
+        "H4": {
+          "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\models\\meta_labeler_h4.pkl",
+          "exists": true,
+          "loaded_in_production_stack": true,
+          "executed_on_signal_path": false,
+          "note": "RiskGate meta gate only"
+        }
+      },
+      "executed": "RiskGate.evaluate when should_gate true",
+      "loaded": true
+    },
+    "ml_shadow": {
+      "enabled": false,
+      "executed": false,
+      "note": "Shadow runners under ml/integration — parallel observation, not order path"
+    },
+    "legacy_priceaction": {
+      "loaded": true,
+      "executed": "When USE_ML_KERNEL=false OR ML fallback",
+      "note": "LegacyStrategyRegistry -> StrategyManager"
+    },
+    "paper_trading_models": {
+      "loaded": false,
+      "executed": false,
+      "note": "tradingbot/ml/paper* — not wired to LiveRunner"
+    },
+    "research_engines": {
+      "loaded": false,
+      "executed": false,
+      "note": "tradingbot/ml/research/* — phase isolated unless explicitly imported"
+    }
+  },
+  "executed_in_live_ml_path": [
+    "platt_calibration",
+    "trade_quality_engine",
+    "adaptive_risk_engine"
+  ],
+  "loaded_never_executed": [],
+  "dead_paths": [
+    "paper_trading_models",
+    "research_engines"
+  ]
+}

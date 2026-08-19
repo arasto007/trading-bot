@@ -1,0 +1,61 @@
+{
+  "health_check": {
+    "phase": "12",
+    "health_check": "FAIL",
+    "checks": {
+      "ast_clean": true,
+      "model_checksum": false,
+      "risk_config": true,
+      "max_positions": true,
+      "max_daily_loss": true,
+      "safety_layer": true,
+      "kill_switch": true,
+      "journal_writable": true,
+      "execution_disabled_by_default": true,
+      "pilot_requires_dual_approval": true,
+      "mt5_connection": true,
+      "symbol_available": true
+    },
+    "errors": [
+      "model_validation: Phase 9.9 artifacts missing: ['model', 'scaler', 'feature_order', 'config', 'metadata']"
+    ],
+    "mode": "SHADOW",
+    "pilot_live_enabled": false,
+    "execution_guard_module": "execution_guard.py",
+    "model_validation": {
+      "status": "FAIL",
+      "error": "Phase 9.9 artifacts missing: ['model', 'scaler', 'feature_order', 'config', 'metadata']"
+    },
+    "preflight": {
+      "skipped": true
+    },
+    "config": {
+      "phase": "12",
+      "symbol": "XAUUSD",
+      "timeframe": "M5",
+      "mode": "SHADOW",
+      "run_id": "hc_test",
+      "risk_pct": 0.0025,
+      "max_open_positions": 1,
+      "max_daily_loss_pct": 0.02,
+      "max_consecutive_losses": 3,
+      "max_trades_per_day": 10,
+      "pilot_days": 7,
+      "strategy_a": {
+        "buy": 0.55,
+        "sell": 0.45,
+        "version": "A_original"
+      },
+      "strategy_b": {
+        "buy": 0.5,
+        "sell": 0.4,
+        "version": "B_phase11_5_research"
+      },
+      "allowed_regimes": [
+        "LOW_VOLATILITY",
+        "RANGE"
+      ],
+      "regime_filter_block": false
+    }
+  }
+}

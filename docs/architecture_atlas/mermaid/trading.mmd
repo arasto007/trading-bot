@@ -1,0 +1,122 @@
+flowchart TB
+    %% trading
+    tradingbot_domain_signal_helpers_compute0[compute_confidence]
+    tradingbot_ml_live_validation_signal_con1[signal_consistency]
+    tradingbot_domain_signal_helpers2[signal_helpers]
+    tradingbot_domain_signal_helpers_compute3[compute_sl_tp]
+    tradingbot_domain_gold_strategies_m5_lon4[asian_range]
+    tradingbot_ml_audit_phase12_1_signal_tra5[SignalTracer]
+    tradingbot_ml_orchestrator_strategy_sele6[StrategySelector]
+    tradingbot_ml_research_phase46_ml_signal7[build_historical_dataset]
+    tradingbot_pipeline_signal_filter_stage_8[SignalFilterStage]
+    tradingbot_ports_strategies9[strategies]
+    tradingbot_ml_research_phase46_ml_signal10[ml_signal_dataset]
+    tradingbot_ml_research_phase15i_signal_f11[RangeFlowRecord]
+    tradingbot_ml_backtest_state_SignalActio12[SignalAction]
+    tradingbot_ml_integration_signal_mapper13[signal_mapper]
+    tradingbot_ml_research_regime_router_sig14[signal_aggregator]
+    engine_strategies_base_strategy_BaseStra15[BaseStrategy]
+    tradingbot_ml_research_trend_strategy_wa16[run_walk_forward]
+    tradingbot_ml_research_phase46_ml_signal17[build_ml_signal_dataset]
+    tradingbot_ml_research_trend_strategy_tr18[run_trend_backtest]
+    tradingbot_ml_research_phase49_ml_captur19[build_ml_signal_dataset_v7]
+    tradingbot_ml_research_advanced_discover20[signal_mining]
+    tradingbot_ml_research_trend_strategy_re21[Phase133Result]
+    tradingbot_strategies_vol_regime_signal_22[evaluate_at_index]
+    tradingbot_ml_research_trend_strategy_tr23[trend_signal]
+    tradingbot_ml_phase15a_unified_signal_Un24[UnifiedSignal]
+    tradingbot_ml_research_trend_strategy_tr25[trend_backtest]
+    tradingbot_ml_backtest_strategy_Threshol26[ThresholdStrategy]
+    tradingbot_ml_research_phase22f_trace_Bl27[BlockedSignal]
+    tradingbot_domain_gold_strategies_m5_sca28[evaluate_m5_scalp]
+    tradingbot_application_bootstrap_build_k29[build_kernel_with_strategies]
+    tradingbot_domain_gold_strategies_m5_sca30[m5_scalp]
+    tradingbot_domain_gold_strategies___init31[__init__]
+    tradingbot_ml_decision_engine_strategy_s32[strategy_selector]
+    engine_strategies_base_strategy_Signal33[Signal]
+    tradingbot_domain_gold_strategies_h4_swi34[evaluate_h4_swing]
+    tradingbot_ml_trade_quality_signal_quali35[signal_quality]
+    scripts_check_today_signals_main36[main]
+    tradingbot_domain_trade_features__meta_f37[_meta_from_signal]
+    tradingbot_ml_integration_factory_build_38[build_strategy_registry]
+    tradingbot_ml_integration_ml_strategy_ML39[MLShadowStrategyRegistry]
+    scripts_check_today_signals40[check_today_signals]
+    tradingbot_services_signal_filter_mode41[signal_filter_mode]
+    tradingbot_ml_audit_phase12_1_signal_tra42[SignalTrace]
+    tradingbot_ml_audit_phase12_1_signal_tra43[signal_tracer]
+    tradingbot_ml_research_phase15j_trend_si44[trend_signal_statistics]
+    tradingbot_domain_signal_helpers_resolve45[resolve_market]
+    engine_strategies_base_strategy_SignalTy46[SignalType]
+    tradingbot_adapters_vol_regime_strategy_47[vol_regime_strategy_registry]
+    tradingbot_ml_orchestrator_strategy_sele48[strategy_selector]
+    tradingbot_ml_research_trend_strategy_re49[run_phase13_3_trend]
+    tradingbot_ml_orchestrator_signals50[signals]
+    tradingbot_ml_paper_trading_signal_engin51[SignalEngine]
+    tradingbot_pipeline_signal_stage_SignalS52[SignalStage]
+    tradingbot_domain_signal_helpers_Resolve53[ResolvedMarket]
+    tradingbot_ml_research_trend_strategy_tr54[trend_features]
+    tradingbot_ml_hybrid_schema_MLSignal55[MLSignal]
+    folder_tradingbot_strategies56{{strategies}}
+    tradingbot_ml_research_phase15i_phase99_57[phase99_signal_audit]
+    tradingbot_ml_research_trend_strategy_tr58[build_trend_signal]
+    tradingbot_ml_research_trend_strategy_re59[report]
+    engine_strategies_base_strategy_SignalSt60[SignalStrength]
+    scripts_diagnose_vol_regime_signals61[diagnose_vol_regime_signals]
+    engine_strategies___init__62[__init__]
+    scripts_diagnose_vol_regime_signals_main63[main]
+    tradingbot_domain_signal_helpers_extract64[extract_signal_direction]
+    tradingbot_adapters_legacy_strategy_regi65[legacy_strategy_registry]
+    tradingbot_domain_gold_strategies_router66[router]
+    tradingbot_ml_integration_ml_strategy67[ml_strategy]
+    tradingbot_strategies_vol_regime_signal68[vol_regime_signal]
+    tradingbot_ml_shadow_shadow_signal69[shadow_signal]
+    tradingbot_ml_research_phase22p_signal_l70[signal_loss]
+    tradingbot_pipeline_signal_stage71[signal_stage]
+    tradingbot_strategies_vol_regime_signal_72[VolRegimeSignal]
+    tradingbot_domain_models_TradingSignal73[TradingSignal]
+    tradingbot_domain_gold_strategies_router74[evaluate_gold_setup]
+    tradingbot_domain_filter_policy_strategy75[strategy_uses_kill_zone]
+    tradingbot_ml_research_live_l4_signal_ml76[signal_ml_refinement]
+    tradingbot_adapters_legacy_signal_helper77[legacy_signal_helpers]
+    tradingbot_strategies___init__78[__init__]
+    tradingbot_ml_research_trend_strategy_tr79[evaluate_trend_rules]
+    tradingbot_domain_signal_helpers2 -->|contains| tradingbot_domain_signal_helpers_Resolve53
+    tradingbot_domain_signal_helpers2 -->|contains| tradingbot_domain_signal_helpers_resolve45
+    tradingbot_domain_signal_helpers2 -->|contains| tradingbot_domain_signal_helpers_extract64
+    tradingbot_domain_signal_helpers2 -->|contains| tradingbot_domain_signal_helpers_compute0
+    tradingbot_domain_signal_helpers2 -->|contains| tradingbot_domain_signal_helpers_compute3
+    tradingbot_domain_gold_strategies_m5_sca30 -->|contains| tradingbot_domain_gold_strategies_m5_sca28
+    tradingbot_domain_gold_strategies_router66 -->|contains| tradingbot_domain_gold_strategies_router74
+    tradingbot_ml_audit_phase12_1_signal_tra43 -->|contains| tradingbot_ml_audit_phase12_1_signal_tra42
+    tradingbot_ml_audit_phase12_1_signal_tra43 -->|contains| tradingbot_ml_audit_phase12_1_signal_tra5
+    tradingbot_ml_integration_ml_strategy67 -->|contains| tradingbot_ml_integration_ml_strategy_ML39
+    tradingbot_ml_orchestrator_strategy_sele48 -->|contains| tradingbot_ml_orchestrator_strategy_sele6
+    tradingbot_ml_research_phase46_ml_signal10 -->|contains| tradingbot_ml_research_phase46_ml_signal7
+    tradingbot_ml_research_phase46_ml_signal10 -->|contains| tradingbot_ml_research_phase46_ml_signal17
+    tradingbot_ml_research_trend_strategy_re59 -->|contains| tradingbot_ml_research_trend_strategy_re21
+    tradingbot_ml_research_trend_strategy_re59 -->|contains| tradingbot_ml_research_trend_strategy_re49
+    tradingbot_ml_research_trend_strategy_tr25 -->|contains| tradingbot_ml_research_trend_strategy_tr18
+    tradingbot_ml_research_trend_strategy_tr23 -->|contains| tradingbot_ml_research_trend_strategy_tr58
+    tradingbot_pipeline_signal_stage71 -->|contains| tradingbot_pipeline_signal_stage_SignalS52
+    tradingbot_strategies_vol_regime_signal68 -->|contains| tradingbot_strategies_vol_regime_signal_72
+    tradingbot_strategies_vol_regime_signal68 -->|contains| tradingbot_strategies_vol_regime_signal_22
+    scripts_check_today_signals40 -->|contains| scripts_check_today_signals_main36
+    scripts_diagnose_vol_regime_signals61 -->|contains| scripts_diagnose_vol_regime_signals_main63
+    tradingbot_adapters_legacy_signal_helper77 -->|imports| tradingbot_domain_signal_helpers2
+    tradingbot_adapters_legacy_strategy_regi65 -->|imports| tradingbot_domain_signal_helpers2
+    tradingbot_adapters_legacy_strategy_regi65 -->|imports| tradingbot_ports_strategies9
+    tradingbot_adapters_vol_regime_strategy_47 -->|imports| tradingbot_domain_signal_helpers2
+    tradingbot_adapters_vol_regime_strategy_47 -->|imports| tradingbot_ports_strategies9
+    tradingbot_adapters_vol_regime_strategy_47 -->|imports| tradingbot_strategies_vol_regime_signal68
+    tradingbot_domain_gold_strategies_router66 -->|imports| tradingbot_domain_gold_strategies_m5_sca30
+    tradingbot_domain_gold_strategies___init31 -->|imports| tradingbot_domain_gold_strategies_router66
+    tradingbot_ml_audit_phase12_1_signal_tra43 -->|imports| tradingbot_ml_integration_ml_strategy67
+    tradingbot_ml_integration_ml_strategy67 -->|imports| tradingbot_ports_strategies9
+    tradingbot_ml_integration_signal_mapper13 -->|imports| tradingbot_domain_signal_helpers2
+    tradingbot_ml_research_trend_strategy_re59 -->|imports| tradingbot_ml_research_trend_strategy_tr25
+    tradingbot_ml_research_trend_strategy_re59 -->|imports| tradingbot_ml_research_trend_strategy_tr54
+    tradingbot_ml_research_trend_strategy_tr25 -->|imports| tradingbot_ml_research_trend_strategy_tr23
+    tradingbot_pipeline_signal_stage71 -->|imports| tradingbot_ports_strategies9
+    scripts_check_today_signals40 -->|imports| tradingbot_strategies_vol_regime_signal68
+    scripts_diagnose_vol_regime_signals61 -->|imports| tradingbot_adapters_vol_regime_strategy_47
+    scripts_diagnose_vol_regime_signals61 -->|imports| tradingbot_strategies_vol_regime_signal68

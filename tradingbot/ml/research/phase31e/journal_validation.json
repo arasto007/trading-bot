@@ -1,0 +1,14 @@
+{
+  "phase": "31E",
+  "entry_timestamps_identical": true,
+  "trade_count": 489,
+  "legacy_vs_repaired_exit_reason_shift": {
+    "time->hybrid_sl": 94,
+    "time->sl": 214,
+    "time->hybrid_time": 163,
+    "hybrid_time->hybrid_time": 6,
+    "time->time": 9,
+    "hybrid_time->hybrid_sl": 3
+  },
+  "generated_utc": "2026-07-10T16:51:20.713158+00:00"
+}

@@ -1,0 +1,88 @@
+{
+  "phase": "22L",
+  "step": 1,
+  "generated_utc": "2026-07-05T15:42:42.426141+00:00",
+  "entry_script": "scripts/build_ml_dataset.py",
+  "primary_commands": {
+    "full_production_build": "python scripts/build_ml_dataset.py --phase9-1",
+    "v2_only": "python scripts/build_ml_dataset.py --build-v2",
+    "v2_rebuild_source": "python scripts/build_ml_dataset.py --build-v2 --rebuild-source",
+    "finalize_patch_spread": "python scripts/build_ml_dataset.py --phase9-finalize"
+  },
+  "pipeline_chain": [
+    {
+      "stage": "preflight",
+      "module": "tradingbot.ml.dataset.phase9_production_build.Phase91ProductionBuilder.run_preflight_checks",
+      "inputs": [
+        "CandleStore M5/M15/H4",
+        "HistoricalQualityValidator"
+      ]
+    },
+    {
+      "stage": "sparse_v1_build",
+      "module": "tradingbot.ml.dataset.sparse_event_builder.SparseEventDatasetBuilder.build",
+      "inputs": [
+        "CandleStore M5/M15/H4 (production_date_range 5Y window)",
+        "extract_market_events + session transitions",
+        "FeatureBuilder.compute_at per event bar",
+        "label_from_future_candles"
+      ],
+      "output": "data/ml/datasets/XAUUSD_M5_dataset.parquet (v1 labeled sparse events)"
+    },
+    {
+      "stage": "v2_hardening",
+      "module": "tradingbot.ml.dataset.production_dataset_v2.ProductionDatasetV2Builder.build_v2",
+      "inputs": [
+        "v1 dataset or DatasetBuilder fallback"
+      ],
+      "operations": [
+        "DatasetSanityGate.filter",
+        "assign_purged_split_column",
+        "validate",
+        "train_readiness"
+      ],
+      "output": "data/ml/datasets/XAUUSD_M5_dataset_v2.parquet"
+    }
+  ],
+  "feature_engineering": {
+    "builder": "tradingbot.ml.features.builder.FeatureBuilder",
+    "mode": "event_sparse — features computed only at sampling events, not every M5 bar",
+    "phase99_columns": [
+      "ema50_slope",
+      "candle_direction",
+      "structure_distance"
+    ],
+    "inference_merge": "build_unified_frame left-joins dataset_v2 on exact timestamp → fillna(0.0)"
+  },
+  "data_sources": {
+    "candles": "data/ml/raw/candles/{M5,M15,H4}/ or legacy data/ml/candles/",
+    "events": "extracted from candles via market_event_extractor (not live MT5 at inference)",
+    "spread": "bar-range proxy when spread store unavailable",
+    "production_window": {
+      "start_utc": "2021-07-06T15:42:42.426141+00:00",
+      "end_utc": "2026-07-05T15:42:42.426141+00:00",
+      "days": 1825
+    }
+  },
+  "current_artifacts": {
+    "dataset_v2_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\datasets\\XAUUSD_M5_dataset_v2.parquet",
+    "row_count": 5724,
+    "max_timestamp": "2026-06-29 13:45:00+00:00",
+    "build_manifest": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\metadata\\XAUUSD_M5_V2_dataset_build.json",
+    "last_build_utc": "2026-06-29T16:46:56.771535+00:00",
+    "m5_candle_max_timestamp": "2026-06-29 13:50:00+00:00"
+  },
+  "live_update_mechanism": {
+    "automatic_on_live_loop": false,
+    "evidence": "No DatasetStore.store_v2 call in TradingKernel, PipelineCache, or live runner paths",
+    "manual_trigger": "scripts/build_ml_dataset.py --phase9-1 (operator-initiated batch build)",
+    "inference_reads": "PipelineCache.get_unified_frame → DatasetStore.load_v2 (read-only at runtime)"
+  },
+  "why_stopped_at_2026_06_29": {
+    "primary_reason": "Last manual Phase 9.1 build timestamp 2026-06-29T16:46:56 UTC — no subsequent rebuild",
+    "secondary_reason": "M5 CandleStore max 2026-06-29T13:50 UTC — sparse dataset cannot extend beyond candle history",
+    "not_a_pipeline_crash": true,
+    "live_expected_to_refresh": false
+  },
+  "architectural_note": "dataset_v2 is event-sparse (~5724 rows); unified frame merges on exact timestamp so non-event M5 bars always get fillna(0) for phase99_*"
+}

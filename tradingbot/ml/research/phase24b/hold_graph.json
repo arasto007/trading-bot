@@ -1,0 +1,97 @@
+{
+  "phase": "24B",
+  "holds": [
+    {
+      "id": "decision_hold",
+      "stage": "HoldStage.DECISION",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 14,
+      "trigger_file": "tradingbot/ml/integration/kernel_adapter.py",
+      "trigger_line": 138,
+      "condition": "raw_action == HOLD from orchestrator (regime block or engine none)",
+      "recovery": "Wait for regime/signal change on next bar"
+    },
+    {
+      "id": "calibration_hold",
+      "stage": "HoldStage.CALIBRATION",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 15,
+      "trigger_file": "tradingbot/ml/integration/kernel_adapter.py",
+      "trigger_line": 141,
+      "condition": "calibrated.final_action not in BUY/SELL",
+      "recovery": "Calibration adapter may pass on higher confidence bar"
+    },
+    {
+      "id": "trade_quality_hold",
+      "stage": "HoldStage.TRADE_QUALITY",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 16,
+      "trigger_file": "tradingbot/ml/integration/kernel_adapter.py",
+      "trigger_lines": "245-246",
+      "condition": "not risk.allowed or not quality.allowed",
+      "filters": [
+        "AdaptiveRiskEngine",
+        "TradeQualityEngine"
+      ],
+      "recovery": "Next bar re-evaluates quality/risk scores"
+    },
+    {
+      "id": "rsi_filter_hold",
+      "stage": "HoldStage.RSI_FILTER",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 17,
+      "trigger_file": "tradingbot/ml/integration/kernel_adapter.py",
+      "trigger_line": 247,
+      "condition": "filt blocked_by contains rsi_filter",
+      "thresholds": "regime_filter_profiles RangeFilterProfile rsi 40-65 or Phase22C 35-65"
+    },
+    {
+      "id": "adx_filter_hold",
+      "stage": "HoldStage.ADX_FILTER",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 18,
+      "condition": "filt blocked_by contains adx_filter"
+    },
+    {
+      "id": "signal_stage_silent_hold",
+      "file": "tradingbot/pipeline/signal_stage.py",
+      "line": 38,
+      "condition": "signal None or direction HOLD \u2014 stage returns False, no ctx.signal",
+      "note": "Not recorded in HoldChain \u2014 pipeline stops"
+    },
+    {
+      "id": "health_gate_fallback",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "line": 145,
+      "condition": "require_health fails \u2192 KernelFallbackError \u2192 legacy path or no ML signal",
+      "reasons": [
+        "unified_frame_empty",
+        "checksum invalid",
+        "pipeline_timeout"
+      ]
+    },
+    {
+      "id": "riskgate_hold",
+      "stage": "HoldStage.RISK_GATE",
+      "file": "tradingbot/ml/research/phase22c/hold_chain.py",
+      "line": 20,
+      "trigger_file": "tradingbot/pipeline/risk_stage.py",
+      "trigger_line": 37,
+      "condition": "not decision.allowed",
+      "recovery": "recorded via hold_chain if wired post-risk (production RiskStage does not call hold_chain directly)"
+    },
+    {
+      "id": "blocked_regime_hold",
+      "file": "tradingbot/ml/decision_engine/orchestrator.py",
+      "lines": "39-70",
+      "regimes": [
+        "HIGH_VOLATILITY",
+        "NO_TRADE"
+      ],
+      "detection": "rule_classify_row in regime_classifier.py"
+    }
+  ],
+  "hold_chain_enabled_default": true,
+  "hold_chain_file": "tradingbot/ml/research/phase22c/hold_chain.py",
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

@@ -1,0 +1,29 @@
+{
+  "phase": "22AF",
+  "title": "Freeze Pipeline Repair Design",
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false,
+  "verdict": "READY_FOR_IMPLEMENTATION",
+  "summary": "Minimal safe repair: Optimizer winner → acceptance PASS → contract-driven freeze → read-only registry → runtime. Remove hardcoded DEFAULT_CONFIG freeze and unguarded shadow auto-freeze paths. Prerequisite: acceptance rule calibration so gate can open.",
+  "authority_chain": "Optimizer winner (select_best)\n        ↓\nAcceptance gate (evaluate_acceptance == PASS)\n        ↓\nFreeze artifact (contract-driven retrain + persist)\n        ↓\nModel Registry (read-only load)\n        ↓\nRuntime (EngineRegistry / HealthGate / KernelAdapter)",
+  "minimum_production_files": [
+    "model_registry.py",
+    "optimization_orchestrator.py",
+    "report_generator.py",
+    "kernel_shadow_runner.py",
+    "shadow_engine.py"
+  ],
+  "guard_count": 5,
+  "migration_phases": [
+    "Contract + guards (research-only prototype)",
+    "Pipeline connection + side-path removal (approved production)",
+    "Runtime validation + operational hardening"
+  ],
+  "prerequisites": [
+    "Phase 22Y/22Z: acceptance rule overfitting_risk_decreased may block all freezes until calibrated",
+    "Ensure at least one candidate can PASS before first production freeze"
+  ],
+  "blocked_until": [
+    "Acceptance calibration (overfitting_risk_decreased) — otherwise freeze gate never opens"
+  ]
+}

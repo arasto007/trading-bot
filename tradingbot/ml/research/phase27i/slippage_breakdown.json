@@ -1,0 +1,17 @@
+{
+  "phase": "27I",
+  "slippage_atr_mult": 0.25,
+  "trade_count": 575,
+  "total_entry_slippage_loss": 803.9056,
+  "total_exit_slippage_loss": 803.9055,
+  "total_slippage_loss": 1607.8091,
+  "baseline_net_profit": 1101.1854,
+  "net_profit_after_slippage": -506.6237,
+  "slippage_pct_of_baseline_pnl": 146.01,
+  "avg_slippage_per_trade": 2.7962,
+  "baseline_expectancy": 1.9151,
+  "avg_slippage_vs_expectancy_ratio": 1.4601,
+  "entry_share_of_slippage_pct": 50.0,
+  "exit_share_of_slippage_pct": 50.0,
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

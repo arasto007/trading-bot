@@ -1,0 +1,273 @@
+{
+  "phase": "22AC",
+  "title": "Model Registry Architecture Map",
+  "artifact_state": {
+    "root": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best",
+    "model.pkl": true,
+    "scaler.pkl": true,
+    "feature_order.json": true,
+    "config.json": true,
+    "metadata.json": true,
+    "robustness_report": true
+  },
+  "model_registry": {
+    "file": "tradingbot/ml/paper_trading/model_registry.py",
+    "exports": [
+      "DEFAULT_CONFIG",
+      "PHASE99_ALIAS",
+      "Phase99Bundle",
+      "IntegrityResult",
+      "freeze_phase9_9_artifacts",
+      "load_phase9_9_bundle",
+      "verify_bundle_integrity"
+    ],
+    "callees": [
+      {
+        "module": "tradingbot.ml.data.paths",
+        "symbols": [
+          "phase9_9_* path helpers"
+        ]
+      },
+      {
+        "module": "tradingbot.ml.research.regime_optimization.regime_utils",
+        "symbols": [
+          "apply_event_filter",
+          "assign_market_regime"
+        ]
+      },
+      {
+        "module": "tradingbot.ml.research.robustness_optimizer.model_regularization",
+        "symbols": [
+          "ModelCandidateConfig",
+          "create_regularized_model"
+        ]
+      },
+      {
+        "module": "tradingbot.ml.research.research_utils",
+        "symbols": [
+          "dataset_content_fingerprint"
+        ]
+      },
+      {
+        "module": "tradingbot.ml.training.data_loader",
+        "symbols": [
+          "filter_resolved_labels"
+        ]
+      },
+      {
+        "module": "joblib",
+        "symbols": [
+          "dump",
+          "load"
+        ]
+      }
+    ],
+    "callers": [
+      {
+        "component": "EngineRegistry.build_default",
+        "file": "tradingbot/ml/phase15a/engine_registry.py",
+        "calls": [
+          "load_phase9_9_bundle",
+          "verify_bundle_integrity"
+        ]
+      },
+      {
+        "component": "HealthGate.run_pre_decision_health",
+        "file": "tradingbot/ml/integration/health_gate.py",
+        "calls": [
+          "load_phase9_9_bundle",
+          "verify_bundle_integrity"
+        ]
+      },
+      {
+        "component": "PipelineCache",
+        "file": "tradingbot/ml/integration/pipeline_cache.py",
+        "calls": [
+          "load_phase9_9_bundle"
+        ]
+      },
+      {
+        "component": "ShadowEngine.run",
+        "file": "tradingbot/ml/paper_trading/shadow_engine.py",
+        "calls": [
+          "load_phase9_9_bundle(build_if_missing=True)"
+        ]
+      },
+      {
+        "component": "KernelShadowRunner._ensure_artifacts",
+        "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+        "calls": [
+          "freeze_phase9_9_artifacts"
+        ]
+      },
+      {
+        "component": "MLAdapter.load",
+        "file": "tradingbot/ml/shadow/ml_adapter.py",
+        "calls": [
+          "load_phase9_9_bundle"
+        ]
+      },
+      {
+        "component": "RangeEngineAdapter.load",
+        "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+        "calls": [
+          "load_phase9_9_bundle(base_dir=None)"
+        ]
+      },
+      {
+        "component": "PaperTradingConfig.validate_frozen_model",
+        "file": "tradingbot/ml/paper/config.py",
+        "calls": [
+          "DEFAULT_CONFIG",
+          "load_phase9_9_bundle"
+        ]
+      }
+    ]
+  },
+  "DEFAULT_CONFIG": {
+    "defined_in": "tradingbot/ml/paper_trading/model_registry.py",
+    "imported_by": [
+      "tradingbot/ml/paper/config.py → EXPECTED_FEATURES",
+      "tests/test_ml_paper_phase9_10.py",
+      "research phase22v model_audit (fallback)"
+    ],
+    "runtime_authority": "freeze write path; NOT optimizer select_best output"
+  },
+  "bundle_loading": {
+    "entry": "load_phase9_9_bundle",
+    "default_build_if_missing": true,
+    "production_build_if_missing": false,
+    "discovery": {
+      "root": "data/ml/research/phase9_9_best/",
+      "resolver": "tradingbot.ml.data.paths.phase9_9_artifacts_root",
+      "base_dir_none_means": "project data/ml/ (normalize_ml_base_dir maps legacy BASE_DIR to None)"
+    },
+    "load_sequence": [
+      "phase9_9_model_path → joblib.load(model)",
+      "phase9_9_scaler_path → joblib.load(scaler)",
+      "phase9_9_feature_order_path → json feature_order",
+      "phase9_9_config_path → json config",
+      "phase9_9_metadata_path → json metadata (optional empty dict)"
+    ],
+    "auto_freeze_trigger": "model.pkl missing AND build_if_missing=True AND training_df provided"
+  },
+  "artifact_discovery": {
+    "root": "data/ml/research/phase9_9_best/",
+    "resolver": "tradingbot.ml.data.paths.phase9_9_artifacts_root",
+    "base_dir_none_means": "project data/ml/ (normalize_ml_base_dir maps legacy BASE_DIR to None)"
+  },
+  "metadata_loading": {
+    "writer": "freeze_phase9_9_artifacts",
+    "reader": "load_phase9_9_bundle",
+    "fields_written": [
+      "phase",
+      "frozen_at_utc",
+      "candidate_id",
+      "feature_subset",
+      "train_rows",
+      "dataset_fingerprint",
+      "robustness_score"
+    ],
+    "robustness_score_source": "phase9_9_robustness_report.json best_candidate.robustness_score (0.0 if missing)",
+    "direct_readers": [
+      {
+        "file": "tradingbot/ml/integration/health_gate.py",
+        "function": "run_pre_decision_health",
+        "check": "phase9_fingerprint vs EXPECTED_DATASET_FINGERPRINT"
+      },
+      {
+        "file": "tradingbot/ml/paper/config.py",
+        "function": "validate_frozen_model",
+        "check": "metadata.phase in (9.9, 9.10, 11)"
+      }
+    ]
+  },
+  "feature_order_loading": {
+    "writer": "freeze_phase9_9_artifacts → feature_order.json",
+    "reader_keys": [
+      "feature_order",
+      "features"
+    ],
+    "consumers": [
+      "Phase99Bundle.transform",
+      "verify_bundle_integrity",
+      "HealthGate (phase9_feature_order_file existence)",
+      "RangeEngineAdapter._features_from_row",
+      "paper/config EXPECTED_FEATURES (from DEFAULT_CONFIG, not artifact at import time)"
+    ]
+  },
+  "runtime_components": {
+    "EngineRegistry": {
+      "file": "tradingbot/ml/phase15a/engine_registry.py",
+      "role": "Register RANGE + TREND production engines",
+      "registry_calls": [
+        "load_phase9_9_bundle(build_if_missing=False)",
+        "RangeEngineAdapter.load",
+        "load_trend_bundle"
+      ],
+      "called_by": [
+        "PipelineCache.get_registry",
+        "HealthGate.run_pre_decision_health (registry param)",
+        "phase15 orchestrators"
+      ]
+    },
+    "HealthGate": {
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "role": "Pre-decision integrity; Kernel fallback on failure",
+      "registry_calls": [
+        "load_phase9_9_bundle(build_if_missing=False)",
+        "verify_bundle_integrity",
+        "phase9_9_metadata_path",
+        "phase9_9_feature_order_path"
+      ],
+      "called_by": [
+        "require_health",
+        "kernel integration orchestrators"
+      ]
+    },
+    "ShadowEngine": {
+      "file": "tradingbot/ml/paper_trading/shadow_engine.py",
+      "role": "Paper shadow validation; CAN auto-freeze",
+      "registry_calls": [
+        "load_phase9_9_bundle(build_if_missing=True, training_df=raw)"
+      ],
+      "called_by": [
+        "paper trading CLI / orchestrators"
+      ]
+    },
+    "KernelShadowRunner": {
+      "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "role": "Kernel-integrated shadow replay; direct freeze if model.pkl missing",
+      "registry_calls": [
+        "freeze_phase9_9_artifacts via _ensure_artifacts"
+      ],
+      "called_by": [
+        "kernel shadow integration"
+      ]
+    },
+    "MLAdapter": {
+      "file": "tradingbot/ml/shadow/ml_adapter.py",
+      "role": "Phase 10 ML predictions from frozen bundle",
+      "registry_calls": [
+        "load_phase9_9_bundle(build_if_missing=training_df is not None)"
+      ],
+      "called_by": [
+        "shadow strategy / kernel bridge"
+      ]
+    },
+    "PipelineCache": {
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "role": "Singleton cache for registry and bundles",
+      "registry_calls": [
+        "EngineRegistry.build_default(build_trend_if_missing=False)",
+        "load_phase9_9_bundle(build_if_missing=False)"
+      ],
+      "called_by": [
+        "live ML kernel pipeline"
+      ],
+      "note": "Does NOT trigger rebuild; read-only load path"
+    }
+  },
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

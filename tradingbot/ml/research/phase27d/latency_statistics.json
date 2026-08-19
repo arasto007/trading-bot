@@ -1,0 +1,10 @@
+{
+  "count": 5203,
+  "average_ms": 276.844,
+  "median_ms": 275.375,
+  "p95_ms": 338.806,
+  "p99_ms": 384.274,
+  "over_500ms_count": 0,
+  "timeout_rate_pct": 0.0,
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

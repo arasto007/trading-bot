@@ -1,0 +1,15 @@
+%% Phase 34B — Session decision flow (Phase 34A percentages on 7d M5 data)
+flowchart TD
+    BARS["1936 M5 bars scanned"] --> EVAL{Signal evaluation}
+    EVAL -->|"78.3% SESSION block"| BLOCKED["Blocked outside 12-17 UTC"]
+    EVAL -->|"21.7% in-session"| CONF{Confluence check}
+    CONF -->|"21.3% no confluence"| CBLOCK["Blocked: MTF/VOL disagree"]
+    CONF -->|"0.4% signal"| SIG["Signal produced"]
+    SIG -->|"37.5% risk/cooldown est."| RBLOCK["RiskGate block"]
+    SIG -->|"62.5% executed"| EXEC["MT5 Execute"]
+    EXEC --> PM["PositionManager"]
+
+    style BLOCKED fill:#faa,stroke:#800
+    style CBLOCK fill:#fcc,stroke:#a00
+    style SIG fill:#afa,stroke:#080
+    style EXEC fill:#9cf,stroke:#006

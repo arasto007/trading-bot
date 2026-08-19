@@ -1,0 +1,28 @@
+{
+  "phase": "23C",
+  "classification": "EXECUTION_GATE_BLOCKING",
+  "first_gate_blocking_actionable_signals": "Phase22C RSI/ADX filters",
+  "first_gate_block_count": 9,
+  "block_counts_by_stage": {
+    "decision_policy": 0,
+    "calibration": 0,
+    "risk": 0,
+    "quality": 0,
+    "profitability_filter": 9
+  },
+  "engine_actionable_total": 18,
+  "sample_bar_first_block": {
+    "stage": "ProfitabilityFilter",
+    "reason": [
+      "rsi_filter"
+    ]
+  },
+  "confidence_0_133_explanation": {
+    "probability": 0.434,
+    "formula": "confidence = abs(probability - 0.5) * 2.0",
+    "computed_confidence": 0.132,
+    "note": "Distance from 0.5 mapped to [0, 1]; max at prob 0 or 1."
+  },
+  "summary": "Raw engine confidence abs(p-0.5)*2 yields ~0.133 at prob 0.434; RangeAwareConfidenceEngine recovers directional probability before DecisionPolicy. On current RANGE replay, decision and Platt calibration pass all 18 engine SELLs; Phase22C RSI/ADX profitability filters block half before KernelAdapter emits a unified signal.",
+  "generated_utc": "2026-07-08T00:16:51.544152+00:00"
+}

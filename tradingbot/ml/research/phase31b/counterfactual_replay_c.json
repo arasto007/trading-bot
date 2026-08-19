@@ -1,0 +1,71 @@
+{
+  "phase": "31B",
+  "replay_id": "C",
+  "name": "Remove MIN_LOT_LIMIT Distortion",
+  "description": "Rescale dollar PnL to configured risk (requested lot economics).",
+  "root_cause_tested": "min_lot_oversize_risk",
+  "transformation_notes": {
+    "transformation": "pnl * (dollar_risk_configured / dollar_risk_actual)",
+    "avg_scale_ratio": 0.077512,
+    "min_lot_trades": 489,
+    "pf_invariant_expected": true,
+    "distortion_type": "dollar_risk_amplification_not_edge_shape"
+  },
+  "metrics": {
+    "label": "C",
+    "trade_count": 489,
+    "profit_factor": 1.2097,
+    "expectancy": 0.0196,
+    "sharpe_ratio": 16.8414,
+    "sortino_ratio": 15.9527,
+    "max_drawdown_pct": 2.4361,
+    "max_drawdown_abs": 5.0372,
+    "net_profit": 9.568,
+    "recovery_factor": 1.8995,
+    "win_rate_pct": 53.17,
+    "edge_contribution": 9.568,
+    "gross_wins": 55.1856,
+    "gross_losses": 45.6176
+  },
+  "baseline_metrics": {
+    "label": "baseline",
+    "trade_count": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "sharpe_ratio": 19.3263,
+    "sortino_ratio": 17.9567,
+    "max_drawdown_pct": 24.264,
+    "max_drawdown_abs": 74.4372,
+    "net_profit": 136.1007,
+    "recovery_factor": 1.8284,
+    "win_rate_pct": 53.17,
+    "edge_contribution": 136.1007,
+    "gross_wins": 781.1407,
+    "gross_losses": 645.04
+  },
+  "isolated_edge_gain": {
+    "net_profit": -126.5327,
+    "profit_factor": -0.0013,
+    "expectancy": -0.2587,
+    "sharpe_ratio": -2.4849,
+    "sortino_ratio": -2.004,
+    "max_drawdown_pct": -21.8279,
+    "win_rate_pct": 0.0,
+    "trade_count": 0
+  },
+  "pct_change": {
+    "net_profit_pct": -92.97,
+    "profit_factor_pct": -0.11,
+    "expectancy_pct": -92.96
+  },
+  "interaction_effect": "See causal_validation.json \u2014 replays are independent",
+  "confidence": 90,
+  "statistical_significance": "HIGH",
+  "bootstrap_pf_ci": {
+    "pf_low": 0.8878,
+    "pf_high": 1.5733,
+    "confidence": 95.0
+  },
+  "implementation_complexity": "HIGH",
+  "generated_utc": "2026-07-10T15:54:16.375807+00:00"
+}

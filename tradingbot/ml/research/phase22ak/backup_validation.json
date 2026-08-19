@@ -1,0 +1,19 @@
+{
+  "phase": "22AK",
+  "backup_required": true,
+  "backup_created": true,
+  "backup_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "backup_dir": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "backup_files_present": {
+    "model.pkl": true,
+    "scaler.pkl": true,
+    "feature_order.json": true,
+    "config.json": true,
+    "metadata.json": true,
+    "freeze_manifest.json": false
+  },
+  "backup_checksums_match_before": true,
+  "manifest_backup_path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "new_backup_dir": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best_backup\\20260707T201028Z",
+  "generated_utc": "2026-07-07T20:10:07.341172+00:00"
+}

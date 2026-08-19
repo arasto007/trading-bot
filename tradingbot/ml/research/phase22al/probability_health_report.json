@@ -1,0 +1,39 @@
+{
+  "phase": "22AL",
+  "reference_dataset": "full_dataset_v2",
+  "buy_coverage_pct": 5.1896,
+  "sell_coverage_pct": 76.0479,
+  "probability_std": 0.117291,
+  "min_probability": 0.078652,
+  "max_probability": 0.768071,
+  "probability_gate_passed": true,
+  "probability_gate_checks": {
+    "buy_coverage_nonzero": true,
+    "sell_coverage_nonzero": true,
+    "max_probability_ge_buy_threshold": true,
+    "min_probability_le_sell_threshold": true,
+    "probability_std_ge_minimum": true,
+    "distribution_not_collapsed": true
+  },
+  "rejection_reasons": [],
+  "no_collapse": true,
+  "no_single_side_degeneration": true,
+  "per_dataset": {
+    "A": {
+      "buy_coverage_pct": 0.0,
+      "sell_coverage_pct": 0.0,
+      "probability_gate_passed": false
+    },
+    "B": {
+      "buy_coverage_pct": 10.2564,
+      "sell_coverage_pct": 67.9487,
+      "probability_gate_passed": true
+    },
+    "full_dataset_v2": {
+      "buy_coverage_pct": 5.1896,
+      "sell_coverage_pct": 76.0479,
+      "probability_gate_passed": true
+    }
+  },
+  "generated_utc": "2026-07-07T20:55:43.625976+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "phase": "30C",
+  "minimum_data": {
+    "fields": [
+      "timestamp_utc",
+      "bid",
+      "ask",
+      "last",
+      "volume",
+      "flags"
+    ],
+    "frequency": "Every tick or 100ms sampled for XAUUSD during overlap",
+    "history_depth_days": 30,
+    "alignment": "UTC; synchronized with M5 bar timestamps"
+  },
+  "sources": [
+    {
+      "source": "MT5 symbol_info_tick stream export",
+      "priority": 1
+    },
+    {
+      "source": "Broker statement fill logs",
+      "priority": 1
+    },
+    {
+      "source": "Candle close proxy",
+      "priority": 3,
+      "adequacy": "insufficient for twin"
+    }
+  ],
+  "storage": "tradingbot/ml/research/phase30d/tick_store/ (proposed)",
+  "validation": "bid <= ask; spread positive; no backward time",
+  "replay_mode": "Tick replay for fill path; bar replay for signal path unchanged",
+  "generated_utc": "2026-07-10T08:54:32.599759+00:00"
+}

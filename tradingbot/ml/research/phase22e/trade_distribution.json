@@ -1,0 +1,62 @@
+{
+  "phase": "22E",
+  "per_timeframe": {
+    "M5": {
+      "label": "M5",
+      "total_trades": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 0.0,
+      "trend_pct": 0.0,
+      "range_pct": 0.0,
+      "long_win_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "short_loss_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "monthly_trades": {},
+      "weekly_trades": {},
+      "daily_trades": {}
+    },
+    "M15": {
+      "label": "M15",
+      "total_trades": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 0.0,
+      "trend_pct": 0.0,
+      "range_pct": 0.0,
+      "long_win_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "short_loss_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "monthly_trades": {},
+      "weekly_trades": {},
+      "daily_trades": {}
+    },
+    "H4": {
+      "label": "H4",
+      "total_trades": 0,
+      "buy_pct": 0.0,
+      "sell_pct": 0.0,
+      "trend_pct": 0.0,
+      "range_pct": 0.0,
+      "long_win_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "short_loss_streaks": {
+        "max": 0,
+        "current": 0
+      },
+      "monthly_trades": {},
+      "weekly_trades": {},
+      "daily_trades": {}
+    }
+  }
+}

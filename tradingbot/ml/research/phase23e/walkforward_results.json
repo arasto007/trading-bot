@@ -1,0 +1,1162 @@
+{
+  "phase": "23E",
+  "method": "Phase19C chronological folds — fixed thresholds",
+  "profiles": [
+    {
+      "profile_id": "f2b3f3a1c2d7",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 40.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "a4fe5f84ce2d",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 45.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "a6f21905bf2d",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 50.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "3542d6ab87d8",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 55.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "3ca6b2f789b6",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 60.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "a095db8ed3e0",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 100.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 20,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.25,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.153846,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 16,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 6.0,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.25,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "db9c192175f4",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 40.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "423e0a673a8e",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 45.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "c54b7be218c5",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 50.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "5286ce9003db",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 55.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "2acdeac2c6ac",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 60.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "961cd85bc37c",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 70.0,
+      "adx_min": 15.0,
+      "adx_max": 100.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 22,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.285714,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.045455,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 28,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.294118,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.178571,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 12,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.0,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.5,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "6aa132575d50",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 40.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "5619b2ef95a4",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 45.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "6c104f1149be",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 50.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "056d0178a16c",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 55.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "344e58862d00",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 60.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "9d9cb8069f3f",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 40.0,
+      "rsi_max": 60.0,
+      "adx_min": 15.0,
+      "adx_max": 100.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 17,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 4.8,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.117647,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.5,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.285714,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 4.5,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.076923,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 11,
+          "baseline_pf": 2.4,
+          "filtered_pf": 1.666667,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.363636,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "2b7df74d9103",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 35.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 40.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 5.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.142857,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 29,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.052632,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.034483,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 18,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 5.2,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.166667,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.333333,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.615385,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "e4fa2ff44ed7",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 35.0,
+      "rsi_max": 65.0,
+      "adx_min": 15.0,
+      "adx_max": 45.0,
+      "n_folds": 4,
+      "stable_folds": 3,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 21,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 5.0,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 1.142857,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 29,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 1.052632,
+          "baseline_exp": -0.113636,
+          "filtered_exp": 0.034483,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 18,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 5.2,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 1.166667,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 13,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.333333,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.615385,
+          "improved": false
+        }
+      ]
+    },
+    {
+      "profile_id": "production_phase22c",
+      "mode": "both",
+      "enable_rsi_filter": true,
+      "enable_adx_filter": true,
+      "rsi_min": 35.0,
+      "rsi_max": 65.0,
+      "adx_min": 10.0,
+      "adx_max": 55.0,
+      "n_folds": 4,
+      "stable_folds": 4,
+      "stable": true,
+      "folds": [
+        {
+          "fold": 0,
+          "test_trades": 44,
+          "filtered_trades": 34,
+          "baseline_pf": 2.888889,
+          "filtered_pf": 3.666667,
+          "baseline_exp": 0.772727,
+          "filtered_exp": 0.941176,
+          "improved": true
+        },
+        {
+          "fold": 1,
+          "test_trades": 44,
+          "filtered_trades": 35,
+          "baseline_pf": 0.83871,
+          "filtered_pf": 0.916667,
+          "baseline_exp": -0.113636,
+          "filtered_exp": -0.057143,
+          "improved": true
+        },
+        {
+          "fold": 2,
+          "test_trades": 44,
+          "filtered_trades": 26,
+          "baseline_pf": 1.826087,
+          "filtered_pf": 3.2,
+          "baseline_exp": 0.431818,
+          "filtered_exp": 0.846154,
+          "improved": true
+        },
+        {
+          "fold": 3,
+          "test_trades": 44,
+          "filtered_trades": 30,
+          "baseline_pf": 2.4,
+          "filtered_pf": 2.615385,
+          "baseline_exp": 0.636364,
+          "filtered_exp": 0.7,
+          "improved": true
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-08T00:42:37.753828+00:00"
+}

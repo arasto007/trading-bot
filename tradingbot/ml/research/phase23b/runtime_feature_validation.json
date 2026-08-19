@@ -1,0 +1,67 @@
+{
+  "phase": "23B",
+  "runtime_sample": {
+    "feature_order": [
+      "candle_direction",
+      "structure_distance",
+      "ema50_slope",
+      "ema_cross_state"
+    ],
+    "phase99_merge_values": {
+      "phase99_ema50_slope": null,
+      "phase99_candle_direction": null,
+      "phase99_structure_distance": null,
+      "phase99_ema_cross_state": null
+    },
+    "evaluation": {
+      "signal": "SELL",
+      "probability": 0.433644,
+      "confidence": 0.132712,
+      "sl": 4043.329286,
+      "tp": 4026.411428,
+      "model_version": "phase9_9_best",
+      "regime": "RANGE",
+      "engine": "phase9_9",
+      "entry": 4037.69,
+      "risk_pct": 0.005,
+      "predict_proba_called": true,
+      "feature_validation_failed": false,
+      "feature_source": "feature_builder",
+      "feature_vector": {
+        "candle_direction": 1.0,
+        "structure_distance": 0.0,
+        "ema50_slope": -0.452614,
+        "ema_cross_state": -1.0
+      },
+      "timeframe": "M5"
+    },
+    "predict_proba_called": true,
+    "feature_source": "feature_builder",
+    "feature_vector": {
+      "candle_direction": 1.0,
+      "structure_distance": 0.0,
+      "ema50_slope": -0.452614,
+      "ema_cross_state": -1.0
+    },
+    "signal_distribution": {
+      "signal": "SELL",
+      "probability": 0.433644,
+      "confidence": 0.132712
+    }
+  },
+  "range_batch": {
+    "range_bars_evaluated": 18,
+    "predict_proba_called": 18,
+    "range_actionable_signals": 15,
+    "model_pass_proxy": 15
+  },
+  "checks": {
+    "feature_order_identical": true,
+    "ema_cross_state_delivered": true,
+    "predict_proba_executed": true,
+    "feature_builder_primary": true,
+    "no_silent_zero_injection_on_missing_merge": true,
+    "model_pass_proxy_gt_zero": true
+  },
+  "generated_utc": "2026-07-08T00:04:15.781759+00:00"
+}

@@ -1,0 +1,111 @@
+{
+  "phase": "22AF",
+  "name": "FreezeContract",
+  "version": "1.0",
+  "description": "Typed input connecting optimizer winner to artifact writer",
+  "required_fields": {
+    "candidate_id": {
+      "type": "string",
+      "source": "best_candidate.candidate_id",
+      "example": "random_forest_shallow",
+      "validation": "Must exist in build_regularized_candidates grid"
+    },
+    "model_type": {
+      "type": "string",
+      "source": "best_candidate.model_name",
+      "example": "random_forest",
+      "validation": "Must be supported by create_regularized_model"
+    },
+    "feature_subset": {
+      "type": "string",
+      "source": "best_candidate.feature_subset",
+      "example": "stable_4",
+      "validation": "Key must exist in feature_subsets from feature research"
+    },
+    "features": {
+      "type": "list[str]",
+      "source": "feature_subsets[feature_subset]",
+      "validation": "Non-empty; chronological order preserved"
+    },
+    "hyperparameters": {
+      "type": "dict",
+      "source": "experiment hyperparameters from grid / best row",
+      "validation": "Passed to create_regularized_model"
+    },
+    "thresholds": {
+      "type": "dict",
+      "fields": {
+        "buy_threshold": 0.55,
+        "sell_threshold": 0.45,
+        "tp_r": 2.0,
+        "sl_r": 1.0,
+        "risk_pct": 0.005
+      },
+      "source": "Phase 9.9 policy defaults or config.json legacy until optimizer owns thresholds"
+    },
+    "regime": {
+      "type": "string",
+      "source": "best_candidate.regime",
+      "default": "RANGE"
+    },
+    "event_filter": {
+      "type": "string",
+      "default": "A_all_events"
+    },
+    "validation_metrics": {
+      "type": "dict",
+      "required_keys": [
+        "robustness_score",
+        "overfitting_risk",
+        "mean_profit_factor",
+        "mean_expectancy",
+        "mean_auc_gap",
+        "profitable_windows",
+        "window_count",
+        "composite_score"
+      ],
+      "source": "best_candidate row"
+    },
+    "probability_metrics": {
+      "type": "dict",
+      "required_keys": [
+        "buy_coverage_pct",
+        "sell_coverage_pct",
+        "probability_std",
+        "min_probability",
+        "max_probability",
+        "probability_gate_passed"
+      ],
+      "source": "best_candidate probability fields"
+    },
+    "acceptance_status": {
+      "type": "dict",
+      "required_keys": [
+        "final_verdict",
+        "checks"
+      ],
+      "source": "evaluate_acceptance output",
+      "rule": "final_verdict must be PASS before freeze"
+    }
+  },
+  "metadata_extensions": {
+    "experiment_id": "best_candidate.experiment_id",
+    "report_path": "phase9_9_robustness_report_path",
+    "report_checksum_sha256": "hash of report at freeze time",
+    "acceptance_snapshot": "full acceptance dict",
+    "frozen_at_utc": "ISO timestamp",
+    "dataset_fingerprint": "dataset_content_fingerprint(df)",
+    "train_protocol": "documented e.g. chronological_85pct_refit",
+    "phase": "9.9"
+  },
+  "artifact_outputs": [
+    "model.pkl",
+    "scaler.pkl",
+    "feature_order.json",
+    "config.json",
+    "metadata.json",
+    "freeze_manifest.json"
+  ],
+  "generated_utc": "2026-07-07T19:32:15.094049+00:00",
+  "production_modified": false
+}

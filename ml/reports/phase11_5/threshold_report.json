@@ -1,0 +1,293 @@
+{
+  "current_thresholds": {
+    "buy": 0.55,
+    "sell": 0.45,
+    "buy_threshold": 0.55,
+    "sell_threshold": 0.45,
+    "signal_count": 0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "best_thresholds": {
+    "buy_threshold": 0.5,
+    "sell_threshold": 0.4,
+    "signal_count": 0,
+    "trades": 0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "expectancy_r": 0.0,
+    "max_drawdown": 0.0,
+    "total_pnl": 0.0
+  },
+  "grid": [
+    {
+      "buy_threshold": 0.5,
+      "sell_threshold": 0.4,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.5,
+      "sell_threshold": 0.43,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.5,
+      "sell_threshold": 0.45,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.5,
+      "sell_threshold": 0.47,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.52,
+      "sell_threshold": 0.4,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.52,
+      "sell_threshold": 0.43,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.52,
+      "sell_threshold": 0.45,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.52,
+      "sell_threshold": 0.47,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.52,
+      "sell_threshold": 0.5,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.4,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.43,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.45,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.47,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.55,
+      "sell_threshold": 0.5,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.57,
+      "sell_threshold": 0.4,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.57,
+      "sell_threshold": 0.43,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.57,
+      "sell_threshold": 0.45,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.57,
+      "sell_threshold": 0.47,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.57,
+      "sell_threshold": 0.5,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.6,
+      "sell_threshold": 0.4,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.6,
+      "sell_threshold": 0.43,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.6,
+      "sell_threshold": 0.45,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.6,
+      "sell_threshold": 0.47,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    },
+    {
+      "buy_threshold": 0.6,
+      "sell_threshold": 0.5,
+      "signal_count": 0,
+      "trades": 0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "expectancy_r": 0.0,
+      "max_drawdown": 0.0,
+      "total_pnl": 0.0
+    }
+  ],
+  "recommendation": "Consider buy=0.5 sell=0.4"
+}

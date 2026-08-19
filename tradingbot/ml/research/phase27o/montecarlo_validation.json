@@ -1,0 +1,175 @@
+{
+  "phase": "27O",
+  "split": "validation",
+  "strategies": {
+    "current_tp_sl": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 3604.4742,
+        "p05_net_profit": 3604.4742,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 3308.6546,
+          "worst_net": 2460.5991
+        },
+        "20pct": {
+          "median_net": 2996.1413,
+          "worst_net": 2067.1845
+        },
+        "30pct": {
+          "median_net": 2458.2579,
+          "worst_net": 1585.0091
+        }
+      },
+      "delay_1_bar_baseline_pnl": 545.1,
+      "failure_10pct_mean_pnl": 544.1658
+    },
+    "time_exit": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 21728.06,
+        "p05_net_profit": 21728.06,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 19485.775,
+          "worst_net": 16805.19
+        },
+        "20pct": {
+          "median_net": 17301.92,
+          "worst_net": 14108.13
+        },
+        "30pct": {
+          "median_net": 15211.695,
+          "worst_net": 11400.63
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "partial_close_50": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 2334.8385,
+        "p05_net_profit": 2334.8385,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 2083.1842,
+          "worst_net": 1571.4488
+        },
+        "20pct": {
+          "median_net": 1919.2096,
+          "worst_net": 1158.4661
+        },
+        "30pct": {
+          "median_net": 1632.2285,
+          "worst_net": 859.5236
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "structure_exit": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 906.782,
+        "p05_net_profit": 906.782,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 790.7281,
+          "worst_net": 288.2648
+        },
+        "20pct": {
+          "median_net": 725.3174,
+          "worst_net": -133.4924
+        },
+        "30pct": {
+          "median_net": 620.1727,
+          "worst_net": -117.2593
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "hybrid_a": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 4386.3392,
+        "p05_net_profit": 4386.3392,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 3961.276,
+          "worst_net": 2967.3222
+        },
+        "20pct": {
+          "median_net": 3516.6079,
+          "worst_net": 2007.3659
+        },
+        "30pct": {
+          "median_net": 3051.7321,
+          "worst_net": 1735.6029
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "hybrid_d": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 4267.4526,
+        "p05_net_profit": 4267.4526,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 3860.0574,
+          "worst_net": 2862.4186
+        },
+        "20pct": {
+          "median_net": 3364.7229,
+          "worst_net": 2255.8408
+        },
+        "30pct": {
+          "median_net": 3035.9947,
+          "worst_net": 1812.1277
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    },
+    "hybrid_b": {
+      "sequence_shuffle": {
+        "simulations": 1000,
+        "median_net_profit": 8775.4671,
+        "p05_net_profit": 8775.4671,
+        "pct_profitable_sequences": 100.0
+      },
+      "missed_trades": {
+        "10pct": {
+          "median_net": 7900.6291,
+          "worst_net": 6474.7291
+        },
+        "20pct": {
+          "median_net": 7102.4343,
+          "worst_net": 5178.4555
+        },
+        "30pct": {
+          "median_net": 6070.3084,
+          "worst_net": 4676.8981
+        }
+      },
+      "delay_1_bar_baseline_pnl": null,
+      "failure_10pct_mean_pnl": null
+    }
+  },
+  "generated_utc": "2026-07-09T19:52:47.697862+00:00"
+}

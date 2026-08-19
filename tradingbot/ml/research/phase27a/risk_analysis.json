@@ -1,0 +1,17 @@
+{
+  "riskgate_rejected_signals": 0,
+  "blocked_executions": 0,
+  "rejection_reasons": {},
+  "lot_size_distribution": [],
+  "average_risk_percent": 0.0,
+  "maximum_risk_percent": null,
+  "sl_distance_avg": 0.0,
+  "tp_distance_avg": 0.0,
+  "rr_distribution": [],
+  "mae_avg": 0.0,
+  "mfe_avg": 0.0,
+  "mae_mfe_ratio": null,
+  "killswitch_activity": 0,
+  "emergency_stop_activity": 0,
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

@@ -1,0 +1,326 @@
+{
+  "phase": "30A",
+  "scenarios": {
+    "normal": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 226.3914,
+        "net_profit": 26.3914,
+        "gross_profit": 569.1556,
+        "gross_loss": -542.7642,
+        "profit_factor": 1.0486,
+        "expectancy": 0.054,
+        "recovery_factor": 0.306,
+        "sharpe_ratio": 6.1463,
+        "sortino_ratio": 6.0827,
+        "calmar_ratio": 0.3428,
+        "max_drawdown_pct": 38.4953,
+        "max_drawdown_abs": 86.243,
+        "completed_trades": 489,
+        "win_rate_pct": 48.67,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 82.99,
+        "min_score": 64.11,
+        "max_score": 91.02,
+        "p50_score": 84.5
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 77.1,
+        "partial_fill_pct": 22.9,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 12,
+          "0.25": 27,
+          "0.5": 36,
+          "0.75": 37,
+          "1.0": 377
+        },
+        "mean_fill_ratio": 0.8783
+      }
+    },
+    "high_spread": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 42.1098,
+        "net_profit": -157.8902,
+        "gross_profit": 483.0141,
+        "gross_loss": -640.9043,
+        "profit_factor": 0.7536,
+        "expectancy": -0.3229,
+        "recovery_factor": -0.798,
+        "sharpe_ratio": 9.4826,
+        "sortino_ratio": 21.2863,
+        "calmar_ratio": -0.8056,
+        "max_drawdown_pct": 97.9913,
+        "max_drawdown_abs": 197.8682,
+        "completed_trades": 489,
+        "win_rate_pct": 42.54,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 75.01,
+        "min_score": 54.39,
+        "max_score": 84.9,
+        "p50_score": 76.53
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 77.1,
+        "partial_fill_pct": 22.9,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 12,
+          "0.25": 27,
+          "0.5": 36,
+          "0.75": 37,
+          "1.0": 377
+        },
+        "mean_fill_ratio": 0.8783
+      }
+    },
+    "high_slippage": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 213.6777,
+        "net_profit": 13.6777,
+        "gross_profit": 562.6878,
+        "gross_loss": -549.0101,
+        "profit_factor": 1.0249,
+        "expectancy": 0.028,
+        "recovery_factor": 0.154,
+        "sharpe_ratio": 4.6995,
+        "sortino_ratio": 4.7085,
+        "calmar_ratio": 0.1676,
+        "max_drawdown_pct": 40.8063,
+        "max_drawdown_abs": 88.8342,
+        "completed_trades": 489,
+        "win_rate_pct": 48.06,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 81.71,
+        "min_score": 62.78,
+        "max_score": 89.2,
+        "p50_score": 83.42
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 77.1,
+        "partial_fill_pct": 22.9,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 12,
+          "0.25": 27,
+          "0.5": 36,
+          "0.75": 37,
+          "1.0": 377
+        },
+        "mean_fill_ratio": 0.8783
+      }
+    },
+    "high_latency": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 220.2435,
+        "net_profit": 20.2435,
+        "gross_profit": 566.1211,
+        "gross_loss": -545.8776,
+        "profit_factor": 1.0371,
+        "expectancy": 0.0414,
+        "recovery_factor": 0.2315,
+        "sharpe_ratio": 5.4396,
+        "sortino_ratio": 5.4237,
+        "calmar_ratio": 0.256,
+        "max_drawdown_pct": 39.5381,
+        "max_drawdown_abs": 87.4293,
+        "completed_trades": 489,
+        "win_rate_pct": 48.26,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 76.97,
+        "min_score": 57.24,
+        "max_score": 86.5,
+        "p50_score": 78.21
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 77.1,
+        "partial_fill_pct": 22.9,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 12,
+          "0.25": 27,
+          "0.5": 36,
+          "0.75": 37,
+          "1.0": 377
+        },
+        "mean_fill_ratio": 0.8783
+      }
+    },
+    "low_liquidity": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 124.1324,
+        "net_profit": -75.8676,
+        "gross_profit": 307.0427,
+        "gross_loss": -382.9103,
+        "profit_factor": 0.8019,
+        "expectancy": -0.1551,
+        "recovery_factor": -0.6725,
+        "sharpe_ratio": -9.673,
+        "sortino_ratio": -9.2711,
+        "calmar_ratio": -0.6855,
+        "max_drawdown_pct": 55.3337,
+        "max_drawdown_abs": 112.8166,
+        "completed_trades": 489,
+        "win_rate_pct": 45.81,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 73.81,
+        "min_score": 57.66,
+        "max_score": 86.18,
+        "p50_score": 74.4
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 31.7,
+        "partial_fill_pct": 68.3,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 35,
+          "0.25": 69,
+          "0.5": 94,
+          "0.75": 136,
+          "1.0": 155
+        },
+        "mean_fill_ratio": 0.657
+      }
+    },
+    "news": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 75.4801,
+        "net_profit": -124.5199,
+        "gross_profit": 340.1525,
+        "gross_loss": -464.6724,
+        "profit_factor": 0.732,
+        "expectancy": -0.2546,
+        "recovery_factor": -0.8245,
+        "sharpe_ratio": -11.5731,
+        "sortino_ratio": -12.3008,
+        "calmar_ratio": -0.8291,
+        "max_drawdown_pct": 75.0951,
+        "max_drawdown_abs": 151.03,
+        "completed_trades": 489,
+        "win_rate_pct": 43.56,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 73.24,
+        "min_score": 55.12,
+        "max_score": 84.65,
+        "p50_score": 73.89
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 49.08,
+        "partial_fill_pct": 50.92,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 28,
+          "0.25": 61,
+          "0.5": 74,
+          "0.75": 86,
+          "1.0": 240
+        },
+        "mean_fill_ratio": 0.7296
+      }
+    },
+    "flash_crash": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 31.0836,
+        "net_profit": -168.9164,
+        "gross_profit": 235.6048,
+        "gross_loss": -404.5212,
+        "profit_factor": 0.5824,
+        "expectancy": -0.3454,
+        "recovery_factor": -0.9587,
+        "sharpe_ratio": -15.9443,
+        "sortino_ratio": -21.1968,
+        "calmar_ratio": -0.9609,
+        "max_drawdown_pct": 87.8945,
+        "max_drawdown_abs": 176.1968,
+        "completed_trades": 489,
+        "win_rate_pct": 40.08,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 63.87,
+        "min_score": 46.97,
+        "max_score": 76.59,
+        "p50_score": 64.25
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 18.0,
+        "partial_fill_pct": 82.0,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 44,
+          "0.25": 72,
+          "0.5": 115,
+          "0.75": 170,
+          "1.0": 88
+        },
+        "mean_fill_ratio": 0.5951
+      }
+    },
+    "weekend": {
+      "performance": {
+        "initial_balance": 200.0,
+        "final_balance": 76.071,
+        "net_profit": -123.929,
+        "gross_profit": 263.2201,
+        "gross_loss": -387.1491,
+        "profit_factor": 0.6799,
+        "expectancy": -0.2534,
+        "recovery_factor": -0.8851,
+        "sharpe_ratio": -17.7968,
+        "sortino_ratio": -19.3738,
+        "calmar_ratio": -0.8887,
+        "max_drawdown_pct": 69.7216,
+        "max_drawdown_abs": 140.0159,
+        "completed_trades": 489,
+        "win_rate_pct": 42.13,
+        "average_actual_risk_pct": 0.0
+      },
+      "execution_quality": {
+        "mean_score": 67.91,
+        "min_score": 51.28,
+        "max_score": 80.34,
+        "p50_score": 68.34
+      },
+      "fill_stats": {
+        "count": 489,
+        "full_fill_pct": 22.9,
+        "partial_fill_pct": 77.1,
+        "requote_pct": 2.04,
+        "fill_ratio_distribution": {
+          "0.0": 41,
+          "0.25": 70,
+          "0.5": 109,
+          "0.75": 157,
+          "1.0": 112
+        },
+        "mean_fill_ratio": 0.6171
+      }
+    }
+  },
+  "generated_utc": "2026-07-10T08:35:03.416574+00:00"
+}

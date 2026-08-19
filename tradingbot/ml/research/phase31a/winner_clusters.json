@@ -1,0 +1,124 @@
+{
+  "phase": "31A",
+  "count": 3,
+  "clusters": [
+    {
+      "cluster_id": 4,
+      "discovered_name": "low_confidence_winners",
+      "trade_count": 58,
+      "winners": 36,
+      "losers": 22,
+      "pf": 3.6685,
+      "expectancy": 1.6701,
+      "total_pnl": 96.8657,
+      "avg_mae": 0.1748,
+      "avg_mfe": 0.3056,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.8726,
+      "confidence_cluster": 61.9,
+      "importance": 71.17,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "confidence",
+          "z_score": -2.307
+        },
+        {
+          "feature": "risk_score",
+          "z_score": 0.49
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.273
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -0.273
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 0.248
+        }
+      ]
+    },
+    {
+      "cluster_id": 6,
+      "discovered_name": "high_missed_r_winners",
+      "trade_count": 82,
+      "winners": 59,
+      "losers": 23,
+      "pf": 5.6307,
+      "expectancy": 1.9805,
+      "total_pnl": 162.4,
+      "avg_mae": 0.1632,
+      "avg_mfe": 0.3284,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9883,
+      "confidence_cluster": 66.8,
+      "importance": 119.32,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": 1.592
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.457
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 0.36
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.313
+        },
+        {
+          "feature": "risk_score",
+          "z_score": 0.242
+        }
+      ]
+    },
+    {
+      "cluster_id": 1,
+      "discovered_name": "high_pnl_high_mfe_low_mae_winners",
+      "trade_count": 33,
+      "winners": 33,
+      "losers": 0,
+      "pf": 999.0,
+      "expectancy": 6.7017,
+      "total_pnl": 221.155,
+      "avg_mae": 0.0896,
+      "avg_mfe": 0.8961,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9951,
+      "confidence_cluster": 56.7,
+      "importance": 162.49,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "mfe",
+          "z_score": 2.243
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": 1.673
+        },
+        {
+          "feature": "mae_r",
+          "z_score": -1.212
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": 1.155
+        },
+        {
+          "feature": "mae",
+          "z_score": -0.564
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

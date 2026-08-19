@@ -1,0 +1,33 @@
+{
+  "phase": "28B",
+  "checks": {
+    "exit_engine_initialization": true,
+    "partial_close_execution": true,
+    "position_sizing_after_partial": true,
+    "remaining_position_tracking": true,
+    "timer_72_bars": true,
+    "timeout_exit": true,
+    "journal_logging": true,
+    "risk_accounting": true,
+    "pnl_accounting": true,
+    "commission_accounting": true,
+    "swap_accounting": true,
+    "mae_mfe_calculation": true,
+    "trade_statistics": true,
+    "paper_mode": true,
+    "live_mode": "deferred \u2014 paper exit path only in this phase"
+  },
+  "exit_modes_supported": [
+    "CURRENT",
+    "HYBRID_B"
+  ],
+  "production_files": [
+    "tradingbot/services/exit_mode.py",
+    "tradingbot/services/exit_policy.py",
+    "tradingbot/services/paper_trade_exit.py",
+    "tradingbot/services/paper_trade_recorder.py",
+    "tradingbot/ml/research/phase25b/replay_portfolio.py"
+  ],
+  "all_checks_pass": true,
+  "generated_utc": "2026-07-09T20:12:23.285865+00:00"
+}

@@ -1,0 +1,74 @@
+{
+  "phase": "30B",
+  "missing_in_production": [
+    {
+      "feature": "Session-variable spread",
+      "impact": "critical",
+      "phase30a_has": true
+    },
+    {
+      "feature": "Exit-leg spread and slippage",
+      "impact": "critical",
+      "phase30a_has": true
+    },
+    {
+      "feature": "Latency-to-price coupling",
+      "impact": "high",
+      "phase30a_has": false
+    },
+    {
+      "feature": "Live tick spread feed",
+      "impact": "high",
+      "phase30a_has": false
+    },
+    {
+      "feature": "Swap/commission accrual",
+      "impact": "medium",
+      "phase30a_has": false
+    },
+    {
+      "feature": "Gap-through-stop",
+      "impact": "high",
+      "phase30a_has": "partial"
+    },
+    {
+      "feature": "Economic calendar news detector",
+      "impact": "high",
+      "phase30a_has": "manual flags only"
+    },
+    {
+      "feature": "Margin stop-out simulation",
+      "impact": "medium",
+      "phase30a_has": false
+    },
+    {
+      "feature": "Order book / L2 depth",
+      "impact": "medium",
+      "phase30a_has": false
+    },
+    {
+      "feature": "Fill rejection / off-quotes",
+      "impact": "medium",
+      "phase30a_has": "partial requote only"
+    }
+  ],
+  "missing_in_phase30a_simulator": [
+    {
+      "feature": "Latency affects fill price",
+      "impact": "critical"
+    },
+    {
+      "feature": "Calibrated from live fill dataset",
+      "impact": "high"
+    },
+    {
+      "feature": "Intrabar tick path for SL",
+      "impact": "high"
+    },
+    {
+      "feature": "Broker-specific spread tables",
+      "impact": "medium"
+    }
+  ],
+  "generated_utc": "2026-07-10T08:44:28.833521+00:00"
+}

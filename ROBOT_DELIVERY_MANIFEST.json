@@ -1,0 +1,140 @@
+{
+  "version": "1.0",
+  "title_en": "Profitable Robot Delivery Manifest",
+  "title_fa": "مانیفست تحویل ربات سودآور",
+  "delivery_status": "S4_DEMO_ACTIVE",
+  "updated_utc": "2026-07-16T12:33:11Z",
+  "autonomous_mode": true,
+  "user_action_required": true,
+  "autonomous_status_file": "AUTONOMOUS_STATUS.json",
+  "autonomous_orchestrator": "logs/live_autonomous_orchestrator.ps1",
+  "autonomous_start": "logs/start_autonomous.bat",
+  "honest_assessment_en": "S4 demo limited live runner deployed. DEMO account guard + 0.01 lot / 1% risk / 2% daily kill. Paper shadow continues. Real-money blocked until H5+H6.",
+  "honest_assessment_fa": "L6 پاس — S2+S3 اعمال شد؛ مسیر shadow→production آماده demo؛ بدون سفارش real-money تا S4",
+  "hope_pct": 90,
+  "hope_pct_note_fa": "۹۰٪ — همه gateها پاس؛ مسیر shadow→limited live مشخص شد",
+  "best_strategy": {
+    "hypothesis_id": "VOL_REGIME",
+    "config_id": "ATR2.5_RR0.8",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "atr_sl_mult": 2.5,
+    "tp_rr": 0.8,
+    "ml_filter": "SKIP",
+    "backtest_pf_l27": 1.4262,
+    "shadow_pf_l3": 1.4037,
+    "capture_rate_l3_pct": 63.16
+  },
+  "paper_status": {
+    "status": "PAPER_RESUMED_AFTER_BACKTEST",
+    "resumed_utc": "2026-07-16T12:08:00Z",
+    "paused_utc": "2026-07-16T11:15:00Z",
+    "resume_note_en": "Paper resumed after BACKTEST_GATE + RR production research pass. Original 8-week clock preserved (started 2026-07-15). Catch-up scan during resume; early gate 50 trades reached.",
+    "resume_note_fa": "paper بعد از پاس BACKTEST_GATE و RR research ازسرگیری شد — ساعت ۸ هفته reset نشد.",
+    "monitor_pid": 1544,
+    "orchestrator_pid": 11764,
+    "observation_start_utc": "2026-07-15T06:33:19.0000000Z",
+    "end_date_utc": "2026-09-09T06:33:19.0000000Z",
+    "trade_count": 50,
+    "profit_factor": 1.6316,
+    "wins": 31,
+    "losses": 19,
+    "max_drawdown_pct": 9.91,
+    "cycles": 27,
+    "elapsed_days": 1.23,
+    "remaining_days": 55,
+    "note_en": "Early gate 50 trades + PF>=1.1 reached. S2+S3 integration COMPLETE. Paper continues through 8-week window."
+  },
+  "l6_review": {
+    "timestamp_utc": "2026-07-16T12:14:17Z",
+    "verdict": "L6_GATES_PASS_REVIEW_REQUIRED",
+    "gates_passed_count": 10,
+    "gates_total": 10,
+    "early_gate_met": true,
+    "sole_blocker": null,
+    "integration_planning": "S2_S3_COMPLETE",
+    "integration_planning_allowed": true,
+    "production_deploy": "DEMO_READY"
+  },
+  "l6_gates": {
+    "paper_pf_min": 1.1,
+    "paper_trades_min": 50,
+    "max_drawdown_pct": 20.0,
+    "shadow_pf_min": 1.0,
+    "capture_rate_pct_min": 20.0,
+    "paper_weeks_min": 8,
+    "current_gates_passed": 10,
+    "current_gates_total": 10,
+    "verdict": "L6_GATES_PASS_REVIEW_REQUIRED",
+    "early_gate_met": true,
+    "production_deploy": "BLOCKED"
+  },
+  "production_blockers": [
+    "S4 limited live requires H5 broker funding + H6 rollback acknowledgment",
+    "Full 8-week paper observation preferred before limited live (1.23 days elapsed)",
+    "DEMO_MODE only — no unguarded real-money execution"
+  ],
+  "delivery_artifacts": {
+    "strategy_module": "tradingbot/strategies/vol_regime_signal.py",
+    "vol_regime_branch": "tradingbot/ml/decision_engine/vol_regime_branch.py",
+    "integration_spec": "tradingbot/ml/research/live_l6/vol_regime_integration_spec.json",
+    "integration_plan": "live_l6_integration_plan.json",
+    "shadow_dry_run": "tradingbot/ml/research/live_l6/shadow_integration_dry_run.py",
+    "tq_patch_spec": "tradingbot/ml/research/live_l6/tq_rr_research_patch_spec.json",
+    "integration_readiness": "tradingbot/ml/research/live_l6/integration_readiness.py",
+    "l6_auto_scheduler": "tradingbot/ml/research/live_l6/auto_l6_on_paper_complete.ps1",
+    "paper_monitor": "logs/live_l5_paper_monitor.ps1",
+    "shadow_runner": "tradingbot/ml/research/live_l5/shadow_paper_runner.py",
+    "deploy_gate_review": "tradingbot/ml/research/live_l6/deploy_gate_review.py",
+    "pipeline": "tradingbot/ml/research/run_live_pipeline.py",
+    "roadmap": "LIVE_PROFIT_ROADMAP.json",
+    "engineering_status": "ENGINEERING_STATUS.json",
+    "demo_live_runner": "tradingbot/ml/research/live_l6/demo_live_runner.py",
+    "demo_live_monitor": "logs/live_l6_demo_monitor.ps1"
+  },
+  "timeline": {
+    "paper_start_utc": "2026-07-15T06:33:19Z",
+    "paper_end_utc": "2026-09-09T06:33:19Z",
+    "early_gate_option": "50 trades + PF>=1.1 triggers L6 auto-review",
+    "l6_review_after_paper": "1-2 days",
+    "integration_planning_weeks": "2-3",
+    "earliest_limited_live": "2026-09-15 to 2026-10-01"
+  },
+  "automation_until_paper_end": [
+    "logs/live_autonomous_orchestrator.ps1 — master watchdog (5 min), auto-resume after power loss",
+    "logs/live_l5_paper_monitor.ps1 polls shadow runner every 15 min",
+    "Daily snapshot via paper_weekly_status.py (orchestrator)",
+    "auto_l6_on_paper_complete.ps1 — triggers L6 on window end or early gate (50 trades + PF>=1.1)",
+    "On L6 pass: updates ENGINEERING_STATUS + LIVE_PROFIT_ROADMAP automatically",
+    "Status anytime: AUTONOMOUS_STATUS.json — no manual prompts required"
+  ],
+  "commands": {
+    "start_autonomous_mode": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\logs\\start_autonomous.bat",
+    "register_scheduler_tasks": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\AMIR\\Desktop\\TradingBot new\\logs\\register_autonomous_tasks.ps1\"",
+    "resume_paper_monitor_if_power_dies": "AUTOMATIC — orchestrator restarts monitor; manual: logs\\start_autonomous.bat",
+    "dry_run_monitor": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\AMIR\\Desktop\\TradingBot new\\logs\\live_l5_paper_monitor.ps1\" -DryRun",
+    "run_l6_auto_review": "powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\AMIR\\Desktop\\TradingBot new\\tradingbot\\ml\\research\\live_l6\\auto_l6_on_paper_complete.ps1\"",
+    "run_l6_gate_review": "python -m tradingbot.ml.research.run_live_pipeline --phase L6",
+    "run_l6_integration_plan": "python -m tradingbot.ml.research.run_live_pipeline --phase L6-plan",
+    "run_integration_readiness": "python -m tradingbot.ml.research.run_live_pipeline --phase integration-readiness",
+    "run_vol_regime_tests": "python -m pytest tests/test_vol_regime_signal.py tests/test_phase14_3_quality.py -q",
+    "run_demo_live_cycle": "set TRADINGBOT_DEMO_LIVE=1 && python -m tradingbot.ml.research.live_l6.demo_live_runner"
+  },
+  "only_time_can_solve": [
+    "Complete 8-week paper shadow through 2026-09-09 for regime diversity",
+    "Human approval for TQ RR patch and limited live wiring",
+    "Real-market validation across summer/autumn 2026"
+  ],
+  "rules": {
+    "no_live_real_money_orders": true,
+    "no_global_production_filter_relaxation": true,
+    "no_deploy_until_l6_passes": true,
+    "ml_filter": "SKIP per L4 verdict"
+  },
+  "s4_demo_live": {
+    "status": "ACTIVE",
+    "runner": "tradingbot/ml/research/live_l6/demo_live_runner.py",
+    "monitor": "logs/live_l6_demo_monitor.ps1",
+    "blocker_first_cycle": "MT5 terminal must be open + logged into demo (auth -6 if not)"
+  }
+}

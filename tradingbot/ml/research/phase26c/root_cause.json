@@ -1,0 +1,15 @@
+{
+  "symptom": "fill_price = 0 in paper journal executions",
+  "root_cause": "Mt5ExecutionAdapter._quote_price() returned 0.0 when MT5 tick unavailable",
+  "loss_location": "adapters/mt5_execution.py:119-129 (_quote_price) before journal write",
+  "not_a_journal_bug": "TradeJournal.log_execution faithfully persisted the zero from upstream",
+  "evidence": [
+    "mt5_execution.py paper branch previously set fill_price=price where price=_quote_price()",
+    "_quote_price returns 0.0 on tick None or exception (lines 125-129)",
+    "phase26a trade_collector rejected entry_price <= 0 (line 104, 277)",
+    "phase_final_audit FINAL-002 confirmed 54 executions with zero fill"
+  ],
+  "repair": "PaperFillResolver fallback: MT5 tick -> CandleStore close -> SL/TP midpoint",
+  "additional": "paper_trades table stores full lifecycle; legacy executions mirrored with non-zero fill",
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00"
+}

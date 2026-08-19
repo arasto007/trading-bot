@@ -1,0 +1,32 @@
+{
+  "generated_utc": "2026-07-09T11:04:27.328596+00:00",
+  "states": [
+    "IDLE",
+    "VALIDATING",
+    "READY",
+    "RUNNING",
+    "FAILED"
+  ],
+  "transitions": [
+    {
+      "from": "IDLE",
+      "to": "VALIDATING",
+      "via": "LiveRunner._run"
+    },
+    {
+      "from": "VALIDATING",
+      "to": "READY",
+      "via": "validate_startup OK"
+    },
+    {
+      "from": "VALIDATING",
+      "to": "FAILED",
+      "via": "StartupValidationError \u2192 exit(1)"
+    },
+    {
+      "from": "READY",
+      "to": "RUNNING",
+      "via": "kernel.run_forever"
+    }
+  ]
+}

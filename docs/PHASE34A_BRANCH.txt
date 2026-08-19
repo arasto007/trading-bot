@@ -1,0 +1,7 @@
+Phase 34A — minimal live truth branch marker
+
+Create the branch locally when git is available:
+
+    git checkout -b phase34a_minimal_live_truth
+
+Do not delete research code on this branch until optimization phase completes.

@@ -1,0 +1,41 @@
+{
+  "total_holds": 5203,
+  "breakdown": {
+    "Unknown HOLD": {
+      "count": 5201,
+      "pct": 99.96
+    },
+    "Calibration HOLD": {
+      "count": 2,
+      "pct": 0.04
+    },
+    "Decision HOLD": {
+      "count": 2,
+      "pct": 0.04,
+      "source": "hold_chain"
+    },
+    "RSI Filter HOLD": {
+      "count": 5201,
+      "pct": 99.96,
+      "source": "hold_chain"
+    }
+  },
+  "hold_chain_snapshot": {
+    "bars_evaluated": 5203,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "ml_signals": 0,
+    "ml_hold_stages": {
+      "decision_hold": 2,
+      "calibration_hold": 0,
+      "trade_quality_hold": 0,
+      "rsi_filter_hold": 5201,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 5203,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

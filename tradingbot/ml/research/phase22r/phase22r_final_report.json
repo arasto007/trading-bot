@@ -1,0 +1,32 @@
+{
+  "phase": "22R",
+  "title": "Repository-Guided Live FeatureBuilder Refactor Feasibility",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "production_modified": false,
+  "method": "Repository static analysis only — no backtest, no patches",
+  "verdict": "NOT_SAFE_TO_REFACTOR",
+  "summary": "FeatureBuilder uses identical code for training and live compute_at for all 3 phase9_9 features. However repository lacks value-level parity proof, structure_distance has window sensitivity, and production API is row-only. Refactor is architecturally sound but NOT SAFE for production yet.",
+  "aggregate_parity_score": 88,
+  "verdict_detail": {
+    "phase": "22R",
+    "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+    "verdict": "NOT_SAFE_TO_REFACTOR",
+    "verdict_label": "B — Not Safe; feature parity incomplete; need additional investigation",
+    "rejected": {
+      "SAFE_TO_REFACTOR": "Repository does not contain empirical parity proof between training FeatureBuilder outputs and dataset_v2 values at matched timestamps. Static analysis shows structure_distance parity_score 72 and tail(300) vs full-history risk. Production evaluate() API cannot invoke compute_at without design changes not yet implemented."
+    },
+    "why_not_safe_yet": [
+      "Aggregate parity score 88 — below proof threshold for frozen model swap",
+      "phase15i/range_feature_validation checks column presence only, not value equality",
+      "feature_parity_checker.py compares wrong paths (build_ml_features, not FeatureBuilder)",
+      "22J engine_candidates._patch_phase99_live_merge exists only as research stub — not production"
+    ],
+    "path_to_safe": [
+      "Phase 22R+ research: parity harness FeatureBuilder.compute_at vs dataset_v2 on event rows",
+      "Validate tail(300) vs full window for structure_distance at N sample timestamps",
+      "Document API change plan (candles+index through build_market_context)",
+      "Only then approved production phase (separate from 22R)"
+    ],
+    "architecture_direction_confirmed": "Phase 22Q Hybrid verdict stands: FeatureBuilder is the correct inference source in principle; refactor is feasible in code but NOT safe to deploy without parity harness results."
+  }
+}

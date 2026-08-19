@@ -1,0 +1,21 @@
+{
+  "phase": "30C",
+  "components_ms": [
+    "decision",
+    "python",
+    "mt5",
+    "broker",
+    "network",
+    "execution"
+  ],
+  "profiles": [
+    "normal",
+    "fast_vps",
+    "slow_vps"
+  ],
+  "critical_requirement": "MUST couple to price via tick stream advance",
+  "formula": "arrival_ts = decision_ts + total_latency; fill_quote = quote_stream[arrival_ts]",
+  "production_gap": "Zero latency in paper; Phase30A latency does not move price",
+  "acceptance": "Fill price variance increases with latency at fixed decision price",
+  "generated_utc": "2026-07-10T08:54:32.600758+00:00"
+}

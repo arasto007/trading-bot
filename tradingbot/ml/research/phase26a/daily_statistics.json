@@ -1,0 +1,42 @@
+{
+  "phase": "26A",
+  "days": {
+    "2026-06-23": {
+      "trades": 1,
+      "win_rate": 1.0,
+      "loss_rate": 0.0,
+      "profit_factor": "inf",
+      "expectancy": 23.575,
+      "average_rr": 2.5,
+      "average_holding_bars": 7.0,
+      "average_confidence": 1.0,
+      "average_probability": 1.0,
+      "average_spread": 0.3,
+      "average_atr": 0.0,
+      "average_adx": 0.0,
+      "average_rsi": 0.0,
+      "regime_distribution": {
+        "RANGE": 1
+      },
+      "direction_distribution": {
+        "SELL": 1
+      }
+    }
+  },
+  "summary": {
+    "trades": 1,
+    "win_rate": 1.0,
+    "loss_rate": 0.0,
+    "profit_factor": "inf",
+    "expectancy": 23.575,
+    "average_rr": 2.5,
+    "average_holding_bars": 7.0,
+    "average_confidence": 1.0,
+    "average_probability": 1.0,
+    "average_spread": 0.3,
+    "average_atr": 0.0,
+    "average_adx": 0.0,
+    "average_rsi": 0.0
+  },
+  "generated_utc": "2026-07-08T17:35:36.207635+00:00"
+}

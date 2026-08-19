@@ -1,0 +1,21 @@
+{
+  "phase": "30C",
+  "legs": [
+    "entry",
+    "exit"
+  ],
+  "distribution": "Mixture: negative (adverse), zero, positive (improvement)",
+  "drivers": [
+    "atr",
+    "spread",
+    "liquidity",
+    "lot",
+    "session",
+    "trend",
+    "latency"
+  ],
+  "production_gap": "Entry fixed 0.10; exit zero; journal logs zero",
+  "exit_priority": "CRITICAL \u2014 phase30b rank 2",
+  "acceptance": "Mean slippage within 20% of live fill log by session",
+  "generated_utc": "2026-07-10T08:54:32.600758+00:00"
+}

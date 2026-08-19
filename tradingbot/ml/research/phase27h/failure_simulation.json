@@ -1,0 +1,40 @@
+{
+  "phase": "27H",
+  "simulations_per_level": 100,
+  "levels": {
+    "5%": {
+      "failure_pct": 0.05,
+      "mean_net_profit": 1049.8635,
+      "mean_profit_factor": 1.286,
+      "mean_max_drawdown_pct": 11.6083,
+      "mean_expectancy": 1.9219,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline": {
+        "net_profit_delta_mean": -51.3219
+      }
+    },
+    "10%": {
+      "failure_pct": 0.1,
+      "mean_net_profit": 1005.8129,
+      "mean_profit_factor": 1.2903,
+      "mean_max_drawdown_pct": 11.0886,
+      "mean_expectancy": 1.9436,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline": {
+        "net_profit_delta_mean": -95.3725
+      }
+    },
+    "20%": {
+      "failure_pct": 0.2,
+      "mean_net_profit": 887.5798,
+      "mean_profit_factor": 1.2883,
+      "mean_max_drawdown_pct": 9.9836,
+      "mean_expectancy": 1.9295,
+      "pct_simulations_profitable": 100.0,
+      "vs_baseline": {
+        "net_profit_delta_mean": -213.6056
+      }
+    }
+  },
+  "generated_utc": "2026-07-09T17:47:50.744031+00:00"
+}

@@ -1,0 +1,163 @@
+{
+  "phase": "31A",
+  "count": 4,
+  "clusters": [
+    {
+      "cluster_id": 7,
+      "discovered_name": "low_pnl_low_mfe_high_mae_losers",
+      "trade_count": 26,
+      "winners": 0,
+      "losers": 26,
+      "pf": 0.0,
+      "expectancy": -8.3408,
+      "total_pnl": -216.86,
+      "avg_mae": 0.9562,
+      "avg_mfe": 0.1037,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9683,
+      "confidence_cluster": 55.3,
+      "importance": 159.34,
+      "statistical_significance": "MEDIUM",
+      "centroid_top_features": [
+        {
+          "feature": "mae",
+          "z_score": 2.394
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": -1.96
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -0.911
+        },
+        {
+          "feature": "capture_efficiency",
+          "z_score": -0.907
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.865
+        }
+      ]
+    },
+    {
+      "cluster_id": 0,
+      "discovered_name": "low_mfe_mediocre",
+      "trade_count": 158,
+      "winners": 69,
+      "losers": 89,
+      "pf": 0.5912,
+      "expectancy": -0.4773,
+      "total_pnl": -75.42,
+      "avg_mae": 0.2455,
+      "avg_mfe": 0.1994,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9958,
+      "confidence_cluster": 82.3,
+      "importance": 55.41,
+      "statistical_significance": "HIGH",
+      "centroid_top_features": [
+        {
+          "feature": "mfe_r",
+          "z_score": -0.959
+        },
+        {
+          "feature": "mae_r",
+          "z_score": 0.594
+        },
+        {
+          "feature": "confidence",
+          "z_score": 0.399
+        },
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": -0.361
+        },
+        {
+          "feature": "mfe",
+          "z_score": -0.265
+        }
+      ]
+    },
+    {
+      "cluster_id": 2,
+      "discovered_name": "low_pnl_low_mfe_high_mae_losers",
+      "trade_count": 2,
+      "winners": 0,
+      "losers": 2,
+      "pf": 0.0,
+      "expectancy": -26.295,
+      "total_pnl": -52.59,
+      "avg_mae": 2.0158,
+      "avg_mfe": 0.0042,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 0.9797,
+      "confidence_cluster": 50.4,
+      "importance": 38.64,
+      "statistical_significance": "LOW",
+      "centroid_top_features": [
+        {
+          "feature": "mfe_capture_ratio",
+          "z_score": -14.578
+        },
+        {
+          "feature": "mae_to_mfe",
+          "z_score": 12.978
+        },
+        {
+          "feature": "mae",
+          "z_score": 6.012
+        },
+        {
+          "feature": "pnl_r",
+          "z_score": -4.829
+        },
+        {
+          "feature": "capture_efficiency",
+          "z_score": -3.361
+        }
+      ]
+    },
+    {
+      "cluster_id": 5,
+      "discovered_name": "low_pnl_low_mfe_low_capture_losers",
+      "trade_count": 1,
+      "winners": 0,
+      "losers": 1,
+      "pf": 0.0,
+      "expectancy": -1.5,
+      "total_pnl": -1.5,
+      "avg_mae": 0.4978,
+      "avg_mfe": 0.0029,
+      "avg_duration_bars": 1.0,
+      "avg_confidence": 1.0,
+      "confidence_cluster": 50.2,
+      "importance": 1.1,
+      "statistical_significance": "LOW",
+      "centroid_top_features": [
+        {
+          "feature": "capture_efficiency",
+          "z_score": -18.081
+        },
+        {
+          "feature": "mae_to_mfe",
+          "z_score": 3.205
+        },
+        {
+          "feature": "mfe_capture_ratio",
+          "z_score": -2.186
+        },
+        {
+          "feature": "mfe_r",
+          "z_score": -1.327
+        },
+        {
+          "feature": "missed_opportunity_r",
+          "z_score": -1.097
+        }
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-10T15:42:57.044331+00:00"
+}

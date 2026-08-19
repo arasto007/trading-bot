@@ -1,0 +1,32 @@
+flowchart TD
+    s1["User starts bot"]
+    s2["Watchdog launches"]
+    s1 --> s2
+    s3["LiveRunner init"]
+    s2 --> s3
+    s4["Startup validation"]
+    s3 --> s4
+    s5["MT5 connection"]
+    s4 --> s5
+    s6["Load strategies"]
+    s5 --> s6
+    s7["TradingKernel start"]
+    s6 --> s7
+    s8["Global cycle"]
+    s7 --> s8
+    s9["New candle data"]
+    s8 --> s9
+    s10["Indicators"]
+    s9 --> s10
+    s11["Generate signal"]
+    s10 --> s11
+    s12["Risk gate"]
+    s11 --> s12
+    s13["Execution"]
+    s12 --> s13
+    s14["Position manager"]
+    s13 --> s14
+    s15["Trade journal"]
+    s14 --> s15
+    s16["Repeat"]
+    s15 --> s16

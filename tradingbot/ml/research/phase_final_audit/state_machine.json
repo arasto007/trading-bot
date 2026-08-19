@@ -1,0 +1,34 @@
+{
+  "KernelState": {
+    "file": "domain/enums.py",
+    "states": [
+      "STOPPED",
+      "RUNNING",
+      "EMERGENCY_STOP"
+    ],
+    "transitions": [
+      {
+        "from": "STOPPED",
+        "to": "RUNNING",
+        "via": "run_forever"
+      },
+      {
+        "from": "RUNNING",
+        "to": "EMERGENCY_STOP",
+        "via": "KillSwitch / manual / persisted restore"
+      },
+      {
+        "from": "EMERGENCY_STOP",
+        "to": "RUNNING",
+        "via": "clear_emergency_stop + restart",
+        "note": "no CLI wrapper found"
+      }
+    ]
+  },
+  "impossible_states": [],
+  "missing_resets": [
+    "SignalStage._last_closed_bar on restart",
+    "PipelineCache unless explicit reset"
+  ],
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

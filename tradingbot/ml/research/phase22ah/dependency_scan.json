@@ -1,0 +1,581 @@
+{
+  "phase": "22AH",
+  "scan_root": "C:\\Users\\AMIR\\Desktop\\TradingBot new",
+  "terms": [
+    "overfitting_risk_decreased",
+    "_risk_improved",
+    "mean_auc_gap",
+    "assess_overfitting_risk"
+  ],
+  "hit_counts": {
+    "overfitting_risk_decreased": 53,
+    "_risk_improved": 18,
+    "mean_auc_gap": 43,
+    "assess_overfitting_risk": 17
+  },
+  "hits": {
+    "overfitting_risk_decreased": [
+      {
+        "file": "data/ml/reports/phase9_9_robustness_report.json",
+        "line": 199
+      },
+      {
+        "file": "tests/test_phase22ag.py",
+        "line": 21
+      },
+      {
+        "file": "tests/test_phase22ah.py",
+        "line": 88
+      },
+      {
+        "file": "tests/test_phase22y.py",
+        "line": 27
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/architecture_boundary.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/call_chain.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/dependency_graph.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/duplicate_logic.json",
+        "line": 10
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_forensics.py",
+        "line": 1
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_radius.json",
+        "line": 9
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/phase22aa_final_report.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/run_investigation.py",
+        "line": 2
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/threshold_map.json",
+        "line": 42
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ab/freeze_forensics.py",
+        "line": 374
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ab/historical_freeze_evidence.json",
+        "line": 53
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ab/phase22ab_final_report.json",
+        "line": 10
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ab/root_cause_report.json",
+        "line": 4
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ac/repository_usage_index.json",
+        "line": 180
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ae/repository_references.json",
+        "line": 149
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/migration_plan.json",
+        "line": 49
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/phase22af_final_report.json",
+        "line": 23
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/repair_design.py",
+        "line": 303
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/required_changes.json",
+        "line": 95
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_contract.json",
+        "line": 23
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_flow.json",
+        "line": 33
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_forensics.py",
+        "line": 59
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/candidate_simulation.json",
+        "line": 15
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/minimal_change_design.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/overfitting_rule_analysis.json",
+        "line": 46
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/phase22ag_final_report.json",
+        "line": 8
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/rule_analysis.json",
+        "line": 43
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/run_investigation.py",
+        "line": 54
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ah/numeric_acceptance_validation.py",
+        "line": 24
+      },
+      {
+        "file": "tradingbot/ml/research/phase22w/model_selection_pipeline.json",
+        "line": 85
+      },
+      {
+        "file": "tradingbot/ml/research/phase22w/selection_audit.py",
+        "line": 86
+      },
+      {
+        "file": "tradingbot/ml/research/phase22x/candidate_acceptance_report.json",
+        "line": 1043
+      },
+      {
+        "file": "tradingbot/ml/research/phase22x/training_pipeline_validation.json",
+        "line": 202
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/acceptance_forensics.py",
+        "line": 11
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/accepted_candidates.json",
+        "line": 35
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/candidate_acceptance_simulation.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/dominant_rejection_rule.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/phase22y_final_report.json",
+        "line": 9
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/rule_failure_statistics.json",
+        "line": 21
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/rule_origin_analysis.json",
+        "line": 2
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/baseline_comparison.json",
+        "line": 309
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/candidate_overfitting_metrics.json",
+        "line": 33
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/candidate_rejection_reason.json",
+        "line": 5
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_numeric_analysis.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_rule_validation.py",
+        "line": 1
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/phase22z_final_report.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/rule_correctness_report.json",
+        "line": 2
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/run_investigation.py",
+        "line": 2
+      },
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+        "line": 37
+      }
+    ],
+    "_risk_improved": [
+      {
+        "file": "tradingbot/ml/research/phase22aa/architecture_boundary.json",
+        "line": 9
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/call_chain.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/duplicate_logic.json",
+        "line": 9
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_forensics.py",
+        "line": 37
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_radius.json",
+        "line": 12
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/threshold_map.json",
+        "line": 111
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_flow.json",
+        "line": 5
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_forensics.py",
+        "line": 36
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/minimal_change_design.json",
+        "line": 6
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/overfitting_rule_analysis.json",
+        "line": 5
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/phase22ag_final_report.json",
+        "line": 14
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/rule_analysis.json",
+        "line": 45
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ah/numeric_acceptance_validation.py",
+        "line": 25
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/acceptance_forensics.py",
+        "line": 203
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/rule_origin_analysis.json",
+        "line": 6
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_rule_validation.py",
+        "line": 236
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/rule_correctness_report.json",
+        "line": 5
+      },
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+        "line": 17
+      }
+    ],
+    "mean_auc_gap": [
+      {
+        "file": "data/ml/reports/phase9_8_robustness_report.json",
+        "line": 74
+      },
+      {
+        "file": "data/ml/reports/phase9_9_model_comparison.json",
+        "line": 19
+      },
+      {
+        "file": "data/ml/reports/phase9_9_robustness_report.json",
+        "line": 35
+      },
+      {
+        "file": "data/ml/reports/phase13_4/trend_ml_best_model.json",
+        "line": 20
+      },
+      {
+        "file": "data/ml/reports/phase13_4/trend_ml_model_comparison.json",
+        "line": 13
+      },
+      {
+        "file": "data/ml/reports/phase13_4/trend_ml_report.json",
+        "line": 32
+      },
+      {
+        "file": "data/ml/reports/phase13_4/trend_ml_walk_forward.json",
+        "line": 48
+      },
+      {
+        "file": "tests/test_ml_research_phase9_9.py",
+        "line": 253
+      },
+      {
+        "file": "tests/test_phase22ah.py",
+        "line": 19
+      },
+      {
+        "file": "tests/test_phase22x.py",
+        "line": 30
+      },
+      {
+        "file": "tests/test_phase22z.py",
+        "line": 32
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/call_chain.json",
+        "line": 66
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_forensics.py",
+        "line": 10
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/threshold_map.json",
+        "line": 9
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/freeze_contract.json",
+        "line": 62
+      },
+      {
+        "file": "tradingbot/ml/research/phase22af/repair_design.py",
+        "line": 372
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_contract.json",
+        "line": 22
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_forensics.py",
+        "line": 41
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/candidate_simulation.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/minimal_change_design.json",
+        "line": 3
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/overfitting_rule_analysis.json",
+        "line": 24
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/phase22ag_final_report.json",
+        "line": 8
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/run_investigation.py",
+        "line": 56
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ah/numeric_acceptance_validation.py",
+        "line": 1
+      },
+      {
+        "file": "tradingbot/ml/research/phase22w/candidate_probability_analysis.json",
+        "line": 13
+      },
+      {
+        "file": "tradingbot/ml/research/phase22w/candidate_ranking.json",
+        "line": 15
+      },
+      {
+        "file": "tradingbot/ml/research/phase22w/selection_audit.py",
+        "line": 207
+      },
+      {
+        "file": "tradingbot/ml/research/phase22x/candidate_acceptance_report.json",
+        "line": 16
+      },
+      {
+        "file": "tradingbot/ml/research/phase22x/candidate_probability_metrics.json",
+        "line": 16
+      },
+      {
+        "file": "tradingbot/ml/research/phase22x/training_pipeline_validation.json",
+        "line": 38
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/baseline_comparison.json",
+        "line": 14
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/candidate_overfitting_metrics.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/candidate_rejection_reason.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_numeric_analysis.json",
+        "line": 2
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_rule_validation.py",
+        "line": 29
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/phase22z_final_report.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/rule_correctness_report.json",
+        "line": 28
+      },
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+        "line": 27
+      },
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py",
+        "line": 83
+      },
+      {
+        "file": "tradingbot/ml/research/trend_ml/optimizer.py",
+        "line": 27
+      },
+      {
+        "file": "tradingbot/ml/research/trend_ml/report.py",
+        "line": 108
+      },
+      {
+        "file": "tradingbot/ml/research/trend_ml/validator.py",
+        "line": 137
+      },
+      {
+        "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+        "line": 82
+      }
+    ],
+    "assess_overfitting_risk": [
+      {
+        "file": "tradingbot/ml/research/phase22aa/call_chain.json",
+        "line": 77
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/duplicate_logic.json",
+        "line": 21
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_forensics.py",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/impact_radius.json",
+        "line": 28
+      },
+      {
+        "file": "tradingbot/ml/research/phase22aa/threshold_map.json",
+        "line": 5
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_flow.json",
+        "line": 35
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/acceptance_forensics.py",
+        "line": 111
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/minimal_change_design.json",
+        "line": 20
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/overfitting_rule_analysis.json",
+        "line": 15
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ag/rule_analysis.json",
+        "line": 45
+      },
+      {
+        "file": "tradingbot/ml/research/phase22ah/numeric_acceptance_validation.py",
+        "line": 27
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/acceptance_forensics.py",
+        "line": 218
+      },
+      {
+        "file": "tradingbot/ml/research/phase22y/rule_origin_analysis.json",
+        "line": 25
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/candidate_rejection_reason.json",
+        "line": 7
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/overfitting_rule_validation.py",
+        "line": 87
+      },
+      {
+        "file": "tradingbot/ml/research/phase22z/rule_correctness_report.json",
+        "line": 15
+      },
+      {
+        "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+        "line": 30
+      }
+    ]
+  },
+  "critical_dependencies": {
+    "acceptance_implementation": [
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+        "line": 37
+      }
+    ],
+    "label_producer": [
+      {
+        "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+        "line": 30
+      }
+    ],
+    "mean_auc_gap_aggregate": [
+      {
+        "file": "tradingbot/ml/research/robustness_optimizer/walk_forward_optimizer.py",
+        "line": 83
+      },
+      {
+        "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+        "line": 82
+      }
+    ]
+  },
+  "production_runtime_references": {
+    "overfitting_risk_decreased": [],
+    "mean_auc_gap": [],
+    "finding": "No runtime/integration references to acceptance overfitting check"
+  },
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

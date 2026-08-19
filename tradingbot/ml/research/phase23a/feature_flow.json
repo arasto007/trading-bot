@@ -1,0 +1,47 @@
+{
+  "phase": "23A",
+  "frozen_feature_order": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "phase99_feature_map": {
+    "ema50_slope": "phase99_ema50_slope",
+    "candle_direction": "phase99_candle_direction",
+    "structure_distance": "phase99_structure_distance"
+  },
+  "flow": [
+    "raw M5 candles",
+    "build_ml_features → trend indicators (ema50_slope live; no candle_direction/structure_distance/ema_cross_state)",
+    "DatasetStore.load_v2 left merge on timestamp",
+    "rename to phase99_* via PHASE99_FEATURE_MAP (3 of 4 model features)",
+    "fillna(0.0) on merge miss",
+    "row_for_phase99_range copies phase99_* → model names (overwrites live ema50_slope)",
+    "RangeEngineAdapter._features_from_row requires ALL feature_order columns",
+    "missing ema_cross_state → feats None → HOLD without predict_proba",
+    "when feats present but zero → predict_proba → low P(win)"
+  ],
+  "mismatches": [
+    {
+      "feature": "ema_cross_state",
+      "issue": "In feature_order.json but NOT in PHASE99_FEATURE_MAP or build_ml_features output on unified row",
+      "runtime_effect": "_features_from_row returns None → predict_proba skipped"
+    },
+    {
+      "feature": "candle_direction",
+      "issue": "Only supplied via phase99_candle_direction merge; 100% zero on recent live sample",
+      "research_source": "dataset_v2 FeatureBuilder values via _training_frame"
+    },
+    {
+      "feature": "structure_distance",
+      "issue": "Only via phase99_structure_distance merge; sparse in dataset_v2 and zero on merge miss"
+    },
+    {
+      "feature": "ema50_slope",
+      "issue": "Live build_ml_features ema50_slope overwritten by zero-filled phase99_ema50_slope in row_for_phase99_range",
+      "evidence": "phase22k/live_vs_research_features.json"
+    }
+  ],
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

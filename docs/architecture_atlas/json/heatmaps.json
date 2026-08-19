@@ -1,0 +1,533 @@
+{
+  "generatedAt": "2026-07-22T05:59:47.557343+00:00",
+  "stats": {
+    "totalPythonFiles": 1734,
+    "totalNodes": 4065,
+    "totalEdges": 12123,
+    "productionFiles": 694,
+    "researchFiles": 1040
+  },
+  "mostConnected": [
+    {
+      "id": "tradingbot.ml.data.paths",
+      "label": "paths",
+      "score": 308
+    },
+    {
+      "id": "tradingbot.adapters.legacy_loader",
+      "label": "legacy_loader",
+      "score": 146
+    },
+    {
+      "id": "tradingbot.ml.data.stores.candle_store",
+      "label": "candle_store",
+      "score": 124
+    },
+    {
+      "id": "tradingbot.ml.research.phase13_9.unified_features",
+      "label": "unified_features",
+      "score": 122
+    },
+    {
+      "id": "tradingbot.ml.dataset.store",
+      "label": "store",
+      "score": 121
+    },
+    {
+      "id": "tradingbot.ml.integration.pipeline_cache",
+      "label": "pipeline_cache",
+      "score": 111
+    },
+    {
+      "id": "tradingbot.ml.integration.factory",
+      "label": "factory",
+      "score": 103
+    },
+    {
+      "id": "tradingbot.ml.integration.recovered_calibration",
+      "label": "recovered_calibration",
+      "score": 96
+    },
+    {
+      "id": "tradingbot.domain.models",
+      "label": "models",
+      "score": 94
+    },
+    {
+      "id": "tradingbot.ml.decision_engine.validation",
+      "label": "validation",
+      "score": 93
+    },
+    {
+      "id": "tradingbot.ml.dataset.schema",
+      "label": "schema",
+      "score": 63
+    },
+    {
+      "id": "tradingbot.ml.phase15a.trend_bundle",
+      "label": "trend_bundle",
+      "score": 63
+    },
+    {
+      "id": "tradingbot.ml.phase15a.engine_registry",
+      "label": "engine_registry",
+      "score": 61
+    },
+    {
+      "id": "tradingbot.adapters.mt5_utils",
+      "label": "mt5_utils",
+      "score": 58
+    },
+    {
+      "id": "tradingbot.ml.research.regime_detector.regime_classifier",
+      "label": "regime_classifier",
+      "score": 53
+    },
+    {
+      "id": "tradingbot.ml.research.research_utils",
+      "label": "research_utils",
+      "score": 50
+    },
+    {
+      "id": "tradingbot.ml.data.pipeline",
+      "label": "pipeline",
+      "score": 47
+    },
+    {
+      "id": "tradingbot.ml.paper_trading.model_registry",
+      "label": "model_registry",
+      "score": 46
+    },
+    {
+      "id": "tradingbot.ml.research.phase22d.run_forensics",
+      "label": "run_forensics",
+      "score": 46
+    },
+    {
+      "id": "tradingbot.ml.research.regime_router.phase99_feature_validation",
+      "label": "phase99_feature_validation",
+      "score": 46
+    },
+    {
+      "id": "tradingbot.ml.integration.kernel_adapter",
+      "label": "kernel_adapter",
+      "score": 44
+    },
+    {
+      "id": "tradingbot.ml.research.phase14_4.pipeline_simulator",
+      "label": "pipeline_simulator",
+      "score": 44
+    },
+    {
+      "id": "tradingbot.config.dotenv_loader",
+      "label": "dotenv_loader",
+      "score": 43
+    },
+    {
+      "id": "tradingbot.ml.research.phase24c.latency_profiler",
+      "label": "latency_profiler",
+      "score": 43
+    },
+    {
+      "id": "tradingbot.kernel.trading_kernel",
+      "label": "trading_kernel",
+      "score": 42
+    }
+  ],
+  "mostImported": [
+    {
+      "id": "tradingbot.ml.data.paths",
+      "label": "paths",
+      "inDegree": 307
+    },
+    {
+      "id": "tradingbot.adapters.legacy_loader",
+      "label": "legacy_loader",
+      "inDegree": 142
+    },
+    {
+      "id": "tradingbot.ml.data.stores.candle_store",
+      "label": "candle_store",
+      "inDegree": 122
+    },
+    {
+      "id": "tradingbot.ml.dataset.store",
+      "label": "store",
+      "inDegree": 116
+    },
+    {
+      "id": "tradingbot.ml.research.phase13_9.unified_features",
+      "label": "unified_features",
+      "inDegree": 115
+    },
+    {
+      "id": "tradingbot.ml.integration.pipeline_cache",
+      "label": "pipeline_cache",
+      "inDegree": 93
+    },
+    {
+      "id": "tradingbot.domain.models",
+      "label": "models",
+      "inDegree": 88
+    },
+    {
+      "id": "tradingbot.ml.integration.recovered_calibration",
+      "label": "recovered_calibration",
+      "inDegree": 80
+    },
+    {
+      "id": "tradingbot.ml.integration.factory",
+      "label": "factory",
+      "inDegree": 72
+    },
+    {
+      "id": "tradingbot.ml.decision_engine.validation",
+      "label": "validation",
+      "inDegree": 71
+    },
+    {
+      "id": "tradingbot.ml.dataset.schema",
+      "label": "schema",
+      "inDegree": 60
+    },
+    {
+      "id": "tradingbot.adapters.mt5_utils",
+      "label": "mt5_utils",
+      "inDegree": 55
+    },
+    {
+      "id": "tradingbot.ml.phase15a.trend_bundle",
+      "label": "trend_bundle",
+      "inDegree": 53
+    },
+    {
+      "id": "tradingbot.ml.research.regime_detector.regime_classifier",
+      "label": "regime_classifier",
+      "inDegree": 51
+    },
+    {
+      "id": "tradingbot.ml.research.regime_router.phase99_feature_validation",
+      "label": "phase99_feature_validation",
+      "inDegree": 45
+    },
+    {
+      "id": "tradingbot.ml.research.research_utils",
+      "label": "research_utils",
+      "inDegree": 44
+    },
+    {
+      "id": "tradingbot.config.dotenv_loader",
+      "label": "dotenv_loader",
+      "inDegree": 43
+    },
+    {
+      "id": "tradingbot.ml.phase15a.engine_registry",
+      "label": "engine_registry",
+      "inDegree": 42
+    },
+    {
+      "id": "tradingbot.ml.research.phase22f.config",
+      "label": "config",
+      "inDegree": 40
+    },
+    {
+      "id": "tradingbot.ml.phase15a.config",
+      "label": "config",
+      "inDegree": 38
+    },
+    {
+      "id": "tradingbot.ml.phase17d.versioning",
+      "label": "versioning",
+      "inDegree": 36
+    },
+    {
+      "id": "tradingbot.ml.paper_trading.model_registry",
+      "label": "model_registry",
+      "inDegree": 34
+    },
+    {
+      "id": "tradingbot.ml.research.trend_ml.feature_builder",
+      "label": "feature_builder",
+      "inDegree": 34
+    },
+    {
+      "id": "tradingbot.domain.enums",
+      "label": "enums",
+      "inDegree": 32
+    },
+    {
+      "id": "tradingbot.ml.training.model_factory",
+      "label": "model_factory",
+      "inDegree": 31
+    }
+  ],
+  "mostImporters": [
+    {
+      "id": "tradingbot.ml.research.phase22d.run_forensics",
+      "label": "run_forensics",
+      "outDegree": 46
+    },
+    {
+      "id": "tradingbot.ml.data.pipeline",
+      "label": "pipeline",
+      "outDegree": 43
+    },
+    {
+      "id": "tradingbot.ml.research.phase24c.latency_profiler",
+      "label": "latency_profiler",
+      "outDegree": 42
+    },
+    {
+      "id": "tradingbot.ml.research.phase23c.decision_gate_investigation",
+      "label": "decision_gate_investigation",
+      "outDegree": 32
+    },
+    {
+      "id": "tradingbot.ml.integration.factory",
+      "label": "factory",
+      "outDegree": 31
+    },
+    {
+      "id": "tradingbot.kernel.trading_kernel",
+      "label": "trading_kernel",
+      "outDegree": 30
+    },
+    {
+      "id": "tradingbot.ml.live_pilot.live_controller",
+      "label": "live_controller",
+      "outDegree": 26
+    },
+    {
+      "id": "tradingbot.application.live_runner",
+      "label": "live_runner",
+      "outDegree": 25
+    },
+    {
+      "id": "tradingbot.ml.research.phase13_10.orchestrator",
+      "label": "orchestrator",
+      "outDegree": 25
+    },
+    {
+      "id": "tradingbot.ml.research.phase24d.unified_frame_investigation",
+      "label": "unified_frame_investigation",
+      "outDegree": 25
+    },
+    {
+      "id": "tradingbot.ml.research.phase25a.run_investigation",
+      "label": "run_investigation",
+      "outDegree": 25
+    },
+    {
+      "id": "tradingbot.ml.research.phase13_8.orchestrator",
+      "label": "orchestrator",
+      "outDegree": 24
+    },
+    {
+      "id": "tradingbot.ml.research.phase14_8.orchestrator",
+      "label": "orchestrator",
+      "outDegree": 24
+    },
+    {
+      "id": "tradingbot.ml.research.phase23d.filter_validation_research",
+      "label": "filter_validation_research",
+      "outDegree": 24
+    },
+    {
+      "id": "tradingbot.ml.research.phase13_9.orchestrator",
+      "label": "orchestrator",
+      "outDegree": 23
+    },
+    {
+      "id": "tradingbot.ml.research.phase23e.range_filter_study",
+      "label": "range_filter_study",
+      "outDegree": 23
+    },
+    {
+      "id": "tradingbot.ml.research.phase24e.run_validation",
+      "label": "run_validation",
+      "outDegree": 23
+    },
+    {
+      "id": "tradingbot.ml.research.phase24i.run_validation",
+      "label": "run_validation",
+      "outDegree": 23
+    },
+    {
+      "id": "tradingbot.ml.research.phase25b.unified_pipeline_replay",
+      "label": "unified_pipeline_replay",
+      "outDegree": 23
+    },
+    {
+      "id": "tradingbot.ml.decision_engine.validation",
+      "label": "validation",
+      "outDegree": 22
+    },
+    {
+      "id": "tradingbot.ml.paper.paper_engine",
+      "label": "paper_engine",
+      "outDegree": 22
+    },
+    {
+      "id": "tradingbot.ml.research.phase14_10.orchestrator",
+      "label": "orchestrator",
+      "outDegree": 22
+    },
+    {
+      "id": "tradingbot.ml.research.phase22h.alignment",
+      "label": "alignment",
+      "outDegree": 22
+    },
+    {
+      "id": "tradingbot.ml.research.phase23b.repair_validation",
+      "label": "repair_validation",
+      "outDegree": 22
+    },
+    {
+      "id": "tradingbot.ml.research.phase24h.pipeline_tracer",
+      "label": "pipeline_tracer",
+      "outDegree": 22
+    }
+  ],
+  "mostCentral": [
+    "tradingbot.ml.data.paths",
+    "tradingbot.adapters.legacy_loader",
+    "tradingbot.ml.data.stores.candle_store",
+    "tradingbot.ml.research.phase13_9.unified_features",
+    "tradingbot.ml.dataset.store",
+    "tradingbot.ml.integration.pipeline_cache",
+    "tradingbot.ml.integration.factory",
+    "tradingbot.ml.integration.recovered_calibration",
+    "tradingbot.domain.models",
+    "tradingbot.ml.decision_engine.validation"
+  ],
+  "mostDangerous": [
+    "tradingbot.adapters.mt5_execution",
+    "tradingbot.adapters.risk_gate",
+    "tradingbot.kernel.trading_kernel",
+    "tradingbot.services.kill_switch"
+  ],
+  "unusedModules": [
+    "tradingbot.adapters.__init__",
+    "tradingbot.infra.__init__",
+    "tradingbot.ml.__init__",
+    "tradingbot.services.__init__",
+    "tradingbot.strategies.__init__",
+    "engine.__init__",
+    "engine.strategies.__init__",
+    "tradingbot.ml.trade_quality"
+  ],
+  "deadModules": [
+    "tradingbot.adapters.__init__",
+    "tradingbot.infra.__init__",
+    "tradingbot.ml.__init__",
+    "tradingbot.services.__init__",
+    "tradingbot.strategies.__init__",
+    "engine.__init__",
+    "engine.strategies.__init__",
+    "tradingbot.ml.trade_quality"
+  ],
+  "researchOnly": [
+    "tradingbot.ml.audit.phase12_1.contribution_analyzer",
+    "tradingbot.ml.audit.phase12_1.dependency_analyzer",
+    "tradingbot.ml.audit.phase12_1.regime_strategy_analysis",
+    "tradingbot.ml.audit.phase12_1.replay_analyzer",
+    "tradingbot.ml.audit.phase12_1.report_generator",
+    "tradingbot.ml.audit.phase12_1.signal_tracer",
+    "tradingbot.ml.audit.phase12_1.strategy_discovery",
+    "tradingbot.ml.audit.phase12_1.__init__",
+    "tradingbot.ml.backtest.phase97_engine",
+    "tradingbot.ml.dataset.phase9_production_build",
+    "tradingbot.ml.integration.phase15b_orchestrator",
+    "tradingbot.ml.phase15a.checklist",
+    "tradingbot.ml.phase15a.config",
+    "tradingbot.ml.phase15a.engine_discovery",
+    "tradingbot.ml.phase15a.engine_registry",
+    "tradingbot.ml.phase15a.health_check",
+    "tradingbot.ml.phase15a.interfaces",
+    "tradingbot.ml.phase15a.orchestrator",
+    "tradingbot.ml.phase15a.pipeline_validator",
+    "tradingbot.ml.phase15a.report_generator",
+    "tradingbot.ml.phase15a.trend_bundle",
+    "tradingbot.ml.phase15a.unified_signal",
+    "tradingbot.ml.phase15a.__init__",
+    "tradingbot.ml.phase15e_debug.confidence_analysis",
+    "tradingbot.ml.phase15e_debug.config",
+    "tradingbot.ml.phase15e_debug.legacy_diff",
+    "tradingbot.ml.phase15e_debug.orchestrator",
+    "tradingbot.ml.phase15e_debug.regime_analysis",
+    "tradingbot.ml.phase15e_debug.report_generator",
+    "tradingbot.ml.phase15e_debug.root_cause",
+    "tradingbot.ml.phase15e_debug.signal_funnel",
+    "tradingbot.ml.phase15e_debug.stage_probe",
+    "tradingbot.ml.phase15e_debug.__init__",
+    "tradingbot.ml.phase15f.bundle_audit",
+    "tradingbot.ml.phase15f.confidence_trace",
+    "tradingbot.ml.phase15f.config",
+    "tradingbot.ml.phase15f.decision_policy_audit",
+    "tradingbot.ml.phase15f.orchestrator",
+    "tradingbot.ml.phase15f.pipeline_compare",
+    "tradingbot.ml.phase15f.recovery_validator"
+  ],
+  "productionModules": [
+    "tradingbot.__init__",
+    "tradingbot.__main__",
+    "tradingbot.accounting.broker_constraints",
+    "tradingbot.accounting.engine",
+    "tradingbot.accounting.ledger",
+    "tradingbot.accounting.metrics",
+    "tradingbot.accounting.pnl",
+    "tradingbot.accounting.position_sizing",
+    "tradingbot.accounting.__init__",
+    "tradingbot.adapters.background_services",
+    "tradingbot.adapters.indicator_engine",
+    "tradingbot.adapters.legacy_loader",
+    "tradingbot.adapters.legacy_signal_helpers",
+    "tradingbot.adapters.legacy_strategy_registry",
+    "tradingbot.adapters.market_cache",
+    "tradingbot.adapters.mt5_attach_test",
+    "tradingbot.adapters.mt5_execution",
+    "tradingbot.adapters.mt5_health",
+    "tradingbot.adapters.mt5_market_data",
+    "tradingbot.adapters.mt5_position_manager",
+    "tradingbot.adapters.mt5_utils",
+    "tradingbot.adapters.risk_gate",
+    "tradingbot.adapters.stubs",
+    "tradingbot.adapters.symbols",
+    "tradingbot.adapters.timeframes",
+    "tradingbot.adapters.vol_regime_strategy_registry",
+    "tradingbot.adapters.__init__",
+    "tradingbot.application.bootstrap",
+    "tradingbot.application.live_runner",
+    "tradingbot.application.__init__",
+    "tradingbot.backtest.broker",
+    "tradingbot.backtest.config",
+    "tradingbot.backtest.data_source",
+    "tradingbot.backtest.engine",
+    "tradingbot.backtest.htf_provider",
+    "tradingbot.backtest.indicators",
+    "tradingbot.backtest.metrics",
+    "tradingbot.backtest.models",
+    "tradingbot.backtest.monte_carlo",
+    "tradingbot.backtest.position_manager",
+    "tradingbot.backtest.risk",
+    "tradingbot.backtest.__init__",
+    "tradingbot.config.dotenv_loader",
+    "tradingbot.config.engine_settings",
+    "tradingbot.config.legacy_settings",
+    "tradingbot.config.live",
+    "tradingbot.config.pa_symbol_tf_presets",
+    "tradingbot.config.price_action",
+    "tradingbot.config.prop_presets",
+    "tradingbot.config.settings",
+    "tradingbot.config.strategies",
+    "tradingbot.config.__init__",
+    "tradingbot.domain.enums",
+    "tradingbot.domain.filter_policy",
+    "tradingbot.domain.htf_bias",
+    "tradingbot.domain.indicators",
+    "tradingbot.domain.live_gates",
+    "tradingbot.domain.market_filters",
+    "tradingbot.domain.models",
+    "tradingbot.domain.news_logic"
+  ]
+}

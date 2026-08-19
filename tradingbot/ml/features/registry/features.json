@@ -1,0 +1,529 @@
+[
+  {
+    "name": "h4_structure_direction",
+    "source": "H4/M15/M5 aligned candles",
+    "description": "H4 last structure break direction",
+    "version": "1.0",
+    "family": "htf_context",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "h4_trend_bias",
+    "source": "H4/M15/M5 aligned candles",
+    "description": "H4 trend bias: 1 bull, -1 bear, 0 range",
+    "version": "1.0",
+    "family": "htf_context",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "m15_market_state",
+    "source": "H4/M15/M5 aligned candles",
+    "description": "M15 encoded market state trend + structure",
+    "version": "1.0",
+    "family": "htf_context",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": -1,
+    "max": 1
+  },
+  {
+    "name": "m5_entry_context",
+    "source": "H4/M15/M5 aligned candles",
+    "description": "M5 entry zone + sweep readiness score",
+    "version": "1.0",
+    "family": "htf_context",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 1
+  },
+  {
+    "name": "bar_spread_pct",
+    "source": "spread/tick data",
+    "description": "High-low range relative to close (micro noise)",
+    "version": "1.0",
+    "family": "microstructure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "spread_pips",
+    "source": "spread/tick data",
+    "description": "Bid-ask spread in pips at bar time",
+    "version": "1.0",
+    "family": "microstructure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "spread_spike",
+    "source": "spread/tick data",
+    "description": "1 if spread z-score > 2 else 0",
+    "version": "1.0",
+    "family": "microstructure",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "spread_zscore",
+    "source": "spread/tick data",
+    "description": "Spread z-score vs recent rolling window",
+    "version": "1.0",
+    "family": "microstructure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "tick_volume_proxy",
+    "source": "spread/tick data",
+    "description": "Candle volume as liquidity proxy",
+    "version": "1.0",
+    "family": "microstructure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "macd_histogram",
+    "source": "candles",
+    "description": "MACD histogram normalized by ATR",
+    "version": "1.0",
+    "family": "momentum",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "momentum_5",
+    "source": "candles",
+    "description": "5-bar close momentum in ATR units",
+    "version": "1.0",
+    "family": "momentum",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "roc_10",
+    "source": "candles",
+    "description": "10-bar rate of change percent",
+    "version": "1.0",
+    "family": "momentum",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "rsi_14",
+    "source": "candles",
+    "description": "RSI(14) normalized 0-100",
+    "version": "1.0",
+    "family": "momentum",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 100
+  },
+  {
+    "name": "stoch_k",
+    "source": "candles",
+    "description": "Stochastic %K 14-period",
+    "version": "1.0",
+    "family": "momentum",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 100
+  },
+  {
+    "name": "body_ratio",
+    "source": "candles",
+    "description": "Candle body / total range",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 1
+  },
+  {
+    "name": "candle_direction",
+    "source": "candles",
+    "description": "1 bullish close, -1 bearish close",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      1
+    ]
+  },
+  {
+    "name": "engulfing_flag",
+    "source": "candles",
+    "description": "1 bullish engulf, -1 bearish, 0 none",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "lower_wick_ratio",
+    "source": "candles",
+    "description": "Lower wick / total range",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 1
+  },
+  {
+    "name": "pin_bar_flag",
+    "source": "candles",
+    "description": "1 bull pin, -1 bear pin, 0 none",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "upper_wick_ratio",
+    "source": "candles",
+    "description": "Upper wick / total range",
+    "version": "1.0",
+    "family": "price_action",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 1
+  },
+  {
+    "name": "hour_utc_norm",
+    "source": "candle timestamps",
+    "description": "Hour UTC normalized 0-1",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 1
+  },
+  {
+    "name": "in_london_kill",
+    "source": "candle timestamps",
+    "description": "1 if London kill zone (07-10 UTC)",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "in_ny_kill",
+    "source": "candle timestamps",
+    "description": "1 if NY kill zone (12-15 UTC)",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "is_friday",
+    "source": "candle timestamps",
+    "description": "1 if Friday else 0",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "session_asia",
+    "source": "candle timestamps",
+    "description": "1 if Asia session else 0",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "session_london",
+    "source": "candle timestamps",
+    "description": "1 if London session else 0",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "session_ny",
+    "source": "candle timestamps",
+    "description": "1 if New York session else 0",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "session_off",
+    "source": "candle timestamps",
+    "description": "1 if off-hours session else 0",
+    "version": "1.0",
+    "family": "session",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "bos_state",
+    "source": "candles + PA domain",
+    "description": "1 if last structure break was BOS in break direction",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "choch_state",
+    "source": "candles + PA domain",
+    "description": "1 if last structure break was CHoCH in break direction",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "fvg_presence",
+    "source": "candles + PA domain",
+    "description": "1 if price inside unfilled FVG, signed by direction",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "liquidity_sweep",
+    "source": "candles + PA domain",
+    "description": "1 bullish sweep, -1 bearish, 0 none at bar",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "order_block_distance",
+    "source": "candles + PA domain",
+    "description": "ATR-normalized distance to nearest order block",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "premium_discount_location",
+    "source": "candles + PA domain",
+    "description": "-1 discount, 0 equilibrium, 1 premium",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "structure_distance",
+    "source": "candles + PA domain",
+    "description": "Bars since last BOS/CHoCH break",
+    "version": "1.0",
+    "family": "smc_structure",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "ema200_distance",
+    "source": "candles",
+    "description": "Close distance from EMA200 in ATR units",
+    "version": "1.0",
+    "family": "trend",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "ema50_slope",
+    "source": "candles",
+    "description": "Normalized EMA50 slope over 5 bars",
+    "version": "1.0",
+    "family": "trend",
+    "dtype": "float",
+    "nullable_policy": "zero_fill"
+  },
+  {
+    "name": "ema_cross_state",
+    "source": "candles",
+    "description": "1 bull EMA50>EMA200, -1 bear, 0 neutral",
+    "version": "1.0",
+    "family": "trend",
+    "dtype": "int",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      -1,
+      0,
+      1
+    ]
+  },
+  {
+    "name": "price_above_ema200",
+    "source": "candles",
+    "description": "1 if close above EMA200 else 0",
+    "version": "1.0",
+    "family": "trend",
+    "dtype": "binary",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      1
+    ]
+  },
+  {
+    "name": "trend_strength",
+    "source": "candles",
+    "description": "ADX trend strength 0-100",
+    "version": "1.0",
+    "family": "trend",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 100
+  },
+  {
+    "name": "atr_14",
+    "source": "candles",
+    "description": "ATR(14) absolute value",
+    "version": "1.0",
+    "family": "volatility",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "atr_percentile",
+    "source": "candles",
+    "description": "ATR normalized by rolling volatility percentile",
+    "version": "1.0",
+    "family": "volatility",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0,
+    "max": 100
+  },
+  {
+    "name": "range_pct",
+    "source": "candles",
+    "description": "Current bar range as percent of close",
+    "version": "1.0",
+    "family": "volatility",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "realized_vol_20",
+    "source": "candles",
+    "description": "20-bar realized volatility of returns",
+    "version": "1.0",
+    "family": "volatility",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "min": 0
+  },
+  {
+    "name": "volatility_regime",
+    "source": "candles",
+    "description": "0 low / 0.5 mid / 1 high vol bucket",
+    "version": "1.0",
+    "family": "volatility",
+    "dtype": "float",
+    "nullable_policy": "zero_fill",
+    "allowed_values": [
+      0,
+      0.5,
+      1
+    ]
+  }
+]

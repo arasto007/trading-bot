@@ -1,0 +1,453 @@
+[
+  {
+    "step": 1,
+    "id": "start",
+    "label": "User starts bot",
+    "labelFa": "کاربر START_BOT را می‌زند",
+    "icon": "▶",
+    "roots": [
+      "scripts.start_bot"
+    ],
+    "files": [
+      "start/START_BOT.bat",
+      "scripts/start_bot.py",
+      "scripts/start_live_daemon.ps1"
+    ],
+    "flow": [
+      [
+        "scripts.start_bot",
+        "scripts.run_live_watchdog",
+        "calls"
+      ]
+    ]
+  },
+  {
+    "step": 2,
+    "id": "watchdog",
+    "label": "Watchdog launches",
+    "labelFa": "نگهبان پروسه ربات را بالا می‌آورد",
+    "icon": "🔄",
+    "roots": [
+      "scripts.run_live_watchdog"
+    ],
+    "files": [
+      "scripts/run_live_watchdog.py",
+      "scripts/stop_live_daemon.ps1",
+      "logs/watchdog.log"
+    ],
+    "flow": [
+      [
+        "scripts.run_live_watchdog",
+        "tradingbot.application.live_runner",
+        "starts"
+      ]
+    ]
+  },
+  {
+    "step": 3,
+    "id": "live_runner",
+    "label": "LiveRunner init",
+    "labelFa": "راننده زنده آماده می‌شود",
+    "icon": "🚀",
+    "roots": [
+      "tradingbot.application.live_runner",
+      "tradingbot.application.live_runner.LiveRunner"
+    ],
+    "files": [
+      "tradingbot/application/live_runner.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.application.live_runner",
+        "tradingbot.kernel.trading_kernel",
+        "creates"
+      ],
+      [
+        "tradingbot.application.live_runner",
+        "tradingbot.services.kill_switch",
+        "creates"
+      ]
+    ]
+  },
+  {
+    "step": 4,
+    "id": "startup",
+    "label": "Startup validation",
+    "labelFa": "چک MT5 و تنظیمات",
+    "icon": "✓",
+    "roots": [
+      "tradingbot.services.startup_validator"
+    ],
+    "files": [
+      "tradingbot/services/startup_validator.py",
+      "data/startup/startup_report.json"
+    ],
+    "flow": [
+      [
+        "tradingbot.application.live_runner",
+        "tradingbot.services.startup_validator",
+        "calls"
+      ],
+      [
+        "tradingbot.services.startup_validator",
+        "tradingbot.adapters.mt5_health",
+        "uses"
+      ],
+      [
+        "tradingbot.services.startup_validator",
+        "tradingbot.services.demo_account_guard",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 5,
+    "id": "mt5",
+    "label": "MT5 connection",
+    "labelFa": "اتصال به MetaTrader 5",
+    "icon": "🔌",
+    "roots": [
+      "tradingbot.adapters.mt5_utils",
+      "tradingbot.adapters.mt5_market_data"
+    ],
+    "files": [
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/adapters/mt5_health.py",
+      "logs/mt5_ipc.lock"
+    ],
+    "flow": [
+      [
+        "tradingbot.adapters.mt5_market_data",
+        "tradingbot.adapters.mt5_utils",
+        "uses"
+      ],
+      [
+        "tradingbot.adapters.mt5_execution",
+        "tradingbot.adapters.mt5_utils",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 6,
+    "id": "models",
+    "label": "Load strategies",
+    "labelFa": "بارگذاری VOL_REGIME / ML",
+    "icon": "🧠",
+    "roots": [
+      "tradingbot.ml.integration.factory",
+      "tradingbot.adapters.vol_regime_strategy_registry"
+    ],
+    "files": [
+      "tradingbot/ml/integration/factory.py",
+      "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "tradingbot/strategies/vol_regime_signal.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.application.live_runner",
+        "tradingbot.ml.integration.factory",
+        "calls"
+      ],
+      [
+        "tradingbot.ml.integration.factory",
+        "tradingbot.adapters.vol_regime_strategy_registry",
+        "creates"
+      ],
+      [
+        "tradingbot.adapters.vol_regime_strategy_registry",
+        "tradingbot.strategies.vol_regime_signal",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 7,
+    "id": "kernel",
+    "label": "TradingKernel start",
+    "labelFa": "موتور اصلی روشن",
+    "icon": "⚙",
+    "roots": [
+      "tradingbot.kernel.trading_kernel",
+      "tradingbot.kernel.trading_kernel.TradingKernel"
+    ],
+    "files": [
+      "tradingbot/kernel/trading_kernel.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.data_stage",
+        "creates"
+      ],
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.signal_stage",
+        "creates"
+      ],
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.risk_stage",
+        "creates"
+      ],
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.execution_stage",
+        "creates"
+      ]
+    ]
+  },
+  {
+    "step": 8,
+    "id": "cycle",
+    "label": "Global cycle",
+    "labelFa": "شروع چرخه ۳۰ ثانیه‌ای",
+    "icon": "🔁",
+    "roots": [
+      "tradingbot.kernel.trading_kernel"
+    ],
+    "files": [
+      "tradingbot/kernel/trading_kernel.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.data_stage",
+        "runs"
+      ],
+      [
+        "tradingbot.pipeline.data_stage",
+        "tradingbot.pipeline.indicator_stage",
+        "then"
+      ],
+      [
+        "tradingbot.pipeline.indicator_stage",
+        "tradingbot.pipeline.signal_stage",
+        "then"
+      ],
+      [
+        "tradingbot.pipeline.signal_stage",
+        "tradingbot.pipeline.risk_stage",
+        "then"
+      ],
+      [
+        "tradingbot.pipeline.risk_stage",
+        "tradingbot.pipeline.execution_stage",
+        "then"
+      ]
+    ]
+  },
+  {
+    "step": 9,
+    "id": "candle",
+    "label": "New candle data",
+    "labelFa": "دریافت کندل جدید M5",
+    "icon": "📊",
+    "roots": [
+      "tradingbot.pipeline.data_stage",
+      "tradingbot.adapters.mt5_market_data"
+    ],
+    "files": [
+      "tradingbot/pipeline/data_stage.py",
+      "tradingbot/adapters/mt5_market_data.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.pipeline.data_stage",
+        "tradingbot.adapters.mt5_market_data",
+        "calls"
+      ],
+      [
+        "tradingbot.adapters.mt5_market_data",
+        "tradingbot.adapters.mt5_utils",
+        "reads"
+      ]
+    ]
+  },
+  {
+    "step": 10,
+    "id": "features",
+    "label": "Indicators",
+    "labelFa": "محاسبه اندیکاتورها",
+    "icon": "📈",
+    "roots": [
+      "tradingbot.pipeline.indicator_stage",
+      "tradingbot.adapters.indicator_engine"
+    ],
+    "files": [
+      "tradingbot/pipeline/indicator_stage.py",
+      "tradingbot/adapters/indicator_engine.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.pipeline.indicator_stage",
+        "tradingbot.adapters.indicator_engine",
+        "calls"
+      ]
+    ]
+  },
+  {
+    "step": 11,
+    "id": "signal",
+    "label": "Generate signal",
+    "labelFa": "ساخت سیگنال خرید/فروش",
+    "icon": "💡",
+    "roots": [
+      "tradingbot.pipeline.signal_stage",
+      "tradingbot.strategies.vol_regime_signal"
+    ],
+    "files": [
+      "tradingbot/pipeline/signal_stage.py",
+      "tradingbot/strategies/vol_regime_signal.py",
+      "tradingbot/adapters/vol_regime_strategy_registry.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.pipeline.signal_stage",
+        "tradingbot.adapters.vol_regime_strategy_registry",
+        "calls"
+      ],
+      [
+        "tradingbot.adapters.vol_regime_strategy_registry",
+        "tradingbot.strategies.vol_regime_signal",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 12,
+    "id": "risk",
+    "label": "Risk gate",
+    "labelFa": "نگهبان ریسک بررسی می‌کند",
+    "icon": "🛡",
+    "roots": [
+      "tradingbot.pipeline.risk_stage",
+      "tradingbot.adapters.risk_gate"
+    ],
+    "files": [
+      "tradingbot/pipeline/risk_stage.py",
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/domain/live_gates.py",
+      "tradingbot/services/live_risk_tracker.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.pipeline.risk_stage",
+        "tradingbot.adapters.risk_gate",
+        "calls"
+      ],
+      [
+        "tradingbot.adapters.risk_gate",
+        "tradingbot.domain.live_gates",
+        "reads"
+      ],
+      [
+        "tradingbot.adapters.risk_gate",
+        "tradingbot.services.live_risk_tracker",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 13,
+    "id": "exec",
+    "label": "Execution",
+    "labelFa": "ارسال سفارش به MT5",
+    "icon": "💰",
+    "roots": [
+      "tradingbot.pipeline.execution_stage",
+      "tradingbot.adapters.mt5_execution"
+    ],
+    "files": [
+      "tradingbot/pipeline/execution_stage.py",
+      "tradingbot/adapters/mt5_execution.py",
+      "tradingbot/services/mt5_order_guard.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.pipeline.execution_stage",
+        "tradingbot.adapters.mt5_execution",
+        "calls"
+      ],
+      [
+        "tradingbot.adapters.mt5_execution",
+        "tradingbot.services.mt5_order_guard",
+        "uses"
+      ]
+    ]
+  },
+  {
+    "step": 14,
+    "id": "pm",
+    "label": "Position manager",
+    "labelFa": "مدیریت SL/TP/trailing",
+    "icon": "📍",
+    "roots": [
+      "tradingbot.adapters.mt5_position_manager"
+    ],
+    "files": [
+      "tradingbot/adapters/mt5_position_manager.py",
+      "tradingbot/services/position_protector.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.adapters.mt5_position_manager",
+        "calls"
+      ]
+    ]
+  },
+  {
+    "step": 15,
+    "id": "journal",
+    "label": "Trade journal",
+    "labelFa": "ثبت در دفترچه",
+    "icon": "📝",
+    "roots": [
+      "tradingbot.services.trade_journal"
+    ],
+    "files": [
+      "tradingbot/services/trade_journal.py",
+      "data/trade_journal.db"
+    ],
+    "flow": [
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.services.trade_journal",
+        "writes"
+      ],
+      [
+        "tradingbot.adapters.mt5_execution",
+        "tradingbot.services.trade_journal",
+        "writes"
+      ]
+    ]
+  },
+  {
+    "step": 16,
+    "id": "repeat",
+    "label": "Repeat",
+    "labelFa": "تکرار تا توقف",
+    "icon": "∞",
+    "roots": [
+      "tradingbot.kernel.trading_kernel",
+      "tradingbot.application.live_runner"
+    ],
+    "files": [
+      "tradingbot/kernel/trading_kernel.py",
+      "tradingbot/application/live_runner.py"
+    ],
+    "flow": [
+      [
+        "tradingbot.application.live_runner",
+        "tradingbot.kernel.trading_kernel",
+        "loops"
+      ],
+      [
+        "tradingbot.kernel.trading_kernel",
+        "tradingbot.pipeline.data_stage",
+        "repeats"
+      ]
+    ]
+  }
+]

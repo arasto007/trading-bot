@@ -1,0 +1,36 @@
+{
+  "phase": "30A",
+  "baseline_source": "phase29b_wpsqf",
+  "trade_count": 489,
+  "ideal_execution": {
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "net_profit": 136.1007,
+    "max_drawdown_pct": 24.264,
+    "win_rate_pct": 53.17,
+    "sharpe_ratio": 19.3263,
+    "recovery_factor": 1.8284,
+    "completed_trades": 489
+  },
+  "simulated_normal_execution": {
+    "profit_factor": 1.0486,
+    "expectancy": 0.054,
+    "net_profit": 26.3914,
+    "max_drawdown_pct": 38.4953,
+    "win_rate_pct": 48.67,
+    "sharpe_ratio": 6.1463,
+    "recovery_factor": 0.306,
+    "completed_trades": 489
+  },
+  "stress_summary": {
+    "normal": 1.0486,
+    "high_spread": 0.7536,
+    "high_slippage": 1.0249,
+    "high_latency": 1.0371,
+    "low_liquidity": 0.8019,
+    "news": 0.732,
+    "flash_crash": 0.5824,
+    "weekend": 0.6799
+  },
+  "generated_utc": "2026-07-10T08:35:03.416574+00:00"
+}

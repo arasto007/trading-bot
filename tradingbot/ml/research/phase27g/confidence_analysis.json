@@ -1,0 +1,36 @@
+{
+  "phase": "27G",
+  "buckets": {
+    "0.50-0.60": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0,
+      "profit_factor": 0.0
+    },
+    "0.60-0.70": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0,
+      "profit_factor": 0.0
+    },
+    "0.70-0.80": {
+      "trade_count": 0,
+      "win_rate_pct": 0.0,
+      "expectancy": 0.0,
+      "profit_factor": 0.0
+    },
+    "0.80-0.90": {
+      "trade_count": 65,
+      "win_rate_pct": 30.77,
+      "expectancy": -1.5701,
+      "profit_factor": 0.807
+    },
+    "0.90-1.00": {
+      "trade_count": 510,
+      "win_rate_pct": 39.61,
+      "expectancy": 2.3593,
+      "profit_factor": 1.3603
+    }
+  },
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

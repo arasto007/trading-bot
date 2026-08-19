@@ -1,0 +1,39 @@
+{
+  "phase": "28A",
+  "strategy_a": {
+    "strategy": "hybrid_b",
+    "label": "Hybrid B",
+    "profit_factor": 1.4323,
+    "expectancy": 4.0976,
+    "max_drawdown_pct": 31.6973,
+    "recovery_factor": 2.7484,
+    "stability_consistency": 49.73,
+    "monte_carlo_pct_profitable": 100.0,
+    "equity_smoothness": 0.8689,
+    "risk_adjusted_return": 21.222,
+    "composite_score": 111.26
+  },
+  "strategy_b": {
+    "strategy": "time_exit",
+    "label": "Time Exit",
+    "profit_factor": 1.1838,
+    "expectancy": 5.8168,
+    "max_drawdown_pct": 240.9323,
+    "recovery_factor": 0.5023,
+    "stability_consistency": 20,
+    "monte_carlo_pct_profitable": 100.0,
+    "equity_smoothness": 0.7639,
+    "risk_adjusted_return": -7.3008,
+    "composite_score": -40.28
+  },
+  "criteria_wins": {
+    "hybrid_b": 6,
+    "time_exit": 1,
+    "tie": 1
+  },
+  "paired_hybrid_win_pct": 42.2,
+  "paired_time_exit_win_pct": 55.44,
+  "decision_winner": "hybrid_b",
+  "score_margin": 151.54,
+  "generated_utc": "2026-07-09T20:01:08.174165+00:00"
+}

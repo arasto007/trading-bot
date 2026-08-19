@@ -1,0 +1,41 @@
+{
+  "phase": "29B",
+  "filter_mode": "WPSQF",
+  "threshold": 77.56,
+  "pipeline_stages": [
+    "data",
+    "indicators",
+    "signals",
+    "signal_filter",
+    "risk",
+    "execution"
+  ],
+  "signal_filter_in_pipeline": true,
+  "rejections_logged": 23,
+  "completed_trades": 489,
+  "phase29a_expected": {
+    "completed_trades": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.28,
+    "max_drawdown_pct": 24.26
+  },
+  "actual": {
+    "completed_trades": 489,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "max_drawdown_pct": 24.264,
+    "net_profit": 136.1007,
+    "win_rate_pct": 53.17,
+    "sharpe_ratio": 19.3263,
+    "recovery_factor": 1.8284
+  },
+  "tolerance_pct": 2.0,
+  "checks": {
+    "trades": true,
+    "profit_factor": true,
+    "expectancy": true,
+    "max_drawdown_pct": true
+  },
+  "pass": true,
+  "generated_utc": "2026-07-10T03:01:36.068377+00:00"
+}

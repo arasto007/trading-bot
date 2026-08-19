@@ -1,0 +1,79 @@
+{
+  "phase": "22AA",
+  "duplicates": [
+    {
+      "pattern": "ordinal_risk_order_LOW_MEDIUM_HIGH",
+      "instances": [
+        {
+          "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+          "function": "_risk_improved",
+          "usage": "acceptance overfitting_risk_decreased"
+        },
+        {
+          "file": "tradingbot/ml/research/robustness_optimizer/candidate_selector.py",
+          "function": "rank_candidates sort_key",
+          "usage": "tie-breaker only (lower order preferred)"
+        }
+      ],
+      "risk": "MEDIUM — changing RISK_ORDER in one file without the other desynchronizes ranking vs acceptance"
+    },
+    {
+      "pattern": "assess_overfitting_risk_label",
+      "instances": [
+        {
+          "file": "tradingbot/ml/research/walk_forward/robustness_analyzer.py",
+          "function": "assess_overfitting_risk",
+          "usage": "single source of truth for LOW/MEDIUM/HIGH"
+        }
+      ],
+      "risk": "LOW — single implementation; consumed by Phase 9.8 and 9.9"
+    },
+    {
+      "pattern": "evaluate_acceptance_function_name",
+      "instances": [
+        {
+          "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+          "function": "evaluate_acceptance",
+          "usage": "Phase 9.9 acceptance (includes overfitting_risk_decreased)"
+        },
+        {
+          "file": "tradingbot/ml/research/phase17b/acceptance.py",
+          "function": "evaluate_acceptance",
+          "usage": "Phase 17B retrain lab — unrelated checks, no overfitting_risk_decreased"
+        }
+      ],
+      "risk": "SAFE — name collision only; independent implementations"
+    },
+    {
+      "pattern": "train_val_auc_gap_computation",
+      "instances": [
+        {
+          "file": "tradingbot/ml/research/robustness_optimizer/window_validator.py",
+          "function": "validate_window_candidate"
+        },
+        {
+          "file": "tradingbot/ml/research/walk_forward/model_validator.py",
+          "function": "validate_window"
+        }
+      ],
+      "risk": "HIGH — shared logic pattern; gap feeds assess_overfitting_risk"
+    },
+    {
+      "pattern": "freeze_vs_selection",
+      "instances": [
+        {
+          "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+          "usage": "select_best + evaluate_acceptance"
+        },
+        {
+          "file": "tradingbot/ml/paper_trading/model_registry.py",
+          "function": "freeze_phase9_9_artifacts",
+          "usage": "hardcoded logistic + 3 features; no acceptance"
+        }
+      ],
+      "risk": "CRITICAL — production frozen artifact bypasses acceptance pipeline"
+    }
+  ],
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false
+}

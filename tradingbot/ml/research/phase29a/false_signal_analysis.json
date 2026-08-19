@@ -1,0 +1,4687 @@
+{
+  "phase": "29A",
+  "trades": [
+    {
+      "trade_id": "e369e3ff6e9c",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "66c95337e140",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "0a671bf378d8",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "7d14b07522ae",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "42a48d162d43",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "218e2c950f47",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "db150928a0ba",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "03f6a18c76a2",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0c43ef459c76",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f8c2aaf1ae9b",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "d12a9bcb525e",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b6b77fc9a3cc",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "fe085efb70ec",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "e5ca7583806f",
+      "false_signal_score": 39.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5af4da6901f6",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f394ca793679",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "b643724d1b38",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d0f24ec3ea62",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "5886e0975584",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "164b6221f496",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "5c2810f0768e",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "1a41eae75a89",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "d01b616f7b66",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "59326b199877",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "213f9e9ada64",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "617c88aad575",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "8eeb2fdb68ef",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "8e8d65d8c8da",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "90dcfcaac8f0",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "d61e439da7e0",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ad7fffa619ad",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "327cc23824cb",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b11342bd8c46",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "20bc48aab021",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e1f4a0e1ec08",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "62346057821c",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "e980f068697f",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "c20913b4abc7",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "25b503857213",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "63eb2f14669c",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "ed1cd651e708",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "7b3469e40200",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "fbf18b7a98ab",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "6ec6edd17871",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "8fe8fd542bdc",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "c7ebfee793af",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ab54c2fb19a1",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "5a3f637f58f2",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "f314dc0f4e63",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "25a7f9877877",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "bde4fd821eb3",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "d1570f7e6772",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "e71dc468c6c5",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6c8b1e34ebd2",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3a350a140d9c",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "794b016e7577",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "15e2b728bc3c",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "4c4fc3aedcf9",
+      "false_signal_score": 39.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "24e3b816178b",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f37a1d3fbe15",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "e983696410de",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "4cda3d1ef235",
+      "false_signal_score": 54.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "a8cfed5bb5eb",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "445a27d96744",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "e791f552fade",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "2d8607e854b1",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "5b67b0b020ca",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "17c6bb4c252b",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "224186d825b7",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "35a643dadaa6",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "135f395f0f37",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9bdb6c0b0476",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "086859323275",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "a5c4402dcd31",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "44710326ca41",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_trend"
+      ]
+    },
+    {
+      "trade_id": "79891c6ab492",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_trend"
+      ]
+    },
+    {
+      "trade_id": "61ce2bc61f3f",
+      "false_signal_score": 22.0,
+      "flags": [
+        "volatility_spike",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "c1dc6ef7c9ab",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4217f93e87f4",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a90b264eb377",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "23a791d56dde",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "e36d93bb45e3",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ef240665971f",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "44c9a95bf86a",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "586813cb14ad",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "80258e739141",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8fff1c37d99f",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4d9cf923c573",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "92c18932ba73",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "5055eafbc264",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "1c2ba94e3cb3",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "a80e0312e52e",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "aea1e17061fb",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ae76dd0a0ebe",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "e15be3547b68",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "9997b9f755c8",
+      "false_signal_score": 48.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "161731d10d54",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f941ddcd01bd",
+      "false_signal_score": 63.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c9148cf6eb49",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "5d34b782e135",
+      "false_signal_score": 35.0,
+      "flags": [
+        "momentum_failure",
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "c234232e2e3e",
+      "false_signal_score": 20.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "4444d7800599",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "session_transition",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "86fbb6e4b2fe",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "session_transition",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "52c994417de0",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ae46e371bba0",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2aa55bab99c0",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "896d80ebef59",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "d69f68b3e851",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "2c7a50152eb6",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "586a3a34f017",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "8da66e766c16",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "7184debea165",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "dbe503d1a346",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "d7c8113c9551",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "1586a4c36308",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "0935d2bbe051",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5663986d6883",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "68be35a3411b",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d08b1f31c655",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6cf1fc5b6ca9",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "22b44f9d505e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ea3c99f422f7",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "807e251b1e44",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "056a7a8d0eb1",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "33ca41352e84",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0cfe00ecf763",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "569b0bc27846",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9ba44f4fa370",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3df9e0699632",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2d0bf33dad57",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "11de3bf621d9",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "22982535869e",
+      "false_signal_score": 20.0,
+      "flags": [
+        "volatility_spike",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "4b4190fe4e52",
+      "false_signal_score": 20.0,
+      "flags": [
+        "volatility_spike",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "878768b1260e",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "0d9f0162724d",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "fe9c1ba46e99",
+      "false_signal_score": 23.0,
+      "flags": [
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "3712f7d23535",
+      "false_signal_score": 35.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "2e269c3b057f",
+      "false_signal_score": 78.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "04bdeb2a9643",
+      "false_signal_score": 62.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "60bc6edb4a60",
+      "false_signal_score": 62.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "00e23da5afc4",
+      "false_signal_score": 75.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b0ddae4e818f",
+      "false_signal_score": 62.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "4e5779a15030",
+      "false_signal_score": 62.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "8e0e3e6159c5",
+      "false_signal_score": 20.0,
+      "flags": [
+        "range_fakeout",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "89c5ed0fd7cf",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "46ed4570d9a7",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b0e6000ae4b3",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c2aab3489944",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3638f058f7a5",
+      "false_signal_score": 82.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "5dfcbc6ec285",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9dd852122c5a",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2c774815ae4a",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "455436af717f",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "034a2d218961",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a30cd8d0690c",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "defa555b2ee8",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "372d6ab66c15",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "6ab3d3389a0b",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "599a6e311927",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "1c2354ae99a8",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4b351bbe87f0",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f773c2ef7ab0",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3bfda56dc7e1",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b33c6dd48224",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c001d4645aac",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8b6afa3f799b",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9ddaea0da891",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "23f6c3fb1383",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "698d87fac70b",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "e60257454d25",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "30925a9fc514",
+      "false_signal_score": 27.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "a74b32f1688a",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "e618d6a44c97",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "72c3dc80426a",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "663e9697b739",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "000d523b075c",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "2bf56c6308b4",
+      "false_signal_score": 32.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "faea2493e40f",
+      "false_signal_score": 60.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fd314f672d6e",
+      "false_signal_score": 60.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "51b6c12dac8d",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "9c29460f738d",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8f4dbbeade68",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a97ba6b583c8",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "dd0d5c2a0111",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cbd8a582e899",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "69770b1b9e84",
+      "false_signal_score": 65.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8d592cc4e102",
+      "false_signal_score": 37.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5215df42c3c9",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "1ddf48980b6f",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "2463a0617bd0",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "29ed859dc0d9",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e47b138ef5d3",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "b12b5b74a428",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "28600d2d8596",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4c14a8ea6c5b",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "63038bb13120",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "761e9e26015e",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c93f784d907e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "dcbcc6b2294a",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d907a82d555f",
+      "false_signal_score": 25.0,
+      "flags": [
+        "volatility_spike",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "0562483efb37",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "e6c0c2ed392a",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "f12dd6f9e380",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "8782001e66e4",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "886195b89504",
+      "false_signal_score": 27.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "e3dedc03e556",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4458eb9eb44b",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "86a53651880e",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e4f868735690",
+      "false_signal_score": 67.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9613aa4d1c72",
+      "false_signal_score": 50.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "eec04ddbecfa",
+      "false_signal_score": 38.0,
+      "flags": [
+        "weak_trend",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "50f0af60f790",
+      "false_signal_score": 35.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "25b189317d01",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "41a10023caf7",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "c340fd066429",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d76791fb6cc7",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1d826dc09c9d",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2d18894cb005",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7ed0ce6be89c",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d54f4b84bec7",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9c2b238c3f34",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "89fd14264479",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "40f65b0442c1",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "9cf3453ac6fd",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fc13bc8b4d46",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4f9a888ee92b",
+      "false_signal_score": 50.0,
+      "flags": [
+        "momentum_failure",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "7b33002401e5",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "f9541fd11773",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "0367c4329791",
+      "false_signal_score": 22.0,
+      "flags": [
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "6475aa017402",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8601edfb2cea",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0031cbd1fb29",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "8f4b1f6d8c2b",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f3d3e12add9f",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "3f1604b51b8c",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "10dbfb024241",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "eee0328c4d7f",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "67c96fc0138f",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d591c9036a28",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "10601b0d7fa7",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "c2d238c6ec92",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9cd5a3509dae",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0e34426325e5",
+      "false_signal_score": 22.0,
+      "flags": [
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "e58b5112e313",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2d06c6ccca9e",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "611b1e89888c",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f42fbc691ac5",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "10c9847a5069",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fcc1b45c5f5d",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e3caf1fce3e6",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4370d4ccab3e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "68eea86d15b2",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7d00cc8b2f29",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7d4b1d573678",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "db12b58a96a4",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "75626ceb1fe5",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "51cad899b950",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "18d7a5a24655",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "9b8472d2976b",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5d20dbe57e2c",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e083fecd85d4",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "bd3b077d0e8a",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1a31db065523",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e6ad806afcd9",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "8ca2311811b8",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "25c5ae33fcda",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "eca868b129fe",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "439e06c8dd31",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "c45b1155d63a",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c35d669e4820",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0e066f529a01",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9849ddf47b9d",
+      "false_signal_score": 25.0,
+      "flags": [
+        "momentum_failure",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "f6521e35d9f0",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "08460e203cec",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "bae5b53f0e2e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4861a679929d",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f72f4a665073",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "0d8e4e527295",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "4c207c6e7337",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "059723d368f9",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "fe58ebad3a82",
+      "false_signal_score": 54.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "c90b09653cb4",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1b26b348340d",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b80f613808e7",
+      "false_signal_score": 80.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ef5811a30f46",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "34de8b87245a",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "250acaf53029",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fa2f0135f32a",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2c3c8ab4feb9",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cecf21f915c6",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "14ac2a73b85c",
+      "false_signal_score": 37.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "d1d17e598977",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "961f3f249e54",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "e67b3dffe804",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "788a552e745c",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "9e95064c59c8",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "89d2c36d0165",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "132b71d9807e",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "73474c14ee4d",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "de27c30ac5c6",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "74dd745820fb",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ed46c5632b38",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "991519bd355c",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8609fbadf2af",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "ec103a246322",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8ae48b11d12e",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "bfc175739d50",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1da0037a7e35",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7a971b4dd704",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "76635ee55928",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "7beb09ce790d",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "3ffa55c6b173",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "297819242deb",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "c700b6c0fa24",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "081914bd0472",
+      "false_signal_score": 25.0,
+      "flags": [
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "1a7c96663710",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1e31657aa806",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "19e238bd4d2e",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "db84b5315890",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c7d667c5d8c1",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6dab893f145e",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "volatility_spike",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "5c440204586c",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5ca55afa0cf6",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1c555008f094",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "9cafc43d595c",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fbb8638d9293",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "bdb14a57e39a",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "c90b61c7054a",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0eb7cc2159df",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8aa53e483acf",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d2b1183e42d8",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9d4716d8ec5f",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "469ed73f1f48",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f0ffc9f7e5d9",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ff8225887feb",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "dde08bcad9d4",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "22297c91d946",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ccdea13e92d6",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7ad852b944d6",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e917853962c3",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4d59533e2cb5",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "b66b94aeaab4",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b83e033e56b7",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "08079293778a",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ece191755f4d",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f456d48e7975",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7a11a2a150c1",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "2b252de67d45",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "2170d0d33977",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "9f313ff8787d",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "269f55ff8032",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a2bf23357343",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_trend"
+      ]
+    },
+    {
+      "trade_id": "61fab5415b5c",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "16defff93796",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "6e956f66ecf7",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ad11e54d2eaa",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b53f2283e830",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "badb851c2de1",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f05a27c7f3bd",
+      "false_signal_score": 20.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "681b3f1a62b3",
+      "false_signal_score": 20.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "e8499c6602f3",
+      "false_signal_score": 8.0,
+      "flags": [
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "b01975e84c3e",
+      "false_signal_score": 20.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "728c6ebdd58b",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "98aaec8f7916",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5f119c3aa1bc",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "13f05af036ac",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d6728247c43c",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "48334fb78bdc",
+      "false_signal_score": 25.0,
+      "flags": [
+        "weak_trend",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "f300bc794817",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "9d2d0b21eff2",
+      "false_signal_score": 25.0,
+      "flags": [
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "672ddafc533c",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ef2150a2469d",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "f184141ce2c5",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1213a2feec21",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c2c63f434683",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "842f5e7bd0f4",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2ef3977457ad",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f1a34db4fe59",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "c26e1a982314",
+      "false_signal_score": 78.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "302d21101c70",
+      "false_signal_score": 50.0,
+      "flags": [
+        "weak_trend",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "041130fb9625",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "volatility_spike",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "517b3b222f29",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "7725ef1f8bd1",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "02af306d923a",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "a244c1310a01",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "34d50ab05664",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "5eb755980bc1",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4fc035bb0f66",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0113a6a0f420",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "1898ecfc6d3d",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "97bd2af71f01",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "c1144772e88f",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5b5bc5859f29",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "fba1650ef22b",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "1dd7c7992e19",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7e9d92ecf255",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "978d68edf0dc",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "75fa234a8866",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "669f4a04ed71",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "be98616c25dd",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "df66502edb2e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d330498ac778",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c00f973be20c",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e09542fc9852",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a0af907a24b8",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c835faf45ade",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3d84c5840e2d",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "99f0c5278bdc",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "af0c6d07f424",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "32d73427412f",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c88bae63660d",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "4c38dd2cee4d",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "7bcff47b7993",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "4217cb8656d6",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d4cc1ff069b7",
+      "false_signal_score": 27.0,
+      "flags": [
+        "range_fakeout",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f2f1c2a71ec3",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "d0683b58a88f",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "201da7b02a9a",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "53ae94005c46",
+      "false_signal_score": 25.0,
+      "flags": [
+        "volatility_spike",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "b688e859ad8f",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "volatility_spike",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "69fd365f1fd5",
+      "false_signal_score": 25.0,
+      "flags": [
+        "weak_trend",
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "14354e3dc563",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "6062e639eb57",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "927c010a7691",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9ea9de661408",
+      "false_signal_score": 25.0,
+      "flags": [
+        "weak_trend",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8258f186d918",
+      "false_signal_score": 40.0,
+      "flags": [
+        "weak_trend",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "3557d09fd9c0",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cec933b33765",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "d751bd8188da",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "f432005297cd",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "d1cfb7b6235d",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "dbedc7f305a8",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7ceb7dfbcee4",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "06ee38aeb6d8",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "127457cf2920",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "volatility_spike",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b35ceb86f2e2",
+      "false_signal_score": 30.0,
+      "flags": [
+        "range_fakeout",
+        "session_transition",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "d39bdeb5d833",
+      "false_signal_score": 39.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "c006f99a59e3",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "momentum_failure"
+      ]
+    },
+    {
+      "trade_id": "fe057eb12054",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_trend"
+      ]
+    },
+    {
+      "trade_id": "d8faf168ace0",
+      "false_signal_score": 43.0,
+      "flags": [
+        "counter_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cf6a7cbc5a4a",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "878aae96c845",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "b887f9b5f977",
+      "false_signal_score": 25.0,
+      "flags": [
+        "volatility_spike",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "e13c9182a271",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "591ab1a72683",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "009966708640",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7bca6521123e",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3290f93770dc",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "88918fd5857b",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "4d396b01c011",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "69e95dad40d5",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "c41e6ce597f1",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "12ff187d24db",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "692de0c9636a",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_trend"
+      ]
+    },
+    {
+      "trade_id": "a8d809add910",
+      "false_signal_score": 20.0,
+      "flags": [
+        "volatility_spike",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "5f680551d90b",
+      "false_signal_score": 32.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "e89f68968633",
+      "false_signal_score": 32.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition"
+      ]
+    },
+    {
+      "trade_id": "2de00a5c970a",
+      "false_signal_score": 60.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "27735278d10f",
+      "false_signal_score": 48.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "7ed458786f4e",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "7be7cb5e0f9c",
+      "false_signal_score": 77.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c2ccec34976e",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "c74dd17d9260",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ba75b906316e",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f8b344f55daa",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d845a3010338",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8d461076f69e",
+      "false_signal_score": 34.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "f7b6fac20503",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "2147c8f94caf",
+      "false_signal_score": 24.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "5e88620b760e",
+      "false_signal_score": 54.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "fe4936b92fb6",
+      "false_signal_score": 49.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "467bede84bb5",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "cc90ae6b5680",
+      "false_signal_score": 64.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f5b7493a7e4a",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1c4b2050713d",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4484cfe763fd",
+      "false_signal_score": 39.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "a2d1d924255d",
+      "false_signal_score": 54.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "a56a6bf65cee",
+      "false_signal_score": 49.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "4611f37fd7b8",
+      "false_signal_score": 22.0,
+      "flags": [
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "11d3055daa7a",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "7fdd19cc7669",
+      "false_signal_score": 12.0,
+      "flags": [
+        "low_liquidity"
+      ]
+    },
+    {
+      "trade_id": "fdd73e350b6d",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a568c9566bac",
+      "false_signal_score": 39.0,
+      "flags": [
+        "range_fakeout",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "884017d7ac41",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "ce550d5640a9",
+      "false_signal_score": 70.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b10a93006b24",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "3771c662d9bb",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "06710c821945",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6fb9340a1655",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "1000c72b49d4",
+      "false_signal_score": 15.0,
+      "flags": [
+        "momentum_failure"
+      ]
+    },
+    {
+      "trade_id": "adc7002c2125",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "215f31586c58",
+      "false_signal_score": 10.0,
+      "flags": [
+        "volatility_spike"
+      ]
+    },
+    {
+      "trade_id": "0db0e9a8fdba",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "3eb479914461",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "4b823d42c7ce",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a307cd13292e",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "da494ed8ed5f",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "2e85624d9692",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "44d72a306762",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "50aee9305e6c",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "d5984a92a06c",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "e3bbf4da8a3b",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "1f9e778b1843",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "0cdd805530e3",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "8337d9de416d",
+      "false_signal_score": 42.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "da0bed61bdaa",
+      "false_signal_score": 37.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "00409a8b054f",
+      "false_signal_score": 37.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "2088c3a1b810",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "b99fbe5e6e79",
+      "false_signal_score": 88.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "session_transition",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a12aedbf0905",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "session_transition",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8971ec3f06b1",
+      "false_signal_score": 36.0,
+      "flags": [
+        "counter_trend",
+        "session_transition",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6574f54d66c6",
+      "false_signal_score": 30.0,
+      "flags": [
+        "low_liquidity",
+        "session_transition",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "02d7ceeaa7a5",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "704b2b7baef0",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6113c26a1df5",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "29928f8ffe2b",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "339b165ec1ae",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8367ea913d8a",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "4f50a6052f5b",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "26492b0a3b16",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "fa7002a328aa",
+      "false_signal_score": 25.0,
+      "flags": [
+        "weak_trend",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "57d828323caa",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "46039f969a24",
+      "false_signal_score": 58.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f85bea2e54c8",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "dd17c39f4ab8",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "8707dc15b0c0",
+      "false_signal_score": 78.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "20b2fcf7969e",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "49cccd1f2d3a",
+      "false_signal_score": 78.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "volatility_spike",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cfe40b4077d0",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f907324f95c4",
+      "false_signal_score": 80.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "low_liquidity",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2c988b5a176c",
+      "false_signal_score": 68.0,
+      "flags": [
+        "counter_trend",
+        "weak_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "cbca208a5f19",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f43f5be1d94e",
+      "false_signal_score": 50.0,
+      "flags": [
+        "counter_trend",
+        "low_liquidity",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "797dbc8a4a25",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "a8a89aff9314",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "6f42a0e3bb00",
+      "false_signal_score": 25.0,
+      "flags": [
+        "weak_trend",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "ae65142a710e",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "8281564f12a0",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "8f6b2dbf125a",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "aa3538867065",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "af09c492f1e8",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "ce1d7486012d",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "6d6aa4b92e0a",
+      "false_signal_score": 27.0,
+      "flags": [
+        "low_liquidity",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "874d56e081c8",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "f9936f8bb6bb",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "e6162aae07da",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "fdcbef071f50",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "eaea48e56640",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "0ac0cc91a678",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "687b4bedea33",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "5e0f3098ca77",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "2a4adebc5199",
+      "false_signal_score": 0.0,
+      "flags": []
+    },
+    {
+      "trade_id": "89955dc636ee",
+      "false_signal_score": 28.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "d07a6bc64102",
+      "false_signal_score": 10.0,
+      "flags": [
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "31d823c7b5cf",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "0143ee52107a",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "775d3d0796c5",
+      "false_signal_score": 38.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "9164558b3e31",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "2fb401811339",
+      "false_signal_score": 53.0,
+      "flags": [
+        "counter_trend",
+        "late_entry",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "38db1e583014",
+      "false_signal_score": 52.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "low_liquidity",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ff389788a15f",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "ad68298c452b",
+      "false_signal_score": 55.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "weak_breakout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "4c18cb71118b",
+      "false_signal_score": 25.0,
+      "flags": [
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "48217f2793d3",
+      "false_signal_score": 52.0,
+      "flags": [
+        "weak_trend",
+        "low_liquidity",
+        "late_entry",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "09c5282a9da2",
+      "false_signal_score": 15.0,
+      "flags": [
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "020da7954ee7",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "f7eef2d8cff7",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "957256d1e02a",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "33f027304906",
+      "false_signal_score": 30.0,
+      "flags": [
+        "weak_trend",
+        "weak_breakout"
+      ]
+    },
+    {
+      "trade_id": "cbed5a3fe055",
+      "false_signal_score": 27.0,
+      "flags": [
+        "weak_trend",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "833c09bfd6b1",
+      "false_signal_score": 40.0,
+      "flags": [
+        "counter_trend",
+        "range_fakeout",
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "5664043fa624",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "c668dcaf45ec",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    },
+    {
+      "trade_id": "305a6941236c",
+      "false_signal_score": 12.0,
+      "flags": [
+        "range_fakeout"
+      ]
+    },
+    {
+      "trade_id": "089298776465",
+      "false_signal_score": 22.0,
+      "flags": [
+        "range_fakeout",
+        "late_entry"
+      ]
+    }
+  ],
+  "avg_false_score_winners": 29.47,
+  "avg_false_score_losers": 30.75,
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

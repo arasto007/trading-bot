@@ -1,0 +1,14 @@
+{
+  "phase": "27C",
+  "format": "{symbol}:{timeframe}:{unified.index[-1]}",
+  "file": "tradingbot/ml/integration/kernel_adapter.py",
+  "problem": "unified.index[-1] is int64 positional index (e.g. 79), not candle timestamp",
+  "example_key": "XAUUSD:M5:79",
+  "collision_risk": "HIGH \u2014 all 80-row unified tails map to index 79",
+  "phase27b_evidence": {
+    "unique_checksums_phase27a": 3,
+    "cache_hits_decision_ms_zero": 5200,
+    "bars_evaluated": 5203
+  },
+  "generated_utc": "2026-07-09T13:04:40.496833+00:00"
+}

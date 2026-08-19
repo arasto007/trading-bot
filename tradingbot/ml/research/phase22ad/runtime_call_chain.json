@@ -1,0 +1,63 @@
+{
+  "phase": "22AD",
+  "instrumentation_method": "static_source_trace",
+  "note": "No production hooks added; call order derived from live entry source files",
+  "live_child_process": {
+    "first_loader": {
+      "function": "load_phase9_9_bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "called_from": "EngineRegistry.build_default",
+      "line": 108,
+      "build_if_missing": false,
+      "purpose": "checksum + verify path (first disk read in child)"
+    },
+    "inference_loader": {
+      "function": "load_phase9_9_bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "called_from": "RangeEngineAdapter.load",
+      "line": 36,
+      "build_if_missing": false,
+      "base_dir_passed": null,
+      "purpose": "Phase99Bundle bound to RangeEngineAdapter used at predict_proba"
+    },
+    "last_loader_before_loop": {
+      "function": "load_phase9_9_bundle",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "called_from": "RangeEngineAdapter.load (via EngineRegistry.build_default)",
+      "purpose": "final bundle instance cached in PipelineCache._registry"
+    },
+    "per_bar_reload": false,
+    "per_bar_loader": null,
+    "cached_in": "PipelineCache._registry → EngineRegistry → Phase99EngineWrapper.inner → RangeEngineAdapter.bundle"
+  },
+  "preflight_process": {
+    "script": "scripts/verify_ml_live_ready.py",
+    "first_loader": "PipelineCache.get_registry → same EngineRegistry.build_default chain",
+    "writes_artifacts": false
+  },
+  "last_authority": {
+    "type": "frozen_disk_artifact",
+    "path": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\research\\phase9_9_best\\model.pkl",
+    "exists": true,
+    "candidate_id": "logistic_strong_reg",
+    "not": [
+      "DEFAULT_CONFIG at inference",
+      "optimizer select_best",
+      "memory-only without disk"
+    ]
+  },
+  "last_writer_at_runtime": {
+    "function": null,
+    "evidence": "No freeze_phase9_9_artifacts or build_if_missing=True in live hot path",
+    "live_hot_path_write": false
+  },
+  "predict_call_site": {
+    "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+    "function": "RangeEngineAdapter.evaluate",
+    "line": 72,
+    "object_type": "Phase99Bundle",
+    "model_source": "joblib.load(data/ml/research/phase9_9_best/model.pkl)"
+  },
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false
+}

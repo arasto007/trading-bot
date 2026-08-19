@@ -1,0 +1,133 @@
+{
+  "phase": "24B",
+  "configurations": [
+    {
+      "name": "USE_ML_KERNEL",
+      "default": false,
+      "file": "ml/integration/config.py",
+      "line": 27,
+      "consumers": [
+        "factory.build_strategy_registry"
+      ]
+    },
+    {
+      "name": "ENABLE_ML_SHADOW",
+      "default": false,
+      "file": "ml/integration/config.py",
+      "line": 18
+    },
+    {
+      "name": "ML_SHADOW_MODE",
+      "default": false,
+      "file": "ml/integration/config.py",
+      "line": 22
+    },
+    {
+      "name": "TREND_MODEL_VERSION",
+      "default": "v41",
+      "file": "ml/phase17d/config.py",
+      "consumers": [
+        "resolve_bundle_version",
+        "EngineRegistry"
+      ]
+    },
+    {
+      "name": "PHASE22C_ENABLED",
+      "default": true,
+      "file": "ml/research/phase22c/config.py",
+      "line": 60
+    },
+    {
+      "name": "PHASE22C_DECISION_MIN_CONFIDENCE",
+      "default": 0.48,
+      "file": "phase22c/config.py",
+      "line": 61
+    },
+    {
+      "name": "PHASE22C_QUALITY_THRESHOLD",
+      "default": 0.52,
+      "file": "phase22c/config.py",
+      "line": 62
+    },
+    {
+      "name": "ENABLE_RANGE_FILTER_PROFILE",
+      "default": true,
+      "file": "regime_filter_profiles.py",
+      "line": 25
+    },
+    {
+      "name": "ENABLE_RSI_FILTER",
+      "default": true,
+      "file": "ml/phase19c/config.py"
+    },
+    {
+      "name": "ENABLE_ADX_FILTER",
+      "default": true,
+      "file": "ml/phase19c/config.py"
+    },
+    {
+      "name": "RSI_MIN/MAX",
+      "default": "40/60",
+      "file": "ml/phase19c/filters.py",
+      "line": 67
+    },
+    {
+      "name": "ADX_MIN/MAX",
+      "default": "15/50",
+      "file": "ml/phase19c/filters.py",
+      "line": 69
+    },
+    {
+      "name": "TRADINGBOT_DRY_RUN",
+      "default": "set by LiveRunner when dry_run=True",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 60
+    },
+    {
+      "name": "TRADINGBOT_PAPER",
+      "default": "set when paper=True",
+      "file": "tradingbot/application/live_runner.py",
+      "line": 58
+    },
+    {
+      "name": "MT5_LOGIN/PASSWORD/SERVER",
+      "file": "adapters/legacy_loader.py",
+      "line": 88
+    },
+    {
+      "name": "BASE_DIR",
+      "source": "legacy config",
+      "consumers": [
+        "artifact paths",
+        "journals"
+      ]
+    },
+    {
+      "name": "PRICE_ACTION.MIN_BARS",
+      "default": 80,
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 77
+    },
+    {
+      "name": "PRICE_ACTION.FETCH_BARS",
+      "default": 300,
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 78
+    },
+    {
+      "name": "HEALTH_MAX_TICK_AGE_SEC",
+      "default": 120.0,
+      "file": "tradingbot/kernel/trading_kernel.py",
+      "line": 79
+    },
+    {
+      "name": "PIPELINE_TIMEOUT_MS",
+      "default": 500.0,
+      "constant": true,
+      "file": "tradingbot/ml/integration/kernel_adapter.py",
+      "line": 41
+    }
+  ],
+  "dotenv_loader": "tradingbot/config/dotenv_loader.py \u2014 loads .env if key not in os.environ",
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

@@ -1,0 +1,13 @@
+{
+  "phase": "27F",
+  "opens": 575,
+  "closes": 575,
+  "still_open_at_end": 0,
+  "open_close_balanced": true,
+  "max_concurrent_open": 0,
+  "bars_with_open_gte_2": 0,
+  "realized_pnl": 131.7493,
+  "record_timeline_mismatches": 0,
+  "phantom_violations_sample": [],
+  "consistent": true
+}

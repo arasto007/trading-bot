@@ -1,0 +1,27 @@
+{
+  "phase": "30B",
+  "overall_realism_score": 42,
+  "scale": "0=fully idealized, 100=institutional TCA grade",
+  "layer_scores": {
+    "production_paper_execution": 28,
+    "production_live_execution": 55,
+    "phase30a_simulator": 58,
+    "accounting_pnl": 75,
+    "replay_parity": 45
+  },
+  "component_scores": {
+    "spread_modelling": 35,
+    "slippage_modelling": 40,
+    "latency_modelling": 25,
+    "liquidity_partial_fills": 50,
+    "market_impact": 45,
+    "exit_execution": 20,
+    "news_flash_crash": 55,
+    "broker_constraints": 70
+  },
+  "evidence": {
+    "ideal_to_sim_pf_retention_pct": 86.6,
+    "production_vs_sim_gap": "Production more optimistic than Phase30A normal sim on exit leg"
+  },
+  "generated_utc": "2026-07-10T08:44:28.787451+00:00"
+}

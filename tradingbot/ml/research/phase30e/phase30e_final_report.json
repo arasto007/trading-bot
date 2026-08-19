@@ -1,0 +1,33 @@
+{
+  "phase": "30E",
+  "verdict": "MT5_READY_FOR_COLLECTION",
+  "mission": "MT5 and broker API forensic audit \u2014 no implementation",
+  "production_modified": false,
+  "metrics_audited": 40,
+  "collectable_count": 35,
+  "uncollectable_count": 5,
+  "replacements_defined": 7,
+  "required_metrics_collectable": 24,
+  "phase30d_adjustments_needed": [
+    "Rename timestamp_us \u2192 timestamp_ms in tick store",
+    "Add local_send_monotonic_ns to executions table",
+    "Mark DOM tables optional in broker_fingerprint_schema",
+    "Remove order_queue from collector_architecture"
+  ],
+  "collector_modules_planned": 9,
+  "next_phase": "30F \u2014 implement isolated collectors per collector_architecture.json",
+  "deliverables": [
+    "mt5_capability_matrix.json",
+    "broker_capability_matrix.json",
+    "api_function_mapping.json",
+    "terminal_limitations.json",
+    "broker_limitations.json",
+    "collectable_metrics.json",
+    "uncollectable_metrics.json",
+    "replacement_metrics.json",
+    "collector_architecture.json",
+    "implementation_risk_matrix.json",
+    "phase30e_final_report.json"
+  ],
+  "generated_utc": "2026-07-10T11:11:07.045718+00:00"
+}

@@ -1,0 +1,10 @@
+{
+  "phase": "26C",
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00",
+  "verdict": "JOURNAL_READY",
+  "simulated_trades": 100,
+  "required_trades": 100,
+  "field_completeness_pct": 100.0,
+  "zero_fill_count": 0,
+  "replay_compatible": true
+}

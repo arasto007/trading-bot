@@ -1,0 +1,61 @@
+{
+  "phase": "22Q",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "model_feature_order": [
+    "ema50_slope",
+    "candle_direction",
+    "structure_distance"
+  ],
+  "features": [
+    {
+      "name": "ema50_slope",
+      "phase99_column": "phase99_ema50_slope",
+      "training_source": "FeatureBuilder → trend family (features/trend.py)",
+      "training_file": "tradingbot/ml/features/trend.py",
+      "inference_source": "dataset_v2 merge → phase99_ema50_slope (NOT live ema50_slope)",
+      "consumer": "phase9_9 model via row_for_phase99_range",
+      "consumer_file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "live_equivalent_exists": true,
+      "live_equivalent_path": "build_ml_features ema50_slope (trend_strategy/trend_features.py) — homonym, different implementation",
+      "actually_used_at_inference": true,
+      "via": "phase99_* only",
+      "redundant_with_featureBuilder": true,
+      "redundant_with_indicatorStage": false
+    },
+    {
+      "name": "candle_direction",
+      "phase99_column": "phase99_candle_direction",
+      "training_source": "FeatureBuilder → price_action family",
+      "training_file": "tradingbot/ml/features/price_action.py",
+      "inference_source": "dataset_v2 merge → phase99_candle_direction",
+      "consumer": "phase9_9 model via row_for_phase99_range",
+      "live_equivalent_exists": true,
+      "live_equivalent_path": "FeatureBuilder.compute_at (NOT IndicatorStage, NOT build_ml_features)",
+      "actually_used_at_inference": true,
+      "via": "phase99_* only",
+      "redundant_with_featureBuilder": true,
+      "redundant_with_indicatorStage": false
+    },
+    {
+      "name": "structure_distance",
+      "phase99_column": "phase99_structure_distance",
+      "training_source": "FeatureBuilder → smc_structure family",
+      "training_file": "tradingbot/ml/features/smc.py",
+      "inference_source": "dataset_v2 merge → phase99_structure_distance",
+      "consumer": "phase9_9 model via row_for_phase99_range",
+      "live_equivalent_exists": true,
+      "live_equivalent_path": "FeatureBuilder.compute_at (bars since BOS/CHoCH; inherently sparse ~1-2% nonzero)",
+      "actually_used_at_inference": true,
+      "via": "phase99_* only",
+      "redundant_with_featureBuilder": true,
+      "redundant_with_indicatorStage": false
+    }
+  ],
+  "TREND_PROTECTED_COLUMNS": [
+    "ema50_slope",
+    "ema20",
+    "ema50",
+    "…"
+  ],
+  "why_prefix_exists": "phase13_9/config.py TREND_PROTECTED_COLUMNS + PHASE99_FEATURE_MAP prevent overwrite"
+}

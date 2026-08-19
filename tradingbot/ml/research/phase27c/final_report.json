@@ -1,0 +1,19 @@
+{
+  "phase": "27C",
+  "verdict": "CACHE_FIXED",
+  "production_modified": true,
+  "modified_files": [
+    "tradingbot/ml/integration/pipeline_cache.py",
+    "tradingbot/ml/integration/kernel_adapter.py"
+  ],
+  "scope": "prediction cache key only",
+  "validation": {
+    "bars_evaluated": 5203,
+    "min_bars_required": 1000,
+    "cache_collisions": 0,
+    "prediction_uniqueness_pct": 100.0,
+    "second_pass_hit_rate_pct": 99.5
+  },
+  "summary": "Replaced unstable unified.index[-1] integer key with symbol+timeframe+closed_candle_ts+feature_fp+model_fp.",
+  "generated_utc": "2026-07-09T13:12:45.920251+00:00"
+}

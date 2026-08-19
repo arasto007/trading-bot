@@ -1,0 +1,43 @@
+{
+  "phase": "29A",
+  "baseline": {
+    "initial_balance": 200.0,
+    "final_balance": 275.7757,
+    "net_profit": 75.7757,
+    "gross_profit": 896.5957,
+    "gross_loss": -820.82,
+    "profit_factor": 1.0923,
+    "expectancy": 0.1318,
+    "recovery_factor": 0.8482,
+    "sharpe_ratio": 10.8077,
+    "sortino_ratio": 10.1158,
+    "calmar_ratio": 1.2369,
+    "max_drawdown_pct": 30.6312,
+    "max_drawdown_abs": 89.3329,
+    "completed_trades": 575,
+    "win_rate_pct": 52.0,
+    "average_actual_risk_pct": 0.0
+  },
+  "filtered": {
+    "remove_bottom_pct": 15,
+    "threshold_score": 77.56,
+    "trade_count": 489,
+    "net_profit": 136.1007,
+    "profit_factor": 1.211,
+    "expectancy": 0.2783,
+    "max_drawdown_pct": 24.264,
+    "sharpe_ratio": 19.3263,
+    "recovery_factor": 1.8284,
+    "win_rate_pct": 53.17
+  },
+  "accept_filter": true,
+  "criteria": {
+    "pf_improves_10pct": true,
+    "expectancy_improves": true,
+    "drawdown_decreases": true,
+    "sample_above_300": true,
+    "no_future_leakage": true,
+    "stress_survives": false
+  },
+  "generated_utc": "2026-07-10T00:49:02.638476+00:00"
+}

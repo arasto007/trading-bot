@@ -1,0 +1,16 @@
+{
+  "total_rows": 5724,
+  "positive_tp_first": 1986,
+  "negative_sl_first": 3702,
+  "unresolved_no_resolution": 36,
+  "positive_pct": 34.696,
+  "negative_pct": 64.6751,
+  "unresolved_pct": 0.6289,
+  "classes_present": [
+    -1,
+    0,
+    1
+  ],
+  "generated_utc": "2026-07-05T20:57:00.053723+00:00",
+  "phase": "22U"
+}

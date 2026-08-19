@@ -1,0 +1,38 @@
+{
+  "phase": "22AB",
+  "options": {
+    "A_acceptance_must_pass_before_freeze": false,
+    "B_acceptance_advisory_only": false,
+    "C_freeze_ignores_acceptance_entirely": true,
+    "D_multiple_freeze_paths_exist": true
+  },
+  "proof": {
+    "C": [
+      "freeze_phase9_9_artifacts has zero references to evaluate_acceptance",
+      "RobustnessOptimizer.run never calls freeze",
+      "train_model --phase9-9 exit code does not gate freeze"
+    ],
+    "D": [
+      "Direct: freeze_phase9_9_artifacts() in tests and KernelShadowRunner",
+      "Indirect: load_phase9_9_bundle(build_if_missing=True) in ShadowEngine, MLAdapter",
+      "Hardcoded DEFAULT_CONFIG path independent of ranked winner"
+    ],
+    "not_B": "Acceptance JSON is never read by freeze or load paths — not advisory, simply disconnected"
+  },
+  "intentional_vs_defect": {
+    "intentional_evidence": [
+      "model_registry.py header: Phase 9.10 paper trading registry separate from Phase 9.9 optimizer",
+      "freeze docstring: research path only",
+      "optimization_orchestrator isolated from execution/freeze by project rules"
+    ],
+    "defect_evidence": [
+      "metadata stores robustness_score from report implying coupling that is not enforced",
+      "Production EngineRegistry/HealthGate load frozen bundle with no acceptance check",
+      "Hardcoded logistic artifact diverges from post-22X selection (random_forest best, acceptance FAIL)",
+      "Degenerated SELL-only model can remain frozen (Phase 22U/22X)"
+    ],
+    "conclusion": "Phase separation (9.9 research vs 9.10 freeze) appears intentional, but the absence of any acceptance gate on freeze/load paths is an integration defect — not documented as safe behavior."
+  },
+  "generated_utc": "2026-07-07T19:11:20.389432+00:00",
+  "production_modified": false
+}

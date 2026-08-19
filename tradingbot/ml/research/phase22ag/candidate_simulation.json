@@ -1,0 +1,469 @@
+{
+  "phase": "22AG",
+  "baseline_mean_auc_gap": 0.3308,
+  "variants": {
+    "A": {
+      "description": "Current acceptance (all 5 checks incl. ordinal overfitting)",
+      "accepted_count": 0,
+      "rejected_count": 28,
+      "accepted": [],
+      "rejected_sample": [
+        {
+          "experiment_id": "random_forest_shallow__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased",
+            "profitable_windows_ge_4"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.1562,
+          "robustness_score": 59.09
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.3308,
+          "robustness_score": 66.57
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2933,
+          "robustness_score": 66.11
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2613,
+          "robustness_score": 65.81
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+          "failed_rules": [
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.3195,
+          "robustness_score": 66.76
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0368,
+          "robustness_score": 77.73
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0376,
+          "robustness_score": 77.68
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        }
+      ],
+      "all_rejected_ids": [
+        "random_forest_shallow__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_top3__RANGE",
+        "xgb_baseline_phase96__stable_top2__RANGE",
+        "xgb_baseline_phase96__stable_except_unstable__RANGE",
+        "logistic_strong_reg__stable_top3__RANGE",
+        "logistic_c1__stable_top3__RANGE",
+        "logistic_c1__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top2__RANGE",
+        "lgbm_conservative__stable_4__RANGE",
+        "lgbm_conservative__stable_top2__RANGE",
+        "lgbm_conservative__stable_top3__RANGE",
+        "logistic_strong_reg__stable_4__RANGE",
+        "logistic_strong_reg__stable_except_unstable__RANGE",
+        "logistic_c1__stable_4__RANGE",
+        "logistic_c1__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_top3__RANGE",
+        "random_forest_shallow__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_top2__RANGE",
+        "lgbm_conservative__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_except_unstable__RANGE",
+        "xgb_regularized_d3__stable_4__RANGE",
+        "xgb_shallow_d2__stable_top3__RANGE",
+        "xgb_regularized_d3__stable_top3__RANGE",
+        "xgb_shallow_d2__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_4__RANGE"
+      ]
+    },
+    "B": {
+      "description": "Replace ordinal overfitting with numeric mean_auc_gap < baseline",
+      "accepted_count": 1,
+      "rejected_count": 27,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ],
+      "rejected_sample": [
+        {
+          "experiment_id": "random_forest_shallow__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "profitable_windows_ge_4"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.1562,
+          "robustness_score": 59.09
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.3308,
+          "robustness_score": 66.57
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2933,
+          "robustness_score": 66.11
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2613,
+          "robustness_score": 65.81
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0368,
+          "robustness_score": 77.73
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0376,
+          "robustness_score": 77.68
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        }
+      ],
+      "all_rejected_ids": [
+        "random_forest_shallow__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_top3__RANGE",
+        "xgb_baseline_phase96__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top3__RANGE",
+        "logistic_c1__stable_top3__RANGE",
+        "logistic_c1__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top2__RANGE",
+        "lgbm_conservative__stable_4__RANGE",
+        "lgbm_conservative__stable_top2__RANGE",
+        "lgbm_conservative__stable_top3__RANGE",
+        "logistic_strong_reg__stable_4__RANGE",
+        "logistic_strong_reg__stable_except_unstable__RANGE",
+        "logistic_c1__stable_4__RANGE",
+        "logistic_c1__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_top3__RANGE",
+        "random_forest_shallow__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_top2__RANGE",
+        "lgbm_conservative__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_except_unstable__RANGE",
+        "xgb_regularized_d3__stable_4__RANGE",
+        "xgb_shallow_d2__stable_top3__RANGE",
+        "xgb_regularized_d3__stable_top3__RANGE",
+        "xgb_shallow_d2__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_4__RANGE"
+      ]
+    },
+    "C": {
+      "description": "Remove overfitting_risk_decreased only",
+      "accepted_count": 1,
+      "rejected_count": 27,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ],
+      "rejected_sample": [
+        {
+          "experiment_id": "random_forest_shallow__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "profitable_windows_ge_4"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.1562,
+          "robustness_score": 59.09
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.3308,
+          "robustness_score": 66.57
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2933,
+          "robustness_score": 66.11
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2613,
+          "robustness_score": 65.81
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0368,
+          "robustness_score": 77.73
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0376,
+          "robustness_score": 77.68
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        }
+      ],
+      "all_rejected_ids": [
+        "random_forest_shallow__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_top3__RANGE",
+        "xgb_baseline_phase96__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top3__RANGE",
+        "logistic_c1__stable_top3__RANGE",
+        "logistic_c1__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top2__RANGE",
+        "lgbm_conservative__stable_4__RANGE",
+        "lgbm_conservative__stable_top2__RANGE",
+        "lgbm_conservative__stable_top3__RANGE",
+        "logistic_strong_reg__stable_4__RANGE",
+        "logistic_strong_reg__stable_except_unstable__RANGE",
+        "logistic_c1__stable_4__RANGE",
+        "logistic_c1__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_top3__RANGE",
+        "random_forest_shallow__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_top2__RANGE",
+        "lgbm_conservative__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_except_unstable__RANGE",
+        "xgb_regularized_d3__stable_4__RANGE",
+        "xgb_shallow_d2__stable_top3__RANGE",
+        "xgb_regularized_d3__stable_top3__RANGE",
+        "xgb_shallow_d2__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_4__RANGE"
+      ]
+    },
+    "D": {
+      "description": "Numeric AUC-gap improvement + probability gate (other checks retained)",
+      "accepted_count": 1,
+      "rejected_count": 27,
+      "accepted": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ],
+      "rejected_sample": [
+        {
+          "experiment_id": "random_forest_shallow__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "profitable_windows_ge_4"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.1562,
+          "robustness_score": 59.09
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+          "failed_rules": [
+            "robustness_improved",
+            "overfitting_risk_decreased"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.3308,
+          "robustness_score": 66.57
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2933,
+          "robustness_score": 66.11
+        },
+        {
+          "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+          "failed_rules": [
+            "robustness_improved"
+          ],
+          "probability_gate_passed": true,
+          "mean_auc_gap": 0.2613,
+          "robustness_score": 65.81
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0368,
+          "robustness_score": 77.73
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top3__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0376,
+          "robustness_score": 77.68
+        },
+        {
+          "experiment_id": "logistic_c1__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        },
+        {
+          "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+          "failed_rules": [
+            "probability_quality_passed"
+          ],
+          "probability_gate_passed": false,
+          "mean_auc_gap": 0.0412,
+          "robustness_score": 77.47
+        }
+      ],
+      "all_rejected_ids": [
+        "random_forest_shallow__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_4__RANGE",
+        "xgb_baseline_phase96__stable_top3__RANGE",
+        "xgb_baseline_phase96__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top3__RANGE",
+        "logistic_c1__stable_top3__RANGE",
+        "logistic_c1__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top2__RANGE",
+        "lgbm_conservative__stable_4__RANGE",
+        "lgbm_conservative__stable_top2__RANGE",
+        "lgbm_conservative__stable_top3__RANGE",
+        "logistic_strong_reg__stable_4__RANGE",
+        "logistic_strong_reg__stable_except_unstable__RANGE",
+        "logistic_c1__stable_4__RANGE",
+        "logistic_c1__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_top3__RANGE",
+        "random_forest_shallow__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_top2__RANGE",
+        "xgb_regularized_d3__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_top2__RANGE",
+        "lgbm_conservative__stable_except_unstable__RANGE",
+        "random_forest_shallow__stable_except_unstable__RANGE",
+        "xgb_regularized_d3__stable_4__RANGE",
+        "xgb_shallow_d2__stable_top3__RANGE",
+        "xgb_regularized_d3__stable_top3__RANGE",
+        "xgb_shallow_d2__stable_except_unstable__RANGE",
+        "xgb_shallow_d2__stable_4__RANGE"
+      ]
+    }
+  },
+  "safety_comparison": {
+    "A": "Strictest; 0 candidates pass — freeze gate never opens",
+    "B": "Adds numeric overfitting control; still requires robustness/4-window/probability rules",
+    "C": "Removes overfitting check entirely — weaker safety on gap/degradation",
+    "D": "Strongest minimal fix: numeric gap + probability gate + existing economic checks"
+  },
+  "recommended_variant": "D",
+  "note": "Simulation uses existing phase9_9_model_comparison.json only — no retrain",
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

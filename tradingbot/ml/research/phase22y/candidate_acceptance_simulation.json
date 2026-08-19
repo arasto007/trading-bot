@@ -1,0 +1,110 @@
+{
+  "probability_gate_passed_only": {
+    "scope": "probability_gate_passed_only",
+    "candidate_count": 5,
+    "simulations": [
+      {
+        "ignored_rule": "overfitting_risk_decreased",
+        "ignored_failed_label": "overfitting_risk_failed",
+        "accepted_count": 1,
+        "accepted_experiment_ids": [
+          "xgb_baseline_phase96__stable_except_unstable__RANGE"
+        ]
+      },
+      {
+        "ignored_rule": "robustness_improved",
+        "ignored_failed_label": "robustness_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      },
+      {
+        "ignored_rule": "mean_expectancy_positive",
+        "ignored_failed_label": "expectancy_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      },
+      {
+        "ignored_rule": "profitable_windows_ge_4",
+        "ignored_failed_label": "profitable_windows_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      },
+      {
+        "ignored_rule": "probability_quality_passed",
+        "ignored_failed_label": "probability_quality_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      }
+    ],
+    "best_single_rule_relaxation": {
+      "ignored_rule": "overfitting_risk_decreased",
+      "ignored_failed_label": "overfitting_risk_failed",
+      "accepted_count": 1,
+      "accepted_experiment_ids": [
+        "xgb_baseline_phase96__stable_except_unstable__RANGE"
+      ]
+    }
+  },
+  "all_ranked_candidates": {
+    "scope": "all_ranked_candidates",
+    "candidate_count": 28,
+    "simulations": [
+      {
+        "ignored_rule": "probability_quality_passed",
+        "ignored_failed_label": "probability_quality_failed",
+        "accepted_count": 7,
+        "accepted_experiment_ids": [
+          "logistic_strong_reg__stable_top3__RANGE",
+          "logistic_c1__stable_top3__RANGE",
+          "logistic_c1__stable_top2__RANGE",
+          "logistic_strong_reg__stable_top2__RANGE",
+          "lgbm_conservative__stable_4__RANGE",
+          "lgbm_conservative__stable_top2__RANGE",
+          "lgbm_conservative__stable_top3__RANGE"
+        ]
+      },
+      {
+        "ignored_rule": "overfitting_risk_decreased",
+        "ignored_failed_label": "overfitting_risk_failed",
+        "accepted_count": 1,
+        "accepted_experiment_ids": [
+          "xgb_baseline_phase96__stable_except_unstable__RANGE"
+        ]
+      },
+      {
+        "ignored_rule": "robustness_improved",
+        "ignored_failed_label": "robustness_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      },
+      {
+        "ignored_rule": "mean_expectancy_positive",
+        "ignored_failed_label": "expectancy_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      },
+      {
+        "ignored_rule": "profitable_windows_ge_4",
+        "ignored_failed_label": "profitable_windows_failed",
+        "accepted_count": 0,
+        "accepted_experiment_ids": []
+      }
+    ],
+    "best_single_rule_relaxation": {
+      "ignored_rule": "probability_quality_passed",
+      "ignored_failed_label": "probability_quality_failed",
+      "accepted_count": 7,
+      "accepted_experiment_ids": [
+        "logistic_strong_reg__stable_top3__RANGE",
+        "logistic_c1__stable_top3__RANGE",
+        "logistic_c1__stable_top2__RANGE",
+        "logistic_strong_reg__stable_top2__RANGE",
+        "lgbm_conservative__stable_4__RANGE",
+        "lgbm_conservative__stable_top2__RANGE",
+        "lgbm_conservative__stable_top3__RANGE"
+      ]
+    }
+  },
+  "generated_utc": "2026-07-07T18:56:25.626034+00:00",
+  "production_modified": false
+}

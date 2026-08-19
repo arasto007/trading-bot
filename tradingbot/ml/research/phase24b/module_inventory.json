@@ -1,0 +1,273 @@
+{
+  "phase": "24B",
+  "module_count": 8,
+  "modules": [
+    {
+      "id": "LiveRunner",
+      "path": "tradingbot/application/live_runner.py",
+      "why": "Owns MT5 lifecycle, background services, kill switch, kernel.run_forever loop",
+      "called_by": [
+        "tradingbot/__main__.py:run_live_loop"
+      ],
+      "calls": [
+        "TradingKernel",
+        "build_strategy_registry",
+        "Mt5MarketDataAdapter",
+        "Mt5ExecutionAdapter"
+      ],
+      "inputs": [
+        "KernelSettings",
+        "dry_run/paper flags"
+      ],
+      "outputs": [
+        "async live loop until stop/emergency"
+      ],
+      "assumptions": [
+        "MT5 reachable",
+        "legacy config loaded"
+      ],
+      "failure_modes": [
+        "MT5 not connected \u2192 abort _run line 98-99"
+      ],
+      "downstream": [
+        "TradingKernel"
+      ]
+    },
+    {
+      "id": "TradingKernel",
+      "path": "tradingbot/kernel/trading_kernel.py",
+      "why": "Central orchestrator \u2014 only place that runs full market cycle pipeline",
+      "called_by": [
+        "LiveRunner",
+        "bootstrap.build_kernel_live"
+      ],
+      "calls": [
+        "DataStage",
+        "IndicatorStage",
+        "SignalStage",
+        "RiskStage",
+        "ExecutionStage"
+      ],
+      "inputs": [
+        "IMarketDataProvider",
+        "IStrategyRegistry",
+        "IRiskGate",
+        "IOrderExecutor"
+      ],
+      "outputs": [
+        "CycleContext per market",
+        "TradeJournal entries"
+      ],
+      "assumptions": [
+        "Pipeline stages run in fixed order",
+        "portfolio snapshot available"
+      ],
+      "failure_modes": [
+        "Stage returns False \u2192 pipeline stops",
+        "EMERGENCY_STOP skips cycle"
+      ],
+      "downstream": [
+        "All pipeline stages"
+      ]
+    },
+    {
+      "id": "MLKernelRegistry",
+      "path": "tradingbot/ml/integration/ml_kernel_registry.py",
+      "why": "IStrategyRegistry routing ML vs legacy with fallback on KernelFallbackError",
+      "called_by": [
+        "SignalStage.run line 35"
+      ],
+      "calls": [
+        "KernelAdapter.generate_signal",
+        "LegacyStrategyRegistry.generate_signal"
+      ],
+      "inputs": [
+        "MarketKey",
+        "closed OHLCV DataFrame"
+      ],
+      "outputs": [
+        "TradingSignal or None"
+      ],
+      "assumptions": [
+        "USE_ML_KERNEL env",
+        "adapter injected at factory time"
+      ],
+      "failure_modes": [
+        "KernelFallbackError \u2192 legacy fallback",
+        "HOLD \u2192 None (no signal)"
+      ],
+      "downstream": [
+        "KernelAdapter",
+        "RiskStage"
+      ]
+    },
+    {
+      "id": "KernelAdapter",
+      "path": "tradingbot/ml/integration/kernel_adapter.py",
+      "why": "Production ML signal path \u2014 unified frame \u2192 decision stack \u2192 TradingSignal mapping",
+      "called_by": [
+        "MLKernelRegistry.generate_signal"
+      ],
+      "calls": [
+        "require_health",
+        "PipelineCache",
+        "build_market_context",
+        "TradeQualityAdapter.evaluate",
+        "apply_profitability_filters"
+      ],
+      "inputs": [
+        "MarketKey",
+        "OHLCV DataFrame"
+      ],
+      "outputs": [
+        "TradingSignal or None",
+        "UnifiedSignal internally"
+      ],
+      "assumptions": [
+        "\u2265250 bars for non-empty unified frame (dataset merge)",
+        "500ms pipeline timeout"
+      ],
+      "failure_modes": [
+        "unified_frame_empty",
+        "pipeline_timeout",
+        "health fail \u2192 KernelFallbackError"
+      ],
+      "downstream": [
+        "SignalStage",
+        "RiskStage"
+      ]
+    },
+    {
+      "id": "PipelineCache",
+      "path": "tradingbot/ml/integration/pipeline_cache.py",
+      "why": "Thread-safe singleton for EngineRegistry, unified features, prediction dedup",
+      "called_by": [
+        "factory.build_ml_kernel_stack",
+        "KernelAdapter.produce_unified_signal"
+      ],
+      "calls": [
+        "EngineRegistry.build_default",
+        "DatasetStore.load_v2",
+        "build_unified_frame"
+      ],
+      "inputs": [
+        "candles tail(300)",
+        "base_dir",
+        "symbol",
+        "timeframe"
+      ],
+      "outputs": [
+        "unified DataFrame",
+        "cached UnifiedSignal payload"
+      ],
+      "assumptions": [
+        "dataset_v2 parquet exists on disk for phase99 merge"
+      ],
+      "failure_modes": [
+        "empty dataset \u2192 unified may lack phase99 columns",
+        "cache key mismatch rebuilds"
+      ],
+      "downstream": [
+        "KernelAdapter",
+        "HealthGate registry probe"
+      ]
+    },
+    {
+      "id": "HealthGate",
+      "path": "tradingbot/ml/integration/health_gate.py",
+      "why": "Pre-decision artifact integrity + registry health; triggers legacy fallback",
+      "called_by": [
+        "KernelAdapter.produce_unified_signal lines 172-193"
+      ],
+      "calls": [
+        "run_pre_decision_health",
+        "load_phase9_9_bundle(build_if_missing=False)"
+      ],
+      "inputs": [
+        "EngineRegistry",
+        "optional unified_row"
+      ],
+      "outputs": [
+        "HealthGateResult or KernelFallbackError"
+      ],
+      "assumptions": [
+        "Frozen artifacts on disk match EXPECTED_DATASET_FINGERPRINT"
+      ],
+      "failure_modes": [
+        "checksum invalid",
+        "missing feature_order",
+        "registry health FAIL"
+      ],
+      "downstream": [
+        "KernelAdapter \u2014 blocks ML path"
+      ]
+    },
+    {
+      "id": "DecisionOrchestrator",
+      "path": "tradingbot/ml/decision_engine/orchestrator.py",
+      "why": "Select engine by regime, apply confidence policy, emit FinalDecision",
+      "called_by": [
+        "CalibratedDecisionAdapter (via risk/quality chain)"
+      ],
+      "calls": [
+        "select_engine",
+        "select_signal",
+        "ConfidenceEngine.from_context",
+        "DecisionPolicy.apply"
+      ],
+      "inputs": [
+        "MarketContext"
+      ],
+      "outputs": [
+        "FinalDecision BUY/SELL/HOLD"
+      ],
+      "assumptions": [
+        "regime from rule_classify_row",
+        "engine signals pre-computed"
+      ],
+      "failure_modes": [
+        "BLOCKED_REGIMES \u2192 HOLD",
+        "confidence below min_confidence \u2192 HOLD"
+      ],
+      "downstream": [
+        "Calibration",
+        "Risk",
+        "Quality",
+        "Filters"
+      ]
+    },
+    {
+      "id": "Mt5ExecutionAdapter",
+      "path": "tradingbot/adapters/mt5_execution.py",
+      "why": "Broker order execution with dry-run/paper/live modes",
+      "called_by": [
+        "ExecutionStage.run"
+      ],
+      "calls": [
+        "order_logic.validate_order",
+        "order_logic.check_order_risk",
+        "mt5.order_send"
+      ],
+      "inputs": [
+        "TradingSignal",
+        "lot"
+      ],
+      "outputs": [
+        "ExecutionResult"
+      ],
+      "assumptions": [
+        "MT5 connected for live",
+        "TRADINGBOT_DRY_RUN/PAPER env"
+      ],
+      "failure_modes": [
+        "validate_order fail",
+        "MT5 retcode not DONE"
+      ],
+      "downstream": [
+        "TradeJournal",
+        "record_live_entry"
+      ]
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

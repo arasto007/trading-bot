@@ -1,0 +1,28 @@
+{
+  "phase": "30D",
+  "objective": "Round-trip and component latency for LatencySimulator",
+  "measurements": [
+    {
+      "name": "round_trip_ms",
+      "method": "send to retcode callback",
+      "n": 200
+    },
+    {
+      "name": "tick_to_send_ms",
+      "method": "last tick ts to send ts",
+      "n": 200
+    },
+    {
+      "name": "heartbeat_jitter_ms",
+      "method": "60s tick poll arrival variance",
+      "n": 10000
+    }
+  ],
+  "profiles_to_capture": [
+    "VPS co-located",
+    "home ISP if applicable"
+  ],
+  "coupling_requirement": "Every execution record must include quote at send AND quote at fill tick index",
+  "duration_days": 30,
+  "generated_utc": "2026-07-10T11:04:24.686261+00:00"
+}

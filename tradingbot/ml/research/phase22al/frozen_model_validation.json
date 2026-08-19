@@ -1,0 +1,86 @@
+{
+  "phase": "22AL",
+  "candidate_id": "xgb_baseline_phase96",
+  "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "expected_candidate_id": "xgb_baseline_phase96",
+  "expected_experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "candidate_matches": true,
+  "experiment_matches": true,
+  "model_type": "xgboost",
+  "feature_subset": "stable_except_unstable",
+  "feature_order": [
+    "candle_direction",
+    "structure_distance",
+    "ema50_slope",
+    "ema_cross_state"
+  ],
+  "scaler_n_features": 4,
+  "metadata": {
+    "phase": "9.9",
+    "frozen_at_utc": "2026-07-07T20:10:28.472964+00:00",
+    "candidate_id": "xgb_baseline_phase96",
+    "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+    "feature_subset": "stable_except_unstable",
+    "model_type": "xgboost",
+    "train_rows": 851,
+    "dataset_fingerprint": "70b38325ee1c7e1e",
+    "robustness_score": 66.76,
+    "validation_metrics": {
+      "robustness_score": 66.76,
+      "overfitting_risk": "HIGH",
+      "mean_profit_factor": 1.227,
+      "mean_expectancy": 0.1273,
+      "mean_auc_gap": 0.3195,
+      "profitable_windows": 4,
+      "window_count": 5,
+      "composite_score": 0.592035
+    },
+    "probability_metrics": {
+      "buy_coverage_pct": 11.1359,
+      "sell_coverage_pct": 72.9399,
+      "probability_std": 0.157166,
+      "min_probability": 0.062302,
+      "max_probability": 0.904958,
+      "probability_gate_passed": true
+    },
+    "acceptance_status": {
+      "final_verdict": "PASS",
+      "checks": {
+        "robustness_improved": true,
+        "overfitting_risk_decreased": true,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": true,
+        "probability_quality_passed": true
+      },
+      "baseline_mean_auc_gap": 0.3308,
+      "best_mean_auc_gap": 0.3195,
+      "overfitting_check_mode": "numeric_mean_auc_gap"
+    },
+    "freeze_authority": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+    "contract_version": "1.0"
+  },
+  "manifest_present": true,
+  "manifest_checksum_match": true,
+  "artifact_checksums": {
+    "model.pkl": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "scaler.pkl": "50118d02fa3869bccd7a7785abc22ffb31b8a44fc027cf43e9969e154c6c17f9",
+    "feature_order.json": "a95f60246226abdf0bde20c5e7ce380097f0b02d06aeed9406a9714ead8e5100",
+    "config.json": "e7fea4a0c85a935b635ab533e0d03242f72dc4b5bee011f2f2ec2d8e4faa15c1",
+    "metadata.json": "08ce6b83d62e2a30b014dddc1264c8b3cd371067ee7ac6cc6cff768fd3b6f25d",
+    "freeze_manifest.json": "579506b8cadee373f09e998605ae0433b725cf386cbf6951af71685c9f8f53e9"
+  },
+  "manifest_checksums": {
+    "model.pkl": "6c5d72f2033811ebf440b9698b2e70e17c7145880ff285458331ab4c15e4d07e",
+    "scaler.pkl": "50118d02fa3869bccd7a7785abc22ffb31b8a44fc027cf43e9969e154c6c17f9",
+    "feature_order.json": "a95f60246226abdf0bde20c5e7ce380097f0b02d06aeed9406a9714ead8e5100",
+    "config.json": "e7fea4a0c85a935b635ab533e0d03242f72dc4b5bee011f2f2ec2d8e4faa15c1",
+    "metadata.json": "08ce6b83d62e2a30b014dddc1264c8b3cd371067ee7ac6cc6cff768fd3b6f25d"
+  },
+  "integrity_passed": true,
+  "integrity_checks": {
+    "feature_order": true,
+    "scaler_dims": true,
+    "predict": true
+  },
+  "generated_utc": "2026-07-07T20:55:43.625976+00:00"
+}

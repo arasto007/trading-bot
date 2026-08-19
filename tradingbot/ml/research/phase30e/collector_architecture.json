@@ -1,0 +1,151 @@
+{
+  "phase": "30E",
+  "design_principle": "Only MT5-proven data paths \u2014 no speculative sensors",
+  "isolation": "tradingbot/ml/research/phase30f/collectors/ (future \u2014 not implemented in 30E)",
+  "processes": [
+    {
+      "name": "TickPoller",
+      "inputs": [
+        "MT5 symbol_info_tick"
+      ],
+      "outputs": [
+        "tick_store/parquet"
+      ],
+      "api": [
+        "symbol_info_tick"
+      ],
+      "frequency": "100ms poll; 1s during news/rollover",
+      "read_only": true
+    },
+    {
+      "name": "TickBackfill",
+      "inputs": [
+        "MT5 copy_ticks_range"
+      ],
+      "outputs": [
+        "tick_store/parquet gaps"
+      ],
+      "api": [
+        "copy_ticks_range"
+      ],
+      "frequency": "On gap detection",
+      "read_only": true
+    },
+    {
+      "name": "ExecutionLogger",
+      "inputs": [
+        "order_send wrapper on demo account"
+      ],
+      "outputs": [
+        "executions.parquet",
+        "orders.parquet"
+      ],
+      "api": [
+        "order_send",
+        "symbol_info_tick"
+      ],
+      "custom_fields": [
+        "send_monotonic_ns",
+        "quoted_bid",
+        "quoted_ask",
+        "requested_price"
+      ],
+      "read_only": false,
+      "note": "Isolated demo \u2014 not production adapter"
+    },
+    {
+      "name": "HistorySync",
+      "inputs": [
+        "MT5 deal/order history"
+      ],
+      "outputs": [
+        "deals.parquet",
+        "orders_history.parquet"
+      ],
+      "api": [
+        "history_deals_get",
+        "history_orders_get"
+      ],
+      "frequency": "Hourly",
+      "read_only": true
+    },
+    {
+      "name": "SymbolSnapshot",
+      "inputs": [
+        "MT5 symbol_info"
+      ],
+      "outputs": [
+        "symbol_info/YYYY-MM-DD.json"
+      ],
+      "api": [
+        "symbol_info"
+      ],
+      "frequency": "Daily UTC 00:05",
+      "read_only": true
+    },
+    {
+      "name": "AccountPoller",
+      "inputs": [
+        "MT5 account_info"
+      ],
+      "outputs": [
+        "account_snapshots.parquet"
+      ],
+      "api": [
+        "account_info"
+      ],
+      "frequency": "60s",
+      "read_only": true
+    },
+    {
+      "name": "GapExtractor",
+      "inputs": [
+        "tick_store"
+      ],
+      "outputs": [
+        "gap_events.jsonl"
+      ],
+      "api": [],
+      "frequency": "Weekly",
+      "read_only": true
+    },
+    {
+      "name": "NewsJoiner",
+      "inputs": [
+        "external calendar JSON",
+        "tick_store"
+      ],
+      "outputs": [
+        "news/spread_tags.parquet"
+      ],
+      "api": [],
+      "frequency": "Daily calendar refresh",
+      "read_only": true
+    },
+    {
+      "name": "DomProbe",
+      "inputs": [
+        "MT5 market_book"
+      ],
+      "outputs": [
+        "dom_probe.json"
+      ],
+      "api": [
+        "market_book_add",
+        "market_book_get",
+        "market_book_release"
+      ],
+      "frequency": "Once at startup",
+      "optional": true
+    }
+  ],
+  "data_flow": "MT5 Terminal \u2192 Python collectors (research) \u2192 phase30d tick_store/data \u2192 aggregation scripts \u2192 calibration inputs (Phase 30G+)",
+  "explicitly_excluded": [
+    "Production Mt5ExecutionAdapter modification",
+    "TradingKernel hooks",
+    "DOM streaming",
+    "Level II ingestion",
+    "ICMP network probe (optional future)"
+  ],
+  "generated_utc": "2026-07-10T11:11:07.051325+00:00"
+}

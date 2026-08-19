@@ -1,0 +1,88 @@
+{
+  "now": "2026-07-15T01:24:48Z",
+  "verdict": "FUNNEL_BYPASS_HIGH_CAPTURE",
+  "caches_simulated": 4,
+  "per_cache": [
+    {
+      "cache_label": "A",
+      "raw_signal_count": 790,
+      "current_would_reach_execution": 0,
+      "current_capture_rate_pct": 0.0,
+      "bypass_would_reach_execution": 739,
+      "bypass_capture_rate_pct": 93.54,
+      "trade_quality_blocked": 739,
+      "adaptive_risk_blocked": 51,
+      "incremental_from_bypass": 739
+    },
+    {
+      "cache_label": "B",
+      "raw_signal_count": 180,
+      "current_would_reach_execution": 0,
+      "current_capture_rate_pct": 0.0,
+      "bypass_would_reach_execution": 164,
+      "bypass_capture_rate_pct": 91.11,
+      "trade_quality_blocked": 164,
+      "adaptive_risk_blocked": 16,
+      "incremental_from_bypass": 164
+    },
+    {
+      "cache_label": "C",
+      "raw_signal_count": 1138,
+      "current_would_reach_execution": 0,
+      "current_capture_rate_pct": 0.0,
+      "bypass_would_reach_execution": 1075,
+      "bypass_capture_rate_pct": 94.46,
+      "trade_quality_blocked": 1075,
+      "adaptive_risk_blocked": 63,
+      "incremental_from_bypass": 1075
+    },
+    {
+      "cache_label": "H",
+      "raw_signal_count": 2756,
+      "current_would_reach_execution": 0,
+      "current_capture_rate_pct": 0.0,
+      "bypass_would_reach_execution": 2563,
+      "bypass_capture_rate_pct": 93.0,
+      "trade_quality_blocked": 2563,
+      "adaptive_risk_blocked": 193,
+      "incremental_from_bypass": 2563
+    }
+  ],
+  "aggregate": {
+    "raw_signals": 4864,
+    "current_would_reach_execution": 0,
+    "current_capture_rate_pct": 0.0,
+    "bypass_would_reach_execution": 4541,
+    "bypass_capture_rate_pct": 93.36,
+    "incremental_signals_from_bypass": 4541,
+    "trade_quality_blocked": 4541,
+    "adaptive_risk_blocked": 323,
+    "still_blocked_after_bypass": 323,
+    "edge_loss_current_pct": 100.0,
+    "edge_loss_after_bypass_pct": 6.64
+  },
+  "pf_proxy_current_path": {
+    "verdict": "NO_RESOLVED_LABELS",
+    "labels_resolved": 0,
+    "skipped": {
+      "no_bar": 0,
+      "no_sl_tp": 0,
+      "no_resolution": 0
+    }
+  },
+  "pf_proxy_bypass_path": {
+    "verdict": "LABELS_RESOLVED",
+    "labels_resolved": 4224,
+    "wins": 1150,
+    "losses": 3074,
+    "win_rate_pct": 27.23,
+    "pf_proxy": 0.3741,
+    "skipped": {
+      "no_bar": 45,
+      "no_sl_tp": 0,
+      "no_resolution": 272
+    }
+  },
+  "research_only": true,
+  "note": "Counterfactual only \u2014 no production TradeQuality changes"
+}

@@ -1,0 +1,138 @@
+{
+  "phase": "12.1",
+  "generated_at_utc": "2026-07-01T10:05:47.251959+00:00",
+  "symbol": "XAUUSD",
+  "timeframe": "M5",
+  "paper_run_id": "phase11_v1",
+  "answers": {
+    "1_architecture": "ML_ONLY",
+    "2_active_strategies": [
+      "priceaction",
+      "Phase 9.9 ML (MLShadowStrategy)"
+    ],
+    "3_inactive_strategies": [
+      "advancedml",
+      "arbitrage",
+      "breakout",
+      "dynamicsizing",
+      "gridtrading",
+      "hedgingprofessional",
+      "meanreversion",
+      "ml",
+      "momentum",
+      "patternrecognition",
+      "pullback",
+      "rangebound",
+      "scalping",
+      "trendfollowing",
+      "trendmomentumcombo",
+      "volatilitybreakout"
+    ],
+    "4_ml_contribution_pct": 0.0,
+    "5_legacy_contribution_pct": 0.0,
+    "6_signal_conflict_rate": 0.0,
+    "7_best_performing_strategy": null,
+    "8_worst_performing_strategy": null,
+    "9_recommended_next_phase": "D) Optimize strategy weights \u2014 dual-path with override"
+  },
+  "architecture_summary": {
+    "architecture_mode": "ML_ONLY",
+    "detected_mode": "ML_PRIORITY_OVERRIDE",
+    "rationale": "CompositeStrategyRegistry runs both ML and legacy each cycle. ML takes priority when non-HOLD; legacy is fallback only. On 30d paper data ML dominates final selection (see replay_analysis). Registered label: ML_ONLY for effective production behavior; implementation uses dual-run with ML override (not weighted ENSEMBLE).",
+    "ml_replaces_legacy": true,
+    "ml_works_with_legacy": true,
+    "production_path_uses_composite": true
+  },
+  "decision_flow": {
+    "pipeline": [
+      "Market Data (MT5 read-only / replay)",
+      "TradingKernel.run_market_cycle",
+      "DataStage \u2192 IndicatorsStage",
+      "SignalStage.generate_signal(registry)",
+      "RiskStage.evaluate",
+      "ExecutionStage.execute (guarded in shadow/paper)"
+    ],
+    "signal_stage_entry": "tradingbot.pipeline.signal_stage.SignalStage",
+    "registry_in_ml_path": "CompositeStrategyRegistry",
+    "registry_in_legacy_live": "LegacyStrategyRegistry",
+    "decision_mechanism": {
+      "type": "ML_PRIORITY_OVERRIDE",
+      "description": "Both ML and legacy generate signals each bar. If ML returns non-HOLD, ML wins. Otherwise legacy priceaction is used. No weighted fusion or voting.",
+      "ml_weight": "100% when ML non-HOLD",
+      "legacy_weight": "100% when ML HOLD/absent",
+      "fusion": false
+    },
+    "imported_strategies": [
+      "MLShadowStrategy (Phase 9.9)",
+      "LegacyStrategyRegistry \u2192 priceaction"
+    ],
+    "instantiated_strategies": [
+      "ml_shadow_phase9_9",
+      "priceaction"
+    ],
+    "executed_per_cycle": [
+      "MLShadowStrategy.generate_signal",
+      "LegacyStrategyRegistry.generate_signal"
+    ],
+    "ignored_when_ml_wins": [
+      "priceaction (computed but discarded)"
+    ]
+  },
+  "contribution": {
+    "agreement_rate": 0.0,
+    "conflict_rate": 0.0,
+    "agreement_cycles": 0,
+    "conflict_cycles": 0,
+    "ml_contribution_percentage": 0.0,
+    "legacy_contribution_percentage": 0.0,
+    "dominant_strategy": "Phase9.9_ML",
+    "signals_generated": {
+      "ml": 0,
+      "legacy": 0
+    },
+    "signals_selected_as_final": {
+      "ml": 0,
+      "legacy": 0
+    },
+    "decision_mechanism": {
+      "type": "ML_PRIORITY_OVERRIDE",
+      "ml_weight_when_active": "100%",
+      "legacy_weight_when_ml_hold": "100%",
+      "voting": false,
+      "confidence_weighting": false,
+      "description": "ML non-HOLD overrides legacy; no ensemble fusion."
+    }
+  },
+  "replay_summary": {
+    "source": "paper_trading/phase11_v1",
+    "duration_days": 30,
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "total_cycles": 0,
+    "signals": {
+      "phase9_9_ml_generated": 0,
+      "legacy_priceaction_generated": 0,
+      "final_ml_selected": 0,
+      "final_legacy_selected": 0,
+      "both_hold": 0
+    },
+    "agreement_cycles": 0,
+    "conflict_cycles": 0,
+    "final_trades": {
+      "total": 0,
+      "ml_only": 0,
+      "legacy_only": 0,
+      "strategy_agreement_trades": 0,
+      "strategy_conflict_trades": 0
+    },
+    "dominant_final_source": "Phase9.9_ML",
+    "ml_final_pct": 0.0
+  },
+  "safety": {
+    "audit_package_read_only": true,
+    "forbidden_paths_untouched_by_audit": true,
+    "violations": [
+      "dependency_analyzer.py: order_send reference"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "27G",
+  "total_trades": 575,
+  "exit_reasons": {
+    "SL": {
+      "count": 337,
+      "pct": 58.61
+    },
+    "TIMEOUT": {
+      "count": 65,
+      "pct": 11.3
+    },
+    "TP": {
+      "count": 173,
+      "pct": 30.09
+    }
+  },
+  "sl_count": 337,
+  "tp_count": 173,
+  "timeout_count": 65,
+  "sl_pct": 58.61,
+  "tp_pct": 30.09,
+  "timeout_pct": 11.3,
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

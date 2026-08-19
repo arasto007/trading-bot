@@ -1,0 +1,23 @@
+{
+  "phase": "27G",
+  "gross_profit": 4969.345,
+  "gross_loss": 3868.1596,
+  "net_profit": 1101.1854,
+  "profit_factor": 1.2847,
+  "expectancy": 1.9151,
+  "average_win": 22.3844,
+  "average_loss": 10.958,
+  "largest_win": 55.95,
+  "largest_loss": -22.7171,
+  "average_rr": 2.5,
+  "realized_rr_avg": 0.2277,
+  "maximum_drawdown_pct": 12.1956,
+  "maximum_drawdown_abs": 1339.1157,
+  "recovery_factor": 0.8223,
+  "sharpe_ratio": 29.2927,
+  "sortino_ratio": 44.42479100314125,
+  "calmar_ratio": 0.9029,
+  "initial_balance": 10000.0,
+  "final_equity": 11101.1854,
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

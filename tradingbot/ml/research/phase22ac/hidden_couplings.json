@@ -1,0 +1,101 @@
+{
+  "phase": "22AC",
+  "couplings": [
+    {
+      "id": "default_config_vs_optimizer",
+      "description": "Registry freeze assumes DEFAULT_CONFIG logistic_strong_reg; optimizer ranks different candidates",
+      "components": [
+        "model_registry.DEFAULT_CONFIG",
+        "RobustnessOptimizer.select_best"
+      ],
+      "risk": "CRITICAL"
+    },
+    {
+      "id": "default_build_if_missing_true",
+      "description": "load_phase9_9_bundle defaults build_if_missing=True; production callers must opt out explicitly",
+      "components": [
+        "load_phase9_9_bundle"
+      ],
+      "risk": "HIGH"
+    },
+    {
+      "id": "range_adapter_base_dir_none",
+      "description": "RangeEngineAdapter.load ignores caller base_dir; always load_phase9_9_bundle(base_dir=None)",
+      "components": [
+        "RangeEngineAdapter.load",
+        "EngineRegistry.build_default"
+      ],
+      "risk": "HIGH"
+    },
+    {
+      "id": "paper_expected_features_static",
+      "description": "paper/config EXPECTED_FEATURES from DEFAULT_CONFIG at import; not loaded from artifact feature_order.json",
+      "components": [
+        "paper/config.py",
+        "validate_frozen_model"
+      ],
+      "risk": "MEDIUM"
+    },
+    {
+      "id": "health_metadata_partial",
+      "description": "HealthGate checks metadata/feature_order file existence; model.pkl failure is separate via verify_bundle_integrity",
+      "components": [
+        "HealthGate",
+        "load_phase9_9_bundle"
+      ],
+      "risk": "HIGH"
+    },
+    {
+      "id": "metadata_without_model",
+      "description": "Sidecar JSON can exist while model.pkl missing — health may fail predict check but files partially present",
+      "components": [
+        "artifact store",
+        "EngineRegistry sha256"
+      ],
+      "risk": "CRITICAL"
+    },
+    {
+      "id": "shadow_rebuilds_artifacts",
+      "description": "ShadowEngine and KernelShadowRunner can invoke freeze without acceptance gate",
+      "components": [
+        "ShadowEngine",
+        "KernelShadowRunner"
+      ],
+      "risk": "CRITICAL"
+    },
+    {
+      "id": "pipeline_cache_no_rebuild",
+      "description": "PipelineCache uses build_if_missing=False — does NOT trigger rebuild (safe read path)",
+      "components": [
+        "PipelineCache"
+      ],
+      "risk": "SAFE"
+    },
+    {
+      "id": "robustness_score_in_metadata",
+      "description": "metadata.robustness_score read from report JSON at freeze time; stale if report updated without re-freeze",
+      "components": [
+        "freeze_phase9_9_artifacts",
+        "_load_phase99_score"
+      ],
+      "risk": "MEDIUM"
+    },
+    {
+      "id": "engine_registry_double_load",
+      "description": "EngineRegistry loads bundle twice: load_phase9_9_bundle + RangeEngineAdapter.load (separate bundle instances)",
+      "components": [
+        "EngineRegistry.build_default",
+        "RangeEngineAdapter"
+      ],
+      "risk": "MEDIUM"
+    }
+  ],
+  "count_by_risk": {
+    "CRITICAL": 3,
+    "HIGH": 3,
+    "MEDIUM": 3,
+    "SAFE": 1
+  },
+  "generated_utc": "2026-07-07T19:17:08.751312+00:00",
+  "production_modified": false
+}

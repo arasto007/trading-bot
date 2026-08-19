@@ -1,0 +1,21 @@
+{
+  "phase": "22AD",
+  "title": "Runtime Authority Trace",
+  "generated_utc": "2026-07-07T19:24:01.451600+00:00",
+  "production_modified": false,
+  "verdict": "REGISTRY_IS_RUNTIME_AUTHORITY",
+  "summary": "Live path: start/3_live_loop_execute.bat → run_live_watchdog → tradingbot --loop --execute → LiveRunner → MLKernelRegistry → PipelineCache.get_registry → EngineRegistry.build_default → load_phase9_9_bundle(build_if_missing=False) → RangeEngineAdapter.bundle → predict_proba. No shadow, optimizer, or auto-freeze in live hot path. Runtime authority is the frozen disk bundle loaded via model_registry.load_phase9_9_bundle.",
+  "runtime_authority": "Registry",
+  "model_origin": "model.pkl (frozen disk artifact)",
+  "live_can_overwrite_artifacts": false,
+  "first_loader": "load_phase9_9_bundle",
+  "last_loader": "load_phase9_9_bundle",
+  "predict_site": "RangeEngineAdapter.evaluate",
+  "live_path_checks": {
+    "shadow_engine_imported": false,
+    "kernel_shadow_runner_imported": false,
+    "ml_adapter_imported": false,
+    "freeze_in_live_chain": false,
+    "build_if_missing_true_in_live_chain": false
+  }
+}

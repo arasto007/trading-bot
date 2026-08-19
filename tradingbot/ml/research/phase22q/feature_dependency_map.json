@@ -1,0 +1,76 @@
+{
+  "phase": "22Q",
+  "generated_utc": "2026-07-05T16:48:49.082616+00:00",
+  "chain": [
+    {
+      "from": "CandleStore + SparseEventDatasetBuilder",
+      "to": "dataset_v2",
+      "link": "FeatureBuilder at event timestamps",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/dataset/sparse_event_builder.py"
+    },
+    {
+      "from": "dataset_v2",
+      "to": "DatasetStore.load_v2",
+      "link": "read parquet",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/dataset/store.py"
+    },
+    {
+      "from": "DatasetStore.load_v2",
+      "to": "PipelineCache.get_unified_frame",
+      "link": "load at inference",
+      "classification": "Mandatory (current design)",
+      "file": "tradingbot/ml/integration/pipeline_cache.py:107"
+    },
+    {
+      "from": "PipelineCache",
+      "to": "build_unified_frame + phase99 merge",
+      "link": "left merge timestamp + fillna(0)",
+      "classification": "Mandatory (current) / Architecturally flawed",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py:38-48"
+    },
+    {
+      "from": "phase99_* columns",
+      "to": "row_for_phase99_range",
+      "link": "rename to model input names",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py:55-61"
+    },
+    {
+      "from": "row_for_phase99_range",
+      "to": "RangeEngineAdapter.evaluate",
+      "link": "_features_from_row",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py:39-43"
+    },
+    {
+      "from": "RangeEngineAdapter",
+      "to": "phase9_9 predict_proba",
+      "link": "frozen bundle",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/paper_trading/model_registry.py"
+    },
+    {
+      "from": "phase9_9 output",
+      "to": "DecisionOrchestrator",
+      "link": "MarketContext.range_signal",
+      "classification": "Mandatory",
+      "file": "tradingbot/ml/decision_engine/validation.py:118"
+    },
+    {
+      "from": "FeatureBuilder.compute_at",
+      "to": "RangeEngineAdapter",
+      "link": "_features_from_candles fallback",
+      "classification": "Dead at inference (exists but unreachable when phase99 cols present as 0)",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py:45-58"
+    },
+    {
+      "from": "build_ml_features ema50_slope",
+      "to": "RangeEngineAdapter",
+      "link": "none",
+      "classification": "Dead for range model",
+      "file": "row_for_phase99_range ignores live homonym columns"
+    }
+  ]
+}

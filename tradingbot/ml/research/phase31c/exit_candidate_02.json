@@ -1,0 +1,62 @@
+{
+  "phase": "31C",
+  "candidate_id": "02",
+  "name": "breakeven_0_5r",
+  "meta": {
+    "live": true,
+    "simplicity": 9,
+    "safety": 9
+  },
+  "metrics": {
+    "label": "breakeven_0_5r",
+    "trade_count": 489,
+    "profit_factor": 1.8853,
+    "expectancy": 3.4759,
+    "sharpe_ratio": 61.3018,
+    "sortino_ratio": 86.804,
+    "max_drawdown_pct": 50.0959,
+    "max_drawdown_abs": 469.6274,
+    "net_profit": 1699.6946,
+    "recovery_factor": 3.6192,
+    "win_rate_pct": 30.06,
+    "edge_contribution": 1699.6946,
+    "gross_wins": 3619.6746,
+    "gross_losses": 1919.98
+  },
+  "exit_distribution": {
+    "sl": 337,
+    "tp": 127,
+    "timeout": 25
+  },
+  "avg_capture_efficiency": null,
+  "avg_holding_bars": 11.02,
+  "bootstrap": {
+    "simulations": 400,
+    "pf_median": 1.896,
+    "pf_p05": 1.5818,
+    "pf_p95": 2.3319,
+    "net_median": 1727.83,
+    "confidence": 95
+  },
+  "montecarlo": {
+    "simulations": 500,
+    "net_median": 1699.69,
+    "net_p05": 1699.69,
+    "net_p95": 1699.69,
+    "sequence_risk": "LOW"
+  },
+  "walkforward": {
+    "train_trades": 342,
+    "test_trades": 147,
+    "train_pf": 1.984,
+    "test_pf": 1.6619,
+    "train_net": 1310.2126,
+    "test_net": 389.482,
+    "stable": false,
+    "walkforward_pass": false
+  },
+  "uses_future_info": false,
+  "live_implementable": true,
+  "implementation_complexity": "LOW",
+  "generated_utc": "2026-07-10T16:16:13.931922+00:00"
+}

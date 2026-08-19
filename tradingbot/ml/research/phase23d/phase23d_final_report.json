@@ -1,0 +1,11 @@
+{
+  "phase": "23D",
+  "title": "Execution Filter Validation & Scientific Evaluation",
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00",
+  "verdict": "FILTER_TOO_STRICT",
+  "range_pipeline_actionable_tail": 18,
+  "filter_blocked_tail": 9,
+  "counterfactual_tail_delta_pf": -3.6,
+  "false_blocks_tail": 9,
+  "summary": "Profitability filters originate from Phase 19B hybrid trade analysis and Phase 19C kernel integration. Empirical RANGE-only counterfactual on latest windows determines whether current Phase22C bands correctly block losers or incorrectly block winners."
+}

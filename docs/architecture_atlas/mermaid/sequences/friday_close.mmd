@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant R as RiskGate
+    participant G as live_gates
+    participant K as TradingKernel
+    K->>R: evaluate signal
+    R->>G: check_friday_gate
+    G-->>R: no new entries
+    R-->>K: blocked friday window

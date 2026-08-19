@@ -1,0 +1,137 @@
+{
+  "phase": "27G",
+  "lot_sizing": {
+    "mean": 0.01,
+    "median": 0.01,
+    "min": 0.01,
+    "max": 0.01,
+    "distribution": [
+      {
+        "bin_start": 0.01,
+        "bin_end": 0.01,
+        "count": 575
+      }
+    ]
+  },
+  "risk_percent": {
+    "mean": 0.2955,
+    "median": 0.2915,
+    "max": 0.4008
+  },
+  "sl_distance": {
+    "mean": 11.1848,
+    "median": 10.5429,
+    "distribution": [
+      {
+        "bin_start": 5.227143,
+        "bin_end": 7.413393,
+        "count": 73
+      },
+      {
+        "bin_start": 7.413393,
+        "bin_end": 9.599643,
+        "count": 160
+      },
+      {
+        "bin_start": 9.599643,
+        "bin_end": 11.785893,
+        "count": 116
+      },
+      {
+        "bin_start": 11.785893,
+        "bin_end": 13.972142,
+        "count": 93
+      },
+      {
+        "bin_start": 13.972142,
+        "bin_end": 16.158392,
+        "count": 80
+      },
+      {
+        "bin_start": 16.158392,
+        "bin_end": 18.344642,
+        "count": 31
+      },
+      {
+        "bin_start": 18.344642,
+        "bin_end": 20.530892,
+        "count": 16
+      },
+      {
+        "bin_start": 20.530892,
+        "bin_end": 22.717142,
+        "count": 6
+      }
+    ]
+  },
+  "tp_distance": {
+    "mean": 27.9619,
+    "median": 26.3571,
+    "distribution": [
+      {
+        "bin_start": 13.067857,
+        "bin_end": 18.533482,
+        "count": 73
+      },
+      {
+        "bin_start": 18.533482,
+        "bin_end": 23.999107,
+        "count": 160
+      },
+      {
+        "bin_start": 23.999107,
+        "bin_end": 29.464731,
+        "count": 116
+      },
+      {
+        "bin_start": 29.464731,
+        "bin_end": 34.930356,
+        "count": 93
+      },
+      {
+        "bin_start": 34.930356,
+        "bin_end": 40.395981,
+        "count": 80
+      },
+      {
+        "bin_start": 40.395981,
+        "bin_end": 45.861606,
+        "count": 31
+      },
+      {
+        "bin_start": 45.861606,
+        "bin_end": 51.32723,
+        "count": 16
+      },
+      {
+        "bin_start": 51.32723,
+        "bin_end": 56.792855,
+        "count": 6
+      }
+    ]
+  },
+  "rr_consistency": {
+    "target_rr": 2.0,
+    "average_planned_rr": 2.5,
+    "rr_std_dev": 0.0,
+    "distribution": [
+      {
+        "bin_start": 2.5,
+        "bin_end": 2.5,
+        "count": 575
+      }
+    ]
+  },
+  "mae": {
+    "mean": 0.961,
+    "median": 1.0416,
+    "max": 3.4301
+  },
+  "mfe": {
+    "mean": 1.4224,
+    "median": 1.1714,
+    "max": 4.6705
+  },
+  "mae_mfe_ratio": 0.6756,
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

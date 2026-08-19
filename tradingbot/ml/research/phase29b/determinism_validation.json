@@ -1,0 +1,24 @@
+{
+  "phase": "29B",
+  "run1_trades": 489,
+  "run2_trades": 489,
+  "trade_fingerprint_match": true,
+  "pnl_match": true,
+  "performance_match": {
+    "net_profit": true,
+    "completed_trades": true,
+    "profit_factor": true,
+    "expectancy": true,
+    "max_drawdown_pct": true
+  },
+  "rejection_count_match": true,
+  "wpsqf_score_determinism": {
+    "phase": "29B",
+    "checks": 60,
+    "mismatches": 0,
+    "pass": true
+  },
+  "replay_deterministic": true,
+  "pass": true,
+  "generated_utc": "2026-07-10T03:01:36.068377+00:00"
+}

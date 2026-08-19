@@ -1,0 +1,69 @@
+{
+  "phase": "22AG",
+  "function": "evaluate_acceptance",
+  "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+  "helper": "_risk_improved",
+  "inputs": {
+    "best": {
+      "source": "select_best(rank_candidates(...)) or any candidate dict in simulation",
+      "fields_used": [
+        "robustness_score",
+        "overfitting_risk",
+        "mean_expectancy",
+        "profitable_windows",
+        "window_count",
+        "probability_gate_passed"
+      ]
+    },
+    "baseline": {
+      "source": "_load_phase98_baseline(base_dir) → phase9_8_walk_forward_report.json",
+      "fields_used": [
+        "robustness_score",
+        "overfitting_risk"
+      ]
+    }
+  },
+  "checks": [
+    {
+      "name": "robustness_improved",
+      "formula": "best.robustness_score > baseline.robustness_score",
+      "threshold_source": "Phase 9.8 walk-forward report robustness_score (66.57)"
+    },
+    {
+      "name": "overfitting_risk_decreased",
+      "formula": "RISK_ORDER[best_risk] < RISK_ORDER[baseline_risk]",
+      "threshold_source": "assess_overfitting_risk labels LOW/MEDIUM/HIGH"
+    },
+    {
+      "name": "mean_expectancy_positive",
+      "formula": "best.mean_expectancy > 0",
+      "threshold_source": "literal zero"
+    },
+    {
+      "name": "profitable_windows_ge_4",
+      "formula": "profitable_windows >= 4 AND window_count >= 4",
+      "threshold_source": "hardcoded 4 (walk-forward has 5 windows)"
+    },
+    {
+      "name": "probability_quality_passed",
+      "formula": "bool(best.probability_gate_passed)",
+      "threshold_source": "probability_selection_gate.py (22X)"
+    }
+  ],
+  "output": {
+    "checks": "dict[str, bool]",
+    "final_verdict": "PASS if all(checks.values()) else FAIL",
+    "probability_gate": "nested audit fields from best candidate",
+    "baseline/best scores": "robustness delta and risk labels"
+  },
+  "failure_reasons": "Any check False → final_verdict FAIL; no partial pass",
+  "call_chain": [
+    "scripts/train_model.py --phase9-9",
+    "RobustnessOptimizer.run",
+    "select_best(ranked)",
+    "evaluate_acceptance(best, baseline)",
+    "save_reports → acceptance embedded in phase9_9_robustness_report.json"
+  ],
+  "generated_utc": "2026-07-07T19:36:29.877648+00:00",
+  "production_modified": false
+}

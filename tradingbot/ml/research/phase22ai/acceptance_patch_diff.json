@@ -1,0 +1,35 @@
+{
+  "phase": "22AI",
+  "file": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+  "function": "evaluate_acceptance",
+  "before": {
+    "check": "overfitting_risk_decreased",
+    "logic": "RISK_ORDER[best_risk] < RISK_ORDER[baseline_risk]",
+    "helper": "_risk_improved",
+    "fail_mode": "HIGH baseline blocks all same-label candidates"
+  },
+  "after": {
+    "check": "overfitting_risk_decreased",
+    "logic": "candidate.mean_auc_gap exists AND candidate.mean_auc_gap < baseline.mean_auc_gap",
+    "helper": "_mean_auc_gap_improved",
+    "fail_mode": "fail closed when either mean_auc_gap missing (no default 0.0)"
+  },
+  "unchanged_checks": [
+    "robustness_improved",
+    "mean_expectancy_positive",
+    "profitable_windows_ge_4",
+    "probability_quality_passed"
+  ],
+  "baseline_wiring": {
+    "file": "tradingbot/ml/research/robustness_optimizer/optimization_orchestrator.py",
+    "function": "_load_phase98_baseline",
+    "added_field": "mean_auc_gap from phase9_8_robustness_report train_test_gap"
+  },
+  "new_acceptance_fields": [
+    "baseline_mean_auc_gap",
+    "best_mean_auc_gap",
+    "overfitting_check_mode"
+  ],
+  "generated_utc": "2026-07-07T19:50:31.356723+00:00",
+  "production_modified": false
+}

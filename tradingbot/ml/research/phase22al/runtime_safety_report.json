@@ -1,0 +1,21 @@
+{
+  "phase": "22AL",
+  "healthgate_phase9_passes": true,
+  "runtime_checks": {
+    "bundle_loaded": true,
+    "checksum_valid": true,
+    "feature_order_valid": true,
+    "phase9_feature_order_file": true,
+    "phase9_fingerprint": true,
+    "freeze_authority_present": true,
+    "healthgate_phase9_passes": true
+  },
+  "runtime_errors": [],
+  "no_artifact_rebuild": true,
+  "no_freeze_trigger": true,
+  "no_default_config_literal": true,
+  "load_build_if_missing_false": true,
+  "candidate_id": "xgb_baseline_phase96",
+  "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "generated_utc": "2026-07-07T20:55:43.625976+00:00"
+}

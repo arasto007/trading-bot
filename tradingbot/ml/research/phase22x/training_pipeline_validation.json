@@ -1,0 +1,227 @@
+{
+  "command": [
+    "C:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\python.exe",
+    "C:\\Users\\AMIR\\Desktop\\TradingBot new\\scripts\\train_model.py",
+    "--phase9-9",
+    "--symbol",
+    "XAUUSD",
+    "--timeframe",
+    "M5"
+  ],
+  "exit_code": 1,
+  "executed_successfully": true,
+  "pipeline_completed": true,
+  "blocked": false,
+  "result": {
+    "phase": "9.9",
+    "symbol": "XAUUSD",
+    "timeframe": "M5",
+    "status": "FAIL",
+    "final_verdict": "FAIL",
+    "robustness_score": 59.09,
+    "overfitting_risk": "HIGH",
+    "report_paths": {
+      "robustness_report": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_robustness_report.json",
+      "model_comparison": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_model_comparison.json",
+      "feature_selection": "C:\\Users\\AMIR\\Desktop\\TradingBot new\\data\\ml\\reports\\phase9_9_feature_selection.json"
+    },
+    "best_candidate": {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "candidate_id": "random_forest_shallow",
+      "model_name": "random_forest",
+      "feature_subset": "stable_4",
+      "regime": "RANGE",
+      "robustness_score": 59.09,
+      "overfitting_risk": "HIGH",
+      "mean_profit_factor": 1.2967,
+      "mean_expectancy": 0.1566,
+      "mean_auc_gap": 0.1562,
+      "profitable_windows": 3,
+      "window_count": 5,
+      "composite_score": 0.616598,
+      "expectancy_consistency": 0.8422,
+      "overfitting_penalty": 0.6686,
+      "buy_coverage_pct": 0.3341,
+      "sell_coverage_pct": 92.4276,
+      "min_probability": 0.181628,
+      "max_probability": 0.551388,
+      "probability_std": 0.069321,
+      "probability_histogram": {
+        "bin_width": 0.05,
+        "total": 898,
+        "bins": [
+          {
+            "range": "0.00-0.05",
+            "lo": 0.0,
+            "hi": 0.05,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.05-0.10",
+            "lo": 0.05,
+            "hi": 0.1,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.10-0.15",
+            "lo": 0.1,
+            "hi": 0.15,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.15-0.20",
+            "lo": 0.15,
+            "hi": 0.2,
+            "count": 12,
+            "pct": 1.3363
+          },
+          {
+            "range": "0.20-0.25",
+            "lo": 0.2,
+            "hi": 0.25,
+            "count": 73,
+            "pct": 8.1292
+          },
+          {
+            "range": "0.25-0.30",
+            "lo": 0.25,
+            "hi": 0.3,
+            "count": 101,
+            "pct": 11.2472
+          },
+          {
+            "range": "0.30-0.35",
+            "lo": 0.3,
+            "hi": 0.35,
+            "count": 223,
+            "pct": 24.833
+          },
+          {
+            "range": "0.35-0.40",
+            "lo": 0.35,
+            "hi": 0.4,
+            "count": 279,
+            "pct": 31.069
+          },
+          {
+            "range": "0.40-0.45",
+            "lo": 0.4,
+            "hi": 0.45,
+            "count": 142,
+            "pct": 15.8129
+          },
+          {
+            "range": "0.45-0.50",
+            "lo": 0.45,
+            "hi": 0.5,
+            "count": 54,
+            "pct": 6.0134
+          },
+          {
+            "range": "0.50-0.55",
+            "lo": 0.5,
+            "hi": 0.55,
+            "count": 11,
+            "pct": 1.2249
+          },
+          {
+            "range": "0.55-0.60",
+            "lo": 0.55,
+            "hi": 0.6,
+            "count": 3,
+            "pct": 0.3341
+          },
+          {
+            "range": "0.60-0.65",
+            "lo": 0.6,
+            "hi": 0.65,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.65-0.70",
+            "lo": 0.65,
+            "hi": 0.7,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.70-0.75",
+            "lo": 0.7,
+            "hi": 0.75,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.75-0.80",
+            "lo": 0.75,
+            "hi": 0.8,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.80-0.85",
+            "lo": 0.8,
+            "hi": 0.85,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.85-0.90",
+            "lo": 0.85,
+            "hi": 0.9,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.90-0.95",
+            "lo": 0.9,
+            "hi": 0.95,
+            "count": 0,
+            "pct": 0.0
+          },
+          {
+            "range": "0.95-1.00",
+            "lo": 0.95,
+            "hi": 1.0,
+            "count": 0,
+            "pct": 0.0
+          }
+        ]
+      },
+      "probability_gate_passed": true,
+      "acceptance_reason": "probability_quality_passed",
+      "rejection_reason": null
+    },
+    "acceptance": {
+      "checks": {
+        "robustness_improved": false,
+        "overfitting_risk_decreased": false,
+        "mean_expectancy_positive": true,
+        "profitable_windows_ge_4": false,
+        "probability_quality_passed": true
+      },
+      "final_verdict": "FAIL",
+      "baseline_robustness_score": 66.57,
+      "best_robustness_score": 59.09,
+      "robustness_delta": -7.48,
+      "baseline_overfitting_risk": "HIGH",
+      "best_overfitting_risk": "HIGH",
+      "probability_gate": {
+        "passed": true,
+        "acceptance_reason": "probability_quality_passed",
+        "rejection_reason": null,
+        "buy_coverage_pct": 0.3341,
+        "sell_coverage_pct": 92.4276,
+        "probability_std": 0.069321
+      }
+    },
+    "blocked": false,
+    "block_reason": ""
+  },
+  "stderr_tail": "arning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nC:\\Users\\AMIR\\AppData\\Local\\Programs\\Python\\Python311\\Lib\\site-packages\\sklearn\\utils\\validation.py:2749: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names\n  warnings.warn(\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_c1__stable_4__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_c1__stable_top2__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_c1__stable_top3__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_c1__stable_except_unstable__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_strong_reg__stable_4__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_strong_reg__stable_top2__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_strong_reg__stable_top3__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: logistic_strong_reg__stable_except_unstable__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: random_forest_shallow__stable_4__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: random_forest_shallow__stable_top2__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: random_forest_shallow__stable_top3__RANGE\nINFO tradingbot.ml.research.robustness_optimizer.walk_forward_optimizer: Phase 9.9 experiment: random_forest_shallow__stable_except_unstable__RANGE\nINFO __main__: Phase 9.9 complete. Verdict: FAIL\n",
+  "generated_utc": "2026-07-07T18:50:15.817748+00:00"
+}

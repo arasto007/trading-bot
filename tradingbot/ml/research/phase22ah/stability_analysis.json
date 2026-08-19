@@ -1,0 +1,236 @@
+{
+  "phase": "22AH",
+  "baseline": {
+    "source": "phase9_8_window_results.json",
+    "window_count": 5,
+    "count": 5,
+    "raw_per_window_auc_gaps": [
+      0.4519,
+      0.3728,
+      0.3338,
+      0.3231,
+      0.1725
+    ],
+    "mean_auc_gap": 0.33082,
+    "median_auc_gap": 0.3338,
+    "std_auc_gap": 0.091166,
+    "min_auc_gap": 0.1725,
+    "max_auc_gap": 0.4519,
+    "trimmed_mean_gap_10pct": 0.33082,
+    "dominant_window_share": 0.2732,
+    "one_window_dominates_mean": false,
+    "largest_gap_window_index": 0,
+    "dominance_interpretation": "Largest window gap contributes 27.3% of total abs-gap mass; one_window_dominates_mean=False (threshold 40%)",
+    "recomputed_mean_matches_report": false
+  },
+  "candidates": [
+    {
+      "experiment_id": "random_forest_shallow__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.1562,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.3308,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.2933,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.2613,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.3195,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.0368,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.0376,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.0412,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.0412,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.0912,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.0983,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.0983,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.0496,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_strong_reg__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.0496,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.0489,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "logistic_c1__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.0489,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.1378,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.159,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.1197,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.1204,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top2__RANGE",
+      "mean_auc_gap_from_artifact": 0.1563,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "lgbm_conservative__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.1261,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "random_forest_shallow__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.1401,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.1439,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.1832,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_regularized_d3__stable_top3__RANGE",
+      "mean_auc_gap_from_artifact": 0.1516,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_except_unstable__RANGE",
+      "mean_auc_gap_from_artifact": 0.18,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    },
+    {
+      "experiment_id": "xgb_shallow_d2__stable_4__RANGE",
+      "mean_auc_gap_from_artifact": 0.1877,
+      "per_window_gaps_available": false,
+      "per_window_analysis": "NOT_PERSISTED_IN_PHASE9_9_ARTIFACTS",
+      "aggregated_only_note": "Phase 9.9 save_reports drops experiment.windows[]; only mean_auc_gap survives in phase9_9_model_comparison.json"
+    }
+  ],
+  "artifact_limitation": {
+    "per_window_gaps_for_phase9_9_candidates": false,
+    "impact": "Median/std/min/max/trimmed stability for candidates requires future artifact persistence or re-run",
+    "workaround_used": "Baseline window distribution validates aggregation formula; candidate acceptance uses stored mean only"
+  },
+  "stability_summary": {
+    "baseline_mean_stable_under_abs_roundtrip": true,
+    "baseline_single_window_dominance": false,
+    "candidate_count_with_mean_auc_gap": 28
+  },
+  "generated_utc": "2026-07-07T19:44:59.939168+00:00",
+  "production_modified": false
+}

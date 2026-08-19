@@ -1,0 +1,19 @@
+{
+  "gross_profit": 0,
+  "gross_loss": 17.4243,
+  "net_profit": -17.4243,
+  "profit_factor": 0.0,
+  "expectancy": -8.7122,
+  "average_rr": 2.5,
+  "average_win": 0.0,
+  "average_loss": 8.7122,
+  "average_mae": 1.7149,
+  "average_mfe": 1.3884,
+  "maximum_drawdown_pct": 0.1742,
+  "maximum_drawdown_abs": 17.4243,
+  "sharpe": -870.5596,
+  "sortino": -263.1724767512061,
+  "calmar": -1.0,
+  "recovery_factor": -1.0,
+  "generated_utc": "2026-07-09T13:18:51.040008+00:00"
+}

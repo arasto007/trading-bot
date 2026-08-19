@@ -1,0 +1,29 @@
+{
+  "phase": "27O",
+  "verdict": "HYBRID_INCONCLUSIVE",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "simulation_only": true,
+  "hybrid_under_test": "hybrid_b",
+  "split_method": "chronological_70_train_30_validation",
+  "oos_winner": "time_exit",
+  "hybrid_b_rank": 2,
+  "hybrid_b_generalization": {
+    "train_pf": 1.0049,
+    "validation_pf": 2.493,
+    "train_expectancy": 0.0472,
+    "validation_expectancy": 13.5007,
+    "performance_decay": -285.0318,
+    "oos_consistent": true
+  },
+  "overfitting_check": {
+    "maintains_profitability": true,
+    "maintains_pf": true,
+    "maintains_expectancy": true,
+    "drawdown_acceptable": true,
+    "ranks_first_oos": false
+  },
+  "blockers": [],
+  "conclusion": "OOS winner: time_exit. Hybrid B rank: 2. Verdict: HYBRID_INCONCLUSIVE.",
+  "generated_utc": "2026-07-09T19:52:47.697862+00:00"
+}

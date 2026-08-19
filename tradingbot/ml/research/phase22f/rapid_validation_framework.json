@@ -1,0 +1,149 @@
+{
+  "phase": "22F",
+  "mode": "rapid_validation",
+  "primary_dataset": "A",
+  "datasets": {
+    "phase": "22F",
+    "datasets": {
+      "A": {
+        "definition": {
+          "label": "A",
+          "trading_days": 7,
+          "start_tehran": "2026-06-25 00:00",
+          "end_tehran": "2026-07-05 23:59"
+        },
+        "characterization": {
+          "balanced": true,
+          "checks": {
+            "has_asian": true,
+            "has_london": true,
+            "has_new_york": true,
+            "has_trend": true,
+            "has_range": true,
+            "has_volatile": true
+          },
+          "bars": 1925,
+          "sessions": {
+            "off_hours": 582,
+            "asian": 503,
+            "london": 420,
+            "new_york": 420
+          },
+          "session_pct": {
+            "off_hours": 30.23,
+            "asian": 26.13,
+            "london": 21.82,
+            "new_york": 21.82
+          },
+          "regimes": {
+            "volatile_range": 185,
+            "range": 498,
+            "trend": 1242
+          },
+          "regime_pct": {
+            "volatile_range": 9.61,
+            "range": 25.87,
+            "trend": 64.52
+          },
+          "adx_median": 29.47,
+          "atr_pct_median": 0.001094
+        }
+      },
+      "B": {
+        "definition": {
+          "label": "B",
+          "trading_days": 14,
+          "start_tehran": "2026-06-16 00:00",
+          "end_tehran": "2026-07-05 23:59"
+        },
+        "characterization": {
+          "balanced": true,
+          "checks": {
+            "has_asian": true,
+            "has_london": true,
+            "has_new_york": true,
+            "has_trend": true,
+            "has_range": true,
+            "has_volatile": true
+          },
+          "bars": 3807,
+          "sessions": {
+            "off_hours": 1123,
+            "asian": 1006,
+            "london": 840,
+            "new_york": 838
+          },
+          "session_pct": {
+            "off_hours": 29.5,
+            "asian": 26.43,
+            "london": 22.06,
+            "new_york": 22.01
+          },
+          "regimes": {
+            "range": 884,
+            "volatile_range": 291,
+            "trend": 2632
+          },
+          "regime_pct": {
+            "range": 23.22,
+            "volatile_range": 7.64,
+            "trend": 69.14
+          },
+          "adx_median": 32.26,
+          "atr_pct_median": 0.001057
+        }
+      },
+      "C": {
+        "definition": {
+          "label": "C",
+          "trading_days": 30,
+          "start_tehran": "2026-05-25 00:00",
+          "end_tehran": "2026-07-05 23:59"
+        },
+        "characterization": {
+          "balanced": true,
+          "checks": {
+            "has_asian": true,
+            "has_london": true,
+            "has_new_york": true,
+            "has_trend": true,
+            "has_range": true,
+            "has_volatile": true
+          },
+          "bars": 8141,
+          "sessions": {
+            "asian": 2154,
+            "london": 1797,
+            "new_york": 1797,
+            "off_hours": 2393
+          },
+          "session_pct": {
+            "asian": 26.46,
+            "london": 22.07,
+            "new_york": 22.07,
+            "off_hours": 29.39
+          },
+          "regimes": {
+            "range": 1987,
+            "volatile_range": 637,
+            "trend": 5517
+          },
+          "regime_pct": {
+            "range": 24.41,
+            "volatile_range": 7.82,
+            "trend": 67.77
+          },
+          "adx_median": 32.0,
+          "atr_pct_median": 0.001062
+        }
+      }
+    }
+  },
+  "target_runtime_min": "5-15",
+  "production_modified": false,
+  "timeframes": [
+    "M5",
+    "M15",
+    "H4"
+  ]
+}

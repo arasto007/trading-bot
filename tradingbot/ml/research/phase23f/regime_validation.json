@@ -1,0 +1,252 @@
+{
+  "phase": "23F",
+  "all_regimes_365d": {
+    "phase": "23F",
+    "regimes": {
+      "RANGE": {
+        "pipeline_actionable": 224,
+        "pipeline_a": {
+          "trade_count": 156,
+          "profit_factor": 1.851852,
+          "expectancy_r": 0.442308,
+          "win_rate": 0.4808,
+          "maximum_drawdown_r": -10.0,
+          "sharpe_proxy": 0.29509,
+          "mean_confidence": 0.9854,
+          "buy_ratio": 0.0641,
+          "sell_ratio": 0.9359,
+          "pipeline_actionable_signals": 224
+        },
+        "pipeline_b": {
+          "trade_count": 90,
+          "profit_factor": 2.285714,
+          "expectancy_r": 0.6,
+          "win_rate": 0.5333,
+          "maximum_drawdown_r": -6.0,
+          "sharpe_proxy": 0.400892,
+          "mean_confidence": 0.9927,
+          "buy_ratio": 0.0333,
+          "sell_ratio": 0.9667,
+          "pipeline_actionable_signals": 224
+        },
+        "pf_delta_b_minus_a": 0.4339,
+        "trend_unchanged": null,
+        "degraded": false
+      },
+      "TREND": {
+        "pipeline_actionable": 0
+      },
+      "TRANSITION": {
+        "pipeline_actionable": 0
+      }
+    }
+  },
+  "range_by_window": {
+    "last_300_bars": {
+      "phase": "23F",
+      "regimes": {
+        "RANGE": {
+          "pipeline_actionable": 18,
+          "pipeline_a": {
+            "trade_count": 9,
+            "profit_factor": 1.6,
+            "expectancy_r": 0.333333,
+            "win_rate": 0.4444,
+            "maximum_drawdown_r": -3.0,
+            "sharpe_proxy": 0.223607,
+            "mean_confidence": 0.9805,
+            "buy_ratio": 0.0,
+            "sell_ratio": 1.0,
+            "pipeline_actionable_signals": 18
+          },
+          "pipeline_b": {
+            "trade_count": 8,
+            "profit_factor": 2.0,
+            "expectancy_r": 0.5,
+            "win_rate": 0.5,
+            "maximum_drawdown_r": -3.0,
+            "sharpe_proxy": 0.333333,
+            "mean_confidence": 0.9781,
+            "buy_ratio": 0.0,
+            "sell_ratio": 1.0,
+            "pipeline_actionable_signals": 18
+          },
+          "pf_delta_b_minus_a": 0.4,
+          "trend_unchanged": null,
+          "degraded": false
+        },
+        "TREND": {
+          "pipeline_actionable": 0
+        },
+        "TRANSITION": {
+          "pipeline_actionable": 0
+        }
+      }
+    },
+    "last_7_days": {
+      "phase": "23F",
+      "regimes": {
+        "RANGE": {
+          "pipeline_actionable": 374,
+          "pipeline_a": {
+            "trade_count": 302,
+            "profit_factor": 1.221945,
+            "expectancy_r": 0.136146,
+            "win_rate": 0.3841,
+            "maximum_drawdown_r": -21.4164,
+            "sharpe_proxy": 0.094263,
+            "mean_confidence": 0.978,
+            "buy_ratio": 0.0662,
+            "sell_ratio": 0.9338,
+            "pipeline_actionable_signals": 374
+          },
+          "pipeline_b": {
+            "trade_count": 201,
+            "profit_factor": 1.399882,
+            "expectancy_r": 0.232767,
+            "win_rate": 0.4179,
+            "maximum_drawdown_r": -15.0,
+            "sharpe_proxy": 0.158718,
+            "mean_confidence": 0.9773,
+            "buy_ratio": 0.0647,
+            "sell_ratio": 0.9353,
+            "pipeline_actionable_signals": 374
+          },
+          "pf_delta_b_minus_a": 0.1779,
+          "trend_unchanged": null,
+          "degraded": false
+        },
+        "TREND": {
+          "pipeline_actionable": 0
+        },
+        "TRANSITION": {
+          "pipeline_actionable": 0
+        }
+      }
+    },
+    "last_30_days": {
+      "phase": "23F",
+      "regimes": {
+        "RANGE": {
+          "pipeline_actionable": 1544,
+          "pipeline_a": {
+            "trade_count": 1218,
+            "profit_factor": 1.065782,
+            "expectancy_r": 0.042788,
+            "win_rate": 0.3489,
+            "maximum_drawdown_r": -95.0,
+            "sharpe_proxy": 0.030008,
+            "mean_confidence": 0.9825,
+            "buy_ratio": 0.0608,
+            "sell_ratio": 0.9392,
+            "pipeline_actionable_signals": 1544
+          },
+          "pipeline_b": {
+            "trade_count": 801,
+            "profit_factor": 1.151452,
+            "expectancy_r": 0.095863,
+            "win_rate": 0.367,
+            "maximum_drawdown_r": -37.0,
+            "sharpe_proxy": 0.066474,
+            "mean_confidence": 0.9832,
+            "buy_ratio": 0.0649,
+            "sell_ratio": 0.9351,
+            "pipeline_actionable_signals": 1544
+          },
+          "pf_delta_b_minus_a": 0.0857,
+          "trend_unchanged": null,
+          "degraded": false
+        },
+        "TREND": {
+          "pipeline_actionable": 0
+        },
+        "TRANSITION": {
+          "pipeline_actionable": 0
+        }
+      }
+    },
+    "last_90_days": {
+      "phase": "23F",
+      "regimes": {
+        "RANGE": {
+          "pipeline_actionable": 1197,
+          "pipeline_a": {
+            "trade_count": 862,
+            "profit_factor": 1.22243,
+            "expectancy_r": 0.138051,
+            "win_rate": 0.3794,
+            "maximum_drawdown_r": -35.0,
+            "sharpe_proxy": 0.094836,
+            "mean_confidence": 0.9852,
+            "buy_ratio": 0.0882,
+            "sell_ratio": 0.9118,
+            "pipeline_actionable_signals": 1197
+          },
+          "pipeline_b": {
+            "trade_count": 534,
+            "profit_factor": 1.207207,
+            "expectancy_r": 0.129213,
+            "win_rate": 0.3764,
+            "maximum_drawdown_r": -31.0,
+            "sharpe_proxy": 0.088901,
+            "mean_confidence": 0.9871,
+            "buy_ratio": 0.0824,
+            "sell_ratio": 0.9176,
+            "pipeline_actionable_signals": 1197
+          },
+          "pf_delta_b_minus_a": -0.0152,
+          "trend_unchanged": null,
+          "degraded": false
+        },
+        "TREND": {
+          "pipeline_actionable": 0
+        },
+        "TRANSITION": {
+          "pipeline_actionable": 0
+        }
+      }
+    },
+    "last_365_days": {
+      "phase": "23F",
+      "regimes": {
+        "RANGE": {
+          "pipeline_actionable": 224,
+          "pipeline_a": {
+            "trade_count": 156,
+            "profit_factor": 1.851852,
+            "expectancy_r": 0.442308,
+            "win_rate": 0.4808,
+            "maximum_drawdown_r": -10.0,
+            "sharpe_proxy": 0.29509,
+            "mean_confidence": 0.9854,
+            "buy_ratio": 0.0641,
+            "sell_ratio": 0.9359,
+            "pipeline_actionable_signals": 224
+          },
+          "pipeline_b": {
+            "trade_count": 90,
+            "profit_factor": 2.285714,
+            "expectancy_r": 0.6,
+            "win_rate": 0.5333,
+            "maximum_drawdown_r": -6.0,
+            "sharpe_proxy": 0.400892,
+            "mean_confidence": 0.9927,
+            "buy_ratio": 0.0333,
+            "sell_ratio": 0.9667,
+            "pipeline_actionable_signals": 224
+          },
+          "pf_delta_b_minus_a": 0.4339,
+          "trend_unchanged": null,
+          "degraded": false
+        },
+        "TREND": {
+          "pipeline_actionable": 0
+        },
+        "TRANSITION": {
+          "pipeline_actionable": 0
+        }
+      }
+    }
+  },
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

@@ -1,0 +1,27 @@
+{
+  "phase": "22AI",
+  "title": "Acceptance Patch + Freeze Bridge Prototype",
+  "generated_utc": "2026-07-07T19:50:31.356723+00:00",
+  "production_modified": false,
+  "runtime_modified": false,
+  "artifact_replaced": false,
+  "verdict": "READY_FOR_PRODUCTION_FREEZE_WIRING",
+  "summary": "Numeric mean_auc_gap acceptance patch applied in report_generator.py (fail-closed). Regression: 0 → 1 accepted candidates. Freeze bridge prototype emits FreezeContract JSON only with acceptance guards.",
+  "patch_target": "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+  "freeze_bridge": "tradingbot/ml/research/robustness_optimizer/freeze_bridge.py",
+  "new_pass_candidates": [
+    {
+      "experiment_id": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+      "before_verdict": "FAIL",
+      "after_verdict": "PASS",
+      "before_failed_rules": [
+        "overfitting_risk_decreased"
+      ],
+      "after_failed_rules": [],
+      "mean_auc_gap": 0.3195,
+      "baseline_mean_auc_gap": 0.3308
+    }
+  ],
+  "accepted_contract_count": 1,
+  "authority_chain_valid": true
+}

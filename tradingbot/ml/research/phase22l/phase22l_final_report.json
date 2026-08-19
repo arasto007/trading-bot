@@ -1,0 +1,22 @@
+{
+  "phase": "22L",
+  "title": "Dataset Refresh & Feature Pipeline Repair",
+  "completed_utc": "2026-07-05T15:45:31.468688+00:00",
+  "elapsed_sec": 169.3,
+  "production_modified": false,
+  "constraints_honored": true,
+  "verdict": "B",
+  "verdict_label": "Dataset refresh had no measurable effect",
+  "was_dataset_the_main_problem": false,
+  "summary": "Rebuilt dataset_v2 to research artifact using SparseEventDatasetBuilder + v2 gate. Compared merge coverage and range engine outputs on Dataset A with old vs refreshed dataset. No engine, threshold, or production file changes.",
+  "reports": [
+    "dataset_generation_pipeline.json",
+    "dataset_refresh_report.json",
+    "feature_coverage_after_refresh.json",
+    "unified_frame_audit.json",
+    "range_input_quality.json",
+    "before_after_comparison.json",
+    "root_cause_verdict.json",
+    "phase22l_final_report.json"
+  ]
+}

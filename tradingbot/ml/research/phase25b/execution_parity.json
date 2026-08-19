@@ -1,0 +1,9 @@
+{
+  "note": "Both paths run ExecutionStage paper branch with mocked MT5",
+  "windows": [
+    "300_bars",
+    "7_days",
+    "30_days",
+    "90_days"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "phase": "22C",
+  "title": "SELL-only bias root cause",
+  "verdict": "model_probability_skew_not_mapping_bug",
+  "evidence": {
+    "audit_period_sample_bars": 1830,
+    "range_probability_mean": 0.3656,
+    "range_probability_median": 0.3648,
+    "bars_prob_gte_0_52": 0,
+    "bars_prob_lte_0_48": 1830,
+    "bars_prob_gte_0_50": 0,
+    "label_definition": "P(label=1) where label=1 means TP before SL (winning long setup)",
+    "direction_mapping": "correct — high prob=BUY, low prob=SELL",
+    "asymmetric_thresholds_22b": "buy=0.55 sell=0.45 amplified SELL-only output",
+    "phase22c_thresholds": "buy=0.52 sell=0.48 — modest symmetric band, still SELL-heavy when prob mean=0.36"
+  },
+  "ruled_out": [
+    "signal_mapper inversion",
+    "calibration direction swap",
+    "missing M15/H4 configuration"
+  ],
+  "buy_signal_path": "TREND regime → trend_rf engine (rule + ML filter) can emit BUY independently of range probabilities",
+  "recommendation": "BUY signals require TREND bars or periods with P(win) > buy threshold; not a forced 50/50 balance issue"
+}

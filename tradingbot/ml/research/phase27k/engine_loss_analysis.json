@@ -1,0 +1,25 @@
+{
+  "phase": "27K",
+  "engines": {
+    "phase9_9": {
+      "loser_count": 353,
+      "pct_of_losers": 100.0,
+      "pct_of_all_trades": 61.39,
+      "average_pnl": -10.958
+    },
+    "trend_rf_v41": {
+      "loser_count": 0,
+      "pct_of_losers": 0.0,
+      "pct_of_all_trades": 0.0,
+      "average_pnl": 0.0
+    },
+    "trend_rf_v40": {
+      "loser_count": 0,
+      "pct_of_losers": 0.0,
+      "pct_of_all_trades": 0.0,
+      "average_pnl": 0.0
+    }
+  },
+  "most_losing_engine": "phase9_9",
+  "generated_utc": "2026-07-09T18:04:36.529149+00:00"
+}

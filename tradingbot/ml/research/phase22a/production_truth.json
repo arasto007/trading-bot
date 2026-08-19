@@ -1,0 +1,117 @@
+{
+  "phase": "22A",
+  "audit_date": "2026-07-04",
+  "executes_in_production_live": [
+    {
+      "path": "start/3_live_loop_execute.bat",
+      "evidence": "Dashboard LIVE button → verified E2E"
+    },
+    {
+      "path": "scripts/run_live_watchdog.py",
+      "evidence": "Spawned by LIVE bat with --execute"
+    },
+    {
+      "path": "tradingbot/__main__.py",
+      "evidence": "python -m tradingbot --loop --execute"
+    },
+    {
+      "path": "tradingbot/application/live_runner.py",
+      "evidence": "run_live_loop() entry"
+    },
+    {
+      "path": "tradingbot/kernel/trading_kernel.py",
+      "evidence": "run_forever / run_global_cycle"
+    },
+    {
+      "path": "tradingbot/pipeline/*.py",
+      "evidence": "5 stages wired in TradingKernel.__init__"
+    },
+    {
+      "path": "tradingbot/ml/integration/factory.py",
+      "evidence": "USE_ML_KERNEL=true in .env"
+    },
+    {
+      "path": "tradingbot/ml/integration/kernel_adapter.py",
+      "evidence": "ML calls=10068 in 1-month backtest"
+    },
+    {
+      "path": "tradingbot/adapters/mt5_execution.py",
+      "evidence": "Only production entry order_send for new trades"
+    },
+    {
+      "path": "tradingbot/adapters/risk_gate.py",
+      "evidence": "RiskStage.evaluate"
+    },
+    {
+      "path": "tradingbot/services/meta_labeler.py",
+      "evidence": "Called from risk_gate.evaluate"
+    },
+    {
+      "path": "scripts/verify_ml_live_ready.py",
+      "evidence": "Gate before LIVE bat proceeds"
+    },
+    {
+      "path": "scripts/status_snapshot.py",
+      "evidence": "HTA auto-refresh"
+    }
+  ],
+  "never_executes_in_live": [
+    {
+      "path": "run_system_manager.py",
+      "evidence": "File not found in repo; live_runner docstring says replaced"
+    },
+    {
+      "path": "scripts/run_phase*.py",
+      "evidence": "70+ research runners; no start/*.bat reference except manual"
+    },
+    {
+      "path": "tradingbot/ml/research/**",
+      "evidence": "Phase isolation; imported only by research scripts and some recovery adapters at build time"
+    },
+    {
+      "path": "tradingbot/ml/live_pilot/live_controller.py",
+      "evidence": "Phase 12 pilot; superseded by kernel integration"
+    },
+    {
+      "path": "tradingbot/ml/phase20a/deployment_runner.py",
+      "evidence": "Separate deployment path; not in dashboard LIVE chain"
+    },
+    {
+      "path": "engine/strategy_manager.py direct",
+      "evidence": "Only via LegacyStrategyRegistry when ML off or fallback"
+    },
+    {
+      "path": "start/4_live_daemon.bat",
+      "evidence": "Uses PS daemon scripts; dashboard uses 3_live_loop_execute instead"
+    }
+  ],
+  "conditional_execution": [
+    {
+      "path": "engine/strategy_manager.py",
+      "condition": "USE_ML_KERNEL=false OR KernelFallbackError"
+    },
+    {
+      "path": "services/position_protector.py",
+      "condition": "LiveRunner enable_protector=True (default False)"
+    },
+    {
+      "path": "adapters/mt5_execution order_send",
+      "condition": "NOT dry_run AND NOT paper AND signal passes risk"
+    }
+  ],
+  "unreachable_code_notes": [
+    "PositionProtector path unreachable in default LiveRunner config",
+    "Legacy-only backtest path if USE_ML_KERNEL=false only",
+    "demo/stub paths only via python -m tradingbot with no flags"
+  ],
+  "legacy_markers": [
+    "engine/ package — pre-kernel redesign",
+    "LegacyStrategyRegistry alias PriceActionStrategyRegistry",
+    "live_runner.py comment: replaces run_system_manager.py"
+  ],
+  "experimental_markers": [
+    "tradingbot/ml/research/phase18a shadow",
+    "tradingbot/ml/research/phase19b optimization",
+    "scripts/run_ab_shadow_test.py"
+  ]
+}

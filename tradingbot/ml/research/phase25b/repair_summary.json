@@ -1,0 +1,21 @@
+{
+  "repairs_applied": [
+    {
+      "id": "REP-001",
+      "fix": "Unified TradingKernel pipeline replay (Data\u2192Indicator\u2192Signal\u2192Risk\u2192Execution)",
+      "module": "phase25b/unified_pipeline_replay.py"
+    },
+    {
+      "id": "REP-002",
+      "fix": "ParityReplayMarketDataAdapter synthetic forming bar for timestamp alignment",
+      "module": "phase25b/parity_replay_adapter.py"
+    },
+    {
+      "id": "REP-003",
+      "fix": "Research and paper reference both use identical run_unified_pipeline_replay entrypoint",
+      "module": "phase25b/run_investigation.py"
+    }
+  ],
+  "production_modified": false,
+  "legacy_path_preserved": "phase24a.collect_production_decisions for timeout comparison only"
+}

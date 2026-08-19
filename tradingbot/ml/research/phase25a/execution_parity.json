@@ -1,0 +1,42 @@
+{
+  "research_executes": false,
+  "paper_execution": "Mt5ExecutionAdapter paper branch \u2014 simulated fill, no order_send",
+  "paper_exec_samples": [
+    {
+      "timestamp": "2026-06-29T02:35:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T03:00:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T03:50:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T04:15:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T05:30:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T05:55:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T06:20:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T06:45:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    },
+    {
+      "timestamp": "2026-06-29T11:20:00+00:00",
+      "message": "paper \u2014 simulated fill"
+    }
+  ]
+}

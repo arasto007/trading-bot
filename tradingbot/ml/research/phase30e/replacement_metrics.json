@@ -1,0 +1,47 @@
+{
+  "phase": "30E",
+  "replacements": [
+    {
+      "removed": "Microsecond precision (broker)",
+      "replacement": "timestamp_ms (time_msc) + local_send_monotonic_ns",
+      "dbt_impact": "LatencyEngine uses ms granularity"
+    },
+    {
+      "removed": "Tick sequence number",
+      "replacement": "collector_seq + gap_detector on time_msc",
+      "dbt_impact": "None for spread/slippage"
+    },
+    {
+      "removed": "Level II / DOM liquidity",
+      "replacement": "spread_p99_stress + requote_rate + partial_fill_rate composite",
+      "dbt_impact": "LiquidityBook simplified to spread-based"
+    },
+    {
+      "removed": "Order queue depth",
+      "replacement": "round_trip_ms distribution + retcode histogram",
+      "dbt_impact": "Remove OrderQueue calibration"
+    },
+    {
+      "removed": "Network vs server latency split",
+      "replacement": "round_trip_ms + terminal_info.ping heartbeat",
+      "dbt_impact": "Single latency bucket"
+    },
+    {
+      "removed": "ECN/STP/MM classification",
+      "replacement": "trade_execution_mode + manual broker_manifest.execution_label",
+      "dbt_impact": "Documentation only"
+    },
+    {
+      "removed": "News events from MT5",
+      "replacement": "External calendar JSON join (unchanged from 30D)",
+      "dbt_impact": "None"
+    }
+  ],
+  "phase30d_schema_adjustments": [
+    "Rename timestamp_us \u2192 timestamp_ms in tick store",
+    "Add local_send_monotonic_ns to executions table",
+    "Mark DOM tables optional in broker_fingerprint_schema",
+    "Remove order_queue from collector_architecture"
+  ],
+  "generated_utc": "2026-07-10T11:11:07.051325+00:00"
+}

@@ -1,0 +1,35 @@
+{
+  "phase": "22M",
+  "step": 5,
+  "generated_utc": "2026-07-05T15:57:17.799750+00:00",
+  "expected_automatic_refresh": false,
+  "repository_evidence": "No code path schedules collect_ml_data or build_ml_dataset after LiveRunner start.",
+  "searched_for": [
+    "cron",
+    "APScheduler",
+    "schedule.",
+    "Celery",
+    "watchdog dataset",
+    "incremental collect in live loop"
+  ],
+  "findings": {
+    "run_live_watchdog.py": "Restarts tradingbot child only — no ML data/dataset tasks",
+    "LiveRunner._run": "MT5 connect → BackgroundServices → kernel.run_forever — no CandleStore",
+    "BackgroundServices": "PositionProtector + PositionRecovery only",
+    "TradingKernel.run_forever": "DataStage → IndicatorStage → SignalStage — uses IMarketDataProvider only",
+    "start/13_collect_ml_data.bat": "Manual ML collection — not chained to live loop",
+    "start/14_rebuild_ml_models.bat": "collect_ml_data.py default run_full + trend bundle — does NOT call build_ml_dataset --phase9-1",
+    "start/3_live_loop_execute.bat": "verify_ml_live_ready → run_live_watchdog --execute only"
+  },
+  "missing_jobs": [
+    "Scheduled or triggered collect_ml_data.py --incremental (CandleStore merge)",
+    "Scheduled or triggered build_ml_dataset.py --phase9-1 (dataset_v2 rebuild)",
+    "Bridge from ParquetCache rolling cache to CandleStore historical store",
+    "PipelineCache invalidation hook after dataset_v2 refresh"
+  ],
+  "existing_but_manual": [
+    "scripts/collect_ml_data.py",
+    "scripts/build_ml_dataset.py",
+    "start/13_collect_ml_data.bat"
+  ]
+}

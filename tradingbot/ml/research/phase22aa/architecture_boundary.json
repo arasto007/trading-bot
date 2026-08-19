@@ -1,0 +1,56 @@
+{
+  "phase": "22AA",
+  "anchor_change": "overfitting_risk_decreased rule logic",
+  "must_change_together": [
+    {
+      "files": [
+        "tradingbot/ml/research/robustness_optimizer/report_generator.py"
+      ],
+      "reason": "Single implementation of _risk_improved / evaluate_acceptance check"
+    },
+    {
+      "files": [
+        "tradingbot/ml/research/robustness_optimizer/report_generator.py",
+        "tests/test_ml_research_phase9_9.py",
+        "tests/test_phase22x.py"
+      ],
+      "reason": "Acceptance tests assert evaluate_acceptance behavior",
+      "condition": "if acceptance semantics change"
+    }
+  ],
+  "should_change_together": [
+    {
+      "files": [
+        "tradingbot/ml/research/robustness_optimizer/candidate_selector.py"
+      ],
+      "reason": "If ordinal risk semantics change, rank tie-breaker RISK_ORDER should stay aligned"
+    },
+    {
+      "files": [
+        "tradingbot/ml/research/walk_forward/robustness_analyzer.py"
+      ],
+      "reason": "If switching from ordinal label to numeric gap comparison, label producer thresholds may need coordinated update",
+      "condition": "only when label strategy changes, not for pure acceptance formula tweak"
+    },
+    {
+      "files": [
+        "tradingbot/ml/research/phase22y/",
+        "tradingbot/ml/research/phase22z/"
+      ],
+      "reason": "Forensics document current rule; update after rule change"
+    }
+  ],
+  "must_not_change": [
+    "tradingbot/kernel/",
+    "tradingbot/execution/",
+    "tradingbot/risk/",
+    "tradingbot/ml/integration/health_gate.py",
+    "tradingbot/ml/paper_trading/model_registry.py freeze path (unless separate approved freeze-integration phase)",
+    "LiveRunner",
+    "FeatureBuilder",
+    "Label pipeline"
+  ],
+  "boundary_statement": "overfitting_risk_decreased lives entirely inside Phase 9.9 research acceptance (report_generator → optimization_orchestrator → JSON reports → train_model exit code). It does not gate freeze_phase9_9_artifacts, live HealthGate, or TradingKernel.",
+  "generated_utc": "2026-07-07T19:04:05.605193+00:00",
+  "production_modified": false
+}

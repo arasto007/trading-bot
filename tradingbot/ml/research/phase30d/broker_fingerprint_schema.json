@@ -1,0 +1,150 @@
+{
+  "phase": "30D",
+  "dataset_name": "BrokerFingerprintDataset",
+  "version": "1.0.0",
+  "root_path": "tradingbot/ml/research/phase30d/data/",
+  "tick_store_path": "tradingbot/ml/research/phase30d/tick_store/",
+  "timezone": "UTC only \u2014 all timestamps stored as UTC microseconds",
+  "tables": {
+    "ticks": {
+      "format": "parquet partitioned by symbol/YYYY/MM/DD",
+      "columns": {
+        "timestamp_us": "int64 UTC microseconds",
+        "symbol": "string",
+        "bid": "float64",
+        "ask": "float64",
+        "last": "float64 nullable",
+        "volume": "float64 nullable",
+        "spread_points": "float32 computed",
+        "session": "string",
+        "flags": "int32 bitfield news/rollover/weekend"
+      },
+      "compression": "zstd level 3",
+      "primary_key": [
+        "symbol",
+        "timestamp_us"
+      ]
+    },
+    "executions": {
+      "format": "parquet or sqlite broker_fingerprint.db",
+      "columns": {
+        "execution_id": "uuid",
+        "order_id": "uuid",
+        "ticket": "int64",
+        "timestamp_send_us": "int64",
+        "timestamp_fill_us": "int64",
+        "symbol": "string",
+        "direction": "string",
+        "leg": "entry|exit",
+        "requested_price": "float64",
+        "quoted_bid": "float64",
+        "quoted_ask": "float64",
+        "fill_price": "float64",
+        "filled_lot": "float64",
+        "requested_lot": "float64",
+        "slippage_points": "float32",
+        "spread_at_send": "float32",
+        "execution_delay_ms": "int32",
+        "retcode": "int32",
+        "partial_fill": "bool",
+        "price_improvement": "bool",
+        "commission": "float32",
+        "swap": "float32",
+        "journal_execution_id": "int nullable map to trade_journal.executions",
+        "journal_paper_trade_id": "int nullable"
+      }
+    },
+    "orders": {
+      "format": "parquet",
+      "columns": {
+        "order_id": "uuid",
+        "timestamp_us": "int64",
+        "symbol": "string",
+        "direction": "string",
+        "requested_lot": "float64",
+        "requested_price": "float64",
+        "deviation_points": "int32",
+        "retcode": "int32",
+        "retcode_comment": "string",
+        "attempt": "int32",
+        "success": "bool"
+      }
+    },
+    "symbol_info_snapshots": {
+      "format": "json daily",
+      "fields": [
+        "digits",
+        "point",
+        "spread",
+        "trade_stops_level",
+        "trade_freeze_level",
+        "volume_min",
+        "volume_step",
+        "volume_max",
+        "margin_initial",
+        "swap_long",
+        "swap_short"
+      ]
+    },
+    "account_snapshots": {
+      "format": "parquet",
+      "columns": {
+        "timestamp_us": "int64",
+        "balance": "float64",
+        "equity": "float64",
+        "margin": "float64",
+        "margin_free": "float64",
+        "margin_level": "float64"
+      }
+    },
+    "gap_events": {
+      "format": "jsonl",
+      "fields": [
+        "weekend_id",
+        "close_ts",
+        "open_ts",
+        "close_bid",
+        "open_ask",
+        "gap_points"
+      ]
+    },
+    "metadata": {
+      "format": "broker_manifest.json",
+      "fields": [
+        "broker_name",
+        "server",
+        "account_type",
+        "symbol",
+        "leverage",
+        "collection_start_utc",
+        "collection_end_utc",
+        "vps_profile",
+        "collector_version",
+        "checksum_sha256"
+      ]
+    }
+  },
+  "journal_mapping": {
+    "trade_journal.executions": "Map via timestamp\u00b1500ms symbol direction lot \u2192 execution_id",
+    "trade_journal.paper_trades": "Map via id \u2192 journal_paper_trade_id",
+    "note": "Read-only export \u2014 do not modify journal schema in Phase 30D"
+  },
+  "integrity": {
+    "tick_validation": [
+      "bid <= ask",
+      "monotonic timestamps per symbol",
+      "no null bid/ask"
+    ],
+    "execution_validation": [
+      "fill_price > 0",
+      "retcode present",
+      "send <= fill time"
+    ],
+    "manifest_checksum": "SHA256 per partition file listed in manifest"
+  },
+  "synchronization": {
+    "clock": "NTP-synced VPS required; log clock_offset_ms daily",
+    "alignment": "Join executions to nearest tick within 250ms"
+  },
+  "generated_utc": "2026-07-10T11:04:24.681264+00:00"
+}

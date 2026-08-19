@@ -1,0 +1,126 @@
+flowchart TB
+    %% tradingbot.services.startup_validator
+    tradingbot_ml_phase18b_orchestrator0[orchestrator]
+    tradingbot_ml_phase19c_backtest1[backtest]
+    tradingbot_ml_infrastructure_recovery_re2[recovery_manager]
+    tradingbot_ml_research_threshold_optimiz3[threshold_optimizer]
+    tradingbot_ml_dataset_store4[store]
+    tradingbot_ml_dataset_preflight5[preflight]
+    tradingbot_ml_feature_alignment_feature_6[feature_statistics]
+    tradingbot_ml_phase17d_compatibility7[compatibility]
+    tradingbot_ml_validation_report8[report]
+    tradingbot_ml_stress_chaos_tests9[chaos_tests]
+    tradingbot_ml_integration_ml_kernel_regi10[ml_kernel_registry]
+    tradingbot_services_paper_trade_recorder11[paper_trade_recorder]
+    tradingbot_ml_research_phase27k_run_inve12[run_investigation]
+    tradingbot_ml_research_phase16b_orchestr13[orchestrator]
+    tradingbot_ml_research_phase13_9_unified14[unified_features]
+    tradingbot_ml_dataset_session_analysis15[session_analysis]
+    tradingbot_ml_research_phase22t_run_inve16[run_investigation]
+    tradingbot_ml_phase18c_configuration17[configuration]
+    tradingbot_ml_integration_pipeline_cache18[FeatureCacheEntry]
+    tradingbot_ml_research_model_optimizer19[model_optimizer]
+    tradingbot_application_live_runner_run_l20[run_live_loop]
+    tradingbot_ml_research_phase22ac_run_inv21[run_investigation]
+    scripts_test_mt5_attach22[test_mt5_attach]
+    tradingbot_ml_research_phase16b_kernel_r23[kernel_replay]
+    tradingbot_ml_research_phase25a_run_inve24[run_investigation]
+    tradingbot_ml_research_phase22t_compare25[compare]
+    tradingbot_ml_research_phase32g_run_vali26[run_validation]
+    tradingbot_ml_monitoring_bundle_monitor27[bundle_monitor]
+    scripts_smoke_test_execution28[smoke_test_execution]
+    tradingbot_ml_confidence_mapping_config29[config]
+    tradingbot_ml_research_phase22g_model_in30[model_inventory]
+    tradingbot_ml_integration_startup_diagno31[startup_diagnostics]
+    tradingbot_ml_live_pilot_trade_journal32[trade_journal]
+    tradingbot_ml_phase19a_config33[config]
+    tradingbot_ml_phase15a_health_check34[health_check]
+    tradingbot_ml_phase20a_deployment_runner35[deployment_runner]
+    tradingbot_ml_research_phase22x_run_inve36[run_investigation]
+    tradingbot_ml_monitoring_health_monitor37[health_monitor]
+    tradingbot_services_manual_stop38[manual_stop]
+    tradingbot_ml_research_phase23e_run_stud39[run_study]
+    tradingbot_ml_research_phase24a_live_sha40[live_shadow_validator]
+    tradingbot_ml_research_phase15g_config41[config]
+    scripts_status_snapshot42[status_snapshot]
+    tradingbot_ml_training_phase9_production43[phase9_production]
+    tradingbot_ml_research_phase23b_repair_v44[repair_validation]
+    tradingbot_ml_paper_trading_report45[report]
+    tradingbot_ml_phase15f_recovery_validato46[recovery_validator]
+    tradingbot_ml_research_ranking47[ranking]
+    tradingbot_ml_research_phase16b_config48[config]
+    tradingbot_ml_dataset_regime_analysis49[regime_analysis]
+    tradingbot_backtest_engine50[engine]
+    tradingbot_ml_research_router_optimizer_51[session_optimizer]
+    tradingbot_ml_research_phase27i_run_inve52[run_investigation]
+    tradingbot_ml_phase19a_backtest53[backtest]
+    tradingbot_ml_abtest_report54[report]
+    scripts_live_daily_report55[live_daily_report]
+    tradingbot_ml_features_reproducibility56[reproducibility]
+    tradingbot_ml_integration_replay_validat57[replay_validator]
+    tradingbot_ml_research_trend_strategy_re58[report]
+    tradingbot_ml_dataset_release_manager59[release_manager]
+    tradingbot_ml_confidence_mapping_orchest60[orchestrator]
+    scripts_diagnose_vol_regime_signals61[diagnose_vol_regime_signals]
+    tradingbot_ml_research_phase14_10_orches62[orchestrator]
+    tradingbot_ml_research_phase27e_run_inve63[run_investigation]
+    tradingbot_ml_phase19c_config64[config]
+    tradingbot_ml_research_phase14_9_config65[config]
+    tradingbot_ml_integration_ml_strategy66[ml_strategy]
+    tradingbot_ml_monitoring_session_report67[session_report]
+    tradingbot_ml_phase15f_orchestrator68[orchestrator]
+    tradingbot_ml_research_phase23c_decision69[decision_gate_investigation]
+    tradingbot_ml_backtest_report70[report]
+    scripts_run_shadow_health_check71[run_shadow_health_check]
+    tradingbot_ml_research_phase17b_orchestr72[orchestrator]
+    tradingbot_ml_research_phase24f_run_inve73[run_investigation]
+    tradingbot_ml_validation_trading_simulat74[trading_simulator]
+    tradingbot_ml_research_phase23a_run_inve75[run_investigation]
+    tradingbot_ml_research_phase27c_run_inve76[run_investigation]
+    tradingbot_ml_live_gate_logger77[logger]
+    tradingbot_ml_phase20b_live_data78[live_data]
+    tradingbot_config_prop_presets79[prop_presets]
+    tradingbot_ml_confidence_mapping_orchest60 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_confidence_mapping_orchest60 -->|imports| tradingbot_ml_confidence_mapping_config29
+    tradingbot_ml_feature_alignment_feature_6 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_feature_alignment_feature_6 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_integration_replay_validat57 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_integration_replay_validat57 -->|imports| tradingbot_ml_integration_ml_kernel_regi10
+    tradingbot_ml_monitoring_health_monitor37 -->|imports| tradingbot_ml_monitoring_bundle_monitor27
+    tradingbot_ml_phase15f_orchestrator68 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_phase15f_orchestrator68 -->|imports| tradingbot_ml_phase15f_recovery_validato46
+    tradingbot_ml_phase17d_compatibility7 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_phase18b_orchestrator0 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_phase19a_backtest53 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_phase19a_backtest53 -->|imports| tradingbot_ml_phase19a_config33
+    tradingbot_ml_phase19c_backtest1 -->|imports| tradingbot_ml_phase19a_backtest53
+    tradingbot_ml_phase19c_backtest1 -->|imports| tradingbot_ml_phase19a_config33
+    tradingbot_ml_phase19c_backtest1 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_phase20a_deployment_runner35 -->|imports| tradingbot_services_manual_stop38
+    tradingbot_ml_phase20b_live_data78 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_phase20b_live_data78 -->|imports| tradingbot_ml_phase19a_backtest53
+    tradingbot_ml_phase20b_live_data78 -->|imports| tradingbot_ml_phase19c_backtest1
+    tradingbot_ml_research_phase14_10_orches62 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase14_10_orches62 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase16b_kernel_r23 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase16b_kernel_r23 -->|imports| tradingbot_ml_research_phase16b_config48
+    tradingbot_ml_research_phase16b_orchestr13 -->|imports| tradingbot_ml_research_phase16b_config48
+    tradingbot_ml_research_phase16b_orchestr13 -->|imports| tradingbot_ml_research_phase16b_kernel_r23
+    tradingbot_ml_research_phase16b_orchestr13 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase16b_orchestr13 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase17b_orchestr72 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase22t_compare25 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase22t_run_inve16 -->|imports| tradingbot_ml_research_phase22t_compare25
+    tradingbot_ml_research_phase23c_decision69 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase23c_decision69 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase24a_live_sha40 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase24a_live_sha40 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_phase24f_run_inve73 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase25a_run_inve24 -->|imports| tradingbot_ml_research_phase24a_live_sha40
+    tradingbot_ml_research_phase25a_run_inve24 -->|imports| tradingbot_ml_integration_ml_kernel_regi10
+    tradingbot_ml_research_phase32g_run_vali26 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_research_phase32g_run_vali26 -->|imports| tradingbot_ml_research_phase13_9_unified14
+    tradingbot_ml_research_trend_strategy_re58 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_training_phase9_production43 -->|imports| tradingbot_ml_dataset_store4
+    tradingbot_ml_validation_report8 -->|imports| tradingbot_ml_validation_trading_simulat74
+    scripts_status_snapshot42 -->|imports| tradingbot_config_prop_presets79

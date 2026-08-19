@@ -1,0 +1,19 @@
+{
+  "phase": "28E",
+  "sizing_mode": "fixed_broker_minimum",
+  "configured_lot": 0.01,
+  "observed_lot_min": 0.01,
+  "observed_lot_max": 0.01,
+  "reported_avg_risk_percent": 0.2955,
+  "implied_lot_from_risk_target": {
+    "mean": 0.002128,
+    "median": 0.001885,
+    "below_min_lot_count": 575,
+    "below_min_lot_pct": 100.0
+  },
+  "reported_risk_matches_actual_lot": true,
+  "real_average_risk_pct": 5.5924,
+  "realistic_for_200_account": false,
+  "explanation": "Adaptive risk targets ~0.30% of equity but lot_from_stop_distance floors to 0.01. 575/575 trades required lot < 0.01 to match the risk target.",
+  "generated_utc": "2026-07-09T23:44:42.669973+00:00"
+}

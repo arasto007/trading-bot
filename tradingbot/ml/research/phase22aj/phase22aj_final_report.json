@@ -1,0 +1,9 @@
+{
+  "phase": "22AJ",
+  "title": "Production Freeze Authority Wiring",
+  "generated_utc": "2026-07-07T20:05:52.547968+00:00",
+  "verdict": "FREEZE_AUTHORITY_MIGRATED",
+  "production_winner_rule": "ACCEPTANCE_PASS_HIGHEST_COMPOSITE",
+  "production_winner": "xgb_baseline_phase96__stable_except_unstable__RANGE",
+  "summary": "Optimizer uses select_production_winner → acceptance → FreezeContract → contract-driven freeze. DEFAULT_CONFIG and silent auto-freeze bypasses removed."
+}

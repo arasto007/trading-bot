@@ -1,0 +1,56 @@
+{
+  "phase": "30C",
+  "research_only_through": "Phase 30C",
+  "implementation_phases": [
+    {
+      "phase": "30D",
+      "title": "Broker Data Collection",
+      "deliverables": [
+        "30-day tick export",
+        "Live fill log",
+        "symbol_info snapshot",
+        "Retcode histogram"
+      ],
+      "blocks": "BrokerProfile calibration"
+    },
+    {
+      "phase": "30E",
+      "title": "DBT Core MVP",
+      "deliverables": [
+        "SpreadEngine",
+        "SlippageEngine",
+        "LatencySimulator coupled",
+        "Unit tests"
+      ],
+      "integration": "None \u2014 isolated module tests"
+    },
+    {
+      "phase": "30F",
+      "title": "Replay Integration",
+      "deliverables": [
+        "DBT in unified_pipeline_replay paper branch",
+        "489-trade validation"
+      ],
+      "gate": "PF within \u00b15% calibrated target; signals unchanged"
+    },
+    {
+      "phase": "30G",
+      "title": "Paper Live Parity",
+      "deliverables": [
+        "Paper branch delegation",
+        "Live shadow mode",
+        "TCA dashboard"
+      ],
+      "gate": "30-day paper trading readiness review"
+    }
+  ],
+  "non_goals": [
+    "ML retraining",
+    "RiskGate changes",
+    "WPSQF changes",
+    "Hybrid B exit logic changes",
+    "Accounting formula changes"
+  ],
+  "backward_compatibility": "DBT disabled via TRADINGBOT_BROKER_TWIN=OFF reproduces current paper",
+  "generated_utc": "2026-07-10T08:54:32.602756+00:00"
+}

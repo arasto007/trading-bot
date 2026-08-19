@@ -1,0 +1,20 @@
+{
+  "checklist": {
+    "critical_blockers_fixed_24k": true,
+    "pipeline_parity_25b": true,
+    "collection_infrastructure_26a": true,
+    "statistical_sample_26b": false,
+    "guarded_order_send_all_paths": true,
+    "canonical_entry_documented": true
+  },
+  "completed_trades": 1,
+  "minimum_trades": 200,
+  "sample_sufficient": false,
+  "open_critical_findings": [
+    "FINAL-001",
+    "FINAL-002"
+  ],
+  "recommended_startup": "USE_ML_KERNEL=1 ALLOW_LEGACY_FALLBACK=0 python -m tradingbot --loop --paper",
+  "ready": false,
+  "generated_utc": "2026-07-08T18:00:32.847316+00:00"
+}

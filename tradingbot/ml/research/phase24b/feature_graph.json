@@ -1,0 +1,65 @@
+{
+  "phase": "24B",
+  "paths": [
+    {
+      "name": "live_unified_frame",
+      "owner": "PipelineCache.get_unified_frame",
+      "file": "tradingbot/ml/integration/pipeline_cache.py",
+      "line": 92,
+      "steps": [
+        {
+          "fn": "candles.tail(300)",
+          "purpose": "sliding window"
+        },
+        {
+          "fn": "DatasetStore.load_v2",
+          "purpose": "phase99 dataset merge"
+        },
+        {
+          "fn": "build_unified_frame",
+          "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+          "line": 13
+        },
+        {
+          "fn": "_attach_trend_v41_features",
+          "condition": "TREND_ENGINE_V41_ID active"
+        }
+      ],
+      "consumers": [
+        "KernelAdapter",
+        "HealthGate feature row validation"
+      ]
+    },
+    {
+      "name": "build_unified_frame_internals",
+      "file": "tradingbot/ml/research/phase13_9/unified_features.py",
+      "line": 13,
+      "steps": [
+        "build_ml_features(candles) \u2014 trend indicators",
+        "compute_regime_features_from_candles \u2014 regime extras",
+        "merge dataset phase99_* via PHASE99_FEATURE_MAP",
+        "attach_regime_labels \u2192 regime column"
+      ],
+      "missing_value_behavior": "phase99 merge miss stays NaN (line 46 comment Phase 23B)"
+    },
+    {
+      "name": "legacy_indicator_path",
+      "file": "tradingbot/pipeline/indicator_stage.py",
+      "line": 20,
+      "fn": "TechnicalIndicatorEngine.enrich_for_market",
+      "consumers": [
+        "SignalStage closed df",
+        "RiskStage htf_bias uses separate HTF fetch"
+      ],
+      "note": "Parallel to ML unified frame \u2014 legacy strategies use enriched_ohlcv only"
+    },
+    {
+      "name": "phase99_range_inference_features",
+      "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
+      "fn": "RangeEngineAdapter.evaluate",
+      "mapping": "row_for_phase99_range in unified_features.py line 53"
+    }
+  ],
+  "phase99_feature_map_source": "tradingbot/ml/research/phase13_9/config.py:PHASE99_FEATURE_MAP",
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

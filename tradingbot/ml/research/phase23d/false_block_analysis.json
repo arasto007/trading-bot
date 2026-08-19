@@ -1,0 +1,30 @@
+{
+  "phase": "23D",
+  "simulation": "simulate_trade_outcome on blocked direction (counterfactual would-have-traded)",
+  "tail_300_bars": {
+    "blocked_trades": 9,
+    "passed_trades": 9,
+    "true_blocks_loser_would_have_traded": 0,
+    "false_blocks_winner_would_have_traded": 9,
+    "breakeven_blocks": 0,
+    "precision": 0.0,
+    "recall_vs_all_losers": 0.0,
+    "blocked_by_filter": {
+      "rsi_filter": 9
+    }
+  },
+  "window_365d": {
+    "blocked_trades": 68,
+    "passed_trades": 156,
+    "true_blocks_loser_would_have_traded": 42,
+    "false_blocks_winner_would_have_traded": 26,
+    "breakeven_blocks": 0,
+    "precision": 0.6176,
+    "recall_vs_all_losers": 0.3415,
+    "blocked_by_filter": {
+      "adx_filter": 15,
+      "rsi_filter": 54
+    }
+  },
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

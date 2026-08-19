@@ -1,0 +1,55 @@
+{
+  "phase": "23A",
+  "evidence_source": "phase22al/pipeline_integration_report.json",
+  "stages": [
+    {
+      "stage": "RangeEngineAdapter.evaluate",
+      "received": "mapped unified row",
+      "blocked": "HOLD when feats missing"
+    },
+    {
+      "stage": "DecisionOrchestrator.decide",
+      "modified": "BUY/SELL → HOLD when confidence < 0.55"
+    },
+    {
+      "stage": "CalibratedDecisionAdapter",
+      "modified": "second 0.55 calibrated gate"
+    },
+    {
+      "stage": "KernelAdapter._hold_chain_snapshot",
+      "discarded": "3730 decision_hold",
+      "reason": "raw_action == HOLD"
+    },
+    {
+      "stage": "KernelAdapter.generate_signal",
+      "discarded": "returns None on HOLD direction"
+    },
+    {
+      "stage": "SignalStage",
+      "blocked": "pipeline stops when signal None"
+    }
+  ],
+  "counts": {
+    "generated_signals": 0,
+    "executed_trades": 0,
+    "blocked_trades": 0
+  },
+  "hold_chain": {
+    "bars_evaluated": 3732,
+    "buy_emitted": 0,
+    "sell_emitted": 0,
+    "ml_signals": 0,
+    "ml_hold_stages": {
+      "decision_hold": 3730,
+      "calibration_hold": 0,
+      "trade_quality_hold": 2,
+      "rsi_filter_hold": 0,
+      "adx_filter_hold": 0
+    },
+    "ml_hold_total": 3732,
+    "meta_hold": 0,
+    "riskgate_hold": 0,
+    "riskgate_block_reasons": {}
+  },
+  "generated_utc": "2026-07-07T23:54:01.694013+00:00"
+}

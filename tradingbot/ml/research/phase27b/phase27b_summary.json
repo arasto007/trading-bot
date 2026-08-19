@@ -1,0 +1,22 @@
+{
+  "phase": "27B",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "deliverables": [
+    "filter_location.json",
+    "rsi_hold_log.json",
+    "buy_sell_filter_statistics.json",
+    "pre_post_filter_statistics.json",
+    "distribution_analysis.json",
+    "threshold_sensitivity.json",
+    "stage_funnel.json",
+    "feature_quality.json",
+    "engine_statistics.json",
+    "root_cause_rank.json",
+    "final_report.json"
+  ],
+  "bars_traced": 5203,
+  "verdict": "MULTIPLE_ROOT_CAUSES",
+  "primary_root_cause": "PipelineCache prediction key collision in replay",
+  "generated_utc": "2026-07-09T12:46:26.926030+00:00"
+}

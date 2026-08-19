@@ -1,0 +1,7 @@
+{
+  "phase": "28F",
+  "trade_log_portfolio_engine_aligned": true,
+  "balance_equity_aligned": true,
+  "no_pnl_duplication_in_trade_builder": true,
+  "generated_utc": "2026-07-09T23:58:22.201686+00:00"
+}

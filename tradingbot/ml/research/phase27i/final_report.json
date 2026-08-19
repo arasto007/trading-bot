@@ -1,0 +1,25 @@
+{
+  "phase": "27I",
+  "verdict": "SLIPPAGE_ROOT_CAUSE_IDENTIFIED",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "input_source": "phase27f_repaired_replay",
+  "slippage_scenario": "0.25 ATR entry + 0.25 ATR exit (Phase 27H model)",
+  "completed_trades": 575,
+  "primary_root_cause": "thin_per_trade_edge",
+  "combination_summary": "Thin per-trade edge + round-trip 0.5 ATR price drag + ATR-proportional dollar slippage on XAUUSD M5",
+  "blockers": [],
+  "key_findings": {
+    "baseline_net": 1101.1854,
+    "net_after_slippage": -506.6237,
+    "total_slippage_destroyed": 1607.8091,
+    "slippage_pct_of_baseline_pnl": 146.01,
+    "avg_slippage_per_trade": 2.7962,
+    "baseline_expectancy": 1.9151,
+    "slippage_vs_expectancy_ratio": 1.4601,
+    "entry_vs_exit": "both_equally",
+    "pf_breakeven_atr_mult": 0.18
+  },
+  "conclusion": "Thin per-trade edge + round-trip 0.5 ATR price drag + ATR-proportional dollar slippage on XAUUSD M5",
+  "generated_utc": "2026-07-09T17:55:47.977768+00:00"
+}

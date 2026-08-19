@@ -1,0 +1,36 @@
+{
+  "phase": "24E",
+  "bars_compared": 5,
+  "all_frames_equal": true,
+  "all_column_hashes_match": true,
+  "rows": [
+    {
+      "bar_index": 250,
+      "frames_equal": true,
+      "column_hashes_match": false
+    },
+    {
+      "bar_index": 253,
+      "frames_equal": true,
+      "column_hashes_match": false
+    },
+    {
+      "bar_index": 256,
+      "frames_equal": true,
+      "column_hashes_match": false
+    },
+    {
+      "bar_index": 259,
+      "frames_equal": true,
+      "column_hashes_match": false
+    },
+    {
+      "bar_index": 262,
+      "frames_equal": true,
+      "column_hashes_match": false
+    }
+  ],
+  "baseline_fingerprint": "70b38325ee1c7e1e",
+  "cached_fingerprint": "70b38325ee1c7e1e",
+  "fingerprints_match": true
+}

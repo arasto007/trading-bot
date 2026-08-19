@@ -1,0 +1,75 @@
+{
+  "phase": "24H",
+  "basis": "phase24c/stage_timings.json",
+  "duplicates": [
+    {
+      "duplicate_stage": "HealthGate",
+      "extra_executions": 1,
+      "basis_timing_key": "health_gate",
+      "mean_ms_per_call": 24.6119,
+      "median_ms_per_call": 24.6056,
+      "p95_ms_per_call": 25.8469,
+      "wasted_mean_ms": 24.6119,
+      "wasted_p95_ms": 25.8469,
+      "note": "Second require_health per candle"
+    },
+    {
+      "duplicate_stage": "FeatureBuilder.compute_at",
+      "extra_executions": 1,
+      "basis_timing_key": "feature_builder_compute_at",
+      "mean_ms_per_call": 63.6986,
+      "median_ms_per_call": 62.0475,
+      "p95_ms_per_call": 68.9256,
+      "wasted_mean_ms": 63.6986,
+      "wasted_p95_ms": 68.9256,
+      "note": "Overlaps unified frame features"
+    },
+    {
+      "duplicate_stage": "IndicatorStage",
+      "extra_executions": 1,
+      "basis_timing_key": "indicator_stage",
+      "mean_ms_per_call": 48.6258,
+      "median_ms_per_call": 48.9769,
+      "p95_ms_per_call": 50.708,
+      "wasted_mean_ms": 48.6258,
+      "wasted_p95_ms": 50.708,
+      "note": "Overlaps build_ml_features when ML kernel active"
+    },
+    {
+      "duplicate_stage": "TrendEngine.evaluate",
+      "extra_executions": 1,
+      "basis_timing_key": "trend_engine_evaluate",
+      "mean_ms_per_call": 13.4067,
+      "median_ms_per_call": 0.0371,
+      "p95_ms_per_call": 31.4718,
+      "wasted_mean_ms": 13.4067,
+      "wasted_p95_ms": 31.4718,
+      "note": "Unused when RANGE regime selected"
+    },
+    {
+      "duplicate_stage": "predict_proba",
+      "extra_executions": 1,
+      "basis_timing_key": "predict_proba_only",
+      "mean_ms_per_call": 1.2039,
+      "median_ms_per_call": 1.1667,
+      "p95_ms_per_call": 1.4423,
+      "wasted_mean_ms": 1.2039,
+      "wasted_p95_ms": 1.4423,
+      "note": "Second engine inference"
+    },
+    {
+      "duplicate_stage": "normalize_candles_for_builder",
+      "extra_executions": 1,
+      "basis_timing_key": "dataframe_copy",
+      "mean_ms_per_call": 0.2878,
+      "median_ms_per_call": 0.2811,
+      "p95_ms_per_call": 0.3258,
+      "wasted_mean_ms": 0.2878,
+      "wasted_p95_ms": 0.3258,
+      "note": "Second normalize pass"
+    }
+  ],
+  "total_wasted_mean_ms": 151.8347,
+  "total_wasted_p95_ms": 178.7204,
+  "generated_utc": "2026-07-08T13:06:04.885148+00:00"
+}

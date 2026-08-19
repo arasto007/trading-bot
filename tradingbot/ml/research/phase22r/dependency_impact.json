@@ -1,0 +1,102 @@
+{
+  "phase": "22R",
+  "generated_utc": "2026-07-05T16:53:53.222734+00:00",
+  "tests_dependent_on_phase99_merge": [
+    "tests/test_phase14_1_decision_engine.py",
+    "tests/test_phase15b_kernel_integration.py",
+    "tests/test_phase15i_range_recovery.py",
+    "tests/test_ml_phase13_9_unified_router.py",
+    "tests/test_phase15a_preparation.py",
+    "tests/test_phase15c_monitoring.py"
+  ],
+  "validation_dependent": [
+    {
+      "module": "validate_range_features",
+      "file": "tradingbot/ml/research/phase15i/range_feature_validation.py",
+      "depends_on": "phase99_* columns in unified frame"
+    },
+    {
+      "module": "audit_phase99_signals",
+      "file": "tradingbot/ml/research/phase15i/phase99_signal_audit.py",
+      "depends_on": "row_for_phase99_range + build_unified_frame"
+    },
+    {
+      "module": "check_feature_parity",
+      "file": "tradingbot/ml/research/phase13_9/feature_parity_checker.py",
+      "depends_on": "dataset merge in build_unified_frame"
+    },
+    {
+      "module": "validate_training_alignment",
+      "file": "tradingbot/ml/research/phase22j/training_alignment.py",
+      "depends_on": "PHASE99_FEATURE_MAP + dataset merge inference path"
+    }
+  ],
+  "health_checks_dependent": [
+    {
+      "module": "run_pre_decision_health",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "depends_on": "phase9_9 bundle load, feature_order, dataset fingerprint"
+    },
+    {
+      "module": "verify_bundle_integrity",
+      "file": "tradingbot/ml/paper_trading/model_registry.py",
+      "depends_on": "feature dict keys match feature_order"
+    },
+    {
+      "module": "validate_feature_row",
+      "file": "tradingbot/ml/integration/health_gate.py",
+      "depends_on": "row contains ema50_slope/candle_direction/structure_distance names"
+    },
+    {
+      "module": "verify_ml_live_ready",
+      "file": "scripts/verify_ml_live_ready.py",
+      "depends_on": "phase9_9 model.pkl artifact (not merge path)"
+    }
+  ],
+  "calibration_dependent": [
+    {
+      "module": "prepare_calibration_candles",
+      "file": "tradingbot/ml/integration/recovered_calibration.py",
+      "used_by": "range_feature_validation — still uses build_unified_frame merge"
+    }
+  ],
+  "monitoring_dependent": [
+    "tradingbot/ml/monitoring/anomaly_detector.py — PHASE99_FEATURES tuple",
+    "tradingbot/ml/monitoring/shadow_monitor.py — MONITOR_FEATURES",
+    "tradingbot/ml/phase15f/bundle_audit.py"
+  ],
+  "files_referencing_row_for_phase99": [
+    "C:/Users/AMIR/Desktop/TradingBot new/tests/test_phase15i_range_recovery.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/decision_engine/validation.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/phase15a/engine_registry.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/phase18b/stability.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase13_9/router_pipeline_rebuilder.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase13_9/unified_features.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase14_7/baseline_runner.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase14_9/range_engine_analysis.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase15i/phase99_signal_audit.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase15i/range_feature_validation.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase18a/shadow_runner.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22d/run_forensics.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22j/engine_candidates.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22j/range_forensics.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22j/training_alignment.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22j/training_alignment_validation.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22k/feature_lineage.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22k/zero_feature_root_cause.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22l/comparison.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22l/range_quality.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22l/unified_audit.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22l/unified_frame_audit.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22m/data_pipeline_map.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22m/run_investigation.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/architecture_verdict.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/feature_dependency_map.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/feature_usage_matrix.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/phase99_architecture.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/phase99_consumers.json",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22q/run_investigation.py",
+    "C:/Users/AMIR/Desktop/TradingBot new/tradingbot/ml/research/phase22r/run_investigation.py"
+  ],
+  "files_referencing_phase99_columns": 76
+}

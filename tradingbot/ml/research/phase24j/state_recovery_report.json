@@ -1,0 +1,93 @@
+{
+  "phase": "24J",
+  "generated_utc": "2026-07-08T16:02:00+00:00",
+  "report_type": "state_recovery",
+  "persistent_artifacts": [
+    {
+      "artifact": "data/live_risk_state.json",
+      "owner": "LiveRiskTracker",
+      "fields": ["trades_today", "trades_today_by_tf", "daily_pnl", "consecutive_losses", "last_entry_utc_by_tf", "pause_until_utc", "day_start_equity"],
+      "recovery_on_restart": "partial",
+      "gaps": ["trades_today not synced from MT5 deals; paper mode never updates entries"],
+      "failure_ids": ["AUD-009", "AUD-015", "AUD-018"]
+    },
+    {
+      "artifact": "data/position_state.db",
+      "owner": "PositionRecoveryService",
+      "fields": ["position state table"],
+      "recovery_on_restart": "yes if recovery enabled",
+      "gaps": ["conflicts with Mt5PositionManager in-memory registry"],
+      "failure_ids": ["AUD-013"]
+    },
+    {
+      "artifact": "trade journal SQLite",
+      "owner": "TradeJournal",
+      "fields": ["executions", "cycles"],
+      "recovery_on_restart": "append-only history",
+      "gaps": ["not used to rebuild LiveRiskTracker counters"],
+      "failure_ids": ["AUD-009"]
+    },
+    {
+      "artifact": "parquet OHLCV cache",
+      "owner": "ParquetCache",
+      "fields": ["symbol_timeframe.parquet"],
+      "recovery_on_restart": "may serve stale until MT5 fetch",
+      "gaps": ["no fingerprint validation on read"],
+      "failure_ids": ["AUD-017"]
+    },
+    {
+      "artifact": "dataset_v2 parquet",
+      "owner": "DatasetStore",
+      "fields": ["ML feature merge source"],
+      "recovery_on_restart": "loaded each cache miss",
+      "gaps": ["PipelineCache feature key omits fingerprint"],
+      "failure_ids": ["AUD-007", "AUD-031"]
+    },
+    {
+      "artifact": "in-memory PipelineCache",
+      "owner": "PipelineCache singleton",
+      "fields": ["unified frame", "predictions", "bundles"],
+      "recovery_on_restart": "cleared — cold start rebuild",
+      "gaps": ["bundle version change mid-uptime needs reset"],
+      "failure_ids": ["AUD-027"]
+    },
+    {
+      "artifact": "in-memory Mt5PositionManager._registry",
+      "owner": "Mt5PositionManager",
+      "fields": ["partial TP hits", "initial_risk", "remaining_volume"],
+      "recovery_on_restart": "LOST — recomputed from broker SL",
+      "gaps": ["trailing/partial continuity broken"],
+      "failure_ids": ["AUD-012"]
+    },
+    {
+      "artifact": "KernelState EMERGENCY_STOP",
+      "owner": "TradingKernel",
+      "fields": ["RUNNING | STOPPED | EMERGENCY_STOP"],
+      "recovery_on_restart": "LOST — defaults to RUNNING on new process",
+      "gaps": ["kill switch halt not durable"],
+      "failure_ids": ["AUD-030"]
+    },
+    {
+      "artifact": "SignalStage._last_closed_bar",
+      "owner": "SignalStage",
+      "fields": ["market_key -> last bar timestamp"],
+      "recovery_on_restart": "LOST",
+      "gaps": ["duplicate signal evaluation on same bar"],
+      "failure_ids": ["AUD-011"]
+    }
+  ],
+  "trailing_stop_continuity": {
+    "verdict": "NOT_GUARANTEED",
+    "primary_path": "Mt5PositionManager._apply_trailing",
+    "secondary_path": "PositionRecoveryService if enabled",
+    "conflict_risk": "HIGH with default enable_recovery=True",
+    "evidence": "adapters/mt5_position_manager.py:155-176; application/live_runner.py:48"
+  },
+  "risk_continuity": {
+    "verdict": "PARTIAL",
+    "daily_pnl_resync": "yes via sync_from_mt5 deals",
+    "trade_count_resync": "no",
+    "paper_mode": "non_authoritative",
+    "evidence": "services/live_risk_tracker.py:89-127"
+  }
+}

@@ -1,0 +1,246 @@
+{
+  "phase": "23F",
+  "windows": {
+    "last_300_bars": {
+      "pipeline_a": {
+        "trade_count": 9,
+        "profit_factor": 1.6,
+        "expectancy_r": 0.333333,
+        "win_rate": 0.4444,
+        "maximum_drawdown_r": -3.0,
+        "sharpe_proxy": 0.223607,
+        "mean_confidence": 0.9805,
+        "buy_ratio": 0.0,
+        "sell_ratio": 1.0,
+        "pipeline_actionable_signals": 18
+      },
+      "pipeline_b": {
+        "trade_count": 8,
+        "profit_factor": 2.0,
+        "expectancy_r": 0.5,
+        "win_rate": 0.5,
+        "maximum_drawdown_r": -3.0,
+        "sharpe_proxy": 0.333333,
+        "mean_confidence": 0.9781,
+        "buy_ratio": 0.0,
+        "sell_ratio": 1.0,
+        "pipeline_actionable_signals": 18
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 9,
+        "blocked_losers": 0,
+        "false_hold": 9,
+        "true_hold": 0,
+        "false_buy": 0,
+        "false_sell": 5,
+        "precision": 0.0
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 9,
+        "blocked_losers": 1,
+        "false_hold": 9,
+        "true_hold": 1,
+        "false_buy": 0,
+        "false_sell": 4,
+        "precision": 0.1
+      },
+      "b_wins_pf": true,
+      "b_wins_expectancy": true,
+      "b_dd_not_worse": true,
+      "signals": 18
+    },
+    "last_7_days": {
+      "pipeline_a": {
+        "trade_count": 302,
+        "profit_factor": 1.221945,
+        "expectancy_r": 0.136146,
+        "win_rate": 0.3841,
+        "maximum_drawdown_r": -21.4164,
+        "sharpe_proxy": 0.094263,
+        "mean_confidence": 0.978,
+        "buy_ratio": 0.0662,
+        "sell_ratio": 0.9338,
+        "pipeline_actionable_signals": 374
+      },
+      "pipeline_b": {
+        "trade_count": 201,
+        "profit_factor": 1.399882,
+        "expectancy_r": 0.232767,
+        "win_rate": 0.4179,
+        "maximum_drawdown_r": -15.0,
+        "sharpe_proxy": 0.158718,
+        "mean_confidence": 0.9773,
+        "buy_ratio": 0.0647,
+        "sell_ratio": 0.9353,
+        "pipeline_actionable_signals": 374
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 35,
+        "blocked_losers": 37,
+        "false_hold": 35,
+        "true_hold": 37,
+        "false_buy": 15,
+        "false_sell": 171,
+        "precision": 0.5139
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 67,
+        "blocked_losers": 106,
+        "false_hold": 67,
+        "true_hold": 106,
+        "false_buy": 8,
+        "false_sell": 109,
+        "precision": 0.6127
+      },
+      "b_wins_pf": true,
+      "b_wins_expectancy": true,
+      "b_dd_not_worse": true,
+      "signals": 374
+    },
+    "last_30_days": {
+      "pipeline_a": {
+        "trade_count": 1218,
+        "profit_factor": 1.065782,
+        "expectancy_r": 0.042788,
+        "win_rate": 0.3489,
+        "maximum_drawdown_r": -95.0,
+        "sharpe_proxy": 0.030008,
+        "mean_confidence": 0.9825,
+        "buy_ratio": 0.0608,
+        "sell_ratio": 0.9392,
+        "pipeline_actionable_signals": 1544
+      },
+      "pipeline_b": {
+        "trade_count": 801,
+        "profit_factor": 1.151452,
+        "expectancy_r": 0.095863,
+        "win_rate": 0.367,
+        "maximum_drawdown_r": -37.0,
+        "sharpe_proxy": 0.066474,
+        "mean_confidence": 0.9832,
+        "buy_ratio": 0.0649,
+        "sell_ratio": 0.9351,
+        "pipeline_actionable_signals": 1544
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 134,
+        "blocked_losers": 192,
+        "false_hold": 134,
+        "true_hold": 192,
+        "false_buy": 56,
+        "false_sell": 737,
+        "precision": 0.589
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 265,
+        "blocked_losers": 478,
+        "false_hold": 265,
+        "true_hold": 478,
+        "false_buy": 37,
+        "false_sell": 470,
+        "precision": 0.6433
+      },
+      "b_wins_pf": true,
+      "b_wins_expectancy": true,
+      "b_dd_not_worse": true,
+      "signals": 1544
+    },
+    "last_90_days": {
+      "pipeline_a": {
+        "trade_count": 862,
+        "profit_factor": 1.22243,
+        "expectancy_r": 0.138051,
+        "win_rate": 0.3794,
+        "maximum_drawdown_r": -35.0,
+        "sharpe_proxy": 0.094836,
+        "mean_confidence": 0.9852,
+        "buy_ratio": 0.0882,
+        "sell_ratio": 0.9118,
+        "pipeline_actionable_signals": 1197
+      },
+      "pipeline_b": {
+        "trade_count": 534,
+        "profit_factor": 1.207207,
+        "expectancy_r": 0.129213,
+        "win_rate": 0.3764,
+        "maximum_drawdown_r": -31.0,
+        "sharpe_proxy": 0.088901,
+        "mean_confidence": 0.9871,
+        "buy_ratio": 0.0824,
+        "sell_ratio": 0.9176,
+        "pipeline_actionable_signals": 1197
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 133,
+        "blocked_losers": 202,
+        "false_hold": 133,
+        "true_hold": 202,
+        "false_buy": 42,
+        "false_sell": 493,
+        "precision": 0.603
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 259,
+        "blocked_losers": 404,
+        "false_hold": 259,
+        "true_hold": 404,
+        "false_buy": 24,
+        "false_sell": 309,
+        "precision": 0.6094
+      },
+      "b_wins_pf": false,
+      "b_wins_expectancy": false,
+      "b_dd_not_worse": true,
+      "signals": 1197
+    },
+    "last_365_days": {
+      "pipeline_a": {
+        "trade_count": 156,
+        "profit_factor": 1.851852,
+        "expectancy_r": 0.442308,
+        "win_rate": 0.4808,
+        "maximum_drawdown_r": -10.0,
+        "sharpe_proxy": 0.29509,
+        "mean_confidence": 0.9854,
+        "buy_ratio": 0.0641,
+        "sell_ratio": 0.9359,
+        "pipeline_actionable_signals": 224
+      },
+      "pipeline_b": {
+        "trade_count": 90,
+        "profit_factor": 2.285714,
+        "expectancy_r": 0.6,
+        "win_rate": 0.5333,
+        "maximum_drawdown_r": -6.0,
+        "sharpe_proxy": 0.400892,
+        "mean_confidence": 0.9927,
+        "buy_ratio": 0.0333,
+        "sell_ratio": 0.9667,
+        "pipeline_actionable_signals": 224
+      },
+      "pipeline_a_false_blocks": {
+        "blocked_winners": 26,
+        "blocked_losers": 42,
+        "false_hold": 26,
+        "true_hold": 42,
+        "false_buy": 6,
+        "false_sell": 75,
+        "precision": 0.6176
+      },
+      "pipeline_b_false_blocks": {
+        "blocked_winners": 53,
+        "blocked_losers": 81,
+        "false_hold": 53,
+        "true_hold": 81,
+        "false_buy": 1,
+        "false_sell": 41,
+        "precision": 0.6045
+      },
+      "b_wins_pf": true,
+      "b_wins_expectancy": true,
+      "b_dd_not_worse": true,
+      "signals": 224
+    }
+  },
+  "generated_utc": "2026-07-08T00:52:22.933982+00:00"
+}

@@ -1,0 +1,31 @@
+{
+  "phase": "23D",
+  "classification": "FILTER_TOO_STRICT",
+  "scoring_detail": {
+    "scores": {
+      "FILTER_CORRECT": 1,
+      "FILTER_TOO_STRICT": 5,
+      "FILTER_FOR_WRONG_REGIME": 2,
+      "FILTER_OUTDATED": 1
+    },
+    "reasons": [
+      "No repository evidence of Phase9.9 RANGE-only filter validation",
+      "Phase22C widened RSI/ADX bands without RANGE re-certification artifact",
+      "Tail counterfactual: filter OFF metrics beat ON (PF 5.2 vs 1.6)",
+      "False blocks (9) exceed true blocks (0) on tail"
+    ],
+    "precision_tail": 0.0
+  },
+  "empirical_headline": {
+    "range_pipeline_actionable_tail": 18,
+    "filter_pass_tail": 9,
+    "filter_blocked_tail": 9
+  },
+  "design_assessment": {
+    "correctly_designed_mechanism": "RSI mid-band + ADX band gating is coherent for noise reduction",
+    "calibration_question": "Phase22C bands differ from Phase19C validated defaults without RANGE replay certificate",
+    "regime_fit_question": "Discovery/validation used hybrid kernel trades, not isolated Phase9.9 RANGE model"
+  },
+  "summary": "Profitability filters originate from Phase 19B hybrid trade analysis and Phase 19C kernel integration. Empirical RANGE-only counterfactual on latest windows determines whether current Phase22C bands correctly block losers or incorrectly block winners.",
+  "generated_utc": "2026-07-08T00:35:46.691011+00:00"
+}

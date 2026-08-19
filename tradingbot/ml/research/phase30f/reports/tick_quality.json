@@ -1,0 +1,22 @@
+{
+  "phase": "30F",
+  "symbol": "XAUUSD",
+  "tick_count": 8,
+  "duplicates": 0,
+  "ordering_valid": true,
+  "clock_issues": [],
+  "gaps_detected": [
+    {
+      "symbol": "XAUUSD",
+      "gap_start_ms": 1783697226267,
+      "gap_end_ms": 1783697235967,
+      "gap_ms": 9700
+    }
+  ],
+  "schema_validation": {
+    "valid": true,
+    "errors": [],
+    "count": 8
+  },
+  "generated_utc": "2026-07-10T15:28:06.667499+00:00"
+}

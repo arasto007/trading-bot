@@ -1,0 +1,47 @@
+{
+  "phase": "24B",
+  "divergences": [
+    {
+      "area": "market_data_source",
+      "live": "Mt5MarketDataAdapter \u2192 ParquetCache",
+      "research_batch": "CandleStore + DatasetStore offline builders",
+      "intentional": true,
+      "evidence": "phase22m \u2014 no CandleStore import in live_runner/trading_kernel"
+    },
+    {
+      "area": "feature_builder_live_inference",
+      "live": "FeatureBuilder.compute_at inside RangeEngineAdapter for phase99 live path",
+      "research_unified": "build_unified_frame merges dataset_v2 parquet",
+      "intentional": true,
+      "risk": "unified_frame_empty if dataset stale or window < merge requirements"
+    },
+    {
+      "area": "USE_ML_KERNEL",
+      "live_default": false,
+      "research_tests": "Often force true",
+      "env": "USE_ML_KERNEL"
+    },
+    {
+      "area": "execution",
+      "live": "Mt5ExecutionAdapter dry_run default via LiveRunner",
+      "research": "TRADINGBOT_DRY_RUN=1 in shadow validators"
+    },
+    {
+      "area": "hold_chain",
+      "live": "Enabled by default (_ENABLED=True hold_chain.py:110)",
+      "research": "Same module \u2014 counters in ML path only"
+    },
+    {
+      "area": "artifact_build",
+      "live": "build_if_missing=False everywhere in hot path",
+      "research_training": "May use build_if_missing=True in shadow/retrain scripts",
+      "intentional": true
+    },
+    {
+      "area": "regime_label",
+      "both": "rule_classify_row \u2014 not ML regime classifier in production path",
+      "note": "TRANSITION is filter-profile bucket only, not rule_classify_row output"
+    }
+  ],
+  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+}

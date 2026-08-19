@@ -1,0 +1,36 @@
+{
+  "phase": "27M",
+  "verdict": "EXIT_STRATEGY_ROBUST",
+  "audit_mode": "READ_ONLY",
+  "production_modified": false,
+  "simulation_only": true,
+  "windows_tested": [
+    30,
+    60,
+    90,
+    180,
+    365
+  ],
+  "global_winner": "partial_close_50",
+  "walkforward": {
+    "dominant_winner": "time_exit",
+    "winner_frequency": {
+      "time_exit": 4,
+      "current_tp_sl": 1
+    },
+    "same_winner_all_windows": false
+  },
+  "overfitting_summary": {
+    "june_only": [
+      "dynamic_tp_1.5r",
+      "atr_exit"
+    ],
+    "robust": [
+      "time_exit",
+      "structure_exit"
+    ]
+  },
+  "blockers": [],
+  "conclusion": "Global exit ranking winner: partial_close_50. Verdict: EXIT_STRATEGY_ROBUST.",
+  "generated_utc": "2026-07-09T18:22:10.216877+00:00"
+}

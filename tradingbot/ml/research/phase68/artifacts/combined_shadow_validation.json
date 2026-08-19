@@ -1,0 +1,283 @@
+{
+  "verdict": "COMBINED_SHADOW_GATES_FAIL",
+  "research_only": true,
+  "execution_policy": {
+    "trade_quality": {
+      "engine_alias": "map_to_v40",
+      "from_engine": "trend_rf_v41",
+      "to_engine": "trend_rf_v40",
+      "quality_threshold": 0.4,
+      "source": "phase63"
+    },
+    "adaptive_risk": {
+      "action": "keep_production",
+      "source": "phase64"
+    },
+    "ml_threshold": 0.4
+  },
+  "signal_source": {
+    "hc_signals_deduped": 2756,
+    "v7_matched": 2543,
+    "v7_label_match": {
+      "total_signals": 2756,
+      "matched_v7_labels": 2543,
+      "unmatched": 213,
+      "match_rate_pct": 92.27
+    }
+  },
+  "configs_tested": [
+    "A",
+    "C"
+  ],
+  "config_results": [
+    {
+      "config_id": "A",
+      "name": "baseline_rf_10f_label_v3_h72",
+      "role": "best_honest_pf_reference",
+      "ml_config": {
+        "name": "baseline_rf_10f_label_v3_h72",
+        "label_variant": "label_v3",
+        "horizon": 72,
+        "model": "random_forest",
+        "class_weight": null,
+        "dual_objective": false,
+        "role": "best_honest_pf_reference"
+      },
+      "ml_scoring_method": "production_probability_baseline",
+      "ml_scored_signals": 2543,
+      "walk_forward": {
+        "mean_auc": 0.5151,
+        "mean_pf": 1.6876,
+        "mean_pf_honest": 0.5676,
+        "mean_win_rate": 49.15,
+        "mean_trades_per_window": 24.8,
+        "auc_gate_pass": false,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      "shadow_path": {
+        "funnel": {
+          "input_hc_signals": 2543,
+          "after_ml_filter": 2543,
+          "after_tq_shadow": 2374,
+          "after_ar_production": 2374,
+          "captured_final": 2374
+        },
+        "blockers": {
+          "signal": 169
+        },
+        "capture_rate_pct": 93.35,
+        "pf_proxy_label_v3": {
+          "pf": 0.3932,
+          "trades": 2374,
+          "wins": 670,
+          "losses": 1704,
+          "win_rate_pct": 28.22
+        },
+        "win_rate_pct": 28.22,
+        "per_year_breakdown": {
+          "2025": {
+            "signals_hc": 1513,
+            "captured_count": 1412,
+            "capture_rate_pct": 93.32,
+            "pf_proxy_label_v3": 0.4879,
+            "trades": 1412,
+            "win_rate_pct": 32.79
+          },
+          "2026": {
+            "signals_hc": 1030,
+            "captured_count": 962,
+            "capture_rate_pct": 93.4,
+            "pf_proxy_label_v3": 0.2742,
+            "trades": 962,
+            "win_rate_pct": 21.52
+          }
+        },
+        "ml_threshold": 0.4,
+        "tq_policy": {
+          "alias_policy": "map_to_v40",
+          "quality_threshold": 0.4
+        },
+        "ar_policy": "keep_production"
+      },
+      "gate_evaluation": {
+        "gates": {
+          "auc_ge_0_55": {
+            "pass": false,
+            "actual": 0.5151,
+            "target": 0.55
+          },
+          "honest_pf_ge_1_3": {
+            "pass": false,
+            "actual": 0.5676,
+            "target": 1.3,
+            "min_trades_per_window": 30
+          },
+          "shadow_pf_ge_1_0": {
+            "pass": false,
+            "actual": 0.3932,
+            "target": 1.0
+          },
+          "capture_rate_hc_pct_ge_20": {
+            "pass": true,
+            "actual": 93.35,
+            "target": 20.0
+          }
+        },
+        "all_gates_pass": false,
+        "gates_passed_count": 1,
+        "gates_total": 4
+      },
+      "vs_phase63_execution_only": {
+        "phase63_shadow_pf": 0.3932,
+        "phase63_capture_pct": 93.21,
+        "delta_shadow_pf": 0.0,
+        "delta_capture_pct": 0.14
+      }
+    },
+    {
+      "config_id": "C",
+      "name": "strict_tp_only_h24_rf_hgb_ensemble",
+      "role": "best_balance_ensemble",
+      "ml_config": {
+        "name": "strict_tp_only_h24_rf_hgb_ensemble",
+        "label_variant": "strict_tp_only",
+        "horizon": 24,
+        "model": "rf_hgb_ensemble",
+        "class_weight": null,
+        "dual_objective": false,
+        "role": "best_balance_ensemble"
+      },
+      "ml_scoring_method": "walk_forward_retrain",
+      "ml_scored_signals": 2543,
+      "walk_forward": {
+        "mean_auc": 0.5727,
+        "mean_pf": 0.4069,
+        "mean_pf_honest": 0.4291,
+        "mean_win_rate": 24.89,
+        "mean_trades_per_window": 39.8,
+        "auc_gate_pass": true,
+        "honest_pf_gate_pass": false,
+        "both_gates_pass": false
+      },
+      "shadow_path": {
+        "funnel": {
+          "input_hc_signals": 2543,
+          "after_ml_filter": 0,
+          "after_tq_shadow": 0,
+          "after_ar_production": 0,
+          "captured_final": 0
+        },
+        "blockers": {
+          "ml_filter": 2543
+        },
+        "capture_rate_pct": 0.0,
+        "pf_proxy_label_v3": {
+          "pf": 0.0,
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "win_rate_pct": 0.0
+        },
+        "win_rate_pct": 0.0,
+        "per_year_breakdown": {
+          "2025": {
+            "signals_hc": 1513,
+            "captured_count": 0,
+            "capture_rate_pct": 0.0,
+            "pf_proxy_label_v3": 0.0,
+            "trades": 0,
+            "win_rate_pct": 0.0
+          },
+          "2026": {
+            "signals_hc": 1030,
+            "captured_count": 0,
+            "capture_rate_pct": 0.0,
+            "pf_proxy_label_v3": 0.0,
+            "trades": 0,
+            "win_rate_pct": 0.0
+          }
+        },
+        "ml_threshold": 0.4,
+        "tq_policy": {
+          "alias_policy": "map_to_v40",
+          "quality_threshold": 0.4
+        },
+        "ar_policy": "keep_production"
+      },
+      "gate_evaluation": {
+        "gates": {
+          "auc_ge_0_55": {
+            "pass": true,
+            "actual": 0.5727,
+            "target": 0.55
+          },
+          "honest_pf_ge_1_3": {
+            "pass": false,
+            "actual": 0.4291,
+            "target": 1.3,
+            "min_trades_per_window": 30
+          },
+          "shadow_pf_ge_1_0": {
+            "pass": false,
+            "actual": 0.0,
+            "target": 1.0
+          },
+          "capture_rate_hc_pct_ge_20": {
+            "pass": false,
+            "actual": 0.0,
+            "target": 20.0
+          }
+        },
+        "all_gates_pass": false,
+        "gates_passed_count": 1,
+        "gates_total": 4
+      },
+      "vs_phase63_execution_only": {
+        "phase63_shadow_pf": 0.3932,
+        "phase63_capture_pct": 93.21,
+        "delta_shadow_pf": -0.3932,
+        "delta_capture_pct": -93.21
+      }
+    }
+  ],
+  "best_combined_config": {
+    "config_id": "A",
+    "name": "baseline_rf_10f_label_v3_h72",
+    "shadow_pf": 0.3932,
+    "capture_rate_pct": 93.35,
+    "mean_auc": 0.5151,
+    "mean_pf_honest": 0.5676,
+    "all_gates_pass": false
+  },
+  "phase69_verdict": {
+    "proceed_to_phase69": false,
+    "verdict": "GATES_FAIL_BLOCK_PAPER",
+    "rationale_en": "No config passes all gates simultaneously. Best shadow PF=0.3932 (config A). ML honest PF and shadow PF remain below targets. Phase69 paper trading NOT justified on evidence \u2014 optional observational paper only.",
+    "rationale_fa": "\u0647\u06cc\u0686 \u06a9\u0627\u0646\u0641\u06cc\u06af\u06cc \u0647\u0645\u0647 gate\u0647\u0627 \u0631\u0627 \u0647\u0645\u0632\u0645\u0627\u0646 \u067e\u0627\u0633 \u0646\u06a9\u0631\u062f. \u0628\u0647\u062a\u0631\u06cc\u0646 shadow PF=0.3932. \u0641\u0627\u0632 \u06f6\u06f9 \u0645\u0639\u0627\u0645\u0644\u0627\u062a \u06a9\u0627\u063a\u0630\u06cc \u0628\u0627 \u0627\u06cc\u0646 \u0634\u0648\u0627\u0647\u062f \u062a\u0648\u062c\u06cc\u0647 \u0646\u0645\u06cc\u200c\u0634\u0648\u062f.",
+    "best_shadow_config_id": "A",
+    "best_shadow_pf": 0.3932
+  },
+  "fix_roadmap_assessment": {
+    "phases_62_68_summary_en": "Phases 62-64 fixed execution capture (TQ engine alias restores ~93% capture; AR bypass not worth it). Phases 65-67 failed to lift honest PF\u22651.3; best AUC configs have decoupled/untradeable PF. Phase68 combined shadow: best PF still ~0.39 \u2014 below shadow gate 1.0.",
+    "phases_62_68_summary_fa": "\u0641\u0627\u0632\u0647\u0627\u06cc \u06f6\u06f2-\u06f6\u06f4 \u0645\u0634\u06a9\u0644 \u0627\u062c\u0631\u0627 (capture) \u0631\u0627 \u062d\u0644 \u06a9\u0631\u062f\u0646\u062f. \u0641\u0627\u0632\u0647\u0627\u06cc \u06f6\u06f5-\u06f6\u06f7 PF \u0635\u0627\u062f\u0642 \u0631\u0627 \u0628\u0627\u0644\u0627 \u0646\u0628\u0631\u062f\u0646\u062f. \u0641\u0627\u0632 \u06f6\u06f8: shadow PF \u0647\u0646\u0648\u0632 \u0632\u06cc\u0631 \u06f1.\u06f0 (~0.39).",
+    "execution_track_status": "CAPTURE_FIXED_PF_WEAK",
+    "ml_track_status": "AUC_MARGINAL_PF_FAIL",
+    "integration_track_status": "BLOCKED",
+    "execution_issue_fixable": true,
+    "ml_issue_fixable_with_guarantee": false,
+    "tradeable_edge_found": false,
+    "auc_lift_achieved": true,
+    "primary_remaining_blocker_en": "ML predictive edge too weak \u2014 honest PF ~0.43-0.57, shadow PF ~0.39",
+    "primary_remaining_blocker_fa": "edge \u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc ML \u0636\u0639\u06cc\u0641 \u2014 PF \u0635\u0627\u062f\u0642 ~\u06f0.\u06f4\u06f3-\u06f0.\u06f5\u06f7\u060c shadow PF ~\u06f0.\u06f3\u06f9"
+  },
+  "production_gates_reference": {
+    "mean_auc_ge": 0.55,
+    "honest_pf_ge": 1.3,
+    "honest_pf_min_trades": 30,
+    "shadow_pf_ge": 1.0,
+    "capture_rate_hc_pct_ge": 20.0
+  },
+  "next_phase": "67_or_research",
+  "research_only_note": "Profitability cannot be guaranteed \u2014 gates are evidence thresholds only."
+}

@@ -1,0 +1,16 @@
+{
+  "scores": {
+    "Architecture": 90,
+    "Reliability": 100,
+    "Execution": 0.0,
+    "Risk": 55,
+    "Performance": 50,
+    "Consistency": 50,
+    "Journal": 0.0,
+    "Paper_Readiness": 0
+  },
+  "overall_score": 43.1,
+  "sample_size": 0,
+  "minimum_sample": 200,
+  "generated_utc": "2026-07-09T12:00:08.815402+00:00"
+}

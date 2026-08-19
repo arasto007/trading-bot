@@ -1,0 +1,79 @@
+{
+  "phase": "28D",
+  "verdict": "PROFITABLE",
+  "explanation": "Strategy netted $1081.74 on $200 capital (PF 1.38). Hybrid B partial-close at +1R locks gains while time exit captures extended moves. Strengths: positive expectancy ($1.88/trade). Weaknesses: 256 losers (64.7% loss rate). Reliability: adequate sample (575 trades).",
+  "initial_balance": 200.0,
+  "final_balance": 1281.7446,
+  "net_profit": 1081.7446,
+  "profit_factor": 1.3803,
+  "completed_trades": 575,
+  "max_drawdown_pct": 87.9686,
+  "exit_mode": "HYBRID_B",
+  "fresh_backtest": true,
+  "caches_cleared": true,
+  "meta": {
+    "mode": "unified_pipeline_replay",
+    "pipeline_stages": [
+      "data",
+      "indicators",
+      "signals",
+      "risk",
+      "execution"
+    ],
+    "forming_bar_adapter": true,
+    "lookback_bars": 300,
+    "bars_evaluated": 5203,
+    "warmup_bars": 300,
+    "stride": 1,
+    "replay_portfolio": {
+      "opens": 575,
+      "closes": 575,
+      "max_concurrent_open": 0,
+      "bars_with_open_gte_2": 0,
+      "realized_pnl": 75.7757
+    },
+    "portfolio_timeline_bars": 5203,
+    "position_lifecycle_events": 1150,
+    "initial_balance": 200.0,
+    "exit_mode": "HYBRID_B",
+    "caches_cleared": [
+      "phase27a\\_cache\\hold_chain.json",
+      "phase27a\\_cache\\replay_meta.json",
+      "phase27a\\_cache\\replay_records.json",
+      "phase27d\\_cache\\hold_chain.json",
+      "phase27d\\_cache\\replay_meta.json",
+      "phase27d\\_cache\\replay_records.json",
+      "phase27f\\_cache\\replay_meta.json",
+      "phase27f\\_cache\\replay_records.json",
+      "phase27m\\_cache\\window_180_meta.json",
+      "phase27m\\_cache\\window_180_records.json",
+      "phase27m\\_cache\\window_365_meta.json",
+      "phase27m\\_cache\\window_365_records.json",
+      "phase27m\\_cache\\window_60_meta.json",
+      "phase27m\\_cache\\window_60_records.json",
+      "phase27m\\_cache\\window_90_meta.json",
+      "phase27m\\_cache\\window_90_records.json"
+    ],
+    "generated_utc": "2026-07-09T22:59:41.538514+00:00"
+  },
+  "generated_utc": "2026-07-09T23:34:24.177481+00:00",
+  "pipeline_verification": {
+    "phase": "28D",
+    "total_bars": 5203,
+    "executions": 575,
+    "stages": {
+      "data_stage": true,
+      "indicator_stage": true,
+      "signal_stage": true,
+      "ml_kernel": true,
+      "trade_quality": true,
+      "profitability_filters": false,
+      "adaptive_risk": true,
+      "riskgate": true,
+      "execution": true,
+      "hybrid_b_exit": true,
+      "journal": true
+    },
+    "pipeline_verified": true
+  }
+}

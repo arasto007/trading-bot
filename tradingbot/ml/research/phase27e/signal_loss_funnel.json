@@ -1,0 +1,71 @@
+{
+  "phase": "27E",
+  "emitted": 762,
+  "hold_chain_ml_signals": 762,
+  "funnel": [
+    {
+      "stage": "ml_signals_emitted",
+      "count": 762,
+      "percentage_of_emitted": 100.0
+    },
+    {
+      "stage": "trade_quality_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "profitability_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "adaptive_risk_pass",
+      "count": 762,
+      "percentage_of_emitted": 100.0,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "riskgate_pass",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 760,
+      "loss_pct_from_previous": 99.7375
+    },
+    {
+      "stage": "execution_stage",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "mt5_execution_adapter",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "journal",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    },
+    {
+      "stage": "completed_trade",
+      "count": 2,
+      "percentage_of_emitted": 0.2625,
+      "loss_from_previous": 0,
+      "loss_pct_from_previous": 0.0
+    }
+  ],
+  "primary_loss_stage": "RiskGate",
+  "primary_loss_count": 760,
+  "generated_utc": "2026-07-09T13:55:14.764895+00:00"
+}

@@ -1,0 +1,56 @@
+{
+  "phase": "26B",
+  "sample_size": 1,
+  "distributions": {
+    "confidence": {
+      "count": 1,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 1.0,
+          "count": 1
+        }
+      ],
+      "mean": 1.0
+    },
+    "probability": {
+      "count": 1,
+      "histogram": [
+        {
+          "bin_start": 1.0,
+          "bin_end": 1.0,
+          "count": 1
+        }
+      ],
+      "mean": 1.0
+    },
+    "pnl": {
+      "count": 1,
+      "histogram": [
+        {
+          "bin_start": 23.575,
+          "bin_end": 23.575,
+          "count": 1
+        }
+      ],
+      "mean": 23.575
+    },
+    "pnl_r": {
+      "count": 1,
+      "histogram": [
+        {
+          "bin_start": 2.5,
+          "bin_end": 2.5,
+          "count": 1
+        }
+      ],
+      "mean": 2.5
+    }
+  },
+  "confidence_bucket_expectancy": {
+    "high_>=0.75": 23.575
+  },
+  "higher_confidence_higher_expectancy": null,
+  "conclusion": "inconclusive \u2014 insufficient sample for confidence-expectancy validation",
+  "generated_utc": "2026-07-08T17:41:23.794180+00:00"
+}

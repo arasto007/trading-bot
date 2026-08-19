@@ -1,0 +1,24 @@
+{
+  "run_id": "b32a35f8b96944ea",
+  "timestamp": "2026-07-05T16:09:58.232124+00:00",
+  "git_commit": "unknown",
+  "symbol": "XAUUSD",
+  "timeframes": [
+    "M5",
+    "M15",
+    "H4"
+  ],
+  "source": "mt5_read_only",
+  "date_start": "2025-07-05T16:09:25.848455+00:00",
+  "date_end": "2026-07-05T16:09:25.848455+00:00",
+  "bars_fetched": {},
+  "validation_status": "fail",
+  "raw_files": {},
+  "fingerprint": {},
+  "rejected": {
+    "M5": "fetch_returned_empty",
+    "M15": "fetch_returned_empty",
+    "H4": "fetch_returned_empty"
+  },
+  "incremental": true
+}

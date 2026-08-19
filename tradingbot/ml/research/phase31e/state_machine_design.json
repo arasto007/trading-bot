@@ -1,0 +1,27 @@
+{
+  "phase": "31E",
+  "module": "tradingbot/ml/research/phase25b/replay_position_state.py",
+  "tracker": "tradingbot/ml/research/phase25b/replay_portfolio.py",
+  "state_fields": [
+    "entry_timestamp",
+    "entry_price",
+    "remaining_volume",
+    "partial_executed",
+    "partial_timestamp",
+    "partial_price",
+    "mfe",
+    "mae",
+    "mfe_r",
+    "bars_held",
+    "timeout_bar_index",
+    "sl_state",
+    "closed",
+    "close_reason"
+  ],
+  "loop": "open \u2192 advance one bar \u2192 update state \u2192 evaluate Hybrid B \u2192 persist partial \u2192 continue until SL/timeout/close",
+  "forbidden_removed": [
+    "resolve_paper_trade_exit on truncated candles each bar",
+    "Hybrid B reinitialization per bar"
+  ],
+  "generated_utc": "2026-07-10T16:51:20.713158+00:00"
+}

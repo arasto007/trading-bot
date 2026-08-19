@@ -1,0 +1,87 @@
+{
+  "phase": "24G",
+  "samples": [
+    {
+      "bar_index": 250,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 252,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 254,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 256,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 258,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 260,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 262,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 264,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 266,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    },
+    {
+      "bar_index": 268,
+      "direction_match": true,
+      "confidence_match": true,
+      "regime_match": true,
+      "quality_match": true,
+      "risk_match": true
+    }
+  ],
+  "all_match": true,
+  "generated_utc": "2026-07-08T12:48:05.459083+00:00"
+}

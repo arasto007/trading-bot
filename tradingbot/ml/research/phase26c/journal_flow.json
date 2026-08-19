@@ -1,0 +1,66 @@
+{
+  "chain": [
+    {
+      "step": 1,
+      "node": "TradingSignal",
+      "source": "SignalStage / ML kernel"
+    },
+    {
+      "step": 2,
+      "node": "ExecutionStage.run",
+      "file": "pipeline/execution_stage.py:16-22"
+    },
+    {
+      "step": 3,
+      "node": "Mt5ExecutionAdapter.execute (paper branch)",
+      "file": "adapters/mt5_execution.py:68-86"
+    },
+    {
+      "step": 4,
+      "node": "PaperTradeRecorder.record_entry",
+      "file": "services/paper_trade_recorder.py"
+    },
+    {
+      "step": 5,
+      "node": "resolve_paper_fill",
+      "file": "services/paper_fill_resolver.py"
+    },
+    {
+      "step": 6,
+      "node": "TradeJournal.open_paper_trade + log_execution",
+      "file": "services/trade_journal.py"
+    },
+    {
+      "step": 7,
+      "node": "PaperTradeRecorder.complete_trade",
+      "file": "services/paper_trade_recorder.py"
+    },
+    {
+      "step": 8,
+      "node": "resolve_paper_trade_exit",
+      "file": "services/paper_trade_exit.py"
+    },
+    {
+      "step": 9,
+      "node": "TradeJournal.close_paper_trade",
+      "file": "services/trade_journal.py"
+    },
+    {
+      "step": 10,
+      "node": "read_completed_paper_trades",
+      "file": "ml/research/phase26a/journal_reader.py"
+    },
+    {
+      "step": 11,
+      "node": "collect_completed_paper_trades",
+      "file": "ml/research/phase26a/trade_collector.py"
+    },
+    {
+      "step": 12,
+      "node": "Phase26B statistics",
+      "file": "ml/research/phase26b/"
+    }
+  ],
+  "repair_applied": "Phase 26C \u2014 PaperFillResolver fallback chain replaces MT5-only quote",
+  "generated_utc": "2026-07-09T10:54:30.431574+00:00"
+}

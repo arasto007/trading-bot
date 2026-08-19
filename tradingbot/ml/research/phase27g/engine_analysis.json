@@ -1,0 +1,37 @@
+{
+  "phase": "27G",
+  "phase9_9": {
+    "signals": 762,
+    "executions": 575,
+    "completed_trades": 575,
+    "wins": 222,
+    "losses": 353,
+    "win_rate_pct": 38.61,
+    "profit_factor": 1.2847,
+    "expectancy": 1.9151,
+    "net_profit": 1101.1854
+  },
+  "trend_rf_v41": {
+    "signals": 0,
+    "executions": 0,
+    "completed_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "net_profit": 0
+  },
+  "trend_rf_v40": {
+    "signals": 0,
+    "executions": 0,
+    "completed_trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "expectancy": 0.0,
+    "net_profit": 0
+  },
+  "generated_utc": "2026-07-09T14:43:19.968438+00:00"
+}

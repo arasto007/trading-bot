@@ -1,0 +1,54 @@
+{
+  "phase": "22U",
+  "generated_utc": "2026-07-05T20:57:00.053723+00:00",
+  "can_produce_buy_on_training": false,
+  "mostly_p_win_below_0_45": true,
+  "training_zones": {
+    "n": 5724,
+    "buy_zone_count": 0,
+    "sell_zone_count": 5718,
+    "neutral_count": 6,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 99.8952,
+    "neutral_pct": 0.1048
+  },
+  "training_statistics": {
+    "mean": 0.361875,
+    "std": 0.036336,
+    "median": 0.363906,
+    "min": 0.000262,
+    "max": 0.479703,
+    "p05": 0.315567,
+    "p95": 0.408862,
+    "pct_below_0_45": 99.8952,
+    "pct_above_0_55": 0.0,
+    "pct_in_neutral_band": 0.1048
+  },
+  "dataset_a_zones": {
+    "n": 174,
+    "buy_zone_count": 0,
+    "sell_zone_count": 174,
+    "neutral_count": 0,
+    "buy_zone_pct": 0.0,
+    "sell_zone_pct": 100.0,
+    "neutral_pct": 0.0
+  },
+  "dataset_a_statistics": {
+    "mean": 0.372401,
+    "std": 0.019082,
+    "median": 0.371093,
+    "min": 0.341239,
+    "max": 0.419381,
+    "p05": 0.3474,
+    "p95": 0.403256,
+    "pct_below_0_45": 100.0,
+    "pct_above_0_55": 0.0,
+    "pct_in_neutral_band": 0.0
+  },
+  "model_type": "_SklearnWrapper",
+  "feature_importance": {
+    "ema50_slope": 0.270252,
+    "candle_direction": 0.107625,
+    "structure_distance": 0.622124
+  }
+}
