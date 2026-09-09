@@ -1,5 +1,9 @@
 # Robot Overview — What the Machine Does
 
+> **HISTORICAL (2026-07 audit).** Claims Adaptive as the current live engine.
+> Current live truth is `docs_v2/` (MultiEngineRouter + `PA_PRODUCTION_LOCK` → Price Action).
+> Do not treat this file as the active live contract. Historical analysis below is unchanged.
+
 **Repository:** `TradingBot new`  
 **Audit mode:** Read-only (code evidence only)  
 **Current live engine:** ADAPTIVE_REGIME on XAUUSD M5 (when `USE_ML_KERNEL=false`)

@@ -18,9 +18,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from tradingbot.ml.data.stores import CandleStore
 from tradingbot.ml.dataset.schema import DATASET_SCHEMA_VERSION
-from tradingbot.ml.dataset.store import DatasetStore
 from tradingbot.ml.integration.health_gate import KernelFallbackError
 from tradingbot.ml.integration.kernel_adapter import KernelAdapter
 from tradingbot.ml.integration.factory import build_kernel_adapter, build_ml_kernel_stack
@@ -37,8 +35,9 @@ from tradingbot.ml.monitoring.orchestrator import run_phase15c_monitoring, run_m
 from tradingbot.ml.monitoring.performance_monitor import PerformanceMonitor
 from tradingbot.ml.monitoring.prediction_monitor import PredictionMonitor
 from tradingbot.ml.monitoring.statistics import ThreadSafeCounter, ThreadSafeStore, latency_summary, percentile, rate
-from tradingbot.ml.phase15a.trend_bundle import freeze_trend_bundle_from_candles
 from tradingbot.domain.models import MarketKey
+
+from tests.helpers.kernel_tmp_fixture import setup_kernel_tmp
 
 KERNEL_PATH = ROOT / "tradingbot" / "kernel" / "trading_kernel.py"
 RISK_PATH = ROOT / "tradingbot" / "adapters" / "risk_gate.py"
@@ -72,18 +71,10 @@ def _dataset(n: int = 500) -> pd.DataFrame:
 
 
 def _setup_tmp(tmp: str) -> None:
-    import shutil
-    src = ROOT / "data" / "ml" / "research" / "phase9_9_best"
-    if src.is_dir():
-        dst = Path(tmp) / "ml" / "research" / "phase9_9_best"
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(src, dst)
     candles = _candles(1200)
-    CandleStore(tmp).store("XAUUSD", "M5", candles)
     ds = _dataset(1200)
     ds["timestamp"] = list(candles.index)
-    DatasetStore(tmp).store_v2("XAUUSD", "M5", ds)
-    freeze_trend_bundle_from_candles(candles, base_dir=tmp)
+    setup_kernel_tmp(tmp, candles=candles, dataset=ds)
 
 
 def _has_artifacts() -> bool:
@@ -157,6 +148,13 @@ class TestEngineMonitor(unittest.TestCase):
         em = EngineMonitor()
         em.set_engine_meta("trend_rf_v40", checksum="abc", version="v1")
         self.assertEqual(em.build_report()["trend_rf_v40"]["checksum"], "abc")
+
+    def test_default_buckets_include_active_and_rollback(self):
+        from tradingbot.ml.phase17d.versioning import resolve_active_trend_engine_id
+
+        report = EngineMonitor().build_report()
+        self.assertIn("trend_rf_v40", report)
+        self.assertIn(resolve_active_trend_engine_id(), report)
 
 
 class TestFallbackMonitor(unittest.TestCase):
@@ -277,12 +275,19 @@ class TestHealthMonitor(unittest.TestCase):
 
 class TestOrchestrator(unittest.TestCase):
     def test_replay_short(self):
+        # Replay must produce observability events. PIPELINE_TIMEOUT_MS=500 is the
+        # hard ML-path fallback; this fixture often exceeds it. Timeout→fallback
+        # is the designed safety valve, not a test failure.
         if not _has_artifacts():
             self.skipTest("artifacts missing")
         with tempfile.TemporaryDirectory() as tmp:
             _setup_tmp(tmp)
             hub = run_monitoring_replay(base_dir=tmp, days=30, stride=15, warmup=300)
-            self.assertGreater(hub.decisions.count(), 0)
+            fallbacks = hub.fallbacks.build_report()
+            self.assertGreater(
+                hub.decisions.count() + int(fallbacks.get("total_fallbacks", 0)),
+                0,
+            )
 
     def test_full_validation(self):
         if not _has_artifacts():

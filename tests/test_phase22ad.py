@@ -21,7 +21,7 @@ class TestPhase22ADTrace(unittest.TestCase):
     def test_kernel_adapter_uses_registry_inner_not_shadow(self):
         src = (ROOT / "tradingbot/ml/integration/kernel_adapter.py").read_text(encoding="utf-8")
         self.assertIn("_engine_inners", src)
-        self.assertIn("build_market_context", src)
+        self.assertIn("get_market_context", src)
         self.assertNotIn("ShadowEngine", src)
         self.assertNotIn("build_if_missing=True", src)
 

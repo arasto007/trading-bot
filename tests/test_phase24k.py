@@ -117,25 +117,96 @@ class TestPaperModeGuardAUD001(unittest.TestCase):
 
 class TestStartupDiagnosticsAUD003(unittest.TestCase):
     def test_unconfigured_when_env_absent(self) -> None:
-        from tradingbot.ml.integration.factory import UnconfiguredEngineRegistry, build_strategy_registry
+        # Default live: USE_ML_KERNEL absent + router on => MultiEngineRouterRegistry.
+        # Diagnostics now report the effective registry (not raw UNCONFIGURED).
+        from tradingbot.adapters.multi_engine_router import MultiEngineRouterRegistry
+        from tradingbot.ml.integration.factory import build_strategy_registry
         from tradingbot.ml.integration.startup_diagnostics import resolve_engine_selection
 
         os.environ.pop("USE_ML_KERNEL", None)
         sel = resolve_engine_selection()
-        self.assertEqual(sel.selected_engine, "UNCONFIGURED")
+        self.assertEqual(sel.selected_engine, "MULTI_ENGINE_ROUTER")
         reg = build_strategy_registry({})
-        self.assertIsInstance(reg, UnconfiguredEngineRegistry)
+        self.assertIsInstance(reg, MultiEngineRouterRegistry)
 
     def test_explicit_legacy_when_false(self) -> None:
-        from tradingbot.adapters.legacy_strategy_registry import LegacyStrategyRegistry
+        # USE_ML_KERNEL=false + default router => MultiEngineRouterRegistry.
+        from tradingbot.adapters.multi_engine_router import MultiEngineRouterRegistry
         from tradingbot.ml.integration.factory import build_strategy_registry
         from tradingbot.ml.integration.startup_diagnostics import resolve_engine_selection
 
         os.environ["USE_ML_KERNEL"] = "0"
         try:
             sel = resolve_engine_selection()
-            self.assertEqual(sel.selected_engine, "LEGACY_PRICE_ACTION")
+            self.assertEqual(sel.selected_engine, "MULTI_ENGINE_ROUTER")
             reg = build_strategy_registry({})
+            self.assertIsInstance(reg, MultiEngineRouterRegistry)
+        finally:
+            os.environ.pop("USE_ML_KERNEL", None)
+
+    def test_ml_true_gate_closed_reports_router(self) -> None:
+        from tradingbot.ml.integration.startup_diagnostics import resolve_engine_selection
+
+        os.environ["USE_ML_KERNEL"] = "true"
+        gate_patch = mock.patch(
+            "tradingbot.ml.shadow.shadow_gate.evaluate_ml_live_gate",
+            return_value={"allowed": False, "closed_trades": 2},
+        )
+        gate_patch.start()
+        try:
+            sel = resolve_engine_selection()
+            self.assertEqual(sel.selected_engine, "MULTI_ENGINE_ROUTER")
+            self.assertTrue(sel.ml_kernel_enabled)
+        finally:
+            gate_patch.stop()
+            os.environ.pop("USE_ML_KERNEL", None)
+
+    def test_isolated_unconfigured_when_engines_off(self) -> None:
+        # Isolated safety path: patch get_live_config (import-time LIVE_TRADING_CONFIG
+        # ignores MULTI_ENGINE_ROUTER_ENABLED set in os.environ after live.py import).
+        # Diagnostics and factory are asserted separately from the default router path.
+        from tradingbot.ml.integration.factory import (
+            UnconfiguredEngineRegistry,
+            build_strategy_registry,
+        )
+        from tradingbot.ml.integration.startup_diagnostics import resolve_engine_selection
+
+        isolated = {
+            "MULTI_ENGINE_ROUTER_ENABLED": False,
+            "ADAPTIVE_REGIME_ENABLED": False,
+            "VOL_REGIME_ENABLED": False,
+        }
+        os.environ.pop("USE_ML_KERNEL", None)
+        os.environ.pop("ENABLE_ML_SHADOW", None)
+        with mock.patch(
+            "tradingbot.config.live.get_live_config",
+            return_value=isolated,
+        ):
+            sel = resolve_engine_selection()
+            reg = build_strategy_registry({})
+        self.assertEqual(sel.selected_engine, "UNCONFIGURED")
+        self.assertIsInstance(reg, UnconfiguredEngineRegistry)
+
+    def test_isolated_legacy_when_engines_off_and_ml_false(self) -> None:
+        from tradingbot.adapters.legacy_strategy_registry import LegacyStrategyRegistry
+        from tradingbot.ml.integration.factory import build_strategy_registry
+        from tradingbot.ml.integration.startup_diagnostics import resolve_engine_selection
+
+        isolated = {
+            "MULTI_ENGINE_ROUTER_ENABLED": False,
+            "ADAPTIVE_REGIME_ENABLED": False,
+            "VOL_REGIME_ENABLED": False,
+        }
+        os.environ["USE_ML_KERNEL"] = "false"
+        os.environ.pop("ENABLE_ML_SHADOW", None)
+        try:
+            with mock.patch(
+                "tradingbot.config.live.get_live_config",
+                return_value=isolated,
+            ):
+                sel = resolve_engine_selection()
+                reg = build_strategy_registry({})
+            self.assertEqual(sel.selected_engine, "LEGACY_PRICE_ACTION")
             self.assertIsInstance(reg, LegacyStrategyRegistry)
         finally:
             os.environ.pop("USE_ML_KERNEL", None)
@@ -242,7 +313,9 @@ class TestAutotradingAUD008(unittest.TestCase):
         )
         os.environ.pop("TRADINGBOT_DRY_RUN", None)
         os.environ.pop("TRADINGBOT_PAPER", None)
-        with mock.patch(
+        with mock.patch.object(
+            adapter, "_reconcile_broker_symbol", return_value=("XAUUSD", None)
+        ), mock.patch(
             "tradingbot.adapters.mt5_execution.ensure_mt5_connected",
             return_value=True,
         ), mock.patch(

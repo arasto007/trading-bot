@@ -39,6 +39,13 @@ class TestConfig(unittest.TestCase):
             self.assertIn("phase15f", str(reports_dir(tmp)))
 
 
+class TestConfidenceTraceResolver(unittest.TestCase):
+    def test_engine_inners_uses_active_resolver(self):
+        src = (PHASE15F_PKG / "confidence_trace.py").read_text(encoding="utf-8")
+        self.assertIn("resolve_active_trend_engine_id", src)
+        self.assertNotIn('registry.get("trend_rf_v40")', src)
+
+
 class TestCalibrationStatus(unittest.TestCase):
     def test_status_keys(self):
         s = calibration_status()

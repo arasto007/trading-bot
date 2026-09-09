@@ -1,0 +1,19 @@
+{
+  "feature_cache_slots": 3,
+  "feature_cache_hits": 63,
+  "feature_cache_misses": 3,
+  "feature_cache_hit_ratio": 0.9545,
+  "top5_cache_slots": 3,
+  "top5_cache_hits": 0,
+  "top5_cache_misses": 3,
+  "top5_cache_hit_ratio": 0.0,
+  "market_context_cache_slots": 3,
+  "market_context_cache_hits": 0,
+  "market_context_cache_misses": 3,
+  "market_context_hit_ratio": 0.0,
+  "dataset_memory_cache": {
+    "entries": 1,
+    "loads_from_disk": 1,
+    "loads_from_memory": 26
+  }
+}

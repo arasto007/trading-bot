@@ -1,98 +1,71 @@
 # Testing
 
-## Status
+**Status:** VERIFIED (documentation-test commands); full-tree pytest of every file **UNKNOWN** unless a named suite is run  
+**Last verified:** 2026-09-01  
+**Canonical-Entry:** false  
+**Epistemic-Role:** OWNER of TESTING (how to verify docs/memory offline).  
+**Operator-effective state:** UNKNOWN  
+**Artifact class:** CURRENT DOCUMENTATION for documentation/memory tests. Historical inventory below is HISTORICAL.
 
-- **Status:** PARTIALLY VERIFIED
-- **Last Verified:** 2026-08-22
-- **Verification Method:** Test inventory; tests **not executed** in this pass
-- **Verified against commit:** `57bf778c23cefffe508bb49079688b177796f67e`
+Do **not** start MT5, the bot, or the daemon from this file. Do **not** read `.env`.
 
-## Scope
+---
 
-Test infrastructure and coverage **as present** in the repository.
+## Canonical offline commands (no MT5)
 
-## Framework
-
-- **pytest** inferred from `.pytest_cache/` presence and test file patterns
-- No `pytest.ini` or `pyproject.toml` found at repository root in this audit
-- Standard invocation likely: `pytest tests/` — **UNKNOWN** CI configuration
-
-## Test Inventory
-
-| Metric | Value | Evidence |
-|--------|-------|----------|
-| Test files | **231** | `tests/test_*.py` count |
-| Naming | `test_phase*.py`, `test_ml_*.py`, component tests | Directory listing |
-
-## Categories (by filename patterns)
-
-| Category | Examples | Live path relevance |
-|----------|----------|---------------------|
-| Phase certification | `test_phase18b_go_live.py`, `test_phase20c_broker_validation.py` | Partial — broker/go-live |
-| ML integration | `test_ml_phase10_1_kernel_bridge.py`, `test_phase15d_shadow.py` | ML paths |
-| Live loop health | `test_phase20y1_live_loop_health.py` | **Direct** — heartbeat/stall |
-| VOL registry | `test_vol_regime_registry.py` | VOL engine (not default live) |
-| Legacy loader | `test_legacy_loader.py` | Config merge |
-| Dashboard | `test_dashboard_server.py`, HTA tests | Ops UI |
-| PA / phase1a | `test_phase1a_pa.py` | Strategy |
-| Backtest / ML research | Many `test_ml_research_*`, `test_phase14_*` | Research parity |
-
-## Integration / Runtime Tests
-
-| Test area | File | What it suggests |
-|-----------|------|------------------|
-| Broker validation | `test_phase20c_broker_validation.py` | MT5 integration checks |
-| Go live checklist | `test_phase18b_go_live.py` | Startup readiness patterns |
-| Live loop health | `test_phase20y1_live_loop_health.py` | Heartbeat freshness logic |
-| Smoke (script) | `scripts/smoke_test_execution.py` | Manual execution check — not pytest |
-
-## Execution Tests
-
-- Broker validation tests exist
-- Many research tests **forbid** `order_send` strings in research modules (not production adapter tests)
-- **Gap:** No single pytest found that asserts full `START_BOT.bat → order_send` E2E against live MT5 in CI
-
-## Risk Tests
-
-- Fault injection references in `ml/research/phase6a/fault_injection_live.py`
-- Dataset hardening: `test_dataset_hardening.py` imports RiskGate
-- Dedicated RiskGate unit test file: **not identified** as standalone; logic tested via phase tests
-
-## ML Tests
-
-Heavy coverage (~100+ ML-related test files). Validates research pipelines, shadow modes, kernel bridge — **does not prove ML is active live** when disabled.
-
-## Tests Not Run
-
-This documentation pass did **not** execute pytest to avoid modifying `.pytest_cache` and without user request.
-
-| Item | Status |
-|------|--------|
-| Pass rate | **UNKNOWN** |
-| Flaky tests | **UNKNOWN** |
-| Stale tests | **UNKNOWN** — some may reference removed phases |
-
-## Missing Critical Coverage (Identified Gaps)
-
-| Gap | Severity |
-|-----|----------|
-| Default router+PA lock integration test | Medium |
-| Meta-labeler gating with/without `.pkl` | Medium |
-| Full watchdog restart E2E | Medium |
-| Operator `.env` matrix | Low |
-| UnconfiguredEngineRegistry misconfig alarm | Low |
-
-## Active Evidence Value
-
-Tests provide **supporting** evidence for subsystems but do not override source-code reachability analysis per SOURCE_OF_TRUTH hierarchy.
-
-## Change Impact
-
-Any change to tested modules; adding `pytest.ini` or CI workflow
-
-## Verification
+Documentation / memory (preferred single entry):
 
 ```text
-(Get-ChildItem tests -Filter test_*.py -Recurse).Count
-# Optional future: pytest tests/ -q
+python -m tradingbot.ml.research.documentation_verification.run
+pytest tests/test_documentation_verification.py tests/test_documentation_freshness.py tests/test_documentation_consistency.py tests/test_documentation_memory_hardening_v2.py tests/test_project_decision_baseline.py tests/test_chatgpt_memory_integrity.py -q
 ```
+
+Related (still offline):
+
+```text
+pytest tests/test_documentation_system_audit.py tests/test_full_repository_audit.py tests/test_pa_live_audit.py tests/test_v41_decision_audit.py tests/test_v41_calibration_evidence.py tests/test_v41_isolated_trend_replay.py tests/test_v41_cost_robustness.py tests/test_v41_cost_followup.py tests/test_phase22h.py -q
+```
+
+Freshness snapshot: tests **must not** rewrite `data/ml/reports/documentation_freshness/snapshot.json`. Explicit only:
+
+```text
+python -m tradingbot.ml.research.documentation_freshness.run --regenerate-baseline
+```
+
+---
+
+## Categories
+
+| Category | Examples | May run without MT5? | Must not start bot? |
+|----------|----------|----------------------|---------------------|
+| Documentation consistency | `test_documentation_consistency.py` | Yes | Yes |
+| Freshness | `test_documentation_freshness.py` | Yes | Yes |
+| Memory / ChatGPT load | `test_chatgpt_memory_integrity.py`, `test_documentation_memory_hardening_v2.py`, `test_project_decision_baseline.py` | Yes | Yes |
+| Audit | `test_full_repository_audit.py`, `test_documentation_system_audit.py` | Yes | Yes |
+| Research-only (v41/PA) | `test_v41_*.py`, `test_pa_live_audit.py` | Yes (isolated) | Yes |
+| Production safety invariants | lock/ML-off/v41-1.0 asserts in consistency tests | Yes | Yes |
+| Broker / go-live | `test_phase20c_broker_validation.py` | **UNKNOWN** / may need MT5 | Must not start from a docs prompt |
+| Full `tests/` tree | 200+ files | UNKNOWN without listing | Must not start MT5 |
+
+External evidence tests (broker tape, `.env`, live orders) are **out of scope** for documentation phases.
+
+---
+
+## Snapshot rules
+
+- Canonical snapshot = `data/ml/reports/documentation_freshness/snapshot.json`
+- `baseline_kind` must be `canonical` or `explicit_regeneration`, never `test_fixture`
+- Missing snapshot → freshness **UNKNOWN**, not PASS
+- Pytest uses isolated fixture snapshots
+
+---
+
+## HISTORICAL (2026-08-22 inventory)
+
+The following counts and “tests not executed” statements are a **HISTORICAL** snapshot. They do not describe the current documentation-test runs.
+
+- Test files ~231 (`tests/test_*.py`) — VERIFIED FROM FILES at that date
+- That pass did not execute pytest
+- No claim that the entire tree is green today
+
+**Do not treat the historical inventory as current pass/fail.**

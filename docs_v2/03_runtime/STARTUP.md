@@ -1,5 +1,8 @@
 # Startup
 
+> **HISTORICAL / SUPERSEDED (2026-09-01).** Not current runtime truth. Canonical startup is `docs_v2/03_runtime/STARTUP_AND_SHUTDOWN.md`.
+> **Epistemic-Role:** HISTORICAL. Do not treat this file as the live owner.
+
 ## Status
 
 - **Status:** VERIFIED
@@ -37,7 +40,7 @@ start/START_BOT.bat
 | 6 | Poll up to 120s for bot PID | L133–144 |
 | 7 | On success, user may launch dashboard via `RUN_DASHBOARD.bat` (from bat) | `START_BOT.bat:10` |
 
-**Note:** Banner text says `"VOL_REGIME LIVE"` — **contradicts** daemon env (see KNOWN_ISSUES KI-002).
+**Note:** Banner text is `"START BOT — PA ROUTER LIVE"` — aligned with daemon router + `PA_PRODUCTION_LOCK`. KI-002 (old `VOL_REGIME LIVE` banner) is resolved.
 
 ## `scripts/start_live_daemon.ps1`
 
@@ -105,9 +108,21 @@ Sets execution env: `TRADINGBOT_DRY_RUN`, `TRADINGBOT_PAPER`, or `TRADINGBOT_LIV
 - MT5 unavailable (live)
 - Autotrading disabled (live)
 - Real account without override (live)
-- ML kernel enabled but artifacts missing (when ML on)
+- ML **requested** (`USE_ML_KERNEL=true`) but artifacts missing — even if the live gate keeps the router
+- `USE_ML_KERNEL` **absent** (`USE_ML_KERNEL_MISSING`) — daemon always sets `false` if unset
 
-Writes `data/startup_report.json` (path under BASE_DIR; `data/` gitignored).
+Report labels follow **effective** factory selection, not requested ML:
+
+| Field | Meaning |
+|-------|---------|
+| `engine_selection`, `ml_kernel_enabled`, `health_status`, `risk_mode` | Effective registry after ML gate + factory |
+| `configuration_summary.use_ml_kernel` | Requested env only |
+
+Default daemon (`USE_ML_KERNEL=false`, router on, gate closed): `engine_selection=MULTI_ENGINE_ROUTER`, `health_status=MULTI_ENGINE_ROUTER`. This is **not** legacy mode and **not** ML-owned live.
+
+`USE_ML_KERNEL=true` + gate closed: same effective router/PA owner. The report must not say `ML_HEALTH_OK`.
+
+Writes `data/startup_report.json` when startup validator runs (path under BASE_DIR; `data/` gitignored). **Absent** at 2026-08-22 runtime files audit.
 
 **Evidence:** `tradingbot/services/startup_validator.py`
 

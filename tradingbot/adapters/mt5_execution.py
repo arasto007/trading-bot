@@ -141,10 +141,10 @@ class Mt5ExecutionAdapter(IOrderExecutor):
         if info is None:
             return None, f"SYMBOL_MAPPING_INVALID canonical={canonical} resolved={broker_symbol}"
         if not info.visible:
-            mt5.symbol_select(broker_symbol, True)
-            info = mt5.symbol_info(broker_symbol)
-        if info is None or not info.visible:
-            return None, f"SYMBOL_MAPPING_INVALID canonical={canonical} resolved={broker_symbol}"
+            return (
+                None,
+                f"SYMBOL_NOT_VISIBLE canonical={canonical} resolved={broker_symbol}",
+            )
         trade_mode = getattr(info, "trade_mode", None)
         disabled = getattr(mt5, "SYMBOL_TRADE_MODE_DISABLED", 0)
         if trade_mode is not None and trade_mode == disabled:
@@ -183,14 +183,32 @@ class Mt5ExecutionAdapter(IOrderExecutor):
             self._logger.warning("Order rejected: %s", reason)
             return ExecutionResult(success=False, message=reason)
 
-        ok, reason = order_logic.check_order_risk(symbol, lot, price)
+        symbol_info = mt5.symbol_info(symbol)
+        if symbol_info is None:
+            return ExecutionResult(success=False, message=f"Symbol {symbol} not found")
+
+        from tradingbot.domain.broker_economics import BrokerEconomics, validate_sl_tp_vs_stops
+
+        economics = BrokerEconomics.from_mt5_symbol_info(symbol_info)
+        if economics is None:
+            return ExecutionResult(success=False, message=f"Broker economics unavailable for {symbol}")
+
+        ok, reason = order_logic.check_order_risk(symbol, lot, price, economics=economics)
         if not ok:
             self._logger.warning("Order rejected: %s", reason)
             return ExecutionResult(success=False, message=reason)
 
-        symbol_info = mt5.symbol_info(symbol)
-        if symbol_info is None:
-            return ExecutionResult(success=False, message=f"Symbol {symbol} not found")
+        is_buy = side == 1
+        ok_stops, stops_reason = validate_sl_tp_vs_stops(
+            price,
+            sl,
+            tp,
+            is_buy=is_buy,
+            economics=economics,
+        )
+        if not ok_stops:
+            self._logger.warning("Order rejected: %s", stops_reason)
+            return ExecutionResult(success=False, message=stops_reason)
 
         type_filling = _filling_constant(mt5, symbol_info.filling_mode)
         order_type = mt5.ORDER_TYPE_BUY if side == 1 else mt5.ORDER_TYPE_SELL
@@ -357,6 +375,22 @@ class Mt5ExecutionAdapter(IOrderExecutor):
 _RETRY_CODES = frozenset({10004, 10006, 10007, 10010, 10021, 10031})
 
 
+def _refresh_retry_price_from_tick(mt5: Any, request: dict[str, Any], symbol: str) -> bool:
+    """
+    Refresh order price from tick without symbol_select side effects.
+
+    Symbol visibility is established at startup/reconcile (Phase 25A/25B).
+    Retry must not mutate Market Watch or hunt aliases — only re-read tick
+    for the explicit configured broker symbol already in the request.
+    """
+    tick = mt5.symbol_info_tick(symbol)
+    if tick is None:
+        return False
+    is_buy = request.get("type") == mt5.ORDER_TYPE_BUY
+    request["price"] = float(tick.ask if is_buy else tick.bid)
+    return True
+
+
 def _order_send_with_retry(mt5: Any, request: dict[str, Any], config: dict[str, Any], symbol: str) -> Any:
     import time
 
@@ -378,12 +412,8 @@ def _order_send_with_retry(mt5: Any, request: dict[str, Any], config: dict[str, 
             return result
         if attempt == 0:
             ensure_mt5_connected(config)
-            mt5.symbol_select(symbol, True)
             time.sleep(0.5)
-            tick = mt5.symbol_info_tick(symbol)
-            if tick is not None:
-                is_buy = request.get("type") == mt5.ORDER_TYPE_BUY
-                request["price"] = float(tick.ask if is_buy else tick.bid)
+            _refresh_retry_price_from_tick(mt5, request, symbol)
     return result
 
 

@@ -5,14 +5,14 @@ Generated from repository inspection. **Not** from prior phase reports.
 ## Live entry (verified)
 
 ```
-live_dashboard.hta / start/3_live_loop_execute.bat
+scripts/dashboard_server.py / RUN_DASHBOARD.bat
   -> scripts/run_live_watchdog.py [--execute]
        -> python -m tradingbot --loop [--execute|--paper]
             -> tradingbot/__main__.py: run_live_loop()
                  -> tradingbot/application/live_runner.py: LiveRunner
 ```
 
-**Evidence:** `start/3_live_loop_execute.bat` line 27 calls `run_live_watchdog.py --execute`.
+**Evidence:** `RUN_DASHBOARD.bat` line 27 calls `run_live_watchdog.py --execute`.
 `scripts/run_live_watchdog.py` line 62 builds `[python, -m, tradingbot, --loop, --execute]`.
 
 ## LiveRunner wiring (verified)

@@ -4,7 +4,7 @@
 
 | Component | Technology | File |
 |-----------|------------|------|
-| Primary UI | HTA (HTML + VBScript) | `live_dashboard.hta` |
+| Primary UI | Local Web Dashboard | `scripts/dashboard_server.py` |
 | Launcher | Batch | `RUN_DASHBOARD.bat`, `start/7_open_dashboard.bat` |
 | Auto-refresh | JS setTimeout 15s | `ScheduleRefresh` → `RefreshLivePanel` |
 
@@ -18,7 +18,7 @@ Dashboard buttons invoke `.bat` files via `WScript.Shell.Run`:
 |--------|----------|-----|---------------|
 | بررسی آمادگی | btnCheck | `start/1_check_setup.bat` | `check_live_setup.py` |
 | META | btnMeta | `start/12_update_meta.bat` | `train_meta_labeler.py --update` |
-| LIVE | btnLive | `start/3_live_loop_execute.bat` | `verify_ml_live_ready.py` → `run_live_watchdog.py` |
+| LIVE | btnLive | `RUN_DASHBOARD.bat` | `verify_ml_live_ready.py` → `run_live_watchdog.py` |
 | بک‌تست | btnRunBacktest | writes JSON + `start/8_backtest_custom.bat` | `backtest_custom_range.py` |
 | توقف | btnStop | `start/5_stop_bot.bat` | `stop_live_daemon.ps1` |
 | وضعیت | btnStatus | `start/6_status.bat` | `status_live.py` |

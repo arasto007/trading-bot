@@ -1148,6 +1148,8 @@ class RiskGate(IRiskGate):
         self._adapt_xauusd_stop_for_tier(signal, tier, portfolio_snapshot)
 
         lot = self._compute_lot(signal, portfolio_snapshot, broker_symbol)
+        if lot <= 0:
+            return RiskDecision(allowed=False, reason="BROKER_SIZING_UNAVAILABLE")
         if tier == AccountTier.MICRO:
             micro_decision, lot = self._apply_micro_feasible_plan(
                 signal, lot, tier, broker_symbol, portfolio_snapshot
@@ -1429,16 +1431,33 @@ class RiskGate(IRiskGate):
             entry = float(signal.metadata.get("entry", signal.metadata.get("price", 0.0)) or 0.0)
         sl = float(signal.stop_loss or 0.0)
         if entry > 0 and sl > 0:
-            return lot_from_stop_distance(
-                self._account.equity,
-                self._eval_risk_per_trade,
-                entry,
-                sl,
-                signal.symbol,
-                regime=self._regime,
-                min_lot=self._min_lot,
-                max_lot=self._max_lot,
+            from tradingbot.adapters.symbols import load_broker_economics
+            from tradingbot.domain.broker_economics import lot_from_broker_economics
+
+            economics = load_broker_economics(broker_symbol, self._config)
+            if economics is not None:
+                lot, reason = lot_from_broker_economics(
+                    self._account.equity,
+                    self._eval_risk_per_trade,
+                    entry,
+                    sl,
+                    economics,
+                    regime_multiplier=risk_logic.regime_position_multiplier(self._regime),
+                )
+                if lot is None:
+                    logger.warning(
+                        "[RiskGate] Broker sizing rejected for %s: %s",
+                        broker_symbol,
+                        reason,
+                    )
+                    return 0.0
+                return min(lot, self._max_lot)
+
+            logger.warning(
+                "[RiskGate] Broker economics unavailable for %s — sizing fail-closed",
+                broker_symbol,
             )
+            return 0.0
 
         df = portfolio_snapshot.get("ohlcv")
         if df is None or not isinstance(df, pd.DataFrame) or df.empty:

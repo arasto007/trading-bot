@@ -1,0 +1,18 @@
+# Phase 41 — Blocker Matrix
+
+**RESEARCH / AUDIT ONLY.** Not a live-authorization document.
+**FINAL_GATE:** `BLOCKED`
+
+| BLOCKER | SEVERITY | CURRENT STATUS | EVIDENCE | WHY IT MATTERS | EXACT CLOSURE ACTION | NO TRADE? | NO STRATEGY CHANGE? |
+|---|---|---|---|---|---|---|---|
+| Commission unknown | CRITICAL | UNKNOWN / OBSERVED_ZERO_NOT_PROVEN | 30 Phase 39 XAUUSD_i deals commission=0.0; no account-applicable VERIFIED_SCHEDULE | SimulatedBroker fail-closes. Executable fills stay 0. Live PnL cannot be estimated. | Obtain account-applicable schedule: product type, basis, rate, currency, effective date. Zero historical commission is not that schedule. | True | True |
+| Historical swap series unknown | HIGH | CURRENT_SWAP=OBSERVED; HISTORICAL_SWAP_SERIES=UNKNOWN; SWAP_POLICY=BROKER_RATE_ONLY | swap_long=-89.136 swap_short=3.45 rollover=Wednesday; deal zeros do not prove historical zero | Overnight tail can change expectancy. Median hold is short, but the tail is not proven swap-free. | Collect historical swap series, or lock a written policy that swap is excluded because holds are intra-session. | True | True |
+| Historical Bid/Ask incomplete | HIGH | PARTIAL / PROXY on evaluation tape | Phase 35 sidecar n=2952 ~15d OBSERVED; Phase 38/40 eval tape has no Bid/Ask columns | OHLC cannot be relabeled as execution spread. Cost sensitivity remains MODELED. | Attach historical Bid/Ask covering the Phase 38 XAUUSD_i M5 evaluation tape. | True | True |
+| Request/fill pairs absent | CRITICAL | REQUEST_FILL_PAIRS=0; SLIPPAGE_POLICY=MODELED | Phase 39 genuine pairs=0; journal XAUUSD_i pairs=0; price_open is not requested | Slippage and latency stay unknown. MT5 deviation=20 is not realized slippage. | Record requested price/time/volume and executed price/time/volume for XAUUSD_i. | True | True |
+| Symbol mapping not proven | HIGH | CURRENT_REAL_SYMBOL=XAUUSD_i; EXPECTED_USER_REAL_SYMBOL=XAUUSD; SYMBOL_MAPPING=NOT_PROVEN | XAUUSD NOT_OBSERVED_ON_THIS_TERMINAL; broker_wide_absence_concluded=false; EV-EQ-01 NOT_PROVEN; live PRIMARY_SYMBOL=XAUUSD_i | Silent XAUUSD→XAUUSD_i mapping is forbidden. Absence here is not broker-wide absence. | Operator/broker confirmation of whether XAUUSD exists on this account/server and whether it is economically identical to XAUUSD_i. | True | True |
+| Executable evaluation unavailable | CRITICAL | EXECUTABLE_PERFORMANCE=NOT_ESTABLISHED | 2847 RAW → 82 RiskGate allowed → 0 fills; EXECUTABLE_BLOCKED_BY_UNKNOWN_COMMISSION | RAW +0.017224R is not live performance. Most RAW signals never pass RiskGate. | Close commission, then rerun unchanged RiskGate executable evaluation without fabricating fills. | True | True |
+| OOS/regime/dependence uncertainty | HIGH | OOS count SUFFICIENT; result UNVALIDATED | TRAIN exp -0.0329R vs OOS +0.250R; 180d -0.468R; 98.6% signals clustered; bootstrap p5 expectancy < 0 | A later window can look good while the earlier window and recent 180d do not. | After costs exist, reassess event-level OOS and yearly/regime stability. Do not optimize first. | True | True |
+| Production configuration / FINAL_GATE | CRITICAL | FINAL_GATE=BLOCKED; live env overrides UNKNOWN (not read) | Phase 27.16 BLOCKED; Phase 40/41 do not open it. TRADINGBOT_REAL_SYMBOL env path exists in code and was not read. | Operator .env can still diverge from code defaults. This audit did not inspect secrets. | Sanitized operator config dump after cost gates close. Do not read .env in research phases. | True | True |
+
+Commission, request/fill, and executable evaluation are the highest-value closures.
+Do not start parameter optimization to paper over these blockers.

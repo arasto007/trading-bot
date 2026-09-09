@@ -1,5 +1,7 @@
 # Configuration
 
+> **Canonical configuration (2026-09-01):** `docs_v2/01_truth/CONFIGURATION_TRUTH.md`.
+
 ## Status
 
 - **Status:** VERIFIED

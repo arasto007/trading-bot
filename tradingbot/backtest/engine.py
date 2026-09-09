@@ -16,6 +16,7 @@ import sys
 from contextlib import contextmanager
 
 from tradingbot.adapters.legacy_loader import load_legacy_config
+from tradingbot.config.live import PRIMARY_SYMBOL
 from tradingbot.config.price_action import get_price_action_config
 from tradingbot.config.pa_symbol_tf_presets import normalize_timeframe
 from tradingbot.adapters.timeframes import to_legacy
@@ -24,6 +25,13 @@ from tradingbot.adapters.mt5_market_data import Mt5MarketDataAdapter
 from tradingbot.backtest.broker import SimulatedBroker
 from tradingbot.backtest.config import BacktestConfig
 from tradingbot.backtest.data_source import BacktestMarketData
+from tradingbot.backtest.instrument import (
+    default_offline_catalog_for_symbols,
+    merge_broker_catalog,
+)
+from tradingbot.backtest.cost_model import CostCompleteness
+from tradingbot.backtest.dataset_contract import validate_dataset_frames
+from tradingbot.backtest.dataset_provenance import sidecar_economics_override
 from tradingbot.backtest.indicators import PassthroughIndicatorEngine
 from tradingbot.backtest.metrics import compute_metrics, format_report
 from tradingbot.backtest.models import BacktestResult
@@ -49,6 +57,9 @@ class BacktestEngine:
         self._cfg = config
         self._quiet = quiet
         self._legacy_config = legacy_config if legacy_config is not None else load_legacy_config()
+        catalog_extra = config.broker_economics or default_offline_catalog_for_symbols(config.symbols)
+        self._legacy_config = merge_broker_catalog(self._legacy_config, catalog_extra)
+        self._legacy_config["RISK_PER_TRADE"] = config.risk_per_trade
 
         if config.min_confidence is not None:
             self._legacy_config = dict(self._legacy_config)
@@ -125,7 +136,7 @@ class BacktestEngine:
                 config.enable_partial_tp = bool(sc.get("ENABLE_PARTIAL_TP"))
             config.enable_zscore_exit = False
 
-        sym = config.symbols[0] if config.symbols else "XAUUSD"
+        sym = config.symbols[0] if config.symbols else PRIMARY_SYMBOL
         entry_tf = normalize_timeframe(config.timeframe)
         pa_tf = get_price_action_config(sym, entry_tf)
         if "ENABLE_PARTIAL_TP" in pa_tf:
@@ -150,8 +161,8 @@ class BacktestEngine:
             symbol=sym,
             entry_timeframe=config.timeframe,
         )
-        self._broker = SimulatedBroker(config, self._data)
-        self._risk = BacktestRiskGate(config)
+        self._broker = SimulatedBroker(config, self._data, legacy_config=self._legacy_config)
+        self._risk = BacktestRiskGate(config, self._legacy_config)
         self._position_manager = BacktestPositionManager(config, self._broker, self._data)
         if strategies is not None:
             self._strategies = strategies
@@ -161,6 +172,9 @@ class BacktestEngine:
                 self._legacy_config, base_dir=base_dir,
             )
 
+
+        self._instrument_contracts: dict = {}
+        self._dataset_provenance: list[dict] = []
 
         settings = KernelSettings(
             symbols=list(config.symbols),
@@ -186,6 +200,37 @@ class BacktestEngine:
     def data_source(self) -> BacktestMarketData:
         return self._data
 
+    def _prepare_dataset_contracts(self) -> None:
+        """Validate dataset symbols vs configured instrument; refresh cost model from frame."""
+        frames = self._data.all_frames()
+        if not frames:
+            return
+        configured = self._cfg.configured_instrument_symbol or (
+            self._cfg.symbols[0] if self._cfg.symbols else PRIMARY_SYMBOL
+        )
+        economics_override = dict(self._cfg.broker_economics or {})
+        sidecar_provenance: list[dict] = []
+        for sym in frames:
+            meta = self._data.sidecar_metadata(sym)
+            if meta is not None:
+                sidecar_provenance.append(meta.to_dict())
+                override = sidecar_economics_override(meta)
+                if override:
+                    for broker_sym, entry in override.items():
+                        economics_override.setdefault(broker_sym, {}).update(entry)
+        self._instrument_contracts = validate_dataset_frames(
+            frames,
+            configured_symbol=configured,
+            legacy_config=self._legacy_config,
+            dataset_symbol_map=self._cfg.dataset_symbol_map,
+            economics_override=economics_override or None,
+        )
+        sym = self._cfg.symbols[0] if self._cfg.symbols else configured
+        frame = self._data.frame(sym)
+        if frame is not None:
+            self._broker.refresh_cost_model(frame)
+        self._dataset_provenance = sidecar_provenance
+
     async def run(self) -> BacktestResult:
         if self._data.length > 0:
             # داده از قبل تزریق شده (حالت تست)
@@ -204,6 +249,8 @@ class BacktestEngine:
             raise RuntimeError(
                 f"Not enough data ({length} bars) for warmup={self._cfg.warmup}"
             )
+
+        self._prepare_dataset_contracts()
 
         markets = [MarketKey(symbol=s, timeframe=self._cfg.timeframe) for s in self._cfg.symbols]
 
@@ -274,8 +321,27 @@ class BacktestEngine:
             final_balance=self._broker.balance,
             trades=self._broker.closed_trades,
             equity_curve=equity_curve,
+            cost_completeness=self._broker.cost_model.completeness.value,
+            cost_traces=[
+                {
+                    "component": t.component,
+                    "phase": t.phase.value,
+                    "availability": t.availability.value,
+                    "mode": t.mode,
+                    "source": t.source,
+                    "value": t.value,
+                    "unit": t.unit,
+                    "evidence_class": getattr(t, "evidence_class", ""),
+                }
+                for t in self._broker.cost_model.traces
+            ],
+            dataset_provenance=list(self._dataset_provenance),
         )
-        result.metrics = compute_metrics(result, self._cfg.timeframe)
+        result.metrics = compute_metrics(
+            result,
+            self._cfg.timeframe,
+            cost_completeness=self._broker.cost_model.completeness,
+        )
         return result
 
     @contextmanager

@@ -164,7 +164,17 @@ def build_strategy_registry(
     symbol: str = PRIMARY_SYMBOL,
     stack: MLKernelStack | None = None,
 ) -> IStrategyRegistry:
-    """Select VOL_REGIME (default live), ML (explicit), or legacy registry."""
+    """Select the live strategy registry.
+
+    Branch order (matches runtime, not historical VOL-default docs):
+    1. Gate-downgrade ML if USE_ML_KERNEL=true but the live gate is closed.
+    2. MultiEngineRouterRegistry when MULTI_ENGINE_ROUTER_ENABLED (default live).
+    3. AdaptiveRegimeStrategyRegistry when ADAPTIVE_REGIME_ENABLED.
+    4. VolRegimeStrategyRegistry when VOL_REGIME_ENABLED.
+    5. MLKernelRegistry only when ML remains enabled after the gate.
+    6. UnconfiguredEngineRegistry when USE_ML_KERNEL is unset and router/adaptive/vol are off.
+    7. LegacyStrategyRegistry otherwise (optional ML-shadow wrap).
+    """
     from tradingbot.config.live import get_live_config
 
     selection = log_engine_selection()

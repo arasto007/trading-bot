@@ -328,18 +328,18 @@ def static_config_audit() -> dict[str, Any]:
 
     meta_files = {tf: p.is_file() for tf, p in _TF_FILES.items()}
     return {
-    "configured_live_timeframes": ["M5", "M15", "H4"],
-    "configured_evidence": "LIVE_TRADING_CONFIG.TIMEFRAMES = ['5m','15m','4h']",
-    "all_timeframes_audit": {
-      "M1": {"configured_in_live": false, "evidence": "NOT in TIMEFRAMES"},
-      "M5": {"configured_in_live": true, "backtest_bars_processed": 10068},
-      "M15": {"configured_in_live": true, "backtest_bars_processed": 6696},
-      "M30": {"configured_in_live": false, "evidence": "NOT in TIMEFRAMES"},
-      "H1": {"configured_in_live": false, "note": "engine_settings timeframes lists 1h but live.py uses 4h"},
-      "H4": {"configured_in_live": true, "backtest_bars_processed": 846},
-      "D1": {"configured_in_live": false, "evidence": "NOT in TIMEFRAMES"}
-    },
-    "_deprecated_static_bug": "original static_config used broken TF normalization — use all_timeframes_audit above"
+        "configured_live_timeframes": ["M5", "M15", "H4"],
+        "configured_evidence": "LIVE_TRADING_CONFIG.TIMEFRAMES = ['5m','15m','4h']",
+        "all_timeframes_audit": {
+            "M1": {"configured_in_live": False, "evidence": "NOT in TIMEFRAMES"},
+            "M5": {"configured_in_live": True, "backtest_bars_processed": 10068},
+            "M15": {"configured_in_live": True, "backtest_bars_processed": 6696},
+            "M30": {"configured_in_live": False, "evidence": "NOT in TIMEFRAMES"},
+            "H1": {"configured_in_live": False, "note": "engine_settings timeframes lists 1h but live.py uses 4h"},
+            "H4": {"configured_in_live": True, "backtest_bars_processed": 846},
+            "D1": {"configured_in_live": False, "evidence": "NOT in TIMEFRAMES"},
+        },
+        "_deprecated_static_bug": "original static_config used broken TF normalization — use all_timeframes_audit above",
         "use_ml_kernel": is_ml_kernel_enabled(),
         "active_trend_engine": resolve_active_trend_engine_id(),
         "trend_bundle_version": resolve_bundle_version(),

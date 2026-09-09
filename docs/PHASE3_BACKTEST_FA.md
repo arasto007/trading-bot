@@ -29,6 +29,8 @@
 | `engine.py` | `BacktestEngine` — هماهنگ‌کننده‌ی حلقه‌ی کندل‌به‌کندل | — |
 | `models.py` | `VirtualPosition`, `ClosedTrade`, `BacktestResult` | — |
 
+> **Current BacktestConfig defaults (Phase 25B+, verified Phase 26O):** `timeframe="M5"`, `risk_per_trade=0.005` (0.5%) — aligned with live `RISK_PER_TRADE`. CLI `--tf` / `--risk` override these; examples below may use M15 or other flags explicitly.
+
 ### منطق مشترک با Live
 توابع خالص trailing/partial/pip در `tradingbot/domain/position_logic.py` قرار گرفتند تا
 `Mt5PositionManager` (live) و `BacktestPositionManager` (backtest) **دقیقاً یک رفتار** داشته باشند

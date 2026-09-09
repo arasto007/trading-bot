@@ -49,3 +49,6 @@ explore_result.txt
 *_report.txt
 verify_run.log
 phase*_run.log
+models/
+saved_models/
+memory/

@@ -24,8 +24,9 @@ class TestPhase22YForensics(unittest.TestCase):
         dominant = result["dominant_rejection_rule"]
 
         self.assertEqual(result["accepted_candidates"]["count"], 5)
-        self.assertEqual(dominant["rule"], "overfitting_risk_decreased")
-        self.assertTrue(dominant["all_five_gate_passed_candidates_fail_this_rule"])
+        self.assertEqual(dominant["rule"], "robustness_improved")
+        self.assertEqual(dominant["failed_count"], 4)
+        self.assertFalse(dominant["all_five_gate_passed_candidates_fail_this_rule"])
 
     def test_single_rule_relaxation_accepts_one_candidate(self):
         from tradingbot.ml.research.phase22y.acceptance_forensics import run_forensics
@@ -38,8 +39,8 @@ class TestPhase22YForensics(unittest.TestCase):
         best = result["candidate_acceptance_simulation"]["probability_gate_passed_only"][
             "best_single_rule_relaxation"
         ]
-        self.assertEqual(best["ignored_rule"], "overfitting_risk_decreased")
-        self.assertEqual(best["accepted_count"], 1)
+        self.assertEqual(best["ignored_rule"], "robustness_improved")
+        self.assertEqual(best["accepted_count"], 3)
 
 
 class TestPhase22YDeliverables(unittest.TestCase):

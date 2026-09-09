@@ -1,5 +1,9 @@
 # Configuration Truth
 
+> **HISTORICAL (2026-07 audit).** Claims Adaptive/VOL defaults that no longer match `live.py`.
+> Current live truth is `docs_v2/` (router on, PA lock on, Adaptive key absent, VOL default false).
+> Do not treat this file as the active live contract. Historical tables below are unchanged.
+
 **Repository:** `TradingBot new`  
 **Sources:** `tradingbot/config/live.py`, `.env.example`, `tradingbot/ml/integration/config.py`, runtime env reads
 
@@ -54,7 +58,7 @@ Position management controlled by:
 |-------------------|---------|----------|---------|--------|----------|
 | `RISK_PER_TRADE` | 0.005 (0.5%) | 0.005 | `live.py`, `risk_gate.py` | Lot sizing from equity | **YES** |
 | `VOL_REGIME_RISK_PER_TRADE_PCT` | 0.5 | 0.5 | `live.py`, adaptive registry metadata | Display/logging; **not wired to lot** | **YES** |
-| `VOL_REGIME_MAX_LOT` | 0.01 | 0.01 | `live.py` | NOT PROVEN enforced in RiskGate max | **YES** |
+| `VOL_REGIME_MAX_LOT` | 0.01 | 0.01 | `live.py` | Max lot cap (0.01 lot — **not** `RISK_PER_TRADE`); NOT PROVEN enforced in RiskGate max | **YES** |
 | `VOL_REGIME_COOLDOWN_BARS` | **12** | 12 | `live.py`, `risk_gate.py` | ~60 min between trades on M5 | **YES** |
 | `VOL_REGIME_MAX_TRADES_PER_DAY` | **3** | 3 | `live.py`, `live_risk_tracker.py` | Daily entry cap | **YES** |
 | `VOL_REGIME_MAX_CONCURRENT` | **1** | 1 | `risk_gate.py` L107 | Max 1 open for adaptive/vol signals | **YES** |

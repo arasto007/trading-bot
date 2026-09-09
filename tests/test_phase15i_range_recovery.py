@@ -87,10 +87,14 @@ class TestRangeAwareConfidence(unittest.TestCase):
         self.assertGreaterEqual(v, 0.60)
 
     def test_trend_unchanged_compression(self):
+        # Phase 22D: TREND uses the same directional-probability recovery as RANGE.
         eng = RangeAwareConfidenceEngine()
         base = ConfidenceEngine()
         ctx = _trend_ctx(conf=0.70)
-        self.assertEqual(eng.from_context(ctx, 0.70), base.from_context(ctx, 0.70))
+        recovered = eng.from_context(ctx, 0.70)
+        compressed = base.from_context(ctx, 0.70)
+        self.assertGreater(recovered, compressed)
+        self.assertAlmostEqual(recovered, 0.70, places=4)
 
     def test_range_hold_no_boost(self):
         eng = RangeAwareConfidenceEngine()
@@ -120,9 +124,11 @@ class TestRangeRecoveryOrchestrator(unittest.TestCase):
         self.assertEqual(o.policy.min_confidence, 0.55)
 
     def test_trend_decision_unchanged_engine(self):
+        from tradingbot.ml.phase17d.versioning import resolve_active_trend_engine_id
+
         o = build_range_recovery_orchestrator()
         d = o.decide(_trend_ctx())
-        self.assertEqual(d.engine, TREND_MODEL_ID)
+        self.assertEqual(d.engine, resolve_active_trend_engine_id())
 
 
 class TestRegimeStrength(unittest.TestCase):

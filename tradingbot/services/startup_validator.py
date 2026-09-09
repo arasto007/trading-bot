@@ -209,9 +209,25 @@ def _check_mt5(
 
     from tradingbot.adapters.mt5_health import check_autotrading_ready, check_mt5_health
     from tradingbot.adapters.mt5_utils import attach_mt5_session
-    from tradingbot.adapters.symbols import resolve_broker_symbol
+    from tradingbot.adapters.symbols import resolve_broker_symbol, validate_configured_symbol_or_raise
 
     broker = resolve_broker_symbol(symbol, config)
+    if not skip_mt5:
+        try:
+            validate_configured_symbol_or_raise(broker, config)
+        except Exception as exc:
+            from tradingbot.adapters.symbols import SymbolResolutionError
+
+            if isinstance(exc, SymbolResolutionError):
+                if execution_mode == "dry_run":
+                    logger.warning("Configured symbol missing in dry-run: %s", exc.message)
+                else:
+                    raise StartupValidationError(
+                        "SYMBOL_NOT_CONFIGURED",
+                        exc.message,
+                        checks={"broker_symbol": broker},
+                    ) from exc
+            raise
     if not attach_mt5_session(config, symbols=[symbol], strict_account=False):
         reason = "terminal not connected"
         if execution_mode == "dry_run":
@@ -291,12 +307,15 @@ def validate_startup(
     fs_checks = _check_filesystem(project_dir)
     checks.update(fs_checks)
 
-    ml_enabled = is_ml_kernel_enabled()
+    # Requested ML (env) != effective live routing when the ML gate is closed.
+    requested_ml = is_ml_kernel_enabled()
+    selected_engine = str(engine_info.get("selected_engine", ""))
+    effective_ml = selected_engine == "ML_KERNEL"
     health_passes: bool | None = None
     artifact_info: dict[str, Any] = {}
     dataset_fp_ok: bool | None = None
 
-    if ml_enabled:
+    if requested_ml:
         parquet_ok = _check_parquet_candles(ml_base_dir, symbol, timeframe)
         checks["parquet_candles"] = parquet_ok
         if not parquet_ok:
@@ -346,16 +365,21 @@ def validate_startup(
             f"Prop preset active: {preset_name} ({legacy_config.get('PROP_FIRM_NAME', preset_name)})"
         )
 
-    health_status = "READY"
-    from tradingbot.config.live import get_live_config
-
-    vol_on = bool(get_live_config().get("VOL_REGIME_ENABLED", False))
-    if ml_enabled and health_passes:
+    # Labels follow effective factory selection, not requested USE_ML_KERNEL.
+    if effective_ml and health_passes:
         health_status = "ML_HEALTH_OK"
-    elif vol_on and not ml_enabled:
+    elif selected_engine == "MULTI_ENGINE_ROUTER":
+        health_status = "MULTI_ENGINE_ROUTER"
+    elif selected_engine == "VOL_REGIME":
         health_status = "VOL_REGIME_MODE"
-    elif not ml_enabled:
+    elif selected_engine == "ADAPTIVE_REGIME":
+        health_status = "ADAPTIVE_REGIME"
+    elif selected_engine == "UNCONFIGURED":
+        health_status = "UNCONFIGURED"
+    elif not effective_ml:
         health_status = "LEGACY_MODE"
+    else:
+        health_status = "READY"
 
     account_balance: float | None = None
     account_equity: float | None = None
@@ -373,8 +397,8 @@ def validate_startup(
     report = StartupDiagnosticReport(
         startup_timestamp=datetime.now(timezone.utc).isoformat(),
         execution_mode=execution_mode,
-        engine_selection=str(engine_info.get("selected_engine", "")),
-        ml_kernel_enabled=ml_enabled,
+        engine_selection=selected_engine,
+        ml_kernel_enabled=effective_ml,
         legacy_fallback_allowed=is_legacy_fallback_allowed(),
         emergency_stop_active=False,
         mt5_connected=mt5_connected,
@@ -383,7 +407,7 @@ def validate_startup(
         model_versions=model_versions,
         artifact_fingerprints=artifact_info.get("checks", {}),
         dataset_fingerprint_ok=dataset_fp_ok,
-        risk_mode="RiskGate+AdaptiveRisk" if ml_enabled else "RiskGate+Legacy",
+        risk_mode="RiskGate+AdaptiveRisk" if effective_ml else "RiskGate+Legacy",
         recovery_mode=enable_recovery,
         position_manager="Mt5PositionManager",
         protector_enabled=enable_protector,

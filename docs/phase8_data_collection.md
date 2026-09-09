@@ -156,7 +156,7 @@ If no metadata exists, incremental mode falls back to `--days` (default 365).
 | H4 | Market bias |
 | M15 | Context validation |
 | M5 | Entry execution reference |
-| M1 | Data collection only (Phase 1 legacy collector) |
+| M1 | Data collection only (Phase 1 legacy collector — **historical**; not current `BacktestConfig` default) |
 
 Phase 8.0 historical collection defaults to **M5, M15, H4**.
 

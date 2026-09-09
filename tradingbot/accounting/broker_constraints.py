@@ -1,10 +1,10 @@
-"""MT5 broker constraint model for position sizing and margin."""
+"""MT5 broker constraint model — delegates economics to domain.broker_economics."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
-from tradingbot.domain.position_logic import contract_size, pip_size
+from tradingbot.domain.broker_economics import BrokerEconomics
 
 
 @dataclass(frozen=True)
@@ -18,10 +18,25 @@ class BrokerConstraints:
     tick_value: float = 1.0
     leverage: float = 100.0
 
+    @classmethod
+    def from_economics(cls, economics: BrokerEconomics, *, leverage: float = 100.0) -> BrokerConstraints:
+        return cls(
+            symbol=economics.symbol,
+            min_lot=economics.volume_min,
+            lot_step=economics.volume_step,
+            max_lot=economics.volume_max,
+            contract_size=economics.contract_size,
+            tick_size=economics.tick_size,
+            tick_value=economics.tick_value,
+            leverage=leverage,
+        )
+
     def round_lot(self, lot: float) -> float:
         if self.lot_step <= 0:
             return lot
-        steps = round(lot / self.lot_step)
+        import math
+
+        steps = math.floor((lot + 1e-12) / self.lot_step)
         return round(steps * self.lot_step, 2)
 
     def clamp_lot(self, lot: float) -> float:
@@ -32,7 +47,24 @@ class BrokerConstraints:
         return round(lot * self.contract_size * price / self.leverage, 4)
 
     def dollar_risk(self, lot: float, sl_distance: float) -> float:
-        return round(sl_distance * self.contract_size * lot, 4)
+        loss = BrokerEconomics(
+            symbol=self.symbol,
+            point=self.tick_size,
+            digits=2,
+            contract_size=self.contract_size,
+            tick_size=self.tick_size,
+            tick_value=self.tick_value,
+            tick_value_profit=self.tick_value,
+            tick_value_loss=self.tick_value,
+            volume_min=self.min_lot,
+            volume_max=self.max_lot,
+            volume_step=self.lot_step,
+            stops_level=0,
+            freeze_level=0,
+        ).monetary_loss_per_lot(sl_distance)
+        if loss is None:
+            return round(sl_distance * self.contract_size * lot, 4)
+        return round(loss * lot, 4)
 
     def risk_percent_of(self, dollar_risk: float, equity: float) -> float:
         if equity <= 0:
@@ -53,6 +85,9 @@ class BrokerConstraints:
 
 
 def constraints_for_symbol(symbol: str, *, leverage: float = 100.0) -> BrokerConstraints:
+    """Legacy helper — requires explicit economics in production paths."""
+    from tradingbot.domain.position_logic import contract_size, pip_size
+
     sym = symbol.upper()
     cs = contract_size(sym)
     tick = pip_size(sym) if "XAU" in sym or "GOLD" in sym else 0.00001

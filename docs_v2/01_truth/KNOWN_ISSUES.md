@@ -1,5 +1,7 @@
 # Known Issues
 
+> **Contradiction registry moved (2026-09-01):** `docs_v2/01_truth/KNOWN_UNKNOWNS_AND_CONTRADICTIONS.md`. This file is kept. KI-001 Adaptive-default docs remains valid for `docs/`.
+
 ## Status
 
 - **Status:** VERIFIED (documented conflicts and code-identified risks)
@@ -30,10 +32,10 @@ Documented problems, contradictions, and operational risks **observed in the rep
 | Field | Value |
 |-------|-------|
 | **Subsystem** | Operations |
-| **Description** | `scripts/start_bot.py` prints `"START BOT — VOL_REGIME LIVE"` but daemon sets `VOL_REGIME_ENABLED=false`. |
+| **Description** | `scripts/start_bot.py` previously printed `"START BOT — VOL_REGIME LIVE"` while the daemon set `VOL_REGIME_ENABLED=false`. Banner is now `"START BOT — PA ROUTER LIVE"`. |
 | **Evidence** | `scripts/start_bot.py` (~line 95); `scripts/start_live_daemon.ps1:37–38` |
 | **Severity** | P0 (operator confusion) |
-| **Status** | OPEN |
+| **Status** | RESOLVED — banner aligned with router + PA lock |
 
 ### KI-003: Silent no-trade misconfiguration path
 
@@ -59,15 +61,30 @@ Documented problems, contradictions, and operational risks **observed in the rep
 | **Severity** | P1 |
 | **Status** | OPEN — mitigated on default config |
 
-### KI-005: Meta-labeler runtime dependency on local artifacts
+### KI-005: Meta-labeler artifact absence claim (RESOLVED — stale documentation)
+
+| Field | Value |
+|-------|-------|
+| **Subsystem** | Risk / ML / documentation |
+| **Description** | Prior docs stated `models/*.pkl` not found. Runtime files audit (2026-08-22) found `meta_labeler_m5.pkl`, `meta_labeler_m15.pkl`, `meta_labeler_h4.pkl`, and legacy `meta_labeler.pkl` under `models/`. Read-only load test: M5/M15/H4 loadable; `is_ready=True`. |
+| **Evidence** | `models/` directory; E025–E027; `data/meta_decisions.jsonl` (4 historical decisions) |
+| **Severity** | P1 (was); documentation drift |
+| **Status** | **RESOLVED — STALE DOCUMENTATION** |
+
+**Remaining operational distinction (not solved by artifact presence):**
+
+- Continuous live meta-labeler enforcement is **NOT PROVEN** (only 4 historical decision records; last 2026-08-12).
+- Current live trading is **NOT PROVEN** (see E029 healthcheck).
+
+### KI-005b: Meta-labeler continuous live enforcement not proven
 
 | Field | Value |
 |-------|-------|
 | **Subsystem** | Risk / ML |
-| **Description** | `MetaLabeler.should_gate()` requires loaded `.pkl` models. `models/meta_labeler_info.json` exists; `models/*.pkl` not found in workspace. Gating behavior on deployment machine is **UNKNOWN**. |
-| **Evidence** | `tradingbot/services/meta_labeler.py`; `models/meta_labeler_info.json`; workspace glob |
-| **Severity** | P1 |
-| **Status** | PARTIALLY VERIFIED |
+| **Description** | Artifacts exist and historical rejections were logged, but sample size is tiny and stale relative to audit date. Cannot infer current rejection rate or that meta gating is actively enforcing today. |
+| **Evidence** | `data/meta_decisions.jsonl`; E028, E029 |
+| **Severity** | P2 |
+| **Status** | OPEN — **NOT PROVEN** |
 
 ### KI-006: Entry freeze can skip all new trades while loop continues
 
@@ -97,19 +114,19 @@ Documented problems, contradictions, and operational risks **observed in the rep
 
 | Field | Value |
 |-------|-------|
-| **Description** | Claims simultaneous M5/M15/H4 per cycle. `get_live_config()` forces `TIMEFRAMES=["5m"]` when router enabled. |
+| **Description** | Section 1 now states kernel M5-only when router is on. Residual later lines still mention M5/M15/H4 as “active” (presets, not simultaneous kernel cycle). |
 | **Evidence** | `docs/CAPABILITIES.md`; `tradingbot/config/live.py:215–222` |
 | **Severity** | P2 |
-| **Status** | STALE legacy doc |
+| **Status** | PARTIAL — header corrected; leftover MIXED wording remains |
 
 ### KI-009: Factory docstring says "VOL_REGIME default live"
 
 | Field | Value |
 |-------|-------|
-| **Description** | `build_strategy_registry` docstring does not match router-first selection. |
-| **Evidence** | `tradingbot/ml/integration/factory.py:167` vs selection logic `:197–205` |
+| **Description** | `build_strategy_registry` docstring previously implied a VOL-default live path. |
+| **Evidence** | `tradingbot/ml/integration/factory.py` now documents router-first branch order |
 | **Severity** | P2 |
-| **Status** | OPEN — comment drift |
+| **Status** | RESOLVED — docstring matches factory order |
 
 ### KI-010: Duplicate regime and spread implementations
 
@@ -167,10 +184,12 @@ Documented problems, contradictions, and operational risks **observed in the rep
 
 ## Unknowns Requiring Runtime Evidence
 
-- Whether meta-labeler actively rejects trades on operator machine
+- Whether meta-labeler actively rejects trades **today** (historical: 1 rejection in 4 records; last 2026-08-12)
 - Whether `.env` overrides daemon defaults
-- Live profitability or recent trade counts
-- Test suite current pass rate
+- Live profitability or recent trade counts beyond journal aggregates
+- Test suite current pass rate (**NOT RUN**)
+- Demo vs real account type
+- Whether bot is **currently** live trading (**NOT PROVEN** — heartbeat shows MT5 disconnected)
 
 ---
 

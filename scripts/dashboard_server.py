@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local web dashboard (replaces HTA/mshta - buttons and status work in browser)."""
+"""Local web dashboard for TradingBot control and status."""
 from __future__ import annotations
 
 import json
@@ -143,7 +143,6 @@ def kill_old_server() -> None:
             )
         except Exception:
             pass
-    subprocess.run(["taskkill", "/F", "/IM", "mshta.exe"], capture_output=True)
     PID_FILE.parent.mkdir(parents=True, exist_ok=True)
 
 

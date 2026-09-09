@@ -11,6 +11,8 @@ from datetime import datetime
 import pandas as pd
 
 from tradingbot.backtest.config import BacktestConfig
+from tradingbot.backtest.instrument import resolve_backtest_economics
+from tradingbot.domain.broker_economics import lot_from_broker_economics, validate_sl_tp_vs_stops
 from tradingbot.ml.research.phase22c.config import compute_daily_loss_budget, load_phase22c_config
 from tradingbot.ml.research.phase22c.hold_chain import HoldStage, get_hold_chain, hold_chain_enabled
 from tradingbot.domain.live_gates import (
@@ -24,9 +26,10 @@ from tradingbot.domain.live_gates import (
 )
 from tradingbot.domain.market_filters import check_market_filters
 from tradingbot.domain.models import RiskDecision, TradingSignal
-from tradingbot.domain.position_logic import contract_size, pip_size
+from tradingbot.domain.position_logic import pip_size
 from tradingbot.domain.risk_logic import infer_regime_from_ohlcv
 from tradingbot.domain.session_logic import variable_spread_pips
+from tradingbot.adapters.symbols import resolve_broker_symbol
 from tradingbot.adapters.risk_gate import (
     AccountTier,
     _is_pa_signal,
@@ -42,8 +45,9 @@ def _is_regime_kernel_signal(signal: TradingSignal) -> bool:
 
 
 class BacktestRiskGate:
-    def __init__(self, config: BacktestConfig) -> None:
+    def __init__(self, config: BacktestConfig, legacy_config: dict | None = None) -> None:
         self._cfg = config
+        self._legacy_config = legacy_config or {}
         self._consecutive_losses = 0
         self._pause_until_bar = -1
         self._last_day: str = ""
@@ -335,19 +339,25 @@ class BacktestRiskGate:
         regime: str = "RANGING",
         risk_pct: float | None = None,
     ) -> float:
-        risk_money = balance * (risk_pct if risk_pct is not None else self._cfg.risk_per_trade)
-        if sl and sl > 0:
-            risk_per_unit = abs(price - sl) * contract_size(symbol)
-        else:
-            risk_per_unit = 0.0
-        if risk_per_unit <= 0:
-            lot = self._cfg.min_lot
-        else:
-            lot = risk_money / risk_per_unit
-            # parity با live: ضریب رژیم
-            from tradingbot.domain.risk_logic import regime_position_multiplier
+        from tradingbot.domain.risk_logic import regime_position_multiplier
 
-            lot *= regime_position_multiplier(regime)
-        lot = max(self._cfg.min_lot, min(lot, self._cfg.max_lot))
-        step = self._cfg.lot_step
-        return round(round(lot / step) * step, 2)
+        if not sl or sl <= 0 or price <= 0:
+            return 0.0
+
+        broker_symbol = resolve_broker_symbol(symbol, self._legacy_config)
+        economics = resolve_backtest_economics(broker_symbol, self._legacy_config)
+        if economics is None:
+            return 0.0
+
+        risk_fraction = risk_pct if risk_pct is not None else self._cfg.risk_per_trade
+        lot, reason = lot_from_broker_economics(
+            balance,
+            risk_fraction,
+            price,
+            float(sl),
+            economics,
+            regime_multiplier=regime_position_multiplier(regime),
+        )
+        if lot is None:
+            return 0.0
+        return min(float(lot), self._cfg.max_lot)

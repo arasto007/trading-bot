@@ -1,0 +1,22 @@
+{
+  "rows": [
+    {
+      "timeframe": "M5",
+      "confidence_match": true,
+      "confidence_first": 1.0,
+      "confidence_second": 1.0
+    },
+    {
+      "timeframe": "M15",
+      "confidence_match": true,
+      "confidence_first": 0.8180860291261169,
+      "confidence_second": 0.8180860291261169
+    },
+    {
+      "timeframe": "H4",
+      "confidence_match": true,
+      "confidence_first": 0.7279296720564774,
+      "confidence_second": 0.7279296720564774
+    }
+  ]
+}

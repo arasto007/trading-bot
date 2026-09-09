@@ -32,7 +32,7 @@
     },
     "monitoring": {
       "score_pct": 50,
-      "have": ["live_dashboard.hta", "AUTONOMOUS_STATUS.json", "trade journal", "notifier (Telegram optional)"],
+      "have": ["scripts/dashboard_server.py", "AUTONOMOUS_STATUS.json", "trade journal", "notifier (Telegram optional)"],
       "gaps": ["Myfxbook/verified track", "Telegram likely unset", "Web dashboard basic"]
     },
     "validation": {

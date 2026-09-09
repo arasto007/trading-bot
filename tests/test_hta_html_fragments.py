@@ -18,7 +18,7 @@ def test_build_html_contains_equity():
     html = build_html(lines)
     assert "694.32" in html
     assert "RUNNING" in html
-    assert "v9.1.0" in html
+    assert "v10.0.0" in html
 
 
 def test_write_dashboard_live_html(tmp_path: Path):

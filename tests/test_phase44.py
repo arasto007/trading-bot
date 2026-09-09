@@ -23,7 +23,8 @@ class TestPhase44(unittest.TestCase):
         if not status.exists():
             self.skipTest("phase44 not run")
         data = json.loads(status.read_text(encoding="utf-8"))
-        self.assertEqual(data.get("status"), "PHASE_44_COMPLETE")
+        self.assertEqual(data.get("status"), "S4_DEMO_ACTIVE")
+        self.assertEqual(data.get("s4_demo_live", {}).get("status"), "S4_DEMO_ACTIVE")
 
 
 if __name__ == "__main__":

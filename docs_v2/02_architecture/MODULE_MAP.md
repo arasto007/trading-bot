@@ -23,7 +23,7 @@ Map of major packages and their **verified role** on the default live trading pa
 | `scripts/` | Watchdog, daemon, diagnostics | **MIXED** — watchdog **ACTIVE** |
 | `config/` | Example env templates | Reference only |
 | `tests/` | Pytest suite (231 files) | Test evidence |
-| `models/` | Meta-labeler metadata | **PARTIAL** — `.pkl` UNKNOWN |
+| `models/` | Meta-labeler artifacts | **VERIFIED FROM FILES** (E025–E027); continuous enforcement **NOT PROVEN** |
 | `data/` | Runtime state (gitignored) | Runtime artifacts |
 | `logs/` | Watchdog and phase logs | Runtime artifacts |
 | `docs/` | Legacy documentation | **HISTORICAL** — conflicts exist |
@@ -104,7 +104,7 @@ Map of major packages and their **verified role** on the default live trading pa
 | `kill_switch.py` | Drawdown/daily loss emergency | **YES** |
 | `live_risk_tracker.py` | Cooldown, daily trade caps | **YES** |
 | `trade_journal.py` | SQLite execution journal | **YES** |
-| `meta_labeler.py` | Meta scoring in RiskGate | **PARTIAL** |
+| `meta_labeler.py` | Meta scoring in RiskGate | **PARTIAL** — artifacts VERIFIED FROM FILES; continuous enforcement **NOT PROVEN** |
 | `live_loop_health.py` | Heartbeat | **YES** |
 | `live_ops_service.py` | Daily report, drift | **YES** (live execute) |
 | `position_protector.py` | Legacy background protector | **DISABLED** default |

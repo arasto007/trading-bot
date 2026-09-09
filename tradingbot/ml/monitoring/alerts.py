@@ -7,8 +7,7 @@ from dataclasses import dataclass
 from tradingbot.ml.abtest.schema import WINNER_HYBRID, WINNER_RULE
 from tradingbot.ml.monitoring.degradation import DegradationDetector
 from tradingbot.ml.monitoring.drift import FeatureDriftReport
-from tradingbot.ml.monitoring.schema import Alert, AlertSeverity, DegradationReport, PerformanceState, utc_now_iso
-from tradingbot.ml.monitoring.performance_monitor import WindowMetrics
+from tradingbot.ml.monitoring.schema import Alert, AlertSeverity, DegradationReport, PerformanceState, WindowMetrics, utc_now_iso
 
 
 ALERT_MODEL_PERFORMANCE_DROP = "MODEL_PERFORMANCE_DROP"

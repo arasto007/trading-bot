@@ -128,8 +128,9 @@ See `KNOWN_ISSUES.md`.
 | `logs/watchdog.log` | Watchdog events |
 | `logs/watchdog_latest.logpaths.txt` | Latest stdout/stderr paths |
 | `logs/rejection_events.jsonl` | Risk/filter rejections |
-| `data/live_heartbeat.json` | Bot freshness |
-| `data/startup_report.json` | Startup validation |
+| `logs/runtime/live_heartbeat.json` | Healthcheck / router snapshot (**observed** 2026-08-22) |
+| `data/live_heartbeat.json` | Live-loop heartbeat (code path; **absent** at 2026-08-22 audit) |
+| `data/startup_report.json` | Startup validation (**absent** at 2026-08-22 audit) |
 
 ## Weekend / Maintenance Scripts
 

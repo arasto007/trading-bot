@@ -1,5 +1,9 @@
 # Executive Summary — Robot Behavior Audit
 
+> **HISTORICAL (2026-07 audit).** Claims Adaptive as the live engine.
+> Current live truth is `docs_v2/` (MultiEngineRouter + `PA_PRODUCTION_LOCK` → Price Action).
+> Do not treat this file as the active live contract. Historical metrics below are unchanged.
+
 **Repository:** `TradingBot new`  
 **Audit date:** 2026-07-22  
 **Mode:** Read-only code evidence  

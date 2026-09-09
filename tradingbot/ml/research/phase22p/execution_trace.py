@@ -193,7 +193,7 @@ def build_execution_trace() -> dict[str, Any]:
         "phase": "22P",
         "source": "repository_static_trace",
         "orchestrator": "tradingbot/kernel/trading_kernel.py → run_market_cycle",
-        "live_entry": "start/3_live_loop_execute.bat → run_live_watchdog.py → tradingbot --loop",
+        "live_entry": "RUN_DASHBOARD.bat → run_live_watchdog.py → tradingbot --loop",
         "stages": stages,
         "stage_count": len(stages),
     }

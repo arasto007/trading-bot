@@ -20,7 +20,7 @@
     "phase22a_final_report.json"
   ],
   "key_findings": {
-    "entry_point": "Dashboard LIVE → start/3_live_loop_execute.bat → run_live_watchdog.py → python -m tradingbot --loop --execute → LiveRunner",
+    "entry_point": "Web Dashboard START → RUN_DASHBOARD.bat → run_live_watchdog.py → python -m tradingbot --loop --execute → LiveRunner",
     "legacy_entry_removed": "run_system_manager.py does not exist; LiveRunner is replacement",
     "ml_active": "USE_ML_KERNEL=true loads MLKernelRegistry with Trend v41 + Range phase9_9",
     "execution_path": "ExecutionStage → Mt5ExecutionAdapter._order_send_with_retry → mt5.order_send",

@@ -1,11 +1,14 @@
 # Current State
 
+> **SUPERSEDED AS CURRENT-RUNTIME ENTRY (2026-09-01).** Use `docs_v2/01_truth/CURRENT_RUNTIME_STATE.md`. This file is a 2026-08-22 snapshot (still useful; dates lag v41/PA audits).
+
 ## Status
 
-- **Status:** VERIFIED (source-code baseline)
+- **Status:** PARTIAL (source-code VERIFIED; runtime-artifact evidence incorporated 2026-08-22)
 - **Last Verified:** 2026-08-22
-- **Verification Method:** Static analysis of executable source, startup scripts, and configuration loaders. No live MT5 session observed in this pass.
-- **Verified against commit:** `57bf778c23cefffe508bb49079688b177796f67e`
+- **Verification Method:** Static source analysis + read-only runtime artifact inspection on operator machine
+- **Source-code baseline commit:** `57bf778c23cefffe508bb49079688b177796f67e`
+- **Documentation baseline commit:** `53819022951456dab228b22480052ef213019ec3`
 
 ## Scope
 
@@ -59,6 +62,12 @@ When `start_live_daemon.ps1` sets environment defaults (only if unset):
 
 With `PA_PRODUCTION_LOCK=true` (code default in `live.py`), the router **selects Price Action only**. VOL and Adaptive signals are computed for logging but **not selected**.
 
+**ML shadow default split:** `tradingbot/ml/integration/config.py` `is_ml_shadow_enabled()` defaults to **false** if `ENABLE_ML_SHADOW` is unset. The live daemon sets `ENABLE_ML_SHADOW=true` when unset — that daemon override is the **operational** default. Shadow is log-only and does **not** own live signals.
+
+**Requested vs effective:** `USE_ML_KERNEL=true` is requested ML only. The factory still selects the router when the ML live gate is closed. Startup report `engine_selection` / `health_status` follow the **effective** registry (`MULTI_ENGINE_ROUTER` on the default path). That is not legacy mode and not ML-owned live.
+
+**Active ML trend id (not live owner):** `resolve_active_trend_engine_id()` defaults to `trend_rf_v41`. `trend_rf_v40` remains the rollback / historical label. This does **not** change PA live signals while the ML gate is closed.
+
 **Evidence:** `scripts/start_live_daemon.ps1:24–38`, `tradingbot/config/live.py:107,110,120`, `tradingbot/adapters/multi_engine_router.py`, `tradingbot/services/pa_production_lock.py`
 
 ## Active Symbol and Timeframe (Verified)
@@ -94,7 +103,7 @@ M15/H4 presets exist but are **not iterated** on the default live kernel loop wh
 | `KillSwitchService` | IMPLEMENTED AND WIRED | `live_runner.py` background thread |
 | `SignalFilterStage` (WPSQF) | IMPLEMENTED; default OFF | `signal_filter_mode.py` default OFF |
 | ML shadow observer | SHADOW | `shadow_strategy_registry.py` |
-| Meta-labeler | PARTIALLY VERIFIED | Code wired in `RiskGate`; artifact presence UNKNOWN |
+| Meta-labeler | PARTIAL | Code wired in `RiskGate`; artifacts **VERIFIED FROM FILES**; historical decisions recorded; continuous live enforcement **NOT PROVEN** |
 
 ## Disabled on Default Path
 
@@ -114,15 +123,48 @@ M15/H4 presets exist but are **not iterated** on the default live kernel loop wh
 | `USE_ML_KERNEL` unset + router/adaptive/vol all off | `UnconfiguredEngineRegistry` returns no signal | `factory.py:235–236` |
 | Real MT5 account without `TRADINGBOT_ALLOW_REAL=1` | Startup refused in live mode | `startup_validator.py`, `demo_account_guard.py` |
 
+## Runtime Evidence (files audit — 2026-08-22)
+
+Evidence classes used below match `SOURCE_OF_TRUTH.md` Section 33.1.
+
+### VERIFIED FROM FILES
+
+| Artifact | What it proves | What it does **not** prove |
+|----------|----------------|----------------------------|
+| `data/trade_journal.db` (E024) | 5,427,614 cycle events (2026-06-10 → 2026-08-22); 5,428 executions (`paper` 5407, `live` 17, `dry_run` 4); all XAUUSD | Current live trading |
+| `data/live_risk_state.json` (E031) | Persisted risk state; last day 2026-08-12; 1 M5 trade | Current live operation |
+| `data/meta_decisions.jsonl` (E028) | 4 historical meta decisions (2026-08-07 → 2026-08-12): 3 approved, 1 rejected | Current-day meta rejection behavior |
+| `models/meta_labeler_*.pkl` (E025–E027) | Artifacts exist; load test: M5/M15/H4 loadable; `is_ready=True` | Continuous live enforcement |
+| `logs/runtime/live_heartbeat.json` (E029) | Healthcheck snapshot 2026-08-22: `router_alive=true`, `kernel_alive=false`, `mt5_connected=false`; current MT5 live trading **NOT PROVEN** | Does NOT prove an active live loop, MT5 connection, or current live trading. |
+| `logs/rejection_events.jsonl` (E030) | 14 rejections on 2026-08-22; latest: entries frozen (MT5 equity unavailable) | Successful live execution |
+| `data/live_account.json` (E032) | Snapshot keys: balance, equity, profit, updated_at (2026-08-14) | Demo vs real; broker/server identity |
+
+### NOT PROVEN (current state)
+
+- Current live MT5 trading is NOT PROVEN. E029 healthcheck on 2026-08-22 reported `router_alive=true`, `kernel_alive=false`, `mt5_connected=false`.
+- Demo vs real account classification (`demo_vs_real = UNKNOWN`).
+- Production readiness and profitability.
+
+### Absent artifacts (code may write these; not found 2026-08-22)
+
+- `data/runtime_truth.json`
+- `data/live_heartbeat.json` (observed heartbeat: `logs/runtime/live_heartbeat.json`)
+- `data/startup_report.json`
+
+### Historical ML artifacts (do not infer current default path)
+
+`data/ml/live/` contains large historical ML-kernel logs. Source-code baseline remains: `USE_ML_KERNEL=false`, PA router + production lock. **Historical ML logs ≠ current default production engine.**
+
 ## Unknowns
 
 | Item | Why unknown |
 |------|-------------|
 | Operator `.env` overrides | Not inspected (may contain secrets) |
-| Meta-labeler `.pkl` files on disk | `models/*.pkl` not present in workspace snapshot |
-| Live trade journal contents | `data/` gitignored |
-| Test pass/fail rate | Tests not executed in this documentation pass |
+| Demo vs real account | `live_account.json` lacks safe discriminator fields |
+| Test pass/fail rate | Tests **not executed** (231 files inventory only) |
 | Production profitability | Not claimed without runtime evidence |
+| Current-day meta rejection rate | Last meta decision 2026-08-12; only 4 records total |
+| Continuous meta-labeler live enforcement | **NOT PROVEN** despite artifacts and historical decisions |
 
 ## Evidence Summary
 

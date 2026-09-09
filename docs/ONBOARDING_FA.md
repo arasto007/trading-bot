@@ -40,7 +40,7 @@
 - **اندیکاتورها، ریسک، داده، اجرا، لاگ‌گیری، پیکربندی و سرویس‌های پس‌زمینه** همگی بازنویسی شده و
   به‌صورت ماژول‌های تمیز در `tradingbot/` زندگی می‌کنند.
 - از پکیج `engine/` تنها **استراتژی Price Action** (`priceaction`) باقی مانده است.
-- ربات **تخصصی طلا** است: فقط `XAUUSD`، تایم‌فریم‌های `M5/M15/H4`، پریست جدا per-TF.
+- ربات **تخصصی طلا** است: منطقی `XAUUSD`؛ نماد بروکر live **`XAUUSD_i`** via `adapters/symbols.py` (identity/economics **NOT PROVEN** equivalent to bare `XAUUSD`). تایم‌فریم‌های `M5/M15/H4`، پریست جدا per-TF.
 - مسیر سیگنال یکپارچه در `domain/signal_helpers.py` (لایه میانی).
 - پروژه کاملاً **خودکفا** است؛ هیچ ارجاعی به پروژه‌ی قدیمِ بیرونی ندارد.
 
@@ -392,7 +392,7 @@ python scripts/show_meta_stats.py
 python scripts/status_live.py
 ```
 
-پنل کلیکی: `live_dashboard.hta` — batهای `start/` (جدول در [دستورات_اجرایی.md](../دستورات_اجرایی.md)).
+پنل وب: `scripts/dashboard_server.py` — batهای `start/` (جدول در [دستورات_اجرایی.md](../دستورات_اجرایی.md)).
 
 ---
 

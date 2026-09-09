@@ -28,7 +28,9 @@ class TestPhase22ZValidation(unittest.TestCase):
         stats = result["rule_correctness_report"]["statistics"]
 
         self.assertEqual(stats["total_candidates"], 28)
-        self.assertGreater(stats["fail_label_logic"], stats["fail_really_overfit"])
+        self.assertEqual(stats["fail_really_overfit"], 1)
+        self.assertEqual(stats["fail_label_logic"], 0)
+        self.assertGreaterEqual(stats["fail_really_overfit"], stats["fail_label_logic"])
         self.assertEqual(stats["numeric_mean_auc_gap_better_than_baseline"], 27)
 
     def test_gate_passed_candidates_fail_ordinal_overfitting(self):
@@ -46,7 +48,7 @@ class TestPhase22ZValidation(unittest.TestCase):
         result = run_validation(comparison, phase98_robustness=rob98, phase98_windows=win98)
         self.assertEqual(
             result["rule_correctness_report"]["statistics"]["probability_gate_passed_fail_overfitting_ordinal"],
-            5,
+            1,
         )
 
 

@@ -56,8 +56,13 @@ class TestPhase22AKFreezeExecution(unittest.TestCase):
 
         base_dir = normalize_ml_base_dir(load_legacy_config().get("BASE_DIR"))
         backup_root = phase9_9_backup_root(base_dir)
-        if not backup_root.is_dir() or not any(backup_root.iterdir()):
-            self.skipTest("backup missing; run phase22ak run_investigation.py first")
+        valid_backups = [
+            path
+            for path in backup_root.iterdir()
+            if path.is_dir() and (path / "model.pkl").is_file()
+        ] if backup_root.is_dir() else []
+        if not valid_backups:
+            self.skipTest("valid backup missing; run phase22ak run_investigation.py first")
 
         backup_report = build_backup_validation(
             base_dir=base_dir,

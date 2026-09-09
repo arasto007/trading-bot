@@ -1,0 +1,221 @@
+{
+  "all_match": true,
+  "rows": [
+    {
+      "timeframe": "M5",
+      "signal_match": true,
+      "payload_first": {
+        "engine": "phase9_9",
+        "regime": "RANGE",
+        "direction": "SELL",
+        "confidence": 1.0,
+        "quality": 0.975,
+        "risk": 0.265,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "range regime confirmed",
+          "selected engine phase9_9",
+          "model confidence moderate",
+          "volatility acceptable"
+        ],
+        "trace": [
+          "Regime detected RANGE",
+          "Regime strength 0.2086",
+          "Selected phase9_9",
+          "Model confidence 0.3122",
+          "Market quality applied for session off_hours",
+          "Final confidence 0.6561",
+          "Decision accepted",
+          "signal: confidence above 0.85",
+          "regime: range engine in RANGE \u2192 1.0",
+          "rr: RR 2.00 meets minimum 1:2",
+          "volatility: ATR 36 in optimal 20-60 band",
+          "liquidity: spread normal",
+          "session: OFF_SESSION session score 0.5",
+          "history: phase9_9 proven sample (3788 trades)",
+          "weighted score 0.9750 \u00d7 history 1.00 = 0.9750",
+          "threshold 0.65 \u2014 ALLOW",
+          "RiskGate remains final authority"
+        ],
+        "checksum": "da5b4af0c8a9a5cb",
+        "timestamp": "2026-08-29T02:21:34.479014+00:00"
+      },
+      "payload_second": {
+        "engine": "phase9_9",
+        "regime": "RANGE",
+        "direction": "SELL",
+        "confidence": 1.0,
+        "quality": 0.975,
+        "risk": 0.265,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "range regime confirmed",
+          "selected engine phase9_9",
+          "model confidence moderate",
+          "volatility acceptable"
+        ],
+        "trace": [
+          "Regime detected RANGE",
+          "Regime strength 0.2086",
+          "Selected phase9_9",
+          "Model confidence 0.3122",
+          "Market quality applied for session off_hours",
+          "Final confidence 0.6561",
+          "Decision accepted",
+          "signal: confidence above 0.85",
+          "regime: range engine in RANGE \u2192 1.0",
+          "rr: RR 2.00 meets minimum 1:2",
+          "volatility: ATR 36 in optimal 20-60 band",
+          "liquidity: spread normal",
+          "session: OFF_SESSION session score 0.5",
+          "history: phase9_9 proven sample (3788 trades)",
+          "weighted score 0.9750 \u00d7 history 1.00 = 0.9750",
+          "threshold 0.65 \u2014 ALLOW",
+          "RiskGate remains final authority"
+        ],
+        "checksum": "da5b4af0c8a9a5cb",
+        "timestamp": "2026-08-29T02:21:34.479014+00:00"
+      }
+    },
+    {
+      "timeframe": "M15",
+      "signal_match": true,
+      "payload_first": {
+        "engine": "trend_rf_v41",
+        "regime": "TREND",
+        "direction": "SELL",
+        "confidence": 0.8180860291261169,
+        "quality": 0.9025,
+        "risk": 0.2888,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "trend regime confirmed",
+          "selected engine trend_rf_v41",
+          "model confidence moderate",
+          "volatility acceptable"
+        ],
+        "trace": [
+          "Regime detected TREND",
+          "Regime strength 0.9495",
+          "Selected trend_rf_v41",
+          "Model confidence 0.0691",
+          "Market quality applied for session new_york",
+          "Final confidence 0.5345",
+          "Decision accepted",
+          "signal: confidence band 0.75-0.85",
+          "regime: trend engine in TREND \u2192 1.0",
+          "rr: RR 2.00 meets minimum 1:2",
+          "volatility: ATR 39 in optimal 20-60 band",
+          "liquidity: spread normal",
+          "session: NEW_YORK session score 0.9",
+          "history: trend_rf_v41 limited history",
+          "weighted score 0.9500 \u00d7 history 0.95 = 0.9025",
+          "threshold 0.65 \u2014 ALLOW",
+          "RiskGate remains final authority"
+        ],
+        "checksum": "353460dae5b71a83",
+        "timestamp": "2026-08-29T02:21:34.812059+00:00"
+      },
+      "payload_second": {
+        "engine": "trend_rf_v41",
+        "regime": "TREND",
+        "direction": "SELL",
+        "confidence": 0.8180860291261169,
+        "quality": 0.9025,
+        "risk": 0.2888,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "trend regime confirmed",
+          "selected engine trend_rf_v41",
+          "model confidence moderate",
+          "volatility acceptable"
+        ],
+        "trace": [
+          "Regime detected TREND",
+          "Regime strength 0.9495",
+          "Selected trend_rf_v41",
+          "Model confidence 0.0691",
+          "Market quality applied for session new_york",
+          "Final confidence 0.5345",
+          "Decision accepted",
+          "signal: confidence band 0.75-0.85",
+          "regime: trend engine in TREND \u2192 1.0",
+          "rr: RR 2.00 meets minimum 1:2",
+          "volatility: ATR 39 in optimal 20-60 band",
+          "liquidity: spread normal",
+          "session: NEW_YORK session score 0.9",
+          "history: trend_rf_v41 limited history",
+          "weighted score 0.9500 \u00d7 history 0.95 = 0.9025",
+          "threshold 0.65 \u2014 ALLOW",
+          "RiskGate remains final authority"
+        ],
+        "checksum": "353460dae5b71a83",
+        "timestamp": "2026-08-29T02:21:34.812059+00:00"
+      }
+    },
+    {
+      "timeframe": "H4",
+      "signal_match": true,
+      "payload_first": {
+        "engine": "trend_rf_v41",
+        "regime": "TREND",
+        "direction": "HOLD",
+        "confidence": 0.7279296720564774,
+        "quality": 0.0,
+        "risk": 0.0,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "trend regime confirmed",
+          "selected engine trend_rf_v41",
+          "model confidence high",
+          "confidence below policy gate"
+        ],
+        "trace": [
+          "Regime detected TREND",
+          "Regime strength 1.0000",
+          "Selected trend_rf_v41",
+          "Model confidence 0.5296",
+          "Market quality applied for session new_york",
+          "Final confidence 0.4756",
+          "Decision HOLD",
+          "BLOCKED: HOLD action"
+        ],
+        "checksum": "9c50e077de48aa8d",
+        "timestamp": "2026-08-29T02:21:35.130961+00:00"
+      },
+      "payload_second": {
+        "engine": "trend_rf_v41",
+        "regime": "TREND",
+        "direction": "HOLD",
+        "confidence": 0.7279296720564774,
+        "quality": 0.0,
+        "risk": 0.0,
+        "sl": null,
+        "tp": null,
+        "reason": [
+          "trend regime confirmed",
+          "selected engine trend_rf_v41",
+          "model confidence high",
+          "confidence below policy gate"
+        ],
+        "trace": [
+          "Regime detected TREND",
+          "Regime strength 1.0000",
+          "Selected trend_rf_v41",
+          "Model confidence 0.5296",
+          "Market quality applied for session new_york",
+          "Final confidence 0.4756",
+          "Decision HOLD",
+          "BLOCKED: HOLD action"
+        ],
+        "checksum": "9c50e077de48aa8d",
+        "timestamp": "2026-08-29T02:21:35.130961+00:00"
+      }
+    }
+  ]
+}

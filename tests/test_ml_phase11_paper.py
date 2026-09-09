@@ -90,9 +90,20 @@ def _setup(tmp: str) -> pd.DataFrame:
 
 
 class TestPhase11Paper(unittest.TestCase):
+    _SHADOW_ENV = ("ENABLE_ML_SHADOW", "ML_SHADOW_MODE")
+
     def setUp(self) -> None:
-        os.environ["ENABLE_ML_SHADOW"] = "true"
-        os.environ["ML_SHADOW_MODE"] = "true"
+        for key in self._SHADOW_ENV:
+            previous = os.environ.get(key)
+            os.environ[key] = "true"
+
+            def _restore(k: str = key, prev: str | None = previous) -> None:
+                if prev is None:
+                    os.environ.pop(k, None)
+                else:
+                    os.environ[k] = prev
+
+            self.addCleanup(_restore)
 
     def test_ast_safety_scan(self):
         self.assertEqual(scan_live_shadow_ast(), [])

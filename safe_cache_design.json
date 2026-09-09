@@ -1,0 +1,43 @@
+{
+  "feature_cache": {
+    "type": "multi_slot_lru",
+    "max_slots": 64,
+    "key_fields": [
+      "symbol",
+      "timeframe",
+      "last_closed_bar_time",
+      "dataset_checksum",
+      "feature_version"
+    ]
+  },
+  "top5_cache": {
+    "type": "multi_slot_lru",
+    "max_slots": 64,
+    "key_fields": [
+      "feature_cache_key",
+      "pre_top5_frame_checksum",
+      "feature_version"
+    ]
+  },
+  "market_context_cache": {
+    "type": "multi_slot_lru",
+    "max_slots": 256,
+    "key_fields": [
+      "symbol",
+      "timeframe",
+      "closed_candle_ts",
+      "unified_row_fingerprint",
+      "model_fingerprint",
+      "bar_index"
+    ]
+  },
+  "dataset_warm": {
+    "trigger": "build_ml_kernel_stack",
+    "timeframes": [
+      "M5",
+      "M15",
+      "H4"
+    ],
+    "invalidation": "file_fingerprint_on_disk_change"
+  }
+}

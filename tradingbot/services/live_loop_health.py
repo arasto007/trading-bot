@@ -308,6 +308,30 @@ class StallDecision:
     bar_lag_sec: float | None
     in_ny_window: bool
 
+def _heartbeat_in_current_session(
+    heartbeat: dict[str, Any] | None,
+    child_started_at: datetime,
+) -> bool:
+    """True when heartbeat timestamp belongs to the current child/session."""
+    if heartbeat is None:
+        return False
+    hb_ts = _parse_ts(heartbeat.get("timestamp_utc"))
+    return hb_ts is not None and hb_ts >= child_started_at
+
+def _heartbeat_age_for_stall(
+    *,
+    now_ts: datetime,
+    child_started_at: datetime,
+    uptime: float,
+    heartbeat: dict[str, Any] | None,
+) -> tuple[float, bool]:
+    """Return (hb_age, hb_stale). Pre-session heartbeats use uptime grace."""
+    if not _heartbeat_in_current_session(heartbeat, child_started_at):
+        return uptime, uptime > HEARTBEAT_STALE_SEC
+    hb_ts = _parse_ts(heartbeat.get("timestamp_utc"))  # type: ignore[union-attr]
+    hb_age = (now_ts - hb_ts).total_seconds()
+    return hb_age, hb_age > HEARTBEAT_STALE_SEC
+
 def evaluate_ny_stall(*, now: datetime | None = None, heartbeat: dict[str, Any] | None = None, child_started_at: datetime | None = None, already_restarted: bool = False) -> StallDecision:
     now_ts = now or _now_utc()
     if now_ts.tzinfo is None:
@@ -322,18 +346,15 @@ def evaluate_ny_stall(*, now: datetime | None = None, heartbeat: dict[str, Any] 
     else:
         started = started.astimezone(timezone.utc)
     uptime = (now_ts - started).total_seconds()
-    if heartbeat is None:
-        hb_age = uptime
-        hb_stale = uptime > HEARTBEAT_STALE_SEC
-    else:
-        hb_ts = _parse_ts(heartbeat.get("timestamp_utc"))
-        if hb_ts is None:
-            hb_age = uptime
-            hb_stale = uptime > HEARTBEAT_STALE_SEC
-        else:
-            hb_age = (now_ts - hb_ts).total_seconds()
-            hb_stale = hb_age > HEARTBEAT_STALE_SEC
-    last_bar = None if heartbeat is None else heartbeat.get("last_bar_time_utc")
+    hb_age, hb_stale = _heartbeat_age_for_stall(
+        now_ts=now_ts,
+        child_started_at=started,
+        uptime=uptime,
+        heartbeat=heartbeat,
+    )
+    hb_ts = None if heartbeat is None else _parse_ts(heartbeat.get("timestamp_utc"))
+    prev_session = hb_ts is not None and hb_ts < started
+    last_bar = None if heartbeat is None or prev_session else heartbeat.get("last_bar_time_utc")
     bar_ts = _parse_ts(last_bar)
     if bar_ts is None:
         bar_lag = uptime if uptime > 0 else None
@@ -369,17 +390,12 @@ def evaluate_heartbeat_freshness(*, now: datetime | None = None, heartbeat: dict
     else:
         started = started.astimezone(timezone.utc)
     uptime = (now_ts - started).total_seconds()
-    if heartbeat is None:
-        hb_age = uptime
-        stale = uptime > HEARTBEAT_STALE_SEC
-    else:
-        hb_ts = _parse_ts(heartbeat.get("timestamp_utc"))
-        if hb_ts is None:
-            hb_age = uptime
-            stale = uptime > HEARTBEAT_STALE_SEC
-        else:
-            hb_age = (now_ts - hb_ts).total_seconds()
-            stale = hb_age > HEARTBEAT_STALE_SEC
+    hb_age, stale = _heartbeat_age_for_stall(
+        now_ts=now_ts,
+        child_started_at=started,
+        uptime=uptime,
+        heartbeat=heartbeat,
+    )
     return StallDecision(
         stalled=bool(stale),
         should_restart=bool(stale and not already_restarted),

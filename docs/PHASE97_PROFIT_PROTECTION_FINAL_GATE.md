@@ -1,0 +1,12 @@
+# Phase 97 — Profit Protection Final Gate
+
+**PROTECTION_STATUS:** `PROTECTION_DESIGN_PARTIALLY_SUPPORTED`
+**EXIT_DESIGN_SPEC:** `INSUFFICIENT_EVIDENCE`
+**TAIL_STATUS:** `DESTROYED`
+**OOS_STATUS:** `NEGATIVE`
+**RECENT180_STATUS:** `MIXED`
+**ROBUSTNESS_STATUS:** `INSUFFICIENT`
+**NEXT_RESEARCH_TARGET:** `MORE_PROFIT_PROTECTION_FORENSICS`
+**FINAL_GATE:** `GO_RESEARCH` (research continuation only; production unchanged)
+
+Do NOT implement the target. Do not optimize. Do not trade.

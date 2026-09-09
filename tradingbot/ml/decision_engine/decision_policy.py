@@ -7,6 +7,9 @@ from dataclasses import dataclass
 from tradingbot.ml.decision_engine.decision_types import Action
 
 # Phase 13.10 validated production references (frozen — do not optimize here).
+# TREND_MODEL_ID is a frozen rollback/label/historical identity (trend_rf_v40).
+# Default active ML engine is trend_rf_v41 via resolve_active_trend_engine_id().
+# Do not treat this constant as the live selector; do not globally merge v40/v41.
 TREND_MODEL_ID = "trend_rf_v40"
 TREND_ML_THRESHOLD = 0.40
 RANGE_MODEL_ID = "phase9_9"

@@ -1,5 +1,7 @@
 # Risk Controls
 
+> **Canonical risk memory (2026-09-01):** `docs_v2/05_risk/RISKGATE_SPEC.md` and `RISK_AND_EXECUTION_BOUNDARY.md`.
+
 ## Status
 
 - **Status:** VERIFIED
@@ -81,7 +83,16 @@ SL/TP set at **signal construction** in `signal_helpers.compute_sl_tp()` from PA
 | **Threshold** | M5 preset `META_LABEL_THRESHOLD=0.38` (effective threshold may adapt) |
 | **Observer mode** | `META_OBSERVER_MODE=true` → never rejects |
 
-**Artifact status:** `models/meta_labeler_info.json` exists; `.pkl` files **UNKNOWN** in workspace.
+**Artifact status (2026-08-22 files audit):**
+
+| Aspect | Status | Evidence |
+|--------|--------|----------|
+| Model artifacts | **VERIFIED FROM FILES** | `models/meta_labeler_m5.pkl`, `m15`, `h4`, `meta_labeler_info.json` (E025–E027) |
+| Loadability | **VERIFIED FROM FILES** | Read-only load test: M5/M15/H4 loadable; `is_ready=True` |
+| Historical decisions | **VERIFIED FROM FILES** | 4 records in `data/meta_decisions.jsonl` (E028) |
+| Continuous live enforcement | **NOT PROVEN** | Last meta decision 2026-08-12; sample size tiny |
+
+When models are not ready, `MetaLabeler.score()` returns `1.0` (fail-open for scoring) and `should_gate()` returns `False` (bypass gating) — source code behavior, not runtime proof of current path.
 
 ## LiveRiskTracker
 

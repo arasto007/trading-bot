@@ -17,7 +17,7 @@ def verify_previous_reports(baseline: dict, bottleneck: dict) -> dict[str, Any]:
 
     # 22A
     _add("22A", "Live entry is run_live_watchdog -> tradingbot --loop", "CONFIRMED",
-         "start/3_live_loop_execute.bat + scripts/run_live_watchdog.py line 62")
+         "RUN_DASHBOARD.bat + scripts/run_live_watchdog.py line 62")
     _add("22A", "TradingKernel pipeline with ML when USE_ML_KERNEL=true", "CONFIRMED",
          "live_runner.py build_strategy_registry; factory.py line 139")
     _add("22A", "run_system_manager.py is live entry", "REFUTED",

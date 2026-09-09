@@ -37,6 +37,6 @@
     "order_logic guards",
     "pipeline timeout 500ms"
   ],
-  "generated_utc": "2026-07-08T11:01:18.984602+00:00",
+  "generated_utc": "2026-08-29T02:20:56.266597+00:00",
   "live_pipeline_ref": "live_pipeline_trace.json"
 }

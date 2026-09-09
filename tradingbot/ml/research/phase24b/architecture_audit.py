@@ -41,7 +41,7 @@ def _utc_now() -> str:
 
 # --- live startup trace (extends phase22ad) ---
 
-LIVE_ENTRY_BAT = "start/3_live_loop_execute.bat"
+LIVE_ENTRY_BAT = "RUN_DASHBOARD.bat"
 LIVE_MODULE = "tradingbot/__main__.py"
 LIVE_RUNNER = "tradingbot/application/live_runner.py"
 KERNEL = "tradingbot/kernel/trading_kernel.py"

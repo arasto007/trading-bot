@@ -90,5 +90,5 @@
       "propagation": "HOLD \u2192 generate_signal returns None \u2192 SignalStage returns False \u2192 pipeline stops before Risk/Execution"
     }
   },
-  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+  "generated_utc": "2026-08-29T02:20:56.267598+00:00"
 }

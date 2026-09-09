@@ -1,19 +1,21 @@
 # TradingBot Documentation v2
 
-> Single Source of Truth for the TradingBot project.
+**Canonical ChatGPT entry (required first read):**
+
+`docs_v2/01_truth/PROJECT_SOURCE_OF_TRUTH.md`
+
+Do not start with `SOURCE_OF_TRUTH.md` or `CURRENT_STATE.md` — those are superseded-keep snapshots.
 
 ---
 
-## Read Order (Required)
+## Read Order
 
-Every AI agent must read documents in this order:
+1. `01_truth/PROJECT_SOURCE_OF_TRUTH.md`
+2. Subsystem canonical file for the decision (see that entry)
+3. Supporting evidence (`FULL_REPOSITORY_SOURCE_OF_TRUTH.md`, `V41_*`, `PA_LIVE_EDGE_AUDIT.md`) only if needed
+4. Historical `docs/` never overrides code
 
-1. `01_truth/SOURCE_OF_TRUTH.md`
-2. `01_truth/CURRENT_STATE.md`
-3. `02_architecture/ARCHITECTURE.md`
-4. `03_runtime/STARTUP.md`
-5. `03_runtime/LIVE_LOOP.md`
-6. Relevant document for the requested subsystem.
+Maintenance: `99_change_control/DOCUMENTATION_UPDATE_PROTOCOL.md`
 
 ---
 
@@ -21,36 +23,35 @@ Every AI agent must read documents in this order:
 
 | Folder | Purpose |
 |--------|---------|
-| 01_truth | Current verified truth of the project. |
-| 02_architecture | System architecture and module relationships. |
-| 03_runtime | Startup chain, runtime loop, configuration. |
-| 04_strategy | Strategy engine and signal flow. |
-| 05_risk | RiskGate, execution authority, lifecycle. |
-| 06_data | Market data pipeline and caching. |
-| 07_ml | ML architecture and current ML status. |
-| 08_testing | Tests and validation system. |
-| 09_operations | Runbook, monitoring, observability. |
-| 10_history | Changelog and historical behavior. |
-| _generated | Auto-generated documentation. Never edit manually. |
-| _system | Documentation engine rules and schemas. |
+| 01_truth | Canonical memory: entry, runtime, config, contradictions, boundary |
+| 02_research | Research-only performance / validation evidence (not live authorization) |
+| 02_architecture | System / data flow / component boundaries |
+| 03_runtime | Live path, startup/shutdown, execution |
+| 04_strategy | Active strategies + PA live spec |
+| 05_risk | RiskGate + execution boundary |
+| 06_data | Pipeline + contracts |
+| 07_ml | ML state, registry, calibration + frozen research evidence |
+| 08_testing | Tests |
+| 09_operations | Runbook / observability |
+| 10_history | Changelog |
+| 99_change_control | Doc update protocol |
+| _generated | Auto-generated. Never edit manually. |
+| _system | Engine rules |
 
 ---
 
 ## Documentation States
 
-Every document must declare one status.
-
 - VERIFIED
 - GENERATED
 - HISTORICAL
 - DRAFT
+- SUPERSEDED_KEEP (pointer + old body)
 
 ---
 
 ## Update Policy
 
-Documentation is updated only after code verification.
+`_system/DOCUMENTATION_RULES.md` plus `99_change_control/DOCUMENTATION_UPDATE_PROTOCOL.md`.
 
-Code changes must trigger documentation review according to:
-
-`_system/DOCUMENTATION_RULES.md`
+Code changes must trigger documentation impact analysis.

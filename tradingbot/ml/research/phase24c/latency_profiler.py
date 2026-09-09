@@ -138,13 +138,22 @@ def _pipeline_feature_cache_hit(
     timeframe: str,
     tail_len: int,
     last_index: Any,
+    candles: Any = None,
+    base_dir: str | None = None,
 ) -> bool:
     from tradingbot.ml.integration.pipeline_cache import PipelineCache
 
-    cache_key = f"{symbol}:{timeframe}:{tail_len}:{last_index}"
+    if candles is not None:
+        cache_key = PipelineCache._build_feature_cache_key(  # noqa: SLF001
+            symbol=symbol,
+            timeframe=timeframe,
+            candles=candles,
+            base_dir=base_dir,
+        )
+    else:
+        cache_key = f"{symbol}:{timeframe}:{tail_len}:{last_index}"
     with PipelineCache._lock:  # noqa: SLF001
-        entry = PipelineCache._feature_cache  # noqa: SLF001
-        return entry is not None and entry.key == cache_key
+        return cache_key in PipelineCache._feature_cache_slots  # noqa: SLF001
 
 
 def _prediction_cache_hit(row_key: str) -> bool:
@@ -299,7 +308,12 @@ def profile_production_pipeline(
             tail = chunk.tail(300)
             cache_key = f"{symbol}:{timeframe}:{len(tail)}:{tail.index[-1]}"
             feat_hit_before = _pipeline_feature_cache_hit(
-                symbol=symbol, timeframe=timeframe, tail_len=len(tail), last_index=tail.index[-1]
+                symbol=symbol,
+                timeframe=timeframe,
+                tail_len=len(tail),
+                last_index=tail.index[-1],
+                candles=tail,
+                base_dir=base_dir,
             )
 
             if measure_mt5 and mt5_adapter is not None:

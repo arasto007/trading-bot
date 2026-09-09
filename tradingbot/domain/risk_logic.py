@@ -18,11 +18,14 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 import pandas as pd
 
 from tradingbot.domain.position_logic import contract_size, pip_size
+
+if TYPE_CHECKING:
+    from tradingbot.domain.broker_economics import BrokerEconomics
 
 STANDARD_CONTRACT_SIZE = 100_000.0
 HARD_MIN_LOT = 0.01
@@ -132,8 +135,27 @@ def lot_from_stop_distance(
     min_lot: float = HARD_MIN_LOT,
     max_lot: float = HARD_MAX_LOT,
     lot_step: float = 0.01,
+    economics: BrokerEconomics | None = None,
 ) -> float:
-    """محاسبه لات از فاصله SL — parity با بک‌تست (طلا-aware)."""
+    """محاسبه لات از فاصله SL — broker economics when provided, else legacy heuristic."""
+    if economics is not None:
+        from tradingbot.domain.broker_economics import lot_from_broker_economics
+
+        lot, reason = lot_from_broker_economics(
+            equity,
+            risk_per_trade,
+            entry_price,
+            stop_loss,
+            economics,
+            regime_multiplier=regime_position_multiplier(regime),
+        )
+        if lot is None:
+            return 0.0
+        capped = min(lot, max_lot)
+        if capped < economics.volume_min - 1e-12:
+            return 0.0
+        return capped
+
     risk_money = equity * risk_per_trade
     risk_per_unit = abs(entry_price - stop_loss) * contract_size(symbol)
     if risk_per_unit <= 0:

@@ -1,5 +1,7 @@
 # Strategy System
 
+> **Canonical strategy memory (2026-09-01):** `docs_v2/04_strategy/ACTIVE_STRATEGIES.md` and `PRICE_ACTION_LIVE_SPEC.md`.
+
 ## Status
 
 - **Status:** VERIFIED
@@ -22,8 +24,8 @@ Strategy implementations, selection, and **reachability** on the default live pa
 3. `AdaptiveRegimeStrategyRegistry` if `ADAPTIVE_REGIME_ENABLED`
 4. `VolRegimeStrategyRegistry` if `VOL_REGIME_ENABLED`
 5. ML registry if ML enabled after gate
-6. `UnconfiguredEngineRegistry` if `USE_ML_KERNEL` unset and vol off
-7. `LegacyStrategyRegistry` (+ optional shadow wrap)
+6. `UnconfiguredEngineRegistry` only when **all** of these hold: router off, adaptive off, VOL off, ML not enabled/allowed after the live gate, and `USE_ML_KERNEL` is unset. This is **not** the default daemon path.
+7. `LegacyStrategyRegistry` (+ optional shadow wrap) when `USE_ML_KERNEL` is explicitly false and the engines above are off
 
 **Evidence:** `factory.py:176–238`
 

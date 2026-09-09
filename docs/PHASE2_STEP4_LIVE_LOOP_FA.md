@@ -44,7 +44,7 @@ flowchart TB
 python scripts/run_live_watchdog.py --execute
 ```
 
-یا `start\3_live_loop_execute.bat` — ری‌استارت خودکار ۵ دقیقه بعد از کرش.  
+یا `RUN_DASHBOARD.bat` — ری‌استارت خودکار ۵ دقیقه بعد از کرش.  
 توقف: `start\5_stop_bot.bat` یا `scripts\stop_live_daemon.ps1` (فلگ `manual_stop`).
 
 ## اجرا مستقیم (بدون watchdog)

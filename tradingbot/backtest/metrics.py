@@ -6,6 +6,7 @@ import math
 from typing import Any
 
 from tradingbot.backtest.models import BacktestResult
+from tradingbot.backtest.cost_model import CostCompleteness, cost_source_summary
 
 _BARS_PER_YEAR = {
     "M1": 252 * 24 * 60,
@@ -18,7 +19,12 @@ _BARS_PER_YEAR = {
 }
 
 
-def compute_metrics(result: BacktestResult, timeframe: str = "M5") -> dict[str, Any]:
+def compute_metrics(
+    result: BacktestResult,
+    timeframe: str = "M5",
+    *,
+    cost_completeness: str | CostCompleteness | None = None,
+) -> dict[str, Any]:
     trades = result.trades
     n = len(trades)
     pnls = [t.pnl for t in trades]
@@ -42,6 +48,10 @@ def compute_metrics(result: BacktestResult, timeframe: str = "M5") -> dict[str, 
     for t in trades:
         reasons[t.reason] = reasons.get(t.reason, 0) + 1
 
+    completeness = cost_completeness or getattr(result, "cost_completeness", CostCompleteness.UNKNOWN)
+    if isinstance(completeness, CostCompleteness):
+        completeness = completeness.value
+
     return {
         "total_trades": n,
         "wins": len(wins),
@@ -60,6 +70,12 @@ def compute_metrics(result: BacktestResult, timeframe: str = "M5") -> dict[str, 
         "sharpe_ratio": round(sharpe, 3),
         "final_balance": round(result.final_balance, 2),
         "exit_reasons": reasons,
+        "cost_completeness": completeness,
+        "cost_adjusted_metrics": completeness == CostCompleteness.COMPLETE.value,
+        "cost_trace_count": len(getattr(result, "cost_traces", []) or []),
+        "cost_source_summary": cost_source_summary(getattr(result, "cost_traces", []) or []),
+        "pnl_basis": "modeled_costs_partial" if completeness != CostCompleteness.COMPLETE.value else "modeled_costs_complete",
+        "dataset_provenance_count": len(getattr(result, "dataset_provenance", []) or []),
     }
 
 
@@ -116,6 +132,11 @@ def format_report(result: BacktestResult, metrics: dict[str, Any], timeframe: st
         f" Expectancy/trade : {metrics['expectancy']}",
         f" Max drawdown     : {metrics['max_drawdown_pct']}%  ({metrics['max_drawdown_abs']})",
         f" Sharpe (annual.) : {metrics['sharpe_ratio']}",
+        f" Cost completeness: {metrics.get('cost_completeness', 'UNKNOWN')}",
+        f" Cost traces       : {metrics.get('cost_trace_count', 0)}",
+        f" Cost sources      : {metrics.get('cost_source_summary', {})}",
+        f" PnL basis         : {metrics.get('pnl_basis', 'unknown')}",
+        f" Cost-adjusted PF : {'yes' if metrics.get('cost_adjusted_metrics') else 'no — partial/unknown costs'}",
         f" Exit reasons     : {metrics['exit_reasons']}",
         "=" * 56,
     ]

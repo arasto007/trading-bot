@@ -5,8 +5,8 @@
 ## Startup Chain (Dashboard LIVE)
 
 ```
-live_dashboard.hta
-  btnLive onclick → RunBatFile("start\3_live_loop_execute.bat")
+scripts/dashboard_server.py
+  btnLive onclick → RunBatFile("RUN_DASHBOARD.bat")
     → start/_load_env.bat          # loads .env into cmd session
     → verify_ml_live_ready.py      # ML artifacts + LIVE_REGISTRY check
     → run_live_watchdog.py --execute

@@ -5,6 +5,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+# TREND_ENGINE_ID is the frozen v40 rollback/registry key — not the default active selector.
+# TREND_ENGINE_V41_ID is the default active ML engine id.
+# Authoritative active selection: resolve_active_trend_engine_id() (phase17d/versioning.py).
+# Do not globally merge these identifiers.
 TREND_ENGINE_ID = "trend_rf_v40"
 TREND_ENGINE_V41_ID = "trend_rf_v41"
 RANGE_ENGINE_ID = "phase9_9"

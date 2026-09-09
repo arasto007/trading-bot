@@ -19,7 +19,7 @@
 
 ```
 TradingBot new/
-├── live_dashboard.hta       # پنل اجرا
+├── scripts/dashboard_server.py # Web Dashboard
 ├── start/                   # batهای آماده
 ├── scripts/                 # watchdog، بک‌تست، meta، چک live
 ├── docs/                    # مستندات فارسی

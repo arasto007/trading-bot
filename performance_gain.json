@@ -1,0 +1,5 @@
+{
+  "avg_speedup_ratio": 62.243,
+  "p95_reduction_ms": 58.368,
+  "feature_cache_hit_ratio": 0.9545
+}

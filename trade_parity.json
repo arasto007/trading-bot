@@ -1,0 +1,25 @@
+{
+  "rows": [
+    {
+      "timeframe": "M5",
+      "direction_match": true,
+      "direction_first": "SELL",
+      "direction_second": "SELL",
+      "risk_match": true
+    },
+    {
+      "timeframe": "M15",
+      "direction_match": true,
+      "direction_first": "SELL",
+      "direction_second": "SELL",
+      "risk_match": true
+    },
+    {
+      "timeframe": "H4",
+      "direction_match": true,
+      "direction_first": "HOLD",
+      "direction_second": "HOLD",
+      "risk_match": true
+    }
+  ]
+}

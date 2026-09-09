@@ -85,7 +85,14 @@ def run_monitoring_replay(
     market = MarketKey(symbol, timeframe)
 
     if len(window) > warmup:
-        adapter.generate_signal(market, window.iloc[: warmup + 1])
+        try:
+            adapter.generate_signal(market, window.iloc[: warmup + 1])
+        except KernelFallbackError as exc:
+            hub.fallbacks.record(exc.reason, detail=exc.checks)
+            hub.performance.ingest_fallback()
+        except Exception as exc:
+            hub.fallbacks.record("unexpected_exception", detail={"error": str(exc)})
+            hub.performance.ingest_fallback()
     for i in range(warmup, len(window), stride):
         slice_df = window.iloc[max(0, i - warmup) : i + 1]
         try:

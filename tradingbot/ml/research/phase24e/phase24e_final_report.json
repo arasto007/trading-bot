@@ -2,6 +2,6 @@
   "phase": "24E",
   "verdict": "SAFE_DEPLOYED",
   "strategy": "SAFE_IN_MEMORY_CACHE",
-  "summary": "Dataset v2 memory cache deployed. p95 load improvement: 21.4551ms. Feature parity: True. HealthGate: True.",
-  "generated_utc": "2026-07-11T11:36:21.451465+00:00"
+  "summary": "Dataset v2 memory cache deployed. p95 load improvement: 22.2379ms. Feature parity: True. HealthGate: True.",
+  "generated_utc": "2026-08-29T02:21:09.087127+00:00"
 }

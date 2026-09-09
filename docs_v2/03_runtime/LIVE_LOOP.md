@@ -1,5 +1,7 @@
 # Live Loop
 
+> **Canonical runtime (2026-09-01):** `docs_v2/03_runtime/LIVE_RUNTIME_PATH.md`.
+
 ## Status
 
 - **Status:** VERIFIED

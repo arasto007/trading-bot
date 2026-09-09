@@ -15,9 +15,15 @@ from tradingbot.ml.data.paths import (
     phase9_9_model_path,
     phase9_9_scaler_path,
 )
-from tradingbot.ml.paper_trading.model_registry import DEFAULT_CONFIG, load_phase9_9_bundle
+from tradingbot.ml.paper_trading.model_registry import load_phase9_9_bundle
 
-EXPECTED_FEATURES = list(DEFAULT_CONFIG["features"])
+
+def _load_expected_features(base_dir: str | Path | None = None) -> list[str]:
+    path = phase9_9_feature_order_path(base_dir)
+    if not path.is_file():
+        return []
+    order_payload = json.loads(path.read_text(encoding="utf-8"))
+    return list(order_payload.get("feature_order") or order_payload.get("features") or [])
 
 
 @dataclass
@@ -80,11 +86,12 @@ def validate_frozen_model(*, base_dir: str | Path | None = None) -> dict[str, An
     order_payload = json.loads(paths["feature_order"].read_text(encoding="utf-8"))
     features = list(order_payload.get("feature_order") or order_payload.get("features") or [])
     metadata = json.loads(paths["metadata"].read_text(encoding="utf-8"))
+    expected_features = _load_expected_features(base_dir)
 
-    if features != EXPECTED_FEATURES:
-        raise RuntimeError(f"Feature order mismatch: {features} != {EXPECTED_FEATURES}")
-    if config.get("features") != EXPECTED_FEATURES:
-        raise RuntimeError("Config features mismatch with frozen Phase 9.9")
+    if expected_features and features != expected_features:
+        raise RuntimeError(f"Feature order mismatch: {features} != {expected_features}")
+    if config.get("features") != features:
+        raise RuntimeError("Config features mismatch with frozen Phase 9.9 feature order")
     if metadata.get("phase") not in ("9.9", "9.10", "11"):
         raise RuntimeError(f"Unexpected metadata phase: {metadata.get('phase')}")
 

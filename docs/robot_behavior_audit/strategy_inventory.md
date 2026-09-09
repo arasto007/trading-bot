@@ -1,5 +1,9 @@
 # Strategy Inventory
 
+> **HISTORICAL (2026-07 audit).** Claims Adaptive/VOL as the live default.
+> Current live truth is `docs_v2/` (MultiEngineRouter + `PA_PRODUCTION_LOCK` → Price Action).
+> Do not treat this file as the active live contract. Historical analysis below is unchanged.
+
 **Repository:** `TradingBot new`  
 **Live selection logic:** `tradingbot/ml/integration/factory.py` → `build_strategy_registry()`
 

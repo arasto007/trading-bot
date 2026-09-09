@@ -2,8 +2,8 @@
   "phase": "22A",
   "generated_at": "2026-07-04T22:00:00+03:30",
   "nodes": [
-    {"id": "live_dashboard.hta", "layer": "ui", "type": "frontend"},
-    {"id": "start/3_live_loop_execute.bat", "layer": "launcher", "type": "ops"},
+    {"id": "scripts/dashboard_server.py", "layer": "ui", "type": "frontend"},
+    {"id": "RUN_DASHBOARD.bat", "layer": "launcher", "type": "ops"},
     {"id": "scripts/run_live_watchdog.py", "layer": "supervisor", "type": "ops"},
     {"id": "tradingbot/__main__.py", "layer": "entry", "type": "production"},
     {"id": "application/live_runner.py", "layer": "application", "type": "production"},
@@ -36,8 +36,8 @@
     {"id": "config/dotenv_loader.py", "layer": "config", "type": "production"}
   ],
   "edges": [
-    {"from": "live_dashboard.hta", "to": "start/3_live_loop_execute.bat", "relation": "invokes"},
-    {"from": "start/3_live_loop_execute.bat", "to": "scripts/run_live_watchdog.py", "relation": "invokes"},
+    {"from": "scripts/dashboard_server.py", "to": "RUN_DASHBOARD.bat", "relation": "invokes"},
+    {"from": "RUN_DASHBOARD.bat", "to": "scripts/run_live_watchdog.py", "relation": "invokes"},
     {"from": "scripts/run_live_watchdog.py", "to": "tradingbot/__main__.py", "relation": "subprocess"},
     {"from": "tradingbot/__main__.py", "to": "application/live_runner.py", "relation": "imports"},
     {"from": "application/live_runner.py", "to": "kernel/trading_kernel.py", "relation": "constructs"},

@@ -1,9 +1,12 @@
 # TradingBot Source of Truth
 
+> **SUPERSEDED AS ENTRY (2026-09-01).** Canonical ChatGPT entry is `docs_v2/01_truth/PROJECT_SOURCE_OF_TRUTH.md`. This file is kept as a 2026-08-22 baseline snapshot. Do not treat it as the live owner document. Code still outranks all docs.
+
 **Document Status:** PARTIAL  
 **System Status:** BASELINE ESTABLISHED (source-code audit complete; runtime evidence partial)  
 **Last Updated:** 2026-08-22  
-**Baseline commit:** `57bf778c23cefffe508bb49079688b177796f67e`
+**Source-code baseline commit:** `57bf778c23cefffe508bb49079688b177796f67e`
+**Documentation baseline commit:** `53819022951456dab228b22480052ef213019ec3`
 
 ---
 
@@ -715,7 +718,7 @@ Evidence: E010–E014; docs_v2/05_risk/RISK.md.
 | Drawdown emergency | `KillSwitchService` (separate from entry gate) | ACTIVE | E014 |
 | Open position trailing/EOD | `Mt5PositionManager` | ACTIVE | E013 |
 | PositionProtector / Recovery | Background services | DISABLED (default router path) | E006 |
-| Meta-labeler reject (PA) | `MetaLabeler` in RiskGate | PARTIAL (code wired; `.pkl` UNKNOWN) | E018 |
+| Meta-labeler reject (PA) | `MetaLabeler` in RiskGate | PARTIAL (code wired; artifacts VERIFIED FROM FILES; continuous enforcement NOT PROVEN) | E018, E025–E028 |
 
 Kill switch can flatten positions without RiskGate approval — intentional emergency authority.
 
@@ -1098,12 +1101,15 @@ Evidence: E007, E018, E019; docs_v2/07_ml/ML_STATUS.md.
 |-----------|--------|---------------------|
 | ML Kernel (`USE_ML_KERNEL`) | DISABLED | None |
 | ML Shadow (`ENABLE_ML_SHADOW`) | SHADOW | Log-only; no signal change |
-| Meta-labeler | PARTIAL | Can reject PA entries when gating active and models loaded |
+| Meta-labeler | PARTIAL | Can reject PA entries when gating active; artifacts loadable; historical decisions recorded; continuous live enforcement NOT PROVEN |
 | XGBoost / LightGBM training code | IMPLEMENTED | OFFLINE / research |
 | DQN / PPO / TFT / FinBERT | NOT PRESENT in repository | N/A |
 | `tradingbot/ml/research/phase*` | IMPLEMENTED | UNREACHABLE on default live path |
+| `data/ml/live/` historical logs | VERIFIED FROM FILES | Historical ML-kernel activity; **NOT** proof of current default PA router production path |
 
-Meta-labeler `.pkl` artifacts: **UNKNOWN** in workspace snapshot (`models/meta_labeler_info.json` exists; `models/*.pkl` not found).
+Meta-labeler `.pkl` artifacts under `models/`: **VERIFIED FROM FILES** (E025–E027). Loadability confirmed read-only 2026-08-22 (`is_ready=True`).
+
+Historical ML-kernel artifacts under `data/ml/live/`: **VERIFIED FROM FILES** — do **not** infer current default production engine from these logs.
 
 ---
 
@@ -1117,13 +1123,13 @@ model:
   framework: pickle-loaded sklearn-style models (inferred from meta_labeler.py)
   implementation: tradingbot/services/meta_labeler.py
   training_pipeline: offline scripts (e.g. start/10_retrain_meta.bat)
-  artifact: models/meta_labeler_info.json (present); models/*.pkl (UNKNOWN in repo snapshot)
+  artifact: models/meta_labeler_info.json; models/meta_labeler_m5.pkl; models/meta_labeler_m15.pkl; models/meta_labeler_h4.pkl (VERIFIED FROM FILES)
   loading_path: models/ directory via MetaLabeler
   inference_path: RiskGate.evaluate() for PA signals
   runtime_consumer: RiskGate
   active: PARTIAL
   shadow: false
-  evidence: E018, E019
+  evidence: E018, E019, E025, E026, E027, E028
 ```
 
 Other ML models (XGBoost, LightGBM, phase15a engines): **IMPLEMENTED** for research/backtest; **DISABLED** on default live signal path unless `USE_ML_KERNEL=true`.
@@ -1146,9 +1152,13 @@ runtime reachability
 
 The existence of a meta-labeler must not be interpreted as proof that it modifies live decisions.
 
-Verified wiring: `MetaLabeler` called from `RiskGate` for PA signals. Gating active only when `should_gate()` true (model loaded + live win rate threshold). Enforcement on deployment machine: **PARTIAL / UNKNOWN** without runtime evidence.
+Verified wiring: `MetaLabeler` called from `RiskGate` for PA signals. Gating active only when `should_gate()` true (model loaded + live win rate threshold).
 
-Evidence: E018, E019. See KI-005 in docs_v2/01_truth/KNOWN_ISSUES.md.
+**VERIFIED FROM FILES:** meta-labeler artifacts exist and load (E025–E027). Four historical meta decisions recorded 2026-08-07 → 2026-08-12 (E028): 3 approved, 1 rejected.
+
+**NOT PROVEN:** continuous current-day meta rejection behavior or sustained live enforcement.
+
+Evidence: E018, E019, E025–E028. Supersedes stale KI-005 artifact-absence claim; see docs_v2/01_truth/KNOWN_ISSUES.md.
 
 ---
 
@@ -1211,10 +1221,22 @@ Evidence: E001–E014; docs_v2/01_truth/CURRENT_STATE.md.
 | Risk path | RiskGate via RiskStage |
 | Execution path | Mt5ExecutionAdapter via ExecutionStage |
 | Position management | Mt5PositionManager each global cycle |
-| Monitoring | Heartbeat, trade journal, runtime_truth, rejection JSONL |
+| Monitoring | Heartbeat (`logs/runtime/live_heartbeat.json`), trade journal, rejection JSONL |
 | Recovery | PositionRecoveryService **DISABLED** on default path |
 
-Whether live trading is **currently profitable or production-ready**: **UNKNOWN** (requires runtime evidence).
+### Runtime evidence for live trading (files audit — 2026-08-22)
+
+Evidence: E024, E029, E030, E031, E032.
+
+| Claim | Status | Evidence |
+|-------|--------|----------|
+| Historical kernel cycles occurred | **VERIFIED FROM FILES** | 5,427,614 `cycle_events` through 2026-08-22 (E024) |
+| Historical `live` mode execution records | **VERIFIED FROM FILES** | 17 executions, 2026-06-10 → 2026-08-12 (E024) |
+| Bot is **currently** live trading on MT5 | **NOT PROVEN** | Healthcheck 2026-08-22: `mt5_connected=false`, `kernel_alive=false` (E029) |
+| Demo vs real account | **UNKNOWN** | `live_account.json` lacks safe discriminator fields (E032) |
+| Current profitability / production readiness | **UNKNOWN** | Not inferred from artifacts |
+
+Whether live trading is **currently active**: **NOT PROVEN**. Historical live executions do not override current heartbeat evidence.
 
 ---
 
@@ -1331,7 +1353,7 @@ Evidence: E001–E004, E014; docs_v2/09_operations/RUNBOOK.md, OBSERVABILITY.md.
 | Kill switch | `KillSwitchService` | LiveRunner background | ACTIVE | E014 |
 | Heartbeat | `live_loop_health.py` | LiveRunner 60s loop | ACTIVE | E006 |
 | Trade journal | `TradeJournal` SQLite | kernel cycles | ACTIVE | E006 |
-| Dashboard | `live_dashboard.hta` | `RUN_DASHBOARD.bat` | AVAILABLE (optional) | — |
+| Dashboard | `scripts/dashboard_server.py` | `RUN_DASHBOARD.bat` | AVAILABLE (optional) | — |
 | Position recovery | `PositionRecoveryService` | BackgroundServices | DISABLED | E006 |
 
 ---
@@ -1356,9 +1378,24 @@ alerts
 
 Observability evidence must not be confused with source-code evidence.
 
-Verified observability artifacts (paths under gitignored `data/` at runtime): `data/trade_journal.db`, `data/runtime_truth.json`, `data/live_heartbeat.json`, `data/startup_report.json`, `logs/rejection_events.jsonl`, `logs/watchdog*.log`.
+### Code-defined observability paths
 
-Evidence: docs_v2/09_operations/OBSERVABILITY.md. Runtime file contents: **UNKNOWN** in repository-only audit.
+The following paths are **written by code** when the live loop or startup validator runs:
+
+| Path | Producer | Observed 2026-08-22 |
+|------|----------|---------------------|
+| `data/trade_journal.db` | `TradeJournal` | **Present** (E024) |
+| `data/runtime_truth.json` | `runtime_truth.write_runtime_truth()` | **Absent** |
+| `data/live_heartbeat.json` | `live_loop_health.publish_runner_heartbeat()` | **Absent** |
+| `data/startup_report.json` | `startup_validator.write_startup_report()` | **Absent** |
+| `logs/runtime/live_heartbeat.json` | `write_healthcheck_heartbeat()` / healthcheck | **Present** (E029) |
+| `logs/rejection_events.jsonl` | `rejection_events.py` | **Present** — 14 lines on 2026-08-22 (E030) |
+
+Do not document absent paths as if they currently exist on disk.
+
+**Healthcheck snapshot (2026-08-22, E029):** `router_alive=true`, `kernel_alive=false`, `mt5_connected=false`. This is **not** proof of active live trading.
+
+Evidence: docs_v2/09_operations/OBSERVABILITY.md; E024, E029, E030.
 
 ---
 
@@ -1394,6 +1431,34 @@ The second is runtime evidence.
 
 Both may be useful.
 
+### Runtime Evidence Baseline (files audit — 2026-08-22)
+
+Read-only inspection of runtime artifacts on the operator machine. Distinguishes evidence class:
+
+| Class | Meaning |
+|-------|---------|
+| **VERIFIED FROM SOURCE CODE** | Proven by executable source (E001–E022) |
+| **VERIFIED FROM FILES** | Proven by artifact presence/contents (E024–E033) |
+| **PARTIAL** | Some evidence; current behavior not fully established |
+| **UNKNOWN** | Insufficient evidence |
+| **NOT PROVEN** | Historical or code evidence exists; current claim not established |
+
+Summary:
+
+| Topic | Classification | Evidence |
+|-------|----------------|----------|
+| Default PA router production path | VERIFIED FROM SOURCE CODE | E007, E008, E022 |
+| ML kernel as current production engine | DISABLED (source code) | E007, E009 |
+| Historical ML-kernel logs | VERIFIED FROM FILES; **NOT** current default path | `data/ml/live/` (historical) |
+| Meta-labeler artifacts + load | VERIFIED FROM FILES | E025–E027 |
+| Historical meta decisions | VERIFIED FROM FILES | E028 |
+| Historical live execution records | VERIFIED FROM FILES | E024 |
+| Current MT5 live trading | **NOT PROVEN** | E029 (`mt5_connected=false`) |
+| Test pass/fail | **UNKNOWN** | E033 (inventory only) |
+| Production readiness | **UNKNOWN** | — |
+
+Full ledger: Section 44 (E024–E033).
+
 ---
 
 ## 34. Known Issues
@@ -1420,7 +1485,7 @@ They should be resolved, superseded, or moved to historical documentation with e
 Known issues catalogued in **docs_v2/01_truth/KNOWN_ISSUES.md** (KI-001 through KI-013). Summary of P0 conflicts:
 
 - KI-001: Legacy docs claim ADAPTIVE_REGIME default; code uses router + PA lock
-- KI-002: `start_bot.py` banner says VOL_REGIME LIVE; daemon sets VOL off
+- KI-002: RESOLVED — `start_bot.py` banner is `PA ROUTER LIVE` (was VOL_REGIME LIVE)
 - KI-003: UnconfiguredEngineRegistry silent no-trade misconfiguration path
 
 Full issue records with evidence remain in KNOWN_ISSUES.md.
@@ -1454,9 +1519,9 @@ The conflict must not be hidden by rewriting one side without investigation.
 |----------|----------|--------|-------|
 | `docs/robot_behavior_audit/` — ADAPTIVE default live | Code: router + PA lock | CONFLICT | KI-001 |
 | `docs/CAPABILITIES.md` — M5+M15+H4 simultaneous | `get_live_config()` forces M5 only | CONFLICT | KI-008 |
-| `start_bot.py` banner — VOL_REGIME LIVE | `start_live_daemon.ps1` — VOL off | CONFLICT | KI-002 |
+| `start_bot.py` banner — PA ROUTER LIVE | `start_live_daemon.ps1` — VOL off, router on | RESOLVED | KI-002 |
 | Legacy 5-stage pipeline docs | Code: 6 stages (SignalFilterStage) | CONFLICT | KI-001 area |
-| `factory.py` docstring — VOL default | Selection logic: router first | CONFLICT | KI-009 |
+| `factory.py` docstring — router-first | Selection logic: router first | RESOLVED | KI-009 |
 
 Resolution authority: **executable source code** (Section 2).
 
@@ -1605,7 +1670,7 @@ verification:
   status: PARTIAL
   verified_against_commit: 57bf778c23cefffe508bb49079688b177796f67e
   verified_at: 2026-08-22
-  verifier: docs_v2 baseline audit (static source analysis)
+  verifier: docs_v2 baseline audit (source code + read-only runtime files)
   evidence_sources:
     - docs_v2/01_truth/CURRENT_STATE.md
     - docs_v2/01_truth/KNOWN_ISSUES.md
@@ -1617,6 +1682,7 @@ verification:
     - docs_v2/07_ml/*
     - docs_v2/08_testing/*
     - docs_v2/09_operations/*
+    - Runtime artifacts E024–E033 (2026-08-22 files audit)
 ```
 
 Subsystem documents marked VERIFIED in docs_v2 reflect **source-code** verification unless explicitly noted PARTIAL.
@@ -1654,13 +1720,7 @@ The audit should inspect:
 
 The audit must produce evidence.
 
----
-
-## 43. Current Baseline Status
-
-The audit must produce evidence.
-
-**Audit status:** Completed 2026-08-22 at commit `57bf778`. Method: static source-code and script tracing. Live MT5 session and test execution not performed.
+**Audit status:** Source-code audit completed 2026-08-22 at commit `57bf778`. Runtime-artifact audit completed 2026-08-22 (read-only files inspection). Live MT5 session not observed; test suite not executed.
 
 ---
 
@@ -1670,7 +1730,7 @@ Baseline statuses after repository inspection (2026-08-22):
 
 ```yaml
 repository_baseline: VERIFIED
-runtime_baseline: PARTIAL          # source path verified; live session not observed
+runtime_baseline: PARTIAL          # historical cycles/executions VERIFIED FROM FILES; current live trading NOT PROVEN
 configuration_baseline: PARTIAL     # code defaults verified; operator .env UNKNOWN
 pipeline_baseline: VERIFIED
 strategy_baseline: VERIFIED         # default production selection path
@@ -1678,14 +1738,15 @@ risk_baseline: VERIFIED
 execution_baseline: VERIFIED
 position_management_baseline: VERIFIED
 data_baseline: VERIFIED
-ml_baseline: PARTIAL                # meta-labeler artifact/runtime enforcement UNKNOWN
-testing_baseline: PARTIAL           # 231 test files counted; pass rate UNKNOWN
+ml_baseline: PARTIAL                # meta artifacts VERIFIED FROM FILES; continuous enforcement NOT PROVEN; ML kernel DISABLED
+testing_baseline: PARTIAL           # 231 test files VERIFIED FROM FILES; pass/fail UNKNOWN
 operations_baseline: VERIFIED
 production_readiness: UNKNOWN
 known_conflicts: VERIFIED           # see KNOWN_ISSUES.md
+runtime_artifact_audit_date: 2026-08-22
 ```
 
-These values reflect repository source evidence. Runtime-dependent claims remain PARTIAL or UNKNOWN until runtime artifacts are inspected.
+These values combine source-code evidence (E001–E022) and runtime-file evidence (E024–E033). Historical artifacts do not prove current live operation.
 
 ---
 
@@ -1854,7 +1915,77 @@ evidence:
     path: tests/
     symbol: test_*.py (231 files)
     claim: Test inventory exists
-    status: PARTIAL
+    status: VERIFIED FROM FILES
+
+  - id: E024
+    type: RUNTIME
+    path: data/trade_journal.db
+    symbol: SQLite journal
+    claim: Historical cycle_events and execution-mode counts (paper/live/dry_run); NOT current live trading
+    status: VERIFIED FROM FILES
+
+  - id: E025
+    type: RUNTIME
+    path: models/meta_labeler_m5.pkl
+    symbol: pickle model
+    claim: Meta-labeler M5 artifact presence and loadability; NOT continuous production enforcement
+    status: VERIFIED FROM FILES
+
+  - id: E026
+    type: RUNTIME
+    path: models/meta_labeler_m15.pkl
+    symbol: pickle model
+    claim: Meta-labeler M15 artifact presence and loadability; NOT continuous production enforcement
+    status: VERIFIED FROM FILES
+
+  - id: E027
+    type: RUNTIME
+    path: models/meta_labeler_h4.pkl
+    symbol: pickle model
+    claim: Meta-labeler H4 artifact presence and loadability; NOT continuous production enforcement
+    status: VERIFIED FROM FILES
+
+  - id: E028
+    type: RUNTIME
+    path: data/meta_decisions.jsonl
+    symbol: JSONL log
+    claim: Historical meta-labeler decisions (4 records; 3 approved, 1 rejected); NOT today's continuous enforcement
+    status: VERIFIED FROM FILES
+
+  - id: E029
+    type: RUNTIME
+    path: logs/runtime/live_heartbeat.json
+    symbol: healthcheck heartbeat
+    claim: Healthcheck snapshot 2026-08-22 only (router_alive=true; kernel_alive=false; mt5_connected=false); NOT active live trading
+    status: VERIFIED FROM FILES
+
+  - id: E030
+    type: RUNTIME
+    path: logs/rejection_events.jsonl
+    symbol: JSONL log
+    claim: Safety/rejection evidence (entries frozen when MT5 equity unavailable); NOT profitable trading
+    status: VERIFIED FROM FILES
+
+  - id: E031
+    type: RUNTIME
+    path: data/live_risk_state.json
+    symbol: persisted risk state
+    claim: Historical persisted risk state (last day 2026-08-12); NOT current live trading
+    status: VERIFIED FROM FILES
+
+  - id: E032
+    type: RUNTIME
+    path: data/live_account.json
+    symbol: account snapshot
+    claim: Account metadata without credentials (balance/equity/profit/updated_at); NOT demo vs real
+    status: VERIFIED FROM FILES
+
+  - id: E033
+    type: RUNTIME
+    path: tests/
+    symbol: test_*.py inventory
+    claim: 231 test files present; tests NOT EXECUTED; pass/fail UNKNOWN
+    status: VERIFIED FROM FILES
 ```
 
 Evidence IDs should be referenced by important claims whenever practical.
@@ -1893,7 +2024,7 @@ dependencies:
   - docs_v2/10_history/CHANGELOG.md
 ```
 
-Primary source dependencies (executable evidence): E001–E022 file paths in Section 44.
+Primary source dependencies (executable evidence): E001–E022. Runtime-artifact evidence: E024–E033 (Section 44).
 
 Dependencies must be re-verified when any listed source file changes.
 

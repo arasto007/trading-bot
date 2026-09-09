@@ -65,7 +65,7 @@ ML kernel path **not constructed** when `USE_ML_KERNEL=false`.
 | **Features** | `UnifiedFeatureStore` |
 | **Live impact** | Conditional gate — not full ML kernel |
 
-**Status:** IMPLEMENTED AND WIRED to RiskGate; artifact presence UNKNOWN.
+**Status:** IMPLEMENTED AND WIRED to RiskGate; meta-labeler artifacts **VERIFIED FROM FILES** (see `ML_STATUS.md`); continuous live enforcement **NOT PROVEN**.
 
 ## Model Frameworks Found
 
@@ -74,7 +74,7 @@ ML kernel path **not constructed** when `USE_ML_KERNEL=false`.
 | XGBoost | `ml/models/xgboost_model.py`, training factory | **NOT on default live** |
 | LightGBM | `ml/models/lightgbm_model.py` | **NOT on default live** |
 | Logistic / RF | `ml/training/model_factory.py` | Research |
-| Pickle meta models | `services/meta_labeler.py` | **PARTIAL** (RiskGate) |
+| Pickle meta models | `services/meta_labeler.py` | Artifacts **VERIFIED FROM FILES**; continuous enforcement **NOT PROVEN** |
 
 ## Not Found in Repository
 

@@ -113,3 +113,67 @@ def test_heartbeat_freshness_20min_one_restart_then_alert():
     )
     assert d2.stalled is True
     assert d2.should_restart is False
+
+
+def test_previous_session_heartbeat_startup_grace():
+    """Cross-session heartbeat file must not cause immediate stale detection."""
+    started = NY
+    now = started + timedelta(seconds=10)
+    prev_session_hb = {"timestamp_utc": (started - timedelta(hours=1)).isoformat()}
+    d = evaluate_heartbeat_freshness(
+        now=now, heartbeat=prev_session_hb, child_started_at=started, already_restarted=False
+    )
+    assert d.stalled is False
+    assert d.should_restart is False
+    assert d.heartbeat_age_sec == 10.0
+
+
+def test_previous_session_heartbeat_stale_after_20min_uptime():
+    """Old file must not permanently bypass stall detection."""
+    started = NY
+    now = started + timedelta(minutes=21)
+    prev_session_hb = {"timestamp_utc": (started - timedelta(hours=1)).isoformat()}
+    d = evaluate_heartbeat_freshness(
+        now=now, heartbeat=prev_session_hb, child_started_at=started, already_restarted=False
+    )
+    assert d.stalled is True
+    assert d.should_restart is True
+    assert d.heartbeat_age_sec == 21 * 60
+
+
+def test_current_session_stale_heartbeat():
+    started = NY
+    hb = {"timestamp_utc": (started + timedelta(minutes=1)).isoformat()}
+    now = started + timedelta(minutes=30)
+    d = evaluate_heartbeat_freshness(
+        now=now, heartbeat=hb, child_started_at=started, already_restarted=False
+    )
+    assert d.stalled is True
+    assert d.should_restart is True
+
+
+def test_current_session_fresh_heartbeat():
+    started = NY
+    hb = {"timestamp_utc": (started + timedelta(minutes=5)).isoformat()}
+    now = started + timedelta(minutes=6)
+    d = evaluate_heartbeat_freshness(
+        now=now, heartbeat=hb, child_started_at=started, already_restarted=False
+    )
+    assert d.stalled is False
+    assert d.should_restart is False
+
+
+def test_ny_stall_previous_session_heartbeat_no_false_stall():
+    """Pre-session heartbeat + bar data must not trigger NY stall during startup grace."""
+    started = NY
+    now = started + timedelta(seconds=10)
+    prev_session_hb = {
+        "timestamp_utc": (started - timedelta(days=3)).isoformat(),
+        "last_bar_time_utc": (started - timedelta(days=3, minutes=16)).isoformat(),
+    }
+    d = evaluate_ny_stall(
+        now=now, heartbeat=prev_session_hb, child_started_at=started, already_restarted=False
+    )
+    assert d.stalled is False
+    assert d.should_restart is False
+    assert d.heartbeat_age_sec == 10.0

@@ -7,6 +7,11 @@
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from tradingbot.domain.broker_economics import BrokerEconomics
+
 #: سقف ارزش سفارش (دلار) — همان مقدار ثابت OrderManager قدیم.
 MAX_ORDER_VALUE = 100_000
 
@@ -30,15 +35,22 @@ def validate_order(
     return True, "ok"
 
 
-def order_value(symbol: str, lot_size: float, price: float) -> float:
-    """ارزش تقریبی سفارش — دقیقاً مطابق منطق ابزارهای مختلف در نسخه‌ی قدیم."""
-    if symbol == "XAUUSD_i":  # طلا
-        return lot_size * price * 100
-    if symbol == "USDJPY_i":  # جفت‌های ین
-        return lot_size * 100_000
-    if symbol.endswith("_i"):  # سایر جفت‌های فارکس
-        return lot_size * 100_000
-    return lot_size * price * 100_000  # سایر ابزارها
+def order_value(
+    symbol: str,
+    lot_size: float,
+    price: float,
+    *,
+    economics: BrokerEconomics | None = None,
+) -> float:
+    """
+    Approximate order notional for cap checks.
+
+    Phase 25A: uses broker contract_size when economics provided.
+    Without economics, returns 0 (fail-closed for cap — callers must supply economics).
+    """
+    if economics is not None:
+        return economics.order_notional(lot_size, price)
+    return 0.0
 
 
 def check_order_risk(
@@ -46,9 +58,15 @@ def check_order_risk(
     lot_size: float,
     price: float,
     max_order_value: float = MAX_ORDER_VALUE,
+    *,
+    economics: BrokerEconomics | None = None,
 ) -> tuple[bool, str]:
     """بررسی سقف ارزش سفارش (معادل OrderManager._check_order_risk)."""
-    value = order_value(symbol, lot_size, price)
+    if economics is None:
+        return False, "BROKER_ECONOMICS_REQUIRED"
+    value = order_value(symbol, lot_size, price, economics=economics)
+    if value <= 0:
+        return False, "INVALID_ORDER_NOTIONAL"
     if value > max_order_value:
         return False, f"Order value too large: ${value:,.2f}"
     return True, "ok"

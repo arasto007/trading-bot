@@ -3,7 +3,7 @@
   "method": "static_source_trace",
   "entry_points": [
     {
-      "path": "start/3_live_loop_execute.bat",
+      "path": "RUN_DASHBOARD.bat",
       "note": "batch \u2192 verify_ml_live_ready \u2192 watchdog"
     },
     {
@@ -13,7 +13,7 @@
     },
     {
       "path": "tradingbot/application/live_runner.py",
-      "line": 131,
+      "line": 305,
       "function": "LiveRunner.run \u2192 asyncio.run(_run)"
     }
   ],
@@ -84,7 +84,7 @@
       "function": "main",
       "object": "subprocess",
       "action": "spawn [python, -m, tradingbot, --loop, --execute]",
-      "line": 62
+      "line": 73
     },
     {
       "order": 4,
@@ -102,7 +102,7 @@
       "function": "run_live_loop \u2192 LiveRunner.__init__",
       "object": "LiveRunner",
       "action": "construct TradingKernel with build_strategy_registry(legacy_config, base_dir)",
-      "line": 29
+      "line": 31
     },
     {
       "order": 6,
@@ -111,7 +111,7 @@
       "function": "build_strategy_registry",
       "object": "MLKernelRegistry",
       "action": "if USE_ML_KERNEL: build_kernel_adapter \u2192 MLKernelRegistry(adapter=...)",
-      "line": 14
+      "line": 15
     },
     {
       "order": 7,
@@ -120,7 +120,7 @@
       "function": "build_ml_kernel_stack",
       "object": "PipelineCache",
       "action": "configure(base_dir); get_registry(base_dir) \u2192 EngineRegistry.build_default",
-      "line": 61
+      "line": 78
     },
     {
       "order": 8,
@@ -192,7 +192,7 @@
       "function": "KernelAdapter.generate_signal \u2192 produce_unified_signal",
       "object": "KernelAdapter",
       "action": "require_health(registry); get_unified_frame; build_market_context",
-      "line": 164
+      "line": 163
     },
     {
       "order": 16,
@@ -220,7 +220,7 @@
       "function": "RangeEngineAdapter.evaluate",
       "object": "Phase99Bundle (in-memory)",
       "action": "bundle.predict_proba(feats) \u2014 LIVE INFERENCE",
-      "line": 88
+      "line": 92
     },
     {
       "order": 19,
@@ -246,7 +246,7 @@
       "file": "tradingbot/ml/integration/kernel_adapter.py",
       "function": "produce_unified_signal",
       "action": "PipelineCache.get_unified_frame \u2192 build_market_context \u2192 quality.evaluate",
-      "line": 164
+      "line": 163
     },
     {
       "order": "15b",
@@ -260,21 +260,21 @@
       "file": "tradingbot/ml/trade_quality/adapter.py",
       "function": "TradeQualityAdapter.evaluate",
       "action": "risk_adapter.evaluate \u2192 quality_engine.evaluate (chains calibration+risk+quality)",
-      "line": 60
+      "line": 64
     },
     {
       "order": "15d",
       "file": "tradingbot/ml/integration/kernel_adapter.py",
       "function": "produce_unified_signal",
       "action": "select_profitability_filter_settings \u2192 apply_profitability_filters \u2192 action HOLD gates",
-      "line": 26
+      "line": 25
     },
     {
       "order": "15e",
       "file": "tradingbot/ml/integration/kernel_adapter.py",
       "function": "generate_signal",
       "action": "map_unified_to_trading_signal; return None if HOLD",
-      "line": 282
+      "line": 304
     },
     {
       "order": 21,
@@ -302,7 +302,7 @@
       "file": "tradingbot/adapters/mt5_execution.py",
       "function": "Mt5ExecutionAdapter.execute",
       "action": "dry_run / paper / live branch",
-      "line": 42,
+      "line": 43,
       "branches": [
         {
           "condition": "TRADINGBOT_DRY_RUN=1",
@@ -327,7 +327,7 @@
       "file": "tradingbot/adapters/mt5_execution.py",
       "function": "_place_market_order \u2192 _order_send_with_retry",
       "action": "mt5.order_send(request) with retry on retcodes 10004,10006,...",
-      "line": 240,
+      "line": null,
       "guards": [
         {
           "fn": "order_logic.validate_order",
@@ -367,5 +367,5 @@
     "metadata_candidate_id": "xgb_baseline_phase96",
     "metadata_frozen_at": "2026-07-07T20:10:28.472964+00:00"
   },
-  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+  "generated_utc": "2026-08-29T02:20:56.266597+00:00"
 }

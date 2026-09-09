@@ -43,13 +43,20 @@ class _EngineStats:
 
 
 class EngineMonitor:
-    """Track phase9_9, trend_rf_v40, and pipeline layer health."""
+    """Track range/trend engines and pipeline layer health.
+
+    Pre-seeds phase9_9 plus both trend ids: v41 is the default active ML engine,
+    v40 remains the frozen rollback bucket. record_call() still accepts any id.
+    """
 
     def __init__(self) -> None:
+        from tradingbot.ml.phase15a.config import TREND_ENGINE_ID, TREND_ENGINE_V41_ID
+
         self._lock = threading.Lock()
         self._engines: dict[str, _EngineStats] = {
             "phase9_9": _EngineStats(),
-            "trend_rf_v40": _EngineStats(),
+            TREND_ENGINE_ID: _EngineStats(),
+            TREND_ENGINE_V41_ID: _EngineStats(),
             "decision": _EngineStats(),
             "calibration": _EngineStats(),
             "risk": _EngineStats(),

@@ -70,7 +70,8 @@ class MonitoredKernelAdapter:
 
     def _sync_engine_meta(self) -> None:
         reg = self._inner._deps.registry
-        for eid in ("phase9_9", "trend_rf_v40"):
+        # Monitoring buckets only: v41 is the default active ML id, v40 is rollback.
+        for eid in ("phase9_9", "trend_rf_v40", "trend_rf_v41"):
             eng = reg.get(eid)
             if eng is None:
                 self._hub.engines.set_engine_meta(eid, checksum=None, version=None, available=False)

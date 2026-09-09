@@ -1,5 +1,7 @@
 # Data Pipeline
 
+> **Canonical layer (2026-09-01):** ChatGPT should prefer `docs_v2/06_data/DATA_CONTRACTS.md` and `docs_v2/02_architecture/DATA_FLOW.md` for identity and live-vs-research contracts. This file remains supporting live-adapter detail. It is **not** the project entry point.
+
 ## Status
 
 - **Status:** VERIFIED

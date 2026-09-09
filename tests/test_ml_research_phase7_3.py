@@ -28,31 +28,227 @@ from tradingbot.ml.research.reports import ResearchReportGenerator
 from tradingbot.ml.research.schema import ExperimentRecord, utc_now_iso
 
 RESEARCH_PKG = ROOT / "tradingbot" / "ml" / "research"
-FORBIDDEN = (
-    "tradingbot.kernel",
-    "tradingbot.risk",
-    "tradingbot.execution",
+
+# Forbidden LIVE execution / broker-send dependencies.
+# tradingbot.execution.* is the offline cost/fill simulator — not a live order path.
+FORBIDDEN_LIVE_EXECUTION = (
     "tradingbot.adapters.mt5_execution",
-    "tradingbot.adapters.risk_gate",
+    "tradingbot.application.live_runner",
+    "tradingbot.services.mt5_order_guard",
 )
+
+# Offline research may import kernel / RiskGate / the execution adapter for
+# backtest, replay, or latency measurement. These files do not place live orders.
+# New research modules that import these prefixes must be added here explicitly.
+OFFLINE_ALLOWED = {
+    "tradingbot.kernel": frozenset({
+        "phase22e/portfolio.py",
+        "phase25b/unified_pipeline_replay.py",
+    }),
+    "tradingbot.adapters.risk_gate": frozenset({
+        "phase24c/latency_profiler.py",
+        "phase25a/run_investigation.py",
+        "phase25b/unified_pipeline_replay.py",
+        "phase6a/fault_injection_live.py",
+        "phase9a/pm_v2_research.py",
+        # Offline audit/trace hooks (from-import). Not live startup.
+        "phase22b/run_capability_audit.py",
+        "phase22f/trace.py",
+    }),
+    "tradingbot.adapters.mt5_execution": frozenset({
+        "phase25a/run_investigation.py",
+        "phase25b/unified_pipeline_replay.py",
+    }),
+}
+
+# Import-probe only — not an allowlist. These files dynamically load live
+# modules for audit and must stay classified as PROBE, not safe execution.
+DELIBERATE_IMPORT_PROBES = {
+    "phase_final_audit/run_investigation.py": frozenset({
+        "tradingbot.application.live_runner",
+        "tradingbot.adapters.mt5_execution",
+        "tradingbot.services.mt5_order_guard",
+    }),
+}
+
+
+def _call_func_name(node: ast.AST) -> str:
+    if isinstance(node, ast.Name):
+        return node.id
+    if isinstance(node, ast.Attribute):
+        return node.attr
+    return ""
+
+
+def _const_str(node: ast.AST | None) -> str | None:
+    if isinstance(node, ast.Constant) and isinstance(node.value, str):
+        return node.value
+    return None
+
+
+def _list_string_constants(node: ast.AST) -> list[str]:
+    if isinstance(node, (ast.List, ast.Tuple, ast.Set)):
+        out: list[str] = []
+        for elt in node.elts:
+            value = _const_str(elt)
+            if value is not None:
+                out.append(value)
+        return out
+    return []
+
+
+def _iter_import_modules(tree: ast.AST) -> list[str]:
+    mods: list[str] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            mods.extend(alias.name for alias in node.names)
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            mods.append(node.module)
+            for alias in node.names:
+                if alias.name != "*":
+                    mods.append(f"{node.module}.{alias.name}")
+    return mods
+
+
+_DYNAMIC_IMPORT_FUNCS = frozenset({"import_module", "__import__"})
+
+
+def _dynamic_func_aliases(tree: ast.AST) -> frozenset[str]:
+    """Statically obvious aliases of import_module / __import__."""
+    aliases = set(_DYNAMIC_IMPORT_FUNCS)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.ImportFrom):
+            if node.module == "importlib":
+                for alias in node.names:
+                    if alias.name == "import_module":
+                        aliases.add(alias.asname or alias.name)
+            if node.module in (None, "builtins"):
+                for alias in node.names:
+                    if alias.name == "__import__":
+                        aliases.add(alias.asname or alias.name)
+        elif isinstance(node, ast.Assign):
+            val = node.value
+            is_import_module_attr = isinstance(val, ast.Attribute) and val.attr == "import_module"
+            is_dunder_import = isinstance(val, ast.Name) and val.id == "__import__"
+            if is_import_module_attr or is_dunder_import:
+                for target in node.targets:
+                    if isinstance(target, ast.Name):
+                        aliases.add(target.id)
+    return frozenset(aliases)
+
+
+def _iter_dynamic_import_modules(tree: ast.AST) -> list[str]:
+    """Detect obvious static dynamic-import forms.
+
+    Covered:
+    - importlib.import_module("literal") including multiline Call args
+    - __import__("literal")
+    - from importlib import import_module as im; im("literal")
+    - name = "literal"; import_module(name) / __import__(name)
+    - names = ["literal"]; for n in names: import_module(n)
+
+    Not covered: arbitrary data-flow, comments, or bare documentation strings.
+    """
+    dynamic_names = _dynamic_func_aliases(tree)
+    assigned_lists: dict[str, list[str]] = {}
+    assigned_strings: dict[str, str] = {}
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Assign):
+            continue
+        values = _list_string_constants(node.value)
+        literal = _const_str(node.value)
+        for target in node.targets:
+            if not isinstance(target, ast.Name):
+                continue
+            if values:
+                assigned_lists[target.id] = values
+            elif literal is not None:
+                assigned_strings[target.id] = literal
+
+    found: list[str] = []
+    for node in ast.walk(tree):
+        if isinstance(node, ast.For):
+            iter_name = node.iter.id if isinstance(node.iter, ast.Name) else None
+            target_name = node.target.id if isinstance(node.target, ast.Name) else None
+            if iter_name and target_name and iter_name in assigned_lists:
+                for child in ast.walk(node):
+                    if not isinstance(child, ast.Call):
+                        continue
+                    if _call_func_name(child.func) not in dynamic_names:
+                        continue
+                    if child.args and isinstance(child.args[0], ast.Name) and child.args[0].id == target_name:
+                        found.extend(assigned_lists[iter_name])
+        if not isinstance(node, ast.Call):
+            continue
+        if _call_func_name(node.func) not in dynamic_names or not node.args:
+            continue
+        arg = node.args[0]
+        literal = _const_str(arg)
+        if literal is not None:
+            found.append(literal)
+            continue
+        if isinstance(arg, ast.Name):
+            if arg.id in assigned_lists:
+                found.extend(assigned_lists[arg.id])
+            elif arg.id in assigned_strings:
+                found.append(assigned_strings[arg.id])
+    return found
+
+
+def _modules_for_scan(tree: ast.AST) -> list[str]:
+    return _iter_import_modules(tree) + _iter_dynamic_import_modules(tree)
+
+
+def _scan_forbidden(
+    package_dir: Path,
+    prefixes: tuple[str, ...],
+    *,
+    allowlist: dict[str, frozenset[str]] | None = None,
+    exclude_rels: frozenset[str] | None = None,
+) -> list[str]:
+    """AST import scan including obvious importlib forms. Comments/strings ignored."""
+    allowlist = allowlist or {}
+    exclude_rels = exclude_rels or frozenset()
+    violations: list[str] = []
+    for path in package_dir.rglob("*.py"):
+        rel = path.relative_to(package_dir).as_posix()
+        if rel in exclude_rels:
+            continue
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for module in _modules_for_scan(tree):
+            for prefix in prefixes:
+                if not module.startswith(prefix):
+                    continue
+                allowed = allowlist.get(prefix, frozenset())
+                if rel in allowed:
+                    continue
+                violations.append(f"{rel}: {module}")
+    return violations
 
 
 def _scan_package(package_dir: Path) -> list[str]:
-    violations: list[str] = []
-    for path in package_dir.rglob("*.py"):
+    return _scan_forbidden(
+        package_dir,
+        FORBIDDEN_LIVE_EXECUTION,
+        allowlist=OFFLINE_ALLOWED,
+        exclude_rels=frozenset(DELIBERATE_IMPORT_PROBES),
+    )
+
+
+def _scan_probes(package_dir: Path) -> dict[str, set[str]]:
+    found: dict[str, set[str]] = {}
+    for rel, expected in DELIBERATE_IMPORT_PROBES.items():
+        path = package_dir / rel
+        if not path.is_file():
+            continue
         tree = ast.parse(path.read_text(encoding="utf-8"))
-        for node in ast.walk(tree):
-            if isinstance(node, ast.Import):
-                mods = [a.name for a in node.names]
-            elif isinstance(node, ast.ImportFrom) and node.module:
-                mods = [node.module]
-            else:
-                continue
-            for module in mods:
-                for prefix in FORBIDDEN:
-                    if module.startswith(prefix):
-                        violations.append(f"{path.relative_to(package_dir)}: {module}")
-    return violations
+        hits = {
+            module
+            for module in _iter_dynamic_import_modules(tree)
+            if any(module.startswith(p) for p in FORBIDDEN_LIVE_EXECUTION)
+        }
+        found[rel] = hits & set(expected) if expected else hits
+    return found
 
 
 def _make_dataset(n: int = 120, seed: int = 42) -> pd.DataFrame:
@@ -80,18 +276,119 @@ def _make_dataset(n: int = 120, seed: int = 42) -> pd.DataFrame:
 
 class TestIsolation(unittest.TestCase):
     def test_no_kernel_imports(self):
-        for path in RESEARCH_PKG.rglob("*.py"):
-            text = path.read_text(encoding="utf-8")
-            self.assertNotIn("tradingbot.kernel", text)
+        violations = _scan_forbidden(
+            RESEARCH_PKG,
+            ("tradingbot.kernel",),
+            allowlist=OFFLINE_ALLOWED,
+            exclude_rels=frozenset(DELIBERATE_IMPORT_PROBES),
+        )
+        self.assertEqual(violations, [])
 
     def test_no_risk_imports(self):
-        for path in RESEARCH_PKG.rglob("*.py"):
-            text = path.read_text(encoding="utf-8")
-            self.assertNotIn("tradingbot.adapters.risk_gate", text)
+        violations = _scan_forbidden(
+            RESEARCH_PKG,
+            ("tradingbot.adapters.risk_gate",),
+            allowlist=OFFLINE_ALLOWED,
+            exclude_rels=frozenset(DELIBERATE_IMPORT_PROBES),
+        )
+        self.assertEqual(violations, [])
 
     def test_no_execution_imports(self):
         violations = _scan_package(RESEARCH_PKG)
         self.assertEqual(violations, [])
+
+    def test_static_import_live_runner_detected(self):
+        tree = ast.parse("import tradingbot.application.live_runner\n")
+        self.assertIn("tradingbot.application.live_runner", _iter_import_modules(tree))
+
+    def test_from_import_live_runner_detected(self):
+        tree = ast.parse("from tradingbot.application import live_runner\n")
+        self.assertIn("tradingbot.application", _iter_import_modules(tree))
+        self.assertIn("tradingbot.application.live_runner", _iter_import_modules(tree))
+
+    def test_from_import_live_runner_alias_detected(self):
+        tree = ast.parse("from tradingbot.application import live_runner as lr\n")
+        self.assertIn("tradingbot.application.live_runner", _iter_import_modules(tree))
+
+    def test_aliased_import_module_detected(self):
+        tree = ast.parse(
+            "from importlib import import_module as im\n"
+            'im("tradingbot.application.live_runner")\n'
+        )
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_unbound_dynamic_variable_not_detected(self):
+        tree = ast.parse(
+            "import importlib\n"
+            "importlib.import_module(unknown_module)\n"
+        )
+        self.assertEqual(_iter_dynamic_import_modules(tree), [])
+
+    def test_dynamic_import_live_runner_detected(self):
+        tree = ast.parse('import importlib\nimportlib.import_module("tradingbot.application.live_runner")\n')
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_dynamic_import_bound_string_detected(self):
+        tree = ast.parse(
+            "import importlib\n"
+            'module = "tradingbot.application.live_runner"\n'
+            "importlib.import_module(module)\n"
+        )
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_dynamic_import_literal_list_loop_detected(self):
+        tree = ast.parse(
+            "import importlib\n"
+            "modules = [\n"
+            '    "tradingbot.application.live_runner",\n'
+            "]\n"
+            "for name in modules:\n"
+            "    importlib.import_module(name)\n"
+        )
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_builtin_import_literal_detected(self):
+        tree = ast.parse('__import__("tradingbot.application.live_runner")\n')
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_dynamic_import_multiline_literal_detected(self):
+        tree = ast.parse(
+            "import importlib\n"
+            "importlib.import_module(\n"
+            '    "tradingbot.application.live_runner"\n'
+            ")\n"
+        )
+        self.assertIn("tradingbot.application.live_runner", _iter_dynamic_import_modules(tree))
+
+    def test_dynamic_import_mt5_execution_detected(self):
+        tree = ast.parse('import importlib\nimportlib.import_module("tradingbot.adapters.mt5_execution")\n')
+        self.assertIn("tradingbot.adapters.mt5_execution", _iter_dynamic_import_modules(tree))
+
+    def test_dynamic_import_mt5_order_guard_detected(self):
+        tree = ast.parse('import importlib\nimportlib.import_module("tradingbot.services.mt5_order_guard")\n')
+        self.assertIn("tradingbot.services.mt5_order_guard", _iter_dynamic_import_modules(tree))
+
+    def test_documentation_strings_not_detected(self):
+        tree = ast.parse(
+            '"""Mentions tradingbot.application.live_runner and mt5_execution."""\n'
+            "x = 'tradingbot.services.mt5_order_guard'\n"
+        )
+        self.assertEqual(_iter_dynamic_import_modules(tree), [])
+        self.assertEqual(_iter_import_modules(tree), [])
+
+    def test_offline_allowlist_unchanged(self):
+        self.assertIn("phase25a/run_investigation.py", OFFLINE_ALLOWED["tradingbot.adapters.mt5_execution"])
+        self.assertIn("phase25b/unified_pipeline_replay.py", OFFLINE_ALLOWED["tradingbot.adapters.mt5_execution"])
+        self.assertNotIn("phase_final_audit/run_investigation.py", OFFLINE_ALLOWED["tradingbot.adapters.mt5_execution"])
+        for files in OFFLINE_ALLOWED.values():
+            self.assertNotIn("phase_final_audit/run_investigation.py", files)
+
+    def test_final_audit_is_deliberate_probe_not_allowlist(self):
+        probes = _scan_probes(RESEARCH_PKG)
+        rel = "phase_final_audit/run_investigation.py"
+        self.assertIn(rel, probes)
+        self.assertGreaterEqual(probes[rel], set(DELIBERATE_IMPORT_PROBES[rel]))
+        self.assertNotIn(rel, OFFLINE_ALLOWED.get("tradingbot.application.live_runner", frozenset()))
 
 
 class TestExperimentTracker(unittest.TestCase):

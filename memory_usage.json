@@ -1,0 +1,6 @@
+{
+  "tracemalloc_current_bytes": 35304,
+  "tracemalloc_peak_bytes": 1195695,
+  "feature_cache_slots": 3,
+  "top5_cache_slots": 3
+}

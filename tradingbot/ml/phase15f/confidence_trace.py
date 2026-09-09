@@ -21,9 +21,11 @@ from tradingbot.ml.phase15a.unified_signal import UnifiedSignal
 
 
 def _engine_inners(adapter: Any) -> tuple[Any, Any]:
+    from tradingbot.ml.phase17d.versioning import resolve_active_trend_engine_id
+
     deps = adapter._deps
     range_eng = deps.registry.get("phase9_9")
-    trend_eng = deps.registry.get("trend_rf_v40")
+    trend_eng = deps.registry.get(resolve_active_trend_engine_id())
     return getattr(range_eng, "inner", None), getattr(trend_eng, "inner", None)
 
 

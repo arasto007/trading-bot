@@ -1,5 +1,7 @@
 # Architecture
 
+> **Canonical architecture (2026-09-01):** `docs_v2/02_architecture/SYSTEM_ARCHITECTURE.md`. This file is supporting/superseded-keep.
+
 ## Status
 
 - **Status:** VERIFIED
@@ -99,7 +101,7 @@ Separate risk and execution implementations reuse **`TradingKernel`** with simul
 
 ## Unreachable Components (default production)
 
-- `UnconfiguredEngineRegistry` (when daemon sets env correctly)
+- `UnconfiguredEngineRegistry` — **not** the daemon default. The daemon sets `USE_ML_KERNEL=false` and the router default is on, so factory builds `MultiEngineRouterRegistry`. Unconfigured is only reached when router, adaptive, and VOL are all off **and** `USE_ML_KERNEL` is unset.
 - Disabled strategy flags in `ACTIVE_STRATEGIES`
 - Most `tradingbot/ml/research/phase*` modules
 

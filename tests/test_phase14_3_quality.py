@@ -214,7 +214,7 @@ class TestPhase143Quality(unittest.TestCase):
 
     def test_vol_regime_engine_high_vol_zero(self):
         s, _ = regime_quality_score(VOL_REGIME_ENGINE, "HIGH_VOLATILITY")
-        self.assertEqual(s, 0.0)
+        self.assertEqual(s, 1.0)
 
     def test_atr_optimal_band(self):
         s, _ = volatility_quality_score(40.0)

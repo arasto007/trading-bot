@@ -163,16 +163,21 @@ class EngineTelemetryService:
             "stage": stage,
             **(extra or {}),
         }
+        alert: tuple[str, dict[str, Any]] | None = None
         with _lock:
             self._append_jsonl(self._event_path(eng), row)
             self._reject_streak[eng] += 1
             if self._reject_streak[eng] >= 20:
-                self._emit_alert(
+                alert = (
                     "consecutive_rejects",
-                    engine=eng,
-                    count=self._reject_streak[eng],
-                    reason=reason,
+                    {
+                        "engine": eng,
+                        "count": self._reject_streak[eng],
+                        "reason": reason,
+                    },
                 )
+        if alert is not None:
+            self._emit_alert(alert[0], **alert[1])
         self._check_alerts(eng)
 
     def record_pa_hold_reason(
@@ -265,10 +270,13 @@ class EngineTelemetryService:
             "exit_reason": exit_reason,
             **(extra or {}),
         }
+        check_dd = False
         with _lock:
             self._append_jsonl(self._event_path(eng), row)
             if float(pnl_r) < 0:
-                self._check_dd_alert(eng)
+                check_dd = True
+        if check_dd:
+            self._check_dd_alert(eng)
 
     def record_latency(self, *, stage: str, elapsed_sec: float, symbol: str = "") -> None:
         with _lock:

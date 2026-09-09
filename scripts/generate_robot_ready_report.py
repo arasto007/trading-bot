@@ -52,10 +52,13 @@ def main() -> int:
         backtest.setdefault("_runner_output_tail", out[-500:] if out else "")
 
     checks = {
-        "hta_power_button": {
-            "file": "live_dashboard.hta",
-            "bat": "start/3_live_loop_execute.bat",
-            "pass": _file_exists("live_dashboard.hta") and _file_exists("start/3_live_loop_execute.bat"),
+        "web_dashboard": {
+            "server": "scripts/dashboard_server.py",
+            "start_bat": "RUN_DASHBOARD.bat",
+            "pass": (
+                _file_exists("scripts/dashboard_server.py")
+                and _file_exists("RUN_DASHBOARD.bat")
+            ),
         },
         "vol_regime_not_ml": {
             "env_use_ml_kernel": __import__("os").environ.get("USE_ML_KERNEL", ""),
@@ -99,8 +102,8 @@ def main() -> int:
     checks["verify_vol_regime_live_ready"] = {"exit_code": vr_code, "pass": vr_code == 0, "output": vr_out[-800:]}
 
     power_chain = [
-        "live_dashboard.hta btnLive onclick",
-        "RunBatFile start\\3_live_loop_execute.bat",
+        "Web Dashboard START action",
+        "dashboard_server.py -> start/START_BOT.bat",
         "start/_load_env.bat loads .env",
         "set USE_ML_KERNEL=false + TRADINGBOT_DEMO_LIVE=1",
         "scripts/check_vol_regime_live_setup.py (MT5 attach-only + demo check)",
@@ -112,7 +115,7 @@ def main() -> int:
     ]
 
     stop_chain = [
-        "live_dashboard.hta btnStop",
+        "Web Dashboard STOP action",
         "start/5_stop_bot.bat",
         "scripts/stop_live_daemon.ps1",
         "data/manual_stop.flag + kill demo monitor + demo_live_runner + legacy watchdog",
@@ -131,15 +134,15 @@ def main() -> int:
         "پیش از روشن کردن": [
             "MT5 را باز کنید و با حساب دمو 91213150 لاگین باشید",
             "دکمه Algo Trading در MT5 سبز باشد",
-            "live_dashboard.hta را از پوشه پروژه اجرا کنید",
+            "Dashboard وب را با RUN_DASHBOARD.bat اجرا کنید",
         ],
         "روشن کردن ربات": [
-            "دکمه «روشن کردن ربات — LIVE» را بزنید",
+            "در Web Dashboard روی START بزنید",
             "مسیر VOL_REGIME ATR2.5_RR0.8 بدون ML اجرا می‌شود",
             "TRADINGBOT_DEMO_LIVE=1 خودکار ست می‌شود — فقط دمو",
         ],
         "توقف": [
-            "دکمه «توقف ربات» — monitor و runner متوقف می‌شوند",
+            "در Web Dashboard روی STOP بزنید",
         ],
         "لاگ‌ها": [
             "logs/demo_live_journal.jsonl — چرخه‌های live",

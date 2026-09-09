@@ -76,3 +76,6 @@ class BacktestResult:
     trades: list[ClosedTrade] = field(default_factory=list)
     equity_curve: list[dict] = field(default_factory=list)
     metrics: dict[str, Any] = field(default_factory=dict)
+    cost_completeness: str = "UNKNOWN"
+    cost_traces: list[dict[str, Any]] = field(default_factory=list)
+    dataset_provenance: list[dict[str, Any]] = field(default_factory=list)

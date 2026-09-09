@@ -116,10 +116,12 @@ class TestPhase141DecisionEngine(unittest.TestCase):
         self.assertEqual(d.engine, RANGE_MODEL_ID)
 
     def test_trend_selects_trend_engine(self):
+        from tradingbot.ml.phase17d.versioning import resolve_active_trend_engine_id
+
         orch = DecisionOrchestrator()
         ctx = _ctx("TREND", trend_sig="SELL", trend_conf=0.82)
         d = orch.decide(ctx)
-        self.assertEqual(d.engine, TREND_MODEL_ID)
+        self.assertEqual(d.engine, resolve_active_trend_engine_id())
 
     def test_high_vol_blocks(self):
         orch = DecisionOrchestrator()

@@ -41,7 +41,7 @@
     {
       "label": "🌐 باز کردن پنل دکمه‌ها (HTA)",
       "type": "shell",
-      "command": "start live_dashboard.hta",
+      "command": "RUN_DASHBOARD.bat",
       "options": { "cwd": "${workspaceFolder}" },
       "problemMatcher": []
     }

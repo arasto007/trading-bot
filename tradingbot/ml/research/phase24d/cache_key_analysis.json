@@ -26,11 +26,11 @@
     }
   ],
   "invalidating_field": "tail.index[-1] (last closed bar timestamp)",
-  "samples_analyzed": 80,
-  "unique_keys": 80,
+  "samples_analyzed": 25,
+  "unique_keys": 25,
   "hit_ratio_expected_live": 0.0,
   "hit_scenario": "Cache hits only when the same closed bar is evaluated twice with identical tail length",
   "phase24c_measured_hit_ratio": 0.0,
   "phase": "24D",
-  "generated_utc": "2026-07-08T11:34:19.499973+00:00"
+  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
 }

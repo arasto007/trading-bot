@@ -19,9 +19,7 @@ sys.path.insert(0, str(ROOT))
 
 from tradingbot.domain.enums import SignalDirection
 from tradingbot.domain.models import MarketKey, TradingSignal
-from tradingbot.ml.data.stores import CandleStore
 from tradingbot.ml.dataset.schema import DATASET_SCHEMA_VERSION
-from tradingbot.ml.dataset.store import DatasetStore
 from tradingbot.ml.integration.pipeline_cache import PipelineCache
 from tradingbot.ml.live_validation.config import (
     EXPECTED_DATASET_FINGERPRINT,
@@ -41,8 +39,9 @@ from tradingbot.ml.live_validation.shadow_statistics import ShadowStatistics
 from tradingbot.ml.live_validation.shadow_trade import ShadowTrade, shadow_trade_from_signal
 from tradingbot.ml.live_validation.signal_consistency import ConsistencyCheck, SignalConsistencyValidator
 from tradingbot.ml.live_validation.validator import validate_shadow_result
-from tradingbot.ml.phase15a.trend_bundle import freeze_trend_bundle_from_candles
 from tradingbot.ml.phase15a.unified_signal import UnifiedSignal
+
+from tests.helpers.kernel_tmp_fixture import setup_kernel_tmp
 
 LIVE_VALIDATION_PKG = ROOT / "tradingbot" / "ml" / "live_validation"
 FORBIDDEN_PATHS = (
@@ -86,18 +85,10 @@ def _dataset(n: int = 500) -> pd.DataFrame:
 
 
 def _setup_tmp(tmp: str) -> None:
-    import shutil
-    src = ROOT / "data" / "ml" / "research" / "phase9_9_best"
-    if src.is_dir():
-        dst = Path(tmp) / "ml" / "research" / "phase9_9_best"
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copytree(src, dst)
     candles = _candles(1200)
-    CandleStore(tmp).store("XAUUSD", "M5", candles)
     ds = _dataset(1200)
     ds["timestamp"] = list(candles.index)
-    DatasetStore(tmp).store_v2("XAUUSD", "M5", ds)
-    freeze_trend_bundle_from_candles(candles, base_dir=tmp)
+    setup_kernel_tmp(tmp, candles=candles, dataset=ds)
 
 
 def _has_artifacts() -> bool:

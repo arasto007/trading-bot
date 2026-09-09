@@ -8,7 +8,7 @@
       "inference_fn": "Phase99Bundle.predict_proba",
       "call_site": {
         "file": "tradingbot/ml/research/regime_router/range_engine_adapter.py",
-        "line": 88
+        "line": 92
       },
       "input": "feature vector from row_for_phase99_range + StandardScaler",
       "output": "float proba[1] \u2014 positive class probability",
@@ -39,5 +39,5 @@
     "ConfidenceEngine.from_context adjusts final_confidence",
     "DecisionPolicy.apply gates action using final_confidence not raw probability"
   ],
-  "generated_utc": "2026-07-08T11:01:18.984602+00:00"
+  "generated_utc": "2026-08-29T02:20:56.267598+00:00"
 }

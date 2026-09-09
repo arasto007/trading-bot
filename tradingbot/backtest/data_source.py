@@ -12,13 +12,26 @@ import logging
 import os
 from typing import Any
 
+from datetime import timedelta
+
 import pandas as pd
 
 from tradingbot.adapters.indicator_engine import TechnicalIndicatorEngine
 from tradingbot.adapters.legacy_loader import ensure_legacy_path
-from tradingbot.adapters.symbols import resolve_broker_symbol
 from tradingbot.adapters.timeframes import to_legacy
 from tradingbot.backtest.config import BacktestConfig
+from tradingbot.backtest.dataset_contract import (
+    InstrumentContractError,
+    resolve_broker_symbol_for_dataset,
+)
+from tradingbot.backtest.dataset_provenance import (
+    DatasetMetadata,
+    SidecarValidationError,
+    apply_sidecar_to_backtest_config,
+    load_dataset_metadata,
+    validate_sidecar_against_parquet,
+)
+from tradingbot.config.live import PRIMARY_SYMBOL
 from tradingbot.domain.models import MarketKey
 
 logger = logging.getLogger(__name__)
@@ -52,8 +65,30 @@ class BacktestMarketData:
         self._indicators = TechnicalIndicatorEngine(legacy_config)
         self._frames: dict[str, pd.DataFrame] = {}
         self._broker_symbols: dict[str, str] = {}
+        self._binding_sources: dict[str, str] = {}
+        self._binding_errors: dict[str, dict[str, str]] = {}
+        self._sidecar_metadata: dict[str, DatasetMetadata] = {}
+        self._parquet_paths: dict[str, str] = {}
         self._cursor = 0
         self._length = 0
+
+    def _configured_instrument(self) -> str:
+        return (
+            self._cfg.configured_instrument_symbol
+            or (self._cfg.symbols[0] if self._cfg.symbols else PRIMARY_SYMBOL)
+        )
+
+    def _bind_symbol(self, logical: str) -> str:
+        """Bind a dataset/logical symbol through the explicit contract. No silent _i alias."""
+        broker, source = resolve_broker_symbol_for_dataset(
+            logical,
+            configured_symbol=self._configured_instrument(),
+            dataset_symbol_map=self._cfg.dataset_symbol_map,
+        )
+        self._broker_symbols[logical] = broker
+        self._binding_sources[logical] = source
+        self._binding_errors.pop(logical, None)
+        return broker
 
     # ------------------------------------------------------------- data load
     def load(self) -> int:
@@ -64,8 +99,11 @@ class BacktestMarketData:
             if df is None or df.empty:
                 logger.warning("No data for %s — skipped", symbol)
                 continue
+            broker = self._broker_symbols.get(symbol)
+            if broker is None:
+                broker = self._bind_symbol(symbol)
             enriched = self._indicators.enrich_for_market(
-                df, self._cfg.timeframe, self._broker_symbols.get(symbol, symbol)
+                df, self._cfg.timeframe, broker
             )
             enriched = enriched.dropna(subset=["open", "high", "low", "close"])
             enriched = self._apply_window_slice(enriched)
@@ -93,11 +131,39 @@ class BacktestMarketData:
                 min_bars = self._min_bars_required()
                 if len(df) >= min_bars * 0.9:
                     logger.info("Cache hit %s (%d bars)", symbol, len(df))
-                    self._broker_symbols[symbol] = self._broker_symbols.get(symbol, symbol)
+                    self._parquet_paths[symbol] = path
+                    self._apply_sidecar_for_path(symbol, path, df)
+                    self._bind_symbol(symbol)
                     return df
             except Exception as e:
                 logger.debug("Cache read failed %s: %s", symbol, e)
         return self._fetch_mt5(symbol, path)
+
+    def _apply_sidecar_for_path(self, symbol: str, path: str, df: pd.DataFrame) -> None:
+        """Load and validate optional metadata sidecar — fail closed on mismatch."""
+        try:
+            meta = load_dataset_metadata(path)
+        except SidecarValidationError:
+            raise
+        if meta is None:
+            return
+        ok, reason = validate_sidecar_against_parquet(meta, df, path)
+        if not ok:
+            raise SidecarValidationError("SIDECAR_PARQUET_MISMATCH", reason)
+        self._sidecar_metadata[symbol] = meta
+        apply_sidecar_to_backtest_config(self._cfg, meta)
+        if meta.dataset_symbol_map:
+            merged = dict(self._cfg.dataset_symbol_map or {})
+            merged.update(meta.dataset_symbol_map)
+            self._cfg.dataset_symbol_map = merged
+
+    def sidecar_metadata(self, symbol: str | None = None) -> DatasetMetadata | dict[str, DatasetMetadata]:
+        if symbol is not None:
+            return self._sidecar_metadata.get(symbol)
+        return dict(self._sidecar_metadata)
+
+    def parquet_path(self, symbol: str) -> str | None:
+        return self._parquet_paths.get(symbol)
 
     def _min_bars_required(self) -> int:
         if self._cfg.days:
@@ -124,16 +190,15 @@ class BacktestMarketData:
         return df
 
     def _fetch_mt5(self, symbol: str, cache_path: str) -> pd.DataFrame | None:
+        broker_symbol = self._bind_symbol(symbol)
         ensure_legacy_path()
         import MetaTrader5 as mt5  # noqa: E402
         from tradingbot.adapters.mt5_utils import ensure_mt5_connected
 
-        if not ensure_mt5_connected(self._legacy_config, symbols=[symbol]):
+        if not ensure_mt5_connected(self._legacy_config, symbols=[broker_symbol]):
             logger.error("MT5 not connected — cannot fetch %s", symbol)
             return None
 
-        broker_symbol = resolve_broker_symbol(symbol, self._legacy_config)
-        self._broker_symbols[symbol] = broker_symbol
         mt5.symbol_select(broker_symbol, True)
         tf = _mt5_timeframe(self._cfg.timeframe)
         if self._cfg.days:
@@ -219,7 +284,11 @@ class BacktestMarketData:
         self._frames = dict(frames)
         self._length = min((len(df) for df in frames.values()), default=0)
         for sym in frames:
-            self._broker_symbols.setdefault(sym, sym)
+            try:
+                self._bind_symbol(sym)
+            except InstrumentContractError as exc:
+                self._binding_errors[sym] = {"code": exc.code, "message": exc.message}
+                self._broker_symbols.pop(sym, None)
         return self._length
 
     # ----------------------------------------------- IMarketDataProvider API
@@ -240,4 +309,35 @@ class BacktestMarketData:
         limit = min(bars, self._cfg.signal_window) if bars else self._cfg.signal_window
         if len(window) > limit:
             window = window.tail(limit)
+        if self._cfg.simulate_forming_bar and not window.empty:
+            window = self._append_forming_bar(window)
         return window
+
+    def _timeframe_delta(self) -> timedelta:
+        tf = str(self._cfg.timeframe).upper()
+        if tf.startswith("M") and tf[1:].isdigit():
+            return timedelta(minutes=int(tf[1:]))
+        if tf.startswith("H") and tf[1:].isdigit():
+            return timedelta(hours=int(tf[1:]))
+        if tf == "D1":
+            return timedelta(days=1)
+        return timedelta(minutes=5)
+
+    def _append_forming_bar(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Append synthetic forming bar so exclude_forming_bar matches live MT5 semantics."""
+        last = df.iloc[-1]
+        next_ts = pd.to_datetime(df.index[-1]) + self._timeframe_delta()
+        forming = pd.DataFrame(
+            {
+                "open": [float(last["open"])],
+                "high": [float(last["high"])],
+                "low": [float(last["low"])],
+                "close": [float(last["close"])],
+                "volume": [float(last.get("volume", 0.0))],
+            },
+            index=pd.DatetimeIndex([next_ts]),
+        )
+        for col in ("bid", "ask"):
+            if col in last.index:
+                forming[col] = [float(last[col])]
+        return pd.concat([df, forming])

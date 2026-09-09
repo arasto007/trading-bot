@@ -2,105 +2,105 @@
   "phase": "24C",
   "root": {
     "name": "kernel_adapter_total",
-    "p95_ms": 58.1389,
-    "mean_ms": 55.5042,
-    "count": 1130,
+    "p95_ms": 60.2566,
+    "mean_ms": 60.0301,
+    "count": 18,
     "children": [
       {
         "name": "produce_unified_signal_total",
-        "p95_ms": 165.7562,
-        "mean_ms": 64.3085,
-        "count": 1130,
+        "p95_ms": 200.3047,
+        "mean_ms": 177.133,
+        "count": 18,
         "children": [
           {
             "name": "health_gate",
-            "p95_ms": 25.8469,
-            "mean_ms": 24.6119,
-            "count": 1130,
+            "p95_ms": 25.0827,
+            "mean_ms": 24.7037,
+            "count": 18,
             "children": []
           },
           {
             "name": "pipeline_cache_unified_frame",
-            "p95_ms": 162.1114,
-            "mean_ms": 115.5723,
-            "count": 1130,
+            "p95_ms": 61.3843,
+            "mean_ms": 61.8143,
+            "count": 18,
             "children": [
               {
                 "name": "dataset_store_load",
-                "p95_ms": 40.1912,
-                "mean_ms": 37.1048,
-                "count": 1130,
+                "p95_ms": 3.3551,
+                "mean_ms": 3.0919,
+                "count": 18,
                 "children": []
               },
               {
                 "name": "unified_frame_merge",
-                "p95_ms": 136.6904,
-                "mean_ms": 90.3446,
-                "count": 1130,
+                "p95_ms": 63.4215,
+                "mean_ms": 60.1654,
+                "count": 18,
                 "children": []
               }
             ]
           },
           {
             "name": "build_market_context",
-            "p95_ms": 110.4251,
-            "mean_ms": 79.722,
-            "count": 1130,
+            "p95_ms": 92.4503,
+            "mean_ms": 70.8623,
+            "count": 18,
             "children": [
               {
                 "name": "range_engine_evaluate",
-                "p95_ms": 70.2467,
-                "mean_ms": 64.7057,
-                "count": 1130,
+                "p95_ms": 62.7804,
+                "mean_ms": 60.9623,
+                "count": 18,
                 "children": [
                   {
                     "name": "feature_builder_compute_at",
-                    "p95_ms": 68.9256,
-                    "mean_ms": 63.6986,
-                    "count": 1130,
+                    "p95_ms": 60.6234,
+                    "mean_ms": 59.2007,
+                    "count": 18,
                     "children": []
                   },
                   {
                     "name": "predict_proba_only",
-                    "p95_ms": 1.4423,
-                    "mean_ms": 1.2039,
-                    "count": 1130,
+                    "p95_ms": 1.2662,
+                    "mean_ms": 1.1887,
+                    "count": 18,
                     "children": []
                   }
                 ]
               },
               {
                 "name": "trend_engine_evaluate",
-                "p95_ms": 31.4718,
-                "mean_ms": 13.4067,
-                "count": 1130,
+                "p95_ms": 29.7087,
+                "mean_ms": 8.2907,
+                "count": 18,
                 "children": []
               }
             ]
           },
           {
             "name": "trade_quality",
-            "p95_ms": 0.1986,
-            "mean_ms": 0.1367,
-            "count": 1130,
+            "p95_ms": 0.1932,
+            "mean_ms": 0.1157,
+            "count": 18,
             "children": [
               {
                 "name": "calibration",
-                "p95_ms": 0.0261,
-                "mean_ms": 0.0172,
-                "count": 1130,
+                "p95_ms": 0.0242,
+                "mean_ms": 0.0161,
+                "count": 18,
                 "children": [
                   {
                     "name": "decision_orchestrator",
-                    "p95_ms": 0.0692,
-                    "mean_ms": 0.0367,
-                    "count": 1130,
+                    "p95_ms": 0.0487,
+                    "mean_ms": 0.0272,
+                    "count": 18,
                     "children": [
                       {
                         "name": "confidence_engine",
-                        "p95_ms": 0.0386,
-                        "mean_ms": 0.0198,
-                        "count": 1130,
+                        "p95_ms": 0.0248,
+                        "mean_ms": 0.0159,
+                        "count": 18,
                         "children": []
                       }
                     ]
@@ -109,27 +109,27 @@
               },
               {
                 "name": "adaptive_risk",
-                "p95_ms": 0.2597,
-                "mean_ms": 0.1643,
-                "count": 1130,
+                "p95_ms": 0.2172,
+                "mean_ms": 0.1317,
+                "count": 18,
                 "children": []
               }
             ]
           },
           {
             "name": "profitability_filters",
-            "p95_ms": 0.0945,
-            "mean_ms": 0.07,
-            "count": 368,
+            "p95_ms": 0.0757,
+            "mean_ms": 0.0817,
+            "count": 7,
             "children": []
           }
         ]
       },
       {
         "name": "execution_stage_prep",
-        "p95_ms": 0.0657,
-        "mean_ms": 0.1379,
-        "count": 1130,
+        "p95_ms": 2.1723,
+        "mean_ms": 0.5238,
+        "count": 18,
         "children": []
       }
     ]
@@ -142,16 +142,16 @@
     "children": [
       {
         "name": "dataframe_copy",
-        "p95_ms": 0.3258,
-        "mean_ms": 0.2878,
-        "count": 1130,
+        "p95_ms": 0.2626,
+        "mean_ms": 0.214,
+        "count": 18,
         "children": []
       },
       {
         "name": "data_stage",
-        "p95_ms": 0.1001,
-        "mean_ms": 0.0897,
-        "count": 1130,
+        "p95_ms": 0.0957,
+        "mean_ms": 0.0958,
+        "count": 18,
         "children": [
           {
             "name": "mt5_parquet_read",
@@ -171,19 +171,19 @@
       },
       {
         "name": "indicator_stage",
-        "p95_ms": 50.708,
-        "mean_ms": 48.6258,
-        "count": 1130,
+        "p95_ms": 49.7252,
+        "mean_ms": 48.1745,
+        "count": 18,
         "children": []
       },
       {
         "name": "legacy_risk_gate",
-        "p95_ms": 7.1577,
-        "mean_ms": 7.0876,
-        "count": 1130,
+        "p95_ms": 0.051,
+        "mean_ms": 0.5835,
+        "count": 18,
         "children": []
       }
     ]
   },
-  "generated_utc": "2026-07-08T11:27:51.426656+00:00"
+  "generated_utc": "2026-08-29T20:58:38.344761+00:00"
 }

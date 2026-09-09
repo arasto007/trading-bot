@@ -11,11 +11,19 @@ import logging
 from typing import Any
 
 from tradingbot.backtest.config import BacktestConfig
+from tradingbot.backtest.cost_model import (
+    BacktestCostModel,
+    CostAvailability,
+    SpreadMode,
+    build_backtest_cost_model,
+    spread_pips_from_bar,
+)
+from tradingbot.backtest.instrument import resolve_backtest_economics
 from tradingbot.backtest.models import ClosedTrade, VirtualPosition
+from tradingbot.domain.broker_economics import validate_sl_tp_vs_stops
 from tradingbot.domain.enums import SignalDirection
 from tradingbot.domain.models import ExecutionResult, TradingSignal
 from tradingbot.domain.position_logic import pip_size
-from tradingbot.domain.session_logic import variable_slippage_pips, variable_spread_pips
 
 logger = logging.getLogger(__name__)
 
@@ -23,9 +31,10 @@ logger = logging.getLogger(__name__)
 class SimulatedBroker:
     """IOrderExecutor شبیه‌سازی‌شده + موتور حساب‌داری معاملات."""
 
-    def __init__(self, config: BacktestConfig, data_source) -> None:
+    def __init__(self, config: BacktestConfig, data_source, *, legacy_config: dict | None = None) -> None:
         self._cfg = config
         self._data = data_source
+        self._legacy_config = legacy_config or {}
         self.balance = config.initial_balance
         self.equity = config.initial_balance
         self.open_positions: list[VirtualPosition] = []
@@ -33,6 +42,10 @@ class SimulatedBroker:
         self._next_ticket = 1
         self._last_day: str = ""
         self._day_start_balance: float = config.initial_balance
+        self._cost_model: BacktestCostModel = build_backtest_cost_model(
+            config,
+            spread_mode=config.spread_mode,
+        )
 
     # ----------------------------------------------------- IOrderExecutor
     def execute(self, signal: TradingSignal, lot: float) -> ExecutionResult:
@@ -45,26 +58,44 @@ class SimulatedBroker:
         pip = pip_size(symbol)
         close = float(bar["close"])
         hour = self._current_hour()
-        spread_pips = (
-            variable_spread_pips(self._cfg.spread_pips, hour)
-            if self._cfg.variable_spread
-            else self._cfg.spread_pips
-        )
-        slip_pips = (
-            variable_slippage_pips(self._cfg.slippage_pips, hour)
-            if self._cfg.variable_spread
-            else self._cfg.slippage_pips
-        )
+        spread_pips = self._spread_pips_for_bar(bar, hour)
+        if spread_pips is None:
+            return ExecutionResult(success=False, message="spread unavailable (UNKNOWN)")
+
+        slip_pips = self._cost_model.slippage_pips_at_hour(hour)
+        if slip_pips is None:
+            if self._cost_model.slippage.availability == CostAvailability.UNKNOWN:
+                return ExecutionResult(success=False, message="slippage UNKNOWN")
+            slip_pips = 0.0
         half_spread = (spread_pips / 2.0) * pip
         slip = slip_pips * pip
         # خرید گران‌تر، فروش ارزان‌تر (به ضرر ما)
         entry = close + half_spread + slip if is_buy else close - half_spread - slip
 
-        lot = self._round_lot(lot)
-        commission = self._cfg.commission_per_lot * lot
+        economics = resolve_backtest_economics(symbol, self._legacy_config)
+        if economics is None:
+            return ExecutionResult(success=False, message="BROKER_ECONOMICS_UNAVAILABLE")
+
+        lot = self._normalize_lot(lot, economics)
+        if lot <= 0:
+            return ExecutionResult(success=False, message="VOLUME_REJECTED")
 
         sl = signal.stop_loss or 0.0
         tp = signal.take_profit or 0.0
+        ok, reason = validate_sl_tp_vs_stops(
+            entry, sl if sl > 0 else None, tp if tp > 0 else None, is_buy=is_buy, economics=economics
+        )
+        if not ok:
+            return ExecutionResult(success=False, message=reason)
+
+        commission = 0.0
+        if self._cost_model.commission.availability == CostAvailability.MODELED:
+            commission = float(self._cost_model.commission.value or 0.0) * lot
+        elif self._cost_model.commission.availability == CostAvailability.ZERO:
+            commission = 0.0
+        else:
+            return ExecutionResult(success=False, message="commission UNKNOWN")
+
         initial_risk = abs(entry - sl) if sl > 0 else 0.0
 
         meta = signal.metadata or {}
@@ -121,11 +152,10 @@ class SimulatedBroker:
         low = float(bar["low"])
         pip = pip_size(symbol)
         hour = self._current_hour()
-        slip_pips = (
-            variable_slippage_pips(self._cfg.slippage_pips, hour)
-            if self._cfg.variable_spread
-            else self._cfg.slippage_pips
-        )
+        slip_pips = self._cost_model.slippage_pips_at_hour(hour)
+        if slip_pips is None:
+            # Exit without modeled slippage when evidence is UNKNOWN (not zero substitution).
+            slip_pips = 0.0
         slip = slip_pips * pip
         for pos in self.positions_for(symbol):
             if not allow_same_bar and pos.entry_index == self._data.cursor:
@@ -240,10 +270,41 @@ class SimulatedBroker:
             ],
         }
 
-    def _round_lot(self, lot: float) -> float:
-        step = self._cfg.lot_step
-        lot = max(self._cfg.min_lot, min(lot, self._cfg.max_lot))
-        return round(round(lot / step) * step, 2)
+    @property
+    def cost_model(self) -> BacktestCostModel:
+        return self._cost_model
+
+    def _spread_pips_for_bar(self, bar, hour: int) -> float | None:
+        symbol = self._cfg.symbols[0] if self._cfg.symbols else "XAUUSD_i"
+        if self._cost_model.spread_mode == SpreadMode.DATASET:
+            dataset_spread = spread_pips_from_bar(bar, symbol=symbol)
+            if dataset_spread is not None:
+                return dataset_spread
+        if self._cost_model.spread_mode == SpreadMode.UNKNOWN:
+            return None
+        spread = self._cost_model.spread_pips_at_hour(hour)
+        if spread is None and self._cfg.variable_spread and self._cost_model.spread_mode == SpreadMode.PROXY:
+            from tradingbot.domain.session_logic import variable_spread_pips
+
+            spread = variable_spread_pips(self._cfg.spread_pips, hour)
+        return spread
+
+    def refresh_cost_model(self, frame) -> None:
+        """Rebuild cost model after dataset load (AUTO spread detection)."""
+        self._cost_model = build_backtest_cost_model(
+            self._cfg,
+            spread_mode=self._cfg.spread_mode,
+            frame=frame,
+        )
+
+    def _normalize_lot(self, lot: float, economics) -> float:
+        """Floor to volume step — never round up; reject below min (live parity)."""
+        stepped = economics.floor_to_volume_step(lot)
+        if stepped < economics.volume_min - 1e-12:
+            return 0.0
+        if stepped > economics.volume_max + 1e-12:
+            stepped = economics.volume_max
+        return round(stepped, 2)
 
     def _current_hour(self) -> int:
         ts = self._data.current_time()

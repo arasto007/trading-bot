@@ -1,5 +1,9 @@
 # Decision Map — BUY Signal Gates
 
+> **HISTORICAL (2026-07 audit).** Assumes Adaptive as the live config.
+> Current live truth is `docs_v2/` (MultiEngineRouter + `PA_PRODUCTION_LOCK` → Price Action).
+> Do not treat this file as the active live contract. Historical gate analysis below is unchanged.
+
 **Repository:** `TradingBot new`  
 **Assumed live config:** ADAPTIVE_REGIME, CONFLUENCE_ONLY, USE_ML_KERNEL=false, WPSQF OFF, TQ skipped
 

@@ -9,7 +9,8 @@
 ### معاملات زنده
 
 - اتصال MetaTrader 5 (`adapters/mt5_*`)
-- **فقط XAUUSD** — تایم‌فریم‌های **M5 / M15 / H4** (همزمان در هر چرخه)
+- **فقط XAUUSD_i** روی مسیر live فعلی — تایم‌فریم کرنل **M5 (`5m`) فقط** وقتی router روشن است (`get_live_config()` → `TIMEFRAMES=["5m"]`).
+- توصیف قدیمی «M5 / M15 / H4 همزمان در هر چرخه» **تاریخی/stale** است و مسیر live پیش‌فرض فعلی را توصیف نمی‌کند.
 - پریست per-TF: `config/pa_symbol_tf_presets.py`
 - هسته: `TradingKernel` + pipeline ۵ مرحله
 - **سه حالت اجرا**: dry-run / paper / live (`services/execution_mode.py`)
@@ -54,7 +55,7 @@
 
 ### پنل و اجرا
 
-- پنل: `live_dashboard.hta`
+- پنل وب: `scripts/dashboard_server.py`
 - پوشه `start/` — batهای آماده
 
 ### اجرا

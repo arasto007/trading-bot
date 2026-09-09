@@ -2,16 +2,16 @@
   "phase": "24C",
   "pipeline_cache_feature": {
     "hits": 0,
-    "misses": 1130,
+    "misses": 18,
     "hit_ratio": 0.0
   },
   "pipeline_cache_prediction": {
-    "hits": 1044,
-    "misses": 86,
-    "hit_ratio": 0.9239
+    "hits": 0,
+    "misses": 18,
+    "hit_ratio": 0.0
   },
   "feature_builder": {
-    "calls": 1130,
+    "calls": 18,
     "internal_cache": false,
     "note": "FeatureBuilder.compute_at has no cache \u2014 every call is a full recompute"
   },
@@ -22,7 +22,7 @@
     "pipeline_budget_ms": 500.0,
     "method": "perf_counter_per_stage",
     "production_modified": false,
-    "bars_profiled": 1130,
-    "generated_utc": "2026-07-08T11:27:51.259241+00:00"
+    "bars_profiled": 18,
+    "generated_utc": "2026-08-29T20:58:38.325646+00:00"
   }
 }

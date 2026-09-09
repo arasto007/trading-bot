@@ -92,7 +92,7 @@ def _wait_mt5(seconds: int = 60) -> bool:
 
 def main() -> int:
     print("=" * 48)
-    print("  START BOT — VOL_REGIME LIVE")
+    print("  START BOT — PA ROUTER LIVE")
     print("=" * 48)
 
     pid = _bot_pid()

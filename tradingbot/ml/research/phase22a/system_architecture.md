@@ -36,7 +36,7 @@ Execution Layer (Mt5ExecutionAdapter → order_send)
 | **Legacy engine (fallback)** | `engine/` | StrategyManager, PriceAction |
 | **Research (isolated)** | `tradingbot/ml/research/` | 409+ files — NOT live path |
 | **Scripts (ops)** | `scripts/`, `start/` | Launch, verify, backtest |
-| **Dashboard (UI)** | `live_dashboard.hta`, `RUN_DASHBOARD.bat` | HTA panel |
+| **Dashboard (UI)** | `scripts/dashboard_server.py`, `RUN_DASHBOARD.bat` | Local Web Dashboard |
 
 ## Core Objects (Live)
 
@@ -56,7 +56,7 @@ Execution Layer (Mt5ExecutionAdapter → order_send)
 | Entry | Production? |
 |-------|-------------|
 | `python -m tradingbot --loop --execute` | **YES** (via watchdog) |
-| `start/3_live_loop_execute.bat` | **YES** (dashboard LIVE) |
+| `RUN_DASHBOARD.bat` | **YES** (dashboard LIVE) |
 | `scripts/run_live_watchdog.py` | **YES** |
 | `run_system_manager.py` | **NO** — removed/replaced |
 | `scripts/run_phase*.py` (70+) | **NO** — research/validation only |
@@ -74,7 +74,7 @@ TradingBot new/
 ├── data/                # Runtime: journal, ML artifacts, flags
 ├── logs/                # watchdog, execution logs
 ├── reports/             # Backtest JSON outputs
-├── live_dashboard.hta   # Primary UI
+├── scripts/dashboard_server.py   # Primary UI
 ├── .env                 # MT5 + USE_ML_KERNEL + Phase 19D filters
 └── docs/                # Onboarding, phase docs (FA)
 ```

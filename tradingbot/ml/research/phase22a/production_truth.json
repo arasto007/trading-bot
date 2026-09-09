@@ -3,7 +3,7 @@
   "audit_date": "2026-07-04",
   "executes_in_production_live": [
     {
-      "path": "start/3_live_loop_execute.bat",
+      "path": "RUN_DASHBOARD.bat",
       "evidence": "Dashboard LIVE button → verified E2E"
     },
     {

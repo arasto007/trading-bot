@@ -16,6 +16,21 @@ from typing import Dict, Any, List
 # via normalize_symbol("XAUUSD_i") → "XAUUSD".
 PRIMARY_SYMBOL = "XAUUSD_i"
 
+# Phase 25A: explicit environment → broker symbol (no silent _i hunt).
+# Observed LiteFinance Demo/Real terminals both use XAUUSD_i; override via env if needed.
+def _parse_account_environment() -> str:
+    raw = os.getenv("TRADINGBOT_ACCOUNT_ENV") or os.getenv("TRADINGBOT_ACCOUNT_ENVIRONMENT", "DEMO")
+    env = str(raw).strip().upper()
+    return "REAL" if env in ("REAL", "LIVE") else "DEMO"
+
+
+_REAL_TRADING_SYMBOL = os.getenv("TRADINGBOT_REAL_SYMBOL", PRIMARY_SYMBOL).strip() or PRIMARY_SYMBOL
+
+SYMBOL_BY_ENVIRONMENT: dict[str, str] = {
+    "DEMO": PRIMARY_SYMBOL,
+    "REAL": _REAL_TRADING_SYMBOL,
+}
+
 # Live Trading Configuration
 LIVE_TRADING_CONFIG = {
     # MT5 Connection Settings — loaded from environment (see legacy_loader.py)
@@ -57,6 +72,10 @@ LIVE_TRADING_CONFIG = {
     # Trading Symbols and Timeframes — Gold-only Price Action (demo broker symbol)
     'SYMBOLS': [PRIMARY_SYMBOL],
     'symbols': [PRIMARY_SYMBOL],
+    # Phase 25A — explicit symbol map (fail-closed resolution in adapters.symbols)
+    'ACCOUNT_ENVIRONMENT': _parse_account_environment(),
+    'SYMBOL_BY_ENVIRONMENT': dict(SYMBOL_BY_ENVIRONMENT),
+    'SYMBOL_RESOLUTION_STRICT': True,
     'TIMEFRAMES': ['5m', '15m', '4h'],
     
     # Signal Settings — per-TF presets در pa_symbol_tf_presets (M5/M15/H4)

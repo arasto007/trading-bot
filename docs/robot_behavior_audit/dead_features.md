@@ -1,5 +1,9 @@
 # Unused / Dead Features
 
+> **HISTORICAL (2026-07 audit).** Assumes `ADAPTIVE_REGIME_ENABLED=true` as live config.
+> Current live truth is `docs_v2/` (MultiEngineRouter + `PA_PRODUCTION_LOCK` → Price Action).
+> Do not treat this file as the active live contract. Historical classifications below are unchanged.
+
 **Repository:** `TradingBot new`  
 **Live config assumed:** `ADAPTIVE_REGIME_ENABLED=true`, `USE_ML_KERNEL=false`, `TRADINGBOT_SIGNAL_FILTER` unset (OFF)
 
