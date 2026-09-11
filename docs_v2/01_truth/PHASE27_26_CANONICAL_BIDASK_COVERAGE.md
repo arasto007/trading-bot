@@ -4,7 +4,7 @@
 **Classification:** `PARTIAL_CANONICAL_COVERAGE`  
 **historical_spread:** `PARTIAL`  
 **Artifact:** `logs/phase27_26_canonical_bidask_coverage.json`  
-**Collection timestamp UTC:** `2026-09-06T07:51:09Z`
+**Collection timestamp UTC:** `2026-09-10T07:30:54Z`
 
 Read-only. Phase 27.25 tape was not overwritten. Production parquet was not rewritten.
 
@@ -43,17 +43,6 @@ Read-only. Phase 27.25 tape was not overwritten. Production parquet was not rewr
 
 Production parquet changed: `False`.  
 27.25 tape preserved: `True`.
-
-## Remaining uncovered intervals (180 bars)
-
-Daily UTC rollover (~00:00–00:55, 12 bars each, `technical_or_unavailable`):
-2026-08-14, 18, 19, 20, 21, 25, 26, 27, 28.
-
-Sunday session-break (`mixed_or_session_break`, 36 bars each):
-- 2026-08-16T22:05:00Z → 2026-08-17T01:00:00Z
-- 2026-08-23T22:05:00Z → 2026-08-24T01:00:00Z
-
-These were requested; MT5 returned empty ticks. They are not unrequested periods and were not discarded.
 
 ## Next
 

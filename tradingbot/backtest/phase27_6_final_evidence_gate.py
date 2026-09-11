@@ -12,7 +12,10 @@ from tradingbot.backtest.config import BacktestConfig
 from tradingbot.backtest.cost_evidence_audit import MIN_COMMISSION_SCHEDULE_SAMPLES, dataset_eligibility_for_row
 from tradingbot.backtest.cost_model import CostAvailability, CostCompleteness, SpreadMode, build_backtest_cost_model
 from tradingbot.backtest.dataset_contract import InstrumentContractError, resolve_broker_symbol_for_dataset
-from tradingbot.backtest.dataset_provenance import audit_backtest_datasets
+from tradingbot.backtest.dataset_provenance import (
+    audit_backtest_datasets,
+    qualifies_as_complete_historical_m5_bidask,
+)
 from tradingbot.backtest.metrics import compute_metrics
 from tradingbot.backtest.models import BacktestResult
 from tradingbot.backtest.operator_evidence import _extract_spec, _safe_load_json
@@ -206,14 +209,24 @@ def search_spread_tape_artifacts(root: Path) -> dict[str, Any]:
     meta = _load_json(root / "logs/phase27_6_bidask_tape_meta.json") or _load_json(root / "logs/phase27_5_bidask_tape_meta.json")
     entries = audit_backtest_datasets(base_dir=root)
     bidask_ds = sum(1 for e in entries if e.bid_present and e.ask_present)
+    qualifying_m5 = sum(1 for e in entries if qualifies_as_complete_historical_m5_bidask(e))
+    # Staging paths alone are not full-horizon proof; require qualifying M5 coverage.
+    # Tick/partial bid+ask files increment bidask_ds but must not flip the M5 tape flag.
+    historical_m5 = qualifying_m5 > 0
     return {
         "local_staging_artifacts": candidates,
         "deployed_bidask_datasets": bidask_ds,
-        "historical_m5_tape_available": bool(candidates) or bidask_ds > 0,
+        "full_horizon_m5_bidask_datasets": qualifying_m5,
+        "historical_m5_tape_available": historical_m5,
         "live_tick_snapshots_only": bidask_ds == 0 and not candidates,
         "mt5_meta": meta,
-        "blocker": None if candidates or bidask_ds else "No historical M5 bid/ask tape in repo; Real MT5 attach required for tick collection",
-        "note": "Live tick snapshots do NOT qualify as historical M5 tape",
+        "blocker": None
+        if historical_m5
+        else "No full-horizon M5 bid/ask tape in repo; Real MT5 attach required for tick collection",
+        "note": (
+            "Live tick snapshots and partial/narrow bid+ask files do NOT qualify as "
+            "full-horizon historical M5 tape"
+        ),
     }
 
 

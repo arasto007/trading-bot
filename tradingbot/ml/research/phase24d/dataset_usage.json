@@ -9,23 +9,23 @@
   "loads_simulated": 25,
   "load_v2_timing": {
     "count": 25,
-    "mean_ms": 1.3825,
-    "median_ms": 1.3554,
-    "p95_ms": 1.4572,
-    "p99_ms": 1.4937,
-    "max_ms": 1.9402
+    "mean_ms": 1.4462,
+    "median_ms": 1.3943,
+    "p95_ms": 1.7179,
+    "p99_ms": 1.76,
+    "max_ms": 1.8544
   },
   "new_instance_per_call_timing": {
     "count": 20,
-    "mean_ms": 1.3185,
-    "median_ms": 1.3181,
-    "p95_ms": 1.3444,
-    "p99_ms": 1.3444,
-    "max_ms": 1.4035
+    "mean_ms": 1.3471,
+    "median_ms": 1.2873,
+    "p95_ms": 1.5825,
+    "p99_ms": 1.5825,
+    "max_ms": 1.6185
   },
   "reopens_parquet_every_call": true,
   "incremental_merge_theoretically_possible": true,
   "note": "dataset_v2 is static between offline rebuilds; only the candle tail changes each bar",
   "phase": "24D",
-  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
+  "generated_utc": "2026-09-10T07:21:40.876169+00:00"
 }

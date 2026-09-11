@@ -5,7 +5,7 @@
 **FINAL_GATE:** `BLOCKED`  
 **Production readiness:** `BLOCKED`  
 **Artifact:** `logs/phase27_32_final_cost_evidence_gate.json`  
-**Timestamp UTC:** `2026-09-06T23:01:45Z`
+**Timestamp UTC:** `2026-09-10T07:31:11Z`
 
 Offline synthesis of Phase 27.8–27.31 artifacts. No new MT5 collection. No grade upgrades.
 POLICY ≠ EVIDENCE. COMPLETE_COSTS_REQUIRED was not weakened.
@@ -30,10 +30,10 @@ POLICY ≠ EVIDENCE. COMPLETE_COSTS_REQUIRED was not weakened.
 
 | Component | Status | Evidence grade | Proven? | Blocker? | Required next evidence |
 |---|---|---|---|---|---|
-| `symbol_binding` | `BLOCKED` | `DIRECT_CANONICAL_MATCH=2; MISSING_EXPLICIT_MAP=30; EXPLICIT_MAPPED=0` | `False` | `True` | Explicit dataset_symbol_map for every logical XAUUSD dataset; do not silently map to XAUUSD_i |
+| `symbol_binding` | `BLOCKED` | `DIRECT_CANONICAL_MATCH=12; MISSING_EXPLICIT_MAP=30; EXPLICIT_MAPPED=0` | `False` | `True` | Explicit dataset_symbol_map for every logical XAUUSD dataset; do not silently map to XAUUSD_i |
 | `ev_eq_01` | `NOT_PROVEN` | `NOT_PROVEN` | `False` | `True` | Both XAUUSD and XAUUSD_i on the same Real terminal with critical-field MATCH |
 | `broker_economics` | `UNKNOWN` | `UNKNOWN` | `False` | `True` | Fresh Real (and Demo) XAUUSD_i economics recorded as current evidence, not invented equivalence |
-| `dataset_provenance` | `PARTIAL` | `COMPLETE=0; PARTIAL=2; BLOCKED=31` | `False` | `True` | Sidecar cost fields COMPLETE from verified evidence only; 0 COMPLETE datasets today |
+| `dataset_provenance` | `PARTIAL` | `COMPLETE=0; PARTIAL=12; BLOCKED=31` | `False` | `True` | Sidecar cost fields COMPLETE from verified evidence only; 0 COMPLETE datasets today |
 | `historical_spread` | `BLOCKED` | `PARTIAL_CANONICAL_COVERAGE` | `False` | `True` | Complete canonical Bid/Ask on production parquet; logs tape is 2820/3000; PARTIAL must not be promoted to DATASET |
 | `commission` | `BLOCKED` | `OBSERVED_ZERO_NOT_PROVEN` | `False` | `True` | Account-applicable VERIFIED_SCHEDULE (product type, basis, rate, effective date) |
 | `swap` | `UNKNOWN` | `CURRENT_BROKER_RATE_ONLY` | `False` | `True` | Historical swap series for XAUUSD_i; current broker rates are not historical |

@@ -104,8 +104,9 @@ sequenceDiagram
 ## نکات فنی
 
 ### تایم‌فریم
-- هسته جدید: `M5`, `M15`, `H4` — فقط XAUUSD
-- legacy: `5m`, `1h`, ...
+- پریست‌ها / بک‌تست: `M5`, `M15`, `H4` برای XAUUSD در `pa_symbol_tf_presets.py`
+- **چرخه live پیش‌فرض:** فقط `M5` (`get_live_config()` وقتی router روشن است) — نه اجرای همزمان هر سه TF *(به‌روزرسانی شده — 2026-09-10)*
+- legacy aliases: `5m`, `1h`, ...
 - تبدیل خودکار در `timeframes.py`
 
 ### نماد بروکر

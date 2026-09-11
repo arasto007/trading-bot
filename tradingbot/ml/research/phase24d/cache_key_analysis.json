@@ -32,5 +32,5 @@
   "hit_scenario": "Cache hits only when the same closed bar is evaluated twice with identical tail length",
   "phase24c_measured_hit_ratio": 0.0,
   "phase": "24D",
-  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
+  "generated_utc": "2026-09-10T07:21:40.876169+00:00"
 }

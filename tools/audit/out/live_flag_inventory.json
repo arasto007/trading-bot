@@ -1,0 +1,412 @@
+[
+  {
+    "env_key": "TRADINGBOT_ACCOUNT_ENV",
+    "config_key": null,
+    "default_expr": "",
+    "line": 22,
+    "nearby_comment": "",
+    "all_other_files": [
+      "tradingbot/adapters/symbols.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/symbols.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "TRADINGBOT_REAL_SYMBOL",
+    "config_key": null,
+    "default_expr": "PRIMARY_SYMBOL",
+    "line": 27,
+    "nearby_comment": "",
+    "all_other_files": [],
+    "productionish_files": [],
+    "status": "DEFINED_ONLY"
+  },
+  {
+    "env_key": "MT5_LOGIN",
+    "config_key": "MT5_LOGIN",
+    "default_expr": "",
+    "line": 37,
+    "nearby_comment": "MT5 Connection Settings \u2014 loaded from environment (see legacy_loader.py)",
+    "all_other_files": [
+      "tests/test_ml_data_phase1.py",
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "MT5_PASSWORD",
+    "config_key": "MT5_PASSWORD",
+    "default_expr": "''",
+    "line": 38,
+    "nearby_comment": "",
+    "all_other_files": [
+      "tests/test_ml_data_phase1.py",
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "MT5_SERVER",
+    "config_key": "MT5_SERVER",
+    "default_expr": "''",
+    "line": 39,
+    "nearby_comment": "",
+    "all_other_files": [
+      "tests/test_ml_data_phase1.py",
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/legacy_loader.py",
+      "tradingbot/adapters/mt5_utils.py",
+      "tradingbot/config/engine_settings.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "EMAIL_USERNAME",
+    "config_key": "EMAIL_USERNAME",
+    "default_expr": "''",
+    "line": 114,
+    "nearby_comment": "",
+    "all_other_files": [],
+    "productionish_files": [],
+    "status": "DEFINED_ONLY"
+  },
+  {
+    "env_key": "EMAIL_PASSWORD",
+    "config_key": "EMAIL_PASSWORD",
+    "default_expr": "''",
+    "line": 115,
+    "nearby_comment": "",
+    "all_other_files": [
+      "tradingbot/config/engine_settings.py"
+    ],
+    "productionish_files": [
+      "tradingbot/config/engine_settings.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "EMAIL_TO",
+    "config_key": "EMAIL_TO",
+    "default_expr": "''",
+    "line": 116,
+    "nearby_comment": "",
+    "all_other_files": [],
+    "productionish_files": [],
+    "status": "DEFINED_ONLY"
+  },
+  {
+    "env_key": "EMAIL_FROM",
+    "config_key": "EMAIL_FROM",
+    "default_expr": "''",
+    "line": 117,
+    "nearby_comment": "",
+    "all_other_files": [],
+    "productionish_files": [],
+    "status": "DEFINED_ONLY"
+  },
+  {
+    "env_key": "PA_PRODUCTION_LOCK",
+    "config_key": "PA_PRODUCTION_LOCK",
+    "default_expr": "'true'",
+    "line": 126,
+    "nearby_comment": "Phase 50A: lock live bot to PA+Meta only \u2014 VOL/Adaptive log-only, never selected.",
+    "all_other_files": [
+      "scripts/_rerun14a2.py",
+      "scripts/architecture_implementation_audit.py",
+      "scripts/live_forensic_today.py",
+      "scripts/phase12c_hybrid_certification.py",
+      "scripts/phase13a_cleanup_audit.py",
+      "scripts/phase13b_no_trade_recovery.py",
+      "scripts/phase13c_adaptive_hybrid_v2.py",
+      "scripts/phase14a2_pa_no_signal_audit.py",
+      "scripts/phase_verify_audit.py",
+      "tests/test_documentation_consistency.py",
+      "tests/test_full_repository_audit.py",
+      "tests/test_project_decision_baseline.py",
+      "tradingbot/adapters/multi_engine_router.py",
+      "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "tradingbot/ml/research/documentation_memory_hardening/baseline.py",
+      "tradingbot/ml/research/documentation_memory_hardening/memory_integrity.py",
+      "tradingbot/ml/research/documentation_operationalization/run.py",
+      "tradingbot/ml/research/documentation_verification/run.py",
+      "tradingbot/ml/research/full_repo_audit/run.py",
+      "tradingbot/ml/research/pa_live_audit/path.py",
+      "tradingbot/services/pa_production_lock.py",
+      "tradingbot/services/phase6a_production_cert.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/multi_engine_router.py",
+      "tradingbot/services/pa_production_lock.py",
+      "tradingbot/services/phase6a_production_cert.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "DEMO_DISABLE_SESSION_FILTER",
+    "config_key": "DEMO_DISABLE_SESSION_FILTER",
+    "default_expr": "'false'",
+    "line": 128,
+    "nearby_comment": "DEMO TEST ONLY \u2014 bypasses London/NY session windows. Re-enable before live/prop.",
+    "all_other_files": [
+      "scripts/_rerun14a2.py",
+      "scripts/_rerun14a2_fast.py",
+      "scripts/status_snapshot.py",
+      "tests/test_demo_session_filter.py",
+      "tradingbot/backtest/phase26_validation_audit.py",
+      "tradingbot/domain/filter_policy.py",
+      "tradingbot/ml/research/full_repo_audit/run.py",
+      "tradingbot/ml/research/pa_live_audit/parity.py",
+      "tradingbot/ml/research/pa_live_audit/root_cause.py"
+    ],
+    "productionish_files": [
+      "tradingbot/domain/filter_policy.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "VOL_REGIME_ENABLED",
+    "config_key": "VOL_REGIME_ENABLED",
+    "default_expr": "'false'",
+    "line": 129,
+    "nearby_comment": "",
+    "all_other_files": [
+      "scripts/architecture_implementation_audit.py",
+      "scripts/backtest_adaptive_report.py",
+      "scripts/backtest_compare_strategies.py",
+      "scripts/check_live_setup.py",
+      "scripts/check_vol_regime_live_setup.py",
+      "scripts/phase13a_cleanup_audit.py",
+      "scripts/phase13b_no_trade_recovery.py",
+      "scripts/phase_verify_audit.py",
+      "scripts/status_snapshot.py",
+      "scripts/verify_vol_regime_live_ready.py",
+      "tests/test_documentation_consistency.py",
+      "tests/test_phase15b_kernel_integration.py",
+      "tests/test_phase24k.py",
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "tradingbot/application/live_runner.py",
+      "tradingbot/ml/integration/factory.py",
+      "tradingbot/ml/integration/startup_diagnostics.py",
+      "tradingbot/ml/research/full_repo_audit/run.py",
+      "tradingbot/services/engine_telemetry.py",
+      "tradingbot/services/pa_production_lock.py",
+      "tradingbot/services/phase6a_production_cert.py",
+      "tradingbot/services/runtime_truth.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "tradingbot/application/live_runner.py",
+      "tradingbot/ml/integration/factory.py",
+      "tradingbot/ml/integration/startup_diagnostics.py",
+      "tradingbot/services/engine_telemetry.py",
+      "tradingbot/services/pa_production_lock.py",
+      "tradingbot/services/phase6a_production_cert.py",
+      "tradingbot/services/runtime_truth.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "ADAPTIVE_CONFLUENCE_ONLY",
+    "config_key": "ADAPTIVE_CONFLUENCE_ONLY",
+    "default_expr": "'true'",
+    "line": 131,
+    "nearby_comment": "Confluence: VOL_REGIME + MTF must agree \u2014 fewer trades, higher quality.",
+    "all_other_files": [
+      "scripts/architecture_implementation_audit.py",
+      "scripts/backtest_adaptive_report.py",
+      "scripts/backtest_compare_strategies.py",
+      "tradingbot/services/runtime_truth.py",
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "productionish_files": [
+      "tradingbot/services/runtime_truth.py",
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "ADAPTIVE_CONFLUENCE_MODE",
+    "config_key": "ADAPTIVE_CONFLUENCE_MODE",
+    "default_expr": "'OR'",
+    "line": 133,
+    "nearby_comment": "Phase 44B: OR = MTF or VOL sufficient; AND = both must agree (legacy).",
+    "all_other_files": [
+      "scripts/architecture_implementation_audit.py",
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "productionish_files": [
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "ADAPTIVE_QUALITY_ENGINE",
+    "config_key": "ADAPTIVE_QUALITY_ENGINE",
+    "default_expr": "'false'",
+    "line": 135,
+    "nearby_comment": "Phase 4A: quality scoring engine (backtest-only default \u2014 set true to opt-in live).",
+    "all_other_files": [
+      "scripts/architecture_implementation_audit.py",
+      "scripts/phase_verify_audit.py",
+      "tradingbot/strategies/adaptive_quality_engine.py"
+    ],
+    "productionish_files": [
+      "tradingbot/strategies/adaptive_quality_engine.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "DISABLE_HIGH_VOL_FOR_MICRO",
+    "config_key": "DISABLE_HIGH_VOL_FOR_MICRO",
+    "default_expr": "'true'",
+    "line": 137,
+    "nearby_comment": "Phase 41D: block all HIGH_VOLATILITY signals on MICRO accounts (rollback via env=false).",
+    "all_other_files": [
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "productionish_files": [
+      "tradingbot/strategies/adaptive_regime.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "MULTI_ENGINE_ROUTER_ENABLED",
+    "config_key": "MULTI_ENGINE_ROUTER_ENABLED",
+    "default_expr": "'true'",
+    "line": 139,
+    "nearby_comment": "Phase 46C/47B: PA \u2192 VOL \u2192 Adaptive multi-engine router (PA-primary live default).",
+    "all_other_files": [
+      "scripts/architecture_implementation_audit.py",
+      "scripts/live_forensic_today.py",
+      "scripts/phase13a_cleanup_audit.py",
+      "scripts/phase13b_no_trade_recovery.py",
+      "scripts/phase_verify_audit.py",
+      "tests/test_documentation_consistency.py",
+      "tests/test_full_repository_audit.py",
+      "tests/test_phase15b_kernel_integration.py",
+      "tests/test_phase24k.py",
+      "tradingbot/application/live_runner.py",
+      "tradingbot/ml/integration/factory.py",
+      "tradingbot/ml/integration/startup_diagnostics.py",
+      "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "tradingbot/ml/research/full_repo_audit/run.py",
+      "tradingbot/ml/research/pa_live_audit/path.py",
+      "tradingbot/services/live_loop_health.py"
+    ],
+    "productionish_files": [
+      "tradingbot/application/live_runner.py",
+      "tradingbot/ml/integration/factory.py",
+      "tradingbot/ml/integration/startup_diagnostics.py",
+      "tradingbot/services/live_loop_health.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "META_LABEL_THRESHOLD",
+    "config_key": "META_LABEL_THRESHOLD",
+    "default_expr": "'0.38'",
+    "line": 141,
+    "nearby_comment": "Phase 47A calibrated M5 meta threshold (preset fallback when unset).",
+    "all_other_files": [
+      "scripts/_rerun14a2.py",
+      "scripts/_rerun14a2_fast.py",
+      "scripts/live_forensic_today.py",
+      "scripts/phase13b_no_trade_recovery.py",
+      "scripts/phase14a2_pa_no_signal_audit.py",
+      "scripts/phase14c1_ny_window_recovery.py",
+      "scripts/phase14c1_session_window_recovery.py",
+      "scripts/phase14c2_reclaim_softening.py",
+      "scripts/phase14c3_bos_sensitivity.py",
+      "scripts/phase16b_ob_fvg_confluence.py",
+      "scripts/phase17a_pa_session_heatmap.py",
+      "scripts/phase17b_bos_reclaim_truth.py",
+      "scripts/phase20y3_meta_observer.py",
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/backtest/phase26b_controlled_validation.py",
+      "tradingbot/backtest/phase26c_zero_signal_audit.py",
+      "tradingbot/backtest/phase26e_riskgate_audit.py",
+      "tradingbot/backtest/phase26g_riskgate_counterfactual.py",
+      "tradingbot/backtest/phase26l_riskgate_policy_audit.py",
+      "tradingbot/backtest/phase28_0_performance_foundation.py",
+      "tradingbot/backtest/phase30_unchanged_strategy_evaluation.py",
+      "tradingbot/backtest/phase36_strategy_verdict.py",
+      "tradingbot/backtest/phase40_full_horizon_validation.py",
+      "tradingbot/backtest/risk.py",
+      "tradingbot/config/pa_symbol_tf_presets.py",
+      "tradingbot/ml/research/pa_live_audit/path.py",
+      "tradingbot/services/phase6a_production_cert.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/backtest/risk.py",
+      "tradingbot/config/pa_symbol_tf_presets.py",
+      "tradingbot/services/phase6a_production_cert.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "META_OBSERVER_MODE",
+    "config_key": "META_OBSERVER_MODE",
+    "default_expr": "'false'",
+    "line": 143,
+    "nearby_comment": "Phase 20Y-3 observer path is wired. Default OFF: 30d observer book is unprofitable.",
+    "all_other_files": [
+      "scripts/phase20y3_meta_observer.py",
+      "tests/test_phase20y3_meta_observer.py",
+      "tradingbot/adapters/risk_gate.py",
+      "tradingbot/ml/research/full_repo_audit/run.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/risk_gate.py"
+    ],
+    "status": "PROD_WIRED"
+  },
+  {
+    "env_key": "VOL_DIRECTION_FILTER_ENABLED",
+    "config_key": "VOL_DIRECTION_FILTER_ENABLED",
+    "default_expr": "'false'",
+    "line": 145,
+    "nearby_comment": "Phase 48A: VOL as PA direction filter (not trade engine). 60d test \u2192 keep OFF.",
+    "all_other_files": [],
+    "productionish_files": [],
+    "status": "DEFINED_ONLY"
+  },
+  {
+    "env_key": "VOL_REGIME_SKIP_TQ",
+    "config_key": "VOL_REGIME_SKIP_TQ",
+    "default_expr": "'true'",
+    "line": 147,
+    "nearby_comment": "overstates XAUUSD spread vs live tick \u2014 skip TQ so signals reach RiskGate.",
+    "all_other_files": [
+      "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "tradingbot/services/runtime_truth.py"
+    ],
+    "productionish_files": [
+      "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "tradingbot/services/runtime_truth.py"
+    ],
+    "status": "PROD_WIRED"
+  }
+]

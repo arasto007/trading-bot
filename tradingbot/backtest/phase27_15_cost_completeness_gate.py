@@ -218,19 +218,30 @@ def evaluate_spread(p11: dict[str, Any]) -> dict[str, Any]:
     inv = p11.get("inventory") or {}
     tape = bool(inv.get("historical_bid_ask_available"))
     evidence_status = str(p11.get("evidence_status") or "UNKNOWN")
+    partial_files = int(inv.get("bidask_dataset_count") or 0)
     if tape:
         status = CostCompleteness.COMPLETE.value
-    elif evidence_status == "BLOCKED_PENDING_DATA":
+        note = (
+            "Full-horizon M5 historical bid/ask tape present "
+            "(Phase 114/115 window). PROXY OHLC spread is still not DATASET."
+        )
+    elif evidence_status == "BLOCKED_PENDING_DATA" or partial_files > 0:
+        # Partial/narrow tick sidecars may exist; they do not satisfy COMPLETE.
         status = "BLOCKED"
+        note = (
+            "OHLC PROXY spread is not historical bid/ask. No full-horizon M5 tape. "
+            f"Partial bid/ask files inventoried={partial_files} (not COMPLETE)."
+        )
     else:
         status = CostCompleteness.UNKNOWN.value
+        note = "OHLC PROXY spread is not historical bid/ask. No M5 tape."
     return {
         "status": status,
         "evidence": "logs/phase27_11_historical_bidask.json",
         "historical_bid_ask_available": tape,
-        "bidask_dataset_count": inv.get("bidask_dataset_count", 0),
+        "bidask_dataset_count": partial_files,
         "proxy_is_not_historical": True,
-        "note": "OHLC PROXY spread is not historical bid/ask. No M5 tape.",
+        "note": note,
     }
 
 

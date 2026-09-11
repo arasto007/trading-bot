@@ -1,0 +1,2551 @@
+{
+  "PA_PRODUCTION_LOCK": [
+    {
+      "file": "tradingbot/adapters/multi_engine_router.py",
+      "line": 64,
+      "text": "Phase 50A (PA_PRODUCTION_LOCK): PA only \u2014 VOL/Adaptive logged, never selected."
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 126,
+      "text": "'PA_PRODUCTION_LOCK': os.getenv('PA_PRODUCTION_LOCK', 'true').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "line": 41,
+      "text": "\"PA_PRODUCTION_LOCK\","
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "line": 97,
+      "text": "\"PA_PRODUCTION_LOCK\": bool(LIVE_TRADING_CONFIG.get(\"PA_PRODUCTION_LOCK\")),"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "line": 153,
+      "text": "if invariants[\"PA_PRODUCTION_LOCK\"] is not True:"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_memory_hardening/baseline.py",
+      "line": 85,
+      "text": "\"config\": \"PA_PRODUCTION_LOCK\" in entry,"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_memory_hardening/memory_integrity.py",
+      "line": 66,
+      "text": "(\"19_safety\", _has(blob, \"PA_PRODUCTION_LOCK\") and _has(blob, \"Do not\"), \"locks\"),"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_operationalization/run.py",
+      "line": 51,
+      "text": "{\"id\": \"Q18\", \"topic\": \"Safety\", \"q\": \"PA lock default?\", \"class\": \"DOCUMENTED\" if has(\"PA_PRODUCTION_LOCK\") else \"GAP\"},"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_verification/run.py",
+      "line": 130,
+      "text": "\"consistency_invariants_present\": _status(\"PA_PRODUCTION_LOCK\" in boot),"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 346,
+      "text": "\"PA_PRODUCTION_LOCK\": LIVE_TRADING_CONFIG.get(\"PA_PRODUCTION_LOCK\"),"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 369,
+      "text": "\"activation\": \"MultiEngineRouter + PA_PRODUCTION_LOCK\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 41,
+      "text": "\"PA_PRODUCTION_LOCK_default\": bool(LIVE_TRADING_CONFIG.get(\"PA_PRODUCTION_LOCK\", True)),"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 16,
+      "text": "lock = bool(config.get(\"PA_PRODUCTION_LOCK\", live.get(\"PA_PRODUCTION_LOCK\", True)))"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 20,
+      "text": "lock = bool(live.get(\"PA_PRODUCTION_LOCK\", True))"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 37,
+      "text": "\"PA_PRODUCTION_LOCK\": bool(live.get(\"PA_PRODUCTION_LOCK\", True)),"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 49,
+      "text": "cfg[\"PA_PRODUCTION_LOCK\"]"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 95,
+      "text": "pa_lock = grep_in(ROOT / \"tradingbot/services/pa_production_lock.py\", \"PA_PRODUCTION_LOCK\")"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 127,
+      "text": "active = \"MultiEngineRouterRegistry -> PA only (PA_PRODUCTION_LOCK)\" if pa_lock_on else \"MultiEngineRouterRegistry -> PA>VOL>Adaptive\""
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 100,
+      "text": "\"PA_PRODUCTION_LOCK\": True,"
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 372,
+      "text": "c[\"PA_PRODUCTION_LOCK_REJECTIONS\"] += 1"
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 380,
+      "text": "\"PA_PRODUCTION_LOCK_REJECTIONS\","
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 602,
+      "text": "if ctx.get(\"PA_PRODUCTION_LOCK_REJECTIONS\", 0) > 0:"
+    },
+    {
+      "file": "scripts/phase12c_hybrid_certification.py",
+      "line": 5,
+      "text": "Does NOT modify PA_PRODUCTION_LOCK, USE_ML_KERNEL, ADAPTIVE_REGIME_ENABLED, or execution adapters."
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 25,
+      "text": "os.environ.setdefault(\"PA_PRODUCTION_LOCK\", \"true\")"
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 471,
+      "text": "check(\"PA_PRODUCTION_LOCK_path\", pa_lock)"
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 538,
+      "text": "\"                -> MultiEngineRouterRegistry [PA_PRODUCTION_LOCK]\","
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 579,
+      "text": "runtime = \"LOG-ONLY (PA_PRODUCTION_LOCK)\""
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 581,
+      "text": "runtime = \"LOG-ONLY (PA_PRODUCTION_LOCK)\""
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 636,
+      "text": "\"VOL is probed every bar by MultiEngineRouter but NEVER selected under PA_PRODUCTION_LOCK.\","
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 35,
+      "text": "\"PA_PRODUCTION_LOCK\": \"true\","
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 141,
+      "text": "rg_dec = \"NOT_REACHED (PA_PRODUCTION_LOCK)\""
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 610,
+      "text": "next_action = \"Apply META_LABEL_THRESHOLD=0.36 in a controlled change window; keep PA_PRODUCTION_LOCK ON; re-verify next session PA signal rate.\""
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 651,
+      "text": "\"  3. Adaptive produced BUY on multiple bars \u2014 blocked by PA_PRODUCTION_LOCK\","
+    },
+    {
+      "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+      "line": 5,
+      "text": "Does NOT modify PA_PRODUCTION_LOCK, USE_ML_KERNEL, ADAPTIVE_REGIME_ENABLED,"
+    },
+    {
+      "file": "scripts/phase14a2_pa_no_signal_audit.py",
+      "line": 523,
+      "text": "recovery = \"KEEP_PA_PRODUCTION_LOCK_NO_CONFIG_CHANGE\""
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 165,
+      "text": "\"PA_PRODUCTION_LOCK\","
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 177,
+      "text": "pa_line = snap.get(\"PA_PRODUCTION_LOCK\", \"\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 178,
+      "text": "if \"PA_PRODUCTION_LOCK\" in pa_line or pa_line.startswith(\"os.getenv\"):"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 179,
+      "text": "snap[\"PA_PRODUCTION_LOCK_DEFAULT\"] = \"true\""
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 191,
+      "text": "snap[\"runtime_PA_PRODUCTION_LOCK\"] = str(data.get(\"PA_PRODUCTION_LOCK\", \"NOT_IN_RUNTIME_TRUTH\"))"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 396,
+      "text": "pa_default = snap.get(\"PA_PRODUCTION_LOCK_DEFAULT\", \"\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 397,
+      "text": "if pa_default == \"true\" or snap.get(\"runtime_PA_PRODUCTION_LOCK\") in (\"True\", \"true\", \"1\"):"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 398,
+      "text": "passed.append(\"LIVE_PA_PRODUCTION_LOCK_DEFAULT_TRUE\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 400,
+      "text": "failed.append(f\"LIVE_PA_PRODUCTION_LOCK_UNEXPECTED default={pa_default}\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 401,
+      "text": "live_flag_diffs.append(f\"PA_PRODUCTION_LOCK default={pa_default}\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 533,
+      "text": "\"- Phase scripts set USE_ML_KERNEL=false at runtime; live.py PA_PRODUCTION_LOCK defaults true.\","
+    },
+    {
+      "file": "scripts/_rerun14a2.py",
+      "line": 367,
+      "text": "recovery = \"KEEP_PA_PRODUCTION_LOCK_NO_CONFIG_CHANGE\""
+    },
+    {
+      "file": "tests/test_documentation_consistency.py",
+      "line": 15,
+      "text": "assert result[\"invariants\"][\"PA_PRODUCTION_LOCK\"] is True"
+    },
+    {
+      "file": "tests/test_documentation_consistency.py",
+      "line": 56,
+      "text": "assert LIVE_TRADING_CONFIG.get(\"PA_PRODUCTION_LOCK\") is True"
+    },
+    {
+      "file": "tests/test_full_repository_audit.py",
+      "line": 133,
+      "text": "assert LIVE_TRADING_CONFIG.get(\"PA_PRODUCTION_LOCK\") is True"
+    },
+    {
+      "file": "tests/test_project_decision_baseline.py",
+      "line": 69,
+      "text": "assert \"PA_PRODUCTION_LOCK\" in _text(BOOT) or \"PA lock\" in baseline"
+    }
+  ],
+  "DEMO_DISABLE_SESSION_FILTER": [
+    {
+      "file": "tradingbot/backtest/phase26_validation_audit.py",
+      "line": 694,
+      "text": "{\"area\": \"session_filter\", \"backtest\": \"index hours\", \"live\": \"same + DEMO_DISABLE_SESSION_FILTER env\", \"parity\": ParityClass.PARTIAL.value, \"risk\": \"P1\"},"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 128,
+      "text": "'DEMO_DISABLE_SESSION_FILTER': os.getenv('DEMO_DISABLE_SESSION_FILTER', 'false').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/domain/filter_policy.py",
+      "line": 16,
+      "text": "# DEMO ONLY \u2014 set DEMO_DISABLE_SESSION_FILTER=true in .env to bypass session windows."
+    },
+    {
+      "file": "tradingbot/domain/filter_policy.py",
+      "line": 18,
+      "text": "_DEMO_SESSION_DISABLED = os.getenv(\"DEMO_DISABLE_SESSION_FILTER\", \"\").lower() in ("
+    },
+    {
+      "file": "tradingbot/domain/filter_policy.py",
+      "line": 37,
+      "text": "if cfg and cfg.get(\"DEMO_DISABLE_SESSION_FILTER\") is not None:"
+    },
+    {
+      "file": "tradingbot/domain/filter_policy.py",
+      "line": 38,
+      "text": "return not bool(cfg.get(\"DEMO_DISABLE_SESSION_FILTER\"))"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 475,
+      "text": "\"what\": \"Whether DEMO_DISABLE_SESSION_FILTER is on\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/parity.py",
+      "line": 111,
+      "text": "\"live\": \"NY 15\u201316 UTC; DEMO_DISABLE_SESSION_FILTER can bypass\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/root_cause.py",
+      "line": 87,
+      "text": "\"title\": \"DEMO_DISABLE_SESSION_FILTER can disable NY 15\u201316 live\","
+    },
+    {
+      "file": "scripts/status_snapshot.py",
+      "line": 545,
+      "text": "\"set DEMO_DISABLE_SESSION_FILTER=false before live\""
+    },
+    {
+      "file": "scripts/_rerun14a2.py",
+      "line": 68,
+      "text": "emit(\"DEMO_DISABLE_SESSION_FILTER_ACTIVE=\" + str(demo_override))"
+    },
+    {
+      "file": "scripts/_rerun14a2_fast.py",
+      "line": 169,
+      "text": "emit(\"DEMO_DISABLE_SESSION_FILTER_ACTIVE=\" + str(demo_override))"
+    },
+    {
+      "file": "tests/test_demo_session_filter.py",
+      "line": 10,
+      "text": "monkeypatch.delenv(\"DEMO_DISABLE_SESSION_FILTER\", raising=False)"
+    },
+    {
+      "file": "tests/test_demo_session_filter.py",
+      "line": 19,
+      "text": "monkeypatch.setenv(\"DEMO_DISABLE_SESSION_FILTER\", \"true\")"
+    },
+    {
+      "file": "tests/test_demo_session_filter.py",
+      "line": 28,
+      "text": "monkeypatch.setenv(\"DEMO_DISABLE_SESSION_FILTER\", \"true\")"
+    }
+  ],
+  "VOL_REGIME_ENABLED": [
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 888,
+      "text": "live = self._config.get(\"VOL_REGIME_ENABLED\")"
+    },
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 47,
+      "text": "self._enabled = bool(live.get(\"VOL_REGIME_ENABLED\", True))"
+    },
+    {
+      "file": "tradingbot/application/live_runner.py",
+      "line": 343,
+      "text": "or live.get(\"VOL_REGIME_ENABLED\")"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 129,
+      "text": "'VOL_REGIME_ENABLED': os.getenv('VOL_REGIME_ENABLED', 'false').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 236,
+      "text": "or cfg.get(\"VOL_REGIME_ENABLED\")"
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 173,
+      "text": "4. VolRegimeStrategyRegistry when VOL_REGIME_ENABLED."
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 187,
+      "text": "vol_regime_on = bool(live_cfg.get(\"VOL_REGIME_ENABLED\", False))"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 56,
+      "text": "vol_on = bool(live_cfg.get(\"VOL_REGIME_ENABLED\", False))"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 89,
+      "text": "reason=f\"USE_ML_KERNEL={raw!r} + VOL_REGIME_ENABLED=True\","
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 90,
+      "text": "config_source=\"live:VOL_REGIME_ENABLED\","
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 348,
+      "text": "\"VOL_REGIME_ENABLED\": LIVE_TRADING_CONFIG.get(\"VOL_REGIME_ENABLED\"),"
+    },
+    {
+      "file": "tradingbot/services/engine_telemetry.py",
+      "line": 105,
+      "text": "return bool(live.get(\"VOL_REGIME_ENABLED\", False))"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 15,
+      "text": "vol = bool(config.get(\"VOL_REGIME_ENABLED\", live.get(\"VOL_REGIME_ENABLED\")))"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 19,
+      "text": "vol = bool(live.get(\"VOL_REGIME_ENABLED\"))"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 38,
+      "text": "\"VOL_REGIME_ENABLED\": bool(live.get(\"VOL_REGIME_ENABLED\", False)),"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 51,
+      "text": "and not cfg[\"VOL_REGIME_ENABLED\"]"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 411,
+      "text": "\"VOL_REGIME_ENABLED\": bool(live.get(\"VOL_REGIME_ENABLED\", False)),"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 98,
+      "text": "vol_en = \"VOL_REGIME_ENABLED\" in live"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 109,
+      "text": "vol_on = bool(rt.get(\"VOL_REGIME_ENABLED\"))"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 452,
+      "text": "if rt.get(\"VOL_REGIME_ENABLED\") and \"VOL_REGIME_ENABLED\" not in live_py.split(\"LIVE_TRADING_CONFIG\")[1][:5000]:"
+    },
+    {
+      "file": "scripts/backtest_adaptive_report.py",
+      "line": 31,
+      "text": "os.environ[\"VOL_REGIME_ENABLED\"] = \"true\" if vol_only else \"true\""
+    },
+    {
+      "file": "scripts/backtest_compare_strategies.py",
+      "line": 66,
+      "text": "await _run(\"VOL_ONLY\", {\"USE_ML_KERNEL\": \"false\", \"ADAPTIVE_REGIME_ENABLED\": \"false\", \"VOL_REGIME_ENABLED\": \"true\"})"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 42,
+      "text": "if live.get(\"VOL_REGIME_ENABLED\"):"
+    },
+    {
+      "file": "scripts/check_vol_regime_live_setup.py",
+      "line": 75,
+      "text": "print(f\"  VOL_REGIME_ENABLED={live.get('VOL_REGIME_ENABLED', False)}\")"
+    },
+    {
+      "file": "scripts/check_vol_regime_live_setup.py",
+      "line": 79,
+      "text": "if not live.get(\"VOL_REGIME_ENABLED\", False):"
+    },
+    {
+      "file": "scripts/check_vol_regime_live_setup.py",
+      "line": 81,
+      "text": "issues.append(\"VOL_REGIME_ENABLED is false in live config\")"
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 26,
+      "text": "os.environ.setdefault(\"VOL_REGIME_ENABLED\", \"false\")"
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 517,
+      "text": "# VOL standalone: can remove as SELECTABLE engine when VOL_REGIME_ENABLED=false and PA lock on,"
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 635,
+      "text": "\"Current live config (start_live_daemon.ps1): VOL_REGIME_ENABLED=false, PA lock ON.\","
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 34,
+      "text": "\"VOL_REGIME_ENABLED\": \"false\","
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 169,
+      "text": "\"VOL_REGIME_ENABLED\","
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 183,
+      "text": "vol = snap.get(\"VOL_REGIME_ENABLED\", \"\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 185,
+      "text": "snap[\"VOL_REGIME_ENABLED_DEFAULT\"] = \"false\""
+    },
+    {
+      "file": "scripts/status_snapshot.py",
+      "line": 787,
+      "text": "vol_on = bool(live_cfg.get(\"VOL_REGIME_ENABLED\", False))"
+    },
+    {
+      "file": "scripts/verify_vol_regime_live_ready.py",
+      "line": 75,
+      "text": "if not live.get(\"VOL_REGIME_ENABLED\", False):"
+    },
+    {
+      "file": "scripts/verify_vol_regime_live_ready.py",
+      "line": 77,
+      "text": "lines.append(\"VOL_REGIME|FAIL|VOL_REGIME_ENABLED=false\")"
+    },
+    {
+      "file": "tests/test_documentation_consistency.py",
+      "line": 58,
+      "text": "LIVE_TRADING_CONFIG.get(\"ADAPTIVE_REGIME_ENABLED\") or LIVE_TRADING_CONFIG.get(\"VOL_REGIME_ENABLED\")"
+    },
+    {
+      "file": "tests/test_documentation_consistency.py",
+      "line": 61,
+      "text": "if not LIVE_TRADING_CONFIG.get(\"VOL_REGIME_ENABLED\") and not LIVE_TRADING_CONFIG.get("
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 271,
+      "text": "\"VOL_REGIME_ENABLED\": False,"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 177,
+      "text": "\"VOL_REGIME_ENABLED\": False,"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 198,
+      "text": "\"VOL_REGIME_ENABLED\": False,"
+    }
+  ],
+  "ADAPTIVE_CONFLUENCE_ONLY": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 131,
+      "text": "'ADAPTIVE_CONFLUENCE_ONLY': os.getenv('ADAPTIVE_CONFLUENCE_ONLY', 'true').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 410,
+      "text": "\"ADAPTIVE_CONFLUENCE_ONLY\": bool(live.get(\"ADAPTIVE_CONFLUENCE_ONLY\", False)),"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 482,
+      "text": "f\"ADAPTIVE_CONFLUENCE_ONLY={truth['ADAPTIVE_CONFLUENCE_ONLY']}\","
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 234,
+      "text": "if os.getenv(\"ADAPTIVE_CONFLUENCE_ONLY\", \"\").lower() in (\"1\", \"true\", \"yes\"):"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 239,
+      "text": "return bool(get_live_config().get(\"ADAPTIVE_CONFLUENCE_ONLY\", False))"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 238,
+      "text": "emit(f\"ADAPTIVE_CONFLUENCE_ONLY={cfg.get('ADAPTIVE_CONFLUENCE_ONLY', True)}\")"
+    },
+    {
+      "file": "scripts/backtest_adaptive_report.py",
+      "line": 32,
+      "text": "os.environ[\"ADAPTIVE_CONFLUENCE_ONLY\"] = \"true\" if confluence else \"false\""
+    },
+    {
+      "file": "scripts/backtest_compare_strategies.py",
+      "line": 69,
+      "text": "os.environ[\"ADAPTIVE_CONFLUENCE_ONLY\"] = \"true\""
+    }
+  ],
+  "ADAPTIVE_CONFLUENCE_MODE": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 133,
+      "text": "'ADAPTIVE_CONFLUENCE_MODE': os.getenv('ADAPTIVE_CONFLUENCE_MODE', 'OR').upper(),"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 246,
+      "text": "raw = os.getenv(\"ADAPTIVE_CONFLUENCE_MODE\", \"\").upper()"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 252,
+      "text": "mode = str(get_live_config().get(\"ADAPTIVE_CONFLUENCE_MODE\", \"OR\")).upper()"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 239,
+      "text": "emit(f\"ADAPTIVE_CONFLUENCE_MODE={cfg.get('ADAPTIVE_CONFLUENCE_MODE', 'OR')}\")"
+    }
+  ],
+  "ADAPTIVE_QUALITY_ENGINE": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 135,
+      "text": "'ADAPTIVE_QUALITY_ENGINE': os.getenv('ADAPTIVE_QUALITY_ENGINE', 'false').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_quality_engine.py",
+      "line": 52,
+      "text": "raw = os.getenv(\"ADAPTIVE_QUALITY_ENGINE\", \"\").lower()"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_quality_engine.py",
+      "line": 60,
+      "text": "return bool(get_live_config().get(\"ADAPTIVE_QUALITY_ENGINE\", False))"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 236,
+      "text": "emit(f\"LIVE_FLAG=ADAPTIVE_QUALITY_ENGINE={cfg.get('ADAPTIVE_QUALITY_ENGINE', False)}\")"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 244,
+      "text": "emit(f\"AND_GATE_STILL_ACTIVE_WHEN_QUALITY_OFF={and_gate_in_ar and not cfg.get('ADAPTIVE_QUALITY_ENGINE', False)}\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 168,
+      "text": "\"ADAPTIVE_QUALITY_ENGINE\","
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 180,
+      "text": "aq = snap.get(\"ADAPTIVE_QUALITY_ENGINE\", \"\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 182,
+      "text": "snap[\"ADAPTIVE_QUALITY_ENGINE_DEFAULT\"] = \"false\""
+    }
+  ],
+  "DISABLE_HIGH_VOL_FOR_MICRO": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 137,
+      "text": "'DISABLE_HIGH_VOL_FOR_MICRO': os.getenv('DISABLE_HIGH_VOL_FOR_MICRO', 'true').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 259,
+      "text": "raw = os.getenv(\"DISABLE_HIGH_VOL_FOR_MICRO\", \"\").lower()"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 267,
+      "text": "return bool(get_live_config().get(\"DISABLE_HIGH_VOL_FOR_MICRO\", False))"
+    }
+  ],
+  "MULTI_ENGINE_ROUTER_ENABLED": [
+    {
+      "file": "tradingbot/application/live_runner.py",
+      "line": 344,
+      "text": "or live.get(\"MULTI_ENGINE_ROUTER_ENABLED\")"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 139,
+      "text": "'MULTI_ENGINE_ROUTER_ENABLED': os.getenv('MULTI_ENGINE_ROUTER_ENABLED', 'true').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 237,
+      "text": "or cfg.get(\"MULTI_ENGINE_ROUTER_ENABLED\")"
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 171,
+      "text": "2. MultiEngineRouterRegistry when MULTI_ENGINE_ROUTER_ENABLED (default live)."
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 188,
+      "text": "router_on = bool(live_cfg.get(\"MULTI_ENGINE_ROUTER_ENABLED\", False))"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 58,
+      "text": "router_on = bool(live_cfg.get(\"MULTI_ENGINE_ROUTER_ENABLED\", False))"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 64,
+      "text": "reason = \"USE_ML_KERNEL absent; MULTI_ENGINE_ROUTER_ENABLED selects router\""
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 68,
+      "text": "reason = f\"USE_ML_KERNEL={raw!r} + MULTI_ENGINE_ROUTER_ENABLED=True\""
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 72,
+      "text": "config_source=\"live:MULTI_ENGINE_ROUTER_ENABLED\","
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_consistency/scanner.py",
+      "line": 98,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": bool(LIVE_TRADING_CONFIG.get(\"MULTI_ENGINE_ROUTER_ENABLED\")),"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 347,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": LIVE_TRADING_CONFIG.get(\"MULTI_ENGINE_ROUTER_ENABLED\"),"
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 42,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED_default\": bool("
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 43,
+      "text": "LIVE_TRADING_CONFIG.get(\"MULTI_ENGINE_ROUTER_ENABLED\", True)"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 171,
+      "text": "f\"MULTI_ENGINE_ROUTER_ENABLED = {bool(live.get('MULTI_ENGINE_ROUTER_ENABLED'))}\","
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 97,
+      "text": "multi = \"MULTI_ENGINE_ROUTER_ENABLED\" in live"
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 101,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": rt.get(\"active_strategy_engine\") == \"MULTI_ENGINE_ROUTER\","
+    },
+    {
+      "file": "scripts/phase13a_cleanup_audit.py",
+      "line": 28,
+      "text": "os.environ.setdefault(\"MULTI_ENGINE_ROUTER_ENABLED\", \"true\")"
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 32,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": \"true\","
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 170,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\","
+    },
+    {
+      "file": "tests/test_documentation_consistency.py",
+      "line": 65,
+      "text": "if not is_ml_kernel_enabled() and LIVE_TRADING_CONFIG.get(\"MULTI_ENGINE_ROUTER_ENABLED\"):"
+    },
+    {
+      "file": "tests/test_full_repository_audit.py",
+      "line": 134,
+      "text": "assert LIVE_TRADING_CONFIG.get(\"MULTI_ENGINE_ROUTER_ENABLED\") is True"
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 269,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": False,"
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 275,
+      "text": "# Test A: default live \u2014 router ON. Do not flip MULTI_ENGINE_ROUTER_ENABLED"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 166,
+      "text": "# ignores MULTI_ENGINE_ROUTER_ENABLED set in os.environ after live.py import)."
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 175,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": False,"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 196,
+      "text": "\"MULTI_ENGINE_ROUTER_ENABLED\": False,"
+    }
+  ],
+  "META_LABEL_THRESHOLD": [
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 1019,
+      "text": "base_th = float(pa_tf.get(\"META_LABEL_THRESHOLD\", 0.40))"
+    },
+    {
+      "file": "tradingbot/backtest/phase26b_controlled_validation.py",
+      "line": 129,
+      "text": "\"meta_threshold\": m5.get(\"META_LABEL_THRESHOLD\"),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26c_zero_signal_audit.py",
+      "line": 144,
+      "text": "\"META_LABEL_THRESHOLD\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26e_riskgate_audit.py",
+      "line": 204,
+      "text": "base_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.52))"
+    },
+    {
+      "file": "tradingbot/backtest/phase26e_riskgate_audit.py",
+      "line": 221,
+      "text": "\"threshold_source\": \"pa_cfg META_LABEL_THRESHOLD + MetaLabeler.effective_threshold\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26e_riskgate_audit.py",
+      "line": 524,
+      "text": "\"m5_threshold_config\": get_price_action_config(\"XAUUSD\", \"M5\").get(\"META_LABEL_THRESHOLD\"),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26g_riskgate_counterfactual.py",
+      "line": 307,
+      "text": "base_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.52))"
+    },
+    {
+      "file": "tradingbot/backtest/phase26g_riskgate_counterfactual.py",
+      "line": 386,
+      "text": "\"threshold_source\": \"PA preset META_LABEL_THRESHOLD + MetaLabeler.effective_threshold\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26l_riskgate_policy_audit.py",
+      "line": 179,
+      "text": "base_th = float(pa.get(\"META_LABEL_THRESHOLD\", 0.52))"
+    },
+    {
+      "file": "tradingbot/backtest/phase28_0_performance_foundation.py",
+      "line": 307,
+      "text": "\"meta_threshold\": m5.get(\"META_LABEL_THRESHOLD\"),"
+    },
+    {
+      "file": "tradingbot/backtest/phase30_unchanged_strategy_evaluation.py",
+      "line": 132,
+      "text": "\"META_LABEL_THRESHOLD\","
+    },
+    {
+      "file": "tradingbot/backtest/phase36_strategy_verdict.py",
+      "line": 166,
+      "text": "\"meta_label_threshold\": m5.get(\"META_LABEL_THRESHOLD\"),"
+    },
+    {
+      "file": "tradingbot/backtest/phase36_strategy_verdict.py",
+      "line": 720,
+      "text": "| META_LABEL_THRESHOLD | {payload[\"canonical_code\"][\"meta_label_threshold\"]} |"
+    },
+    {
+      "file": "tradingbot/backtest/phase40_full_horizon_validation.py",
+      "line": 241,
+      "text": "\"meta_label_threshold\": float(m5.get(\"META_LABEL_THRESHOLD\", 0.38)),"
+    },
+    {
+      "file": "tradingbot/backtest/risk.py",
+      "line": 282,
+      "text": "base_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.52))"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 141,
+      "text": "'META_LABEL_THRESHOLD': float(os.getenv('META_LABEL_THRESHOLD', '0.38')),"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 49,
+      "text": "\"META_LABEL_THRESHOLD\": 0.38,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 85,
+      "text": "\"META_LABEL_THRESHOLD\": 0.40,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 115,
+      "text": "\"META_LABEL_THRESHOLD\": 0.38,"
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 222,
+      "text": "\"meta\": \"META_LABEL_THRESHOLD 0.38; gating if model ready + live WR>=35% + regime not CRISIS/VOLATILE\","
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 43,
+      "text": "\"META_ACTIVE\": float(live.get(\"META_LABEL_THRESHOLD\", 0)) > 0,"
+    },
+    {
+      "file": "scripts/live_forensic_today.py",
+      "line": 276,
+      "text": "threshold = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 605,
+      "text": "f\"Lower META_LABEL_THRESHOLD from 0.38 to 0.36 (Variant B). \""
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 610,
+      "text": "next_action = \"Apply META_LABEL_THRESHOLD=0.36 in a controlled change window; keep PA_PRODUCTION_LOCK ON; re-verify next session PA signal rate.\""
+    },
+    {
+      "file": "scripts/phase14a2_pa_no_signal_audit.py",
+      "line": 231,
+      "text": "meta_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase14a2_pa_no_signal_audit.py",
+      "line": 242,
+      "text": "\"META_LABEL_THRESHOLD\","
+    },
+    {
+      "file": "scripts/phase14c1_ny_window_recovery.py",
+      "line": 117,
+      "text": "meta_th = float(enrich_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase14c1_session_window_recovery.py",
+      "line": 112,
+      "text": "meta_th = float(enrich_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase14c2_reclaim_softening.py",
+      "line": 275,
+      "text": "meta_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase14c3_bos_sensitivity.py",
+      "line": 277,
+      "text": "meta_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase16b_ob_fvg_confluence.py",
+      "line": 173,
+      "text": "meta_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase17a_pa_session_heatmap.py",
+      "line": 107,
+      "text": "meta_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase17b_bos_reclaim_truth.py",
+      "line": 253,
+      "text": "meta_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/phase20y3_meta_observer.py",
+      "line": 161,
+      "text": "base_th = float(cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/_rerun14a2.py",
+      "line": 55,
+      "text": "meta_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    },
+    {
+      "file": "scripts/_rerun14a2_fast.py",
+      "line": 161,
+      "text": "meta_th = float(pa_cfg.get(\"META_LABEL_THRESHOLD\", 0.38))"
+    }
+  ],
+  "META_OBSERVER_MODE": [
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 772,
+      "text": "if isinstance(config, dict) and config.get(\"META_OBSERVER_MODE\") is not None:"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 773,
+      "text": "return bool(config.get(\"META_OBSERVER_MODE\"))"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 775,
+      "text": "from tradingbot.config.live import META_OBSERVER_MODE, get_live_config"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 777,
+      "text": "return bool(get_live_config().get(\"META_OBSERVER_MODE\", META_OBSERVER_MODE))"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 143,
+      "text": "'META_OBSERVER_MODE': os.getenv('META_OBSERVER_MODE', 'false').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 182,
+      "text": "META_OBSERVER_MODE = bool(LIVE_TRADING_CONFIG.get('META_OBSERVER_MODE', False))"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 351,
+      "text": "\"META_OBSERVER_MODE\": LIVE_TRADING_CONFIG.get(\"META_OBSERVER_MODE\"),"
+    },
+    {
+      "file": "scripts/phase20y3_meta_observer.py",
+      "line": 229,
+      "text": "from tradingbot.config.live import META_OBSERVER_MODE"
+    },
+    {
+      "file": "scripts/phase20y3_meta_observer.py",
+      "line": 253,
+      "text": "f\"LIVE_META_OBSERVER_MODE={yn(bool(META_OBSERVER_MODE))}\","
+    },
+    {
+      "file": "tests/test_phase20y3_meta_observer.py",
+      "line": 18,
+      "text": "assert meta_observer_mode_enabled({\"META_OBSERVER_MODE\": True}) is True"
+    },
+    {
+      "file": "tests/test_phase20y3_meta_observer.py",
+      "line": 19,
+      "text": "assert meta_observer_mode_enabled({\"META_OBSERVER_MODE\": False}) is False"
+    }
+  ],
+  "VOL_DIRECTION_FILTER_ENABLED": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 145,
+      "text": "'VOL_DIRECTION_FILTER_ENABLED': os.getenv('VOL_DIRECTION_FILTER_ENABLED', 'false').lower() in ('1', 'true', 'yes'),"
+    }
+  ],
+  "VOL_REGIME_SKIP_TQ": [
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 48,
+      "text": "self._skip_tq = bool(live.get(\"VOL_REGIME_SKIP_TQ\", True))"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 147,
+      "text": "'VOL_REGIME_SKIP_TQ': os.getenv('VOL_REGIME_SKIP_TQ', 'true').lower() in ('1', 'true', 'yes'),"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 412,
+      "text": "\"VOL_REGIME_SKIP_TQ\": bool(live.get(\"VOL_REGIME_SKIP_TQ\", True)),"
+    }
+  ],
+  "TIMEFRAME_CONFIGS": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 189,
+      "text": "TIMEFRAME_CONFIGS = {"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 250,
+      "text": "return TIMEFRAME_CONFIGS.get(timeframe, {})"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 644,
+      "text": "\"TIMEFRAME_CONFIGS for 1m, 1h, 30m \u2014 config exists but not in live TIMEFRAMES\","
+    }
+  ],
+  "get_timeframe_config": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 248,
+      "text": "def get_timeframe_config(timeframe: str) -> Dict[str, Any]:"
+    }
+  ],
+  "get_live_config": [
+    {
+      "file": "tradingbot/adapters/adaptive_regime_strategy_registry.py",
+      "line": 14,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/adapters/adaptive_regime_strategy_registry.py",
+      "line": 92,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/adapters/legacy_loader.py",
+      "line": 72,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/adapters/legacy_loader.py",
+      "line": 82,
+      "text": "for key, value in get_live_config().items():"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 775,
+      "text": "from tradingbot.config.live import META_OBSERVER_MODE, get_live_config"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 777,
+      "text": "return bool(get_live_config().get(\"META_OBSERVER_MODE\", META_OBSERVER_MODE))"
+    },
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 12,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 46,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/application/live_runner.py",
+      "line": 338,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/application/live_runner.py",
+      "line": 340,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/backtest/phase26_validation_audit.py",
+      "line": 180,
+      "text": "\"source\": \"PRIMARY_SYMBOL + live get_live_config() router \u2192 5m only\","
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 228,
+      "text": "def get_live_config() -> Dict[str, Any]:"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 306,
+      "text": "config = get_live_config()"
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 178,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/ml/integration/factory.py",
+      "line": 185,
+      "text": "live_cfg = get_live_config()"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 44,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/ml/integration/startup_diagnostics.py",
+      "line": 55,
+      "text": "live_cfg = get_live_config()"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_freshness/scanner.py",
+      "line": 100,
+      "text": "\"reason\": \"Not looped when get_live_config forces 5m.\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/parity.py",
+      "line": 66,
+      "text": "\"live\": \"get_live_config forces ['5m'] when router/adaptive/vol on\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 38,
+      "text": "\"owner\": \"tradingbot/config/live.py::get_live_config\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 157,
+      "text": "\"note\": \"get_live_config with router on forces TIMEFRAMES=['5m']\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/root_cause.py",
+      "line": 40,
+      "text": "\"evidence\": \"tradingbot/backtest/config.py timeframe='M1'; get_live_config TIMEFRAMES=['5m']\","
+    },
+    {
+      "file": "tradingbot/research/orb_forward_demo.py",
+      "line": 183,
+      "text": "from tradingbot.config.live import PRIMARY_SYMBOL, get_live_config"
+    },
+    {
+      "file": "tradingbot/research/orb_forward_demo.py",
+      "line": 187,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/engine_telemetry.py",
+      "line": 97,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/services/engine_telemetry.py",
+      "line": 100,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 81,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 84,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 151,
+      "text": "from tradingbot.config.live import PRIMARY_SYMBOL, get_live_config"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 156,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 10,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/services/pa_production_lock.py",
+      "line": 12,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 32,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/services/phase6a_production_cert.py",
+      "line": 35,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 328,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 340,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_quality_engine.py",
+      "line": 58,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_quality_engine.py",
+      "line": 60,
+      "text": "return bool(get_live_config().get(\"ADAPTIVE_QUALITY_ENGINE\", False))"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 237,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 239,
+      "text": "return bool(get_live_config().get(\"ADAPTIVE_CONFLUENCE_ONLY\", False))"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 250,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 252,
+      "text": "mode = str(get_live_config().get(\"ADAPTIVE_CONFLUENCE_MODE\", \"OR\")).upper()"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 265,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "tradingbot/strategies/adaptive_regime.py",
+      "line": 267,
+      "text": "return bool(get_live_config().get(\"DISABLE_HIGH_VOL_FOR_MICRO\", False))"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 222,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "scripts/architecture_implementation_audit.py",
+      "line": 224,
+      "text": "cfg = get_live_config()"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 32,
+      "text": "from tradingbot.config.live import PRIMARY_SYMBOL, get_live_config"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 41,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "scripts/check_vol_regime_live_setup.py",
+      "line": 53,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "scripts/check_vol_regime_live_setup.py",
+      "line": 63,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "scripts/phase21c_health_snapshot.py",
+      "line": 113,
+      "text": "from tradingbot.config.live import PRIMARY_SYMBOL, get_live_config"
+    },
+    {
+      "file": "scripts/phase21c_health_snapshot.py",
+      "line": 115,
+      "text": "cfg = get_live_config()"
+    },
+    {
+      "file": "scripts/status_snapshot.py",
+      "line": 782,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "scripts/status_snapshot.py",
+      "line": 786,
+      "text": "live_cfg = get_live_config()"
+    },
+    {
+      "file": "scripts/verify_vol_regime_live_ready.py",
+      "line": 47,
+      "text": "from tradingbot.config.live import get_live_config"
+    },
+    {
+      "file": "scripts/verify_vol_regime_live_ready.py",
+      "line": 57,
+      "text": "live = get_live_config()"
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 284,
+      "text": "# => UnconfiguredEngineRegistry. Patch get_live_config only."
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 290,
+      "text": "\"tradingbot.config.live.get_live_config\","
+    },
+    {
+      "file": "tests/test_phase15b_kernel_integration.py",
+      "line": 306,
+      "text": "\"tradingbot.config.live.get_live_config\","
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 165,
+      "text": "# Isolated safety path: patch get_live_config (import-time LIVE_TRADING_CONFIG"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 182,
+      "text": "\"tradingbot.config.live.get_live_config\","
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 204,
+      "text": "\"tradingbot.config.live.get_live_config\","
+    }
+  ],
+  "TIMEFRAMES": [
+    {
+      "file": "tradingbot/adapters/mt5_position_manager.py",
+      "line": 781,
+      "text": "tfs = self._config.get(\"TIMEFRAMES\") or self._config.get(\"timeframes\") or []"
+    },
+    {
+      "file": "tradingbot/config/legacy_settings.py",
+      "line": 17,
+      "text": "timeframes = cfg.get(\"TIMEFRAMES\") or cfg.get(\"timeframes\") or [\"15m\"]"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 79,
+      "text": "'TIMEFRAMES': ['5m', '15m', '4h'],"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 239,
+      "text": "cfg[\"TIMEFRAMES\"] = [\"5m\"]"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 284,
+      "text": "if not config.get('TIMEFRAMES'):"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 299,
+      "text": "print(f\"[TIME] Timeframes: {', '.join(config.get('TIMEFRAMES', []))}\")"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 122,
+      "text": "PA_ALLOWED_TIMEFRAMES: frozenset[str] = frozenset({\"M5\", \"M15\", \"H4\"})"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 145,
+      "text": "return sym == \"XAUUSD\" and tf in PA_ALLOWED_TIMEFRAMES"
+    },
+    {
+      "file": "tradingbot/config/price_action.py",
+      "line": 64,
+      "text": "\"DEFAULT_TIMEFRAMES\": [\"5m\", \"15m\", \"4h\"],"
+    },
+    {
+      "file": "tradingbot/ml/data/historical_collection_report.py",
+      "line": 13,
+      "text": "PRODUCTION_TIMEFRAMES,"
+    },
+    {
+      "file": "tradingbot/ml/data/historical_collection_report.py",
+      "line": 142,
+      "text": "tfs = [tf.upper() for tf in (timeframes or list(PRODUCTION_TIMEFRAMES))]"
+    },
+    {
+      "file": "tradingbot/ml/data/historical_quality_validator.py",
+      "line": 20,
+      "text": "PRODUCTION_TIMEFRAMES = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/ml/data/historical_quality_validator.py",
+      "line": 142,
+      "text": "timeframes: tuple[str, ...] = PRODUCTION_TIMEFRAMES"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 48,
+      "text": "TRADING_TIMEFRAMES,"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 184,
+      "text": "all_tfs = (\"M1\", *TRADING_TIMEFRAMES)"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 252,
+      "text": "for tf in TRADING_TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 282,
+      "text": "for tf in TRADING_TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 380,
+      "text": "for tf in (extract_event_tfs or TRADING_TIMEFRAMES):"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 405,
+      "text": "tfs = [tf.upper() for tf in (timeframes or list(TRADING_TIMEFRAMES))]"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 443,
+      "text": "tfs = [tf.upper() for tf in (timeframes or list(TRADING_TIMEFRAMES))]"
+    },
+    {
+      "file": "tradingbot/ml/data/pipeline.py",
+      "line": 570,
+      "text": "tfs = [_tf.upper() for _tf in (timeframes or list(TRADING_TIMEFRAMES))]"
+    },
+    {
+      "file": "tradingbot/ml/data/roles.py",
+      "line": 24,
+      "text": "DATA_ONLY_TIMEFRAMES: tuple[str, ...] = (\"M1\",)"
+    },
+    {
+      "file": "tradingbot/ml/data/roles.py",
+      "line": 27,
+      "text": "TRADING_TIMEFRAMES: tuple[str, ...] = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/ml/data/roles.py",
+      "line": 30,
+      "text": "CONTEXT_TIMEFRAMES: tuple[str, ...] = (\"H4\", \"M15\")"
+    },
+    {
+      "file": "tradingbot/ml/data/__init__.py",
+      "line": 5,
+      "text": "DATA_ONLY_TIMEFRAMES,"
+    },
+    {
+      "file": "tradingbot/ml/dataset/preflight.py",
+      "line": 17,
+      "text": "REQUIRED_TIMEFRAMES: tuple[str, ...] = (ENTRY_TIMEFRAME, CONTEXT_TIMEFRAME, HIGHER_TIMEFRAME_BIAS)"
+    },
+    {
+      "file": "tradingbot/ml/dataset/preflight.py",
+      "line": 90,
+      "text": "tfs = tuple(_norm_tf(tf) for tf in (timeframes or REQUIRED_TIMEFRAMES))"
+    },
+    {
+      "file": "tradingbot/ml/dataset/production_builder.py",
+      "line": 26,
+      "text": "EVENT_EXTRACTION_TIMEFRAMES: tuple[str, ...] = (ENTRY_TIMEFRAME, CONTEXT_TIMEFRAME)"
+    },
+    {
+      "file": "tradingbot/ml/dataset/production_builder.py",
+      "line": 145,
+      "text": "for tf in EVENT_EXTRACTION_TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/documentation_freshness/scanner.py",
+      "line": 58,
+      "text": "\"tradingbot/config/live.py\": \"PRIMARY_SYMBOL, PA lock, router, TIMEFRAMES.\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/path.py",
+      "line": 157,
+      "text": "\"note\": \"get_live_config with router on forces TIMEFRAMES=['5m']\","
+    },
+    {
+      "file": "tradingbot/ml/research/pa_live_audit/root_cause.py",
+      "line": 40,
+      "text": "\"evidence\": \"tradingbot/backtest/config.py timeframe='M1'; get_live_config TIMEFRAMES=['5m']\","
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 323,
+      "text": "tfs_kernel = [str(x) for x in (cfg.get(\"TIMEFRAMES\") or cfg.get(\"timeframes\") or [])]"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 332,
+      "text": "\"configured_evidence\": \"LIVE_TRADING_CONFIG.TIMEFRAMES = ['5m','15m','4h']\","
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 334,
+      "text": "\"M1\": {\"configured_in_live\": False, \"evidence\": \"NOT in TIMEFRAMES\"},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 337,
+      "text": "\"M30\": {\"configured_in_live\": False, \"evidence\": \"NOT in TIMEFRAMES\"},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 340,
+      "text": "\"D1\": {\"configured_in_live\": False, \"evidence\": \"NOT in TIMEFRAMES\"},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+      "line": 644,
+      "text": "\"TIMEFRAME_CONFIGS for 1m, 1h, 30m \u2014 config exists but not in live TIMEFRAMES\","
+    },
+    {
+      "file": "tradingbot/ml/research/phase22c/run_validation.py",
+      "line": 27,
+      "text": "TIMEFRAMES = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22c/run_validation.py",
+      "line": 94,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22c/run_validation.py",
+      "line": 109,
+      "text": "for tf in TIMEFRAMES"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/config.py",
+      "line": 12,
+      "text": "TIMEFRAMES = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/portfolio.py",
+      "line": 32,
+      "text": "TIMEFRAMES,"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/portfolio.py",
+      "line": 108,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/portfolio.py",
+      "line": 239,
+      "text": "\"timeframes\": list(TIMEFRAMES),"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 26,
+      "text": "TIMEFRAMES,"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 98,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 113,
+      "text": "\"per_timeframe\": {tf: per_tf[tf][\"summary\"] for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 114,
+      "text": "\"all_windows\": {tf: per_tf[tf][\"windows\"] for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 120,
+      "text": "for tf in TIMEFRAMES"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 122,
+      "text": "\"sell_active\": any(per_tf[tf][\"summary\"].get(\"sell_signals\", 0) > 0 for tf in TIMEFRAMES),"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 156,
+      "text": "all_trades_by_tf: dict[str, list[ClosedTrade]] = {tf: [] for tf in TIMEFRAMES}"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 159,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 193,
+      "text": "tf: compute_trade_distribution(all_trades_by_tf[tf], label=tf) for tf in TIMEFRAMES"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 217,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22e/run_validation.py",
+      "line": 251,
+      "text": "backtests={tf: per_tf[tf][\"windows\"] for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/config.py",
+      "line": 12,
+      "text": "TIMEFRAMES = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 38,
+      "text": "from tradingbot.ml.research.phase22f.config import TIMEFRAMES, build_dataset, configure_research_env"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 62,
+      "text": "\"timeframes\": list(TIMEFRAMES),"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 67,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 87,
+      "text": "\"per_timeframe\": {tf: baseline_by_tf[tf].get(\"summary\", baseline_by_tf[tf]) for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 88,
+      "text": "\"metrics\": {tf: baseline_by_tf[tf].get(\"metrics\", {}) for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 89,
+      "text": "\"hold_chain\": {tf: baseline_by_tf[tf].get(\"hold_chain\", {}) for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 90,
+      "text": "\"elapsed_sec\": {tf: baseline_by_tf[tf].get(\"elapsed_sec\") for tf in TIMEFRAMES},"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22f/run_rapid_validation.py",
+      "line": 112,
+      "text": "for tf in TIMEFRAMES:"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22g/execution_graph.py",
+      "line": 117,
+      "text": "| Kernel settings | `tradingbot/config/legacy_settings.py` | SYMBOLS, TIMEFRAMES, LOOP_INTERVAL |"
+    },
+    {
+      "file": "tradingbot/ml/research/phase22g/execution_graph.py",
+      "line": 122,
+      "text": "`kernel_settings_from_legacy()` reads `TIMEFRAMES` from legacy config, normalized via `to_kernel()`."
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 71,
+      "text": "SUPPORTED_TIMEFRAMES: tuple[str, ...] = (\"M5\", \"M15\", \"H4\")"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 83,
+      "text": "supported = list(SUPPORTED_TIMEFRAMES)"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 85,
+      "text": "active = [to_kernel(str(tf)) for tf in (live.get(\"TIMEFRAMES\") or [])]"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 91,
+      "text": "issues.append(\"ACTIVE_LIVE_TIMEFRAMES is empty\")"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 94,
+      "text": "issues.append(f\"ACTIVE_LIVE_TIMEFRAMES has TFs outside SUPPORTED_TIMEFRAMES: {extra}\")"
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 97,
+      "text": "f\"Kernel timeframes {set(kernel_tfs)} != ACTIVE_LIVE_TIMEFRAMES {set(active)}\""
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 165,
+      "text": "f\"SUPPORTED_TIMEFRAMES = {','.join(tfh['supported'])}\","
+    },
+    {
+      "file": "tradingbot/services/live_loop_health.py",
+      "line": 166,
+      "text": "f\"ACTIVE_LIVE_TIMEFRAMES = {','.join(tfh['active'])}\","
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 428,
+      "text": "\"timeframes\": list(live.get(\"TIMEFRAMES\", [\"5m\"])),"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 21,
+      "text": "# Presets remain available for research; only ACTIVE_LIVE_TIMEFRAMES are required live."
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 112,
+      "text": "print(f\"  SUPPORTED_TIMEFRAMES = {','.join(tfh['supported'])}\")"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 113,
+      "text": "print(f\"  ACTIVE_LIVE_TIMEFRAMES = {','.join(tfh['active'])}\")"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 127,
+      "text": "print(\"\\n=== Per-TF Presets (supported; only ACTIVE_LIVE_TIMEFRAMES must be live) ===\")"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 156,
+      "text": "print(\"  OK \u2014 live config consistent (ACTIVE_LIVE_TIMEFRAMES = M5)\")"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 18,
+      "text": "DATA_ONLY_TIMEFRAMES,"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 21,
+      "text": "TRADING_TIMEFRAMES,"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 90,
+      "text": "print(f\"  {DATA_ONLY_TIMEFRAMES} = data collection only\")"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 93,
+      "text": "timeframes = _parse_timeframes(args.timeframes) or list(TRADING_TIMEFRAMES)"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 97,
+      "text": "from tradingbot.ml.data.historical_quality_validator import PRODUCTION_5Y_DAYS, PRODUCTION_TIMEFRAMES"
+    },
+    {
+      "file": "scripts/collect_ml_data.py",
+      "line": 99,
+      "text": "prod_tfs = _parse_timeframes(args.timeframes) or list(PRODUCTION_TIMEFRAMES)"
+    },
+    {
+      "file": "tests/test_ml_data_phase1.py",
+      "line": 26,
+      "text": "DATA_ONLY_TIMEFRAMES,"
+    },
+    {
+      "file": "tests/test_ml_data_phase1.py",
+      "line": 29,
+      "text": "TRADING_TIMEFRAMES,"
+    },
+    {
+      "file": "tests/test_ml_data_phase1.py",
+      "line": 52,
+      "text": "self.assertIn(\"H4\", TRADING_TIMEFRAMES)"
+    },
+    {
+      "file": "tests/test_ml_data_phase1.py",
+      "line": 55,
+      "text": "self.assertEqual(DATA_ONLY_TIMEFRAMES, (\"M1\",))"
+    }
+  ],
+  "SIGNAL_FILTER": [
+    {
+      "file": "tradingbot/backtest/phase26d_kernel_signal_trace.py",
+      "line": 343,
+      "text": "\"full_path\": stages.get(PipelineStageName.SIGNAL_FILTER.value, {}).get(\"continued\"),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26d_kernel_signal_trace.py",
+      "line": 344,
+      "text": "\"identical\": stages.get(PipelineStageName.SIGNAL_FILTER.value, {}).get(\"continued\") is True,"
+    },
+    {
+      "file": "tradingbot/backtest/phase26d_kernel_signal_trace.py",
+      "line": 412,
+      "text": "if stage_name == PipelineStageName.SIGNAL_FILTER.value and ok and ctx.signal is not None:"
+    },
+    {
+      "file": "tradingbot/domain/enums.py",
+      "line": 22,
+      "text": "SIGNAL_FILTER = \"signal_filter\""
+    },
+    {
+      "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+      "line": 115,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = filter_mode"
+    },
+    {
+      "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+      "line": 306,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": [\"OFF\", \"WPSQF\"],"
+    },
+    {
+      "file": "tradingbot/ml/research/phase30c/run_investigation.py",
+      "line": 552,
+      "text": "\"regression\": \"TRADINGBOT_SIGNAL_FILTER=OFF byte-identical signals; only fills differ\","
+    },
+    {
+      "file": "tradingbot/pipeline/signal_filter_stage.py",
+      "line": 14,
+      "text": "name = PipelineStageName.SIGNAL_FILTER"
+    },
+    {
+      "file": "tradingbot/services/signal_filter_mode.py",
+      "line": 24,
+      "text": "raw = os.getenv(\"TRADINGBOT_SIGNAL_FILTER\", SignalFilterMode.OFF.value).strip().upper()"
+    },
+    {
+      "file": "scripts/phase12a_pa_dataset_builder.py",
+      "line": 34,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase12a_pa_dataset_builder.py",
+      "line": 277,
+      "text": "os.environ.setdefault(\"TRADINGBOT_SIGNAL_FILTER\", \"OFF\")"
+    },
+    {
+      "file": "scripts/phase12b_regime_training.py",
+      "line": 31,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase12c_hybrid_certification.py",
+      "line": 33,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 37,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+      "line": 33,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13d_ml_retraining.py",
+      "line": 30,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13d_ml_retraining.py",
+      "line": 1103,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = \"OFF\""
+    },
+    {
+      "file": "scripts/phase18a_dataset_expansion.py",
+      "line": 30,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase18b_meta_retraining.py",
+      "line": 25,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19a_reclaim_intelligence.py",
+      "line": 27,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19b_label_quality.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19c_shadow_meta.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20a_bos_live_parity.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20b_meta_shadow_demotion.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20c_mss_fvg_tests.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase22c_meta_v2.py",
+      "line": 25,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "tests/test_phase29b.py",
+      "line": 56,
+      "text": "old = os.environ.pop(\"TRADINGBOT_SIGNAL_FILTER\", None)"
+    },
+    {
+      "file": "tests/test_phase29b.py",
+      "line": 61,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = old"
+    }
+  ],
+  "TRADINGBOT_SIGNAL_FILTER": [
+    {
+      "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+      "line": 115,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = filter_mode"
+    },
+    {
+      "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+      "line": 306,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": [\"OFF\", \"WPSQF\"],"
+    },
+    {
+      "file": "tradingbot/ml/research/phase30c/run_investigation.py",
+      "line": 552,
+      "text": "\"regression\": \"TRADINGBOT_SIGNAL_FILTER=OFF byte-identical signals; only fills differ\","
+    },
+    {
+      "file": "tradingbot/services/signal_filter_mode.py",
+      "line": 24,
+      "text": "raw = os.getenv(\"TRADINGBOT_SIGNAL_FILTER\", SignalFilterMode.OFF.value).strip().upper()"
+    },
+    {
+      "file": "scripts/phase12a_pa_dataset_builder.py",
+      "line": 34,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase12a_pa_dataset_builder.py",
+      "line": 277,
+      "text": "os.environ.setdefault(\"TRADINGBOT_SIGNAL_FILTER\", \"OFF\")"
+    },
+    {
+      "file": "scripts/phase12b_regime_training.py",
+      "line": 31,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase12c_hybrid_certification.py",
+      "line": 33,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13b_no_trade_recovery.py",
+      "line": 37,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+      "line": 33,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13d_ml_retraining.py",
+      "line": 30,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase13d_ml_retraining.py",
+      "line": 1103,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = \"OFF\""
+    },
+    {
+      "file": "scripts/phase18a_dataset_expansion.py",
+      "line": 30,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase18b_meta_retraining.py",
+      "line": 25,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19a_reclaim_intelligence.py",
+      "line": 27,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19b_label_quality.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase19c_shadow_meta.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20a_bos_live_parity.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20b_meta_shadow_demotion.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase20c_mss_fvg_tests.py",
+      "line": 26,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "scripts/phase22c_meta_v2.py",
+      "line": 25,
+      "text": "\"TRADINGBOT_SIGNAL_FILTER\": \"OFF\","
+    },
+    {
+      "file": "tests/test_phase29b.py",
+      "line": 56,
+      "text": "old = os.environ.pop(\"TRADINGBOT_SIGNAL_FILTER\", None)"
+    },
+    {
+      "file": "tests/test_phase29b.py",
+      "line": 61,
+      "text": "os.environ[\"TRADINGBOT_SIGNAL_FILTER\"] = old"
+    }
+  ],
+  "DEMO_MODE": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 124,
+      "text": "'DEMO_MODE': True,"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 295,
+      "text": "print(f\"[TARGET] Demo Mode: {config.get('DEMO_MODE', True)}\")"
+    },
+    {
+      "file": "scripts/phase_verify_audit.py",
+      "line": 171,
+      "text": "\"DEMO_MODE\","
+    }
+  ],
+  "RISK_PER_TRADE": [
+    {
+      "file": "tradingbot/adapters/adaptive_regime_strategy_registry.py",
+      "line": 95,
+      "text": "live.get(\"VOL_REGIME_RISK_PER_TRADE_PCT\")"
+    },
+    {
+      "file": "tradingbot/adapters/adaptive_regime_strategy_registry.py",
+      "line": 96,
+      "text": "or self._config.get(\"RISK_PER_TRADE\", 0.005) * 100"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 863,
+      "text": "self._config.get(\"RISK_PER_TRADE\", self._config.get(\"risk_per_trade\", risk_logic.DEFAULT_RISK_PER_TRADE))"
+    },
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 51,
+      "text": "live.get(\"VOL_REGIME_RISK_PER_TRADE_PCT\")"
+    },
+    {
+      "file": "tradingbot/adapters/vol_regime_strategy_registry.py",
+      "line": 52,
+      "text": "or self._config.get(\"RISK_PER_TRADE\", 0.005) * 100"
+    },
+    {
+      "file": "tradingbot/backtest/config.py",
+      "line": 21,
+      "text": "risk_per_trade: float = 0.005  # \u06f0.\u06f5\u066a \u2014 parity \u0628\u0627 live RISK_PER_TRADE"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 62,
+      "text": "self._legacy_config[\"RISK_PER_TRADE\"] = config.risk_per_trade"
+    },
+    {
+      "file": "tradingbot/backtest/phase26l_riskgate_policy_audit.py",
+      "line": 297,
+      "text": "\"depends_on\": \"BacktestConfig / RISK_PER_TRADE parity\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26m_operator_risk_budget_audit.py",
+      "line": 41,
+      "text": "r\"risk_per_trade|RISK_PER_TRADE\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26m_operator_risk_budget_audit.py",
+      "line": 203,
+      "text": "*_read_excerpt(ct, r\"RISK_PER_TRADE.*0\\.005\", max_hits=2),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26m_operator_risk_budget_audit.py",
+      "line": 205,
+      "text": "*_read_excerpt(risk_md, r\"0\\.5%|RISK_PER_TRADE\", max_hits=2),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26m_operator_risk_budget_audit.py",
+      "line": 206,
+      "text": "*_read_excerpt(root / \"docs_v2/03_runtime/CONFIGURATION.md\", r\"RISK_PER_TRADE\", max_hits=1),"
+    },
+    {
+      "file": "tradingbot/backtest/phase26m_operator_risk_budget_audit.py",
+      "line": 440,
+      "text": "\"0.5% RISK_PER_TRADE is documented production/backtest policy (A)\","
+    },
+    {
+      "file": "tradingbot/backtest/phase26n_documentation_contradiction_cleanup.py",
+      "line": 175,
+      "text": "\"BacktestConfig.risk_per_trade = 0.005 (0.5%), aligned with live RISK_PER_TRADE \""
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 52,
+      "text": "'RISK_PER_TRADE': 0.005,  # \u06f0.\u06f5\u066a \u2014 \u062f\u0645\u0648 Price Action"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 152,
+      "text": "'VOL_REGIME_RISK_PER_TRADE_PCT': 0.5,"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 267,
+      "text": "if config.get('RISK_PER_TRADE', 0) > 0.05:"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 268,
+      "text": "issues.append(\"RISK_PER_TRADE is too high (>5%)\")"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 297,
+      "text": "print(f\"\ud83d\udee1\ufe0f Risk Per Trade: {config.get('RISK_PER_TRADE', 0.02) * 100:.1f}%\")"
+    },
+    {
+      "file": "tradingbot/config/prop_presets.py",
+      "line": 15,
+      "text": "\"RISK_PER_TRADE\": 0.01,"
+    },
+    {
+      "file": "tradingbot/config/prop_presets.py",
+      "line": 32,
+      "text": "\"RISK_PER_TRADE\": 0.005,"
+    },
+    {
+      "file": "tradingbot/domain/risk_logic.py",
+      "line": 33,
+      "text": "DEFAULT_RISK_PER_TRADE = 0.02"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_builder.py",
+      "line": 62,
+      "text": "return {\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": 0.005}"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "line": 319,
+      "text": "base = {\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": cfg.risk_pct}"
+    },
+    {
+      "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+      "line": 320,
+      "text": "base[\"RISK_PER_TRADE\"] = cfg.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/integration/live_shadow_runner.py",
+      "line": 146,
+      "text": "legacy_config[\"RISK_PER_TRADE\"] = cfg.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/live_pilot/health_check.py",
+      "line": 118,
+      "text": "legacy[\"RISK_PER_TRADE\"] = cfg.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/live_pilot/live_controller.py",
+      "line": 127,
+      "text": "legacy_config[\"RISK_PER_TRADE\"] = cfg.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/paper/paper_engine.py",
+      "line": 104,
+      "text": "legacy_config[\"RISK_PER_TRADE\"] = cfg.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/phase20a/deployment_runner.py",
+      "line": 44,
+      "text": "self.legacy_config[\"RISK_PER_TRADE\"] = config.risk_pct"
+    },
+    {
+      "file": "tradingbot/ml/research/full_repo_audit/run.py",
+      "line": 353,
+      "text": "\"RISK_PER_TRADE\": LIVE_TRADING_CONFIG.get(\"RISK_PER_TRADE\"),"
+    },
+    {
+      "file": "tradingbot/ml/shadow/shadow_engine.py",
+      "line": 261,
+      "text": "return {\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": 0.005}"
+    },
+    {
+      "file": "tradingbot/services/live_risk_tracker.py",
+      "line": 195,
+      "text": "risk_pct = float((config or {}).get(\"RISK_PER_TRADE\", (config or {}).get(\"risk_per_trade\", 0.01)))"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 356,
+      "text": "live.get(\"RISK_PER_TRADE\", cfg.get(\"RISK_PER_TRADE\", 0.005))"
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 419,
+      "text": "\"vol_regime_risk_per_trade_pct\": float(live.get(\"VOL_REGIME_RISK_PER_TRADE_PCT\", 0.5)),"
+    },
+    {
+      "file": "scripts/check_live_setup.py",
+      "line": 104,
+      "text": "print(f\"  loop={ks.cycle_interval_seconds}s risk={cfg.get('RISK_PER_TRADE')}\")"
+    },
+    {
+      "file": "tests/test_ml_phase10_1_kernel_bridge.py",
+      "line": 156,
+      "text": "replay, base_dir=tmp, seed=42, legacy_config={\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": 0.005}"
+    },
+    {
+      "file": "tests/test_ml_phase10_1_kernel_bridge.py",
+      "line": 171,
+      "text": "replay, base_dir=tmp, legacy_config={\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": 0.005}"
+    },
+    {
+      "file": "tests/test_ml_shadow_phase10.py",
+      "line": 188,
+      "text": "bridge = ShadowKernelBridge(legacy_config={\"INITIAL_BALANCE\": 10_000, \"RISK_PER_TRADE\": 0.005})"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 39,
+      "text": "config={\"RISK_PER_TRADE\": 0.005},"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 52,
+      "text": "config={\"RISK_PER_TRADE\": 0.005},"
+    },
+    {
+      "file": "tests/test_phase24k.py",
+      "line": 82,
+      "text": "config={\"RISK_PER_TRADE\": 0.005},"
+    },
+    {
+      "file": "tests/test_phase25b_backtest_live_parity.py",
+      "line": 46,
+      "text": "self.assertAlmostEqual(LIVE_TRADING_CONFIG[\"RISK_PER_TRADE\"], 0.005)"
+    }
+  ],
+  "MAX_POSITIONS": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 42,
+      "text": "'MAX_POSITIONS': 3,"
+    },
+    {
+      "file": "tests/test_legacy_loader.py",
+      "line": 24,
+      "text": "\"MAX_POSITIONS\": 3,"
+    },
+    {
+      "file": "tests/test_legacy_loader.py",
+      "line": 44,
+      "text": "self.assertEqual(merged[\"MAX_POSITIONS\"], 3)"
+    }
+  ],
+  "MAX_OPEN_POSITIONS": [
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 873,
+      "text": "self._config.get(\"MAX_OPEN_POSITIONS_TOTAL\", pa.get(\"MAX_OPEN_POSITIONS_TOTAL\", 2))"
+    },
+    {
+      "file": "tradingbot/adapters/risk_gate.py",
+      "line": 876,
+      "text": "self._config.get(\"MAX_OPEN_POSITIONS_PER_SYMBOL\", pa.get(\"MAX_OPEN_POSITIONS_PER_SYMBOL\", 2))"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 114,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\","
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 116,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\", config.max_open_positions_total"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 122,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\","
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 144,
+      "text": "if \"MAX_OPEN_POSITIONS_TOTAL\" in pa_tf:"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 145,
+      "text": "config.max_open_positions_total = int(pa_tf[\"MAX_OPEN_POSITIONS_TOTAL\"])"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 146,
+      "text": "if \"MAX_OPEN_POSITIONS_PER_SYMBOL\" in pa_tf:"
+    },
+    {
+      "file": "tradingbot/backtest/engine.py",
+      "line": 147,
+      "text": "config.max_positions_per_symbol = int(pa_tf[\"MAX_OPEN_POSITIONS_PER_SYMBOL\"])"
+    },
+    {
+      "file": "tradingbot/backtest/phase40_full_horizon_validation.py",
+      "line": 248,
+      "text": "\"max_open_positions_total\": int(m5.get(\"MAX_OPEN_POSITIONS_TOTAL\", 3)),"
+    },
+    {
+      "file": "tradingbot/backtest/phase40_full_horizon_validation.py",
+      "line": 249,
+      "text": "\"max_open_positions_per_symbol\": int(m5.get(\"MAX_OPEN_POSITIONS_PER_SYMBOL\", 2)),"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 43,
+      "text": "'MAX_OPEN_POSITIONS_TOTAL': 3,"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 44,
+      "text": "'MAX_OPEN_POSITIONS_PER_SYMBOL': 2,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 50,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\": 3,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 51,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\": 2,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 86,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\": 3,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 87,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\": 2,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 116,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\": 2,"
+    },
+    {
+      "file": "tradingbot/config/pa_symbol_tf_presets.py",
+      "line": 117,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\": 1,"
+    },
+    {
+      "file": "tradingbot/config/price_action.py",
+      "line": 40,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\": 3,"
+    },
+    {
+      "file": "tradingbot/config/price_action.py",
+      "line": 41,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\": 2,"
+    },
+    {
+      "file": "tradingbot/config/price_action.py",
+      "line": 87,
+      "text": "\"MAX_OPEN_POSITIONS_TOTAL\","
+    },
+    {
+      "file": "tradingbot/config/price_action.py",
+      "line": 88,
+      "text": "\"MAX_OPEN_POSITIONS_PER_SYMBOL\","
+    },
+    {
+      "file": "tradingbot/ml/live_pilot/live_controller.py",
+      "line": 128,
+      "text": "legacy_config[\"MAX_OPEN_POSITIONS_TOTAL\"] = cfg.max_open_positions"
+    },
+    {
+      "file": "tradingbot/ml/live_pilot/live_controller.py",
+      "line": 129,
+      "text": "legacy_config[\"MAX_OPEN_POSITIONS_PER_SYMBOL\"] = cfg.max_open_positions"
+    },
+    {
+      "file": "tradingbot/ml/phase20a/config.py",
+      "line": 17,
+      "text": "MAX_OPEN_POSITIONS = 1"
+    },
+    {
+      "file": "tradingbot/ml/phase20a/config.py",
+      "line": 55,
+      "text": "max_open_positions: int = MAX_OPEN_POSITIONS"
+    },
+    {
+      "file": "tradingbot/ml/phase20a/deployment_runner.py",
+      "line": 45,
+      "text": "self.legacy_config[\"MAX_OPEN_POSITIONS_TOTAL\"] = config.max_open_positions"
+    },
+    {
+      "file": "tradingbot/ml/phase20a/deployment_runner.py",
+      "line": 46,
+      "text": "self.legacy_config[\"MAX_OPEN_POSITIONS_PER_SYMBOL\"] = config.max_open_positions"
+    },
+    {
+      "file": "tradingbot/ml/phase20c/risk_validation.py",
+      "line": 7,
+      "text": "from tradingbot.ml.phase20a.config import DEFAULT_RISK_PCT, MAX_OPEN_POSITIONS, MAX_RISK_PCT"
+    },
+    {
+      "file": "tradingbot/ml/phase20c/risk_validation.py",
+      "line": 47,
+      "text": "if max_open_seen > MAX_OPEN_POSITIONS:"
+    },
+    {
+      "file": "tradingbot/ml/phase20c/risk_validation.py",
+      "line": 51,
+      "text": "\"limit\": MAX_OPEN_POSITIONS,"
+    },
+    {
+      "file": "tradingbot/ml/phase20c/risk_validation.py",
+      "line": 61,
+      "text": "\"max_open_positions_ok\": max_open_seen == 0 or max_open_seen <= MAX_OPEN_POSITIONS,"
+    },
+    {
+      "file": "tradingbot/ml/phase20c/risk_validation.py",
+      "line": 86,
+      "text": "\"max_open_positions_limit\": MAX_OPEN_POSITIONS,"
+    },
+    {
+      "file": "tradingbot/ml/research/phase27e/metrics.py",
+      "line": 22,
+      "text": "\"config_key\": \"MAX_OPEN_POSITIONS_PER_SYMBOL (default 2)\","
+    },
+    {
+      "file": "tradingbot/ml/research/phase27e/metrics.py",
+      "line": 32,
+      "text": "\"config_key\": \"MAX_OPEN_POSITIONS_TOTAL\","
+    },
+    {
+      "file": "tradingbot/services/runtime_truth.py",
+      "line": 425,
+      "text": "\"max_open_positions_total\": int(live.get(\"MAX_OPEN_POSITIONS_TOTAL\", 3)),"
+    }
+  ]
+}

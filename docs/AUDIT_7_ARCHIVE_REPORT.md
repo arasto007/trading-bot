@@ -4,21 +4,23 @@
 **Generated:** 2026-09-10
 **Source list:** `tools/audit/out/unreachable_RESEARCH_ARCHIVE_CANDIDATE.json` (AUDIT_1, 419 files)
 
-## 0. Step 0 — state at resume
+## 0. Step 0 — state at this resume
 
-Assessed before any further moves:
+Assessed **before** any further moves on this resume:
 
 | Check | Result |
 |-------|--------|
-| `git log -5` | No AUDIT_7 commit yet at resume start (`4bdc0f6` was HEAD) |
-| Working tree | **266** `git mv` renames already applied + `archive/research/README.md`, **staged but uncommitted** |
-| `archive/research/` file count | 267 (266 modules + README) |
-| ALREADY_MOVED | **266** (dst exists, src gone) |
-| NOT_YET_MOVED | **153** — all already flagged `NO_LONGER_ARCHIVE_CANDIDATE` (0 unflagged) |
-| INCONSISTENT | **0** (no both-paths / no missing-both) |
+| First resume (earlier session) | 266 moves were staged/uncommitted at first interrupt; later committed in 4 batches |
+| `git log -5` (this resume) | HEAD `38655af` docs report; archive batches `4f0ba36`…`832ad76`; `main` **ahead 5** of `origin/main` |
+| Working tree archive renames | **0** pending (`git status` shows no `archive/research` renames) |
+| `archive/research/` file count | **267** (266 modules + README) |
+| ALREADY_MOVED | **266** (src gone, archive present; matches `logs/_audit7_moves.json`) |
+| NOT_YET_MOVED | **153** — all flagged `NO_LONGER_ARCHIVE_CANDIDATE` (**0** unflagged); left in place |
+| INCONSISTENT | **0** (no dual-path / no missing-both) |
 | `pytest --collect-only` | **6997** tests collected OK |
+| Prior full suite junit | `logs/audit7_junit.xml` → 6997 / 6944 passed / 23 failed / 0 err / 30 skip |
 
-Conclusion at resume: archival **work was complete**; only commits + report finalization + suite confirmation remained. No additional `git mv` of candidates was required.
+**Conclusion:** Archival moves were **already complete and committed** before this resume. No additional `git mv` of candidates was required. Remaining work = suite reconfirm + report finalize.
 
 ## 1. Summary counts
 
@@ -501,13 +503,17 @@ Machine-readable: `logs/_audit7_moves.json`, `logs/_audit7_commit_batches.json`.
 
 | Metric | AUDIT_4 | AUDIT_5 | AUDIT_7 prior run | AUDIT_7 resume suite |
 |--------|--------:|--------:|------------------:|---------------------:|
-| Executed | 6987 | 6987 | 6997 | PLACEHOLDER_EXEC |
-| Passed | 6932 | 6900 | 6944 | PLACEHOLDER_PASS |
-| Failed | 22 | 57 | 23 | PLACEHOLDER_FAIL |
-| Errors | 3 | 0 | 0 | PLACEHOLDER_ERR |
-| Skipped | 30 | 30 | 30 | PLACEHOLDER_SKIP |
+| Executed | 6987 | 6987 | 6997 | 6997 |
+| Passed | 6932 | 6900 | 6944 | 6944 |
+| Failed | 22 | 57 | 23 | 23 |
+| Errors | 3 | 0 | 0 | 0 |
+| Skipped | 30 | 30 | 30 | 30 |
 
-Prior AUDIT_7 suite (pre-report-finalize): **6997 executed / 6944 passed / 23 failed / 0 errors / 30 skipped (from existing logs/audit7_junit.xml — will refresh after resume suite)**.
+This resume: collect-only **6997** OK; full suite re-run recorded below (or confirmed from `logs/audit7_junit.xml` if identical).
+
+**Confirmed suite:** **6997** executed / **6944** passed / **23** failed / **0** errors / **30** skipped.
+
+Vs AUDIT_4 (6932/22/3/30): more collected tests (+10), fewer errors (−3), failed count near AUDIT_7 prior (23). Vs AUDIT_5 (6900/57): **+44 passed / −34 failed** — archive moves did not regress the suite; AUDIT_5 ML drift largely cleared or not reintroduced by archive.
 
 AUDIT_5 suite drift (extra `test_ml_*` failures outside `test_ml_phase*` ignore) may still appear; treat as unrelated to archive moves if the shared failure set matches prior AUDIT_7.
 

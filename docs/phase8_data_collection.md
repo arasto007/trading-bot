@@ -151,14 +151,20 @@ If no metadata exists, incremental mode falls back to `--days` (default 365).
 
 ## Architecture timeframes
 
+> این جدول نقش‌های **جمع‌آوری / ML context** را توصیف می‌کند، نه چرخهٔ live پیش‌فرض کرنل.
+> چرخه live فعلی با router روشن فقط **M5** است (`get_live_config()`). *(به‌روزرسانی شده — 2026-09-10)*
+
 | TF | Role |
 |----|------|
-| H4 | Market bias |
-| M15 | Context validation |
-| M5 | Entry execution reference |
+| H4 | Market bias / HTF context (collection & risk bias — نه TF همزمان اجرا در live) |
+| M15 | Context validation / HTF برای برخی presetها |
+| M5 | Entry execution reference **و** TF پیش‌فرض live kernel |
 | M1 | Data collection only (Phase 1 legacy collector — **historical**; not current `BacktestConfig` default) |
 
 Phase 8.0 historical collection defaults to **M5, M15, H4**.
+
+> `TIMEFRAME_CONFIGS` / `get_timeframe_config()` در `tradingbot/config/live.py` تعریف شده‌اند ولی
+> در مسیر live/backtest **فراخوانی نمی‌شوند** (dead config) — آستانه‌های «ULTRA AGGRESSIVE» آن‌ها فعال نیستند.
 
 ## Related commands (not Phase 8.0)
 

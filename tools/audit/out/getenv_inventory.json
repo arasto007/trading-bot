@@ -1,0 +1,3759 @@
+{
+  "total_getenv_sites": 298,
+  "unique_keys": 102,
+  "live_py_sites": [
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 22,
+      "key": "TRADINGBOT_ACCOUNT_ENV",
+      "default_expr": "",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 22,
+      "key": "TRADINGBOT_ACCOUNT_ENVIRONMENT",
+      "default_expr": "\"DEMO\"",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 27,
+      "key": "TRADINGBOT_REAL_SYMBOL",
+      "default_expr": "PRIMARY_SYMBOL",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 37,
+      "key": "MT5_LOGIN",
+      "default_expr": "",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 37,
+      "key": "MT5_LOGIN",
+      "default_expr": null,
+      "kind": "environ[]"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 38,
+      "key": "MT5_PASSWORD",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 39,
+      "key": "MT5_SERVER",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 114,
+      "key": "EMAIL_USERNAME",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 115,
+      "key": "EMAIL_PASSWORD",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 116,
+      "key": "EMAIL_TO",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 117,
+      "key": "EMAIL_FROM",
+      "default_expr": "''",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 126,
+      "key": "PA_PRODUCTION_LOCK",
+      "default_expr": "'true'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 128,
+      "key": "DEMO_DISABLE_SESSION_FILTER",
+      "default_expr": "'false'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 129,
+      "key": "VOL_REGIME_ENABLED",
+      "default_expr": "'false'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 131,
+      "key": "ADAPTIVE_CONFLUENCE_ONLY",
+      "default_expr": "'true'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 133,
+      "key": "ADAPTIVE_CONFLUENCE_MODE",
+      "default_expr": "'OR'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 135,
+      "key": "ADAPTIVE_QUALITY_ENGINE",
+      "default_expr": "'false'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 137,
+      "key": "DISABLE_HIGH_VOL_FOR_MICRO",
+      "default_expr": "'true'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 139,
+      "key": "MULTI_ENGINE_ROUTER_ENABLED",
+      "default_expr": "'true'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 141,
+      "key": "META_LABEL_THRESHOLD",
+      "default_expr": "'0.38'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 143,
+      "key": "META_OBSERVER_MODE",
+      "default_expr": "'false'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 145,
+      "key": "VOL_DIRECTION_FILTER_ENABLED",
+      "default_expr": "'false'",
+      "kind": "getenv"
+    },
+    {
+      "file": "tradingbot/config/live.py",
+      "line": 147,
+      "key": "VOL_REGIME_SKIP_TQ",
+      "default_expr": "'true'",
+      "kind": "getenv"
+    }
+  ],
+  "inventory": [
+    {
+      "key": "ADAPTIVE_CONFLUENCE_MODE",
+      "defaults": [
+        "\"\"",
+        "'OR'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 133,
+          "key": "ADAPTIVE_CONFLUENCE_MODE",
+          "default_expr": "'OR'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/strategies/adaptive_regime.py",
+          "line": 246,
+          "key": "ADAPTIVE_CONFLUENCE_MODE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/strategies/adaptive_regime.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "ADAPTIVE_CONFLUENCE_ONLY",
+      "defaults": [
+        "\"\"",
+        "'true'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 131,
+          "key": "ADAPTIVE_CONFLUENCE_ONLY",
+          "default_expr": "'true'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/strategies/adaptive_regime.py",
+          "line": 234,
+          "key": "ADAPTIVE_CONFLUENCE_ONLY",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/backtest_adaptive_report.py",
+          "line": 32,
+          "key": "ADAPTIVE_CONFLUENCE_ONLY",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/backtest_compare_strategies.py",
+          "line": 69,
+          "key": "ADAPTIVE_CONFLUENCE_ONLY",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/backtest_adaptive_report.py",
+        "scripts/backtest_compare_strategies.py",
+        "tradingbot/strategies/adaptive_regime.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 4
+    },
+    {
+      "key": "ADAPTIVE_QUALITY_ENGINE",
+      "defaults": [
+        "\"\"",
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 135,
+          "key": "ADAPTIVE_QUALITY_ENGINE",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/strategies/adaptive_quality_engine.py",
+          "line": 52,
+          "key": "ADAPTIVE_QUALITY_ENGINE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/strategies/adaptive_quality_engine.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "ADAPTIVE_REGIME_ENABLED",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/backtest_adaptive_report.py",
+          "line": 30,
+          "key": "ADAPTIVE_REGIME_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/backtest_adaptive_report.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ADX_FILTER",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/rollback.py",
+          "line": 21,
+          "key": "ADX_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase20a/rollback.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ADX_MAX",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 105,
+          "key": "ADX_MAX",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ADX_MIN",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 104,
+          "key": "ADX_MIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ALLOW_LEGACY_FALLBACK",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 55,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 92,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+          "line": 216,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+          "line": 388,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27a/run_investigation.py",
+          "line": 99,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27b/run_investigation.py",
+          "line": 74,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27c/run_investigation.py",
+          "line": 273,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27d/run_investigation.py",
+          "line": 91,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27f/run_investigation.py",
+          "line": 64,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28d/run_investigation.py",
+          "line": 136,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28f/run_investigation.py",
+          "line": 99,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+          "line": 114,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 385,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 578,
+          "key": "ALLOW_LEGACY_FALLBACK",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase15b_kernel_integration.py",
+        "tradingbot/ml/research/phase25a/run_investigation.py",
+        "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+        "tradingbot/ml/research/phase27a/run_investigation.py",
+        "tradingbot/ml/research/phase27b/run_investigation.py",
+        "tradingbot/ml/research/phase27c/run_investigation.py",
+        "tradingbot/ml/research/phase27d/run_investigation.py",
+        "tradingbot/ml/research/phase27f/run_investigation.py",
+        "tradingbot/ml/research/phase28d/run_investigation.py",
+        "tradingbot/ml/research/phase28f/run_investigation.py",
+        "tradingbot/ml/research/phase29b/run_investigation.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 14
+    },
+    {
+      "key": "APPDATA",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 451,
+          "key": "APPDATA",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/read_mt5_experts_ini.py",
+          "line": 24,
+          "key": "APPDATA",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/read_mt5_experts_ini.py",
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "BT_BALANCE",
+      "defaults": [
+        "\"200\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/backtest_adaptive_report.py",
+          "line": 75,
+          "key": "BT_BALANCE",
+          "default_expr": "\"200\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/backtest_adaptive_report.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "DEMO_DISABLE_SESSION_FILTER",
+      "defaults": [
+        "\"\"",
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 128,
+          "key": "DEMO_DISABLE_SESSION_FILTER",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/domain/filter_policy.py",
+          "line": 18,
+          "key": "DEMO_DISABLE_SESSION_FILTER",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/domain/filter_policy.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "DISABLE_HIGH_VOL_FOR_MICRO",
+      "defaults": [
+        "\"\"",
+        "'true'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 137,
+          "key": "DISABLE_HIGH_VOL_FOR_MICRO",
+          "default_expr": "'true'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/strategies/adaptive_regime.py",
+          "line": 259,
+          "key": "DISABLE_HIGH_VOL_FOR_MICRO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/strategies/adaptive_regime.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "EMAIL_FROM",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 117,
+          "key": "EMAIL_FROM",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "EMAIL_PASSWORD",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 276,
+          "key": "EMAIL_PASSWORD",
+          "default_expr": "''",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 115,
+          "key": "EMAIL_PASSWORD",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "EMAIL_RECEIVER",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 277,
+          "key": "EMAIL_RECEIVER",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "EMAIL_SENDER",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 275,
+          "key": "EMAIL_SENDER",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "EMAIL_TO",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 116,
+          "key": "EMAIL_TO",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "EMAIL_USERNAME",
+      "defaults": [
+        "''"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 114,
+          "key": "EMAIL_USERNAME",
+          "default_expr": "''",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "ENABLE_ADX_FILTER",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 101,
+          "key": "ENABLE_ADX_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/rollback.py",
+          "line": 19,
+          "key": "ENABLE_ADX_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase19c_profitability_upgrade.py",
+          "line": 123,
+          "key": "ENABLE_ADX_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase19c_profitability_upgrade.py",
+        "tradingbot/ml/phase20a/config.py",
+        "tradingbot/ml/phase20a/rollback.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 3
+    },
+    {
+      "key": "ENABLE_ML_SHADOW",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+          "line": 92,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/integration/live_shadow_runner.py",
+          "line": 136,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 75,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/paper/paper_engine.py",
+          "line": 85,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 94,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_kernel_shadow.py",
+          "line": 44,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_live_shadow.py",
+          "line": 47,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_paper_trading.py",
+          "line": 49,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_shadow_monitor.py",
+          "line": 48,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_1_kernel_bridge.py",
+          "line": 136,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_2_live_shadow.py",
+          "line": 106,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_2_live_shadow.py",
+          "line": 242,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_ml_phase10_4_monitoring.py",
+          "line": 97,
+          "key": "ENABLE_ML_SHADOW",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/run_ml_kernel_shadow.py",
+        "scripts/run_ml_live_shadow.py",
+        "scripts/run_ml_paper_trading.py",
+        "scripts/run_ml_shadow_monitor.py",
+        "tests/test_ml_phase10_1_kernel_bridge.py",
+        "tests/test_ml_phase10_2_live_shadow.py",
+        "tests/test_ml_phase10_4_monitoring.py",
+        "tradingbot/ml/integration/kernel_shadow_runner.py",
+        "tradingbot/ml/integration/live_shadow_runner.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/paper/paper_engine.py",
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 13
+    },
+    {
+      "key": "ENABLE_OPTIMIZED_UNIFIED_FRAME",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase24h/run_investigation.py",
+          "line": 281,
+          "key": "ENABLE_OPTIMIZED_UNIFIED_FRAME",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24i/run_validation.py",
+          "line": 86,
+          "key": "ENABLE_OPTIMIZED_UNIFIED_FRAME",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase24h/run_investigation.py",
+        "tradingbot/ml/research/phase24i/run_validation.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "ENABLE_PHASE12_LIVE",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 68,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 108,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 74,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 160,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 173,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 186,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 198,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 220,
+          "key": "ENABLE_PHASE12_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_ml_phase12_live_pilot.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 8
+    },
+    {
+      "key": "ENABLE_PHASE20A_LIVE",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 92,
+          "key": "ENABLE_PHASE20A_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase20a_live_deployment.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ENABLE_RSI_FILTER",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 100,
+          "key": "ENABLE_RSI_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/rollback.py",
+          "line": 18,
+          "key": "ENABLE_RSI_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase19c_profitability_upgrade.py",
+          "line": 122,
+          "key": "ENABLE_RSI_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 48,
+          "key": "ENABLE_RSI_FILTER",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase19c_profitability_upgrade.py",
+        "tests/test_phase20a_live_deployment.py",
+        "tradingbot/ml/phase20a/config.py",
+        "tradingbot/ml/phase20a/rollback.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 4
+    },
+    {
+      "key": "ENABLE_UNIFIED_FEATURE_INPUT",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase24i/run_validation.py",
+          "line": 41,
+          "key": "ENABLE_UNIFIED_FEATURE_INPUT",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24i/run_validation.py",
+          "line": 46,
+          "key": "ENABLE_UNIFIED_FEATURE_INPUT",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase24i/run_validation.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "H1_ENABLED",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase1b/pa_full_cert.py",
+          "line": 177,
+          "key": "H1_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase1b/pa_full_cert.py",
+          "line": 212,
+          "key": "H1_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase1b/pa_full_cert.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "H4_ENABLED",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase1b/pa_full_cert.py",
+          "line": 178,
+          "key": "H4_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase1b/pa_full_cert.py",
+          "line": 213,
+          "key": "H4_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase1b/pa_full_cert.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "LIVE_DAILY_REPORT_HOUR_UTC",
+      "defaults": [
+        "\"20\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/live_ops_service.py",
+          "line": 28,
+          "key": "LIVE_DAILY_REPORT_HOUR_UTC",
+          "default_expr": "\"20\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/live_ops_service.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "LIVE_DRIFT_CHECK_HOUR_UTC",
+      "defaults": [
+        "\"21\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/live_ops_service.py",
+          "line": 29,
+          "key": "LIVE_DRIFT_CHECK_HOUR_UTC",
+          "default_expr": "\"21\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/live_ops_service.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "META_LABEL_THRESHOLD",
+      "defaults": [
+        "'0.38'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 141,
+          "key": "META_LABEL_THRESHOLD",
+          "default_expr": "'0.38'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "META_OBSERVER_MODE",
+      "defaults": [
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 143,
+          "key": "META_OBSERVER_MODE",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "ML_AUTO_DATASET_REFRESH",
+      "defaults": [
+        "\"true\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/live_dataset_orchestrator.py",
+          "line": 44,
+          "key": "ML_AUTO_DATASET_REFRESH",
+          "default_expr": "\"true\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase22o.py",
+          "line": 33,
+          "key": "ML_AUTO_DATASET_REFRESH",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/live_dataset_orchestrator.py",
+        "tests/test_phase22o.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "ML_DATASET_MAX_LAG_HOURS",
+      "defaults": [
+        "\"48\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/live_dataset_orchestrator.py",
+          "line": 38,
+          "key": "ML_DATASET_MAX_LAG_HOURS",
+          "default_expr": "\"48\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/verify_ml_live_ready.py",
+          "line": 108,
+          "key": "ML_DATASET_MAX_LAG_HOURS",
+          "default_expr": "\"48\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase22n.py",
+          "line": 74,
+          "key": "ML_DATASET_MAX_LAG_HOURS",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/live_dataset_orchestrator.py",
+        "scripts/verify_ml_live_ready.py",
+        "tests/test_phase22n.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 3
+    },
+    {
+      "key": "ML_DATASET_REFRESH_THRESHOLD_HOURS",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tests/test_phase22o.py",
+          "line": 34,
+          "key": "ML_DATASET_REFRESH_THRESHOLD_HOURS",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase22o.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ML_REFRESH_RETRIES",
+      "defaults": [
+        "\"2\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/scheduled_ml_refresh.py",
+          "line": 447,
+          "key": "ML_REFRESH_RETRIES",
+          "default_expr": "\"2\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/scheduled_ml_refresh.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ML_SHADOW_LOG",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/shadow/phase49a_metrics.py",
+          "line": 17,
+          "key": "ML_SHADOW_LOG",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/shadow/phase_d_metrics.py",
+          "line": 16,
+          "key": "ML_SHADOW_LOG",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/shadow/shadow_logger.py",
+          "line": 15,
+          "key": "ML_SHADOW_LOG",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/shadow/phase49a_metrics.py",
+        "tradingbot/ml/shadow/phase_d_metrics.py",
+        "tradingbot/ml/shadow/shadow_logger.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 3
+    },
+    {
+      "key": "ML_SHADOW_MODE",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/integration/kernel_shadow_runner.py",
+          "line": 93,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/integration/live_shadow_runner.py",
+          "line": 137,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 77,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 81,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 85,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/paper/paper_engine.py",
+          "line": 86,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 95,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_kernel_shadow.py",
+          "line": 45,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_live_shadow.py",
+          "line": 48,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_paper_trading.py",
+          "line": 50,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/run_ml_shadow_monitor.py",
+          "line": 49,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_1_kernel_bridge.py",
+          "line": 137,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_2_live_shadow.py",
+          "line": 107,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase10_2_live_shadow.py",
+          "line": 241,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_ml_phase10_4_monitoring.py",
+          "line": 98,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 82,
+          "key": "ML_SHADOW_MODE",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/run_ml_kernel_shadow.py",
+        "scripts/run_ml_live_shadow.py",
+        "scripts/run_ml_paper_trading.py",
+        "scripts/run_ml_shadow_monitor.py",
+        "tests/test_ml_phase10_1_kernel_bridge.py",
+        "tests/test_ml_phase10_2_live_shadow.py",
+        "tests/test_ml_phase10_4_monitoring.py",
+        "tests/test_ml_phase12_live_pilot.py",
+        "tradingbot/ml/integration/kernel_shadow_runner.py",
+        "tradingbot/ml/integration/live_shadow_runner.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/paper/paper_engine.py",
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 16
+    },
+    {
+      "key": "MT5_CONNECT_RETRY_SLEEP_SEC",
+      "defaults": [
+        "\"5\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 39,
+          "key": "MT5_CONNECT_RETRY_SLEEP_SEC",
+          "default_expr": "\"5\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_IPC_LOCK_STALE_SEC",
+      "defaults": [
+        "\"300\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 37,
+          "key": "MT5_IPC_LOCK_STALE_SEC",
+          "default_expr": "\"300\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_IPC_LOCK_TIMEOUT_SEC",
+      "defaults": [
+        "\"60\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 36,
+          "key": "MT5_IPC_LOCK_TIMEOUT_SEC",
+          "default_expr": "\"60\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_LOGIN",
+      "defaults": [
+        "'90816536'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 92,
+          "key": "MT5_LOGIN",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 93,
+          "key": "MT5_LOGIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 277,
+          "key": "MT5_LOGIN",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 266,
+          "key": "MT5_LOGIN",
+          "default_expr": "'90816536'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 37,
+          "key": "MT5_LOGIN",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 37,
+          "key": "MT5_LOGIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_data_phase1.py",
+          "line": 145,
+          "key": "MT5_LOGIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_ml_data_phase1.py",
+        "tradingbot/adapters/legacy_loader.py",
+        "tradingbot/adapters/mt5_utils.py",
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 7
+    },
+    {
+      "key": "MT5_PASSWORD",
+      "defaults": [
+        "''",
+        "'Amir@11067497'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 94,
+          "key": "MT5_PASSWORD",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 95,
+          "key": "MT5_PASSWORD",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 279,
+          "key": "MT5_PASSWORD",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 267,
+          "key": "MT5_PASSWORD",
+          "default_expr": "'Amir@11067497'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 38,
+          "key": "MT5_PASSWORD",
+          "default_expr": "''",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_ml_data_phase1.py",
+          "line": 146,
+          "key": "MT5_PASSWORD",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_ml_data_phase1.py",
+        "tradingbot/adapters/legacy_loader.py",
+        "tradingbot/adapters/mt5_utils.py",
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 6
+    },
+    {
+      "key": "MT5_PATH",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 317,
+          "key": "MT5_PATH",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_REFRESH_COOLDOWN_SEC",
+      "defaults": [
+        "\"120\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 38,
+          "key": "MT5_REFRESH_COOLDOWN_SEC",
+          "default_expr": "\"120\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_RETRIES",
+      "defaults": [
+        "'5'"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 269,
+          "key": "MT5_RETRIES",
+          "default_expr": "'5'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MT5_SERVER",
+      "defaults": [
+        "''",
+        "'LiteFinance-MT5-Demo'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 96,
+          "key": "MT5_SERVER",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/adapters/legacy_loader.py",
+          "line": 97,
+          "key": "MT5_SERVER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 285,
+          "key": "MT5_SERVER",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 268,
+          "key": "MT5_SERVER",
+          "default_expr": "'LiteFinance-MT5-Demo'",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 39,
+          "key": "MT5_SERVER",
+          "default_expr": "''",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_ml_data_phase1.py",
+          "line": 147,
+          "key": "MT5_SERVER",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_ml_data_phase1.py",
+        "tradingbot/adapters/legacy_loader.py",
+        "tradingbot/adapters/mt5_utils.py",
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 6
+    },
+    {
+      "key": "MT5_TERMINAL_PATH",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 317,
+          "key": "MT5_TERMINAL_PATH",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "MULTI_ENGINE_ROUTER_ENABLED",
+      "defaults": [
+        "'true'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 139,
+          "key": "MULTI_ENGINE_ROUTER_ENABLED",
+          "default_expr": "'true'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "PA_PRODUCTION_LOCK",
+      "defaults": [
+        "'true'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 126,
+          "key": "PA_PRODUCTION_LOCK",
+          "default_expr": "'true'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE12_MODE",
+      "defaults": [
+        "\"SHADOW\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 60,
+          "key": "PHASE12_MODE",
+          "default_expr": "\"SHADOW\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/live_pilot/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE13D_FORCE_FULL",
+      "defaults": [
+        "\"0\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1113,
+          "key": "PHASE13D_FORCE_FULL",
+          "default_expr": "\"0\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/phase13d_ml_retraining.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE20A_APPROVAL",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 93,
+          "key": "PHASE20A_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase20a_live_deployment.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE22C_ENABLED",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase22g/model_routing.py",
+          "line": 45,
+          "key": "PHASE22C_ENABLED",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase22g/model_routing.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE23B_ALLOW_SPECIALIZED_SHADOW",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/phase23b_strategy_certification.py",
+          "line": 40,
+          "key": "PHASE23B_ALLOW_SPECIALIZED_SHADOW",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/phase23b_strategy_certification.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE24B_ORB_DEMO",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/research/orb_forward_demo.py",
+          "line": 601,
+          "key": "PHASE24B_ORB_DEMO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/phase24b_orb_forward_demo.py",
+          "line": 46,
+          "key": "PHASE24B_ORB_DEMO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/phase24b_orb_forward_demo.py",
+        "tradingbot/research/orb_forward_demo.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "PHASE46_FORCE",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase46/run_phase46.py",
+          "line": 29,
+          "key": "PHASE46_FORCE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase46/run_phase46.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE47C_FORWARD_DEMO",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/phase47c_forward_tracker.py",
+          "line": 24,
+          "key": "PHASE47C_FORWARD_DEMO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/phase47c_forward_tracker.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_BUILD_WORKERS",
+      "defaults": [
+        "\"0\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/ml_capture.py",
+          "line": 257,
+          "key": "PHASE49_BUILD_WORKERS",
+          "default_expr": "\"0\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/ml_capture.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_FORCE",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/run_phase49.py",
+          "line": 27,
+          "key": "PHASE49_FORCE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/run_phase49.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_PARALLEL_QUARTERS",
+      "defaults": [
+        "\"1\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/ml_capture.py",
+          "line": 102,
+          "key": "PHASE49_PARALLEL_QUARTERS",
+          "default_expr": "\"1\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/ml_capture.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_SKIP_COLLECT",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/run_phase49.py",
+          "line": 26,
+          "key": "PHASE49_SKIP_COLLECT",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/run_phase49.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_SKIP_LEGACY",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/run_phase49.py",
+          "line": 28,
+          "key": "PHASE49_SKIP_LEGACY",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/run_phase49.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_YEAR_END",
+      "defaults": [
+        "\"2026\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/run_phase49.py",
+          "line": 30,
+          "key": "PHASE49_YEAR_END",
+          "default_expr": "\"2026\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/run_phase49.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE49_YEAR_START",
+      "defaults": [
+        "\"2021\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase49/run_phase49.py",
+          "line": 29,
+          "key": "PHASE49_YEAR_START",
+          "default_expr": "\"2021\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase49/run_phase49.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE51A_FORWARD_DEMO",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/phase51a_forward_cert.py",
+          "line": 31,
+          "key": "PHASE51A_FORWARD_DEMO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/phase51a_forward_cert.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE52A_PM",
+      "defaults": [
+        "\"\"",
+        "\"false\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_position_manager.py",
+          "line": 180,
+          "key": "PHASE52A_PM",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/phase6a_production_cert.py",
+          "line": 42,
+          "key": "PHASE52A_PM",
+          "default_expr": "\"false\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_position_manager.py",
+        "tradingbot/services/phase6a_production_cert.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "PHASE52_SAMPLE_SIZE",
+      "defaults": [
+        "\"1500\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase52/label_audit_v7.py",
+          "line": 268,
+          "key": "PHASE52_SAMPLE_SIZE",
+          "default_expr": "\"1500\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase52/label_audit_v7.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PHASE6A_FORWARD_DEMO",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/phase6a_production_cert.py",
+          "line": 28,
+          "key": "PHASE6A_FORWARD_DEMO",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/phase6a_production_cert.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "PILOT_APPROVAL",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 69,
+          "key": "PILOT_APPROVAL",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 109,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 75,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 161,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 174,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 187,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 199,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 221,
+          "key": "PILOT_APPROVAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_ml_phase12_live_pilot.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 8
+    },
+    {
+      "key": "PROP_FIRM_PRESET",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/prop_presets.py",
+          "line": 47,
+          "key": "PROP_FIRM_PRESET",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/prop_presets.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "ROUTER_DECISION_LOG",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/router_decision_log.py",
+          "line": 15,
+          "key": "ROUTER_DECISION_LOG",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/router_decision_log.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "RSI_FILTER",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/rollback.py",
+          "line": 20,
+          "key": "RSI_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase20a/rollback.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "RSI_MAX",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 103,
+          "key": "RSI_MAX",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "RSI_MIN",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 102,
+          "key": "RSI_MIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase19c_profitability_upgrade.py",
+          "line": 124,
+          "key": "RSI_MIN",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase19c_profitability_upgrade.py",
+        "tradingbot/ml/phase20a/config.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "TELEGRAM_BOT_TOKEN",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/live_ops_service.py",
+          "line": 31,
+          "key": "TELEGRAM_BOT_TOKEN",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/notifier.py",
+          "line": 17,
+          "key": "TELEGRAM_BOT_TOKEN",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/startup_validator.py",
+          "line": 359,
+          "key": "TELEGRAM_BOT_TOKEN",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/verify_phase2_live_ready.py",
+          "line": 33,
+          "key": "TELEGRAM_BOT_TOKEN",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/weekend_checklist.py",
+          "line": 46,
+          "key": "TELEGRAM_BOT_TOKEN",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/verify_phase2_live_ready.py",
+        "scripts/weekend_checklist.py",
+        "tradingbot/services/live_ops_service.py",
+        "tradingbot/services/notifier.py",
+        "tradingbot/services/startup_validator.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 5
+    },
+    {
+      "key": "TELEGRAM_CHAT_ID",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/live_ops_service.py",
+          "line": 31,
+          "key": "TELEGRAM_CHAT_ID",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/notifier.py",
+          "line": 18,
+          "key": "TELEGRAM_CHAT_ID",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/startup_validator.py",
+          "line": 359,
+          "key": "TELEGRAM_CHAT_ID",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/verify_phase2_live_ready.py",
+          "line": 33,
+          "key": "TELEGRAM_CHAT_ID",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/weekend_checklist.py",
+          "line": 46,
+          "key": "TELEGRAM_CHAT_ID",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/verify_phase2_live_ready.py",
+        "scripts/weekend_checklist.py",
+        "tradingbot/services/live_ops_service.py",
+        "tradingbot/services/notifier.py",
+        "tradingbot/services/startup_validator.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 5
+    },
+    {
+      "key": "TRADINGBOT_ACCOUNT_ENV",
+      "defaults": [],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/symbols.py",
+          "line": 26,
+          "key": "TRADINGBOT_ACCOUNT_ENV",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 22,
+          "key": "TRADINGBOT_ACCOUNT_ENV",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/symbols.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "TRADINGBOT_ACCOUNT_ENVIRONMENT",
+      "defaults": [
+        "\"DEMO\""
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 22,
+          "key": "TRADINGBOT_ACCOUNT_ENVIRONMENT",
+          "default_expr": "\"DEMO\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_ALLOW_REAL",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/demo_account_guard.py",
+          "line": 10,
+          "key": "TRADINGBOT_ALLOW_REAL",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/demo_account_guard.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_BACKTEST_EQUITY",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/strategies/adaptive_regime.py",
+          "line": 274,
+          "key": "TRADINGBOT_BACKTEST_EQUITY",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/strategies/adaptive_regime.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_BASE_DIR",
+      "defaults": [
+        "\".\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/adapters/mt5_utils.py",
+          "line": 50,
+          "key": "TRADINGBOT_BASE_DIR",
+          "default_expr": "\".\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/adapters/mt5_utils.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_DISABLE_JOURNAL",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+          "line": 430,
+          "key": "TRADINGBOT_DISABLE_JOURNAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1102,
+          "key": "TRADINGBOT_DISABLE_JOURNAL",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/phase13c_adaptive_hybrid_v2.py",
+        "scripts/phase13d_ml_retraining.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "TRADINGBOT_DRY_RUN",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/application/bootstrap.py",
+          "line": 134,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/application/live_runner.py",
+          "line": 118,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 86,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22b/run_capability_audit.py",
+          "line": 252,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22c/run_validation.py",
+          "line": 45,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22e/config.py",
+          "line": 61,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22f/config.py",
+          "line": 41,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/services/execution_mode.py",
+          "line": 9,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/startup_validator.py",
+          "line": 103,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+          "line": 431,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1104,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_ml_phase12_live_pilot.py",
+          "line": 83,
+          "key": "TRADINGBOT_DRY_RUN",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/phase13c_adaptive_hybrid_v2.py",
+        "scripts/phase13d_ml_retraining.py",
+        "tests/test_ml_phase12_live_pilot.py",
+        "tradingbot/application/bootstrap.py",
+        "tradingbot/application/live_runner.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/research/phase22b/run_capability_audit.py",
+        "tradingbot/ml/research/phase22c/run_validation.py",
+        "tradingbot/ml/research/phase22e/config.py",
+        "tradingbot/ml/research/phase22f/config.py",
+        "tradingbot/services/execution_mode.py",
+        "tradingbot/services/startup_validator.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 12
+    },
+    {
+      "key": "TRADINGBOT_EXIT_MODE",
+      "defaults": [
+        "ExitMode.CURRENT.value"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase28d/run_investigation.py",
+          "line": 134,
+          "key": "TRADINGBOT_EXIT_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28f/run_investigation.py",
+          "line": 97,
+          "key": "TRADINGBOT_EXIT_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+          "line": 112,
+          "key": "TRADINGBOT_EXIT_MODE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/services/exit_mode.py",
+          "line": 24,
+          "key": "TRADINGBOT_EXIT_MODE",
+          "default_expr": "ExitMode.CURRENT.value",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/research/phase28d/run_investigation.py",
+        "tradingbot/ml/research/phase28f/run_investigation.py",
+        "tradingbot/ml/research/phase29b/run_investigation.py",
+        "tradingbot/services/exit_mode.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 4
+    },
+    {
+      "key": "TRADINGBOT_LIVE",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/application/live_runner.py",
+          "line": 120,
+          "key": "TRADINGBOT_LIVE",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/domain/signal_helpers.py",
+          "line": 176,
+          "key": "TRADINGBOT_LIVE",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/application/live_runner.py",
+        "tradingbot/domain/signal_helpers.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "TRADINGBOT_PAPER",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/__main__.py",
+          "line": 105,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/application/bootstrap.py",
+          "line": 132,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/application/live_runner.py",
+          "line": 116,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/live_pilot/config.py",
+          "line": 82,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 89,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+          "line": 213,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27a/run_investigation.py",
+          "line": 100,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27d/run_investigation.py",
+          "line": 92,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27f/run_investigation.py",
+          "line": 65,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28d/run_investigation.py",
+          "line": 133,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28f/run_investigation.py",
+          "line": 96,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+          "line": 111,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/services/execution_mode.py",
+          "line": 13,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/services/startup_validator.py",
+          "line": 102,
+          "key": "TRADINGBOT_PAPER",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/__main__.py",
+        "tradingbot/application/bootstrap.py",
+        "tradingbot/application/live_runner.py",
+        "tradingbot/ml/live_pilot/config.py",
+        "tradingbot/ml/research/phase25a/run_investigation.py",
+        "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+        "tradingbot/ml/research/phase27a/run_investigation.py",
+        "tradingbot/ml/research/phase27d/run_investigation.py",
+        "tradingbot/ml/research/phase27f/run_investigation.py",
+        "tradingbot/ml/research/phase28d/run_investigation.py",
+        "tradingbot/ml/research/phase28f/run_investigation.py",
+        "tradingbot/ml/research/phase29b/run_investigation.py",
+        "tradingbot/services/execution_mode.py",
+        "tradingbot/services/startup_validator.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 14
+    },
+    {
+      "key": "TRADINGBOT_PROP_PRESET",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/prop_presets.py",
+          "line": 46,
+          "key": "TRADINGBOT_PROP_PRESET",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/prop_presets.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_REAL_SYMBOL",
+      "defaults": [
+        "PRIMARY_SYMBOL"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 27,
+          "key": "TRADINGBOT_REAL_SYMBOL",
+          "default_expr": "PRIMARY_SYMBOL",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_REJECTION_LOG",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/rejection_events.py",
+          "line": 43,
+          "key": "TRADINGBOT_REJECTION_LOG",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/services/rejection_events.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_SIGNAL_FILTER",
+      "defaults": [
+        "SignalFilterMode.OFF.value"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+          "line": 115,
+          "key": "TRADINGBOT_SIGNAL_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/services/signal_filter_mode.py",
+          "line": 24,
+          "key": "TRADINGBOT_SIGNAL_FILTER",
+          "default_expr": "SignalFilterMode.OFF.value",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1103,
+          "key": "TRADINGBOT_SIGNAL_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase29b.py",
+          "line": 61,
+          "key": "TRADINGBOT_SIGNAL_FILTER",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/phase13d_ml_retraining.py",
+        "tests/test_phase29b.py",
+        "tradingbot/ml/research/phase29b/run_investigation.py",
+        "tradingbot/services/signal_filter_mode.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 4
+    },
+    {
+      "key": "TRADINGBOT_SKIP_MT5_STARTUP",
+      "defaults": [
+        "\"\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/application/live_runner.py",
+          "line": 158,
+          "key": "TRADINGBOT_SKIP_MT5_STARTUP",
+          "default_expr": "\"\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/application/live_runner.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TRADINGBOT_WPSQF_THRESHOLD",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/services/signal_filter_mode.py",
+          "line": 35,
+          "key": "TRADINGBOT_WPSQF_THRESHOLD",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase29b.py",
+          "line": 69,
+          "key": "TRADINGBOT_WPSQF_THRESHOLD",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase29b.py",
+        "tradingbot/services/signal_filter_mode.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "TRADING_BOT_BASE_DIR",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/config/engine_settings.py",
+          "line": 256,
+          "key": "TRADING_BOT_BASE_DIR",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/config/engine_settings.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "TREND_MODEL_VERSION",
+      "defaults": [
+        "\"v41\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 99,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/rollback.py",
+          "line": 17,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22e/config.py",
+          "line": 59,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22f/config.py",
+          "line": 39,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22g/execution_tracer.py",
+          "line": 14,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/services/startup_validator.py",
+          "line": 344,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": "\"v41\"",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 39,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 47,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase22h.py",
+          "line": 22,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22i.py",
+          "line": 21,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22j.py",
+          "line": 20,
+          "key": "TREND_MODEL_VERSION",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "tests/test_phase20a_live_deployment.py",
+        "tests/test_phase22h.py",
+        "tests/test_phase22i.py",
+        "tests/test_phase22j.py",
+        "tradingbot/ml/phase20a/config.py",
+        "tradingbot/ml/phase20a/rollback.py",
+        "tradingbot/ml/research/phase22e/config.py",
+        "tradingbot/ml/research/phase22f/config.py",
+        "tradingbot/ml/research/phase22g/execution_tracer.py",
+        "tradingbot/services/startup_validator.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 11
+    },
+    {
+      "key": "USE_ML_KERNEL",
+      "defaults": [
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/integration/config.py",
+          "line": 27,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/integration/startup_diagnostics.py",
+          "line": 51,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/phase20a/config.py",
+          "line": 93,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22e/config.py",
+          "line": 58,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22f/config.py",
+          "line": 38,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22g/execution_tracer.py",
+          "line": 13,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase22g/model_routing.py",
+          "line": 44,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24e/run_validation.py",
+          "line": 173,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24f/run_investigation.py",
+          "line": 257,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24g/run_validation.py",
+          "line": 192,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24h/run_investigation.py",
+          "line": 279,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase24i/run_validation.py",
+          "line": 84,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 54,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 91,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25a/run_investigation.py",
+          "line": 280,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+          "line": 215,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+          "line": 387,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27a/run_investigation.py",
+          "line": 98,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27b/run_investigation.py",
+          "line": 73,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27c/run_investigation.py",
+          "line": 272,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27d/run_investigation.py",
+          "line": 90,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase27f/run_investigation.py",
+          "line": 63,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28d/run_investigation.py",
+          "line": 135,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase28f/run_investigation.py",
+          "line": 98,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tradingbot/ml/research/phase29b/run_investigation.py",
+          "line": 113,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/backtest_adaptive_report.py",
+          "line": 29,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/phase12a_pa_dataset_builder.py",
+          "line": 678,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/phase13c_adaptive_hybrid_v2.py",
+          "line": 429,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1101,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "scripts/phase13d_ml_retraining.py",
+          "line": 1111,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 116,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 302,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 318,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 384,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 410,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 577,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 590,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase15b_kernel_integration.py",
+          "line": 624,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase20a_live_deployment.py",
+          "line": 40,
+          "key": "USE_ML_KERNEL",
+          "default_expr": "",
+          "kind": "getenv"
+        },
+        {
+          "file": "tests/test_phase22h.py",
+          "line": 21,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22i.py",
+          "line": 20,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22j.py",
+          "line": 19,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22n.py",
+          "line": 73,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase22o.py",
+          "line": 32,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase24k.py",
+          "line": 138,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase24k.py",
+          "line": 150,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase24k.py",
+          "line": 200,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        },
+        {
+          "file": "tests/test_phase24k.py",
+          "line": 275,
+          "key": "USE_ML_KERNEL",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/backtest_adaptive_report.py",
+        "scripts/phase12a_pa_dataset_builder.py",
+        "scripts/phase13c_adaptive_hybrid_v2.py",
+        "scripts/phase13d_ml_retraining.py",
+        "tests/test_phase15b_kernel_integration.py",
+        "tests/test_phase20a_live_deployment.py",
+        "tests/test_phase22h.py",
+        "tests/test_phase22i.py",
+        "tests/test_phase22j.py",
+        "tests/test_phase22n.py",
+        "tests/test_phase22o.py",
+        "tests/test_phase24k.py",
+        "tradingbot/ml/integration/config.py",
+        "tradingbot/ml/integration/startup_diagnostics.py",
+        "tradingbot/ml/phase20a/config.py",
+        "tradingbot/ml/research/phase22e/config.py",
+        "tradingbot/ml/research/phase22f/config.py",
+        "tradingbot/ml/research/phase22g/execution_tracer.py",
+        "tradingbot/ml/research/phase22g/model_routing.py",
+        "tradingbot/ml/research/phase24e/run_validation.py",
+        "tradingbot/ml/research/phase24f/run_investigation.py",
+        "tradingbot/ml/research/phase24g/run_validation.py",
+        "tradingbot/ml/research/phase24h/run_investigation.py",
+        "tradingbot/ml/research/phase24i/run_validation.py",
+        "tradingbot/ml/research/phase25a/run_investigation.py",
+        "tradingbot/ml/research/phase25b/unified_pipeline_replay.py",
+        "tradingbot/ml/research/phase27a/run_investigation.py",
+        "tradingbot/ml/research/phase27b/run_investigation.py",
+        "tradingbot/ml/research/phase27c/run_investigation.py",
+        "tradingbot/ml/research/phase27d/run_investigation.py",
+        "tradingbot/ml/research/phase27f/run_investigation.py",
+        "tradingbot/ml/research/phase28d/run_investigation.py",
+        "tradingbot/ml/research/phase28f/run_investigation.py",
+        "tradingbot/ml/research/phase29b/run_investigation.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 48
+    },
+    {
+      "key": "VIRTUAL_ENV",
+      "defaults": [],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "tradingbot/ml/phase18c/environment.py",
+          "line": 32,
+          "key": "VIRTUAL_ENV",
+          "default_expr": "",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "tradingbot/ml/phase18c/environment.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "VOL_DIRECTION_FILTER_ENABLED",
+      "defaults": [
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 145,
+          "key": "VOL_DIRECTION_FILTER_ENABLED",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "VOL_REGIME_ENABLED",
+      "defaults": [
+        "'false'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 129,
+          "key": "VOL_REGIME_ENABLED",
+          "default_expr": "'false'",
+          "kind": "getenv"
+        },
+        {
+          "file": "scripts/backtest_adaptive_report.py",
+          "line": 31,
+          "key": "VOL_REGIME_ENABLED",
+          "default_expr": null,
+          "kind": "environ[]"
+        }
+      ],
+      "other_files": [
+        "scripts/backtest_adaptive_report.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 2
+    },
+    {
+      "key": "VOL_REGIME_SKIP_TQ",
+      "defaults": [
+        "'true'"
+      ],
+      "defined_or_read_in_live_py": true,
+      "locations": [
+        {
+          "file": "tradingbot/config/live.py",
+          "line": 147,
+          "key": "VOL_REGIME_SKIP_TQ",
+          "default_expr": "'true'",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [],
+      "wired_elsewhere": false,
+      "location_count": 1
+    },
+    {
+      "key": "WATCHDOG_MAX_RESTART_DELAY_SEC",
+      "defaults": [
+        "\"3600\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/run_live_watchdog.py",
+          "line": 37,
+          "key": "WATCHDOG_MAX_RESTART_DELAY_SEC",
+          "default_expr": "\"3600\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/run_live_watchdog.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "WATCHDOG_RESTART_DELAY_SEC",
+      "defaults": [
+        "\"300\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/run_live_watchdog.py",
+          "line": 33,
+          "key": "WATCHDOG_RESTART_DELAY_SEC",
+          "default_expr": "\"300\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/run_live_watchdog.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    },
+    {
+      "key": "WATCHDOG_STALL_POLL_SEC",
+      "defaults": [
+        "\"30\""
+      ],
+      "defined_or_read_in_live_py": false,
+      "locations": [
+        {
+          "file": "scripts/run_live_watchdog.py",
+          "line": 38,
+          "key": "WATCHDOG_STALL_POLL_SEC",
+          "default_expr": "\"30\"",
+          "kind": "getenv"
+        }
+      ],
+      "other_files": [
+        "scripts/run_live_watchdog.py"
+      ],
+      "wired_elsewhere": true,
+      "location_count": 1
+    }
+  ]
+}

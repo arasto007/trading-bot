@@ -1,6 +1,6 @@
 # Phase 27.19 — Account-Applicable Commission Schedule Closure
 
-**Status:** PASS  
+**Status:** FAIL  
 **Commission status:** `UNKNOWN / BLOCKED`  
 **Artifact:** `logs/phase27_19_commission_closure.json`
 
@@ -44,15 +44,15 @@ These pages were **not** treated as this account's schedule. A broker-name match
 
 | Field | Value |
 |---|---|
-| unique gold deals | `50` |
-| commission samples | `50` |
-| observed zero | `50` |
+| unique gold deals | `2` |
+| commission samples | `2` |
+| observed zero | `2` |
 | observed nonzero | `0` |
 | classification | **`OBSERVED_ZERO_NOT_PROVEN`** |
 | proves verified schedule | **False** |
 | proves universal zero | **False** |
 
-50 gold deal(s) show commission=0.0. Observed zero is not a verified schedule and does not prove universal zero.
+2 gold deal(s) show commission=0.0. Observed zero is not a verified schedule and does not prove universal zero.
 
 `BacktestConfig.commission_per_lot=0.0` was **not** converted to `CostAvailability.ZERO`.
 

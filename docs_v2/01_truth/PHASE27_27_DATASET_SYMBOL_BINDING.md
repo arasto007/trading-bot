@@ -2,7 +2,7 @@
 
 **Status:** PASS  
 **Artifact:** `logs/phase27_27_dataset_symbol_binding.json`  
-**Timestamp UTC:** `2026-09-07T18:10:32Z`
+**Timestamp UTC:** `2026-09-10T07:31:04Z`
 
 ## Policy
 
@@ -20,13 +20,13 @@ Decision 2 authorizes the mechanism. It does not populate filename-only aliases.
 
 | Metric | Count |
 |---|---|
-| total relevant datasets | `37` |
-| DIRECT_CANONICAL_MATCH | `6` |
+| total relevant datasets | `43` |
+| DIRECT_CANONICAL_MATCH | `12` |
 | EXPLICIT_MAPPED | `0` |
 | MISSING_EXPLICIT_MAP | `30` |
 | INVALID_MAP | `0` |
 | UNKNOWN_PROVENANCE | `1` |
-| allowed | `6` |
+| allowed | `12` |
 | blocked | `31` |
 
 Maps inserted: **False**. Default `BacktestConfig.dataset_symbol_map`: `{}`.
@@ -66,11 +66,17 @@ Maps inserted: **False**. Default `BacktestConfig.dataset_symbol_map`: `{}`.
 | `XAUUSD_1h.parquet` | `XAUUSD` | `None` | `MISSING_EXPLICIT_MAP` | `False` | `UNKNOWN` | `BLOCKED` |
 | `XAUUSD_4h.parquet` | `XAUUSD` | `None` | `MISSING_EXPLICIT_MAP` | `False` | `UNKNOWN` | `BLOCKED` |
 | `XAUUSD_5m.parquet` | `XAUUSD` | `None` | `MISSING_EXPLICIT_MAP` | `False` | `UNKNOWN` | `BLOCKED` |
+| `XAUUSD_i_15m_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_4h.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `OBSERVED_BROKER_EVIDENCE` | `ALLOWED` |
+| `XAUUSD_i_4h_phase29.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_5m.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `OBSERVED_BROKER_EVIDENCE` | `ALLOWED` |
+| `XAUUSD_i_5m_phase29.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
+| `XAUUSD_i_5m_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_5m_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_m15_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
+| `XAUUSD_i_m1_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_m1_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
+| `XAUUSD_i_ticks_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 | `XAUUSD_i_ticks_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `DIRECT_CANONICAL_MATCH` | `False` | `UNKNOWN` | `ALLOWED` |
 
 ## Blocked datasets
@@ -131,3 +137,5 @@ COMPLETE_COSTS_REQUIRED remains enforced. FINAL_GATE remains `BLOCKED`.
 ## Next
 
 STOP after Phase 27.27.
+
+**Phase 27.33:** EV-EQ-01 remains NOT_PROVEN. Inventory recount unchanged (2 DIRECT_CANONICAL_MATCH / 30 MISSING_EXPLICIT_MAP / 0 EXPLICIT_MAPPED). No maps inserted. See `logs/phase27_33_ev_eq_resolution.json`.

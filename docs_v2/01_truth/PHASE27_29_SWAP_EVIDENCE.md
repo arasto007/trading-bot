@@ -4,7 +4,7 @@
 **Evidence grade:** `CURRENT_BROKER_RATE_ONLY`  
 **Final classification:** `CURRENT_BROKER_RATE_ONLY`  
 **Artifact:** `logs/phase27_29_swap_evidence.json`  
-**Timestamp UTC:** `2026-09-06T08:14:56Z`
+**Timestamp UTC:** `2026-09-10T07:31:08Z`
 
 Read-only. Phase 27.13 / 27.24 artifacts were not overwritten. Production parquet was not rewritten.
 `BROKER_RATE_ONLY` remains a policy gate: current rates are not a historical series.
@@ -29,7 +29,7 @@ Read-only. Phase 27.13 / 27.24 artifacts were not overwritten. Production parque
 | rollover day | `Wednesday` |
 | swap mode | `POINTS` |
 | units | `POINTS` |
-| timestamp | `2026-09-06T08:14:56Z` |
+| timestamp | `2026-09-10T07:31:08Z` |
 | historical rollover schedule | `UNKNOWN` |
 
 Current rates are **not** historical rates.
@@ -38,13 +38,13 @@ Current rates are **not** historical rates.
 
 | Field | Value |
 |---|---|
-| deals | `50` |
+| deals | `2` |
 | overnight | `0` |
 | rollover-crossing | `0` |
-| zero swap | `50` |
+| zero swap | `2` |
 | nonzero swap | `0` |
 | total realized swap | `0.0` |
-| range | `2026-06-19T15:48:03Z` → `2026-08-12T13:41:03Z` |
+| range | `None` → `None` |
 
 `HISTORICAL_SWAP_RATE_NOT_IDENTIFIABLE_FROM_DEALS` unless overnight/rollover samples exist. Realized zero ≠ historical zero.
 

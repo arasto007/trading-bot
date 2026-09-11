@@ -3,7 +3,7 @@
 **Status:** PASS  
 **This-session tape:** `DATASET`  
 **Artifact:** `logs/phase27_23_bidask_expansion.json`  
-**Collection timestamp UTC:** `2026-09-06T07:29:41Z`
+**Collection timestamp UTC:** `2026-09-10T07:30:42Z`
 
 Read-only. No MT5 start/restart, orders, `symbol_select`, `.env`, or production parquet overwrite.
 
@@ -19,23 +19,23 @@ Bounded 7-day UTC window via 6-hour `copy_ticks_range` chunks (split if a chunk 
 
 | Metric | Value |
 |---|---|
-| ticks | `1116230` |
+| ticks | `1119725` |
 | invalid ticks | `0` |
-| M5 bars | `992` |
-| start UTC | `2026-08-31T01:05:00Z` |
-| end UTC | `2026-09-03T14:40:00Z` |
-| duration hours | `85.583` |
-| fingerprint | `366c2202f20438d938d0ed54edb5f76fa3f01aea82b7537e3389f936b710f2de` |
+| M5 bars | `1129` |
+| start UTC | `2026-09-03T07:30:00Z` |
+| end UTC | `2026-09-09T13:05:00Z` |
+| duration hours | `149.583` |
+| fingerprint | `b3f652aa46538780a053209dd132dcfdc83ac12d8332f820458b019f44b42c67` |
 | M5 tape | `logs/phase27_23_xauusd_i_m5_bidask.parquet` |
 | raw ticks | `logs/phase27_23_xauusd_i_ticks.parquet` |
 
 ## vs Phase 27.18
 
-27.18: `82` bars, `2026-09-04T17:10:00Z` → `2026-09-04T23:55:00Z`, fingerprint `c6aedc9bca3f9cf66d2c2e2971a301e224b2157e1cf91c60933a9a742398d319`.
+27.18: `121` bars, `2026-09-09T20:30:00Z` → `2026-09-10T07:30:00Z`, fingerprint `038febf1c16eba42cafe13b43a66239430f8949b80790f61f012d33c1ea2ff24`.
 
-Materially improved: **True** (992 bars / 85.583 h vs 82 / 6.75 h).
+Materially improved: **True** (1129 bars / 149.583 h vs 121 / 11.0 h).
 
-Safety stop: `max_total_ticks_reached` at 1,116,230 ticks. The requested 7-day window (`2026-08-30T07:29:42Z` → `2026-09-06T07:29:42Z`) was not fully retrieved. This tape ends `2026-09-03T14:40:00Z` and does **not** include the later Phase 27.18 window (`2026-09-04T17:10:00Z` → `2026-09-04T23:55:00Z`). The two logs tapes are complementary, not a single contiguous series.
+Safety stop: `max_total_ticks_reached`. Requested window `2026-09-03T07:30:43Z` → `2026-09-10T07:30:43Z`. This tape is not automatically a superset of Phase 27.18.
 
 ## Coverage vs `data/XAUUSD_i_5m.parquet`
 

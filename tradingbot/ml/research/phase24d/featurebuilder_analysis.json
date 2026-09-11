@@ -11,11 +11,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 6.0674,
-        "median_ms": 5.7507,
-        "p95_ms": 6.0192,
-        "p99_ms": 6.0192,
-        "max_ms": 8.6378
+        "mean_ms": 5.8525,
+        "median_ms": 5.7974,
+        "p95_ms": 6.0986,
+        "p99_ms": 6.0986,
+        "max_ms": 6.2589
       }
     },
     {
@@ -27,11 +27,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 4.3786,
-        "median_ms": 4.225,
-        "p95_ms": 4.2946,
-        "p99_ms": 4.2946,
-        "max_ms": 5.835
+        "mean_ms": 4.3011,
+        "median_ms": 4.2578,
+        "p95_ms": 4.416,
+        "p99_ms": 4.416,
+        "max_ms": 4.6132
       }
     },
     {
@@ -43,11 +43,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 4.1447,
-        "median_ms": 4.1566,
-        "p95_ms": 4.1684,
-        "p99_ms": 4.1684,
-        "max_ms": 4.1688
+        "mean_ms": 4.1326,
+        "median_ms": 4.0866,
+        "p95_ms": 4.393,
+        "p99_ms": 4.393,
+        "max_ms": 4.4875
       }
     },
     {
@@ -59,11 +59,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 0.5286,
-        "median_ms": 0.4838,
-        "p95_ms": 0.4997,
-        "p99_ms": 0.4997,
-        "max_ms": 0.9618
+        "mean_ms": 0.4718,
+        "median_ms": 0.4713,
+        "p95_ms": 0.4895,
+        "p99_ms": 0.4895,
+        "max_ms": 0.5051
       }
     },
     {
@@ -75,11 +75,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 24.9413,
-        "median_ms": 23.715,
-        "p95_ms": 24.8118,
-        "p99_ms": 24.8118,
-        "max_ms": 34.9275
+        "mean_ms": 23.453,
+        "median_ms": 24.0548,
+        "p95_ms": 24.5272,
+        "p99_ms": 24.5272,
+        "max_ms": 25.5723
       }
     },
     {
@@ -91,11 +91,11 @@
       "theoretically_cacheable": true,
       "timing": {
         "count": 10,
-        "mean_ms": 0.1241,
-        "median_ms": 0.1235,
-        "p95_ms": 0.1296,
-        "p99_ms": 0.1296,
-        "max_ms": 0.1326
+        "mean_ms": 0.1331,
+        "median_ms": 0.1348,
+        "p95_ms": 0.1383,
+        "p99_ms": 0.1383,
+        "max_ms": 0.1415
       }
     },
     {
@@ -107,11 +107,11 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 0.5047,
-        "median_ms": 0.4933,
-        "p95_ms": 0.5192,
-        "p99_ms": 0.5192,
-        "max_ms": 0.5861
+        "mean_ms": 0.5255,
+        "median_ms": 0.5325,
+        "p95_ms": 0.5474,
+        "p99_ms": 0.5474,
+        "max_ms": 0.5857
       }
     },
     {
@@ -123,24 +123,24 @@
       "theoretically_cacheable": false,
       "timing": {
         "count": 10,
-        "mean_ms": 21.4543,
-        "median_ms": 21.3458,
-        "p95_ms": 22.1735,
-        "p99_ms": 22.1735,
-        "max_ms": 22.4017
+        "mean_ms": 21.3084,
+        "median_ms": 21.5064,
+        "p95_ms": 21.7428,
+        "p99_ms": 21.7428,
+        "max_ms": 21.8499
       }
     }
   ],
   "compute_at_total": {
     "count": 10,
-    "mean_ms": 61.4071,
-    "median_ms": 60.6648,
-    "p95_ms": 62.0104,
-    "p99_ms": 62.0104,
-    "max_ms": 70.1457
+    "mean_ms": 61.0975,
+    "median_ms": 60.8314,
+    "p95_ms": 62.6203,
+    "p99_ms": 62.6203,
+    "max_ms": 67.9587
   },
-  "phase24c_measured_p95_ms": 68.9256,
+  "phase24c_measured_p95_ms": 63.0933,
   "no_cache_implemented": true,
   "cache_design_note": "DO NOT implement \u2014 rolling/SMC families need window state; cache requires parity proof",
-  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
+  "generated_utc": "2026-09-10T07:21:40.876169+00:00"
 }

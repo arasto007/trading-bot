@@ -38,7 +38,7 @@ Fresh Real attach `REAL_COLLECTED` on LiteFinance-MT5-Live. `XAUUSD_i` existence
 
 ## 3. What Phase 27.18 actually closed
 
-Historical Bid/Ask **existence** = `PROVEN` (`82` M5 bars; logs-only bounded window).
+Historical Bid/Ask **existence** = `PROVEN` (`121` M5 bars; logs-only bounded window).
 
 | Question | Status |
 |---|---|

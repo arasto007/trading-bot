@@ -1,10 +1,10 @@
 # Phase 27.30 — Real Account Slippage Evidence Closure
 
-**Status:** PASS_WITH_DEFERRAL  
+**Status:** PASS  
 **Evidence grade:** `REALIZED_UNKNOWN_NOT_IDENTIFIABLE`  
 **Realized status:** `UNKNOWN / NOT_IDENTIFIABLE`  
 **Artifact:** `logs/phase27_30_slippage_evidence.json`  
-**Timestamp UTC:** `2026-09-06T22:51:30Z`
+**Timestamp UTC:** `2026-09-10T07:31:09Z`
 
 Read-only. Phase 27.14 / 27.24 artifacts were not overwritten. Production parquet was not rewritten.
 `price_open` and `entry_price` were not treated as requested prices. MODELED_PROXY is not REALIZED.
@@ -17,7 +17,7 @@ Read-only. Phase 27.14 / 27.24 artifacts were not overwritten. Production parque
 | broker | `LiteFinance Global LLC` |
 | server | `LiteFinance-MT5-Live` |
 | terminal build | `6182` |
-| identity provenance | `inherited_from_phase27_29_real_attach; live attach skipped because terminal64.exe was not running and MT5 was not started` |
+| identity provenance | `fresh_readonly_attach` |
 | symbol | `XAUUSD_i` |
 
 ## Historical slippage
@@ -27,8 +27,8 @@ Read-only. Phase 27.14 / 27.24 artifacts were not overwritten. Production parque
 | genuine requested-vs-fill pairs | `0` |
 | sample count | `0` |
 | pair date range | `None` → `None` |
-| inspected artifact deals | `50` |
-| inspected deal date range | `2026-06-19T15:48:03+00:00` → `2026-08-12T13:41:03+00:00` |
+| inspected artifact deals | `2` |
+| inspected deal date range | `None` → `None` |
 | identifiable | `False` |
 | realized status | `UNKNOWN / NOT_IDENTIFIABLE` |
 | evidence grade | `REALIZED_UNKNOWN_NOT_IDENTIFIABLE` |

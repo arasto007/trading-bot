@@ -90,8 +90,8 @@ python -m tradingbot --loop --execute
 - اتصال MT5: موفق (`MT5 connected (attempt 1)`)
 - Recovery + Protector: فعال
 - چرخه‌های پی‌درپی: تأیید شد (چرخه ۱ → صبر ۶۰ ثانیه → چرخه ۲)
-- pipeline کامل روی ۴ نماد × ۴ تایم‌فریم اجرا شد
-- همبستگی برای Hedging: ۶ جفت محاسبه شد
+- *(نتیجهٔ تاریخی فاز ۲)* pipeline روی چند نماد×چند TF اجرا شد — **وضعیت فعلی live پیش‌فرض فقط M5** است (`get_live_config()` وقتی router روشن است؛ به‌روزرسانی 2026-09-10)
+- همبستگی برای Hedging: ۶ جفت محاسبه شد *(legacy test note؛ Hedging در مسیر live فعلی قفل PA نیست)*
 
 ---
 

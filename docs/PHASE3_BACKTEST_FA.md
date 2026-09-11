@@ -8,11 +8,13 @@
 
 ```
             ┌────────────────── همان هسته و pipeline ──────────────────┐
-            │ Data → Indicators → Signals → Risk → Execution → Manage   │
+            │ Data → Indicators → Signals → SignalFilter → Risk → Execution → Manage   │
             └───────────────────────────────────────────────────────────┘
-  live:     Mt5MarketDataAdapter   LegacyIndicators  Legacy   Legacy   Mt5Executor   Mt5PositionManager
-  backtest: BacktestMarketData     Passthrough       Legacy   Backtest SimulatedBroker BacktestPositionManager
+  live:     Mt5MarketDataAdapter   LegacyIndicators  Legacy   (OFF)    Legacy   Mt5Executor   Mt5PositionManager
+  backtest: BacktestMarketData     Passthrough       Legacy   (OFF)    Backtest SimulatedBroker BacktestPositionManager
 ```
+
+*(به‌روزرسانی شده — 2026-09-10: `SignalFilterStage` در کرنل ثبت است؛ پیش‌فرض OFF / pass-through.)*
 
 ## اجزای جدید (`tradingbot/backtest/`)
 
@@ -56,7 +58,7 @@
 
 1. **خروج پوزیشن‌های قبلی** روی range کندل جدید (SL/TP درون‌کندلی با high/low). برخورد همزمان SL مقدم است.
 2. **mark-to-market + مدیریت هسته‌محور**: trailing پلکانی ATR، partial TP (۱R→۵۰٪، ۲R→۳۰٪، ۳R→۲۰٪)، حد ضرر اضطراری.
-3. **ورود جدید**: اجرای کامل pipeline هسته (Data → Indicators → Signals → Risk → Execution). سفارش روی close کندل با spread/slippage پر می‌شود.
+3. **ورود جدید**: اجرای کامل pipeline هسته (Data → Indicators → Signals → SignalFilter → Risk → Execution). سفارش روی close کندل با spread/slippage پر می‌شود.
 4. **ثبت نقطه‌ی equity**.
 
 نکته‌ی مهم: اندیکاتورها **یک‌بار** روی کل سری محاسبه می‌شوند (causal — هر کندل فقط به گذشته وابسته است)،

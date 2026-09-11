@@ -1,0 +1,419 @@
+_phase33c_forensic.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 33C — rejected signal outcome audit (read-only forensic runner).
+scripts/_write_phase23a.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+scripts/phase12a_pa_dataset_builder.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 12A — Full PA Institutional Dataset Builder (READ-ONLY + BUILD). Does NOT modify live trading flags or enable USE_ML_KERNEL. Outputs: logs/phase12a/ and data/ml/research/phase12a/
+scripts/phase12b_regime_training.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 12B — Regime-Specific ML Institutional Training (RESEARCH ONLY). Input: data/ml/research/phase12a/pa_setups_labeled.parquet Output: data/ml/research/phase12b/ + logs/phase12b/ Does NOT modify live trading flags or enable USE_ML_KERNEL.
+scripts/phase12c_hybrid_certification.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 12C — Adaptive Quality + ML Hybrid Certification (RESEARCH ONLY). Does NOT modify PA_PRODUCTION_LOCK, USE_ML_KERNEL, ADAPTIVE_REGIME_ENABLED, or execution adapters.
+scripts/phase13a_cleanup_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 13A — Production Cleanup & Dead-Code Audit (READ-ONLY + smoke checks). Does NOT delete, refactor, or change config.
+scripts/phase13b_no_trade_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 13B — No-Trade Root Cause & Frequency Recovery (READ-ONLY + REPLAY). Does NOT change config, unlock Adaptive, enable ML live, or send orders. Cache-only: never attaches MT5.
+scripts/phase13c_adaptive_hybrid_v2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 13C - Adaptive Quality v2 + ML Hybrid Certification (RESEARCH ONLY). Does NOT modify PA_PRODUCTION_LOCK, USE_ML_KERNEL, ADAPTIVE_REGIME_ENABLED, live routing, or order execution.
+scripts/phase13d_ml_retraining.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 13D - ML data expansion and regime model retraining (RESEARCH/TRAINING ONLY). No live ML enable, no router changes, no orders.
+scripts/phase14a2_pa_no_signal_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14A-2 PA No-Signal Deep Audit (READ-ONLY). No config changes.
+scripts/phase14b2_pa_hold_replay.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14B-2 — replay last 1000 M5 bars into pa_hold_reasons.jsonl (READ/OBS).
+scripts/phase14b2_pa_hold_replay_fast.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+scripts/phase14b3_readiness_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+scripts/phase14c1_ny_window_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14C-1 NY window research — fast lookback enrich.
+scripts/phase14c1_session_window_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14C-1 Session Window Recovery — research only (10-17 vs 9-17).
+scripts/phase14c2_reclaim_softening.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14C-2 Asian Reclaim Softening — research only (no live changes).
+scripts/phase14c3_bos_sensitivity.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 14C-3 BOS Sensitivity Audit — research only (no live changes).
+scripts/phase16a_displacement_intelligence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16A runner — Institutional Displacement Intelligence (research only).
+scripts/phase16b_ob_fvg_confluence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16B — OB+FVG Institutional Confluence comparison (research only).
+scripts/phase16c_regime_ensemble.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16C — Regime-Aware ML Ensemble runner (research only).
+scripts/phase17a_pa_session_heatmap.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 17A — PA session heatmap + last-500 live forensic replay (research only).
+scripts/phase17b_bos_reclaim_truth.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 17B — BOS/Reclaim Truth Engine (research only, no live changes).
+scripts/phase18a_dataset_expansion.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 18A — ML Dataset Expansion Pipeline (RESEARCH ONLY). Collects all NY-session PA sweep setups from 180d XAUUSD M5, labels TP/SL/timeout within 24 bars, enriches MFE/MAE, splits by regime, and joins live quality telemetry. Does not enable live ML. Does not change live.py or execution flags.
+scripts/phase18b_meta_retraining.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 18B ? Regime-aware PA meta-labeler retraining (RESEARCH / SHADOW ONLY). USE_ML_KERNEL stays false. No router or execution patch.
+scripts/phase19a_reclaim_intelligence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 19A ? Live Reclaim Intelligence (replay + telemetry only). No live trading-logic changes. PATCH_APPLIED=NO.
+scripts/phase19b_label_quality.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 19B ? Institutional ML label quality upgrade (research only). Multi-horizon labels, soft timeout conversion, triple-class dataset. Does not overwrite Phase 18A files. Does not enable live ML.
+scripts/phase19c_shadow_meta.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 19C ? Shadow Meta Truth Monitor (research / shadow only). Scores every raw PA setup with the current M5 meta-labeler. Does not change live decisions. USE_ML_KERNEL=false.
+scripts/phase20a_bos_live_parity.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 20A — PA BOS Live Parity Audit. Replay-only. Does not change live logic, config, or execution flags. PATCH_APPLIED=NO.
+scripts/phase20b_meta_shadow_demotion.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 20B — Meta Shadow Demotion Audit. Research/shadow only. Does not change live decisions or config. USE_ML_KERNEL=false. PATCH_APPLIED=NO.
+scripts/phase20c_mss_fvg_tests.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 20C — Shadow tests of MSS / FVG / CISD / session / HTF / stale-sweep. Research only. No live logic or config changes. PATCH_APPLIED=NO.
+scripts/phase20y2_choch_bridge.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 20Y-2 ? CHoCH continuation bridge 90d replay certification.
+scripts/phase20y3_meta_observer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 20Y-3 — Meta observer vs Meta gate, 30d PA shadow comparison.
+scripts/phase21a_setup_formation_lab.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 21A — PA setup formation root-cause lab (READ-ONLY, no live patches).
+scripts/phase21b_hour15_realign.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 21B — Hour-15 vs baseline 10-17, 180d PA replay (no Meta/RiskGate changes).
+scripts/phase21c_health_snapshot.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 21C — live telemetry health snapshot (read-only).
+scripts/phase21d_meta_false_negative_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 21D — join Meta rejects to 24-bar MFE outcomes (research; no live gating change).
+scripts/phase22a_strategy_discovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22A — PA strategy discovery lab (research-only, no live patches, no Meta).
+scripts/phase22b_strategy_certification.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22B — robust strategy certification (research-only, no live patches). Certifies only Phase 22A candidates. Model B is the sole 22A candidate. No parameter search is added. Live files are not modified.
+scripts/phase22c_meta_v2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22C model-specific Meta v2. Research only. No live patches.
+scripts/phase22d_portfolio_router.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22D multi-strategy portfolio router backtest. Research only. No live patches.
+scripts/phase22e_forward_demo.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22E 10-day forward demo certification. Research/shadow only. No live patches. Runs only Phase 22B certified engines. 22B certified none, so no new demo portfolio is started. Existing PA demo logs are audited observationally.
+scripts/phase23a_multi_strategy_discovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 23A - multi-strategy alpha discovery lab (research-only, no live patches).
+scripts/phase23b_strategy_certification.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 23B ? Alpha candidate certification (research-only, no live patches). Certifies only explicit Phase 23A candidates. No parameter search. Live files untouched.
+scripts/phase23c_portfolio_router.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 23C - Portfolio router promotion candidate (research-only, no live enable). Uses only Phase 23B-certified engines for portfolio routing. Compares PA / ORB / Momentum isolated baselines vs regime-aware multi-engine portfolio.
+scripts/phase24a_specialized_certification.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 24A - specialized alpha certification (research-only, no live patches).
+scripts/phase24b_orb_forward_demo.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24B ORB forward demo CLI (research-only).
+scripts/run_phase11_5_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 11.5 — research-only optimization & bias audit (no live orders).
+scripts/run_phase12_1_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 12.1 — strategy architecture audit CLI (read-only).
+scripts/run_phase12_health_check.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 12 — pre-live health check CLI.
+scripts/run_phase12_live_pilot.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 12 — controlled live pilot CLI.
+scripts/run_phase13_10_router_final.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.10 — trend contribution expansion and final router validation CLI.
+scripts/run_phase13_2_regime.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.2 — market regime detection research CLI.
+scripts/run_phase13_3_trend.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.3 — trend strategy research CLI.
+scripts/run_phase13_4_trend_ml.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.4 — trend ML enhancement research CLI.
+scripts/run_phase13_5_router.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.5 — regime router research CLI.
+scripts/run_phase13_6_optimizer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.6 — router optimizer research CLI.
+scripts/run_phase13_7_stability.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.7 — router stability research CLI.
+scripts/run_phase13_8_trend_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.8 — trend recovery research CLI.
+scripts/run_phase13_9_unified_router.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13.9 — unified router research CLI.
+scripts/run_phase14_10_stability.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 — walk-forward stability recovery CLI.
+scripts/run_phase14_10_stage1_yearly.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 1 — fast yearly statistics CLI.
+scripts/run_phase14_10_stage2_drift.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 2 — yearly drift analysis CLI.
+scripts/run_phase14_10_stage3_threshold.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 3 — per-year threshold replay CLI.
+scripts/run_phase14_10_stage4_policy.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 4 — adaptive threshold policy CLI.
+scripts/run_phase14_10_stage5_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 5 — final report CLI.
+scripts/run_phase14_1_decision_test.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.1 — decision engine integration test CLI (no execution).
+scripts/run_phase14_2a_calibration.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.2A — confidence calibration research CLI (no execution).
+scripts/run_phase14_2b_risk.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.2B — adaptive risk intelligence CLI (no execution).
+scripts/run_phase14_3_quality.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.3 — trade quality intelligence CLI (no execution).
+scripts/run_phase14_4_optimizer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.4 — signal optimization & opportunity recovery CLI.
+scripts/run_phase14_5_confidence_optimizer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.5 — confidence operating point optimization CLI.
+scripts/run_phase14_6_calibration_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.6 — calibration recovery CLI.
+scripts/run_phase14_7_pipeline_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.7 — end-to-end pipeline validation CLI.
+scripts/run_phase14_8_stress_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.8 — full robustness & stress validation CLI.
+scripts/run_phase14_9_stability.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.9 — multi-regime stability CLI.
+scripts/run_phase15a_preparation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15A — production integration preparation CLI.
+scripts/run_phase15b_kernel_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15B — kernel integration validation CLI.
+scripts/run_phase15c_monitoring.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15C — live monitoring and observability CLI.
+scripts/run_phase15d_shadow.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15D — shadow mode live safety validation CLI.
+scripts/run_phase15e_shadow_debug.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15E — shadow mode signal failure diagnosis CLI.
+scripts/run_phase15f_confidence_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15F — confidence gate recovery CLI.
+scripts/run_phase15g_confidence_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15G — frozen bundle confidence analysis CLI.
+scripts/run_phase15h_confidence_mapping.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15H — confidence scale mapping CLI.
+scripts/run_phase15i_range_recovery.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15I — range engine recovery CLI.
+scripts/run_phase15j_rootcause.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15J — trend engine root cause trace CLI (read-only).
+scripts/run_phase15k_ceiling_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 15K — trend RF ceiling analysis CLI (read-only).
+scripts/run_phase16a_alignment.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 16A — trend feature distribution aligner validation CLI.
+scripts/run_phase16b_kernel_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 16B — kernel-level validation and throughput stress test.
+scripts/run_phase16c_trend_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 16C — TREND engine throughput root analysis (read-only).
+scripts/run_phase16d_feature_study.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 16D — Trend feature ceiling expansion study (read-only).
+scripts/run_phase17a_blueprint.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 17A — integrated TREND recovery blueprint (read-only).
+scripts/run_phase17b_retrain_lab.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 17B — offline RF+Top5 chronological retrain lab (research only).
+scripts/run_phase17c_shadow_bundle.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 17C — shadow bundle validation (research only).
+scripts/run_phase18a_shadow_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 18A — live shadow validation (no production impact, zero live orders).
+scripts/run_phase18b_go_live.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 18B — controlled live gate (final GO/NO-GO).
+scripts/run_phase18c_prelive.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 18C — pre-live verification (market closed, no trading).
+scripts/run_phase19a_profitability_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 19A — profitability audit (read-only).
+scripts/run_phase19b_profitability_optimization.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 19B — profitability optimization (research only).
+scripts/run_phase19c_profitability_upgrade.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 19C — safe profitability upgrade validation.
+scripts/run_phase19d_certification.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 19D — final production certification (read-only).
+scripts/run_phase20a_live_deployment.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 20A — controlled live capital deployment.
+scripts/run_phase20b_stabilization.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 20B — live trading stabilization & performance control (read-only).
+scripts/run_phase20c_broker_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 20C — real broker execution validation (read-only).
+scripts/verify_phase2_live_ready.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 2 readiness — demo guard, Telegram optional, reporting scripts.
+scripts/verify_phase4_live_ready.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 4 readiness — prop preset, drift monitor, slippage/spread reporting.
+tradingbot/backtest/phase116_source_planning.py			
+tradingbot/backtest/phase116_source_research.py			
+tradingbot/backtest/phase1b_metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 1B — extended PA+Meta backtest metrics + Monte Carlo on R-multiples.
+tradingbot/ml/phase19c/orchestrator.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 19C — safe profitability upgrade orchestrator.
+tradingbot/ml/research/documentation_freshness/run.py	2026-09-09 05:26:55 +0330	update project files	Scan documentation freshness. Canonical snapshot writes are opt-in.
+tradingbot/ml/research/documentation_operationalization/__init__.py	2026-09-09 05:26:55 +0330	update project files	Verification-only operationalization audit.
+tradingbot/ml/research/documentation_verification/__init__.py	2026-09-09 05:26:55 +0330	update project files	Single documentation/memory verification entry. No production trading imports.
+tradingbot/ml/research/full_repo_audit/__init__.py	2026-09-09 05:26:55 +0330	update project files	Phase 1.5.61 — full repository knowledge audit (offline, no live I/O).
+tradingbot/ml/research/live_bt/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Live backtest gate — strict pre-paper validation (research only).
+tradingbot/ml/research/live_bt/backtest_gate.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	BACKTEST_GATE — strict pre-paper backtest validation (research only).
+tradingbot/ml/research/live_bt/rr_production_research.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	RR_PRODUCTION_RESEARCH — VOL_REGIME RR sweep + TQ counterfactual (research only).
+tradingbot/ml/research/live_l1/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L1 live data foundation package.
+tradingbot/ml/research/live_l1/build_v8_dataset.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L1 — build v8 enriched dataset from fullest candles + v7 features (research only).
+tradingbot/ml/research/live_l1/expand_v8_labels.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L1b — expand v8 labels on unlabeled rows (production SL/TP + research RR=1.0).
+tradingbot/ml/research/live_l2/edge_discovery_l26.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L2.6 — combined edge test: PULLBACK_VWAP + ATR2.0/RR1.0 + v8 TREND ML filter (research only).
+tradingbot/ml/research/live_l2/edge_discovery_l27.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L2.7 — RR fine-tune + multi-signal sweep at RR~1.0 (research only).
+tradingbot/ml/research/live_l4/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L4 live ML on proven edge package.
+tradingbot/ml/research/live_l4/signal_ml_refinement.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L4 — ML refinement on proven PULLBACK_VWAP signal only (research only).
+tradingbot/ml/research/live_l4/v8_regime_ml_test.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	L4-prep — v8 enriched dataset regime ML test vs v7 baseline (research only).
+tradingbot/ml/research/pa_live_audit/root_cause.py	2026-09-09 05:26:55 +0330	update project files	Phase 1.5.59 — ranked live-failure / parity findings from repository evidence only.
+tradingbot/ml/research/pa_live_audit/run.py	2026-09-09 05:26:55 +0330	update project files	Write Phase 1.5.56–60 research report JSON. Offline only.
+tradingbot/ml/research/phase13c/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13C - Adaptive + ML Hybrid v2 (RESEARCH ONLY).
+tradingbot/ml/research/phase13c/adaptive_quality_v2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 13C - Adaptive Quality v2 + ML confirmation (RESEARCH ONLY). Dynamic weight budgets always sum to 100. ML adds points; never replaces direction. Not wired to live routing or order execution.
+tradingbot/ml/research/phase14_10/stage1_yearly_statistics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 1 — fast per-year statistics (no MC / WF / threshold search).
+tradingbot/ml/research/phase14_10/stage2_drift_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 2 — yearly drift analysis from Stage 1 JSON only.
+tradingbot/ml/research/phase14_10/stage3_threshold_replay.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 3 — per-year threshold replay (no retrain / no full rebuild).
+tradingbot/ml/research/phase14_10/stage4_adaptive_threshold_policy.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 4 — adaptive threshold policy from Stage 1+3 JSON only.
+tradingbot/ml/research/phase14_10/stage5_final_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 14.10 Stage 5 — final report summarization from prior stage JSON only.
+tradingbot/ml/research/phase17b/orchestrator.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 17B — offline RF+Top5 retrain lab orchestrator.
+tradingbot/ml/research/phase1b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 1B package.
+tradingbot/ml/research/phase1b/pa_full_cert.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 1B — full PA+Meta backtest certification (cache-only, HTF bypass).
+tradingbot/ml/research/phase22aa/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AA — impact radius forensics.
+tradingbot/ml/research/phase22aa/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AA — overfitting_risk_decreased impact radius forensics.
+tradingbot/ml/research/phase22ab/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AB — freeze path authority forensics.
+tradingbot/ml/research/phase22ab/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AB — freeze path authority forensics.
+tradingbot/ml/research/phase22ac/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AC — freeze integration radius investigation (read-only).
+tradingbot/ml/research/phase22ac/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AC — freeze integration radius investigation (repository only).
+tradingbot/ml/research/phase22ad/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AD — runtime authority trace (repository only).
+tradingbot/ml/research/phase22ae/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AE — freeze decision forensics (read-only).
+tradingbot/ml/research/phase22ae/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AE — freeze decision forensics (repository only).
+tradingbot/ml/research/phase22af/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AF — freeze pipeline repair design (research only).
+tradingbot/ml/research/phase22af/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AF — freeze pipeline repair design (research only).
+tradingbot/ml/research/phase22ag/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AG — acceptance gate calibration forensics.
+tradingbot/ml/research/phase22ag/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AG — acceptance gate calibration forensics (research only).
+tradingbot/ml/research/phase22ah/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AH — numeric acceptance rule validation (research only).
+tradingbot/ml/research/phase22ah/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AH — numeric acceptance rule validation (research only).
+tradingbot/ml/research/phase22ai/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AI — acceptance patch + freeze bridge prototype.
+tradingbot/ml/research/phase22ai/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AI — acceptance patch regression + freeze bridge prototype.
+tradingbot/ml/research/phase22aj/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AJ — production freeze authority wiring.
+tradingbot/ml/research/phase22aj/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AJ — production freeze authority wiring report.
+tradingbot/ml/research/phase22aj0/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AJ0 — winner authority resolution.
+tradingbot/ml/research/phase22aj0/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AJ0 — winner authority resolution (research only).
+tradingbot/ml/research/phase22ak/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AK — controlled end-to-end model freeze execution.
+tradingbot/ml/research/phase22al/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AL — production candidate live validation.
+tradingbot/ml/research/phase22al/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22AL — production candidate live validation report.
+tradingbot/ml/research/phase22b/run_capability_audit.py	2026-09-09 05:26:55 +0330	update project files	Phase 22B — READ-ONLY capability audit. Does not modify production code.
+tradingbot/ml/research/phase22c/run_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22C — multi-timeframe validation backtests + hold-chain report.
+tradingbot/ml/research/phase22d/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22D — engine root cause investigation.
+tradingbot/ml/research/phase22d/run_forensics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22D — full engine forensic audit (read-only + report generation).
+tradingbot/ml/research/phase22e/delta.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — delta report vs Phase 19D, 20B, 22B, 22D.
+tradingbot/ml/research/phase22e/montecarlo.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — Monte Carlo on trade order, spread, slippage, missing trades, latency.
+tradingbot/ml/research/phase22e/portfolio.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — shared-balance multi-timeframe portfolio backtest (research only).
+tradingbot/ml/research/phase22e/run_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — full production validation and profitability certification.
+tradingbot/ml/research/phase22e/runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — production-path single-timeframe backtest runner.
+tradingbot/ml/research/phase22e/stress.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22E — stress scenarios on production backtest path.
+tradingbot/ml/research/phase22f/ablation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22F — feature contribution from baseline hold-chain evidence.
+tradingbot/ml/research/phase22f/bottleneck.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22F — signal bottleneck funnel map.
+tradingbot/ml/research/phase22f/missed_ops.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22F — missed profitable opportunities (blocked but model-correct).
+tradingbot/ml/research/phase22f/run_rapid_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22F — rapid optimization framework (read-only, evidence-driven).
+tradingbot/ml/research/phase22f/trade_quality.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22F — executed trade quality metrics (MAE/MFE/RR).
+tradingbot/ml/research/phase22g/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — repository-driven root cause investigation.
+tradingbot/ml/research/phase22g/bottleneck.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — profitability bottleneck from trace + baseline.
+tradingbot/ml/research/phase22g/decision_engine_doc.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — decision engine documentation from code.
+tradingbot/ml/research/phase22g/execution_graph.py	2026-09-09 05:26:55 +0330	update project files	Phase 22G — verified live execution graph from source code.
+tradingbot/ml/research/phase22g/execution_tracer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — per-candle execution trace on Dataset A.
+tradingbot/ml/research/phase22g/model_inventory.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — production model inventory from loaders.
+tradingbot/ml/research/phase22g/model_routing.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — model routing verification from code.
+tradingbot/ml/research/phase22g/rapid_runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — baseline runner for bottleneck analysis.
+tradingbot/ml/research/phase22g/recommended_fix.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — single recommended fix (evidence-based, no implementation).
+tradingbot/ml/research/phase22g/report_verification.py	2026-09-09 05:26:55 +0330	update project files	Phase 22G — verify prior phase conclusions against current code.
+tradingbot/ml/research/phase22g/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22G — repository-driven root cause investigation.
+tradingbot/ml/research/phase22h/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22H — active trend engine alignment validation.
+tradingbot/ml/research/phase22h/alignment.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22H — verify active engine alignment across production ML path.
+tradingbot/ml/research/phase22h/delta.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22H — regression and Phase 22F delta.
+tradingbot/ml/research/phase22h/run_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22H — implement and validate 22G-001 active engine alignment.
+tradingbot/ml/research/phase22i/hold_profiler.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22I — decision engine hold profiling on Dataset A.
+tradingbot/ml/research/phase22i/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22I — decision engine deep optimization (research-only).
+tradingbot/ml/research/phase22i/runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22I — run Dataset A backtest with research orchestrator.
+tradingbot/ml/research/phase22i/stack.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22I — inject research orchestrator into ML stack for backtest simulation.
+tradingbot/ml/research/phase22j/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — engine-level signal investigation (research-only).
+tradingbot/ml/research/phase22j/range_forensics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — phase9_9 range engine forensics on Dataset A.
+tradingbot/ml/research/phase22j/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — engine-level signal investigation (research-only).
+tradingbot/ml/research/phase22j/runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — run Dataset A backtest with engine candidate patch.
+tradingbot/ml/research/phase22j/training_alignment.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — training vs inference alignment validation (post 22H).
+tradingbot/ml/research/phase22j/trend_forensics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22J — trend_rf_v41 engine forensics on Dataset A.
+tradingbot/ml/research/phase22l/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — dataset refresh and feature pipeline repair (research only).
+tradingbot/ml/research/phase22l/audit_pipeline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 1: dataset_v2 generation pipeline audit.
+tradingbot/ml/research/phase22l/comparison.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 6: before/after comparison using refreshed dataset only in research.
+tradingbot/ml/research/phase22l/coverage.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 3: feature coverage before/after refresh on Dataset A.
+tradingbot/ml/research/phase22l/range_quality.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 5: range model input quality on Dataset A window.
+tradingbot/ml/research/phase22l/rebuild.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 2: rebuild dataset_v2 to research artifact (no production overwrite).
+tradingbot/ml/research/phase22l/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — dataset refresh and feature pipeline repair (research only).
+tradingbot/ml/research/phase22l/unified_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22L — Step 4: unified frame source audit.
+tradingbot/ml/research/phase22m/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22M — live data pipeline & CandleStore forensics (repository only).
+tradingbot/ml/research/phase22n/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22N — automated ML data refresh validation and reports.
+tradingbot/ml/research/phase22o/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22O — full automatic dataset maintenance validation and reports.
+tradingbot/ml/research/phase22p/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22P — end-to-end live execution forensics on Dataset A.
+tradingbot/ml/research/phase22q/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22Q — prove or disprove Phase99 architecture (repository truth only).
+tradingbot/ml/research/phase22r/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22R — Repository-guided Live FeatureBuilder refactor feasibility (research only).
+tradingbot/ml/research/phase22s/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22S — FeatureBuilder numerical parity certification.
+tradingbot/ml/research/phase22t/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22T — controlled live FeatureBuilder refactor comparison on Dataset A.
+tradingbot/ml/research/phase22u/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22U — model capability verification research.
+tradingbot/ml/research/phase22u/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22U — phase9_9 model capability verification.
+tradingbot/ml/research/phase22v/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22V — phase9_9 training pipeline forensics.
+tradingbot/ml/research/phase22v/model_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22V — phase9_9 training pipeline forensics.
+tradingbot/ml/research/phase22v/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22V — phase9_9 training pipeline forensics.
+tradingbot/ml/research/phase22w/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22W — training criterion root-cause verification.
+tradingbot/ml/research/phase22w/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22W — training criterion root-cause verification.
+tradingbot/ml/research/phase22x/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22X — production fix for model selection criteria.
+tradingbot/ml/research/phase22x/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22X — validate probability selection gate and Phase 9.9 pipeline.
+tradingbot/ml/research/phase22y/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22Y — accepted candidate failure forensics.
+tradingbot/ml/research/phase22y/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22Y — accepted candidate failure forensics.
+tradingbot/ml/research/phase22z/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22Z — overfitting_risk_decreased rule validation.
+tradingbot/ml/research/phase23a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23A — end-to-end ML pipeline trace and root cause investigation.
+tradingbot/ml/research/phase23a/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23A — read-only ML pipeline trace and root cause report.
+tradingbot/ml/research/phase23b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23B — feature pipeline repair validation.
+tradingbot/ml/research/phase23b/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23B — feature pipeline repair validation report.
+tradingbot/ml/research/phase23g/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23G — production integration of RANGE filter profile.
+tradingbot/ml/research/phase23g/run_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 23G — integration validation runner.
+tradingbot/ml/research/phase24e/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24E — Strategy B validation (persistent dataset_v2 memory cache).
+tradingbot/ml/research/phase24g/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24G — safe internal unified frame optimization.
+tradingbot/ml/research/phase24i/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24I — unified feature input optimization.
+tradingbot/ml/research/phase24j/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24J — READ ONLY final production audit before paper trading. Generates JSON deliverables from static evidence catalog. Does NOT modify production code.
+tradingbot/ml/research/phase24k/run_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 24K — validate production blocker fixes and emit JSON deliverables.
+tradingbot/ml/research/phase25a/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 25A — Paper Trading vs Research Replay consistency audit (READ ONLY).
+tradingbot/ml/research/phase25b/pipeline_depth.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Stage-by-stage pipeline depth comparison: legacy research vs production paper.
+tradingbot/ml/research/phase25b/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 25B — parity comparison, timeout analysis, and deliverable generation.
+tradingbot/ml/research/phase26a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26A — Paper trading validation infrastructure (observation only).
+tradingbot/ml/research/phase26a/exit_simulator.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Research-only trade exit simulation on historical candles.
+tradingbot/ml/research/phase26a/journal_reader.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Read-only paper execution records from production TradeJournal SQLite.
+tradingbot/ml/research/phase26a/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26A — paper trading validation infrastructure runner.
+tradingbot/ml/research/phase26a/statistics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Aggregate paper trade statistics (research-only).
+tradingbot/ml/research/phase26a/trade_collector.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Collect and enrich completed paper trades (read-only observation).
+tradingbot/ml/research/phase26a/trade_schema.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Completed paper trade record schema.
+tradingbot/ml/research/phase26a/validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Verify Phase 26A did not modify protected production modules.
+tradingbot/ml/research/phase26c/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26C paper journal reliability.
+tradingbot/ml/research/phase26c/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26C — Paper journal reliability repair and validation.
+tradingbot/ml/research/phase26d/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26D startup safety.
+tradingbot/ml/research/phase26d/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 26D — startup safety and configuration integrity validation.
+tradingbot/ml/research/phase27a/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27A — 30-day production validation backtest.
+tradingbot/ml/research/phase27a/trade_builder.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Build completed trades from unified pipeline replay records.
+tradingbot/ml/research/phase27b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27B — read-only root cause investigation for zero trades (RSI filter).
+tradingbot/ml/research/phase27b/bar_tracer.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27B — per-bar read-only pipeline trace (no prediction cache).
+tradingbot/ml/research/phase27b/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27B — evidence aggregation and deliverable builders.
+tradingbot/ml/research/phase27b/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27B — root cause investigation for zero trades (READ ONLY).
+tradingbot/ml/research/phase27c/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27C — prediction cache key collision fix validation.
+tradingbot/ml/research/phase27d/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27D — post cache-fix 30-day production replay (READ ONLY).
+tradingbot/ml/research/phase27d/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27D metrics — measured production behavior after cache fix.
+tradingbot/ml/research/phase27d/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27D — full 30-day production replay after cache fix (READ ONLY).
+tradingbot/ml/research/phase27e/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27E — signal-to-execution bottleneck investigation (READ ONLY).
+tradingbot/ml/research/phase27e/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27E — trace 762 ML signals through pipeline stages.
+tradingbot/ml/research/phase27e/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27E — signal-to-execution bottleneck investigation (READ ONLY).
+tradingbot/ml/research/phase27f/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27F — replay portfolio state repair validation.
+tradingbot/ml/research/phase27f/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27F metrics — portfolio lifecycle and RiskGate before/after comparison.
+tradingbot/ml/research/phase27f/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27F — replay portfolio state repair validation.
+tradingbot/ml/research/phase27g/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27G — 30-day trade performance validation after replay fix.
+tradingbot/ml/research/phase27g/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27G — 30-day trade performance validation metrics (read-only).
+tradingbot/ml/research/phase27g/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27G — 30-day trade performance validation after replay fix.
+tradingbot/ml/research/phase27h/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27H — robustness and stress test validation.
+tradingbot/ml/research/phase27h/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27H — robustness and stress test metrics.
+tradingbot/ml/research/phase27h/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27H — robustness and stress test validation (read-only).
+tradingbot/ml/research/phase27h/stress_engine.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27H stress simulation engine (research-only, read-only).
+tradingbot/ml/research/phase27i/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27I — slippage root cause investigation.
+tradingbot/ml/research/phase27i/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27I — slippage root cause investigation metrics.
+tradingbot/ml/research/phase27i/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27I — slippage root cause investigation (read-only).
+tradingbot/ml/research/phase27i/slippage_decompose.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27I slippage decomposition utilities (research-only).
+tradingbot/ml/research/phase27j/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27J — edge decomposition investigation.
+tradingbot/ml/research/phase27j/edge_decompose.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27J per-trade edge decomposition (research-only).
+tradingbot/ml/research/phase27j/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27J — edge decomposition investigation metrics.
+tradingbot/ml/research/phase27j/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27J — edge decomposition investigation (read-only).
+tradingbot/ml/research/phase27k/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27K — losing trade root cause investigation.
+tradingbot/ml/research/phase27k/loser_enrich.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27K losing trade enrichment (research-only).
+tradingbot/ml/research/phase27k/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27K — losing trade root cause metrics.
+tradingbot/ml/research/phase27k/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27K — losing trade root cause investigation (read-only).
+tradingbot/ml/research/phase27l/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27L — exit engine investigation metrics.
+tradingbot/ml/research/phase27l/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27L — exit engine investigation (read-only simulation).
+tradingbot/ml/research/phase27m/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27M — exit strategy robustness validation.
+tradingbot/ml/research/phase27m/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27M — cross-window exit robustness metrics.
+tradingbot/ml/research/phase27m/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27M — exit strategy robustness across market windows (read-only).
+tradingbot/ml/research/phase27m/window_runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27M — multi-window replay and exit simulation runner.
+tradingbot/ml/research/phase27n/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27N — hybrid exit metrics, stability, Monte Carlo, ranking.
+tradingbot/ml/research/phase27n/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27N — hybrid exit architecture validation (read-only).
+tradingbot/ml/research/phase27n/window_runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27N — window loader reusing Phase 27M replay cache.
+tradingbot/ml/research/phase27o/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27O — out-of-sample hybrid exit validation.
+tradingbot/ml/research/phase27o/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27O — OOS metrics, generalization gap, Monte Carlo, ranking.
+tradingbot/ml/research/phase27o/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27O — out-of-sample hybrid exit validation (read-only).
+tradingbot/ml/research/phase27o/split.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27O — chronological train/validation split (70/30).
+tradingbot/ml/research/phase27o/window_runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 27O — window loader with OOS strategy simulation.
+tradingbot/ml/research/phase28a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28A — paper trading A/B validation (Hybrid B vs Time Exit).
+tradingbot/ml/research/phase28a/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28A — A/B metrics, head-to-head, Monte Carlo, decision matrix.
+tradingbot/ml/research/phase28a/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28A — paper trading A/B validation runner (read-only).
+tradingbot/ml/research/phase28a/window_runner.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28A — window loader and dual-strategy simulation.
+tradingbot/ml/research/phase28b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28B — production integration validation for Hybrid B.
+tradingbot/ml/research/phase28b/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28B — integration validation, failure scenarios, performance parity.
+tradingbot/ml/research/phase28c/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28C — paper trading live validation (Hybrid B).
+tradingbot/ml/research/phase28c/data_collector.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28C — collect live paper trade data from production journal.
+tradingbot/ml/research/phase28c/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28C — paper trading live validation runner (read-only observation).
+tradingbot/ml/research/phase28c/validators.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28C — Hybrid B trade validators and journal integrity.
+tradingbot/ml/research/phase28d/cache.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28D — clear stale replay caches before fresh backtest.
+tradingbot/ml/research/phase28d/metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28D — backtest metrics and report builders.
+tradingbot/ml/research/phase28d/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 28D — fresh 30-day production backtest ($200, Hybrid B).
+tradingbot/ml/research/phase29b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 29B — WPSQF production integration validation.
+tradingbot/ml/research/phase30a/replay_simulation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Replay Phase 29B trades with execution simulation — entries/exits unchanged.
+tradingbot/ml/research/phase30b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30A research package.
+tradingbot/ml/research/phase30b/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30B — execution layer forensic audit (read-only, no code changes).
+tradingbot/ml/research/phase30c/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30C research package.
+tradingbot/ml/research/phase30c/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30C — Digital Broker Twin research (design only, no code changes).
+tradingbot/ml/research/phase30d/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30D research package.
+tradingbot/ml/research/phase30e/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 30E research package.
+tradingbot/ml/research/phase31e/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 31E — replay portfolio state machine repair.
+tradingbot/ml/research/phase32g/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+tradingbot/ml/research/phase32h/generate_deliverables.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 32H — read-only feature pipeline integrity audit deliverables generator.
+tradingbot/ml/research/phase32i/generate_deliverables.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 32I — read-only Phase99 dataset parity audit deliverables.
+tradingbot/ml/research/phase33c/run_forensics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 33C — rejected signal outcome audit (read-only forensic).
+tradingbot/ml/research/phase33d/replay.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 33D — production-faithful rejected signal replay (research only).
+tradingbot/ml/research/phase33d/run_forensic.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 33D — full rejected signal reconstruction & filter truth audit.
+tradingbot/ml/research/phase34a/run_all.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run all Phase 34 engineering audits in order with tests.
+tradingbot/ml/research/phase34a/run_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 34A — RAW ML Truth Audit (read-only forensic).
+tradingbot/ml/research/phase34b/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 34B — dataset label truth audit (research only).
+tradingbot/ml/research/phase34b/run_label_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 34B — Dataset Label Truth Audit (read-only).
+tradingbot/ml/research/phase34c/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 34C — filter marginal value synthesis (research only).
+tradingbot/ml/research/phase34d/run_engineering_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 34D — Engineering Decision Report (synthesizes 34A-34C + 33D).
+tradingbot/ml/research/phase35/run_label_alignment.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 35 — Label Alignment & ML Retrain Readiness Audit (read-only).
+tradingbot/ml/research/phase36/retrain_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 36 — chronological retrain validation (research only).
+tradingbot/ml/research/phase36/run_phase36.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 36 — Aligned Dataset V3 + Chronological Retrain Validation.
+tradingbot/ml/research/phase37/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 37 — filter optimization (research only).
+tradingbot/ml/research/phase37/run_phase37.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 37 — Filter optimization measurement (read-only, no production changes).
+tradingbot/ml/research/phase38/run_phase38.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 38 — Walk-forward retrain on dataset_v3 with threshold sweep (research only).
+tradingbot/ml/research/phase39/run_phase39.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 39 — Expand candle coverage and rebuild dataset_v3 on fullest history.
+tradingbot/ml/research/phase3a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 3A VOL edge research.
+tradingbot/ml/research/phase3a/vol_edge_research.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 3A — VOL edge reconstruction research (no live enable).
+tradingbot/ml/research/phase40/run_phase40.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 40 — Threshold sweep walk-forward retrain on expanded dataset_v3.
+tradingbot/ml/research/phase41/run_phase41.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 41 — Advanced model search + label generalization audit.
+tradingbot/ml/research/phase42/run_phase42.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 42 — Feature parity audit, spread patch, event bias report.
+tradingbot/ml/research/phase43/run_phase43.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 43 — Retrain on balanced event subsets with walk-forward threshold sweep.
+tradingbot/ml/research/phase44/run_phase44.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 44 — Integration gate synthesis across phases 42-43.
+tradingbot/ml/research/phase45/run_phase45.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 45 — Structure-event dataset v5 + label quality audit.
+tradingbot/ml/research/phase46/run_phase46.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 46 — ML signal-aligned dataset v6 (production population).
+tradingbot/ml/research/phase47/run_phase47.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 47 — Compare walk-forward retrain: v4 vs v5 vs v6.
+tradingbot/ml/research/phase48/run_phase48.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 48 — Final integration gate after structure + ML signal research.
+tradingbot/ml/research/phase49/ml_capture.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 49 — expanded ML capture with fixed bar indexing.
+tradingbot/ml/research/phase49/run_phase49.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 49 — Fix bar index + expand ML capture 2021-2026.
+tradingbot/ml/research/phase4a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 3A package.
+tradingbot/ml/research/phase4a/adaptive_quality_backtest.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 4A — Adaptive quality engine backtest comparison (old AND-gate vs quality score).
+tradingbot/ml/research/phase50/run_phase50.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 50 — Strict multi-year walk-forward gate on v7.
+tradingbot/ml/research/phase51/run_phase51.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 51 — Profitability proximity assessment.
+tradingbot/ml/research/phase52/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 52 — label & dataset diagnosis.
+tradingbot/ml/research/phase52/label_audit_v7.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 52 — label & dataset diagnosis on v7 (research only).
+tradingbot/ml/research/phase53/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 53 — execution funnel audit.
+tradingbot/ml/research/phase53/execution_funnel_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 53 — execution funnel edge-loss audit (research only).
+tradingbot/ml/research/phase54/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 54 — model sweep.
+tradingbot/ml/research/phase54/model_sweep.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 54 — model sweep on strict walk-forward (research only).
+tradingbot/ml/research/phase55/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 55 — feature noise audit.
+tradingbot/ml/research/phase55/feature_noise_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 55 — feature importance & noise audit on v7 (research only).
+tradingbot/ml/research/phase56/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 56 — treatment synthesis.
+tradingbot/ml/research/phase56/treatment_synthesis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 56 — treatment synthesis & re-gate (research only).
+tradingbot/ml/research/phase57/trade_quality_simulation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 57A — TradeQuality funnel counterfactual simulation (research only).
+tradingbot/ml/research/phase57/trend_regime_deep_dive.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 57B — TREND regime walk-forward deep dive (research only).
+tradingbot/ml/research/phase57/write_phase57_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 57 — combined report writer and status updates (research only).
+tradingbot/ml/research/phase58/trend_only_model.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 58 — TREND-only RF re-gate on top-5 features (research only).
+tradingbot/ml/research/phase59/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 59 — horizon sweep, feature expansion, ensemble (research only).
+tradingbot/ml/research/phase59/horizon_feature_expansion.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 59 — label horizon sweep, feature expansion, ensemble (research only).
+tradingbot/ml/research/phase60/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 60 — AUC lift, trade-count gate, execution counterfactual (research only).
+tradingbot/ml/research/phase60/auc_lift_and_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 60 — AUC lift experiments, trade-count floor, execution counterfactual (research only).
+tradingbot/ml/research/phase61/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 61 — execution-path shadow validation (research only).
+tradingbot/ml/research/phase61/execution_shadow_validation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 61 — execution-path shadow validation for TREND RF-10f (research only).
+tradingbot/ml/research/phase62/trade_quality_shadow_analysis.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 62 — TradeQuality shadow analysis (research only). Analyze WHY TradeQuality rejects 93%+ of high-confidence TREND signals. Read-only re-evaluation of production TradeQualityEngine on phase46 caches.
+tradingbot/ml/research/phase63/trade_quality_shadow_calibration.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 63 — TradeQuality shadow recalibration (research only). Shadow-only policy: engine alias, threshold sweep, capture + PF measurement. NO production code changes.
+tradingbot/ml/research/phase64/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 64 — AdaptiveRisk shadow review (research only).
+tradingbot/ml/research/phase64/adaptive_risk_shadow_review.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 64 — AdaptiveRisk shadow review (research only). Analyze AR-blocked TREND HC signals from phase46 caches; quantify incremental impact of AR bypass on top of phase63 TradeQuality alias policy. NO production code changes.
+tradingbot/ml/research/phase65/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 65 — AUC lift via TREND feature engineering (research only).
+tradingbot/ml/research/phase65/auc_feature_lift.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 65 — AUC lift via TREND-specific feature engineering (research only). Engineer interactions/ratios/lags from v7 columns; compare RF on baseline 10f, expanded 15-20f, and pruned high-importance sets. Strict 5-window walk-forward on TREND subset at threshold 0.40 with honest PF@30 trades.
+tradingbot/ml/research/phase66/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 66 — Label & horizon experiments (research only).
+tradingbot/ml/research/phase66/label_horizon_experiments.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 66 — Label & horizon experiments on TREND subset (research only). Sweep future_window_bars (24–120) with full walk-forward retrain and compare label definitions: label_v3, strict_tp_only, tp_vs_sl_binary, rr_weighted.
+tradingbot/ml/research/phase67/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 67 — TREND specialization & ensemble (research only).
+tradingbot/ml/research/phase67/trend_ensemble_specialization.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 67 — TREND specialization + RF+HGB ensemble (research only). Test configs A–F on TREND subset with strict 5-window walk-forward at threshold 0.40. Threshold sweep 0.35–0.50 on best config; recommend carry-forward for Phase 68.
+tradingbot/ml/research/phase68/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 68 - Combined shadow revalidation.
+tradingbot/ml/research/phase68/combined_shadow_revalidation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 68 — Combined shadow revalidation (research only). Combine phase63 TQ alias @0.40 + AR production with ML configs A and C. Evaluate all FIX_ROADMAP production gates; issue phase69 paper-trading verdict. NO production code changes.
+tradingbot/ml/research/phase6a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A package.
+tradingbot/ml/research/phase6a/fault_injection_live.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A — live-path fault injection (isolated, no production mutation).
+tradingbot/ml/research/phase6a/monte_carlo_pa.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A — Monte Carlo on PA trade R-multiples.
+tradingbot/ml/research/phase6a/vol_v2_expansion.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A — VOL v2 EXPANSION-only research profile (no live enable).
+tradingbot/ml/research/phase6a/walk_forward_pa.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A — PA walk-forward (6×30d rolling windows).
+tradingbot/ml/research/phase70/fix_roadmap_final_review.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 70 — FIX Roadmap Final Gate Review (closure, research only). Synthesize phases 62-68 + FIX_ROADMAP.json into a final verdict. NO production code changes — documentation and status updates only.
+tradingbot/ml/research/phase7a/adaptive_quality_v2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 7A — Adaptive Quality v2 research (dynamic weights + threshold sweep).
+tradingbot/ml/research/phase8a/ml_kernel_rehab.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 8A — ML Kernel rehabilitation research (shadow-only).
+tradingbot/ml/research/phase9a/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+tradingbot/ml/research/phase9a/pm_v2_research.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 9A — Position Management v2 research profiles and backtest helpers.
+tradingbot/ml/research/phase_final_audit/__init__.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase Final — Pre-paper system integrity audit (READ ONLY).
+tradingbot/ml/research/phase_final_audit/run_investigation.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Final pre-paper system integrity audit — READ ONLY investigation.
+tradingbot/ml/research/run_engineering_pipeline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run Phase 49-51 strict profitability pipeline.
+tradingbot/ml/research/run_fix_pipeline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run fix pipeline phases 62→70 sequentially (research only).
+tradingbot/ml/research/run_live_pipeline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run LIVE profitable robot roadmap phases L0-L6 (research orchestrator).
+tradingbot/ml/research/run_treatment_pipeline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run treatment pipeline phases 52→61 sequentially (research only).
+tradingbot/ml/research/v41_isolated/cost_inventory.py	2026-09-09 05:26:55 +0330	update project files	Read-only inventory of possible real cost sources. Research only.
+tradingbot/ml/research/v41_isolated/run.py	2026-09-09 05:26:55 +0330	update project files	Phase 1.5.36–1.5.40 orchestrator — offline isolated v41 TREND evidence.
+tradingbot/ml/research/v41_isolated/run_cost.py	2026-09-09 05:26:55 +0330	update project files	Offline orchestrator for v41 cost realism & robustness (no live path).
+tradingbot/ml/research/v41_isolated/run_followup.py	2026-09-09 05:26:55 +0330	update project files	Phase 1.5.46–1.5.50 orchestrator — offline follow-up, does not rewrite prior JSON.
+tradingbot/ml/shadow/phase53a_gate.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 53A — ML kernel live gate (Phase 51 real-trade evidence).
+tradingbot/ml/shadow/phase53a_metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 53A — ML kernel validation on Phase 51 forward-demo closed trades.
+tradingbot/ml/shadow/phase5a_drift.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 5A — drift analysis (train vs shadow live/replay).
+tradingbot/ml/shadow/phase5a_metrics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 5A — ML Kernel certification metrics (shadow analysis only).
+tradingbot/ml/shadow/phase5a_shadow_replay.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 5A — build shadow_trade_record rows from PA replay + ML shadow probe.
+tradingbot/services/phase6a_production_cert.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 6A — final production certification orchestrator.

@@ -1,0 +1,96 @@
+_audit_dead_research.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	One-off audit: research modules not reachable from live path.
+_run_diag_step1.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	1 terminal64
+scripts/_patch14a2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+scripts/_rerun14a2.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Re-run 14A-2 with corrected session_ok and NY-day estimate. Writes UTF-8 report.
+scripts/_rerun14a2_fast.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	14A-2 fast cache-only audit.
+scripts/_write_14c1_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	
+scripts/analyze_dataset.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Offline dataset quality analysis — Phase 3.
+scripts/analyze_features.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Offline feature analysis — quality and correlation reports.
+scripts/analyze_shadow_performance.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Analyze shadow ML/hybrid performance — Phase 5.2 (offline only).
+scripts/analyze_shap.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	SHAP analysis for trained baseline models — offline research only.
+scripts/architecture_implementation_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE ARCHITECTURE-IMPLEMENTATION-AUDIT — READ-ONLY. Output: logs/architecture_implementation_audit.txt
+scripts/audit_ml_dataset.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 8.2 — ML dataset quality and research audit.
+scripts/backtest_adaptive_30d.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	30-day backtest with sub-strategy breakdown.
+scripts/backtest_adaptive_regime.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Compare adaptive multi-regime vs VOL_REGIME-only on recent M5 XAUUSD data.
+scripts/backtest_adaptive_report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run backtest and write JSON report (avoids stdout issues on Windows).
+scripts/backtest_compare_strategies.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Compare strategy variants on 14d real MT5 data.
+scripts/backtest_vol_regime_24h.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	24-hour VOL_REGIME backtest — XAUUSD M5, ATR2.5_RR0.8, production TQ path.
+scripts/backtest_vol_regime_today.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	VOL_REGIME backtest for a fixed UTC calendar day (default: today).
+scripts/build_project_classification.py	2026-09-09 05:26:55 +0330	update project files	
+scripts/build_project_memory.py	2026-09-09 05:26:55 +0330	update project files	
+scripts/check_today_signals.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Summarize today's kernel cycles and scan VOL_REGIME on live M5 bars.
+scripts/clear_emergency_stop.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Clear emergency stop flag so the bot can start again after kill switch.
+scripts/debug_live_loop_exit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run live loop briefly and log why the process exits.
+scripts/diagnose_mt5_connection.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	MT5 connection diagnostic — read-only, attach-only (no initialize/shutdown storms).
+scripts/diagnose_vol_regime_signals.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Deep VOL_REGIME diagnostic — raw signals vs TQ blocks on live M5 data.
+scripts/enable_mt5_autotrading.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Enable MT5 AutoTrading via Win32 WM_COMMAND and optional Options UI.
+scripts/evaluate_model.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Evaluate trained baseline ML model — Phase 4.0.
+scripts/generate_robot_ready_report.py	2026-09-09 05:26:55 +0330	update project files	Generate logs/robot_ready_for_live_report.json — wiring audit + backtest.
+scripts/live_dataset_orchestrator.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 22O — pre-live dataset maintenance orchestrator (outside trading loop).
+scripts/live_forensic_today.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE LIVE-FORENSIC-TODAY — READ-ONLY forensic report. No production changes, no orders sent. Output: logs/live_forensic_today_result.txt
+scripts/live_reconcile.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Journal vs MT5 reconciliation for today.
+scripts/optimize_shadow_policy.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Optimize shadow ML+rule policy from memory — Phase 5.3 (recommendations only).
+scripts/optimize_threshold.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Optimize trading probability threshold — Phase 4.1.
+scripts/phase_verify_audit.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE VERIFY — Institutional audit of completed research phases (READ-ONLY).
+scripts/production_readiness_check.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run all production-readiness checks (non-destructive).
+scripts/read_mt5_experts_ini.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Print MT5 common.ini Experts section + terminal_info flags.
+scripts/refresh_live_account_cache.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Write data/live_account.json from MT5 (safe when bot IPC lock is free).
+scripts/refresh_live_candles.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Read-only live candle refresh — attach-only, respects MT5 IPC lock. Safe to run while MT5 GUI is open. Skips when another process recently refreshed or holds the IPC lock (e.g. live trading loop).
+scripts/run_ab_shadow_test.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run A/B shadow test — rule vs hybrid (no live trading).
+scripts/run_deployment_check.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run deployment readiness check — Phase 6.4 evaluation only.
+scripts/run_engine_health_dashboard.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10A — generate engine health dashboard artifacts.
+scripts/run_hybrid_shadow.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run hybrid ML + rule shadow mode — Phase 5.1 (live trading unchanged).
+scripts/run_ml_diagnostics.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML system diagnostics — Phase 7.0.
+scripts/run_ml_improvement.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML improvement recommendations — Phase 7.4.
+scripts/run_ml_kernel_shadow.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10.1 — ML kernel shadow integration CLI (kernel pipeline, no real orders).
+scripts/run_ml_live_shadow.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10.2 — ML live shadow validation CLI (MT5 read-only, no orders).
+scripts/run_ml_monitoring.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML shadow monitoring — Phase 6.1 (informational only).
+scripts/run_ml_paper_trading.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 11 — kernel-integrated ML paper trading CLI (virtual execution only).
+scripts/run_ml_performance_profile.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML performance profiling — Phase 7.2 benchmarking only.
+scripts/run_ml_research.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML research intelligence pipeline — Phase 7.3.
+scripts/run_ml_shadow.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10 ML shadow integration CLI (observation only — no real orders).
+scripts/run_ml_shadow_monitor.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10.4 — long-duration ML shadow monitoring CLI (read-only, no orders).
+scripts/run_ml_stress_test.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Run ML stress tests — Phase 7.1 simulation only.
+scripts/run_paper_trading.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 9.10 paper trading & shadow validation CLI (no real orders).
+scripts/run_shadow_health_check.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10.5 — shadow health check and error audit CLI.
+scripts/run_walk_forward.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 9.8 walk-forward validation CLI (offline, CPU-only).
+scripts/symbol_100pct_audit_scan.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Read-only symbol grep + classification for PHASE SYMBOL-100PCT-AUDIT.
+scripts/test_mt5_attach.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Quick test: attach to MT5 without disconnecting the GUI session.
+scripts/train_baseline.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Train offline baseline ML models — Phase 4.0 (research only, not live).
+scripts/train_model.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 8.6 production ML training CLI (offline, CPU-only).
+scripts/validate_model.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Full offline model validation — Phase 4.1 (research only, not live).
+scripts/verify_and_go_live.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	One-shot: signal fix + autotrading + smoke trade + start LIVE.
+scripts/verify_vol_regime_live_ready.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Verify VOL_REGIME full live stack — kernel path, no ML, no demo-only deps.
+scripts/visualize_dataset.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Offline dataset visualization — Phase 3.1 (no live trading impact).
+scripts/wait_mt5_login.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Poll until MT5 is running and attached account matches config.
+tradingbot/adapters/legacy_signal_helpers.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	محاسبه confidence و SL/TP — re-export از لایه میانی domain. برای importهای قدیمی همین مسیر باقی می‌ماند. منطق اصلی: tradingbot.domain.signal_helpers
+tradingbot/adapters/mt5_attach_test.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Quick MT5 attach test — prints connection status, does NOT shutdown if connected.
+tradingbot/backtest/monte_carlo.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Monte Carlo — شبیه‌سازی ترتیب معاملات برای تخمین drawdown و احتمال ورشکستگی.
+tradingbot/domain/indicators.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	اندیکاتورهای تکنیکال — توابع خالص (pure functions). این ماژول نسخه‌ی تمیز و بازنویسی‌شده‌ی منطق اندیکاتورهاست که جایگزین `engine/features.py` می‌شود. عمداً **رفتار-سازگار (parity)** با نسخه‌ی قدیم نوشته شده تا سیگنال استراتژی‌ها تغییر نکند: - همان مجموعه‌ی ۲۲ ستون خروجی - همان فرمول‌ها و پارامترها (
+tradingbot/ml/feature_store.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 11A — institutional-grade unified ML feature store.
+tradingbot/ml/features/context.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Higher timeframe context features — H4 bias, M15 state, M5 entry context.
+tradingbot/ml/features/microstructure.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Market microstructure features — spread and tick-derived state.
+tradingbot/ml/features/momentum.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Momentum feature family — rate of change and oscillator state.
+tradingbot/ml/features/price_action.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Price action feature family — candle morphology and pattern state.
+tradingbot/ml/features/session.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Session feature family — time-of-day and kill-zone market state.
+tradingbot/ml/features/smc.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	SMC structure feature family — BOS, CHoCH, sweep, FVG, OB, premium/discount.
+tradingbot/ml/features/trend.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Trend feature family — market state directional bias.
+tradingbot/ml/features/volatility.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Volatility feature family — range expansion and ATR state.
+tradingbot/ml/integration/institutional_research_adapter.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 11A research adapter — institutional feature store + regime models (NO LIVE ENABLE).
+tradingbot/ml/integration/unified_entry_features.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	ML Kernel entry-feature bridge — delegates to UnifiedFeatureStore (Phase D1).
+tradingbot/ml/paper/report.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Paper trading report generation.
+tradingbot/ports/events.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Port: رویدادها — جایگزین EventBus.
+tradingbot/research/calibration_hardening.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 15C — Institutional Calibration Hardening (research only). Rebuild calibration pipeline on Phase11A + Phase13D datasets/models: train base model on chrono train -> fit calibrator on calib -> eval on holdout. Compare: Platt / Isotonic / Temperature Scaling (+ raw). Metrics: Brier, ECE, MCE — ov
+tradingbot/research/displacement_intelligence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16A — Institutional Displacement Intelligence (research only). Normalized displacement features + weighted score 0-100 for PA setups. NO live / router / execution / config changes.
+tradingbot/research/mfe_mae_intelligence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 15B — MFE / MAE Intelligence (research only). For each labeled setup: setup_score, MFE_R, MAE_R, final_R. Correlate setup characteristics with high MFE, low MAE, high final R. No live / config / execution changes.
+tradingbot/research/ob_fvg_confluence.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16B — OB + FVG Institutional Confluence (research only). Institutional OB validity: 1) Displacement within 3 bars after OB 2) Displacement creates measurable FVG 3) FVG overlaps OB by >= 20% 4) Sweep occurs before displacement 5) BOS happens after displacement (not before) Score 0-100: ob_stre
+tradingbot/research/pa_meta_retrain.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 18B PA meta retrain helpers (research only).
+tradingbot/research/portfolio_router.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 22D research-only portfolio router. Not wired to live routing.
+tradingbot/research/regime_ensemble.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 16C — Regime-Aware ML Ensemble (research only). PurgedKFold + embargo, per-regime LightGBM/XGBoost/RF, PF-weighted voting. NO live ML enable / NO USE_ML_KERNEL changes.
+tradingbot/research/setup_quality_score.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	PHASE 15A — Institutional Setup Quality Score (research only). NO live routing / execution / config changes. Score components (total 100): Sweep Quality ............. 0-20 Displacement Strength ..... 0-25 FVG Quality ............... 0-20 Order Block Quality ....... 0-15 HTF Bias Alignment ........ 0
+tradingbot/services/engine_health_dashboard.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 10A — permanent engine health dashboard (telemetry only).
+tradingbot/services/engine_telemetry_service.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Compatibility alias -- EngineTelemetryService lives in engine_telemetry.py.
+tradingbot/services/meta_dynamic_calibration.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 2A — dynamic meta threshold calibration helpers (test/calibration only).
+tradingbot/strategies/adaptive_ml_hybrid.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 12C — Adaptive Quality + ML hybrid decision layer (RESEARCH ONLY). Combines rule-based quality scoring with regime-specific ML confirmation. Not wired to live execution — use via scripts/phase12c_hybrid_certification.py.
+tradingbot/strategies/vol_context_engine.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase B1 — VOL context engine (quality only, no BUY/SELL).
+tradingbot/strategies/vol_direction_filter.py	2026-08-19 19:38:20 +0330	Initial snapshot - TradingBot New	Phase 48A — VOL_REGIME as direction/quality filter (no independent trades).

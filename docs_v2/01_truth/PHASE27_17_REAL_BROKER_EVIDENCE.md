@@ -24,13 +24,13 @@ One bounded attach-only attempt. MT5 was **not** started or restarted. `symbol_s
 | connected | `True` |
 | labeled REAL | `True` |
 | Real collection | `COLLECTED` |
-| fresh timestamp | `2026-09-06T06:56:45Z` |
+| fresh timestamp | `2026-09-10T07:30:36Z` |
 
 If this session is DEMO, it is recorded as DEMO. Real-specific collection stops. Demo is not written over stale Real evidence.
 
 ## Catalog
 
-Exact matches: `{'XAUUSD_i': 'YES', 'XAUUSD': 'NO'}`. Total symbols: `374`.
+Exact matches: `{'XAUUSD_i': 'YES', 'XAUUSD': 'NO'}`. Total symbols: `375`.
 
 ## Symbol status
 
@@ -41,7 +41,7 @@ Exact matches: `{'XAUUSD_i': 'YES', 'XAUUSD': 'NO'}`. Total symbols: `374`.
 
 | Symbol | exists | visible | digits | point | contract | swap L/S/3d | bid/ask | UTC |
 |---|---|---|---|---|---|---|---|---|
-| `XAUUSD_i` | YES | YES | 2 | 0.01 | 100.0 | -89.136 / 3.45 / 3 | 4430.13 / 4430.31 | 2026-09-04T23:58:56Z |
+| `XAUUSD_i` | YES | YES | 2 | 0.01 | 100.0 | -89.136 / 3.45 / 3 | 4408.18 / 4408.59 | 2026-09-10T10:30:40Z |
 | `XAUUSD` | NO | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN / UNKNOWN / UNKNOWN | UNKNOWN / UNKNOWN | UNKNOWN |
 
 ## EV-EQ-01
@@ -67,7 +67,7 @@ Missing applicability: `['basis', 'effective_date_or_version', 'applicability_es
 
 ## Production
 
-**BLOCKED.** No Strategy, RiskGate, execution, sizing, or RR changes. Historical M5 Bid/Ask closure is Phase 27.18 (`docs_v2/01_truth/PHASE27_18_HISTORICAL_BIDASK_CLOSURE.md`).
+**BLOCKED.** No Strategy, RiskGate, execution, sizing, or RR changes. Phase 27.18+ not started.
 
 ## Next
 

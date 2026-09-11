@@ -1,0 +1,866 @@
+[
+  {
+    "path": "_audit_dead_research.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "One-off audit: research modules not reachable from live path.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "_run_diag_step1.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "1 terminal64",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/_patch14a2.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/_rerun14a2.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Re-run 14A-2 with corrected session_ok and NY-day estimate. Writes UTF-8 report.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/_rerun14a2_fast.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "14A-2 fast cache-only audit.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/_write_14c1_report.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/analyze_dataset.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Offline dataset quality analysis \u2014 Phase 3.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/analyze_features.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Offline feature analysis \u2014 quality and correlation reports.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/analyze_shadow_performance.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Analyze shadow ML/hybrid performance \u2014 Phase 5.2 (offline only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/analyze_shap.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "SHAP analysis for trained baseline models \u2014 offline research only.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/architecture_implementation_audit.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE ARCHITECTURE-IMPLEMENTATION-AUDIT \u2014 READ-ONLY. Output: logs/architecture_implementation_audit.txt",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/audit_ml_dataset.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 8.2 \u2014 ML dataset quality and research audit.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_adaptive_30d.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "30-day backtest with sub-strategy breakdown.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_adaptive_regime.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Compare adaptive multi-regime vs VOL_REGIME-only on recent M5 XAUUSD data.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_adaptive_report.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run backtest and write JSON report (avoids stdout issues on Windows).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_compare_strategies.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Compare strategy variants on 14d real MT5 data.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_vol_regime_24h.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "24-hour VOL_REGIME backtest \u2014 XAUUSD M5, ATR2.5_RR0.8, production TQ path.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/backtest_vol_regime_today.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "VOL_REGIME backtest for a fixed UTC calendar day (default: today).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/build_project_classification.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "",
+    "last_commit_date": "2026-09-09 05:26:55 +0330",
+    "last_commit_message": "update project files",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/build_project_memory.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "",
+    "last_commit_date": "2026-09-09 05:26:55 +0330",
+    "last_commit_message": "update project files",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/check_today_signals.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Summarize today's kernel cycles and scan VOL_REGIME on live M5 bars.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/clear_emergency_stop.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Clear emergency stop flag so the bot can start again after kill switch.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/debug_live_loop_exit.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run live loop briefly and log why the process exits.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/diagnose_mt5_connection.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "MT5 connection diagnostic \u2014 read-only, attach-only (no initialize/shutdown storms).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/diagnose_vol_regime_signals.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Deep VOL_REGIME diagnostic \u2014 raw signals vs TQ blocks on live M5 data.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/enable_mt5_autotrading.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Enable MT5 AutoTrading via Win32 WM_COMMAND and optional Options UI.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/evaluate_model.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Evaluate trained baseline ML model \u2014 Phase 4.0.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/generate_robot_ready_report.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Generate logs/robot_ready_for_live_report.json \u2014 wiring audit + backtest.",
+    "last_commit_date": "2026-09-09 05:26:55 +0330",
+    "last_commit_message": "update project files",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/live_dataset_orchestrator.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 22O \u2014 pre-live dataset maintenance orchestrator (outside trading loop).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/live_forensic_today.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE LIVE-FORENSIC-TODAY \u2014 READ-ONLY forensic report. No production changes, no orders sent. Output: logs/live_forensic_today_result.txt",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/live_reconcile.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Journal vs MT5 reconciliation for today.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/optimize_shadow_policy.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Optimize shadow ML+rule policy from memory \u2014 Phase 5.3 (recommendations only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/optimize_threshold.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Optimize trading probability threshold \u2014 Phase 4.1.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/phase_verify_audit.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE VERIFY \u2014 Institutional audit of completed research phases (READ-ONLY).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/production_readiness_check.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run all production-readiness checks (non-destructive).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/read_mt5_experts_ini.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Print MT5 common.ini Experts section + terminal_info flags.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/refresh_live_account_cache.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Write data/live_account.json from MT5 (safe when bot IPC lock is free).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/refresh_live_candles.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Read-only live candle refresh \u2014 attach-only, respects MT5 IPC lock. Safe to run while MT5 GUI is open. Skips when another process recently refreshed or holds the IPC lock (e.g. live trading loop).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ab_shadow_test.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run A/B shadow test \u2014 rule vs hybrid (no live trading).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_deployment_check.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run deployment readiness check \u2014 Phase 6.4 evaluation only.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_engine_health_dashboard.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10A \u2014 generate engine health dashboard artifacts.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_hybrid_shadow.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run hybrid ML + rule shadow mode \u2014 Phase 5.1 (live trading unchanged).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_diagnostics.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML system diagnostics \u2014 Phase 7.0.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_improvement.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML improvement recommendations \u2014 Phase 7.4.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_kernel_shadow.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10.1 \u2014 ML kernel shadow integration CLI (kernel pipeline, no real orders).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_live_shadow.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10.2 \u2014 ML live shadow validation CLI (MT5 read-only, no orders).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_monitoring.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML shadow monitoring \u2014 Phase 6.1 (informational only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_paper_trading.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 11 \u2014 kernel-integrated ML paper trading CLI (virtual execution only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_performance_profile.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML performance profiling \u2014 Phase 7.2 benchmarking only.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_research.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML research intelligence pipeline \u2014 Phase 7.3.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_shadow.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10 ML shadow integration CLI (observation only \u2014 no real orders).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_shadow_monitor.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10.4 \u2014 long-duration ML shadow monitoring CLI (read-only, no orders).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_ml_stress_test.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Run ML stress tests \u2014 Phase 7.1 simulation only.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_paper_trading.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 9.10 paper trading & shadow validation CLI (no real orders).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_shadow_health_check.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10.5 \u2014 shadow health check and error audit CLI.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/run_walk_forward.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 9.8 walk-forward validation CLI (offline, CPU-only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/symbol_100pct_audit_scan.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Read-only symbol grep + classification for PHASE SYMBOL-100PCT-AUDIT.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/test_mt5_attach.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Quick test: attach to MT5 without disconnecting the GUI session.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/train_baseline.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Train offline baseline ML models \u2014 Phase 4.0 (research only, not live).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/train_model.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 8.6 production ML training CLI (offline, CPU-only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/validate_model.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Full offline model validation \u2014 Phase 4.1 (research only, not live).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/verify_and_go_live.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "One-shot: signal fix + autotrading + smoke trade + start LIVE.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/verify_vol_regime_live_ready.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Verify VOL_REGIME full live stack \u2014 kernel path, no ML, no demo-only deps.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/visualize_dataset.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Offline dataset visualization \u2014 Phase 3.1 (no live trading impact).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "scripts/wait_mt5_login.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Poll until MT5 is running and attached account matches config.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/adapters/legacy_signal_helpers.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "\u0645\u062d\u0627\u0633\u0628\u0647 confidence \u0648 SL/TP \u2014 re-export \u0627\u0632 \u0644\u0627\u06cc\u0647 \u0645\u06cc\u0627\u0646\u06cc domain. \u0628\u0631\u0627\u06cc import\u0647\u0627\u06cc \u0642\u062f\u06cc\u0645\u06cc \u0647\u0645\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0642\u06cc \u0645\u06cc\u200c\u0645\u0627\u0646\u062f. \u0645\u0646\u0637\u0642 \u0627\u0635\u0644\u06cc: tradingbot.domain.signal_helpers",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/adapters/mt5_attach_test.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Quick MT5 attach test \u2014 prints connection status, does NOT shutdown if connected.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/backtest/monte_carlo.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Monte Carlo \u2014 \u0634\u0628\u06cc\u0647\u200c\u0633\u0627\u0632\u06cc \u062a\u0631\u062a\u06cc\u0628 \u0645\u0639\u0627\u0645\u0644\u0627\u062a \u0628\u0631\u0627\u06cc \u062a\u062e\u0645\u06cc\u0646 drawdown \u0648 \u0627\u062d\u062a\u0645\u0627\u0644 \u0648\u0631\u0634\u06a9\u0633\u062a\u06af\u06cc.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/domain/indicators.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "\u0627\u0646\u062f\u06cc\u06a9\u0627\u062a\u0648\u0631\u0647\u0627\u06cc \u062a\u06a9\u0646\u06cc\u06a9\u0627\u0644 \u2014 \u062a\u0648\u0627\u0628\u0639 \u062e\u0627\u0644\u0635 (pure functions). \u0627\u06cc\u0646 \u0645\u0627\u0698\u0648\u0644 \u0646\u0633\u062e\u0647\u200c\u06cc \u062a\u0645\u06cc\u0632 \u0648 \u0628\u0627\u0632\u0646\u0648\u06cc\u0633\u06cc\u200c\u0634\u062f\u0647\u200c\u06cc \u0645\u0646\u0637\u0642 \u0627\u0646\u062f\u06cc\u06a9\u0627\u062a\u0648\u0631\u0647\u0627\u0633\u062a \u06a9\u0647 \u062c\u0627\u06cc\u06af\u0632\u06cc\u0646 `engine/features.py` \u0645\u06cc\u200c\u0634\u0648\u062f. \u0639\u0645\u062f\u0627\u064b **\u0631\u0641\u062a\u0627\u0631-\u0633\u0627\u0632\u06af\u0627\u0631 (parity)** \u0628\u0627 \u0646\u0633\u062e\u0647\u200c\u06cc \u0642\u062f\u06cc\u0645 \u0646\u0648\u0634\u062a\u0647 \u0634\u062f\u0647 \u062a\u0627 \u0633\u06cc\u06af\u0646\u0627\u0644 \u0627\u0633\u062a\u0631\u0627\u062a\u0698\u06cc\u200c\u0647\u0627 \u062a\u063a\u06cc\u06cc\u0631 \u0646\u06a9\u0646\u062f: - \u0647\u0645\u0627\u0646 \u0645\u062c\u0645\u0648\u0639\u0647\u200c\u06cc \u06f2\u06f2 \u0633\u062a\u0648\u0646 \u062e\u0631\u0648\u062c\u06cc - \u0647\u0645\u0627\u0646 \u0641\u0631\u0645\u0648\u0644\u200c\u0647\u0627 \u0648 \u067e\u0627\u0631\u0627\u0645\u062a\u0631\u0647\u0627 (",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/feature_store.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 11A \u2014 institutional-grade unified ML feature store.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/context.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Higher timeframe context features \u2014 H4 bias, M15 state, M5 entry context.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/microstructure.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Market microstructure features \u2014 spread and tick-derived state.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/momentum.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Momentum feature family \u2014 rate of change and oscillator state.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/price_action.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Price action feature family \u2014 candle morphology and pattern state.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/session.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Session feature family \u2014 time-of-day and kill-zone market state.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/smc.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "SMC structure feature family \u2014 BOS, CHoCH, sweep, FVG, OB, premium/discount.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/trend.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Trend feature family \u2014 market state directional bias.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/features/volatility.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Volatility feature family \u2014 range expansion and ATR state.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/integration/institutional_research_adapter.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 11A research adapter \u2014 institutional feature store + regime models (NO LIVE ENABLE).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/integration/unified_entry_features.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "ML Kernel entry-feature bridge \u2014 delegates to UnifiedFeatureStore (Phase D1).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ml/paper/report.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Paper trading report generation.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/ports/events.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Port: \u0631\u0648\u06cc\u062f\u0627\u062f\u0647\u0627 \u2014 \u062c\u0627\u06cc\u06af\u0632\u06cc\u0646 EventBus.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/calibration_hardening.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 15C \u2014 Institutional Calibration Hardening (research only). Rebuild calibration pipeline on Phase11A + Phase13D datasets/models: train base model on chrono train -> fit calibrator on calib -> eval on holdout. Compare: Platt / Isotonic / Temperature Scaling (+ raw). Metrics: Brier, ECE, MCE \u2014 ov",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/displacement_intelligence.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 16A \u2014 Institutional Displacement Intelligence (research only). Normalized displacement features + weighted score 0-100 for PA setups. NO live / router / execution / config changes.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/mfe_mae_intelligence.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 15B \u2014 MFE / MAE Intelligence (research only). For each labeled setup: setup_score, MFE_R, MAE_R, final_R. Correlate setup characteristics with high MFE, low MAE, high final R. No live / config / execution changes.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/ob_fvg_confluence.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 16B \u2014 OB + FVG Institutional Confluence (research only). Institutional OB validity: 1) Displacement within 3 bars after OB 2) Displacement creates measurable FVG 3) FVG overlaps OB by >= 20% 4) Sweep occurs before displacement 5) BOS happens after displacement (not before) Score 0-100: ob_stre",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/pa_meta_retrain.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 18B PA meta retrain helpers (research only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/portfolio_router.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 22D research-only portfolio router. Not wired to live routing.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/regime_ensemble.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 16C \u2014 Regime-Aware ML Ensemble (research only). PurgedKFold + embargo, per-regime LightGBM/XGBoost/RF, PF-weighted voting. NO live ML enable / NO USE_ML_KERNEL changes.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/research/setup_quality_score.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "PHASE 15A \u2014 Institutional Setup Quality Score (research only). NO live routing / execution / config changes. Score components (total 100): Sweep Quality ............. 0-20 Displacement Strength ..... 0-25 FVG Quality ............... 0-20 Order Block Quality ....... 0-15 HTF Bias Alignment ........ 0",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/services/engine_health_dashboard.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 10A \u2014 permanent engine health dashboard (telemetry only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/services/engine_telemetry_service.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Compatibility alias -- EngineTelemetryService lives in engine_telemetry.py.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/services/meta_dynamic_calibration.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 2A \u2014 dynamic meta threshold calibration helpers (test/calibration only).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/strategies/adaptive_ml_hybrid.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 12C \u2014 Adaptive Quality + ML hybrid decision layer (RESEARCH ONLY). Combines rule-based quality scoring with regime-specific ML confirmation. Not wired to live execution \u2014 use via scripts/phase12c_hybrid_certification.py.",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/strategies/vol_context_engine.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase B1 \u2014 VOL context engine (quality only, no BUY/SELL).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  },
+  {
+    "path": "tradingbot/strategies/vol_direction_filter.py",
+    "flag": "DEAD_CODE",
+    "docstring_head": "Phase 48A \u2014 VOL_REGIME as direction/quality filter (no independent trades).",
+    "last_commit_date": "2026-08-19 19:38:20 +0330",
+    "last_commit_message": "Initial snapshot - TradingBot New",
+    "in_runtime_graph": false,
+    "in_test_refs": false
+  }
+]

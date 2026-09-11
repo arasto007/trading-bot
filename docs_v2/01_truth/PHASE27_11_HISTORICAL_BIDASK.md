@@ -12,10 +12,10 @@
 
 | Metric | Value |
 |---|---|
-| datasets scanned | `33` |
-| datasets with bid+ask columns | `0` |
+| datasets scanned | `43` |
+| datasets with bid+ask columns | `2` |
 | historical bid/ask available | `False` |
-| canonical XAUUSD_i files | `2` |
+| canonical XAUUSD_i files | `12` |
 
 All production/research parquets under `data/`, `data/backtest/`, and `data/cache/` are OHLC-only. Sidecars already mark spread `PROXY` and `historical_bid_ask_available=false`.
 

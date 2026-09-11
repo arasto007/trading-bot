@@ -20,7 +20,7 @@
     "both_run_in_production": true,
     "featurebuilder_path": "RangeEngineAdapter._features_from_candles \u2192 compute_at",
     "build_ml_path": "PipelineCache.get_unified_frame \u2192 build_unified_frame \u2192 build_ml_features",
-    "phase24c_featurebuilder_p95_ms": 68.9256,
+    "phase24c_featurebuilder_p95_ms": 63.0933,
     "note": "Range engine uses FeatureBuilder; unified frame uses build_ml_features \u2014 not byte-identical paths"
   },
   "dataset_merge_full_scan": true,
@@ -30,5 +30,5 @@
   "pipeline_cache_tail_copy_every_call": true,
   "tail_copy_evidence": "candles.tail(300).copy() \u2014 pipeline_cache.py:102",
   "phase": "24D",
-  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
+  "generated_utc": "2026-09-10T07:21:40.876169+00:00"
 }

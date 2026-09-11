@@ -1,6 +1,6 @@
 # Phase 27.12 — Verified Commission Schedule Evidence
 
-**Status:** PASS  
+**Status:** FAIL  
 **Artifact:** `logs/phase27_12_commission_evidence.json`
 
 ## Operator decision
@@ -31,15 +31,15 @@ Public broker documentation was **not** treated as an account-specific verified 
 
 | Field | Value |
 |---|---|
-| unique gold deals | `50` |
-| commission samples | `50` |
-| observed zero | `50` |
+| unique gold deals | `2` |
+| commission samples | `2` |
+| observed zero | `2` |
 | observed nonzero | `0` |
 | classification | **`OBSERVED_ZERO_NOT_PROVEN`** |
 | proves verified schedule | **False** |
 | proves universal zero | **False** |
 
-50 gold deal(s) show commission=0.0. Observed zero is not a verified schedule and does not prove universal zero.
+2 gold deal(s) show commission=0.0. Observed zero is not a verified schedule and does not prove universal zero.
 
 ## Verified schedule
 

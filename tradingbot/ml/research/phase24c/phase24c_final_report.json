@@ -3,15 +3,15 @@
   "verdict": "MULTIPLE_BOTTLENECKS",
   "production_modified": false,
   "primary_bottleneck": {
-    "stage": "unified_frame_merge",
-    "p95_ms": 63.4215,
-    "mean_ms": 60.1654,
-    "share_of_total_p95": 0.3166,
-    "share_of_total_mean": 0.3397
+    "stage": "feature_builder_compute_at",
+    "p95_ms": 63.0933,
+    "mean_ms": 59.9598,
+    "share_of_total_p95": 0.2704,
+    "share_of_total_mean": 0.3157
   },
   "pipeline_budget_ms": 500.0,
-  "total_p95_ms": 200.3047,
-  "total_mean_ms": 177.133,
+  "total_p95_ms": 233.3058,
+  "total_mean_ms": 189.9236,
   "cache_statistics": {
     "pipeline_cache_feature": {
       "hits": 0,
@@ -30,11 +30,11 @@
     }
   },
   "findings": [
-    "Primary bottleneck stage: unified_frame_merge",
-    "p95 share of produce_unified_signal: 31.7%",
+    "Primary bottleneck stage: feature_builder_compute_at",
+    "p95 share of produce_unified_signal: 27.0%",
     "Pipeline cache feature hit ratio: 0.0%",
     "FeatureBuilder calls (no internal cache): 18",
-    "predict_proba_only p95: 1.2662 ms"
+    "predict_proba_only p95: 1.2053 ms"
   ],
-  "generated_utc": "2026-08-29T20:58:38.359855+00:00"
+  "generated_utc": "2026-09-10T07:21:36.020036+00:00"
 }

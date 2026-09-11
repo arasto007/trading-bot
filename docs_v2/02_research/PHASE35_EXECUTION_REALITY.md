@@ -20,7 +20,7 @@ Allowed: VERIFIED / OBSERVED / PROXY / MODELED / UNKNOWN.
 | Component | Grade | AND status |
 |---|---|---|
 | symbol_binding | UNKNOWN | BLOCKED |
-| economics | UNKNOWN | UNKNOWN |
+| economics | UNKNOWN | PARTIAL |
 | dataset_provenance | PROXY | PARTIAL |
 | spread | PROXY | BLOCKED |
 | commission | UNKNOWN | BLOCKED |

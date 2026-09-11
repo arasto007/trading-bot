@@ -73,8 +73,14 @@ def test_missing_heartbeat_grace_under_20min():
 
 
 def test_healthcheck_writes_without_mt5(tmp_path, monkeypatch):
+    """Healthcheck must record mt5_connected=False when MT5 is unavailable.
+
+    Isolate from ambient terminals: probe_mt5_connected() otherwise attaches to a
+    running MT5 process and fails this assertion on operator machines.
+    """
     monkeypatch.setattr(llh, "RUNTIME_DIR", tmp_path)
     monkeypatch.setattr(llh, "HEARTBEAT_PATH", tmp_path / "live_heartbeat.json")
+    monkeypatch.setattr(llh, "probe_mt5_connected", lambda: False)
     path = write_healthcheck_heartbeat()
     assert path.is_file()
     import json

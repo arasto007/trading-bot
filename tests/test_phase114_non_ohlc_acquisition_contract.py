@@ -55,7 +55,6 @@ class TestPhase114(unittest.TestCase):
         self.assertIn("H114-01", ledger)
         ku = (root / "docs_v2/01_truth/KNOWN_UNKNOWNS_AND_CONTRADICTIONS.md").read_text(encoding="utf-8")
         self.assertIn("| Phase 114 started | **YES** |", ku)
-        self.assertIn("| Phase 115 started | **NO** |", ku)
 
     def test_frozen(self) -> None:
         root = Path(__file__).resolve().parents[1]

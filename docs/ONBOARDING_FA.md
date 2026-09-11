@@ -40,7 +40,7 @@
 - **اندیکاتورها، ریسک، داده، اجرا، لاگ‌گیری، پیکربندی و سرویس‌های پس‌زمینه** همگی بازنویسی شده و
   به‌صورت ماژول‌های تمیز در `tradingbot/` زندگی می‌کنند.
 - از پکیج `engine/` تنها **استراتژی Price Action** (`priceaction`) باقی مانده است.
-- ربات **تخصصی طلا** است: منطقی `XAUUSD`؛ نماد بروکر live **`XAUUSD_i`** via `adapters/symbols.py` (identity/economics **NOT PROVEN** equivalent to bare `XAUUSD`). تایم‌فریم‌های `M5/M15/H4`، پریست جدا per-TF.
+- ربات **تخصصی طلا** است: منطقی `XAUUSD`؛ نماد بروکر live **`XAUUSD_i`** via `adapters/symbols.py` (identity/economics **NOT PROVEN** equivalent to bare `XAUUSD`). پریست‌های per-TF برای `M5/M15/H4` در `pa_symbol_tf_presets.py`؛ **چرخه live پیش‌فرض فقط M5** (`get_live_config()` وقتی router روشن است). *(به‌روزرسانی شده — وضعیت واقعی کد در تاریخ 2026-09-10)*
 - مسیر سیگنال یکپارچه در `domain/signal_helpers.py` (لایه میانی).
 - پروژه کاملاً **خودکفا** است؛ هیچ ارجاعی به پروژه‌ی قدیمِ بیرونی ندارد.
 
@@ -58,11 +58,14 @@
 
 **ایده‌ی ۱ — همه‌چیز از یک «هسته» عبور می‌کند.**
 یک کلاس به نام `TradingKernel` تنها هماهنگ‌کننده است. منطق معامله یک **خط لوله (pipeline)**
-ثابت با ۵ مرحله است:
+ثابت با **۶ مرحله** است *(به‌روزرسانی شده — وضعیت واقعی کد در تاریخ 2026-09-10)*:
 
 ```
-داده → اندیکاتور → سیگنال → ریسک → اجرا
+داده → اندیکاتور → سیگنال → فیلتر سیگنال (SignalFilter؛ پیش‌فرض OFF) → ریسک → اجرا
 ```
+
+`SignalFilterStage` همیشه در زنجیره ثبت است (`trading_kernel.py`)؛ رفتار WPSQF فقط وقتی
+`TRADINGBOT_SIGNAL_FILTER=WPSQF` روشن می‌شود، وگرنه pass-through است.
 
 **ایده‌ی ۲ — Ports & Adapters (معماری شش‌ضلعی).**
 هسته با دنیای بیرون فقط از طریق **قرارداد (Port)** حرف می‌زند، نه پیاده‌سازی مشخص.
@@ -101,7 +104,7 @@ flowchart TB
 
     subgraph core[هسته]
         K[TradingKernel]
-        P1[1.DataStage] --> P2[2.IndicatorStage] --> P3[3.SignalStage] --> P4[4.RiskStage] --> P5[5.ExecutionStage]
+        P1[1.DataStage] --> P2[2.IndicatorStage] --> P3[3.SignalStage] --> P3b[4.SignalFilterStage<br/>پیش‌فرض OFF] --> P4[5.RiskStage] --> P5[6.ExecutionStage]
         K --> P1
         K --> PM[مدیریت پوزیشن]
     end
@@ -163,13 +166,14 @@ TradingBot new/
 │   ├── kernel/
 │   │   └── trading_kernel.py    ← ❤️ هسته: orchestration کل چرخه
 │   │
-│   ├── pipeline/                ← ۵ مرحله‌ی پردازش (هرکدام یک مسئولیت)
+│   ├── pipeline/                ← ۶ مرحله‌ی پردازش (هرکدام یک مسئولیت؛ SignalFilter پیش‌فرض OFF)
 │   │   ├── base.py              ← کلاس پایه‌ی PipelineStage
 │   │   ├── data_stage.py        ← ۱) بارگذاری OHLCV
 │   │   ├── indicator_stage.py   ← ۲) افزودن اندیکاتور
 │   │   ├── signal_stage.py      ← ۳) تولید سیگنال
-│   │   ├── risk_stage.py        ← ۴) بررسی ریسک + اندازه‌ی حجم
-│   │   └── execution_stage.py   ← ۵) ارسال سفارش
+│   │   ├── signal_filter_stage.py ← ۴) فیلتر کیفیت (WPSQF؛ flag-gated)
+│   │   ├── risk_stage.py        ← ۵) بررسی ریسک + اندازه‌ی حجم
+│   │   └── execution_stage.py   ← ۶) ارسال سفارش
 │   │
 │   ├── ports/                   ← 📜 قراردادها (Protocolها) — صرفاً interface
 │   │   ├── market_data.py        ├ indicators.py    ├ strategies.py
@@ -264,7 +268,7 @@ TradingBot new/
 | # | مفهوم | یعنی چه |
 |---|-------|---------|
 | ۱ | **Kernel (هسته)** | تنها کلاسی که چرخه را هماهنگ می‌کند. `TradingKernel`. خودش هیچ منطق استراتژی ندارد. |
-| ۲ | **Pipeline / Stage** | زنجیره‌ی ۵ مرحله‌ای پردازش. هر مرحله یک کلاس `PipelineStage` با یک متد `run()`. |
+| ۲ | **Pipeline / Stage** | زنجیره‌ی **۶** مرحله‌ای پردازش (شامل `SignalFilterStage` پیش‌فرض OFF). هر مرحله یک کلاس `PipelineStage` با یک متد `run()`. |
 | ۳ | **Port** | قرارداد (interface/`Protocol`). می‌گوید «چه کاری» باید انجام شود، نه «چطور». |
 | ۴ | **Adapter** | پیاده‌سازی واقعی یک Port. سه دسته: `mt5_*` (زنده)، آداپترهای روی `domain/*` (تمیز)، و `backtest/*` (شبیه‌سازی). تنها یک روکش روی `engine/` مانده: `legacy_strategy_registry`. |
 | ۵ | **Domain** | منطق و مدل‌های خالص (بدون I/O). هم ساختار داده (`TradingSignal`) و هم محاسبات (اندیکاتور/ریسک/سفارش). |
@@ -281,9 +285,9 @@ class CycleContext:
     market: MarketKey                # کدام نماد:تایم‌فریم
     raw_ohlcv: pd.DataFrame | None    # مرحله ۱ پر می‌کند
     enriched_ohlcv: pd.DataFrame | None  # مرحله ۲ (با اندیکاتور)
-    signal: TradingSignal | None      # مرحله ۳
-    risk: RiskDecision | None         # مرحله ۴
-    execution: ExecutionResult | None # مرحله ۵
+    signal: TradingSignal | None      # مرحله ۳؛ مرحله ۴ (SignalFilter) ممکن است آن را None کند
+    risk: RiskDecision | None         # مرحله ۵
+    execution: ExecutionResult | None # مرحله ۶
     errors: list[str]                 # هر خطایی اینجا ثبت می‌شود
 ```
 
@@ -303,20 +307,21 @@ class CycleContext:
 ۱) اتصال MT5 را بررسی کن (ensure_connected)
 ۲) داده‌ی همه‌ی نمادها را به‌روزرسانی کن (update_all)
 ۳) snapshot پورتفولیو بگیر (بالانس، پوزیشن‌های باز)
-۴) برای هر «بازار» (نماد×تایم‌فریم):
-       run_market_cycle(market)   ← همان pipeline ۵ مرحله‌ای
+۴) برای هر «بازار» (نماد×تایم‌فریم؛ پیش‌فرض live فقط `XAUUSD_i:5m`):
+       run_market_cycle(market)   ← همان pipeline ۶ مرحله‌ای
 ۵) مدیریت پوزیشن‌های باز (trailing/partial/emergency)  ← یک‌بار در پایان
 ```
 
-### `run_market_cycle(market)` — pipeline ۵ مرحله‌ای برای یک بازار
+### `run_market_cycle(market)` — pipeline ۶ مرحله‌ای برای یک بازار
 
 ```mermaid
 flowchart LR
     A[CycleContext خالی] --> S1
     S1[1.DataStage<br/>OHLCV می‌گیرد] --> S2[2.IndicatorStage<br/>RSI/MACD/ATR...] 
     S2 --> S3[3.SignalStage<br/>استراتژی سیگنال می‌دهد]
-    S3 --> S4[4.RiskStage<br/>مجاز؟ + حجم چقدر؟]
-    S4 --> S5[5.ExecutionStage<br/>سفارش می‌زند]
+    S3 --> S3b[4.SignalFilterStage<br/>WPSQF یا pass-through]
+    S3b --> S4[5.RiskStage<br/>مجاز؟ + حجم چقدر؟]
+    S4 --> S5[6.ExecutionStage<br/>سفارش می‌زند]
     S5 --> R[نتیجه در ctx.execution]
 ```
 
@@ -327,11 +332,12 @@ flowchart LR
 | **۱ DataStage** | `data_stage.py` | بازار | `raw_ohlcv` (≥۱۰۰ کندل) | داده کم باشد |
 | **۲ IndicatorStage** | `indicator_stage.py` | `raw_ohlcv` | `enriched_ohlcv` | — |
 | **۳ SignalStage** | `signal_stage.py` → `legacy_strategy_registry` → `signal_helpers` | `enriched_ohlcv` | `signal` | سیگنال HOLD/None یا confidence پایین |
-| **۴ RiskStage** | `risk_stage.py` | `signal`+snapshot | `risk` + `lot_size` | ریسک رد کند |
-| **۵ ExecutionStage** | `execution_stage.py` | `signal`+`lot` | `execution` | اجرا ناموفق باشد |
+| **۴ SignalFilterStage** | `signal_filter_stage.py` | `signal` | همان / None | وقتی WPSQF روشن است و امتیاز کافی نیست؛ پیش‌فرض OFF → همیشه pass |
+| **۵ RiskStage** | `risk_stage.py` | `signal`+snapshot | `risk` + `lot_size` | ریسک رد کند |
+| **۶ ExecutionStage** | `execution_stage.py` | `signal`+`lot` | `execution` | اجرا ناموفق باشد |
 
 > مثال واقعی: برای `XAUUSD:M5`، اگر استراتژی سیگنال BUY با confidence 0.75 بدهد و ریسک
-> اجازه دهد و حجم 0.02 لات حساب کند، مرحله‌ی ۵ سفارش BUY با 0.02 لات می‌زند (یا در dry-run
+> اجازه دهد و حجم 0.02 لات حساب کند، مرحله‌ی ۶ سفارش BUY با 0.02 لات می‌زند (یا در dry-run
 > فقط لاگ می‌کند).
 
 ---
@@ -615,7 +621,7 @@ python -m tradingbot --strategies    # استراتژی روی stub (بدون MT
 
 ### وضعیت
 - معماری هسته + pipeline + live + بک‌تست: **انجام شد**.
-- ربات **تخصصی طلا**: XAUUSD، TFهای M5/M15/H4، پریست per-TF، meta-labeler (M15 فعال).
+- ربات **تخصصی طلا**: XAUUSD، پریست‌های M5/M15/H4، meta-labeler؛ **چرخه live پیش‌فرض فقط M5**. *(به‌روزرسانی شده — 2026-09-10)*
 - لایه میانی سیگنال: `domain/signal_helpers.py` (ژوئن ۲۰۲۶).
 - بک‌تست ۱ ساله روی داده واقعی MT5 انجام شده — گزارش‌ها در `reports/gold_*.json`.
 - Price Action گزینشی است؛ روی بازه کوتاه ممکن است معامله کم باشد.
@@ -673,7 +679,7 @@ python -m tradingbot --strategies    # استراتژی روی stub (بدون MT
    - `tradingbot/domain/models.py` (ساختار داده)
    - `tradingbot/domain/signal_helpers.py` (★ مسیر سیگنال)
    - `tradingbot/kernel/trading_kernel.py` (هماهنگ‌کننده)
-   - `tradingbot/pipeline/*.py` (۵ مرحله)
+   - `tradingbot/pipeline/*.py` (۶ مرحله؛ SignalFilter پیش‌فرض OFF)
 5. مسیر کامل: `__main__.py` → `live_runner.py` → `TradingKernel` → pipeline.
 6. آداپترها: `legacy_strategy_registry.py` → `signal_helpers` → `mt5_execution.py`.
 7. کانفیگ طلا: `config/pa_symbol_tf_presets.py` + `config/price_action.py`.

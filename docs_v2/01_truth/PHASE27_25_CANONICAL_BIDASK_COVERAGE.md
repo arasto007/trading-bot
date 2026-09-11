@@ -4,7 +4,7 @@
 **Classification:** `PARTIAL_CANONICAL_COVERAGE`  
 **historical_spread:** `PARTIAL`  
 **Artifact:** `logs/phase27_25_canonical_bidask_coverage.json`  
-**Collection timestamp UTC:** `2026-09-06T07:41:53Z`
+**Collection timestamp UTC:** `2026-09-10T07:30:48Z`
 
 Read-only. No MT5 start/restart, orders, `symbol_select`, `.env`, or production parquet overwrite.
 

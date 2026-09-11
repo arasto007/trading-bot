@@ -58,10 +58,14 @@ class TestPhase29ResearchTape(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         payload = json.loads((root / PHASE29_JSON).read_text(encoding="utf-8"))
         m5 = payload["dataset_coverage"]["m5"]
+        # Frozen Phase 28 canonical window remains short (<60d) and is not overwritten.
         self.assertLess(float(m5["days"]), 60.0)
         self.assertTrue(m5["below_minimum_60d"])
         self.assertEqual(m5["bars"], 3000)
-        self.assertEqual(payload["status"], "PASS_WITH_DEFERRAL")
+        # Phase 29 status tracks the longest *persisted* XAUUSD_i research tape.
+        # data/XAUUSD_i_5m_phase29.parquet covers >=180d → PASS (not PASS_WITH_DEFERRAL).
+        # This is not a bid/ask gate loosening; spread COMPLETE still requires full-horizon M5.
+        self.assertEqual(payload["status"], "PASS")
         self.assertEqual(payload["production_changes"], "NONE")
         self.assertFalse(payload["parameters_optimized"])
         ba = payload["bid_ask"]

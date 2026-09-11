@@ -2,7 +2,7 @@
   "phase": "24B",
   "verdict": "ARCHITECTURE_FULLY_TRACED",
   "production_modified": false,
-  "generated_utc": "2026-08-29T02:20:56.266597+00:00",
+  "generated_utc": "2026-09-10T07:21:22.532658+00:00",
   "answers": {
     "1_how_system_works": "LiveRunner connects MT5, starts background services, and runs TradingKernel.run_forever. Each cycle: update market data \u2192 for each symbol:timeframe run pipeline DataStage\u2192IndicatorStage\u2192SignalStage\u2192RiskStage\u2192ExecutionStage. When USE_ML_KERNEL=true, SignalStage calls MLKernelRegistry\u2192KernelAdapter which builds unified features, runs health checks, evaluates range/trend engines, orchestrates decision, applies calibration/risk/quality/filters, maps to TradingSignal. Non-HOLD signals pass legacy RiskGate then Mt5ExecutionAdapter (dry-run/paper/live).",
     "2_major_module_responsibilities": "See module_inventory.json \u2014 8 core production modules documented.",

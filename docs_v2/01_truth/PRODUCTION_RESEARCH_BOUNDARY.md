@@ -143,6 +143,15 @@ Classes: **PRODUCTION** · **SHADOW** · **RESEARCH** · **HISTORICAL** · **DEA
 `tradingbot/backtest/phase112_non_ohlc_discriminator_gate.py` — **RESEARCH_ONLY** candidate gate.
 `tradingbot/backtest/phase113_non_ohlc_final_gate.py` — **RESEARCH_ONLY** final gate; spec not implemented.
 `tradingbot/backtest/phase114_non_ohlc_acquisition_contract.py` — **RESEARCH_ONLY** acquisition contract; data not acquired.
+`tradingbot/backtest/phase115_non_ohlc_data_acquisition.py` — **RESEARCH_ONLY** local non-OHLC ingest; no MT5; no exit spec.
+`tradingbot/backtest/phase116_data_source_research.py` -- **RESEARCH_ONLY** source planning; no download; no MT5.
+`tradingbot/backtest/phase117_operator_source_resolution.py` -- **RESEARCH_ONLY** operator source resolution; no MT5; no .env; no Phase 118.
+`tradingbot/backtest/phase118_tick_forensic_validation.py` -- **RESEARCH_ONLY** operator tick ingest + forensic validation; no MT5; no .env.
+`tradingbot/backtest/phase119_historical_tick_recovery.py` -- **RESEARCH_ONLY** historical tick source resolution; no MT5; no download; no .env.
+`tradingbot/backtest/phase120_tick_export_verification.py` -- **RESEARCH_ONLY** new operator tick export verification + union coverage; no MT5; raw untouched.
+`tradingbot/backtest/phase121_tick_export_verification.py` -- **RESEARCH_ONLY** new operator tick export verification + outlier coverage; no MT5; raw untouched.
+`tradingbot/backtest/phase122_tick_export_verification.py` -- **RESEARCH_ONLY** new operator tick export verification + outlier coverage; no MT5; raw untouched.
+`tradingbot/backtest/phase123_engineering_decision_review.py` -- **RESEARCH_ONLY** engineering decision review; no MT5; no production changes; no new tick export.
 `tradingbot/backtest/request_fill_telemetry.py` — **RESEARCH_ONLY** passive request/fill schema; not wired to live.
 `tradingbot/backtest/shadow_observation.py` — **RESEARCH_ONLY** inert shadow spec; cannot place orders.
 `scripts/run_phase*.py`. Isolated replays. Frozen bundles loaded only if ML kernel path is used.

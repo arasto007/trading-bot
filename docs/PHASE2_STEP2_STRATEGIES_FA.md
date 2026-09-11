@@ -6,8 +6,10 @@
 |------|--------|
 | استراتژی فعال | فقط `priceaction` (`tradingbot/config/strategies.py`) |
 | نماد | `XAUUSD` (بروکر: `XAUUSD_i` via `adapters/symbols.py`) |
-| تایم‌فریم‌ها | `M5`, `M15`, `H4` |
+| تایم‌فریم‌ها | پریست‌ها برای `M5`, `M15`, `H4`؛ **چرخه live پیش‌فرض فقط M5** (`get_live_config()`) |
 | پریست per-TF | `config/pa_symbol_tf_presets.py` |
+
+*(به‌روزرسانی شده — 2026-09-10: جدول زیر پریست‌ها را نشان می‌دهد، نه اجرای همزمان هر سه TF در live.)*
 
 | TF | پریست | نکته |
 |----|--------|------|

@@ -1,42 +1,42 @@
 {
   "simulated_single_slot_thrash_get_unified": {
-    "avg_ms": 52.969,
-    "median_ms": 48.389,
-    "p95_ms": 59.397,
-    "p99_ms": 82.611,
-    "max_ms": 91.946,
+    "avg_ms": 52.78,
+    "median_ms": 48.354,
+    "p95_ms": 60.754,
+    "p99_ms": 82.923,
+    "max_ms": 91.785,
     "samples": 30
   },
   "multi_slot_cached_get_unified": {
-    "avg_ms": 0.851,
-    "median_ms": 0.821,
-    "p95_ms": 1.029,
-    "p99_ms": 1.038,
-    "max_ms": 1.039,
+    "avg_ms": 1.001,
+    "median_ms": 0.966,
+    "p95_ms": 1.236,
+    "p99_ms": 1.277,
+    "max_ms": 1.282,
     "samples": 30
   },
   "get_unified_frame": {
-    "avg_ms": 0.851,
-    "median_ms": 0.821,
-    "p95_ms": 1.029,
-    "p99_ms": 1.038,
-    "max_ms": 1.039,
+    "avg_ms": 1.001,
+    "median_ms": 0.966,
+    "p95_ms": 1.236,
+    "p99_ms": 1.277,
+    "max_ms": 1.282,
     "samples": 30
   },
   "load_v2": {
-    "avg_ms": 1.236,
-    "median_ms": 0.438,
-    "p95_ms": 3.058,
-    "p99_ms": 3.404,
-    "max_ms": 3.543,
+    "avg_ms": 1.531,
+    "median_ms": 0.561,
+    "p95_ms": 3.841,
+    "p99_ms": 4.194,
+    "max_ms": 4.321,
     "samples": 30
   },
   "produce_unified_signal": {
-    "avg_ms": 52.043,
-    "median_ms": 53.05,
-    "p95_ms": 55.048,
-    "p99_ms": 55.89,
-    "max_ms": 56.218,
+    "avg_ms": 67.405,
+    "median_ms": 60.351,
+    "p95_ms": 116.788,
+    "p99_ms": 162.088,
+    "max_ms": 172.585,
     "samples": 30
   }
 }

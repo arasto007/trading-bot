@@ -1,10 +1,10 @@
 # Phase 27.31 — Real Account Execution Evidence Closure
 
-**Status:** PASS_WITH_DEFERRAL  
+**Status:** PASS  
 **Evidence grade:** `DEAL_FILL_TAPE_ONLY`  
 **Classification:** `UNKNOWN`  
 **Artifact:** `logs/phase27_31_execution_evidence.json`  
-**Timestamp UTC:** `2026-09-06T22:59:34Z`
+**Timestamp UTC:** `2026-09-10T07:31:10Z`
 
 Read-only. Phase 27.24 / 27.30 artifacts were not overwritten. Production parquet was not rewritten.
 Fill price/volume is not an order lifecycle tape. `price_open` is not requested price.
@@ -18,11 +18,11 @@ SimulatedBroker full-fill is not realized execution. Missing states were not inf
 | broker | `LiteFinance Global LLC` |
 | server | `LiteFinance-MT5-Live` |
 | terminal build | `6182` |
-| identity provenance | `inherited_from_phase27_29_real_attach; live attach skipped because terminal64.exe was not running and MT5 was not started` |
+| identity provenance | `fresh_readonly_attach` |
 | symbol | `XAUUSD_i` |
-| inspected artifact deals | `50` |
+| inspected artifact deals | `2` |
 | live gold deals / orders | `0` / `0` |
-| inspected deal date range | `2026-06-19T15:48:03+00:00` → `2026-08-12T13:41:03+00:00` |
+| inspected deal date range | `None` → `None` |
 
 ## Independent classifications
 

@@ -1,11 +1,11 @@
 # Phase 27.33 — EV-EQ-01 Resolution
 
-**Status:** PASS_WITH_DEFERRAL  
+**Status:** FAILED  
 **EV-EQ-01:** `NOT_PROVEN`  
 **State:** `B_POLICY_AUTHORIZED_XAUUSD_i_ONLY`  
 **Proven:** `False`  
 **Artifact:** `logs/phase27_33_ev_eq_resolution.json`  
-**Timestamp UTC:** `2026-09-06T23:05:35Z`
+**Timestamp UTC:** `2026-09-10T07:31:12Z`
 
 Read-only. Maps were not inserted. Production parquet was not rewritten.
 Absence of `XAUUSD` is **NOT_PROVEN**, not DISPROVEN. Operator policy State B is **not** equivalence.
@@ -18,7 +18,7 @@ Absence of `XAUUSD` is **NOT_PROVEN**, not DISPROVEN. Operator policy State B is
 | broker | `LiteFinance Global LLC` |
 | server | `LiteFinance-MT5-Live` |
 | terminal build | `6182` |
-| evidence source | `reused_phase27_17_real_artifact; live attach skipped` |
+| evidence source | `fresh_readonly_catalog` |
 
 ## Symbols
 
@@ -47,8 +47,8 @@ XAUUSD is absent on the observed Real terminal. Absence is NOT_PROVEN, not DISPR
 
 | Metric | Count |
 |---|---|
-| total | `33` |
-| direct XAUUSD_i | `2` |
+| total | `43` |
+| direct XAUUSD_i | `12` |
 | explicit mapped | `0` |
 | missing map | `30` |
 | invalid map | `0` |

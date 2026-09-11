@@ -2,19 +2,19 @@
   "phase": "24E",
   "iterations": 20,
   "cache_disabled": {
-    "mean_ms": 22.1474,
-    "median_ms": 21.3412,
-    "p95_ms": 24.4703,
-    "p99_ms": 24.4703
+    "mean_ms": 30.1824,
+    "median_ms": 21.8157,
+    "p95_ms": 26.4335,
+    "p99_ms": 26.4335
   },
   "cache_enabled_warm": {
-    "mean_ms": 1.9144,
-    "median_ms": 1.8956,
-    "p95_ms": 2.2324,
-    "p99_ms": 2.2324
+    "mean_ms": 1.7043,
+    "median_ms": 1.6924,
+    "p95_ms": 1.8113,
+    "p99_ms": 1.8113
   },
-  "improvement_mean_ms": 20.233,
-  "improvement_p95_ms": 22.2379,
+  "improvement_mean_ms": 28.4781,
+  "improvement_p95_ms": 24.6222,
   "cache_stats_after": {
     "entries": 1,
     "loads_from_disk": 1,

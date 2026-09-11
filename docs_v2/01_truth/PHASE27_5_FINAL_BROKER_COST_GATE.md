@@ -1,7 +1,7 @@
 # Phase 27.5 — Final Broker / Cost Gate
 
-**Status:** PASS_WITH_DEFERRAL  
-**Generated:** 2026-09-06T01:24:28Z  
+**Status:** BLOCKED  
+**Generated:** 2026-09-10T07:31:17Z  
 **Artifact:** `logs/phase27_5_final_broker_cost_gate.json`
 
 ## 1. Objective
@@ -40,15 +40,15 @@ XAUUSD absent on all observed terminals. No equivalence claim.
 
 | Component | Grade | Status |
 |---|---|---|
-| Spread | B | PROXY |
-| Commission | C | UNKNOWN |
+| Spread | B | DATASET |
+| Commission | D | UNKNOWN |
 | Swap | C | BROKER_RATE_ONLY |
 | Slippage | D | UNKNOWN |
 | Execution | C | MODELED |
 
 ## 12. Dataset provenance
 
-33 datasets — A=0 D=30 E=0
+43 datasets — A=0 D=30 E=0
 
 ## 13. Cost completeness
 
@@ -92,4 +92,4 @@ cost_ready_for_validation = False
 
 ## 20. Final conclusion
 
-Phase 27.5 status: **PASS_WITH_DEFERRAL**. NOT READY — REMAINING EVIDENCE BLOCKERS.
+Phase 27.5 status: **BLOCKED**. NOT READY — REMAINING EVIDENCE BLOCKERS.

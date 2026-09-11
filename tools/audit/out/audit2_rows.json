@@ -1,0 +1,172 @@
+[
+  {
+    "node": "tests/test_documentation_memory_hardening_v2.py::test_owner_docs_have_epistemic_role",
+    "cls": "REAL_BUG",
+    "reason": "CURRENT_RUNTIME_STATE.md empty (0 bytes HEAD); missing Epistemic-Role"
+  },
+  {
+    "node": "tests/test_documentation_verification.py::test_documentation_verification_gate",
+    "cls": "REAL_BUG",
+    "reason": "failed_gates derived_labels/freshness_baseline/operator_state_separated"
+  },
+  {
+    "node": "tests/test_ml_base_dir.py::TestNormalizeMlBaseDir::test_build_strategy_registry_with_legacy_base_dir",
+    "cls": "STALE_TEST",
+    "reason": "Expects MLKernelRegistry; gets MultiEngineRouterRegistry"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_generate_signal_returns_trading_signal_or_none",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "pipeline_timeout in AUDIT_1; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_prediction_cache_hit",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "pipeline_timeout in AUDIT_1; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_produce_unified_signal",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "pipeline_timeout in AUDIT_1; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestLatency::test_adapter_latency_under_budget_cached",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "pipeline_timeout in AUDIT_1; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestUnifiedSignalIntegration::test_unified_validate_after_adapter",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "pipeline_timeout in AUDIT_1; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase15b_kernel_integration.py::TestExtraCoverage::test_registry_ml_success_count",
+    "cls": "FLAKY_OR_ENV",
+    "reason": "0 successes after timeouts; passed isolation re-run"
+  },
+  {
+    "node": "tests/test_phase25e_sidecar_bidask.py::TestHistoricalBidAskSearch::test_repo_search",
+    "cls": "STALE_TEST",
+    "reason": "bidask_dataset_count=1 (Phase38 ticks); test requires 0"
+  },
+  {
+    "node": "tests/test_phase26o_legacy_docs_truth_sweep.py::TestPhase26OArtifact::test_no_proven_xauusd_equivalence_claims",
+    "cls": "REAL_BUG",
+    "reason": "Scanner flags EV-EQ-01 NOT_PROVEN lines as equivalence claims"
+  },
+  {
+    "node": "tests/test_phase27_11_historical_bidask.py::TestPhase2711HistoricalBidAsk::test_repo_has_no_historical_bid_ask",
+    "cls": "STALE_TEST",
+    "reason": "Same tick parquet makes count=1"
+  },
+  {
+    "node": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_blocker_matrix_covers_open_components",
+    "cls": "REAL_BUG",
+    "reason": "spread omitted from blockers after status COMPLETE"
+  },
+  {
+    "node": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_cost_ready_remains_blocked",
+    "cls": "REAL_BUG",
+    "reason": "spread component marked COMPLETE"
+  },
+  {
+    "node": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_proxy_spread_not_historical",
+    "cls": "REAL_BUG",
+    "reason": "expects BLOCKED; artifact COMPLETE"
+  },
+  {
+    "node": "tests/test_phase27_16_final_validation_gate.py::TestPhase2716FinalValidationGate::test_blocker_matrix_precise",
+    "cls": "STALE_TEST",
+    "reason": "historical_spread key absent from current matrix"
+  },
+  {
+    "node": "tests/test_phase27_18_historical_bidask.py::TestPhase2718HistoricalBidAsk::test_repo_has_no_production_historical_bid_ask",
+    "cls": "STALE_TEST",
+    "reason": "Same Phase38 tick count drift"
+  },
+  {
+    "node": "tests/test_phase27_19_commission_closure.py::TestPhase2719CommissionClosure::test_artifact_valid",
+    "cls": "REAL_BUG",
+    "reason": "artifact status FAIL; complete_applicability_can_be_accepted=False"
+  },
+  {
+    "node": "tests/test_phase27_20_dataset_mapping_closure.py::TestPhase2720DatasetMappingClosure::test_artifact_valid",
+    "cls": "STALE_TEST",
+    "reason": "canonical count expected 2 now 6"
+  },
+  {
+    "node": "tests/test_phase27_21_evidence_synthesis.py::TestPhase2721EvidenceSynthesis::test_artifact_and_final_gate_blocked",
+    "cls": "STALE_ARTIFACT",
+    "reason": "collector status FAIL vs expected PASS"
+  },
+  {
+    "node": "tests/test_phase27_21_evidence_synthesis.py::TestPhase2721EvidenceSynthesis::test_spread_coverage_not_conflated",
+    "cls": "STALE_ARTIFACT",
+    "reason": "A/B coverage inverted vs expected"
+  },
+  {
+    "node": "tests/test_phase27_30_slippage_evidence.py::TestPhase2730SlippageEvidence::test_zero_pairs_are_not_identifiable",
+    "cls": "STALE_ARTIFACT",
+    "reason": "account_type UNKNOWN vs REAL"
+  },
+  {
+    "node": "tests/test_phase27_31_execution_evidence.py::TestPhase2731ExecutionEvidence::test_artifact_schema_and_no_credentials",
+    "cls": "STALE_ARTIFACT",
+    "reason": "account_type UNKNOWN vs REAL"
+  },
+  {
+    "node": "tests/test_phase27_32_final_cost_evidence_gate.py::TestPhase2732FinalCostEvidenceGate::test_artifact_schema_and_no_credentials",
+    "cls": "STALE_ARTIFACT",
+    "reason": "account_type UNKNOWN vs REAL"
+  },
+  {
+    "node": "tests/test_phase27_32_final_cost_evidence_gate.py::TestPhase2732FinalCostEvidenceGate::test_no_component_is_complete_and_gate_blocked",
+    "cls": "STALE_TEST",
+    "reason": "swap grade REALIZED_ZERO_NOT_PROVEN vs CURRENT_BROKER_RATE_ONLY"
+  },
+  {
+    "node": "tests/test_phase27_33_ev_eq_resolution.py::TestPhase2733EvEqResolution::test_artifact_schema_and_no_credentials",
+    "cls": "STALE_ARTIFACT",
+    "reason": "status FAILED from hard-coded census; account_type UNKNOWN"
+  },
+  {
+    "node": "tests/test_phase27_33_ev_eq_resolution.py::TestPhase2733EvEqResolution::test_contract_and_inventory",
+    "cls": "STALE_TEST",
+    "reason": "direct_XAUUSD_i expected 2 now 6"
+  },
+  {
+    "node": "tests/test_phase27_8_policy_lock.py::TestPhase278PolicyLock::test_evidence_gaps_recorded",
+    "cls": "REAL_BUG",
+    "reason": "historical_m5_bidask True overclaim from ticks"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_canonical_entry_remains_unique",
+    "cls": "REAL_BUG",
+    "reason": "PROJECT_DECISION_BASELINE.md empty in HEAD"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_demo_real_symbol_mapping_not_automatic_contradiction",
+    "cls": "REAL_BUG",
+    "reason": "empty baseline md"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_live_pa_ml_v41_lock",
+    "cls": "REAL_BUG",
+    "reason": "empty baseline md"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_code_default_vs_operator_state",
+    "cls": "REAL_BUG",
+    "reason": "empty baseline md"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_hierarchy_and_limits",
+    "cls": "REAL_BUG",
+    "reason": "empty baseline md"
+  },
+  {
+    "node": "tests/test_project_decision_baseline.py::test_major_claims_have_evidence_references",
+    "cls": "REAL_BUG",
+    "reason": "empty baseline md"
+  }
+]

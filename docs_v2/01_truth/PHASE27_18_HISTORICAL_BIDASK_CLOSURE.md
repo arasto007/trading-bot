@@ -12,18 +12,18 @@ Canonical symbol = `XAUUSD_i`. Historical **DATASET** spread requires actual his
 
 | Metric | Value |
 |---|---|
-| datasets scanned | `33` |
-| datasets with bid+ask columns | `0` |
+| datasets scanned | `43` |
+| datasets with bid+ask columns | `2` |
 | historical bid/ask in production datasets | `False` |
-| canonical XAUUSD_i files | `2` |
-| sidecars scanned | `32` |
+| canonical XAUUSD_i files | `12` |
+| sidecars scanned | `33` |
 | prior valid logs tape | `True` |
 
 Production/research parquets under `data/`, `data/backtest/`, and `data/cache/` are not rewritten. A logs-only tape is **not** a production dataset.
 
 ## Live tick rejection
 
-Phase 27.17 current/stale Bid/Ask is **not** historical data. Tick UTC `2026-09-04T23:58:56Z` treated as historical M5 tape: **False**.
+Phase 27.17 current/stale Bid/Ask is **not** historical data. Tick UTC `2026-09-10T10:30:40Z` treated as historical M5 tape: **False**.
 
 ## Collection
 

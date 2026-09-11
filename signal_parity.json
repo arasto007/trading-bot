@@ -38,8 +38,8 @@
           "threshold 0.65 \u2014 ALLOW",
           "RiskGate remains final authority"
         ],
-        "checksum": "da5b4af0c8a9a5cb",
-        "timestamp": "2026-08-29T02:21:34.479014+00:00"
+        "checksum": "661a21dabf0c46b8",
+        "timestamp": "2026-09-10T07:34:37.970007+00:00"
       },
       "payload_second": {
         "engine": "phase9_9",
@@ -75,8 +75,8 @@
           "threshold 0.65 \u2014 ALLOW",
           "RiskGate remains final authority"
         ],
-        "checksum": "da5b4af0c8a9a5cb",
-        "timestamp": "2026-08-29T02:21:34.479014+00:00"
+        "checksum": "661a21dabf0c46b8",
+        "timestamp": "2026-09-10T07:34:37.970007+00:00"
       }
     },
     {
@@ -116,8 +116,8 @@
           "threshold 0.65 \u2014 ALLOW",
           "RiskGate remains final authority"
         ],
-        "checksum": "353460dae5b71a83",
-        "timestamp": "2026-08-29T02:21:34.812059+00:00"
+        "checksum": "4bd803cad6013bae",
+        "timestamp": "2026-09-10T07:34:38.326387+00:00"
       },
       "payload_second": {
         "engine": "trend_rf_v41",
@@ -153,8 +153,8 @@
           "threshold 0.65 \u2014 ALLOW",
           "RiskGate remains final authority"
         ],
-        "checksum": "353460dae5b71a83",
-        "timestamp": "2026-08-29T02:21:34.812059+00:00"
+        "checksum": "4bd803cad6013bae",
+        "timestamp": "2026-09-10T07:34:38.326387+00:00"
       }
     },
     {
@@ -185,8 +185,8 @@
           "Decision HOLD",
           "BLOCKED: HOLD action"
         ],
-        "checksum": "9c50e077de48aa8d",
-        "timestamp": "2026-08-29T02:21:35.130961+00:00"
+        "checksum": "550e095f57a4b48e",
+        "timestamp": "2026-09-10T07:34:38.667572+00:00"
       },
       "payload_second": {
         "engine": "trend_rf_v41",
@@ -213,8 +213,8 @@
           "Decision HOLD",
           "BLOCKED: HOLD action"
         ],
-        "checksum": "9c50e077de48aa8d",
-        "timestamp": "2026-08-29T02:21:35.130961+00:00"
+        "checksum": "550e095f57a4b48e",
+        "timestamp": "2026-09-10T07:34:38.667572+00:00"
       }
     }
   ]

@@ -11,7 +11,7 @@ This is **not** real-money authorization.
 ## Exact reasons
 
 - ev_eq_01=NOT_PROVEN is explicit but not ready-qualifying
-- broker_economics=UNKNOWN is explicit but not ready-qualifying
+- broker_economics=PARTIAL is explicit but not ready-qualifying
 - historical_spread=BLOCKED is explicit but not ready-qualifying
 - commission=BLOCKED is explicit but not ready-qualifying
 - swap=UNKNOWN is explicit but not ready-qualifying
@@ -23,7 +23,7 @@ This is **not** real-money authorization.
 - complete_dataset_count=0 is explicit but not ready-qualifying
 - Phase 27.15 AND-gate is not COMPLETE on all eight components
 - component.symbol_binding=BLOCKED
-- component.economics=UNKNOWN
+- component.economics=PARTIAL
 - component.dataset_provenance=PARTIAL
 - component.spread=BLOCKED
 - component.commission=BLOCKED
@@ -39,7 +39,7 @@ This is **not** real-money authorization.
 | `canonical_symbol` | `XAUUSD_i` | yes | yes | `logs/phase27_8_policy_lock.json` |
 | `dataset_mapping_policy` | `ONLY_WITH_EXPLICIT_DATASET_MAP` | yes | yes | `logs/phase27_8_policy_lock.json` |
 | `ev_eq_01` | `NOT_PROVEN` | yes | **no** | `logs/phase27_9_real_broker_evidence.json`; `logs/phase27_33_ev_eq_resolution.json` |
-| `broker_economics` | `UNKNOWN` | yes | **no** | `logs/phase27_15_cost_completeness_gate.json` |
+| `broker_economics` | `PARTIAL` | yes | **no** | `logs/phase27_15_cost_completeness_gate.json` |
 | `historical_spread` | `BLOCKED` | yes | **no** | `logs/phase27_11_historical_bidask.json` |
 | `commission` | `BLOCKED` | yes | **no** | `logs/phase27_12_commission_evidence.json` |
 | `swap` | `UNKNOWN` | yes | **no** | `logs/phase27_13_swap_policy.json` |
@@ -63,7 +63,7 @@ PARTIAL evidence is never inferred as `READY_FOR_COST_AWARE_VALIDATION`.
 | Blocker | Status | Severity | Owner | Remediation |
 |---|---|---|---|---|
 | `ev_eq_01` | `NOT_PROVEN` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
-| `broker_economics` | `UNKNOWN` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
+| `broker_economics` | `PARTIAL` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
 | `historical_spread` | `BLOCKED` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
 | `commission` | `BLOCKED` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
 | `swap` | `UNKNOWN` | HIGH | GATE | Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY. |
@@ -79,9 +79,7 @@ Supporting artifacts for readiness: **none** (gate is BLOCKED).
 
 ## Production
 
-**BLOCKED.** No strategy, RiskGate, execution, RR, ML, or live-trading configuration change. No optimization. Cost-adjusted profitability validation remains unauthorized.
-
-Phase 28.0–36 are **separate RESEARCH** steps on canonical `XAUUSD_i`. They do **not** satisfy this gate, do **not** authorize live trading, and are **not** cost-adjusted validation. Phase 30/33 MODELED cost adjustment is not realized. Phase 35 completeness is INCOMPLETE. The Phase 28 M5 snapshot remains frozen.
+**BLOCKED.** No strategy, RiskGate, execution, RR, ML, or live-trading configuration change. No optimization. No profitability analysis. Phase 28 was **not** started.
 
 ## Next
 

@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-09-09T03:26:04.154032+00:00",
+  "inventory_count": 2079,
+  "reachable_count": 1564,
+  "unreachable_count": 515,
+  "runtime_reachable_count": 670,
+  "test_only_reachable_count": 894,
+  "entry_modules": [
+    "tradingbot.__main__",
+    "tradingbot.application.live_runner",
+    "tradingbot.application.bootstrap",
+    "tradingbot.backtest.engine"
+  ],
+  "script_entry_refs": [
+    "MODULE:tradingbot",
+    "scripts/backtest_custom_range.py",
+    "scripts/build_ml_dataset.py",
+    "scripts/check_live_setup.py",
+    "scripts/collect_ml_data.py",
+    "scripts/dashboard_server.py",
+    "scripts/demo_proof_status.py",
+    "scripts/diagnose_autotrading.py",
+    "scripts/fix_mt5_experts_ini.py",
+    "scripts/live_daily_report.py",
+    "scripts/morning_go_live_check.py",
+    "scripts/release_mt5_ipc_lock.py",
+    "scripts/run_backtest.py",
+    "scripts/run_live_watchdog.py",
+    "scripts/run_phase17d_bundle_promotion.py",
+    "scripts/scheduled_ml_refresh.py",
+    "scripts/show_meta_stats.py",
+    "scripts/smoke_test_execution.py",
+    "scripts/start_bot.py",
+    "scripts/status_live.py",
+    "scripts/status_snapshot.py",
+    "scripts/train_meta_labeler.py",
+    "scripts/verify_ml_live_ready.py",
+    "scripts/weekend_checklist.py"
+  ],
+  "flag_counts_unreachable": {
+    "DEAD_CODE": 157,
+    "RESEARCH_ARCHIVE_CANDIDATE": 358,
+    "TEST_ONLY": 0
+  }
+}

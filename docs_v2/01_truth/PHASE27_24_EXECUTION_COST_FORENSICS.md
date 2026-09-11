@@ -2,7 +2,7 @@
 
 **Status:** PASS  
 **Artifact:** `logs/phase27_24_execution_cost_forensics.json`  
-**Collection timestamp UTC:** `2026-09-06T07:34:00Z`
+**Collection timestamp UTC:** `2026-09-10T07:30:48Z`
 
 Read-only. No MT5 start/restart, orders, `symbol_select`, `.env`, or Strategy/RiskGate/execution changes.
 
@@ -12,14 +12,14 @@ Locked policy: swap=`BROKER_RATE_ONLY`, slippage=`MODELED`, validation=`COMPLETE
 
 | Metric | Value |
 |---|---|
-| gold deals | `50` |
+| gold deals | `2` |
 | live gold orders | `0` |
 | requested/fill pairs | `0` |
 | realized-slippage samples | `0` |
 | partial fills | `0` |
 | nonzero swap | `0` |
-| zero swap | `50` |
-| date range | `2026-06-19T15:48:03+00:00` → `2026-08-12T13:41:03+00:00` |
+| zero swap | `2` |
+| date range | `UNKNOWN` → `UNKNOWN` |
 
 ## Swap
 

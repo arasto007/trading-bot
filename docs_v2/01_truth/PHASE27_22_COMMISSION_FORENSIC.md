@@ -1,9 +1,9 @@
 # Phase 27.22 — Commission & Account-Product Forensic Evidence
 
-**Status:** PASS  
+**Status:** FAIL  
 **Classification:** `OBSERVED_ZERO_NOT_PROVEN`  
 **Artifact:** `logs/phase27_22_commission_forensic.json`  
-**Collection timestamp UTC:** `2026-09-06T07:25:06Z`
+**Collection timestamp UTC:** `2026-09-10T07:30:41Z`
 
 Read-only. No MT5 start/restart, orders, `.env`, or production behavior changes.
 
@@ -29,13 +29,13 @@ Product was **not** inferred from zero commission, symbol, broker name, balance,
 
 | Field | Value |
 |---|---|
-| gold deals | `50` |
-| commission samples | `50` |
-| observed zero | `50` |
+| gold deals | `2` |
+| commission samples | `2` |
+| observed zero | `2` |
 | observed nonzero | `0` |
-| distribution | `{'0.0000': 50}` |
+| distribution | `{'0.0000': 2}` |
 | symbols | `XAUUSD_i` |
-| date range | `2026-06-19T15:48:03+00:00` → `2026-08-12T13:41:03+00:00` |
+| date range | `UNKNOWN` → `UNKNOWN` |
 | tape class | **`OBSERVED_ZERO_NOT_PROVEN`** |
 
 `BacktestConfig.commission_per_lot=0.0` was not converted to `ZERO`.

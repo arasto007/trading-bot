@@ -1,6 +1,6 @@
 # Phase 29 — Long-Horizon XAUUSD_i Research Tape
 
-**Status:** PASS_WITH_DEFERRAL
+**Status:** PASS
 **Class:** RESEARCH / DATA ENGINEERING ONLY
 **Live trading authorized:** NO
 **Production changes:** `NONE`
@@ -28,7 +28,7 @@ Target ≥ 180 calendar days. Minimum acceptable ≥ 60. **M5 obtainable days = 
 
 ## Collection
 
-Attach-only M5 collection: NOT_OBSERVED. Error: terminal64.exe not running — attach skipped (MT5 was not started). Terminal was not started by this phase. Longest defensible existing M5 coverage is 14.88 calendar days.
+Attach-only M5 collection: NOT_OBSERVED. Error: none. Terminal was not started by this phase. Longest defensible existing M5 coverage is 14.88 calendar days.
 
 MT5 trading was not started. `symbol_select` was not called. `.env` was not read. Orders were not sent.
 

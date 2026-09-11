@@ -28,9 +28,9 @@ An explicit `dataset_symbol_map` is an auditable alias rule. It does **not** pro
 
 | Metric | Count |
 |---|---|
-| Datasets audited | 33 |
+| Datasets audited | 43 |
 | Logical XAUUSD | 30 |
-| Logical XAUUSD_i | 2 |
+| Logical XAUUSD_i | 12 |
 | Binding blocked | 31 |
 | Cost-ready | 0 |
 
@@ -38,11 +38,11 @@ An explicit `dataset_symbol_map` is an auditable alias rule. It does **not** pro
 
 | Status | Count |
 |---|---|
-| `MATCH` | 2 |
+| `MATCH` | 12 |
 | `MISSING_MAP` | 30 |
 | `UNKNOWN_SYMBOL` | 1 |
 
-Direct `XAUUSD_i` matches: 2.  
+Direct `XAUUSD_i` matches: 12.  
 Blocked logical aliases (no fabricated maps): 31.
 
 ## Paths

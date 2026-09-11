@@ -26,7 +26,7 @@ flowchart TB
 
     subgraph L2[❤️ لایه ۲ — هسته و مغز متفکر]
         KERNEL[TradingKernel]
-        PIPE[Pipeline: داده→اندیکاتور→سیگنال→ریسک→اجرا]
+        PIPE[Pipeline: داده→اندیکاتور→سیگنال→فیلتر→ریسک→اجرا]
         KERNEL --> PIPE
     end
 
@@ -66,13 +66,14 @@ tradingbot/
 │
 ├── ❤️ kernel/trading_kernel.py  رهبر ارکستر: تنها کسی که به همه فرمان می‌دهد
 │
-├── pipeline/ ................. ۵ کارگرِ خط تولید (هرکدام فقط یک کار بلدند)
+├── pipeline/ ................. ۶ کارگرِ خط تولید (هرکدام فقط یک کار بلدند؛ فیلتر پیش‌فرض خاموش)
 │   ├── base.py .............. قالب مشترک همه‌ی کارگرها
 │   ├── data_stage.py ........ کارگر۱: کندل می‌آورد
 │   ├── indicator_stage.py ... کارگر۲: RSI/MACD/ATR می‌چسباند
 │   ├── signal_stage.py ...... کارگر۳: از استراتژی می‌پرسد «بخرم؟ بفروشم؟»
-│   ├── risk_stage.py ........ کارگر۴: نگهبان ریسک «اجازه هست؟ چقدر؟»
-│   └── execution_stage.py ... کارگر۵: دکمه‌ی سفارش را می‌زند
+│   ├── signal_filter_stage.py کارگر۴: فیلتر کیفیت WPSQF (پیش‌فرض OFF / pass-through)
+│   ├── risk_stage.py ........ کارگر۵: نگهبان ریسک «اجازه هست؟ چقدر؟»
+│   └── execution_stage.py ... کارگر۶: دکمه‌ی سفارش را می‌زند
 │
 ├── 📜 ports/ ................. «قراردادها» — فقط می‌گویند چه کاری، نه چطور
 │   ├── market_data.py ....... قرارداد منبع داده
@@ -158,10 +159,13 @@ flowchart LR
     --> S3{{"کارگر۳<br/>SignalStage"}}
     SIG["TradingSignal<br/>BUY, conf=0.75<br/>SL, TP ✅"]
     S3 --> SIG
-    --> S4{{"کارگر۴<br/>RiskStage"}}
+    --> S3b{{"کارگر۴<br/>SignalFilterStage<br/>(پیش‌فرض OFF)"}}
+    SIG2["سیگنال عبور / رد"]
+    S3b --> SIG2
+    --> S4{{"کارگر۵<br/>RiskStage"}}
     LOT["+ lot_size=0.02<br/>(یا رد می‌شود ❌)"]
     S4 --> LOT
-    --> S5{{"کارگر۵<br/>ExecutionStage"}}
+    --> S5{{"کارگر۶<br/>ExecutionStage"}}
     ORD["📨 سفارش به بروکر<br/>ExecutionResult ✅"]
     S5 --> ORD
 
@@ -171,7 +175,7 @@ flowchart LR
 **حرف معلم:** دقت کن که این یک «جعبه» (`CycleContext`) است که از کارگری به کارگر بعد می‌رود
 و هرکس یک‌چیز رویش می‌چسباند. اگر یک کارگر بگوید «نه» (مثلاً سیگنالی نبود، یا ریسک رد کرد)،
 خط تولید همان‌جا می‌ایستد و سراغ بازار بعدی می‌رود. هیچ‌کس از کار بقیه خبر ندارد — فقط جعبه را
-تحویل می‌گیرد و پاس می‌دهد. این یعنی **تمیز و قابل‌تست**.
+تحویل می‌گیرد و پاس می‌دهد. این یعنی **تمیز و قابل‌تست**. *(به‌روزرسانی شده — pipeline شش‌مرحله‌ای، 2026-09-10)*
 
 ---
 
@@ -194,7 +198,7 @@ sequenceDiagram
         K->>MD: ensure_connected()
         K->>MD: update_all(symbols,tf)
         Note over K: snapshot پورتفولیو
-        loop برای هر بازار (نماد×تایم‌فریم)
+        loop برای هر بازار (پیش‌فرض live: فقط M5)
             K->>MD: get_ohlcv()
             K->>ST: generate_signal(df)
             alt سیگنال داریم
@@ -211,6 +215,7 @@ sequenceDiagram
 
 **حرف معلم:** ببین `manage_all()` **بعد** از حلقه‌ی بازارها صدا زده می‌شود — یعنی اول دنبال
 فرصت ورود می‌گردیم، بعد به پوزیشن‌های بازِ موجود می‌رسیم. این ترتیب مهم است.
+*(به‌روزرسانی شده — چرخه live پیش‌فرض M5-only via `get_live_config()`، 2026-09-10)*
 
 ---
 
@@ -232,7 +237,7 @@ sequenceDiagram
         E->>DS: set_cursor(i) ⏪ مکان‌نما را جلو ببر
         E->>BR: check_exits() آیا SL/TP خورد؟
         E->>PM: manage_all() تریلینگ/پارشال
-        E->>K: run_market_cycle() همان pipeline ۵مرحله‌ای
+        E->>K: run_market_cycle() همان pipeline ۶مرحله‌ای
         Note over BR: سفارش روی کاغذ پر می‌شود
         E->>E: ثبت نقطه‌ی equity
     end
@@ -364,7 +369,7 @@ timeline
             : بازنویسی اجرا + لاگ + انتقال config ✅
             : مستقل‌کردن سرویس‌های پس‌زمینه (services/) ✅
             : حذف کد مرده‌ی engine ✅
-    اکنون : ربات تخصصی طلا (XAUUSD × M5/M15/H4) + meta-labeler + watchdog + بک‌تست ✅
+    اکنون : ربات تخصصی طلا (XAUUSD؛ live پیش‌فرض M5؛ پریست M5/M15/H4) + meta-labeler + watchdog + بک‌تست ✅
 ```
 
 ---

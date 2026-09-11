@@ -220,37 +220,28 @@ def validate_tick_frame(df: pd.DataFrame) -> dict[str, Any]:
     ts = df["timestamp_utc"] if "timestamp_utc" in df.columns else parse_tick_timestamps(df)
     bid = pd.to_numeric(df["bid"], errors="coerce") if "bid" in df.columns else pd.Series(np.nan, index=df.index)
     ask = pd.to_numeric(df["ask"], errors="coerce") if "ask" in df.columns else pd.Series(np.nan, index=df.index)
-    missing_bid = bid.isna()
-    missing_ask = ask.isna()
+    b = bid.to_numpy(dtype=float)
+    a = ask.to_numpy(dtype=float)
+    missing_bid = ~np.isfinite(b)
+    missing_ask = ~np.isfinite(a)
     out["missing_bid_rows"] = int(missing_bid.sum())
     out["missing_ask_rows"] = int(missing_ask.sum())
     out["missing_both_rows"] = int((missing_bid & missing_ask).sum())
-    finite = bid.apply(lambda x: bool(np.isfinite(x)) if pd.notna(x) else False) & ask.apply(
-        lambda x: bool(np.isfinite(x)) if pd.notna(x) else False
-    )
-    out["non_finite"] = int((~finite & ~(missing_bid | missing_ask)).sum()) if n else 0
-    pos = (bid > 0) & (ask > 0)
-    out["nonpositive"] = int(((~pos) & finite).sum())
-    out["ask_lt_bid"] = int(((ask < bid) & finite).sum())
-    bad_ts = ts.isna()
+    finite = np.isfinite(b) & np.isfinite(a)
+    out["non_finite"] = int((~np.isfinite(b) | ~np.isfinite(a)).sum()) - int((missing_bid & missing_ask).sum())
+    pos = (b > 0) & (a > 0)
+    out["nonpositive"] = int((finite & ~pos).sum())
+    out["ask_lt_bid"] = int((finite & (a < b)).sum())
+    bad_ts = ts.isna().to_numpy()
     out["timezone_ambiguous"] = int(bad_ts.sum())
-    if hasattr(ts, "dt"):
-        years = ts.dt.year
-        out["impossible_timestamps"] = int(((years < 2000) | (years > 2030) | bad_ts).sum())
+    years = pd.to_datetime(ts, utc=True, errors="coerce").dt.year.fillna(0).to_numpy()
+    out["impossible_timestamps"] = int((bad_ts | (years < 2000) | (years > 2030)).sum())
     ts_ok = ts.dropna()
     if len(ts_ok):
         out["duplicate_timestamps"] = int(ts_ok.duplicated().sum())
-        deltas = ts_ok.sort_values().diff()
-        out["out_of_order_rows"] = int((deltas < pd.Timedelta(0)).sum())
-    invalid = (
-        missing_bid
-        | missing_ask
-        | (~pos)
-        | (ask < bid)
-        | bad_ts
-        | (~bid.apply(lambda x: bool(np.isfinite(x)) if pd.notna(x) else False))
-        | (~ask.apply(lambda x: bool(np.isfinite(x)) if pd.notna(x) else False))
-    )
+        ordered = ts_ok.sort_values()
+        out["out_of_order_rows"] = int((ts_ok.diff() < pd.Timedelta(0)).sum()) if not ts_ok.equals(ordered) else 0
+    invalid = missing_bid | missing_ask | (~pos) | (a < b) | bad_ts
     out["invalid_rows"] = int(invalid.sum())
     out["valid"] = out["invalid_rows"] < n and out["missing_bid_rows"] + out["missing_ask_rows"] < n
     return out
@@ -289,20 +280,15 @@ def gap_statistics(ts: pd.DatetimeIndex, weekday_threshold: timedelta | None = N
             "p99_gap_ms": None,
         }
     ordered = pd.DatetimeIndex(pd.to_datetime(ts, utc=True)).sort_values()
-    diffs = ordered.to_series().diff().dropna()
+    starts = ordered[:-1]
+    diffs = pd.Series(ordered[1:] - starts, index=range(len(starts)))
     ms = diffs.dt.total_seconds() * 1000.0
-    weekend = weekday = suspicious = 0
-    max_gap = None
-    for start, delta in zip(ordered[:-1], diffs):
-        end = start + delta
-        if is_weekend_gap(start, end):
-            weekend += 1
-        elif delta >= weekday_threshold:
-            weekday += 1
-            if delta >= timedelta(hours=1):
-                suspicious += 1
-        if max_gap is None or delta > max_gap:
-            max_gap = delta
+    wm = np.asarray((starts.dayofweek >= 5) | ((starts.dayofweek == 4) & (starts.hour >= 21)))
+    over = (diffs >= weekday_threshold).to_numpy()
+    weekend = int((over & wm).sum())
+    weekday = int((over & ~wm).sum())
+    suspicious = int(((diffs >= timedelta(hours=1)).to_numpy() & ~wm).sum())
+    max_gap = diffs.max() if len(diffs) else None
     q = ms.quantile([0.5, 0.9, 0.99])
     return {
         "n_gaps": int(len(diffs)),
@@ -1084,7 +1070,7 @@ def _ingest_bars(
     opens_ns = ts.to_numpy(dtype="datetime64[ns]").astype(np.int64)
     dur_ns = int(minutes * 60 * 1_000_000_000)
     n_entry = n_life = n_causal = 0
-    lookback_ns = int((5 + 1) * minutes * 60 * 1_000_000_000)  # REVERSAL_BARS+1, not searched from live
+    lookback_ns = int((REVERSAL_BARS + 1) * minutes * 60 * 1_000_000_000)
     for ev in events:
         entry = ev.get("entry_timestamp")
         exit_ts = ev.get("exit_timestamp") or entry
@@ -1201,12 +1187,14 @@ def _outlier_status(events: list[dict[str, Any]], ticks_info: dict[str, Any]) ->
             break
     if f_ev is None:
         return {"found": False, "OUTLIER_31_84R_TICK_COVERAGE": False, "OUTLIER_31_84R_CHRONOLOGY_STATUS": "DATA_INSUFFICIENT"}
-    covered = any(r.get("event_id") == f_ev["event_id"] and r.get("lifecycle_covered") for r in ticks_info.get("join_covered") or [])
+    covered = any(
+        r.get("event_id") == f_ev["event_id"] and r.get("lifecycle_covered")
+        for r in ticks_info.get("join_covered") or []
+    )
     chrono = "DATA_INSUFFICIENT"
     for r in ticks_info.get("join_covered") or []:
         if r.get("event_id") == f_ev["event_id"]:
-            chrono = r.get("chronology")
-    all_join = _safe_load_json(Path())  # placeholder unused
+            chrono = r.get("chronology") or "DATA_INSUFFICIENT"
     return {
         "found": True,
         "event_id": f_ev["event_id"],
@@ -1401,6 +1389,13 @@ def _write_md(root: Path, payload: dict[str, Any]) -> None:
         f"NEWS_INFORMATION_STATUS = {payload.get('NEWS_INFORMATION_STATUS')}",
         "",
         f"REMAINING_UNKNOWN = {payload.get('REMAINING_UNKNOWN')}",
+        "",
+        f"TESTS_PHASE115 = {payload.get('TESTS_PHASE115')}",
+        f"REGRESSION_40_43_57_63_68_115 = {payload.get('REGRESSION_40_43_57_63_68_115')}",
+        "",
+        f"FROZEN_PHASE40_TIMESTAMP = {payload.get('FROZEN_PHASE40_TIMESTAMP')}",
+        f"FROZEN_PHASE40_FINGERPRINT = {payload.get('FROZEN_PHASE40_FINGERPRINT')}",
+        f"FROZEN_PHASE40_SHA256 = {payload.get('FROZEN_PHASE40_SHA256')}",
         "",
         "## Safety",
         "",
@@ -1741,6 +1736,7 @@ def run_phase115_collection(root: Path | None = None) -> dict[str, Any]:
         "DISCRIMINATOR_STATUS": "UNSUPPORTED",
         "EXIT_DESIGN_SPEC_STATUS": "INSUFFICIENT_EVIDENCE",
         "FINAL_GATE": "GO_RESEARCH" if frozen.get("ok") else "FAIL",
+        "final_gate": "GO_RESEARCH" if frozen.get("ok") else "FAIL",
         "FINAL_RESEARCH_GATE": "GO_RESEARCH" if frozen.get("ok") else "FAIL",
         "NEXT_RESEARCH_TARGET": "PHASE116_NOT_STARTED",
         "evidence_kind": "FROZEN-DATA-EVIDENCE",
@@ -1797,11 +1793,9 @@ def apply_test_results(root: Path, phase115: dict[str, Any], regression: dict[st
     path.write_text(json.dumps(payload, indent=2, default=str), encoding="utf-8")
     md = root / PHASE115_MD
     text = md.read_text(encoding="utf-8")
-    block = (
-        f"\nTESTS_PHASE115 = {phase115}\n"
-        f"REGRESSION_40_43_57_63_68_115 = {regression}\n"
+    text = text.replace("TESTS_PHASE115 = None", f"TESTS_PHASE115 = {phase115}")
+    text = text.replace(
+        "REGRESSION_40_43_57_63_68_115 = None",
+        f"REGRESSION_40_43_57_63_68_115 = {regression}",
     )
-    if "TESTS_PHASE115 =" not in text.split("REMAINING_UNKNOWN")[-1]:
-        md.write_text(text.rstrip() + "\n" + block, encoding="utf-8")
-    else:
-        md.write_text(text.rstrip() + "\n" + block, encoding="utf-8")
+    md.write_text(text, encoding="utf-8")

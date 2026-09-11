@@ -63,7 +63,7 @@ Unchecked **UNDECIDED** options are retained as the rejected alternatives. They 
 
 **EVIDENCE:** No account-specific verified commission schedule has been established. Observed zero-commission deals do not prove universal zero.
 
-**IMPLEMENTATION (Phase 27.12 / 27.19 / 27.22):** Gate implemented. No account-applicable schedule obtained. Account product/tier remains UNKNOWN. 50 gold deals at 0.0 classified `OBSERVED_ZERO_NOT_PROVEN`. Public LiteFinance pages are supporting only. Default `commission_status` remains UNKNOWN. Cost completeness remains fail-closed. See `docs_v2/01_truth/PHASE27_22_COMMISSION_FORENSIC.md`.
+**IMPLEMENTATION (Phase 27.12):** Gate implemented. No account-applicable schedule obtained. 50 gold deals at 0.0 classified `OBSERVED_ZERO_NOT_PROVEN`. Default `commission_status` remains UNKNOWN. Cost completeness remains fail-closed. See `docs_v2/01_truth/PHASE27_12_COMMISSION_EVIDENCE.md`.
 
 ---
 
@@ -112,5 +112,4 @@ Unchecked **UNDECIDED** options are retained as the rejected alternatives. They 
 **Phase 27.8 artifact:** `logs/phase27_8_policy_lock.json`  
 **Phase 27.8 document:** `docs_v2/01_truth/PHASE27_8_POLICY_LOCK.md`  
 **Phase 27.12 commission evidence:** `logs/phase27_12_commission_evidence.json`  
-**Phase 27.16 final validation gate:** `logs/phase27_16_FINAL_VALIDATION_GATE.json`  
-**Phase 27.22 commission forensic:** `logs/phase27_22_commission_forensic.json`
+**Phase 27.16 final validation gate:** `logs/phase27_16_FINAL_VALIDATION_GATE.json`

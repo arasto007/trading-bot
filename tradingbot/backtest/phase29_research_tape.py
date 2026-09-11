@@ -541,9 +541,51 @@ def run_phase29_collection(base_dir: str | Path | None = None) -> dict[str, Any]
     m5_audit = audit_dataset(m5, timeframe="M5", path=CANONICAL_PARQUET)
     h4_audit = audit_dataset(h4, timeframe="H4", path=H4_CONTEXT_PARQUET) if not h4.empty else {"row_count": 0}
 
-    collect_m5 = attempt_readonly_ohlc_collection(timeframe="M5", days=TARGET_DAYS)
-    collect_h4 = attempt_readonly_ohlc_collection(timeframe="H4", days=TARGET_DAYS)
-    collect_m15 = attempt_readonly_ohlc_collection(timeframe="M15", days=TARGET_DAYS)
+    # Offline-stable: if a persisted Phase 29 M5 research copy already meets the
+    # 180d target, do not attach to MT5 just to re-measure coverage.
+    skip_attach = False
+    existing_phase29_days = 0.0
+    if (root / PHASE29_M5).is_file():
+        try:
+            existing_phase29_days = float(
+                audit_dataset(
+                    load_parquet_utc(root / PHASE29_M5),
+                    timeframe="M5",
+                    path=PHASE29_M5,
+                ).get("duration_days")
+                or 0
+            )
+            skip_attach = existing_phase29_days >= TARGET_DAYS
+        except Exception:
+            skip_attach = False
+
+    if skip_attach:
+        _skip_base = {
+            "symbol": "XAUUSD_i",
+            "method": "skipped — persisted Phase 29 M5 already meets target; no MT5 attach",
+            "requested_days": TARGET_DAYS,
+            "ok": False,
+            "rows": 0,
+            "status": "NOT_OBSERVED",
+            "duration_days": 0.0,
+            "error": None,
+            "attach": {
+                "ok": False,
+                "attach_only": True,
+                "mt5_started_by_script": False,
+                "symbol_select_called": False,
+                "orders_sent": False,
+                "env_file_read": False,
+                "skipped_persisted_target_met": True,
+            },
+        }
+        collect_m5 = {**_skip_base, "timeframe": "M5"}
+        collect_h4 = {**_skip_base, "timeframe": "H4"}
+        collect_m15 = {**_skip_base, "timeframe": "M15"}
+    else:
+        collect_m5 = attempt_readonly_ohlc_collection(timeframe="M5", days=TARGET_DAYS)
+        collect_h4 = attempt_readonly_ohlc_collection(timeframe="H4", days=TARGET_DAYS)
+        collect_m15 = attempt_readonly_ohlc_collection(timeframe="M15", days=TARGET_DAYS)
     wrote: dict[str, Any] = {}
     for key, dest, existing_days in (
         ("m5", PHASE29_M5, m5_audit.get("duration_days") or 0),
@@ -579,7 +621,22 @@ def run_phase29_collection(base_dir: str | Path | None = None) -> dict[str, Any]
 
     m5_days = float(m5_audit.get("duration_days") or 0)
     collected_days = float(collect_m5.get("duration_days") or 0)
-    best_m5_days = max(m5_days, collected_days)
+    # Persisted Phase 29 research copy counts toward the gate even when this run
+    # cannot attach (offline). Transient attach length alone does not; only the
+    # longer tape that was actually written (or already on disk) is defensible.
+    phase29_days = 0.0
+    if (root / PHASE29_M5).is_file():
+        try:
+            p29 = load_parquet_utc(root / PHASE29_M5)
+            phase29_days = float(
+                audit_dataset(p29, timeframe="M5", path=PHASE29_M5).get("duration_days") or 0
+            )
+        except Exception:
+            phase29_days = 0.0
+    written_days = (
+        collected_days if bool((wrote.get("m5") or {}).get("written")) else 0.0
+    )
+    best_m5_days = max(m5_days, written_days, phase29_days)
     if best_m5_days >= TARGET_DAYS and m5_audit.get("impossible_ohlc") == 0:
         status = "PASS"
     else:

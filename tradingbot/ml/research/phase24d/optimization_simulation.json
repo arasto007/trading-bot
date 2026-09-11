@@ -1,41 +1,41 @@
 {
   "phase": "24D",
   "baseline_phase24c_p95_ms": {
-    "pipeline_cache_unified_frame": 162.1114,
-    "unified_frame_merge": 136.6904,
-    "dataset_store_load": 40.1912,
-    "feature_builder_compute_at": 68.9256
+    "pipeline_cache_unified_frame": 62.1483,
+    "unified_frame_merge": 62.4922,
+    "dataset_store_load": 3.5902,
+    "feature_builder_compute_at": 63.0933
   },
   "strategies": [
     {
       "id": "A",
       "name": "Incremental unified frame update",
       "description": "Maintain rolling 300-bar unified frame; append one bar per cycle instead of full rebuild",
-      "estimated_p95_reduction_ms": 38.97,
-      "estimated_p95_after_ms": 123.14,
-      "basis": "build_ml_p95=18.7334, regime_p95=14.6836, attach_top5_p95=5.6871 \u00d7 (1 - 1/300)",
-      "latency_reduction_pct": 24.0
+      "estimated_p95_reduction_ms": 41.52,
+      "estimated_p95_after_ms": 20.63,
+      "basis": "build_ml_p95=20.6836, regime_p95=15.4439, attach_top5_p95=5.5285 \u00d7 (1 - 1/300)",
+      "latency_reduction_pct": 66.8
     },
     {
       "id": "B",
       "name": "Persistent dataset_v2 in memory",
       "description": "Load dataset_v2 once per process; reuse for merge; optional timestamp index",
-      "estimated_p95_reduction_ms": 40.19,
-      "estimated_p95_after_ms": 121.92,
-      "basis": "phase24c dataset_store_load p95=40.1912ms eliminated",
-      "latency_reduction_pct": 24.8
+      "estimated_p95_reduction_ms": 3.59,
+      "estimated_p95_after_ms": 58.56,
+      "basis": "phase24c dataset_store_load p95=3.5902ms eliminated",
+      "latency_reduction_pct": 5.8
     },
     {
       "id": "C",
       "name": "FeatureBuilder incremental feature computation",
       "description": "Cache rolling state for families with incremental updates (session/microstructure only safe without parity suite)",
-      "estimated_p95_reduction_ms": 0.65,
-      "estimated_p95_after_ms": 68.28,
-      "basis": "measured session_p95=0.1296, micro_p95=0.5192 \u2014 does NOT affect unified frame path",
-      "latency_reduction_pct": 0.9,
+      "estimated_p95_reduction_ms": 0.69,
+      "estimated_p95_after_ms": 62.41,
+      "basis": "measured session_p95=0.1383, micro_p95=0.5474 \u2014 does NOT affect unified frame path",
+      "latency_reduction_pct": 1.1,
       "scope_note": "Affects RangeEngineAdapter path only, not PipelineCache bottleneck"
     }
   ],
-  "combined_ab_estimated_p95_ms": 82.95,
-  "generated_utc": "2026-08-29T02:21:01.982520+00:00"
+  "combined_ab_estimated_p95_ms": 17.04,
+  "generated_utc": "2026-09-10T07:21:40.876169+00:00"
 }

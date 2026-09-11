@@ -26,7 +26,7 @@ The repository already has an explicit map convention. No new convention was inv
 |---|---|---|
 | `DEFENSIBLE_MAPPING_CANDIDATE` | `0` | PROPOSED map only; not inserted |
 | `INSUFFICIENT_PROVENANCE` | `30` | **BLOCKED** — operator authorization required |
-| `ALREADY_CANONICAL_XAUUSD_i` | `2` | unchanged MATCH |
+| `ALREADY_CANONICAL_XAUUSD_i` | `12` | unchanged MATCH |
 | `OTHER/UNKNOWN` | `1` | no XAUUSD map |
 
 Logical `XAUUSD` datasets: `30`. Maps inserted: **False**. Datasets requiring explicit operator authorization: **30**.
@@ -68,12 +68,22 @@ Decision 2 authorizes the *mechanism* (`dataset_symbol_map` → `XAUUSD_i`). It 
 | `XAUUSD_1h.parquet` | `XAUUSD` | `None` | `BLOCKED` | `UNKNOWN` | `UNKNOWN` | `PARTIAL` | logical XAUUSD from filename/sidecar label only; broker/server/source insufficient; not mapped |
 | `XAUUSD_4h.parquet` | `XAUUSD` | `None` | `BLOCKED` | `UNKNOWN` | `UNKNOWN` | `PARTIAL` | logical XAUUSD from filename/sidecar label only; broker/server/source insufficient; not mapped |
 | `XAUUSD_5m.parquet` | `XAUUSD` | `None` | `BLOCKED` | `UNKNOWN` | `UNKNOWN` | `PARTIAL` | logical XAUUSD from filename/sidecar label only; broker/server/source insufficient; not mapped |
+| `XAUUSD_i_15m_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
 | `XAUUSD_i_4h.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `OBSERVED_BROKER_EVIDENCE` | `OBSERVED_BROKER_EVIDENCE` | `PARTIAL` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_4h_phase29.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
 | `XAUUSD_i_5m.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `OBSERVED_BROKER_EVIDENCE` | `OBSERVED_BROKER_EVIDENCE` | `PARTIAL` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_5m_phase29.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_5m_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_5m_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_m15_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_m1_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_m1_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_ticks_phase37.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
+| `XAUUSD_i_ticks_phase38.parquet` | `XAUUSD_i` | `XAUUSD_i` | `MATCH` | `UNKNOWN` | `UNKNOWN` | `UNKNOWN` | already canonical XAUUSD_i; no map required |
 
 ## Canonical XAUUSD_i
 
-Direct datasets `XAUUSD_i_4h.parquet, XAUUSD_i_5m.parquet` remain MATCH. They were not rewritten.
+Direct datasets `XAUUSD_i_15m_phase37.parquet, XAUUSD_i_4h.parquet, XAUUSD_i_4h_phase29.parquet, XAUUSD_i_5m.parquet, XAUUSD_i_5m_phase29.parquet, XAUUSD_i_5m_phase37.parquet, XAUUSD_i_5m_phase38.parquet, XAUUSD_i_m15_phase38.parquet, XAUUSD_i_m1_phase37.parquet, XAUUSD_i_m1_phase38.parquet, XAUUSD_i_ticks_phase37.parquet, XAUUSD_i_ticks_phase38.parquet` remain MATCH. They were not rewritten.
 
 ## Production
 

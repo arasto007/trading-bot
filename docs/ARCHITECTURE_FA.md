@@ -29,14 +29,16 @@
    run_global_cycle      run_market_cycle      emergency/stop
          │                     │
          │              ┌──────┴────── Pipeline (ثابت)
-         │              │ Data → Indicators → Signal → Risk → Execution
+         │              │ Data → Indicators → Signal → SignalFilter → Risk → Execution
          ▼              └──────────────────────────────
    update_all markets
 ```
 
+*(به‌روزرسانی شده — وضعیت واقعی کد در تاریخ 2026-09-10: pipeline شش‌مرحله‌ای؛ `SignalFilterStage` پیش‌فرض OFF.)*
+
 ### اصل‌ها
 
-1. **Single pipeline** — هر `symbol:timeframe` همان ۵ مرحله را طی می‌کند.
+1. **Single pipeline** — هر `symbol:timeframe` همان **۶** مرحله را طی می‌کند (`SignalFilter` همیشه در زنجیره ثبت است؛ فعال‌سازی WPSQF فقط با فلگ).
 2. **Ports (قرارداد)** — هسته به interface وابسته است، نه MT5 یا pandas مستقیم.
 3. **Adapters** — `adapters/mt5_*`, `adapters/legacy_strategy_*` در فاز ۲ وصل می‌شوند.
 4. **تنظیمات واحد** — `KernelSettings.enabled_strategies` یک منبع حقیقت.
@@ -46,13 +48,14 @@
 
 ## مراحل Pipeline (معادل پردازش قدیم)
 
-| مرحله | کلاس جدید | معادل قدیم |
-|-------|-----------|------------|
-| DATA | `DataStage` | `DataPipeline` + `Storage` + `DataProcessor` |
-| INDICATORS | `IndicatorStage` | `features.calculate_indicators` |
-| SIGNALS | `SignalStage` | `StrategyManager.generate_combined_signals` |
-| RISK | `RiskStage` | `RiskManager.can_trade` |
-| EXECUTION | `ExecutionStage` | `OrderManager` + `place_order` |
+| مرحله | کلاس جدید | معادل قدیم / یادداشت |
+|-------|-----------|----------------------|
+| DATA | `DataStage` | `DataPipeline` + `Storage` + `DataProcessor` — always-on |
+| INDICATORS | `IndicatorStage` | `features.calculate_indicators` — always-on |
+| SIGNALS | `SignalStage` | `StrategyManager.generate_combined_signals` — always-on |
+| SIGNAL_FILTER | `SignalFilterStage` | WPSQF؛ **پیش‌فرض OFF** (pass-through) مگر `TRADINGBOT_SIGNAL_FILTER=WPSQF` — flag-gated |
+| RISK | `RiskStage` | `RiskManager.can_trade` — always-on |
+| EXECUTION | `ExecutionStage` | `OrderManager` + `place_order` — always-on |
 
 سرویس‌های **پس‌زمینه** (خارج pipeline اصلی ولی زیر نظر kernel):
 - `PositionProtector` → `IOrderExecutor.manage_open_positions` + worker جدا
@@ -119,7 +122,7 @@ run_system_manager → SystemManager.run
 bootstrap.build_kernel() → TradingKernel.run_forever()
   → run_global_cycle()
       → market_data.update_all()
-      → for market: run_market_cycle()  # pipeline 5-stage
+      → for market: run_market_cycle()  # pipeline 6-stage (SignalFilter default OFF)
       → executor.manage_open_positions()
 ```
 
@@ -127,8 +130,8 @@ bootstrap.build_kernel() → TradingKernel.run_forever()
 
 ## به‌روزرسانی‌های اخیر (ژوئن ۲۰۲۶)
 
-- **ربات تخصصی طلا:** فقط `XAUUSD`، TFهای `M5/M15/H4`، پریست per-TF در `config/pa_symbol_tf_presets.py`.
+- **ربات تخصصی طلا:** نماد منطقی `XAUUSD` / بروکر live معمولاً `XAUUSD_i`. پریست‌های per-TF برای `M5/M15/H4` در `config/pa_symbol_tf_presets.py`؛ **چرخه live پیش‌فرض فقط M5** وقتی `MULTI_ENGINE_ROUTER_ENABLED` (پیش‌فرض true) — `get_live_config()` در `tradingbot/config/live.py`. *(به‌روزرسانی شده — 2026-09-10)*
 - **لایه میانی سیگنال:** `domain/signal_helpers.py` — مسیر واحد از خروجی `StrategyManager` تا `TradingSignal`.
-- **SignalStage:** `legacy_strategy_registry` → `build_trading_signal()` → Risk → Execution.
+- **SignalStage → SignalFilter → Risk → Execution:** `legacy_strategy_registry` → `build_trading_signal()`؛ سپس فیلتر کیفیت (اختیاری) سپس RiskGate.
 - **KillSwitch:** `services/kill_switch.py` — توقف اضطراری در drawdown/ضرر روزانه.
 - راهنمای کامل برای برنامه‌نویس: [ONBOARDING_FA.md](ONBOARDING_FA.md)

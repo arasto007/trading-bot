@@ -114,3 +114,101 @@ OOS is reported in diagnostics and is **not** used to select hypotheses or the P
 
 **ACQUISITION_READY:** `True`
 **NEXT_RESEARCH_TARGET:** `OPERATOR_AUTHORIZED_XAUUSD_I_INGEST` (not started).
+
+## Phase 115
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H115-01 | 2026-09-09 | 115 | frozen Phase38/40 | 419 | event tape 419 resolved | False | reported | NO | ingest; Phase 116 not started |
+
+**PHASE115_STATUS:** `PASS`
+**ACQUISITION_STATUS:** `LOCAL_SIDECARS_ONLY`
+**TICK_COMPLETE_LIFECYCLE_EVENTS:** `3`
+**PHASE116_READY:** `False`
+
+## Phase 116
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H116-01 | 2026-09-09 | 116 | frozen Phase38/40 | 419 | event tape 419 resolved | READY_WITH_OPERATOR_ACTION | reported | NO | source plan; not acquired |
+
+**ACQUISITION_PATH_STATUS:** `READY_WITH_OPERATOR_ACTION`
+**PHASE117_RECOMMENDATION:** `OPERATOR_SOURCE_RESOLUTION_RESEARCH` (not started).
+
+## Phase 117
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H117-01 | 2026-09-09 | 117 | frozen Phase38/40 | 419 | event tape 419 resolved | OPERATOR_ACTION_REQUIRED | reported | NO | operator export; Phase 118 not started |
+
+**PHASE117_STATUS:** `PASS`
+**ACQUISITION_STATUS:** `OPERATOR_ACTION_REQUIRED`
+**DATA_ACQUIRED:** `False`
+
+
+## Phase 118
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H118-01 | 2026-09-09 | 118 | operator export 2026-07-23..2026-09-07 | 419 | frozen Phase38/40 | PARTIAL | reported | NO | partial ingest; full horizon still missing |
+
+**HISTORY_RANGE_STATUS:** `PARTIAL`
+**TICK_EVENT_COVERAGE:** `12`
+**OUTLIER_31_84R_COVERAGE:** `False`
+**AMBIGUOUS_394_REMAINING:** `382`
+
+
+## Phase 119
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H119-01 | 2026-09-09 | 119 | missing 2023-02-26T15:40:00Z..2026-07-23T01:00:59Z | 419 | Phase116-118 | OPERATOR_CONTACT_REQUIRED | reported | NO | operator support contact |
+
+**FULL_HORIZON_SOURCE_STATUS:** `MISSING`
+**CANONICAL_SOURCE_AVAILABLE:** `False`
+**NEXT_ACTION:** `REQUEST_LITEFINANCE_XAUUSD_I_HISTORICAL_TICK_DUMP`
+
+
+## Phase 120
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H120-01 | 2026-09-10 | 120 | new export + Phase118 union | 419 | Phase118 | coverage=27 | reported | NO | REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT |
+
+**NEW_EXPORT:** `2026-05-20T01:01:00.057000Z` -> `2026-07-24T23:58:59.975000Z`
+**TICK_EVENT_COVERAGE:** `27`
+**OUTLIER_31_84R_TICK_COVERAGE:** `False`
+**NEXT_OPERATOR_EXPORT:** `2026-03-20T01:01:00.056000Z` -> `2026-05-20T01:01:00.056000Z`
+
+
+## Phase 121
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H121-01 | 2026-09-10 | 121 | new export + P118/P120 union | 419 | Phase120 | coverage=61 outlier=True | reported | NO | REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT |
+
+**NEW_EXPORT:** `2026-01-02T01:15:00.282000Z` -> `2026-05-19T23:58:59.782000Z`
+**OUTLIER_31_84R_CHRONOLOGY_STATUS:** `ADVERSE_FIRST`
+**NEXT_OPERATOR_EXPORT:** `2025-11-02T01:15:00.281000Z` -> `2026-01-02T01:15:00.281000Z`
+
+
+## Phase 122
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H122-01 | 2026-09-10 | 122 | new export + P118/P120/P121 union | 419 | Phase121 | coverage=77 outlier=True | reported | NO | REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT |
+
+**NEW_EXPORT:** `2025-11-03T01:06:00.068000Z` -> `2026-01-02T23:58:59.935000Z`
+**OUTLIER_31_84R_CHRONOLOGY_STATUS:** `ADVERSE_FIRST`
+**NEXT_OPERATOR_EXPORT:** `2025-09-03T01:06:00.067000Z` -> `2025-11-03T01:06:00.067000Z`
+
+
+## Phase 123
+
+| ID | Date | Phase | Data range | N | Baseline | Result | OOS touched | Decision from OOS | Next |
+|---|---|---|---|---|---|---|---|---|---|
+| H123-01 | 2026-09-10 | 123 | decision review | 419 | Phase40+122 | FREEZE_CURRENT_SYSTEM_AND_BUILD_RESEARCH_V2 | reported | NO | Build Research V2 event-level dataset schema + baseline harness (labels, cluster IDs, leakage-safe splits, cost/tail sensitivity) without changing production strategy/exit/RiskGate. |
+
+**EXIT_ACTION:** `FREEZE_EXIT_AND_REBUILD_ENTRY`
+**ML_READINESS:** `NOT_READY`
+**NEW_TICK_EXPORT_REQUIRED:** `FALSE`

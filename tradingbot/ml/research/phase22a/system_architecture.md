@@ -27,7 +27,12 @@ Execution Layer (Mt5ExecutionAdapter → order_send)
 | Zone | Path | Role |
 |------|------|------|
 | **Kernel (production)** | `tradingbot/kernel/` | Single orchestrator |
-| **Pipeline (production)** | `tradingbot/pipeline/` | 5-stage cycle |
+| **Pipeline (production)** | `tradingbot/pipeline/` | **6-stage** cycle (Data→Indicator→Signal→**SignalFilter**→Risk→Execution); SignalFilter default OFF |
+
+> **Reconciliation note (2026-09-10):** This Phase 22A audit originally said "5-stage". Current
+> `tradingbot/kernel/trading_kernel.py` registers six stages including `SignalFilterStage`.
+> Default live TIMEFRAMES are forced to `["5m"]` by `get_live_config()` when the multi-engine
+> router (default on) is enabled — not concurrent M5/M15/H4 every cycle.
 | **Adapters (production)** | `tradingbot/adapters/` | MT5, risk, legacy bridge |
 | **Application (production)** | `tradingbot/application/` | LiveRunner, bootstrap |
 | **ML integration (production)** | `tradingbot/ml/integration/` | KernelAdapter, factory, cache |

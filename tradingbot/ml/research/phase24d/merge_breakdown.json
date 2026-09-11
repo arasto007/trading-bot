@@ -8,11 +8,11 @@
       "type": "dataframe_creation",
       "stats": {
         "count": 25,
-        "mean_ms": 18.5236,
-        "median_ms": 18.3465,
-        "p95_ms": 18.7334,
-        "p99_ms": 20.6621,
-        "max_ms": 21.8595
+        "mean_ms": 18.6912,
+        "median_ms": 18.2768,
+        "p95_ms": 20.6836,
+        "p99_ms": 22.2585,
+        "max_ms": 23.7328
       }
     },
     {
@@ -20,11 +20,11 @@
       "type": "copy",
       "stats": {
         "count": 25,
-        "mean_ms": 0.1642,
-        "median_ms": 0.1622,
-        "p95_ms": 0.1764,
-        "p99_ms": 0.1906,
-        "max_ms": 0.2042
+        "mean_ms": 0.1647,
+        "median_ms": 0.1609,
+        "p95_ms": 0.1676,
+        "p99_ms": 0.1838,
+        "max_ms": 0.2566
       }
     },
     {
@@ -32,11 +32,11 @@
       "type": "feature_extraction",
       "stats": {
         "count": 25,
-        "mean_ms": 14.7811,
-        "median_ms": 14.4133,
-        "p95_ms": 14.6836,
-        "p99_ms": 17.4148,
-        "max_ms": 20.5665
+        "mean_ms": 14.8609,
+        "median_ms": 14.6039,
+        "p95_ms": 15.4439,
+        "p99_ms": 15.7195,
+        "max_ms": 22.6711
       }
     },
     {
@@ -44,11 +44,11 @@
       "type": "join",
       "stats": {
         "count": 25,
-        "mean_ms": 30.6049,
-        "median_ms": 29.9196,
-        "p95_ms": 30.4353,
-        "p99_ms": 33.1436,
-        "max_ms": 44.255
+        "mean_ms": 30.2024,
+        "median_ms": 29.7628,
+        "p95_ms": 30.7733,
+        "p99_ms": 30.8423,
+        "max_ms": 40.3384
       }
     },
     {
@@ -56,11 +56,11 @@
       "type": "copy+rename",
       "stats": {
         "count": 25,
-        "mean_ms": 12.0288,
-        "median_ms": 6.1389,
-        "p95_ms": 6.6923,
-        "p99_ms": 6.9366,
-        "max_ms": 152.714
+        "mean_ms": 6.6099,
+        "median_ms": 6.2283,
+        "p95_ms": 7.1475,
+        "p99_ms": 10.2111,
+        "max_ms": 10.3328
       }
     },
     {
@@ -68,11 +68,11 @@
       "type": "merge",
       "stats": {
         "count": 25,
-        "mean_ms": 1.9999,
-        "median_ms": 1.9674,
-        "p95_ms": 2.2006,
-        "p99_ms": 2.2163,
-        "max_ms": 2.2456
+        "mean_ms": 2.0982,
+        "median_ms": 1.993,
+        "p95_ms": 2.2199,
+        "p99_ms": 3.0105,
+        "max_ms": 3.2695
       }
     },
     {
@@ -80,11 +80,11 @@
       "type": "feature_alignment",
       "stats": {
         "count": 25,
-        "mean_ms": 3.0032,
-        "median_ms": 3.1735,
-        "p95_ms": 3.2409,
-        "p99_ms": 3.3475,
-        "max_ms": 3.9187
+        "mean_ms": 2.9538,
+        "median_ms": 3.1007,
+        "p95_ms": 3.3264,
+        "p99_ms": 3.3442,
+        "max_ms": 3.7581
       }
     },
     {
@@ -92,11 +92,11 @@
       "type": "sort+indexing",
       "stats": {
         "count": 25,
-        "mean_ms": 0.4453,
-        "median_ms": 0.4274,
-        "p95_ms": 0.4746,
-        "p99_ms": 0.503,
-        "max_ms": 0.7081
+        "mean_ms": 0.4348,
+        "median_ms": 0.4227,
+        "p95_ms": 0.4858,
+        "p99_ms": 0.5122,
+        "max_ms": 0.547
       }
     },
     {
@@ -104,11 +104,11 @@
       "type": "feature_extraction",
       "stats": {
         "count": 25,
-        "mean_ms": 5.4561,
-        "median_ms": 5.4769,
-        "p95_ms": 5.6871,
-        "p99_ms": 5.736,
-        "max_ms": 8.5418
+        "mean_ms": 5.2642,
+        "median_ms": 5.3155,
+        "p95_ms": 5.5285,
+        "p99_ms": 5.652,
+        "max_ms": 6.964
       }
     },
     {
@@ -116,71 +116,71 @@
       "type": "copy",
       "stats": {
         "count": 25,
-        "mean_ms": 0.0977,
-        "median_ms": 0.0919,
-        "p95_ms": 0.1001,
-        "p99_ms": 0.16,
-        "max_ms": 0.1606
+        "mean_ms": 0.0973,
+        "median_ms": 0.0938,
+        "p95_ms": 0.102,
+        "p99_ms": 0.1162,
+        "max_ms": 0.1831
       }
     }
   ],
   "ranked_by_p95": [
     {
       "op": "build_unified_frame_reference_total",
-      "p95_ms": 43.8535
+      "p95_ms": 52.0292
     },
     {
       "op": "regime_column_merge_loop_total",
-      "p95_ms": 30.4353
+      "p95_ms": 30.7733
     },
     {
       "op": "build_ml_features",
-      "p95_ms": 18.7334
+      "p95_ms": 20.6836
     },
     {
       "op": "compute_regime_features_from_candles",
-      "p95_ms": 14.6836
+      "p95_ms": 15.4439
     },
     {
       "op": "dataset_slice_copy_rename",
-      "p95_ms": 6.6923
+      "p95_ms": 7.1475
     },
     {
       "op": "attach_top5_features",
-      "p95_ms": 5.6871
+      "p95_ms": 5.5285
     },
     {
       "op": "attach_regime_labels",
-      "p95_ms": 3.2409
+      "p95_ms": 3.3264
     },
     {
       "op": "regime_column_merge_per_column_avg",
-      "p95_ms": 2.5363
+      "p95_ms": 2.5644
     },
     {
       "op": "dataset_merge_on_timestamp",
-      "p95_ms": 2.2006
+      "p95_ms": 2.2199
     },
     {
       "op": "sort_reset_index",
-      "p95_ms": 0.4746
+      "p95_ms": 0.4858
     },
     {
       "op": "regime_timestamp_convert",
-      "p95_ms": 0.337
+      "p95_ms": 0.3905
     },
     {
       "op": "base_timestamp_convert",
-      "p95_ms": 0.3364
+      "p95_ms": 0.3599
     },
     {
       "op": "base_copy",
-      "p95_ms": 0.1764
+      "p95_ms": 0.1676
     },
     {
       "op": "candles_tail_copy",
-      "p95_ms": 0.1001
+      "p95_ms": 0.102
     }
   ],
-  "generated_utc": "2026-08-29T02:21:01.981520+00:00"
+  "generated_utc": "2026-09-10T07:21:40.875169+00:00"
 }

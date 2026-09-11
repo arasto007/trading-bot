@@ -1,8 +1,8 @@
 # Phase 27 — Broker Reality + EV-EQ-01 + Cost Evidence Foundation
 
 **Status:** PASS_WITH_DEFERRAL  
-**Generated:** 2026-09-06T06:31:22Z  
-**Commit:** 53819022951456dab228b22480052ef213019ec3  
+**Generated:** 2026-09-10T07:31:27Z  
+**Commit:** 4bdc0f6f1156da997bd470bca723fcd40d28c099  
 **Artifact:** `logs/phase27_broker_reality_audit.json`
 
 ---

@@ -25,7 +25,7 @@ If this session is DEMO, it is recorded as DEMO and Real collection stops.
 
 ## Catalog (read-only `symbols_get`)
 
-Exact matches: `{'XAUUSD_i': 'YES', 'XAUUSD': 'NO'}`. Total symbols: `374`.
+Exact matches: `{'XAUUSD_i': 'YES', 'XAUUSD': 'NO'}`. Total symbols: `375`.
 
 ## Symbol snapshots
 
@@ -33,7 +33,7 @@ Unavailable fields are **UNKNOWN**. Equivalence is not inferred.
 
 | Symbol | exists | visible | digits | point | contract | swap L/S/3d | bid/ask | UTC |
 |---|---|---|---|---|---|---|---|---|
-| `XAUUSD_i` | YES | YES | 2 | 0.01 | 100.0 | -89.136 / 3.45 / 3 | 4430.13 / 4430.31 | 2026-09-04T23:58:56Z |
+| `XAUUSD_i` | YES | YES | 2 | 0.01 | 100.0 | -89.136 / 3.45 / 3 | 4407.86 / 4408.27 | 2026-09-10T10:31:29Z |
 | `XAUUSD` | NO | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN | UNKNOWN / UNKNOWN / UNKNOWN | UNKNOWN / UNKNOWN | UNKNOWN |
 
 ## EV-EQ-01

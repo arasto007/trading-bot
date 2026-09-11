@@ -1,6 +1,8 @@
 # Known Unknowns and Contradictions
 
 **Status:** Phase 27 baseline  
+**Last verified:** 2026-09-09  
+**Epistemic-Role:** OWNER of UNKNOWNS_CONTRADICTIONS. Explicit registry of unresolved contradictions — never silently reconciled.  
 **Epistemic role:** Explicit registry of unresolved contradictions — never silently reconciled.
 
 Classification: **PROVEN** / **CONFIGURED** / **SUPPORTED** / **UNKNOWN** / **DEFERRED** / **BLOCKED** / **SUPERSEDED**
@@ -64,7 +66,7 @@ Mode name `london_sweep` vs NY-session preset reality — **OPEN** (documented; 
 Backtest defaults (M1 / 1% risk / uncosted) vs live — **PARTIALLY RESOLVED** (Phase 25B: M5 + 0.005 risk aligned; costs still uncosted).
 
 ### CX-003
-USER-PROVIDED Demo=`XAUUSD_i` / Real=`XAUUSD` mapping vs observed terminals (both lack bare `XAUUSD`) — **OPEN**; economics **UNKNOWN** without fresh Real evidence. Phase 27.8 locks canonical symbol POLICY as `XAUUSD_i` but does **not** resolve this contradiction or EV-EQ-01.
+**Naming (USER-PROVIDED FACT):** Demo=`XAUUSD_i` / Real=`XAUUSD`. This naming difference is **not** an automatic identity contradiction. **Economics: OPEN** (contract/economic equivalence **UNKNOWN** / NOT PROVEN — EV-EQ-01). Mapping vs observed terminals (both lack bare `XAUUSD`) — **OPEN**; economics **UNKNOWN** without fresh Real evidence. Phase 27.8 locks canonical symbol POLICY as `XAUUSD_i` but does **not** resolve this contradiction or EV-EQ-01.
 
 ### CX-004
 Historical `docs/` Adaptive-as-default vs current PA lock — **OPEN** (ignore historical for live).
@@ -138,9 +140,11 @@ Silent broker-symbol fallback vs explicit DEMO/REAL names — **SUPERSEDED** by 
 **Phase 27.24 execution/cost forensics:** `logs/phase27_24_execution_cost_forensics.json` — swap BROKER_RATE_ONLY; realized slippage UNKNOWN unless genuine requested/fill pairs exist; execution not SimulatedBroker  
 **Phase 27.25 canonical bid/ask coverage:** `logs/phase27_25_canonical_bidask_coverage.json` — classification `PARTIAL_CANONICAL_COVERAGE`; production parquet unchanged; C full coverage BLOCKED  
 **Phase 27.26 canonical bid/ask coverage:** `logs/phase27_26_canonical_bidask_coverage.json` — `PARTIAL_CANONICAL_COVERAGE`; historical_spread `PARTIAL`; production parquet unchanged  
+**Phase 27.27 dataset symbol binding:** `logs/phase27_27_dataset_symbol_binding.json` — `12` DIRECT_CANONICAL_MATCH; `30` MISSING_EXPLICIT_MAP; `0` EXPLICIT_MAPPED; `1` UNKNOWN_PROVENANCE; 0 maps inserted; EV-EQ-01 NOT_PROVEN  
 **Phase 27.27 dataset symbol binding:** `logs/phase27_27_dataset_symbol_binding.json` — `6` DIRECT_CANONICAL_MATCH; `30` MISSING_EXPLICIT_MAP; `0` EXPLICIT_MAPPED; `1` UNKNOWN_PROVENANCE; 0 maps inserted; EV-EQ-01 NOT_PROVEN  
 **Phase 27.27 dataset symbol binding:** `logs/phase27_27_dataset_symbol_binding.json` — `2` DIRECT_CANONICAL_MATCH; `30` MISSING_EXPLICIT_MAP; `0` EXPLICIT_MAPPED; `1` UNKNOWN_PROVENANCE; 0 maps inserted; EV-EQ-01 NOT_PROVEN  
 **Phase 27.28 commission evidence:** `logs/phase27_28_commission_evidence.json` — grade `OBSERVED_ZERO_NOT_PROVEN`; final `OBSERVED_ZERO_NOT_PROVEN`; account_product_type UNKNOWN; VERIFIED_SCHEDULE not satisfied  
+**Phase 27.29 swap evidence:** `logs/phase27_29_swap_evidence.json` — grade `REALIZED_ZERO_NOT_PROVEN`; historical series UNKNOWN; current broker rates ≠ historical  
 **Phase 27.29 swap evidence:** `logs/phase27_29_swap_evidence.json` — grade `CURRENT_BROKER_RATE_ONLY`; historical series UNKNOWN; current broker rates ≠ historical  
 **Phase 27.30 slippage evidence:** `logs/phase27_30_slippage_evidence.json` — grade `REALIZED_UNKNOWN_NOT_IDENTIFIABLE`; genuine pairs `0`; MODELED_PROXY ≠ REALIZED  
 **Phase 27.31 execution evidence:** `logs/phase27_31_execution_evidence.json` — grade `DEAL_FILL_TAPE_ONLY`; classification `UNKNOWN`; fill tape ≠ lifecycle; SimulatedBroker ≠ realized  
@@ -280,8 +284,8 @@ Silent broker-symbol fallback vs explicit DEMO/REAL names — **SUPERSEDED** by 
 
 | Claim | Status |
 |---|---|
-| Phase 37 status | **BLOCKED** |
-| Terminal | **BLOCKED** |
+| Phase 37 status | **PASS** |
+| Terminal | **ATTACHED** |
 | Frozen Phase 28/30 M5 overwritten | **NO** |
 | Silent XAUUSD→XAUUSD_i map | **NO** |
 | MT5 started by this phase | **NO** |
@@ -312,7 +316,7 @@ Silent broker-symbol fallback vs explicit DEMO/REAL names — **SUPERSEDED** by 
 | Silent XAUUSD map | **NO** |
 | cost_ready_for_validation | **FALSE** |
 | Profitability verdict | **NOT ISSUED** |
-| Phase 40 started | **YES** |
+| Phase 40 started | **NO** |
 
 ## Full-horizon unchanged strategy validation (Phase 40)
 
@@ -563,4 +567,172 @@ Silent broker-symbol fallback vs explicit DEMO/REAL names — **SUPERSEDED** by 
 | MT5 used | **NO** |
 | ENV read | **NO** |
 | FINAL_GATE | **GO_RESEARCH** |
-| Phase 115 started | **NO** |
+| Phase 115 started | **YES** |
+
+## Non-OHLC data acquisition (Phase 115)
+
+| Claim | Status |
+|---|---|
+| PHASE115_STATUS | **PASS** |
+| ACQUISITION_STATUS | **LOCAL_SIDECARS_ONLY** |
+| INGESTION_STATUS | **COMPLETE_FOR_AVAILABLE_SOURCES** |
+| DATA_QUALITY_STATUS | **PARTIAL** |
+| PHASE116_READY | **False** |
+| TICK_STATUS | **TICK_DATA_PARTIAL** |
+| Canonical symbol | **XAUUSD_i** (XAUUSD not a substitute) |
+| EV-EQ-01 | **NOT_PROVEN** |
+| Intervention implemented | **NO** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| FINAL_GATE | **GO_RESEARCH** |
+| Phase 116 started | **YES** |
+
+## Non-OHLC source research (Phase 116)
+
+| Claim | Status |
+|---|---|
+| PHASE116_STATUS | **PASS** |
+| SOURCE_RESEARCH_STATUS | **COMPLETE** |
+| ACQUISITION_PATH_STATUS | **READY_WITH_OPERATOR_ACTION** |
+| DATA_ACQUIRED | **NO** |
+| Canonical symbol | **XAUUSD_i** (XAUUSD not a substitute) |
+| EV-EQ-01 | **NOT_PROVEN** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| FINAL_GATE | **GO_RESEARCH** |
+| Phase 117 started | **YES** |
+
+## Operator source resolution (Phase 117)
+
+| Claim | Status |
+|---|---|
+| PHASE117_STATUS | **PASS** |
+| ACQUISITION_STATUS | **OPERATOR_ACTION_REQUIRED** |
+| DATA_ACQUIRED | **NO** |
+| EXPORT_STATUS | **MISSING** |
+| RAW_INTEGRITY_STATUS | **MISSING** |
+| Canonical symbol | **XAUUSD_i** (XAUUSD not a substitute) |
+| EV-EQ-01 | **NOT_PROVEN** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| FINAL_GATE | **GO_RESEARCH** |
+| Phase 117 started | **YES** |
+| Phase 118 started | **YES** |
+
+## Tick forensic validation (Phase 118)
+
+| Claim | Status |
+|---|---|
+| PHASE118_STATUS | **PASS** |
+| RAW_FILE_PRESENT | **YES** |
+| SOURCE_IDENTITY_STATUS | **VERIFIED** |
+| HISTORY_RANGE_STATUS | **PARTIAL** |
+| TICK_EVENT_COVERAGE | **12** |
+| AMBIGUOUS_394_RESOLVED | **12** |
+| AMBIGUOUS_394_REMAINING | **382** |
+| OUTLIER_31_84R_COVERAGE | **False** |
+| OUTLIER_31_84R_CHRONOLOGY_STATUS | **DATA_INSUFFICIENT** |
+| C_D_E_F_STATUS | **PARTIAL_LATE_2026_WINDOW_ONLY** |
+| DATA_ACQUIRED | **YES** |
+| Canonical symbol | **XAUUSD_i** |
+| EV-EQ-01 | **NOT_PROVEN** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| Phase 119 started | **YES** |
+
+## Historical tick recovery (Phase 119)
+
+| Claim | Status |
+|---|---|
+| PHASE119_STATUS | **PASS** |
+| SOURCE_RESEARCH_STATUS | **COMPLETE** |
+| CANONICAL_SOURCE_AVAILABLE | **False** |
+| FULL_HORIZON_SOURCE_STATUS | **MISSING** |
+| OUTLIER_31_84R_COVERAGE | **False** |
+| ACQUISITION_STATUS | **OPERATOR_CONTACT_REQUIRED** |
+| DATA_ACQUIRED | **NO** |
+| NEXT_ACTION | **REQUEST_LITEFINANCE_XAUUSD_I_HISTORICAL_TICK_DUMP** |
+| Canonical symbol | **XAUUSD_i** |
+| EV-EQ-01 | **NOT_PROVEN** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| Phase 120 started | **YES** |
+
+## Tick export verification (Phase 120)
+
+| Claim | Status |
+|---|---|
+| PHASE120_STATUS | **PASS** |
+| NEW_EXPORT_FIRST_TICK | **2026-05-20T01:01:00.057000Z** |
+| NEW_EXPORT_LAST_TICK | **2026-07-24T23:58:59.975000Z** |
+| TICK_EVENT_COVERAGE | **27** |
+| AMBIGUOUS_394_RESOLVED_TOTAL | **26** |
+| AMBIGUOUS_394_REMAINING | **368** |
+| OUTLIER_31_84R_TICK_COVERAGE | **False** |
+| FULL_HORIZON_SOURCE_STATUS | **PARTIAL** |
+| NEXT_ACTION | **REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT** |
+| Canonical symbol | **XAUUSD_i** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| Phase 121 started | **YES** |
+
+## Tick export verification (Phase 121)
+
+| Claim | Status |
+|---|---|
+| PHASE121_STATUS | **PASS** |
+| NEW_EXPORT_FIRST_TICK | **2026-01-02T01:15:00.282000Z** |
+| NEW_EXPORT_LAST_TICK | **2026-05-19T23:58:59.782000Z** |
+| TICK_EVENT_COVERAGE | **61** |
+| AMBIGUOUS_394_RESOLVED_TOTAL | **58** |
+| AMBIGUOUS_394_REMAINING | **336** |
+| OUTLIER_31_84R_TICK_COVERAGE | **True** |
+| OUTLIER_31_84R_CHRONOLOGY_STATUS | **ADVERSE_FIRST** |
+| FULL_HORIZON_SOURCE_STATUS | **PARTIAL** |
+| NEXT_ACTION | **REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT** |
+| Canonical symbol | **XAUUSD_i** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| Phase 122 started | **YES** |
+
+## Tick export verification (Phase 122)
+
+| Claim | Status |
+|---|---|
+| PHASE122_STATUS | **PASS** |
+| NEW_EXPORT_FIRST_TICK | **2025-11-03T01:06:00.068000Z** |
+| NEW_EXPORT_LAST_TICK | **2026-01-02T23:58:59.935000Z** |
+| TICK_EVENT_COVERAGE | **77** |
+| AMBIGUOUS_394_RESOLVED_TOTAL | **72** |
+| AMBIGUOUS_394_REMAINING | **322** |
+| OUTLIER_31_84R_TICK_COVERAGE | **True** |
+| OUTLIER_31_84R_CHRONOLOGY_STATUS | **ADVERSE_FIRST** |
+| FULL_HORIZON_SOURCE_STATUS | **PARTIAL** |
+| NEXT_ACTION | **REQUEST_NEXT_SMALL_BACKWARD_XAUUSD_I_EXPORT** |
+| Canonical symbol | **XAUUSD_i** |
+| MT5 used | **NO** |
+| ENV read | **NO** |
+| Exit design implemented | **NO** |
+| Phase 123 started | **YES** |
+
+## Engineering decision review (Phase 123)
+
+| Claim | Status |
+|---|---|
+| PHASE123_STATUS | **PASS** |
+| PRIMARY_RECOMMENDATION | **FREEZE_CURRENT_SYSTEM_AND_BUILD_RESEARCH_V2** |
+| PRIMARY_ENGINEERING_TARGET | **EVENT_LEVEL_RESEARCH_FOUNDATION** |
+| EXIT_ACTION | **FREEZE_EXIT_AND_REBUILD_ENTRY** |
+| TAIL_POLICY | **PRESERVE** |
+| ML_READINESS | **NOT_READY** |
+| CANONICAL_RESEARCH_UNIT | **LIFECYCLE_EVENT** |
+| NEW_TICK_EXPORT_REQUIRED | **FALSE** |
+| PRODUCTION_CHANGE_ALLOWED | **FALSE** |
+| Phase 124 started | **NO** |

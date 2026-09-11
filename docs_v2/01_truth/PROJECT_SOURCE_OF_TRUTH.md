@@ -115,6 +115,24 @@ Phases 106–113 (`docs/PHASE106_NON_OHLC_DATA_INVENTORY.md` through `docs/PHASE
 
 Phase 114 (`docs/PHASE114_NON_OHLC_ACQUISITION_CONTRACT.md`) is a research-only acquisition contract. It does not download data, connect to MT5, read .env, modify production, or implement an exit spec.
 
+Phase 115 (`docs/PHASE115_NON_OHLC_DATA_ACQUISITION.md`) is research-only local XAUUSD_i ingest. It does not connect to MT5, read .env, synthesize ticks, modify production, or implement an exit spec. Phase 116 is source-planning only; data was not downloaded.
+
+Phase 116 (`docs/PHASE116_DATA_SOURCE_RESEARCH.md`) is research-only source planning for full-horizon XAUUSD_i ticks. It does not download data, connect to MT5, read .env, modify production, or claim Phase 117 acquisition without an operator export.
+
+Phase 117 (`docs/PHASE117_OPERATOR_SOURCE_RESOLUTION.md`) is research-only operator source resolution for full-horizon XAUUSD_i ticks. It does not connect to MT5, read .env, download remotely, modify production, implement an exit spec, or start Phase 118.
+
+Phase 118 (`docs/PHASE118_TICK_FORENSIC_VALIDATION.md`) is research-only ingestion and forensic validation of the operator-supplied LiteFinance XAUUSD_i tick export. It does not connect to MT5, read .env, modify production, design exits, or start Phase 119. DATA_ACQUIRED=True; HISTORY_RANGE_STATUS=PARTIAL.
+
+Phase 119 (`docs/PHASE119_HISTORICAL_TICK_RECOVERY.md`) is research-only source resolution for missing pre-2026-07-23 LiteFinance XAUUSD_i ticks. It does not connect to MT5, read .env, download remote data, modify production, design exits, or start Phase 120. CANONICAL_SOURCE_AVAILABLE=False; DATA_ACQUIRED=False.
+
+Phase 120 (`docs/PHASE120_TICK_EXPORT_VERIFICATION.md`) verifies newly supplied operator LiteFinance XAUUSD_i tick exports and measures union coverage with Phase 118. It does not connect to MT5, read .env, modify raw exports, alter production, design exits, or start Phase 121. TICK_EVENT_COVERAGE=27; OUTLIER_COVERED=False.
+
+Phase 121 (`docs/PHASE121_TICK_EXPORT_VERIFICATION.md`) verifies newly supplied operator LiteFinance XAUUSD_i tick exports (Jan-2026 window), unions with Phase118/120, and tests +31.84R tick coverage. No MT5, no .env, raw untouched, no production changes, Phase 122 not started. TICK_EVENT_COVERAGE=61; OUTLIER_COVERED=True.
+
+Phase 122 (`docs/PHASE122_TICK_EXPORT_VERIFICATION.md`) verifies newly supplied operator LiteFinance XAUUSD_i tick exports (Jan-2026 window), unions with Phase118/120, and tests +31.84R tick coverage. No MT5, no .env, raw untouched, no production changes, Phase 123 not started. TICK_EVENT_COVERAGE=77; OUTLIER_COVERED=True.
+
+Phase 123 (`docs/PHASE123_ENGINEERING_DECISION_REVIEW.md`) freezes the tick-export campaign and records the engineering decision: FREEZE_CURRENT_SYSTEM_AND_BUILD_RESEARCH_V2 (event-level foundation before ML/exit redesign). No MT5, no .env, no production changes, no new tick request, Phase 124 not auto-started.
+
 ## 6. Active strategies
 
 Only `ACTIVE_STRATEGIES["priceaction"] = True` (`tradingbot/config/strategies.py`). Fourteen other named strategies are **false**.

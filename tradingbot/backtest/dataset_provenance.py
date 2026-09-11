@@ -661,18 +661,104 @@ def deploy_defensible_sidecars(
     }
 
 
+def _parse_parquet_time_bounds(path: Path) -> tuple[pd.Timestamp | None, pd.Timestamp | None]:
+    """Best-effort UTC bounds from DatetimeIndex or time/time_msc columns."""
+    try:
+        df = pd.read_parquet(path)
+    except Exception:
+        return None, None
+    if df.empty:
+        return None, None
+    if isinstance(df.index, pd.DatetimeIndex):
+        start = pd.Timestamp(df.index.min())
+        end = pd.Timestamp(df.index.max())
+    elif "time_msc" in {str(c).lower() for c in df.columns}:
+        col = next(c for c in df.columns if str(c).lower() == "time_msc")
+        start = pd.to_datetime(df[col].iloc[0], unit="ms", utc=True)
+        end = pd.to_datetime(df[col].iloc[-1], unit="ms", utc=True)
+    elif "time" in {str(c).lower() for c in df.columns}:
+        col = next(c for c in df.columns if str(c).lower() == "time")
+        series = df[col]
+        # epoch seconds vs already-datetime
+        if pd.api.types.is_numeric_dtype(series):
+            start = pd.to_datetime(series.iloc[0], unit="s", utc=True)
+            end = pd.to_datetime(series.iloc[-1], unit="s", utc=True)
+        else:
+            start = pd.to_datetime(series.iloc[0], utc=True)
+            end = pd.to_datetime(series.iloc[-1], utc=True)
+    else:
+        return None, None
+    if start.tzinfo is None:
+        start = start.tz_localize("UTC")
+    else:
+        start = start.tz_convert("UTC")
+    if end.tzinfo is None:
+        end = end.tz_localize("UTC")
+    else:
+        end = end.tz_convert("UTC")
+    return start, end
+
+
+# Phase 114/115 acquisition window — full-horizon historical bid/ask gate.
+REQUIRED_HISTORICAL_BIDASK_START = pd.Timestamp("2023-02-26T15:40:00Z")
+REQUIRED_HISTORICAL_BIDASK_END = pd.Timestamp("2026-09-07T20:10:00Z")
+_M5_TIMEFRAMES = frozenset({"M5", "5M", "5MIN"})
+
+
+def qualifies_as_complete_historical_m5_bidask(entry: DatasetAuditEntry) -> bool:
+    """
+    True only for M5 bar tapes with bid+ask that cover the Phase 114/115 horizon.
+
+    Tick / partial / narrow-window bid+ask files may be inventoried but must NOT
+    flip historical_bid_ask_available or spread COMPLETE.
+    """
+    if not (entry.bid_present and entry.ask_present):
+        return False
+    tf = str(entry.inferred_timeframe or "").upper()
+    if tf not in _M5_TIMEFRAMES:
+        return False
+    start, end = _parse_parquet_time_bounds(Path(entry.path))
+    if start is None or end is None:
+        return False
+    return start <= REQUIRED_HISTORICAL_BIDASK_START and end >= REQUIRED_HISTORICAL_BIDASK_END
+
+
 def search_historical_bid_ask(*, base_dir: str | Path | None = None) -> dict[str, Any]:
-    """Scan local parquet datasets for bid/ask columns — no MT5."""
+    """Scan local parquet datasets for bid/ask columns — no MT5.
+
+    ``bidask_datasets`` / ``bidask_dataset_count`` list any file with bid+ask columns.
+    ``historical_bid_ask_available`` is True only when at least one file qualifies as
+    full-horizon M5 historical bid/ask (Phase 114/115 window). Partial tick sidecars
+    do not satisfy the gate.
+    """
     entries = audit_backtest_datasets(base_dir=base_dir)
     bidask: list[dict[str, Any]] = []
+    qualifying: list[dict[str, Any]] = []
     for e in entries:
-        if e.bid_present and e.ask_present:
-            bidask.append({"filename": e.filename, "path": e.path, "rows": e.row_count})
+        if not (e.bid_present and e.ask_present):
+            continue
+        row = {
+            "filename": e.filename,
+            "path": e.path,
+            "rows": e.row_count,
+            "inferred_timeframe": e.inferred_timeframe,
+            "qualifies_full_horizon_m5": False,
+        }
+        if qualifies_as_complete_historical_m5_bidask(e):
+            row["qualifies_full_horizon_m5"] = True
+            qualifying.append(row)
+        bidask.append(row)
     return {
-        "historical_bid_ask_available": bool(bidask),
+        "historical_bid_ask_available": bool(qualifying),
         "dataset_count": len(entries),
         "bidask_dataset_count": len(bidask),
         "bidask_datasets": bidask,
+        "full_horizon_m5_bidask_count": len(qualifying),
+        "required_horizon": {
+            "start": REQUIRED_HISTORICAL_BIDASK_START.isoformat(),
+            "end": REQUIRED_HISTORICAL_BIDASK_END.isoformat(),
+            "source": "phase114/phase115 ACQ_START_ISO/ACQ_END_ISO",
+        },
     }
 
 

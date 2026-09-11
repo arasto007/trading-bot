@@ -12,7 +12,7 @@
 - **فقط XAUUSD_i** روی مسیر live فعلی — تایم‌فریم کرنل **M5 (`5m`) فقط** وقتی router روشن است (`get_live_config()` → `TIMEFRAMES=["5m"]`).
 - توصیف قدیمی «M5 / M15 / H4 همزمان در هر چرخه» **تاریخی/stale** است و مسیر live پیش‌فرض فعلی را توصیف نمی‌کند.
 - پریست per-TF: `config/pa_symbol_tf_presets.py`
-- هسته: `TradingKernel` + pipeline ۵ مرحله
+- هسته: `TradingKernel` + pipeline **۶ مرحله** (Data → Indicator → Signal → **SignalFilter** → Risk → Execution؛ `SignalFilterStage` به‌صورت پیش‌فرض OFF/pass-through مگر `TRADINGBOT_SIGNAL_FILTER=WPSQF`) *(به‌روزرسانی شده — وضعیت واقعی کد در تاریخ 2026-09-10)*
 - **سه حالت اجرا**: dry-run / paper / live (`services/execution_mode.py`)
 - **Watchdog**: `scripts/run_live_watchdog.py` — ری‌استارت خودکار ۵ دقیقه
 - مدیریت پوزیشن هسته‌محور: trailing / partial TP (فقط M15) / emergency
@@ -80,6 +80,6 @@ python scripts/run_backtest.py --symbol XAUUSD --tf M15 --days 30
 
 چند symbol، چند استراتژی (priceaction، hedging، ML، …)، DataPipeline، Dashboard قدیم.
 
-در نسخه جدید فقط **XAUUSD + Price Action + M5/M15/H4** فعال است.
+در نسخه جدید فقط **XAUUSD + Price Action** فعال است؛ پریست‌های per-TF برای M5/M15/H4 وجود دارند، ولی چرخهٔ live پیش‌فرض کرنل با router روشن **فقط M5** است (`get_live_config()`).
 
 </details>

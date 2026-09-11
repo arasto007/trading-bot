@@ -1,0 +1,240 @@
+[
+  {
+    "nodeid": "tests/test_documentation_memory_hardening_v2.py::test_owner_docs_have_epistemic_role",
+    "classname": "tests.test_documentation_memory_hardening_v2",
+    "name": "test_owner_docs_have_epistemic_role",
+    "message": "AssertionError: docs_v2/01_truth/CURRENT_RUNTIME_STATE.md\nassert 'Epistemic-Role:' in ''",
+    "traceback_tail": "E   AssertionError: docs_v2/01_truth/CURRENT_RUNTIME_STATE.md\n    assert 'Epistemic-Role:' in ''"
+  },
+  {
+    "nodeid": "tests/test_documentation_verification.py::test_documentation_verification_gate",
+    "classname": "tests.test_documentation_verification",
+    "name": "test_documentation_verification_gate",
+    "message": "AssertionError: ['derived_labels', 'freshness_baseline', 'operator_state_separated']\nassert ['derived_lab...te_separated'] == []\n  \n  Left contains 3 more items, first extra item: 'derived_labels'\n  Use -v to get more diff",
+    "traceback_tail": "E   AssertionError: ['derived_labels', 'freshness_baseline', 'operator_state_separated']\n    assert ['derived_lab...te_separated'] == []\n      \n      Left contains 3 more items, first extra item: 'derived_labels'\n      Use -v to get more diff"
+  },
+  {
+    "nodeid": "tests/test_ml_base_dir.py::TestNormalizeMlBaseDir::test_build_strategy_registry_with_legacy_base_dir",
+    "classname": "tests.test_ml_base_dir.TestNormalizeMlBaseDir",
+    "name": "test_build_strategy_registry_with_legacy_base_dir",
+    "message": "AssertionError: <tradingbot.adapters.multi_engine_router.MultiEngineRouterRegistry object at 0x000001BD5652AE10> is not an instance of <class 'tradingbot.ml.integration.ml_kernel_registry.MLKernelRegistry'>",
+    "traceback_tail": "E   AssertionError: <tradingbot.adapters.multi_engine_router.MultiEngineRouterRegistry object at 0x000001BD5652AE10> is not an instance of <class 'tradingbot.ml.integration.ml_kernel_registry.MLKernelRegistry'>"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_generate_signal_returns_trading_signal_or_none",
+    "classname": "tests.test_phase15b_kernel_integration.TestKernelAdapter",
+    "name": "test_generate_signal_returns_trading_signal_or_none",
+    "message": "tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:672.3ms",
+    "traceback_tail": "E   tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:672.3ms"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_prediction_cache_hit",
+    "classname": "tests.test_phase15b_kernel_integration.TestKernelAdapter",
+    "name": "test_prediction_cache_hit",
+    "message": "tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:684.4ms",
+    "traceback_tail": "E   tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:684.4ms"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestKernelAdapter::test_produce_unified_signal",
+    "classname": "tests.test_phase15b_kernel_integration.TestKernelAdapter",
+    "name": "test_produce_unified_signal",
+    "message": "tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:680.8ms",
+    "traceback_tail": "E   tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:680.8ms"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestLatency::test_adapter_latency_under_budget_cached",
+    "classname": "tests.test_phase15b_kernel_integration.TestLatency",
+    "name": "test_adapter_latency_under_budget_cached",
+    "message": "tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:683.2ms",
+    "traceback_tail": "E   tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:683.2ms"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestUnifiedSignalIntegration::test_unified_validate_after_adapter",
+    "classname": "tests.test_phase15b_kernel_integration.TestUnifiedSignalIntegration",
+    "name": "test_unified_validate_after_adapter",
+    "message": "tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:755.8ms",
+    "traceback_tail": "E   tradingbot.ml.integration.health_gate.KernelFallbackError: pipeline_timeout:755.8ms"
+  },
+  {
+    "nodeid": "tests/test_phase15b_kernel_integration.py::TestExtraCoverage::test_registry_ml_success_count",
+    "classname": "tests.test_phase15b_kernel_integration.TestExtraCoverage",
+    "name": "test_registry_ml_success_count",
+    "message": "AssertionError: 0 not greater than or equal to 1",
+    "traceback_tail": "E   AssertionError: 0 not greater than or equal to 1"
+  },
+  {
+    "nodeid": "tests/test_phase25e_sidecar_bidask.py::TestHistoricalBidAskSearch::test_repo_search",
+    "classname": "tests.test_phase25e_sidecar_bidask.TestHistoricalBidAskSearch",
+    "name": "test_repo_search",
+    "message": "AssertionError: 1 != 0",
+    "traceback_tail": "E   AssertionError: 1 != 0"
+  },
+  {
+    "nodeid": "tests/test_phase26o_legacy_docs_truth_sweep.py::TestPhase26OArtifact::test_no_proven_xauusd_equivalence_claims",
+    "classname": "tests.test_phase26o_legacy_docs_truth_sweep.TestPhase26OArtifact",
+    "name": "test_no_proven_xauusd_equivalence_claims",
+    "message": "AssertionError: Lists differ: [{'file': 'docs/PHASE106_NON_OHLC_DATA_INV[1057 chars]i.'}] != []\n\nFirst list contains 6 additional elements.\nFirst extra element 0:\n{'file': 'docs/PHASE106_NON_OHLC_DATA_INVENTORY.md', 'line': '29', 'text': 'Logical `XAUUSD` files are not treated as canonical (EV-EQ-01 NOT_PROVEN).'}\n\nDiff is 1280 characters long. Set self.maxDiff to None to see it.",
+    "traceback_tail": "E   AssertionError: Lists differ: [{'file': 'docs/PHASE106_NON_OHLC_DATA_INV[1057 chars]i.'}] != []\n    \n    First list contains 6 additional elements.\n    First extra element 0:\n    {'file': 'docs/PHASE106_NON_OHLC_DATA_INVENTORY.md', 'line': '29', 'text': 'Logical `XAUUSD` files are not treated as canonical (EV-EQ-01 NOT_PROVEN).'}\n    \n    Diff is 1280 characters long. Set self.maxDiff to None to see it."
+  },
+  {
+    "nodeid": "tests/test_phase27_11_historical_bidask.py::TestPhase2711HistoricalBidAsk::test_repo_has_no_historical_bid_ask",
+    "classname": "tests.test_phase27_11_historical_bidask.TestPhase2711HistoricalBidAsk",
+    "name": "test_repo_has_no_historical_bid_ask",
+    "message": "AssertionError: 1 != 0",
+    "traceback_tail": "E   AssertionError: 1 != 0"
+  },
+  {
+    "nodeid": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_blocker_matrix_covers_open_components",
+    "classname": "tests.test_phase27_15_cost_completeness_gate.TestPhase2715CostCompletenessGate",
+    "name": "test_blocker_matrix_covers_open_components",
+    "message": "AssertionError: 'spread' not found in {'symbol_binding': {'blocker': 'symbol_binding', 'evidence': 'logs/phase27_10_dataset_symbol_binding.json', 'owner': 'DATA', 'remediation': 'Bind every validation dataset with MATCH or an explicit dataset_symbol_map; do not invent EV-EQ-01', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'economics': {'blocker': 'economics', 'evidence': 'logs/phase27_9_real_broker_evidence.json + stale operator specs', 'owner': 'OPERATOR', 'remediation': 'Collect fresh Real (and Demo) XAUUSD_i economics; keep stale snapshots as stale', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'dataset_provenance': {'blocker': 'dataset_provenance', 'evidence': 'dataset sidecars + Phase 27.10 inventory', 'owner': 'DATA', 'remediation': 'Complete sidecar cost fields from verified evidence only', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'commission': {'blocker': 'commission', 'evidence': 'logs/phase27_12_commission_evidence.json', 'owner': 'OPERATOR', 'remediation': 'Obtain an account-applicable verified commission schedule', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'swap': {'blocker': 'swap', 'evidence': 'logs/phase27_13_swap_policy.json', 'owner': 'DATA', 'remediation': 'Obtain a historical swap series; do not accrue BROKER_RATE_ONLY', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'slippage': {'blocker': 'slippage', 'evidence': 'logs/phase27_14_slippage_model.json', 'owner': 'OPERATOR', 'remediation': 'Collect statistically sufficient requested-vs-fill samples', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'execution_model': {'blocker': 'execution_model', 'evidence': 'tradingbot/backtest/broker.py SimulatedBroker', 'owner': 'RESEARCH', 'remediation': 'Evidence realized fills / partials before treating simulation as complete', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'COST_READY_FOR_VALIDATION': {'blocker': 'COST_READY_FOR_VALIDATION', 'evidence': 'AND of eight required components', 'owner': 'GATE', 'remediation': 'Every required component must be COMPLETE. Do not weaken t",
+    "traceback_tail": "E   AssertionError: 'spread' not found in {'symbol_binding': {'blocker': 'symbol_binding', 'evidence': 'logs/phase27_10_dataset_symbol_binding.json', 'owner': 'DATA', 'remediation': 'Bind every validation dataset with MATCH or an explicit dataset_symbol_map; do not invent EV-EQ-01', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'economics': {'blocker': 'economics', 'evidence': 'logs/phase27_9_real_broker_evidence.json + stale operator specs', 'owner': 'OPERATOR', 'remediation': 'Collect fresh Real (and Demo) XAUUSD_i economics; keep stale snapshots as stale', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'dataset_provenance': {'blocker': 'dataset_provenance', 'evidence': 'dataset sidecars + Phase 27.10 inventory', 'owner': 'DATA', 'remediation': 'Complete sidecar cost fields from verified evidence only', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'commission': {'blocker': 'commission', 'evidence': 'logs/phase27_12_commission_evidence.json', 'owner': 'OPERATOR', 'remediation': 'Obtain an account-applicable verified commission schedule', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'swap': {'blocker': 'swap', 'evidence': 'logs/phase27_13_swap_policy.json', 'owner': 'DATA', 'remediation': 'Obtain a historical swap series; do not accrue BROKER_RATE_ONLY', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'slippage': {'blocker': 'slippage', 'evidence': 'logs/phase27_14_slippage_model.json', 'owner': 'OPERATOR', 'remediation': 'Collect statistically sufficient requested-vs-fill samples', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'execution_model': {'blocker': 'execution_model', 'evidence': 'tradingbot/backtest/broker.py SimulatedBroker', 'owner': 'RESEARCH', 'remediation': 'Evidence realized fills / partials before treating simulation as complete', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'COST_READY_FOR_VALIDATION': {'blocker': 'COST_READY_FOR_VALIDATION', 'evidence': 'AND of eight required components', 'owner': 'GATE', 'remediation': 'Every required component must be COMPLETE. Do not weaken the AND.', 'severity': 'CRITICAL', 'status': 'BLOCKED'}, 'PRODUCTION_AUTHORIZATION': {'blocker': 'PRODUCTION_AUTHORIZATION', 'evidence': 'Phase 27.15 + operator policy Decision 6', 'owner': 'OPERATOR', 'remediation': 'COST_READY_FOR_VALIDATION plus explicit production authorization', 'severity': 'CRITICAL', 'status': 'BLOCKED'}}"
+  },
+  {
+    "nodeid": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_cost_ready_remains_blocked",
+    "classname": "tests.test_phase27_15_cost_completeness_gate.TestPhase2715CostCompletenessGate",
+    "name": "test_cost_ready_remains_blocked",
+    "message": "AssertionError: 'COMPLETE' == 'COMPLETE'",
+    "traceback_tail": "E   AssertionError: 'COMPLETE' == 'COMPLETE'"
+  },
+  {
+    "nodeid": "tests/test_phase27_15_cost_completeness_gate.py::TestPhase2715CostCompletenessGate::test_proxy_spread_not_historical",
+    "classname": "tests.test_phase27_15_cost_completeness_gate.TestPhase2715CostCompletenessGate",
+    "name": "test_proxy_spread_not_historical",
+    "message": "AssertionError: 'COMPLETE' != 'BLOCKED'\n- COMPLETE\n+ BLOCKED",
+    "traceback_tail": "E   AssertionError: 'COMPLETE' != 'BLOCKED'\n    - COMPLETE\n    + BLOCKED"
+  },
+  {
+    "nodeid": "tests/test_phase27_16_final_validation_gate.py::TestPhase2716FinalValidationGate::test_blocker_matrix_precise",
+    "classname": "tests.test_phase27_16_final_validation_gate.TestPhase2716FinalValidationGate",
+    "name": "test_blocker_matrix_precise",
+    "message": "AssertionError: 'historical_spread' not found in {'ev_eq_01': {'blocker': 'ev_eq_01', 'evidence': 'logs/phase27_9_real_broker_evidence.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'NOT_PROVEN'}, 'broker_economics': {'blocker': 'broker_economics', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'commission': {'blocker': 'commission', 'evidence': 'logs/phase27_12_commission_evidence.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'swap': {'blocker': 'swap', 'evidence': 'logs/phase27_13_swap_policy.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'slippage': {'blocker': 'slippage', 'evidence': 'logs/phase27_14_slippage_model.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'dataset_provenance': {'blocker': 'dataset_provenance', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'execution_model': {'blocker': 'execution_model', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. ",
+    "traceback_tail": "E   AssertionError: 'historical_spread' not found in {'ev_eq_01': {'blocker': 'ev_eq_01', 'evidence': 'logs/phase27_9_real_broker_evidence.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'NOT_PROVEN'}, 'broker_economics': {'blocker': 'broker_economics', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'commission': {'blocker': 'commission', 'evidence': 'logs/phase27_12_commission_evidence.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'swap': {'blocker': 'swap', 'evidence': 'logs/phase27_13_swap_policy.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'slippage': {'blocker': 'slippage', 'evidence': 'logs/phase27_14_slippage_model.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'dataset_provenance': {'blocker': 'dataset_provenance', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'PARTIAL'}, 'execution_model': {'blocker': 'execution_model', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'UNKNOWN'}, 'cost_completeness': {'blocker': 'cost_completeness', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'BLOCKED'}, 'phase27_15_cost_ready': {'blocker': 'phase27_15_cost_ready', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': 'False'}, 'complete_dataset_count': {'blocker': 'complete_dataset_count', 'evidence': 'logs/phase27_15_cost_completeness_gate.json', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Record an explicit ready-qualifying status. PARTIAL/UNKNOWN/BLOCKED cannot be inferred as READY.', 'severity': 'HIGH', 'status': '0'}, 'FINAL_GATE': {'blocker': 'FINAL_GATE', 'evidence': 'AND of explicit ready-qualifying checks + Phase 27.15 COMPLETE AND', 'explicit': 'true', 'owner': 'GATE', 'remediation': 'Every required item must be explicit and ready-qualifying. Do not infer from partial evidence.', 'severity': 'CRITICAL', 'status': 'BLOCKED'}}"
+  },
+  {
+    "nodeid": "tests/test_phase27_18_historical_bidask.py::TestPhase2718HistoricalBidAsk::test_repo_has_no_production_historical_bid_ask",
+    "classname": "tests.test_phase27_18_historical_bidask.TestPhase2718HistoricalBidAsk",
+    "name": "test_repo_has_no_production_historical_bid_ask",
+    "message": "AssertionError: 1 != 0",
+    "traceback_tail": "E   AssertionError: 1 != 0"
+  },
+  {
+    "nodeid": "tests/test_phase27_19_commission_closure.py::TestPhase2719CommissionClosure::test_artifact_valid",
+    "classname": "tests.test_phase27_19_commission_closure.TestPhase2719CommissionClosure",
+    "name": "test_artifact_valid",
+    "message": "AssertionError: 'FAIL' != 'PASS'\n- FAIL\n+ PASS",
+    "traceback_tail": "E   AssertionError: 'FAIL' != 'PASS'\n    - FAIL\n    + PASS"
+  },
+  {
+    "nodeid": "tests/test_phase27_20_dataset_mapping_closure.py::TestPhase2720DatasetMappingClosure::test_artifact_valid",
+    "classname": "tests.test_phase27_20_dataset_mapping_closure.TestPhase2720DatasetMappingClosure",
+    "name": "test_artifact_valid",
+    "message": "AssertionError: 6 != 2",
+    "traceback_tail": "E   AssertionError: 6 != 2"
+  },
+  {
+    "nodeid": "tests/test_phase27_21_evidence_synthesis.py::TestPhase2721EvidenceSynthesis::test_artifact_and_final_gate_blocked",
+    "classname": "tests.test_phase27_21_evidence_synthesis.TestPhase2721EvidenceSynthesis",
+    "name": "test_artifact_and_final_gate_blocked",
+    "message": "AssertionError: 'FAIL' != 'PASS'\n- FAIL\n+ PASS",
+    "traceback_tail": "E   AssertionError: 'FAIL' != 'PASS'\n    - FAIL\n    + PASS"
+  },
+  {
+    "nodeid": "tests/test_phase27_21_evidence_synthesis.py::TestPhase2721EvidenceSynthesis::test_spread_coverage_not_conflated",
+    "classname": "tests.test_phase27_21_evidence_synthesis.TestPhase2721EvidenceSynthesis",
+    "name": "test_spread_coverage_not_conflated",
+    "message": "AssertionError: 'BLOCKED' != 'PROVEN'\n- BLOCKED\n+ PROVEN",
+    "traceback_tail": "E   AssertionError: 'BLOCKED' != 'PROVEN'\n    - BLOCKED\n    + PROVEN"
+  },
+  {
+    "nodeid": "tests/test_phase27_30_slippage_evidence.py::TestPhase2730SlippageEvidence::test_zero_pairs_are_not_identifiable",
+    "classname": "tests.test_phase27_30_slippage_evidence.TestPhase2730SlippageEvidence",
+    "name": "test_zero_pairs_are_not_identifiable",
+    "message": "AssertionError: 'UNKNOWN' != 'REAL'\n- UNKNOWN\n+ REAL",
+    "traceback_tail": "E   AssertionError: 'UNKNOWN' != 'REAL'\n    - UNKNOWN\n    + REAL"
+  },
+  {
+    "nodeid": "tests/test_phase27_31_execution_evidence.py::TestPhase2731ExecutionEvidence::test_artifact_schema_and_no_credentials",
+    "classname": "tests.test_phase27_31_execution_evidence.TestPhase2731ExecutionEvidence",
+    "name": "test_artifact_schema_and_no_credentials",
+    "message": "AssertionError: 'UNKNOWN' != 'REAL'\n- UNKNOWN\n+ REAL",
+    "traceback_tail": "E   AssertionError: 'UNKNOWN' != 'REAL'\n    - UNKNOWN\n    + REAL"
+  },
+  {
+    "nodeid": "tests/test_phase27_32_final_cost_evidence_gate.py::TestPhase2732FinalCostEvidenceGate::test_artifact_schema_and_no_credentials",
+    "classname": "tests.test_phase27_32_final_cost_evidence_gate.TestPhase2732FinalCostEvidenceGate",
+    "name": "test_artifact_schema_and_no_credentials",
+    "message": "AssertionError: 'UNKNOWN' != 'REAL'\n- UNKNOWN\n+ REAL",
+    "traceback_tail": "E   AssertionError: 'UNKNOWN' != 'REAL'\n    - UNKNOWN\n    + REAL"
+  },
+  {
+    "nodeid": "tests/test_phase27_32_final_cost_evidence_gate.py::TestPhase2732FinalCostEvidenceGate::test_no_component_is_complete_and_gate_blocked",
+    "classname": "tests.test_phase27_32_final_cost_evidence_gate.TestPhase2732FinalCostEvidenceGate",
+    "name": "test_no_component_is_complete_and_gate_blocked",
+    "message": "AssertionError: 'REALIZED_ZERO_NOT_PROVEN' != 'CURRENT_BROKER_RATE_ONLY'\n- REALIZED_ZERO_NOT_PROVEN\n+ CURRENT_BROKER_RATE_ONLY",
+    "traceback_tail": "E   AssertionError: 'REALIZED_ZERO_NOT_PROVEN' != 'CURRENT_BROKER_RATE_ONLY'\n    - REALIZED_ZERO_NOT_PROVEN\n    + CURRENT_BROKER_RATE_ONLY"
+  },
+  {
+    "nodeid": "tests/test_phase27_33_ev_eq_resolution.py::TestPhase2733EvEqResolution::test_artifact_schema_and_no_credentials",
+    "classname": "tests.test_phase27_33_ev_eq_resolution.TestPhase2733EvEqResolution",
+    "name": "test_artifact_schema_and_no_credentials",
+    "message": "AssertionError: 'FAILED' not found in {'PASS', 'PASS_WITH_DEFERRAL'}",
+    "traceback_tail": "E   AssertionError: 'FAILED' not found in {'PASS', 'PASS_WITH_DEFERRAL'}"
+  },
+  {
+    "nodeid": "tests/test_phase27_33_ev_eq_resolution.py::TestPhase2733EvEqResolution::test_contract_and_inventory",
+    "classname": "tests.test_phase27_33_ev_eq_resolution.TestPhase2733EvEqResolution",
+    "name": "test_contract_and_inventory",
+    "message": "AssertionError: 6 != 2",
+    "traceback_tail": "E   AssertionError: 6 != 2"
+  },
+  {
+    "nodeid": "tests/test_phase27_8_policy_lock.py::TestPhase278PolicyLock::test_evidence_gaps_recorded",
+    "classname": "tests.test_phase27_8_policy_lock.TestPhase278PolicyLock",
+    "name": "test_evidence_gaps_recorded",
+    "message": "AssertionError: True is not false",
+    "traceback_tail": "E   AssertionError: True is not false"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_canonical_entry_remains_unique",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_canonical_entry_remains_unique",
+    "message": "AssertionError: assert '**Canonical-Entry:** false' in ''\n +  where '' = _text(WindowsPath('C:/Users/AMIR/Desktop/TradingBot new/docs_v2/01_truth/PROJECT_DECISION_BASELINE.md'))",
+    "traceback_tail": "E   AssertionError: assert '**Canonical-Entry:** false' in ''\n     +  where '' = _text(WindowsPath('C:/Users/AMIR/Desktop/TradingBot new/docs_v2/01_truth/PROJECT_DECISION_BASELINE.md'))"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_demo_real_symbol_mapping_not_automatic_contradiction",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_demo_real_symbol_mapping_not_automatic_contradiction",
+    "message": "AssertionError: assert ('XAUUSD_i' in '')",
+    "traceback_tail": "E   AssertionError: assert ('XAUUSD_i' in '')"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_live_pa_ml_v41_lock",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_live_pa_ml_v41_lock",
+    "message": "AssertionError: assert 'priceaction' in ''",
+    "traceback_tail": "E   AssertionError: assert 'priceaction' in ''"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_code_default_vs_operator_state",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_code_default_vs_operator_state",
+    "message": "AssertionError: assert 'CODE DEFAULT' in ''",
+    "traceback_tail": "E   AssertionError: assert 'CODE DEFAULT' in ''"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_hierarchy_and_limits",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_hierarchy_and_limits",
+    "message": "AssertionError: assert 'CODE > CANONICAL DOCS' in ''",
+    "traceback_tail": "E   AssertionError: assert 'CODE > CANONICAL DOCS' in ''"
+  },
+  {
+    "nodeid": "tests/test_project_decision_baseline.py::test_major_claims_have_evidence_references",
+    "classname": "tests.test_project_decision_baseline",
+    "name": "test_major_claims_have_evidence_references",
+    "message": "AssertionError: live.py::PRIMARY_SYMBOL\nassert 'live.py::PRIMARY_SYMBOL' in ''",
+    "traceback_tail": "E   AssertionError: live.py::PRIMARY_SYMBOL\n    assert 'live.py::PRIMARY_SYMBOL' in ''"
+  }
+]
